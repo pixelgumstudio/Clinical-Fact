@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@clinicfact/validation": ["../../packages/validation/dist", "../../packages/validation/src"],
+      "@clinicfact/validation/*": ["../../packages/validation/dist/*", "../../packages/validation/src/*"],
+      "@clinicfact/shared": ["../../packages/shared/dist", "../../packages/shared/src"],
+      "@clinicfact/shared/*": ["../../packages/shared/dist/*", "../../packages/shared/src/*"],
+      "@clinicfact/types": ["../../packages/types/dist", "../../packages/types/src"],
+      "@clinicfact/types/*": ["../../packages/types/dist/*", "../../packages/types/src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {
+    "esm": false,
+    "transpileOnly": true
+  }
+}

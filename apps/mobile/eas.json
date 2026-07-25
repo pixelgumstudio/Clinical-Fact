@@ -1,0 +1,79 @@
+{
+  "cli": {
+    "version": ">= 5.2.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.clinicfact.com/api/v1",
+        "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_ANDROID": "pk_h_3jiAW6AlquasIIYPzES",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_IOS": "appl_zcsjEssRaYssBFUgixHKEkmrHsw",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID": "goog_voXoxqTIDORbBdhXURaNuQMuwZk",
+        "EXPO_PUBLIC_GOOGLE_EXPO_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "1894092196-8h06csvj08v1fpjv65c5u0tnvv7kcv6g.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "1894092196-kdffiisq5qq5ub403i1s3fit33mkdvn2.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.clinicfact.com/api/v1",
+        "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_ANDROID": "pk_h_3jiAW6AlquasIIYPzES",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_IOS": "appl_zcsjEssRaYssBFUgixHKEkmrHsw",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID": "goog_voXoxqTIDORbBdhXURaNuQMuwZk",
+        "EXPO_PUBLIC_GOOGLE_EXPO_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "1894092196-8h06csvj08v1fpjv65c5u0tnvv7kcv6g.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "1894092196-upqghi998a5qkpudjjb5nga81pn4g0tk.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.clinicfact.com/api/v1",
+        "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
+        "EXPO_PUBLIC_SUPERWALL_API_KEY_ANDROID": "pk_h_3jiAW6AlquasIIYPzES",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_IOS": "appl_zcsjEssRaYssBFUgixHKEkmrHsw",
+        "EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID": "goog_voXoxqTIDORbBdhXURaNuQMuwZk",
+        "EXPO_PUBLIC_GOOGLE_EXPO_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "1894092196-8h06csvj08v1fpjv65c5u0tnvv7kcv6g.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "1894092196-upqghi998a5qkpudjjb5nga81pn4g0tk.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "1894092196-gqe0tjhlh2o9kevuke2jpailg910dcig.apps.googleusercontent.com",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "internal"
+      },
+      "ios": {
+        "appleId": "pixelgumstudioapps@gmail.com"
+      }
+    }
+  }
+}

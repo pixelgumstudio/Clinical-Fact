@@ -1,0 +1,391 @@
+/**
+ * Input Component
+ *
+ * TICKET-003: Updated to match design specifications
+ * - Height: 56px
+ * - Border radius: 16px
+ * - Padding: 16px horizontal
+ * - Font size: 16px, weight: 400
+ * - Placeholder color: #9CA3AF
+ * - Text color: #1F2937
+ * - Border: 1px solid #E5E7EB (default)
+ * - Focus state: 2px border #1F2937
+ * - Error state: 2px border #EF4444
+ * - Success state: 2px border #10B981
+ * - Disabled state: Background #F9FAFB, text #D1D5DB
+ *
+ * @example
+ * ```tsx
+ * <Input
+ *   label="Email"
+ *   placeholder="Enter your email"
+ *   value={email}
+ *   onChangeText={setEmail}
+ *   error={emailError}
+ *   leftIcon={<EmailIcon />}
+ * />
+ * ```
+ */
+
+import React, { useState } from 'react';
+import {
+  View,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  TextInputProps,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
+import { theme } from '../theme';
+
+export interface InputProps extends TextInputProps {
+  /**
+   * Input label
+   */
+  label?: string;
+
+  /**
+   * Helper text below input
+   */
+  helperText?: string;
+
+  /**
+   * Error message
+   */
+  error?: string;
+
+  /**
+   * Success state (shows green border)
+   */
+  success?: boolean;
+
+  /**
+   * Input size
+   */
+  size?: 'small' | 'medium' | 'large';
+
+  /**
+   * Show required asterisk
+   */
+  required?: boolean;
+
+  /**
+   * Disabled state
+   */
+  disabled?: boolean;
+
+  /**
+   * Left icon component (16x16px recommended)
+   */
+  leftIcon?: React.ReactNode;
+
+  /**
+   * Right icon component (16x16px recommended)
+   */
+  rightIcon?: React.ReactNode;
+
+  /**
+   * Show password toggle for secure text entry
+   */
+  showPasswordToggle?: boolean;
+
+  /**
+   * Character counter max length
+   */
+  maxLength?: number;
+
+  /**
+   * Show character counter
+   */
+  showCharacterCount?: boolean;
+
+  /**
+   * Container style
+   */
+  containerStyle?: ViewStyle;
+
+  /**
+   * Input container style
+   */
+  inputContainerStyle?: ViewStyle;
+
+  /**
+   * Input text style
+   */
+  inputStyle?: TextStyle;
+
+  /**
+   * Label style
+   */
+  labelStyle?: TextStyle;
+}
+
+export const Input = React.forwardRef<TextInput, InputProps>(({
+  label,
+  helperText,
+  error,
+  success = false,
+  size = 'large',
+  required = false,
+  disabled = false,
+  leftIcon,
+  rightIcon,
+  showPasswordToggle = false,
+  secureTextEntry = false,
+  maxLength,
+  showCharacterCount = false,
+  value = '',
+  containerStyle,
+  inputContainerStyle,
+  inputStyle,
+  labelStyle,
+  onFocus,
+  onBlur,
+  ...rest
+}, ref) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const hasError = !!error;
+  const showError = hasError && !isFocused;
+
+  // Determine input container styles - Design Spec compliant
+  const containerStyles = [
+    styles.inputContainer,
+    styles[`size_${size}`],
+    isFocused && styles.inputContainerFocused,
+    hasError && styles.inputContainerError,
+    success && !hasError && !isFocused && styles.inputContainerSuccess,
+    disabled && styles.inputContainerDisabled,
+    inputContainerStyle,
+  ] as ViewStyle[];
+
+  // Determine input text styles
+  const textStyles = [
+    styles.input,
+    styles[`input_${size}`],
+    disabled && styles.inputDisabled,
+    inputStyle,
+  ] as TextStyle[];
+
+  // Handle password visibility toggle
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  // Determine if secure text entry should be applied
+  const isSecure = secureTextEntry && !isPasswordVisible;
+
+  // Character count
+  const characterCount = value?.toString().length || 0;
+
+  return (
+    <View style={[styles.container, containerStyle]}>
+      {/* Label */}
+      {label && (
+        <View style={styles.labelContainer}>
+          <Text style={[styles.label, labelStyle]}>
+            {label}
+            {required && <Text style={styles.required}> *</Text>}
+          </Text>
+          {showCharacterCount && maxLength && (
+            <Text style={styles.characterCount}>
+              {characterCount}/{maxLength}
+            </Text>
+          )}
+        </View>
+      )}
+
+      {/* Input Container */}
+      <View style={containerStyles}>
+        {/* Left Icon */}
+        {leftIcon && <View style={styles.leftIcon}>{leftIcon}</View>}
+
+        {/* Text Input */}
+        <TextInput
+          ref={ref}
+          style={textStyles}
+          onFocus={(e) => {
+            setIsFocused(true);
+            onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setIsFocused(false);
+            onBlur?.(e);
+          }}
+          editable={!disabled}
+          placeholderTextColor={theme.colors.neutral[400]} // #9CA3AF
+          secureTextEntry={isSecure}
+          value={value}
+          maxLength={maxLength}
+          {...rest}
+        />
+
+        {/* Right Icon or Password Toggle */}
+        {showPasswordToggle && secureTextEntry ? (
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            style={styles.rightIcon}
+            activeOpacity={0.7}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Text style={styles.toggleText}>
+              {isPasswordVisible ? '👁️' : '👁️‍🗨️'}
+            </Text>
+          </TouchableOpacity>
+        ) : rightIcon ? (
+          <View style={styles.rightIcon}>{rightIcon}</View>
+        ) : null}
+      </View>
+
+      {/* Helper Text or Error */}
+      {(helperText || error) && (
+        <View style={styles.helperContainer}>
+          {showError ? (
+            <Text style={styles.errorText}>{error}</Text>
+          ) : helperText ? (
+            <Text style={styles.helperText}>{helperText}</Text>
+          ) : null}
+        </View>
+      )}
+    </View>
+  );
+});
+
+Input.displayName = 'Input';
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+  },
+
+  labelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: theme.spacing[2], // 8px
+  },
+
+  label: {
+    fontSize: theme.typography.fontSize.sm, // 14px
+    fontWeight: theme.typography.fontWeight.medium, // 500
+    color: theme.colors.text.primary, // #111827
+  },
+
+  required: {
+    color: theme.colors.error.main, // #EF4444
+  },
+
+  characterCount: {
+    fontSize: theme.typography.fontSize.xs, // 12px
+    color: theme.colors.text.secondary, // #6B7280
+  },
+
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.colors.background.primary, // White
+    borderWidth: 1,
+    borderColor: theme.colors.border.main, // #E5E7EB
+    borderRadius: theme.borderRadius.xl, // 16px
+  },
+
+  // Focus state - Design Spec: 2px border #1F2937
+  inputContainerFocused: {
+    borderColor: theme.colors.neutral[800], // #1F2937
+    borderWidth: 2,
+  },
+
+  // Error state - Design Spec: 2px border #EF4444
+  inputContainerError: {
+    borderColor: theme.colors.error.main, // #EF4444
+    borderWidth: 2,
+  },
+
+  // Success state - Design Spec: 2px border #10B981
+  inputContainerSuccess: {
+    borderColor: theme.colors.success.main, // #10B981
+    borderWidth: 2,
+  },
+
+  // Disabled state - Design Spec: Background #F9FAFB, border lighter
+  inputContainerDisabled: {
+    backgroundColor: theme.colors.neutral[50], // #F9FAFB
+    borderColor: theme.colors.border.light, // #F3F4F6
+  },
+
+  // Size variants - Design Spec: Large = 56px height
+  size_small: {
+    paddingHorizontal: theme.spacing[3], // 12px
+    minHeight: 40,
+  },
+
+  size_medium: {
+    paddingHorizontal: theme.spacing[4], // 16px
+    minHeight: 48,
+  },
+
+  size_large: {
+    paddingHorizontal: theme.spacing[4], // 16px
+    minHeight: 56, // Design Spec: 56px
+  },
+
+  input: {
+    flex: 1,
+    fontSize: theme.typography.fontSize.base, // 16px
+    color: theme.colors.neutral[800], // #1F2937
+    fontWeight: theme.typography.fontWeight.normal, // 400
+    paddingVertical: theme.spacing[4], // 16px for better touch target
+  },
+
+  input_small: {
+    fontSize: theme.typography.fontSize.sm, // 14px
+    paddingVertical: theme.spacing[2], // 8px
+  },
+
+  input_medium: {
+    fontSize: theme.typography.fontSize.base, // 16px
+    paddingVertical: theme.spacing[3], // 12px
+  },
+
+  input_large: {
+    fontSize: theme.typography.fontSize.base, // 16px
+    paddingVertical: theme.spacing[4], // 16px
+  },
+
+  // Disabled text color - Design Spec: #D1D5DB
+  inputDisabled: {
+    color: theme.colors.text.disabled, // #D1D5DB
+  },
+
+  // Icon spacing - Design Spec: 12px spacing from text
+  leftIcon: {
+    marginRight: theme.spacing[3], // 12px
+  },
+
+  rightIcon: {
+    marginLeft: theme.spacing[3], // 12px
+  },
+
+  toggleText: {
+    fontSize: theme.typography.fontSize.lg, // 18px
+  },
+
+  helperContainer: {
+    marginTop: theme.spacing[1], // 4px
+  },
+
+  helperText: {
+    fontSize: theme.typography.fontSize.xs, // 12px
+    color: theme.colors.text.secondary, // #6B7280
+  },
+
+  errorText: {
+    fontSize: theme.typography.fontSize.xs, // 12px
+    color: theme.colors.error.main, // #EF4444
+  },
+});
+
+export default Input;

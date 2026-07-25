@@ -1,0 +1,117 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+
+# Turborepo
+.turbo/
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Backups
+backups/
+*.tar.gz
+*.dump
+
+# Google Cloud Credentials
+google-credentials.json
+*-credentials.json
+service-account*.json
+
+# SSL Certificates
+ssl/
+*.pem
+*.crt
+*.key
+
+# MinIO Data
+minio-data/
+
+# MongoDB Data
+mongodb-data/
+
+# Temporary scripts and batch files
+*.bat
+backup.sh
+dev.sh
+deploy.sh
+test-*.js
+check-*.js
+diagnose-*.js
+verify-setup.js
+list-models.js
+clear-database.js
+
+# Expo build artifacts
+.expo/
+
+# Debug and temporary files
+apps/mobile/App.debug.tsx
+apps/mobile/RUNTIME_ERROR_FIX.md
+apps/mobile/fix-runtime-error.bat
+
+# Design files
+design-files/
+
+# Documentation (keeping docs/ folder)
+*.md
+!README.md
+!apps/*/README.md
+!packages/*/README.md
+!docs/**/*.md
+
+# Large ML/OCR data files
+*.traineddata
+
+# Null files
+nul
+
+# Docker environment (keep .env.example)
+.env.docker
+# AI Assistant settings
+.claude/
+
+
+youtube-cookies.txt
+
+apps/admin
+apps/mobile/__tests__
+
+project-structure.txt
+
+
+.gcp-credentials.json
