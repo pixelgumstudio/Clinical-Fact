@@ -48,6 +48,7 @@ jobs:
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
+    environment: "CLINICAL FACT"
     env:
       HEALTH_CHECK_URL: ${{ secrets.HEALTH_CHECK_URL }}
     steps:
