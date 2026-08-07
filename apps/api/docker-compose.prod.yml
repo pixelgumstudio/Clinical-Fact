@@ -1,5 +1,3 @@
-version: "3.8"
-
 # Production stack for the VPS. This server also hosts another project, so
 # everything here is explicitly namespaced (project name, container names,
 # network, volumes, host port) to avoid colliding with it.
