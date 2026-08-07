@@ -1,8 +1,8 @@
 # ============================================================================
-# This repo only ships the API and the workspace packages it depends on
-# (packages/shared, packages/types, packages/validation). Everything else —
-# the mobile app, the design system, docs, scripts, design tokens — is
-# intentionally excluded so it never gets pushed.
+# This repo ships the API, the mobile app, and the workspace packages they
+# depend on (packages/shared, packages/types, packages/validation,
+# packages/design-system). Docs, scripts, and design tokens outside those
+# workspaces are intentionally excluded so they never get pushed.
 # ============================================================================
 
 # Ignore everything at the root by default
@@ -21,17 +21,19 @@
 !/.github
 !/.github/workflows
 
-# Re-include apps/, but only the api app inside it
+# Re-include apps/, but only the api and mobile apps inside it
 !/apps
 /apps/*
 !/apps/api
+!/apps/mobile
 
-# Re-include packages/, but only the packages the API depends on
+# Re-include packages/, but only the packages the API and mobile app depend on
 !/packages
 /packages/*
 !/packages/shared
 !/packages/types
 !/packages/validation
+!/packages/design-system
 
 # ----------------------------------------------------------------------------
 # Secrets / env files — never commit these, wherever they show up
@@ -48,6 +50,8 @@ ssl/
 *.pem
 *.crt
 *.key
+*.jks
+*.keystore
 
 # ----------------------------------------------------------------------------
 # Dependencies / build artifacts / logs (applies within the re-included dirs)
