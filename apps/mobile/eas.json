@@ -9,7 +9,7 @@
       "distribution": "internal",
       "channel": "development",
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://api.clinicalfact.com/api/v1",
+        "EXPO_PUBLIC_API_URL": "https://clinicalfact.notedrill.com/api/v1",
         "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
         "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
         "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
@@ -30,7 +30,7 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://api.clinicalfact.com/api/v1",
+        "EXPO_PUBLIC_API_URL": "https://clinicalfact.notedrill.com/api/v1",
         "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
         "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
         "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
@@ -51,7 +51,7 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://api.clinicalfact.com/api/v1",
+        "EXPO_PUBLIC_API_URL": "https://clinicalfact.notedrill.com/api/v1",
         "EXPO_PUBLIC_SUPABASE_URL": "https://mkzshlntgdjnkrlmmfzp.supabase.co",
         "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1renNobG50Z2RqbmtybG1tZnpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTM5NDYsImV4cCI6MjA4OTg2OTk0Nn0.fbLntpi0PrJwgxBOCFrNY_IJ3hUfK8Phj5NJH7c_uis",
         "EXPO_PUBLIC_SUPERWALL_API_KEY_IOS": "pk_1s5cafZLwT04SmkqxWKe2",
