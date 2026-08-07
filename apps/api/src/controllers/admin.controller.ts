@@ -7,12 +7,11 @@ import Quiz from '../models/Quiz';
 import ChatSession from '../models/ChatSession';
 import { Feedback } from '../models/Feedback';
 import { ReferralPartner } from '../models/ReferralPartner';
-import { ReferralConversion } from '../models/ReferralConversion';
 import { transcriptionQueue } from '../queue/transcription.queue';
 import { successResponse, errorResponse, paginatedResponse, ERROR_CODES } from '../utils/response';
 
 // GET /admin/stats
-export const getStats = async (req: Request, res: Response) => {
+export const getStats = async (_req: Request, res: Response) => {
   try {
     const now = new Date();
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -304,7 +303,7 @@ export const toggleUserBan = async (req: Request, res: Response) => {
 };
 
 // GET /admin/revenue
-export const getRevenue = async (req: Request, res: Response) => {
+export const getRevenue = async (_req: Request, res: Response) => {
   try {
     const twelveMonthsAgo = new Date();
     twelveMonthsAgo.setMonth(twelveMonthsAgo.getMonth() - 12);
@@ -338,7 +337,7 @@ export const getRevenue = async (req: Request, res: Response) => {
 };
 
 // GET /admin/queue
-export const getQueueStats = async (req: Request, res: Response) => {
+export const getQueueStats = async (_req: Request, res: Response) => {
   try {
     const [counts, activeJobs, waitingJobs] = await Promise.all([
       transcriptionQueue.getJobCounts('waiting', 'active', 'completed', 'failed', 'delayed'),
@@ -411,7 +410,7 @@ export const getFeedback = async (req: Request, res: Response) => {
 };
 
 // GET /admin/referrals/summary
-export const getReferralsSummary = async (req: Request, res: Response) => {
+export const getReferralsSummary = async (_req: Request, res: Response) => {
   try {
     const summary = await ReferralPartner.aggregate([
       {

@@ -13,7 +13,7 @@ import {
   verifySignupOTPSchema,
   verifyLoginOTPSchema,
   resendOTPSchema,
-} from '@clinicfact/validation';
+} from '@clinicalfact/validation';
 
 const router = Router();
 

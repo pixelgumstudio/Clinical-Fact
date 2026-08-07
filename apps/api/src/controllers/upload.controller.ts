@@ -381,16 +381,22 @@ class UploadController {
 
       console.log('👤 User ID:', userId);
 
-      // Verify it's a PDF file
-      if (file.mimetype !== 'application/pdf') {
-        return res.status(400).json({ error: 'File must be a PDF' });
+      // Supported for now: PDF (background extraction below) and plain text (read directly,
+      // no parser needed). Word/PowerPoint/etc. are NOT supported yet — that needs a real
+      // document-parsing library (e.g. mammoth for .docx), not just a MIME type change here.
+      const isPdf = file.mimetype === 'application/pdf';
+      const isPlainText = file.mimetype === 'text/plain';
+      if (!isPdf && !isPlainText) {
+        return res.status(400).json({
+          error: 'Unsupported file type. PDF and plain text (.txt) files are supported for now.',
+        });
       }
 
       // Generate unique filename
       const fileExtension = file.originalname.split('.').pop();
       const uniqueFileName = `${userId}/${uuidv4()}.${fileExtension}`;
 
-      console.log(`📤 Uploading PDF with text extraction: ${file.originalname} (${file.size} bytes)`);
+      console.log(`📤 Uploading ${isPdf ? 'PDF' : 'text file'} with text extraction: ${file.originalname} (${file.size} bytes)`);
 
       // Upload to MinIO
       const fileKey = await storageService.uploadFile(
@@ -398,6 +404,35 @@ class UploadController {
         uniqueFileName,
         file.mimetype
       );
+
+      // Plain text needs no extraction step — read it straight from the buffer and mark
+      // completed immediately, instead of going through the PDF background-extraction path.
+      if (isPlainText) {
+        const text = file.buffer.toString('utf-8');
+        const fileDoc = await File.create({
+          userId,
+          filename: uniqueFileName,
+          originalName: file.originalname,
+          mimeType: file.mimetype,
+          size: file.size,
+          fileKey,
+          fileType: 'document',
+          uploadStatus: 'completed',
+          metadata: { ocrText: text },
+        });
+
+        return res.json(successResponse({
+          fileId: fileDoc._id,
+          fileKey,
+          fileName: uniqueFileName,
+          originalName: file.originalname,
+          size: file.size,
+          fileType: 'document',
+          mimeType: file.mimetype,
+          status: 'completed',
+          message: 'Text file uploaded successfully',
+        }, 'File uploaded successfully'));
+      }
 
       // Save metadata to database
       const fileDoc = await File.create({

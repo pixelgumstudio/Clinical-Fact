@@ -511,7 +511,7 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
     let tempFilePath: string | null = null;
     if (file) {
       const ext = nodePath.extname(file.originalname) || (sourceType === 'audio' ? '.audio' : '.bin');
-      tempFilePath = nodePath.join(os.tmpdir(), `clinicfact-${Date.now()}-${randomUUID()}${ext}`);
+      tempFilePath = nodePath.join(os.tmpdir(), `clinicalfact-${Date.now()}-${randomUUID()}${ext}`);
       fs.writeFileSync(tempFilePath, file.buffer);
     }
 

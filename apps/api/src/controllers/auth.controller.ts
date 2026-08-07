@@ -8,7 +8,6 @@ import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
 import { validatePassword } from '../utils/passwordValidator';
 import appleSignin from 'apple-signin-auth';
 import storageService from '../services/storage.service';
-import { verifyRevenueCatSubscription } from '../utils/revenuecat';
 
 async function generateUniqueUserCode(username: string): Promise<string> {
   const prefix = username.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 4).padEnd(4, 'X');
@@ -391,7 +390,7 @@ export const appleAuth = async (req: Request, res: Response): Promise<void> => {
 
     // Verify Apple identity token against Apple's public keys
     const payload = await appleSignin.verifyIdToken(identityToken, {
-      audience: 'com.clinicfact.app',
+      audience: 'com.clinicalfact.app',
       ignoreExpiration: false,
     });
 
@@ -763,7 +762,7 @@ export const checkUsernameAvailability = async (req: Request, res: Response): Pr
     // Reserved usernames that cannot be used
     const reservedUsernames = [
       'admin', 'administrator', 'root', 'support', 'help',
-      'api', 'www', 'mail', 'ftp', 'localhost', 'clinicfact',
+      'api', 'www', 'mail', 'ftp', 'localhost', 'clinicalfact',
       'test', 'demo', 'user', 'guest', 'null', 'undefined'
     ];
 
@@ -917,116 +916,3 @@ export const uploadProfilePicture = async (req: AuthRequest, res: Response): Pro
   }
 };
 
-/**
- * Restore premium access for users after database reset.
- * Verifies their subscription with RevenueCat and upserts user record.
- *
- * POST /api/v1/auth/restore-user
- * Body: { googleId: string, email: string, name: string }
- */
-export const restorePremiumUser = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { googleId, email, name } = req.body;
-
-    // Validate required fields
-    if (!googleId || !email) {
-      res.status(400).json(
-        errorResponse(
-          'googleId and email are required',
-          ERROR_CODES.VALIDATION_ERROR
-        )
-      );
-      return;
-    }
-
-    // Verify subscription status with RevenueCat
-    console.log(`🔄 Restoring purchases for user: ${email}`);
-    const subscriptionStatus = await verifyRevenueCatSubscription(email);
-
-    // Determine subscription tier based on RevenueCat verification
-    const subscription = subscriptionStatus.isActive ? 'PRO' : 'FREE';
-
-    // Upsert user: create if doesn't exist, update if exists
-    const updatedUser = await User.findOneAndUpdate(
-      { $or: [{ googleId }, { email }] },
-      {
-        $set: {
-          googleId,
-          email,
-          name: name || email.split('@')[0], // Fallback to email prefix if name not provided
-          subscription,
-          authProvider: 'google',
-          lastActiveAt: new Date(),
-          updatedAt: new Date(),
-        },
-        $setOnInsert: {
-          username: email.split('@')[0] + '_' + Math.random().toString(36).slice(2, 8),
-          createdAt: new Date(),
-          hasCompletedSignup: false,
-          isEmailVerified: true,
-          isPhoneVerified: false,
-          isBanned: false,
-          notesCount: 0,
-          reviewStatus: {
-            promptsThisYear: 0,
-            hasOptedOut: false,
-          },
-          freeUsage: {
-            notes: { count: 0 },
-            quizzes: { count: 0 },
-            flashcards: { count: 0 },
-            chats: { count: 0 },
-          },
-          bonusCredits: {
-            notes: 0,
-            quizzes: 0,
-            flashcards: 0,
-            chats: 0,
-          },
-        },
-      },
-      { upsert: true, new: true, runValidators: false }
-    );
-
-    if (!updatedUser) {
-      res.status(500).json(
-        errorResponse('Failed to restore user', ERROR_CODES.SERVER_ERROR)
-      );
-      return;
-    }
-
-    // Generate JWT tokens
-    const tokens = await issueAndStoreTokens(updatedUser);
-
-    console.log(
-      `✅ User restored successfully: ${email} (subscription: ${subscription})`
-    );
-
-    res.status(200).json(
-      successResponse(
-        {
-          user: {
-            id: updatedUser._id,
-            email: updatedUser.email,
-            name: updatedUser.name,
-            username: updatedUser.username,
-            subscription: updatedUser.subscription,
-            authProvider: updatedUser.authProvider,
-            createdAt: updatedUser.createdAt,
-          },
-          tokens,
-          isRestored: true,
-        },
-        'Account restored successfully'
-      )
-    );
-  } catch (error: any) {
-    console.error('❌ Restore user error:', error);
-    res.status(500).json(
-      errorResponse(
-        'Failed to restore account',
-        ERROR_CODES.SERVER_ERROR
-      )
-    );
-  }
-};

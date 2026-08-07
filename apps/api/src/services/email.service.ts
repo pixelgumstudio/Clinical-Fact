@@ -27,13 +27,13 @@ export const sendOTPEmail = async (
   const transporter = createTransporter();
 
   const subjects = {
-    signup: 'Verify your email - ClinicFact',
-    login: 'Your login code - ClinicFact',
-    reset_password: 'Reset your password - ClinicFact',
+    signup: 'Verify your email - Clinical Fact',
+    login: 'Your login code - Clinical Fact',
+    reset_password: 'Reset your password - Clinical Fact',
   };
 
   const messages = {
-    signup: `Welcome to ClinicFact! Your verification code is: <strong>${otp}</strong>`,
+    signup: `Welcome to Clinical Fact! Your verification code is: <strong>${otp}</strong>`,
     login: `Your login verification code is: <strong>${otp}</strong>`,
     reset_password: `Your password reset code is: <strong>${otp}</strong>`,
   };
@@ -50,7 +50,7 @@ export const sendOTPEmail = async (
       <div style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="background-color: #ffffff; border-radius: 16px; padding: 40px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #6366f1; margin: 0; font-size: 28px;">ClinicFact</h1>
+            <h1 style="color: #6366f1; margin: 0; font-size: 28px;">Clinical Fact</h1>
           </div>
 
           <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
@@ -72,7 +72,7 @@ export const sendOTPEmail = async (
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
 
           <p style="color: #9ca3af; font-size: 12px; text-align: center; margin: 0;">
-            © ${new Date().getFullYear()} ClinicFact. All rights reserved.
+            © ${new Date().getFullYear()} Clinical Fact. All rights reserved.
           </p>
         </div>
       </div>
@@ -82,7 +82,7 @@ export const sendOTPEmail = async (
 
   try {
     await transporter.sendMail({
-      from: process.env.EMAIL_FROM || 'ClinicFact <noreply@clinicfact.com>',
+      from: process.env.EMAIL_FROM || 'Clinical Fact <noreply@clinicalfact.com>',
       to: email,
       subject: subjects[type],
       html: htmlTemplate,

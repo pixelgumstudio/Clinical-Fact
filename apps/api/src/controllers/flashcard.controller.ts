@@ -2,6 +2,7 @@ import { Response } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import FlashcardSet from '../models/FlashcardSet';
 import Note from '../models/Note';
+import ChatSession from '../models/ChatSession';
 import flashcardGenerationService from '../services/flashcardGeneration.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 
@@ -123,6 +124,100 @@ class FlashcardController {
   }
 
   /**
+   * Generate flashcards directly from raw text (e.g. a chat answer) — no saved Note required.
+   * POST /api/v1/flashcards/generate-from-text
+   */
+  async generateFlashcardsFromText(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({
+          success: false,
+          message: 'Unauthorized',
+        });
+      }
+
+      const userId = req.user._id;
+      const { content, title = 'Flashcards', cardCount = 20, difficulty = 'medium', focusTopics = [], targetLanguage, chatSessionId } = req.body;
+
+      try {
+        checkQuota(req.user, 'flashcards');
+      } catch (e) {
+        if (e instanceof QuotaExceededError) {
+          return res.status(402).json({ success: false, quotaExceeded: true, feature: e.feature, message: e.message });
+        }
+        throw e;
+      }
+
+      if (!content || typeof content !== 'string' || content.trim().length < 100) {
+        return res.status(400).json({
+          success: false,
+          message: 'content is required and must be at least 100 characters',
+        });
+      }
+
+      if (cardCount < 1 || cardCount > 100) {
+        return res.status(400).json({
+          success: false,
+          message: 'Card count must be between 1 and 100',
+        });
+      }
+
+      if (!['easy', 'medium', 'hard'].includes(difficulty)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Difficulty must be easy, medium, or hard',
+        });
+      }
+
+      console.log(`[${req.correlationId}] 🃏 Generating flashcards from raw text (title: "${title}")...`);
+
+      const effectiveLanguage = targetLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+
+      const flashcards = await flashcardGenerationService.generateFlashcards(
+        content,
+        title,
+        {
+          cardCount,
+          difficulty,
+          focusTopics,
+          targetLanguage: effectiveLanguage,
+        }
+      );
+
+      const flashcardSet = await FlashcardSet.create({
+        userId,
+        chatSessionId: chatSessionId || undefined,
+        title: `${title} - Flashcards`,
+        cards: flashcards.map(card => ({
+          front: card.front,
+          back: card.back,
+          color: card.color,
+          mastered: false,
+          reviewCount: 0,
+        })),
+        totalCards: flashcards.length,
+        masteredCards: 0,
+      });
+      incrementQuota(userId.toString(), 'flashcards');
+
+      console.log(`[${req.correlationId}] ✅ Generated ${flashcards.length} flashcards from raw text`);
+
+      return res.status(201).json({
+        success: true,
+        message: 'Flashcards generated successfully',
+        data: flashcardSet,
+      });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] ❌ Error generating flashcards from text:`, error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to generate flashcards',
+        error: error.message,
+      });
+    }
+  }
+
+  /**
    * Get flashcard set
    */
   async getFlashcardSet(req: AuthRequest, res: Response) {
@@ -174,11 +269,14 @@ class FlashcardController {
       }
 
       const userId = req.user._id;
-      const { noteId } = req.query;
+      const { noteId, chatSessionId } = req.query;
 
       const query: any = { userId };
       if (noteId) {
         query.noteId = noteId;
+      }
+      if (chatSessionId) {
+        query.chatSessionId = chatSessionId;
       }
 
       const flashcardSets = await FlashcardSet.find(query)
@@ -196,6 +294,181 @@ class FlashcardController {
         message: 'Failed to list flashcard sets',
         error: error.message,
       });
+    }
+  }
+
+  /**
+   * Get flashcard sets grouped by their originating note/chat, one row per source — mirrors
+   * quiz.controller.ts's getQuizGroups so "New Flashcards" retakes don't create separate
+   * top-level history entries.
+   * GET /api/v1/flashcards/groups
+   */
+  async getFlashcardGroups(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+      }
+
+      const sets = await FlashcardSet.find({ userId: req.user._id })
+        .sort({ createdAt: -1 })
+        .select('title noteId chatSessionId totalCards masteredCards createdAt')
+        .lean();
+
+      interface GroupAcc {
+        groupKey: string;
+        sourceType: 'note' | 'chat' | 'standalone';
+        noteId?: string;
+        chatSessionId?: string;
+        setId?: string;
+        title: string;
+        createdAt: Date;
+        lastProgress: { mastered: number; total: number };
+        bestProgress: { mastered: number; total: number };
+        setCount: number;
+      }
+
+      const groups = new Map<string, GroupAcc>();
+
+      // Sets are sorted desc by createdAt, so the first one seen per group key is the most
+      // recent set — used for the row's headline title/date.
+      for (const set of sets as any[]) {
+        const key = set.noteId
+          ? `note:${set.noteId}`
+          : set.chatSessionId
+          ? `chat:${set.chatSessionId}`
+          : `standalone:${set._id}`;
+
+        const progress = { mastered: set.masteredCards, total: set.totalCards };
+        const existing = groups.get(key);
+
+        if (!existing) {
+          groups.set(key, {
+            groupKey: key,
+            sourceType: set.noteId ? 'note' : set.chatSessionId ? 'chat' : 'standalone',
+            noteId: set.noteId?.toString(),
+            chatSessionId: set.chatSessionId?.toString(),
+            setId: !set.noteId && !set.chatSessionId ? set._id.toString() : undefined,
+            title: set.title,
+            createdAt: set.createdAt,
+            lastProgress: progress,
+            bestProgress: progress,
+            setCount: 1,
+          });
+        } else {
+          existing.setCount += 1;
+          const pct = progress.total > 0 ? progress.mastered / progress.total : 0;
+          const bestPct = existing.bestProgress.total > 0 ? existing.bestProgress.mastered / existing.bestProgress.total : 0;
+          if (pct > bestPct) {
+            existing.bestProgress = progress;
+          }
+        }
+      }
+
+      const groupList = Array.from(groups.values());
+
+      const noteIds = groupList.filter((g) => g.sourceType === 'note').map((g) => g.noteId!);
+      const chatIds = groupList.filter((g) => g.sourceType === 'chat').map((g) => g.chatSessionId!);
+
+      const [notes, chatSessions] = await Promise.all([
+        noteIds.length ? Note.find({ _id: { $in: noteIds } }).select('title').lean() : Promise.resolve([]),
+        chatIds.length ? ChatSession.find({ _id: { $in: chatIds } }).select('title').lean() : Promise.resolve([]),
+      ]);
+
+      const noteTitleMap = new Map(notes.map((n: any) => [n._id.toString(), n.title]));
+      const chatTitleMap = new Map(chatSessions.map((c: any) => [c._id.toString(), c.title]));
+
+      const result = groupList
+        .map((g) => ({
+          ...g,
+          sourceTitle:
+            g.sourceType === 'note'
+              ? noteTitleMap.get(g.noteId!) || g.title
+              : g.sourceType === 'chat'
+              ? chatTitleMap.get(g.chatSessionId!) || g.title
+              : g.title,
+        }))
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+      return res.json({ success: true, data: result });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] Error fetching flashcard groups:`, error);
+      return res.status(500).json({ success: false, message: 'Server error', error: error.message });
+    }
+  }
+
+  /**
+   * Get every flashcard set generated under a single note or chat session, plus the source's
+   * own title/date and aggregate progress stats.
+   * GET /api/v1/flashcards/group?noteId=X or ?chatSessionId=Y
+   */
+  async getFlashcardGroupDetail(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+      }
+
+      const { noteId, chatSessionId } = req.query;
+
+      if (!noteId && !chatSessionId) {
+        return res.status(400).json({ success: false, message: 'noteId or chatSessionId is required' });
+      }
+
+      const filter: any = { userId: req.user._id };
+      if (noteId) filter.noteId = noteId;
+      if (chatSessionId) filter.chatSessionId = chatSessionId;
+
+      const sets = await FlashcardSet.find(filter)
+        .sort({ createdAt: 1 })
+        .select('title totalCards masteredCards createdAt')
+        .lean();
+
+      if (sets.length === 0) {
+        return res.status(404).json({ success: false, message: 'No flashcard sets found for this source' });
+      }
+
+      let source: { type: 'note' | 'chat'; id: string; title: string; createdAt: Date } | null = null;
+      if (noteId) {
+        const note = await Note.findOne({ _id: noteId, userId: req.user._id }).select('title createdAt').lean();
+        if (note) {
+          source = { type: 'note', id: (note as any)._id.toString(), title: (note as any).title, createdAt: (note as any).createdAt };
+        }
+      } else if (chatSessionId) {
+        const session = await ChatSession.findOne({ _id: chatSessionId, userId: req.user._id }).select('title createdAt').lean();
+        if (session) {
+          source = { type: 'chat', id: (session as any)._id.toString(), title: (session as any).title, createdAt: (session as any).createdAt };
+        }
+      }
+
+      const bestSet = sets.reduce((best: any, s: any) => {
+        if (!best) return s;
+        const pct = s.totalCards > 0 ? s.masteredCards / s.totalCards : 0;
+        const bestPct = best.totalCards > 0 ? best.masteredCards / best.totalCards : 0;
+        return pct > bestPct ? s : best;
+      }, null as any);
+      const latestSet = sets[sets.length - 1] as any;
+
+      return res.json({
+        success: true,
+        data: {
+          source,
+          sets: sets.map((s: any, index: number) => ({
+            setId: s._id.toString(),
+            label: `Set ${index + 1}`,
+            title: s.title,
+            totalCards: s.totalCards,
+            masteredCards: s.masteredCards,
+            createdAt: s.createdAt,
+          })),
+          lastProgress: { mastered: latestSet.masteredCards, total: latestSet.totalCards },
+          bestProgress: { mastered: bestSet.masteredCards, total: bestSet.totalCards },
+          setCount: sets.length,
+          latestSetId: latestSet._id.toString(),
+          latestCardCount: latestSet.totalCards,
+        },
+      });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] Error fetching flashcard group detail:`, error);
+      return res.status(500).json({ success: false, message: 'Server error', error: error.message });
     }
   }
 
@@ -553,32 +826,6 @@ class FlashcardController {
     }
   }
 
-  /**
-   * Helper: Encode export content (PDF to base64, TXT as-is)
-   */
-  private encodeExportContent(content: Buffer | string, format: 'pdf' | 'txt'): {
-    encodedContent: string;
-    encoding: 'base64' | 'utf8';
-    mimeType: string;
-  } {
-    if (format === 'pdf') {
-      // Convert Buffer to base64
-      const base64Content = Buffer.isBuffer(content) ? content.toString('base64') : Buffer.from(content).toString('base64');
-      return {
-        encodedContent: base64Content,
-        encoding: 'base64',
-        mimeType: 'application/pdf'
-      };
-    } else {
-      // TXT is already a string
-      const textContent = Buffer.isBuffer(content) ? content.toString('utf8') : content;
-      return {
-        encodedContent: textContent,
-        encoding: 'utf8',
-        mimeType: 'text/plain'
-      };
-    }
-  }
 }
 
 export default new FlashcardController();

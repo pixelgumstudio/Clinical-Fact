@@ -17,6 +17,13 @@ router.post('/generate', quizController.generateQuiz);
 router.post('/', quizController.generateQuiz);
 
 /**
+ * @route   POST /api/v1/quizzes/generate-from-text
+ * @desc    Generate quiz directly from raw text (e.g. a chat answer) — no saved Note required
+ * @access  Private
+ */
+router.post('/generate-from-text', quizController.generateQuizFromText);
+
+/**
  * @route   GET /api/v1/quizzes
  * @desc    Get all user quizzes
  * @access  Private
@@ -24,11 +31,26 @@ router.post('/', quizController.generateQuiz);
 router.get('/', quizController.getQuizzes);
 
 /**
+ * @route   GET /api/v1/quizzes/groups
+ * @desc    Get quizzes grouped by originating note/chat — one row per source instead of one
+ *          per generation, so retakes don't appear as separate history entries
+ * @access  Private
+ */
+router.get('/groups', quizController.getQuizGroups);
+
+/**
+ * @route   GET /api/v1/quizzes/group
+ * @desc    Get every quiz attempt under a single note or chat session (?noteId= or ?chatSessionId=)
+ * @access  Private
+ */
+router.get('/group', quizController.getQuizGroupDetail);
+
+/**
  * @route   GET /api/v1/quizzes/note/:noteId
  * @desc    Get quizzes for a specific note
  * @access  Private
  */
-router.get('/note', (req, res) => res.status(400).json({ success: false, message: 'Note ID is required' }));
+router.get('/note', (_req, res) => res.status(400).json({ success: false, message: 'Note ID is required' }));
 router.get('/note/:noteId', quizController.getQuizzesByNote);
 
 /**

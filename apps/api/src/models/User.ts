@@ -16,6 +16,7 @@ export interface IFreeUsage {
   quizzes: IFreeUsageEntry;
   flashcards: IFreeUsageEntry;
   chats: IFreeUsageEntry;
+  medicalChats: IFreeUsageEntry;
 }
 
 export interface IBonusCredits {
@@ -23,6 +24,7 @@ export interface IBonusCredits {
   quizzes: number;
   flashcards: number;
   chats: number;
+  medicalChats: number;
 }
 
 export interface IDeviceToken {
@@ -231,16 +233,18 @@ const userSchema = new Schema<IUser>(
       default: [],
     },
     freeUsage: {
-      notes:      { count: { type: Number, default: 0 } },
-      quizzes:    { count: { type: Number, default: 0 } },
-      flashcards: { count: { type: Number, default: 0 } },
-      chats:      { count: { type: Number, default: 0 } },
+      notes:        { count: { type: Number, default: 0 } },
+      quizzes:      { count: { type: Number, default: 0 } },
+      flashcards:   { count: { type: Number, default: 0 } },
+      chats:        { count: { type: Number, default: 0 } },
+      medicalChats: { count: { type: Number, default: 0 } },
     },
     bonusCredits: {
-      notes:      { type: Number, default: 0 },
-      quizzes:    { type: Number, default: 0 },
-      flashcards: { type: Number, default: 0 },
-      chats:      { type: Number, default: 0 },
+      notes:        { type: Number, default: 0 },
+      quizzes:      { type: Number, default: 0 },
+      flashcards:   { type: Number, default: 0 },
+      chats:        { type: Number, default: 0 },
+      medicalChats: { type: Number, default: 0 },
     },
     deviceTokens: {
       type: [

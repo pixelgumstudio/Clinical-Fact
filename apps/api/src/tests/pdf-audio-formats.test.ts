@@ -14,7 +14,6 @@ import path from 'path';
 
 // Use mocked versions for unit tests
 import pdfService from '../services/pdf.service';
-import transcriptionService from '../services/transcription.service';
 
 // ============================================================================
 // PART 1: PDF Processing —Format & Size Validation Tests

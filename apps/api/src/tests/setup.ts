@@ -5,7 +5,7 @@
 process.env.NODE_ENV = 'test';
 process.env.JWT_SECRET = 'test-jwt-secret-key';
 process.env.JWT_REFRESH_SECRET = 'test-jwt-refresh-secret-key';
-process.env.MONGODB_URI_TEST = process.env.MONGODB_URI_TEST || 'mongodb://localhost:27017/clinicfact-test';
+process.env.MONGODB_URI_TEST = process.env.MONGODB_URI_TEST || 'mongodb://localhost:27017/clinicalfact-test';
 process.env.GEMINI_API_KEY = 'test-gemini-api-key'; // Required for service initialization
 
 // Increase timeout for async operations

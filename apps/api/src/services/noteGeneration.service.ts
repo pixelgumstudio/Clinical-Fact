@@ -8,13 +8,10 @@ class NoteGenerationService {
   async generateNote(
     content: string,
     contentType: string,
-    userPreferences?: any
+    _userPreferences?: any
   ): Promise<{ title: string; summary?: string; content: string }> {
     try {
-      const goals = userPreferences?.goals?.join(', ') || 'general learning';
-      const noteStyle = userPreferences?.noteStyle || 'balanced';
-
-      const prompt = this.buildNotePrompt(content, contentType, goals, noteStyle);
+      const prompt = this.buildNotePrompt(content);
 
       const parsed = await geminiService.generateJSON(prompt);
 
@@ -49,12 +46,7 @@ class NoteGenerationService {
   /**
    * Build intelligent note generation prompt that adapts based on content type
    */
-  private buildNotePrompt(
-    content: string,
-    contentType: string,
-    goals: string,
-    noteStyle: string
-  ): string {
+  private buildNotePrompt(content: string): string {
     const detectedType = this.detectContentType(content);
     const typeGuidance = this.getTypeSpecificGuidance(detectedType);
 
@@ -131,8 +123,6 @@ Return ONLY the JSON object. No markdown code blocks, no surrounding text.`;
    * Detect content type from actual content
    */
   private detectContentType(content: string): string {
-    const lowerContent = content.toLowerCase().substring(0, 2000);
-
     // Crime/Mystery
     if (
       /murder|crime|detective|suspect|investigation|criminal|accused|murder|detective|suspect/i.test(

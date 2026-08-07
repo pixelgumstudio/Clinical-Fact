@@ -6,7 +6,6 @@ interface TranslationResult {
 }
 
 // Google Cloud Translation API limits
-const CHAR_LIMIT_PER_REQUEST = 500000; // 500KB per request
 const CHUNK_SIZE = 5000; // Split into ~5KB chunks to be safe
 
 class TranslationService {

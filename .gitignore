@@ -1,117 +1,94 @@
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
+# ============================================================================
+# This repo only ships the API and the workspace packages it depends on
+# (packages/shared, packages/types, packages/validation). Everything else —
+# the mobile app, the design system, docs, scripts, design tokens — is
+# intentionally excluded so it never gets pushed.
+# ============================================================================
 
-# Testing
-coverage/
+# Ignore everything at the root by default
+/*
 
-# Production
-build/
-dist/
+# Re-include root files needed to install/build the API workspace
+!/package.json
+!/package-lock.json
+!/turbo.json
+!/docker-compose.yml
+!/.gitignore
+!/.gitattributes
+!/.npmrc
 
-# Misc
-.DS_Store
+# Re-include apps/, but only the api app inside it
+!/apps
+/apps/*
+!/apps/api
+
+# Re-include packages/, but only the packages the API depends on
+!/packages
+/packages/*
+!/packages/shared
+!/packages/types
+!/packages/validation
+
+# ----------------------------------------------------------------------------
+# Secrets / env files — never commit these, wherever they show up
+# ----------------------------------------------------------------------------
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
+!.env.*.example
+google-credentials.json
+*-credentials.json
+service-account*.json
+.gcp-credentials.json
+ssl/
+*.pem
+*.crt
+*.key
 
-# Logs
+# ----------------------------------------------------------------------------
+# Dependencies / build artifacts / logs (applies within the re-included dirs)
+# ----------------------------------------------------------------------------
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-*.log
 
-# IDE
+# API runtime output
+apps/api/uploads/
+
+# Large ML/OCR data files
+*.traineddata
+
+# ----------------------------------------------------------------------------
+# Ad-hoc debug/manual-test scripts and scratch output (not part of the API)
+# ----------------------------------------------------------------------------
+apps/api/test-*.js
+apps/api/check-*.js
+apps/api/diagnose-*.js
+apps/api/verify-setup.js
+apps/api/list-models.js
+apps/api/clear-database.js
+apps/api/*.txt
+
+# Stray nested apps/api/apps artifact
+/apps/api/apps/
+
+# ----------------------------------------------------------------------------
+# OS / editor cruft
+# ----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
-Thumbs.db
-
-# Turborepo
-.turbo/
-
-# Docker
-docker-compose.override.yml
-.docker/
-
-# Backups
-backups/
-*.tar.gz
-*.dump
-
-# Google Cloud Credentials
-google-credentials.json
-*-credentials.json
-service-account*.json
-
-# SSL Certificates
-ssl/
-*.pem
-*.crt
-*.key
-
-# MinIO Data
-minio-data/
-
-# MongoDB Data
-mongodb-data/
-
-# Temporary scripts and batch files
-*.bat
-backup.sh
-dev.sh
-deploy.sh
-test-*.js
-check-*.js
-diagnose-*.js
-verify-setup.js
-list-models.js
-clear-database.js
-
-# Expo build artifacts
-.expo/
-
-# Debug and temporary files
-apps/mobile/App.debug.tsx
-apps/mobile/RUNTIME_ERROR_FIX.md
-apps/mobile/fix-runtime-error.bat
-
-# Design files
-design-files/
-
-# Documentation (keeping docs/ folder)
-*.md
-!README.md
-!apps/*/README.md
-!packages/*/README.md
-!docs/**/*.md
-
-# Large ML/OCR data files
-*.traineddata
-
-# Null files
-nul
-
-# Docker environment (keep .env.example)
-.env.docker
 # AI Assistant settings
 .claude/
-
-
-youtube-cookies.txt
-
-apps/admin
-apps/mobile/__tests__
-
-project-structure.txt
-
-
-.gcp-credentials.json

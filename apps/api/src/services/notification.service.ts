@@ -1,33 +1,20 @@
 /**
  * Notification Service
- * Handles push notifications via Firebase Cloud Messaging (FCM)
+ * Handles push notifications via Expo's push notification service — the app is an
+ * Expo/EAS-managed project with no native Firebase SDK linked, so device tokens are
+ * Expo push tokens (ExponentPushToken[...]) rather than raw FCM registration tokens.
  */
 
-import admin from 'firebase-admin';
+import { Expo, ExpoPushMessage } from 'expo-server-sdk';
 import Notification from '../models/Notification';
 import { User } from '../models/User';
 
-// Initialize Firebase Admin if not already done
-if (!admin.apps.length) {
-  try {
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || '{}');
-    if (serviceAccount.project_id) {
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-      console.log('✅ Firebase Admin initialized');
-    } else {
-      console.warn('⚠️ Firebase credentials not configured');
-    }
-  } catch (error: any) {
-    console.error('❌ Failed to initialize Firebase:', error.message);
-  }
-}
+const expo = new Expo();
 
 interface NotificationPayload {
   title: string;
   body: string;
-  data?: Record<string, string>; // FCM only supports string values
+  data?: Record<string, string>;
 }
 
 class NotificationService {
@@ -52,7 +39,6 @@ class NotificationService {
 
       // Prepare notification payload
       const title = status === 'completed' ? '✅ Task Complete!' : '❌ Task Failed';
-      const statusLabel = status === 'completed' ? 'Completed' : 'Failed';
       const jobLabel = this.getJobLabel(jobType);
       const body =
         status === 'completed'
@@ -71,7 +57,7 @@ class NotificationService {
 
       for (const deviceToken of user.deviceTokens) {
         try {
-          await this.sendToFCM(deviceToken.token, payload);
+          await this.sendToExpoPush(deviceToken.token, payload);
           sentCount++;
         } catch (error: any) {
           console.error(`❌ Failed to send to token ${deviceToken.token.slice(0, 20)}...`);
@@ -91,29 +77,28 @@ class NotificationService {
   }
 
   /**
-   * Send notification via Firebase Cloud Messaging
+   * Send notification via Expo's push notification service
    */
-  private async sendToFCM(deviceToken: string, payload: NotificationPayload): Promise<void> {
-    try {
-      if (!admin.apps.length) {
-        throw new Error('Firebase not initialized');
-      }
-
-      const message = {
-        notification: {
-          title: payload.title,
-          body: payload.body,
-        },
-        data: payload.data || {},
-        token: deviceToken,
-      };
-
-      const response = await admin.messaging().send(message as any);
-      console.log(`📤 FCM message sent: ${response}`);
-    } catch (error: any) {
-      console.error(`❌ FCM error: ${error.message}`);
-      throw error;
+  private async sendToExpoPush(deviceToken: string, payload: NotificationPayload): Promise<void> {
+    if (!Expo.isExpoPushToken(deviceToken)) {
+      throw new Error(`Invalid Expo push token: ${deviceToken}`);
     }
+
+    const message: ExpoPushMessage = {
+      to: deviceToken,
+      title: payload.title,
+      body: payload.body,
+      data: payload.data || {},
+      sound: 'default',
+    };
+
+    const [ticket] = await expo.sendPushNotificationsAsync([message]);
+
+    if (ticket.status === 'error') {
+      throw new Error(ticket.message || 'Expo push ticket returned an error');
+    }
+
+    console.log(`📤 Expo push sent: ${ticket.id}`);
   }
 
   /**
@@ -131,15 +116,13 @@ class NotificationService {
   }
 
   /**
-   * Create notification payload for FCM
-   * FCM only supports string values in data field
+   * Create notification payload, normalizing data values to strings
    */
   private createPayload(
     title: string,
     body: string,
     data?: Record<string, any>
   ): NotificationPayload {
-    // Convert data to string-only format for FCM
     const stringData: Record<string, string> = {};
     if (data) {
       for (const [key, value] of Object.entries(data)) {
@@ -209,7 +192,7 @@ class NotificationService {
           });
 
           for (const deviceToken of user.deviceTokens) {
-            await this.sendToFCM(deviceToken.token, payload);
+            await this.sendToExpoPush(deviceToken.token, payload);
           }
 
           // Update notification status

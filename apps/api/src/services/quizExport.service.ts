@@ -1,11 +1,5 @@
 import { IQuiz } from '../models/Quiz';
 import PDFDocument from 'pdfkit';
-import { Readable } from 'stream';
-
-interface ExportOptions {
-  format: 'pdf' | 'txt';
-  includeAnswers: boolean;
-}
 
 class QuizExportService {
   /**

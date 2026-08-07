@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import crypto from 'crypto';
 import { User } from '../models/User';
 import { ReferralPartner } from '../models/ReferralPartner';
 import { ReferralConversion } from '../models/ReferralConversion';

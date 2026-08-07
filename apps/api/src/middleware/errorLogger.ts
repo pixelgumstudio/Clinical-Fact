@@ -11,7 +11,6 @@ export const requestLogger = (req: AuthRequest, res: Response, next: NextFunctio
 
   const startTime = Date.now();
   const { method, originalUrl, ip } = req;
-  const userAgent = req.get('user-agent') || 'unknown';
   const userId = req.user?._id || 'anonymous';
 
   console.log(`[${correlationId}] 📥 ${method} ${originalUrl} - User: ${userId} - IP: ${ip}`);
@@ -57,7 +56,7 @@ export const errorLogger = (
   err: any,
   req: AuthRequest,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   const correlationId = req.correlationId || 'unknown';
   const statusCode = err.statusCode || err.status || 500;
@@ -143,7 +142,7 @@ function sanitizeBody(body: any): any {
  * Not Found (404) handler
  * This should be added before the error logger
  */
-export const notFoundHandler = (req: Request, res: Response, next: NextFunction) => {
+export const notFoundHandler = (req: Request, _res: Response, next: NextFunction) => {
   const error: any = new Error(`Route not found: ${req.method} ${req.originalUrl}`);
   error.statusCode = 404;
   next(error);
@@ -164,7 +163,7 @@ export const asyncHandler = (fn: Function) => {
  */
 export const multerErrorHandler = (
   err: any,
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ) => {

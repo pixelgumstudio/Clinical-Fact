@@ -5,8 +5,7 @@ import { User } from '../../models/User';
 import Note from '../../models/Note';
 import Folder from '../../models/Folder';
 import Quiz from '../../models/Quiz';
-import { generateAccessToken, generateRefreshToken } from '../../utils/jwt';
-import { issueAndStoreTokens } from '../../services/auth.service';
+import { generateAccessToken } from '../../utils/jwt';
 
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
@@ -574,7 +573,6 @@ describe('E2E User Journey Tests', () => {
   describe('Journey 5: Auth Token Lifecycle', () => {
     let userEmail: string;
     let userPassword: string;
-    let userId: string;
     let accessToken: string;
     let refreshToken: string;
 
@@ -592,7 +590,6 @@ describe('E2E User Journey Tests', () => {
           username: `tokenuser_${Date.now()}`,
         });
 
-      userId = registerResponse.body.data.user.id;
       accessToken = registerResponse.body.data.tokens.accessToken;
       refreshToken = registerResponse.body.data.tokens.refreshToken;
     });

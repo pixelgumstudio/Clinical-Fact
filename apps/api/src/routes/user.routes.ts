@@ -3,7 +3,7 @@
  * Handles user account operations including device token registration
  */
 
-import express, { Router, Request, Response } from 'express';
+import { Router, Response } from 'express';
 import { authenticate } from '../middleware/auth';
 import { User } from '../models/User';
 import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';

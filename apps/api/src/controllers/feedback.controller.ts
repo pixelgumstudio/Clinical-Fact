@@ -27,7 +27,6 @@ export const submitFeedback = async (req: AuthRequest, res: Response): Promise<v
     const currentYear = new Date().getFullYear();
     const user = await User.findById(userId).select('reviewStatus');
 
-    const currentYear_start = new Date(`${currentYear}-01-01T00:00:00.000Z`);
     const lastPromptYear = user?.reviewStatus?.lastPromptedDate
       ? new Date(user.reviewStatus.lastPromptedDate).getFullYear()
       : null;

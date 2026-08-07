@@ -12,12 +12,11 @@ import {
   checkUsernameAvailability,
   deleteAccount,
   uploadProfilePicture,
-  restorePremiumUser,
 } from '../controllers/auth.controller';
 import { validate } from '../middleware/validate';
 import { authenticate } from '../middleware/auth';
 import upload from '../middleware/uploadMiddleware';
-import { registerSchema, loginSchema } from '@clinicfact/validation';
+import { registerSchema, loginSchema } from '@clinicalfact/validation';
 
 const router = Router();
 
@@ -32,9 +31,6 @@ router.post('/login', validate(loginSchema), login);
 // Public routes - OAuth
 router.post('/google', googleAuth);
 router.post('/apple', appleAuth);
-
-// Public routes - Account Recovery
-router.post('/restore-user', restorePremiumUser);
 
 // Public routes - Token Management
 router.post('/refresh-token', refreshToken); // legacy path kept for backward compat

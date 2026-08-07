@@ -2,6 +2,7 @@ import { Response } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import Quiz from '../models/Quiz';
 import Note from '../models/Note';
+import ChatSession from '../models/ChatSession';
 import quizGenerationService from '../services/quizGeneration.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 
@@ -156,6 +157,103 @@ class QuizController {
   }
 
   /**
+   * Generate quiz directly from raw text (e.g. a chat answer) — no saved Note required.
+   * POST /api/v1/quizzes/generate-from-text
+   */
+  async generateQuizFromText(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({
+          success: false,
+          message: 'Unauthorized',
+        });
+      }
+
+      const {
+        content,
+        title = 'Quiz',
+        questionCount = 10,
+        difficulty = 'medium',
+        questionTypes = ['multiple-choice'],
+        targetLanguage,
+        chatSessionId,
+      } = req.body;
+
+      if (!content || typeof content !== 'string' || content.trim().length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'content is required',
+        });
+      }
+
+      const userId = req.user._id;
+
+      try {
+        checkQuota(req.user, 'quizzes');
+      } catch (e) {
+        if (e instanceof QuotaExceededError) {
+          return res.status(402).json({ success: false, quotaExceeded: true, feature: e.feature, message: e.message });
+        }
+        throw e;
+      }
+
+      const effectiveLanguage = targetLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+
+      console.log(`🎯 Generating quiz from raw text (title: "${title}")`);
+
+      const quizData = await quizGenerationService.generateQuiz(content, title, {
+        questionCount,
+        difficulty,
+        questionTypes,
+        targetLanguage: effectiveLanguage,
+      });
+
+      if (!quizData || !quizData.questions || quizData.questions.length === 0) {
+        throw new Error('Quiz generation returned no questions');
+      }
+
+      const quiz = await Quiz.create({
+        userId,
+        title: quizData.title,
+        questions: quizData.questions,
+        totalQuestions: quizData.questions.length,
+        chatSessionId: chatSessionId || undefined,
+      });
+      incrementQuota(userId.toString(), 'quizzes');
+
+      const transformedQuiz = {
+        ...quiz.toObject(),
+        questions: quiz.questions.map((question: any, qIndex: number) => ({
+          id: `question-${qIndex}`,
+          question: question.questionText,
+          questionText: question.questionText,
+          questionType: question.questionType,
+          options: question.options.map((optionText: string, index: number) => ({
+            id: `option-${index}`,
+            text: optionText,
+          })),
+          correctAnswer: question.correctAnswer,
+          explanation: question.explanation,
+          difficulty: question.difficulty,
+        })),
+      };
+
+      return res.status(201).json({
+        success: true,
+        message: 'Quiz generated successfully',
+        data: transformedQuiz,
+      });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] Error generating quiz from text:`, error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to generate quiz',
+        error: error.message,
+      });
+    }
+  }
+
+  /**
    * Get all user quizzes
    * GET /api/v1/quizzes
    */
@@ -271,6 +369,190 @@ class QuizController {
         message: 'Server error',
         error: error.message,
       });
+    }
+  }
+
+  /**
+   * Get quizzes grouped by their originating note/chat, one row per source — so retaking a
+   * quiz doesn't create a separate top-level history entry every time.
+   * GET /api/v1/quizzes/groups
+   */
+  async getQuizGroups(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+      }
+
+      const quizzes = await Quiz.find({ userId: req.user._id })
+        .sort({ createdAt: -1 })
+        .select('title noteId chatSessionId totalQuestions correctAnswers userAnswers createdAt')
+        .lean();
+
+      interface GroupAcc {
+        groupKey: string;
+        sourceType: 'note' | 'chat' | 'standalone';
+        noteId?: string;
+        chatSessionId?: string;
+        quizId?: string;
+        title: string;
+        createdAt: Date;
+        totalQuestions: number;
+        lastScore?: { correct: number; total: number };
+        bestScore?: { correct: number; total: number };
+        attempts: number;
+      }
+
+      const groups = new Map<string, GroupAcc>();
+
+      // Quizzes are sorted desc by createdAt, so the first one seen per group key is the most
+      // recent attempt — used for the row's headline title/date/question count.
+      for (const quiz of quizzes as any[]) {
+        const key = quiz.noteId
+          ? `note:${quiz.noteId}`
+          : quiz.chatSessionId
+          ? `chat:${quiz.chatSessionId}`
+          : `standalone:${quiz._id}`;
+
+        const attempted = Array.isArray(quiz.userAnswers) && quiz.userAnswers.length > 0;
+        const existing = groups.get(key);
+
+        if (!existing) {
+          groups.set(key, {
+            groupKey: key,
+            sourceType: quiz.noteId ? 'note' : quiz.chatSessionId ? 'chat' : 'standalone',
+            noteId: quiz.noteId?.toString(),
+            chatSessionId: quiz.chatSessionId?.toString(),
+            quizId: !quiz.noteId && !quiz.chatSessionId ? quiz._id.toString() : undefined,
+            title: quiz.title,
+            createdAt: quiz.createdAt,
+            totalQuestions: quiz.totalQuestions,
+            lastScore: attempted ? { correct: quiz.correctAnswers, total: quiz.totalQuestions } : undefined,
+            bestScore: attempted ? { correct: quiz.correctAnswers, total: quiz.totalQuestions } : undefined,
+            attempts: 1,
+          });
+        } else {
+          existing.attempts += 1;
+          if (attempted) {
+            if (!existing.lastScore) {
+              existing.lastScore = { correct: quiz.correctAnswers, total: quiz.totalQuestions };
+            }
+            const pct = quiz.correctAnswers / quiz.totalQuestions;
+            const bestPct = existing.bestScore ? existing.bestScore.correct / existing.bestScore.total : -1;
+            if (pct > bestPct) {
+              existing.bestScore = { correct: quiz.correctAnswers, total: quiz.totalQuestions };
+            }
+          }
+        }
+      }
+
+      const groupList = Array.from(groups.values());
+
+      // Resolve source titles (note titles / chat session titles) to show on the row instead
+      // of the raw generated quiz title, which can be a generic auto-generated string.
+      const noteIds = groupList.filter((g) => g.sourceType === 'note').map((g) => g.noteId!);
+      const chatIds = groupList.filter((g) => g.sourceType === 'chat').map((g) => g.chatSessionId!);
+
+      const [notes, chatSessions] = await Promise.all([
+        noteIds.length ? Note.find({ _id: { $in: noteIds } }).select('title').lean() : Promise.resolve([]),
+        chatIds.length ? ChatSession.find({ _id: { $in: chatIds } }).select('title').lean() : Promise.resolve([]),
+      ]);
+
+      const noteTitleMap = new Map(notes.map((n: any) => [n._id.toString(), n.title]));
+      const chatTitleMap = new Map(chatSessions.map((c: any) => [c._id.toString(), c.title]));
+
+      const result = groupList
+        .map((g) => ({
+          ...g,
+          sourceTitle:
+            g.sourceType === 'note'
+              ? noteTitleMap.get(g.noteId!) || g.title
+              : g.sourceType === 'chat'
+              ? chatTitleMap.get(g.chatSessionId!) || g.title
+              : g.title,
+        }))
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+      return res.json({ success: true, data: result });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] Error fetching quiz groups:`, error);
+      return res.status(500).json({ success: false, message: 'Server error', error: error.message });
+    }
+  }
+
+  /**
+   * Get every quiz attempt under a single note or chat session, plus the source's own
+   * title/date and aggregate stats — powers the "all quizzes under this chat/note" detail screen.
+   * GET /api/v1/quizzes/group?noteId=X or ?chatSessionId=Y
+   */
+  async getQuizGroupDetail(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user?._id) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+      }
+
+      const { noteId, chatSessionId } = req.query;
+
+      if (!noteId && !chatSessionId) {
+        return res.status(400).json({ success: false, message: 'noteId or chatSessionId is required' });
+      }
+
+      const filter: any = { userId: req.user._id };
+      if (noteId) filter.noteId = noteId;
+      if (chatSessionId) filter.chatSessionId = chatSessionId;
+
+      const quizzes = await Quiz.find(filter)
+        .sort({ createdAt: 1 })
+        .select('title totalQuestions correctAnswers userAnswers createdAt')
+        .lean();
+
+      if (quizzes.length === 0) {
+        return res.status(404).json({ success: false, message: 'No quizzes found for this source' });
+      }
+
+      let source: { type: 'note' | 'chat'; id: string; title: string; createdAt: Date } | null = null;
+      if (noteId) {
+        const note = await Note.findOne({ _id: noteId, userId: req.user._id }).select('title createdAt').lean();
+        if (note) {
+          source = { type: 'note', id: (note as any)._id.toString(), title: (note as any).title, createdAt: (note as any).createdAt };
+        }
+      } else if (chatSessionId) {
+        const session = await ChatSession.findOne({ _id: chatSessionId, userId: req.user._id }).select('title createdAt').lean();
+        if (session) {
+          source = { type: 'chat', id: (session as any)._id.toString(), title: (session as any).title, createdAt: (session as any).createdAt };
+        }
+      }
+
+      const attempted = quizzes.filter((q: any) => Array.isArray(q.userAnswers) && q.userAnswers.length > 0);
+      const lastAttempt = attempted[attempted.length - 1] as any;
+      const bestAttempt = attempted.reduce((best: any, q: any) => {
+        if (!best) return q;
+        return q.correctAnswers / q.totalQuestions > best.correctAnswers / best.totalQuestions ? q : best;
+      }, null as any);
+      const latestQuiz = quizzes[quizzes.length - 1] as any;
+
+      return res.json({
+        success: true,
+        data: {
+          source,
+          attempts: quizzes.map((q: any, index: number) => ({
+            quizId: q._id.toString(),
+            label: `Quiz ${index + 1}`,
+            title: q.title,
+            totalQuestions: q.totalQuestions,
+            createdAt: q.createdAt,
+            isCompleted: Array.isArray(q.userAnswers) && q.userAnswers.length > 0,
+            correctAnswers: q.correctAnswers,
+          })),
+          lastScore: lastAttempt ? { correct: lastAttempt.correctAnswers, total: lastAttempt.totalQuestions } : null,
+          bestScore: bestAttempt ? { correct: bestAttempt.correctAnswers, total: bestAttempt.totalQuestions } : null,
+          attemptCount: quizzes.length,
+          latestQuizId: latestQuiz._id.toString(),
+          latestQuestionCount: latestQuiz.totalQuestions,
+        },
+      });
+    } catch (error: any) {
+      console.error(`[${req.correlationId}] Error fetching quiz group detail:`, error);
+      return res.status(500).json({ success: false, message: 'Server error', error: error.message });
     }
   }
 
@@ -587,32 +869,6 @@ class QuizController {
     }
   }
 
-  /**
-   * Helper: Encode export content (PDF to base64, TXT as-is)
-   */
-  private encodeExportContent(content: Buffer | string, format: 'pdf' | 'txt'): {
-    encodedContent: string;
-    encoding: 'base64' | 'utf8';
-    mimeType: string;
-  } {
-    if (format === 'pdf') {
-      // Convert Buffer to base64
-      const base64Content = Buffer.isBuffer(content) ? content.toString('base64') : Buffer.from(content).toString('base64');
-      return {
-        encodedContent: base64Content,
-        encoding: 'base64',
-        mimeType: 'application/pdf'
-      };
-    } else {
-      // TXT is already a string
-      const textContent = Buffer.isBuffer(content) ? content.toString('utf8') : content;
-      return {
-        encodedContent: textContent,
-        encoding: 'utf8',
-        mimeType: 'text/plain'
-      };
-    }
-  }
 }
 
 export default new QuizController();

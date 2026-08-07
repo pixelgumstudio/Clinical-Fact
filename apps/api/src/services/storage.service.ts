@@ -6,7 +6,7 @@ import { Readable } from 'stream';
 class StorageService {
   // FIX: Make client optional (?) because it might not be initialized if creds are missing
   private client?: Minio.Client;
-  private bucketName = process.env.MINIO_BUCKET || 'clinicfact-uploads';
+  private bucketName = process.env.MINIO_BUCKET || 'clinicalfact-uploads';
 
   constructor() {
     const accessKey = process.env.MINIO_ACCESS_KEY;

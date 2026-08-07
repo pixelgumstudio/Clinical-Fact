@@ -249,7 +249,7 @@ class PdfService {
     }
   }
 
-  async extractTextFromPages(fileKey: string, startPage: number, endPage: number): Promise<string> {
+  async extractTextFromPages(fileKey: string, _startPage: number, _endPage: number): Promise<string> {
     const result = await this.extractText(fileKey);
     return result.text; 
   }

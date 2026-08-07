@@ -82,7 +82,7 @@ app.use((req: any, res, next) => {
 app.use(requestLogger);
 
 // Health check endpoints
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
@@ -90,28 +90,28 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-app.get('/api/v1/health', (req: Request, res: Response) => {
+app.get('/api/v1/health', (_req: Request, res: Response) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
-    service: 'ClinicFact API',
+    service: 'Clinical Fact API',
   });
 });
 
 // Root endpoint
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (_req: Request, res: Response) => {
   res.json({
-    message: 'ClinicFact API',
+    message: 'Clinical Fact API',
     version: '1.0.0',
     docs: '/api/v1/docs',
   });
 });
 
 // API v1 root
-app.get('/api/v1', (req: Request, res: Response) => {
+app.get('/api/v1', (_req: Request, res: Response) => {
   res.json({
-    message: 'ClinicFact API v1',
+    message: 'Clinical Fact API v1',
     version: '1.0.0',
     docs: '/api/v1/docs',
   });

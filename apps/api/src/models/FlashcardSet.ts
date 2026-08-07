@@ -11,7 +11,11 @@ interface IFlashcard {
 
 export interface IFlashcardSet extends Document {
   userId: mongoose.Types.ObjectId;
-  noteId: mongoose.Types.ObjectId;
+  /** Absent for flashcard sets generated directly from chat-answer text rather than a saved Note. */
+  noteId?: mongoose.Types.ObjectId;
+  /** Set when this set was generated from a chat transcript — links sets back to the
+   *  originating session so they can be grouped with that chat's quizzes. */
+  chatSessionId?: mongoose.Types.ObjectId;
   title: string;
   cards: IFlashcard[];
   totalCards: number;
@@ -57,7 +61,13 @@ const FlashcardSetSchema = new Schema<IFlashcardSet>(
     noteId: {
       type: Schema.Types.ObjectId,
       ref: 'Note',
-      required: true,
+      required: false,
+      index: true,
+    },
+    chatSessionId: {
+      type: Schema.Types.ObjectId,
+      ref: 'ChatSession',
+      required: false,
       index: true,
     },
     title: {

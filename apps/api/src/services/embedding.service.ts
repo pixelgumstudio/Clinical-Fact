@@ -1,5 +1,4 @@
 import { PredictionServiceClient } from '@google-cloud/aiplatform';
-import { google } from '@google-cloud/aiplatform/build/protos/protos';
 
 class EmbeddingService {
   private client: PredictionServiceClient;

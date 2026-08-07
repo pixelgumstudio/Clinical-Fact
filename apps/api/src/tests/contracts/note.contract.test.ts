@@ -482,7 +482,7 @@ describe('Note API Contracts - Response Shape Validation', () => {
   describe('Note Contracts - Cross-endpoint Consistency', () => {
     it('should return consistent note shape across GET list and single note', async () => {
       // Create a test note
-      const createdNote = await Note.create({
+      await Note.create({
         userId,
         title: 'Consistency Test Note',
         content: 'Testing consistency across endpoints',
@@ -613,7 +613,7 @@ describe('Note API Contracts - Response Shape Validation', () => {
   // ============================================================================
   describe('Note Contracts - Field Type Validation', () => {
     it('should ensure _id is string type (ObjectId as string)', async () => {
-      const note = await Note.create({
+      await Note.create({
         userId,
         title: 'Type Test Note',
         content: 'Testing field types',
@@ -635,7 +635,7 @@ describe('Note API Contracts - Response Shape Validation', () => {
     });
 
     it('should ensure numeric fields are appropriate types', async () => {
-      const note = await Note.create({
+      await Note.create({
         userId,
         title: 'Numeric Type Test',
         content: 'Testing numeric types',

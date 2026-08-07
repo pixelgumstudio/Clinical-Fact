@@ -200,7 +200,6 @@ export const verifySignupOTP = async (req: Request, res: Response): Promise<void
 
     // OTP is valid - check if user already exists (might have been created in a previous attempt)
     let user = await User.findOne({ email });
-    let isNewUser = false;
 
     if (user) {
       // User already exists - just log them in
@@ -235,7 +234,6 @@ export const verifySignupOTP = async (req: Request, res: Response): Promise<void
     }
 
     // Create new user
-    isNewUser = true;
     // Sanitize username: replace any non-alphanumeric/underscore chars with underscore
     const emailPrefix = email.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '_');
     const generatedUsername = username || emailPrefix + '_' + Date.now().toString(36);

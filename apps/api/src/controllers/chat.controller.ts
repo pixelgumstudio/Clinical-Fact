@@ -6,6 +6,7 @@ import File from '../models/File';
 import chatService from '../services/chat.service';
 import pdfService from '../services/pdf.service';
 import ocrService from '../services/ocr.service';
+import storageService from '../services/storage.service';
 import { createJob, updateJob } from '../services/job.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
@@ -117,6 +118,58 @@ class ChatController {
   }
 
   /**
+   * Create a standalone medical Q&A chat session — no note or document required.
+   * This is the entry point for "ask anything" medical questions (sendMessage mode: 'medical_live').
+   */
+  async createMedicalChatSession(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user) {
+        return res.status(401).json({
+          success: false,
+          message: 'Authentication required',
+          error: 'Authentication required'
+        });
+      }
+      const userId = req.user._id;
+
+      try {
+        checkQuota(req.user, 'medicalChats');
+      } catch (e) {
+        if (e instanceof QuotaExceededError) {
+          return res.status(402).json({ success: false, quotaExceeded: true, feature: e.feature, message: e.message });
+        }
+        throw e;
+      }
+
+      // No note/file/embedding for this session type — mark embedding as already "completed"
+      // so nothing in the existing embeddingStatus-gated UI ever shows a stuck processing state.
+      const chatSession = await ChatSession.create({
+        userId,
+        title: 'New medical question',
+        sourceType: 'medical_qa',
+        messages: [],
+        embeddingStatus: 'completed',
+        embeddingProgress: 100,
+      });
+
+      incrementQuota(userId.toString(), 'medicalChats');
+
+      res.json({
+        success: true,
+        message: 'Medical chat session created successfully',
+        data: chatSession,
+      });
+    } catch (error: any) {
+      console.error('❌ Error creating medical chat session:', error);
+      res.status(500).json({
+        success: false,
+        message: error.message || 'Failed to create medical chat session',
+        error: 'Failed to create medical chat session'
+      });
+    }
+  }
+
+  /**
    * Create chat session from document file
    */
   async createChatSessionFromDocument(req: AuthRequest, res: Response) {
@@ -153,7 +206,7 @@ class ChatController {
       console.log(`💬 Creating chat session from file ${fileId}...`);
 
       let documentText = '';
-      let sourceType: 'document' | 'image' | 'pdf' = 'document';
+      let sourceType: 'document' | 'image' | 'pdf' | 'audio' = 'document';
 
       // Extract text based on file type
       if (file.fileType === 'pdf') {
@@ -174,11 +227,22 @@ class ChatController {
           documentText = ocrResult.text;
         }
         sourceType = 'image';
+      } else if (file.fileType === 'document' && file.metadata?.ocrText) {
+        // Plain text upload (see uploadController.uploadPDFWithExtraction) — already extracted
+        // synchronously at upload time, nothing to do here.
+        documentText = file.metadata.ocrText;
+        sourceType = 'document';
+      } else if (file.fileType === 'audio' && file.metadata?.ocrText) {
+        // Background transcription (see uploadController.uploadAudioWithTranscription) already
+        // completed and cached — if it hasn't finished yet, ocrText won't be set and this falls
+        // through to the "unsupported/not ready" error below rather than blocking on it here.
+        documentText = file.metadata.ocrText;
+        sourceType = 'audio';
       } else {
         return res.status(400).json({
           success: false,
-          message: 'Unsupported file type. Only PDF and image files are supported.',
-          error: 'Unsupported file type. Only PDF and image files are supported.'
+          message: 'Unsupported file type, or the file is still processing. PDF, image, text, and audio files are supported.',
+          error: 'Unsupported file type, or the file is still processing. PDF, image, text, and audio files are supported.'
         });
       }
 
@@ -191,6 +255,7 @@ class ChatController {
       }
 
       // Enhance raw text with AI structuring (same pipeline as note creation)
+      let enhancedTitle: string | undefined;
       try {
         const noteGenerationService = (await import('../services/noteGeneration.service')).default;
         const enhanced = await noteGenerationService.generateNote(
@@ -201,17 +266,25 @@ class ChatController {
         if (enhanced && enhanced.content) {
           documentText = enhanced.content;
         }
+        if (enhanced && enhanced.title) {
+          enhancedTitle = enhanced.title;
+        }
       } catch (enhancementErr: any) {
         // Non-fatal: if AI enhancement fails, continue with raw text
         console.warn('⚠️ AI enhancement failed for chat document, using raw extraction:', enhancementErr);
       }
+
+      // originalName is a device-generated filename for images (e.g. iOS's UUID-based temp
+      // photo names) — not something to show a user, so prefer the AI-generated title (from
+      // the actual content) and fall back to a generic label rather than that raw name.
+      const fallbackTitle = sourceType === 'image' ? 'Chat from image' : `Chat with: ${file.originalName}`;
 
       // Create chat session
       const chatSession = await ChatSession.create({
         userId,
         fileId,
         folderId: folderId || null,
-        title: `Chat with: ${file.originalName}`,
+        title: enhancedTitle || fallbackTitle,
         sourceType,
         sourceContent: documentText,
         messages: [],
@@ -256,6 +329,124 @@ class ChatController {
   }
 
   /**
+   * Attach an additional note or file to an EXISTING chat session — embeds its content into
+   * the same session's Qdrant space (additive, not a replacement) so subsequent messages can
+   * draw on it alongside whatever the session already has. Works for any session type,
+   * including medical_qa sessions (see chatService.chatMedicalLive's sessionId param, which
+   * merges any attached-source context in alongside the live medical literature search).
+   */
+  async attachSourceToSession(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+      const userId = req.user._id;
+      const { sessionId } = req.params;
+      const { noteId, fileId } = req.body;
+
+      if (!noteId && !fileId) {
+        return res.status(400).json({ success: false, message: 'noteId or fileId is required' });
+      }
+
+      const chatSession = await ChatSession.findOne({ _id: sessionId, userId });
+      if (!chatSession) {
+        return res.status(404).json({ success: false, message: 'Chat session not found' });
+      }
+
+      let content = '';
+      let title = '';
+      let sourceType: 'note' | 'file';
+      let refId: string;
+
+      if (noteId) {
+        const note = await Note.findOne({ _id: noteId, userId });
+        if (!note) {
+          return res.status(404).json({ success: false, message: 'Note not found' });
+        }
+        content = note.extractedContent || note.transcriptText || note.content || '';
+        title = note.title;
+        sourceType = 'note';
+        refId = note._id.toString();
+      } else {
+        const file = await File.findOne({ _id: fileId, userId });
+        if (!file) {
+          return res.status(404).json({ success: false, message: 'File not found' });
+        }
+
+        if (file.fileType === 'pdf') {
+          if (file.metadata?.ocrText) {
+            content = file.metadata.ocrText;
+          } else {
+            const pdfResult = await pdfService.extractText(file.fileKey);
+            content = pdfResult.text;
+          }
+        } else if (file.fileType === 'image') {
+          if (file.metadata?.ocrText) {
+            content = file.metadata.ocrText;
+          } else {
+            const ocrResult = await ocrService.extractTextFromImage(file.fileKey);
+            content = ocrResult.text;
+          }
+        } else if (file.fileType === 'document' && file.metadata?.ocrText) {
+          // Plain text upload — already extracted synchronously at upload time.
+          content = file.metadata.ocrText;
+        } else if (file.fileType === 'audio' && file.metadata?.ocrText) {
+          // Background transcription already completed and cached.
+          content = file.metadata.ocrText;
+        } else {
+          return res.status(400).json({
+            success: false,
+            message: 'Unsupported file type. PDF, image, and text files are supported.',
+          });
+        }
+
+        title = file.originalName;
+        sourceType = 'file';
+        refId = file._id.toString();
+      }
+
+      if (!content || content.trim().length < 100) {
+        return res.status(400).json({
+          success: false,
+          message: 'Extracted content is too short. Minimum 100 characters required.',
+        });
+      }
+
+      chatSession.attachedSources.push({ type: sourceType, refId: refId as any, title, attachedAt: new Date() });
+      chatSession.embeddingStatus = 'processing';
+      await chatSession.save();
+
+      res.json({
+        success: true,
+        message: 'Source attached, embedding in progress',
+        data: chatSession,
+      });
+
+      // Embed in background — client polls GET /chat/:sessionId, same mechanism used for the
+      // session's initial source (see pollEmbeddingStatus on the mobile side).
+      chatService.embedDocument(content, sessionId, { attachedTitle: title, attachedType: sourceType })
+        .then(async (result) => {
+          await ChatSession.findByIdAndUpdate(sessionId, {
+            embeddingStatus: 'completed',
+            embeddingProgress: 100,
+            $inc: { 'metadata.chunksCount': result.chunksCount || 0 },
+          });
+          console.log(`✅ Attached-source embedding completed for session ${sessionId}`);
+        })
+        .catch(async (error) => {
+          console.error('❌ Error embedding attached source:', error);
+          await ChatSession.findByIdAndUpdate(sessionId, { embeddingStatus: 'failed' });
+        });
+    } catch (error: any) {
+      console.error('❌ Error attaching source to session:', error);
+      res.status(500).json({
+        success: false,
+        message: error.message || 'Failed to attach source',
+      });
+    }
+  }
+
+  /**
    * Send message in chat session.
    * Returns 202 immediately with a jobId; AI response is generated asynchronously.
    * Client polls GET /api/v1/jobs/:jobId for the result.
@@ -271,7 +462,7 @@ class ChatController {
       }
       const userId = req.user._id;
       const { sessionId } = req.params;
-      const { message, deepResearch = false, mode } = req.body;
+      const { message, deepResearch = false, mode, filters, excludeImageUrls, attachmentFileId } = req.body;
 
       if (!message || message.trim().length === 0) {
         return res.status(400).json({
@@ -305,8 +496,20 @@ class ChatController {
         });
       }
 
+      // Resolve+verify ownership of the attached image (if any) before persisting it on the
+      // message — a bad/foreign fileId is silently dropped rather than failing the whole send.
+      let attachmentFile: any = null;
+      if (attachmentFileId) {
+        attachmentFile = await File.findOne({ _id: attachmentFileId, userId }).select('mimeType');
+      }
+
       // Persist user message synchronously so it is visible if the client refreshes.
-      chatSession.messages.push({ role: 'user', content: message, timestamp: new Date() });
+      chatSession.messages.push({
+        role: 'user',
+        content: message,
+        timestamp: new Date(),
+        ...(attachmentFile ? { attachmentFileId: attachmentFile._id, attachmentMimeType: attachmentFile.mimeType } : {}),
+      });
       await chatSession.save();
 
       // Snapshot chat history for the async closure (the chatSession object may be mutated later).
@@ -328,12 +531,15 @@ class ChatController {
           let jobResult: Record<string, any>;
 
           if (mode === 'medical_live') {
-            const { text, sources, images } = await chatService.chatMedicalLive(
+            const { text, sources, images, groundingSources, drugLabels } = await chatService.chatMedicalLive(
               message,
-              chatHistory.slice(0, -1)
+              chatHistory.slice(0, -1),
+              filters,
+              sessionId,
+              Array.isArray(excludeImageUrls) ? excludeImageUrls : []
             );
             assistantContent = text;
-            jobResult = { text, sources, images };
+            jobResult = { text, sources, images, groundingSources, drugLabels };
           } else {
             const { response, sources } = await chatService.chat(
               sessionId,
@@ -347,14 +553,23 @@ class ChatController {
 
           // Re-fetch to avoid overwriting concurrent saves.
           const updated = await ChatSession.findById(sessionId);
+          let generatedTitle: string | undefined;
           if (updated) {
             updated.messages.push({ role: 'assistant', content: assistantContent, timestamp: new Date() });
+
+            // First exchange in this session — auto-title it from what was actually asked,
+            // same as ChatGPT/Claude do, instead of leaving the generic default title.
+            if (updated.messages.length === 2) {
+              generatedTitle = await chatService.generateChatTitle(message, assistantContent);
+              updated.title = generatedTitle;
+            }
+
             await updated.save();
           }
 
           await updateJob(jobId, {
             status: 'completed',
-            result: { ...jobResult, messageCount: updated?.messages.length ?? 0 },
+            result: { ...jobResult, messageCount: updated?.messages.length ?? 0, title: generatedTitle },
           });
 
           // Send notification for chat message completion
@@ -422,10 +637,29 @@ class ChatController {
         });
       }
 
+      // Attachment URLs are resolved on read (not stored) since MinIO presigned URLs expire.
+      const sessionObj: any = chatSession.toObject();
+      const attachmentFileIds = sessionObj.messages
+        .filter((m: any) => m.attachmentFileId)
+        .map((m: any) => m.attachmentFileId);
+
+      if (attachmentFileIds.length > 0) {
+        const files = await File.find({ _id: { $in: attachmentFileIds } }).select('fileKey');
+        const fileKeyById = new Map(files.map((f) => [f._id.toString(), f.fileKey]));
+        await Promise.all(
+          sessionObj.messages.map(async (m: any) => {
+            const fileKey = m.attachmentFileId && fileKeyById.get(m.attachmentFileId.toString());
+            if (fileKey) {
+              m.attachmentUrl = await storageService.getFileUrl(fileKey, 3600);
+            }
+          })
+        );
+      }
+
       res.json({
         success: true,
         message: 'Chat session retrieved successfully',
-        data: chatSession
+        data: sessionObj
       });
     } catch (error: any) {
       console.error('❌ Error getting chat session:', error);

@@ -257,6 +257,58 @@ class GeminiService {
       throw new Error(`Search-grounded chat failed: ${error.message}`);
     }
   }
+
+  /**
+   * Like chatWithSearch, but also extracts the grounding metadata (the actual web sources
+   * Google Search grounding used) instead of discarding it — needed by callers that want to
+   * show real citations to the user, not just a search-informed answer.
+   */
+  async chatWithGrounding(
+    messages: Array<{ role: 'user' | 'assistant'; content: string }>,
+    systemInstruction?: string
+  ): Promise<{ text: string; groundingSources: { uri: string; title: string }[] }> {
+    try {
+      const genAI = this.initializeGenAI();
+      const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash",
+        systemInstruction: systemInstruction || undefined,
+        tools: [{ googleSearch: {} } as any],
+        generationConfig: {
+          maxOutputTokens: 8192
+        }
+      });
+
+      const contents = messages.map(msg => ({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: msg.content }],
+      }));
+
+      const result = await model.generateContent({ contents });
+      const finalText = String(result.response.text() || '').trim();
+
+      if (!finalText) {
+        throw new Error('Empty response from Gemini API');
+      }
+
+      const rawChunks = result.response.candidates?.[0]?.groundingMetadata?.groundingChunks ?? [];
+      const seen = new Set<string>();
+      const groundingSources: { uri: string; title: string }[] = [];
+      for (const chunk of rawChunks) {
+        const web = chunk.web;
+        if (web?.uri && !seen.has(web.uri)) {
+          seen.add(web.uri);
+          groundingSources.push({ uri: web.uri, title: web.title || web.uri });
+        }
+      }
+
+      console.log(`✅ Grounded chat response, length: ${finalText.length}, ${groundingSources.length} grounding sources`);
+      return { text: finalText, groundingSources };
+
+    } catch (error: any) {
+      console.error('❌ Gemini Grounded Chat Error:', error.message);
+      throw new Error(`Grounded chat failed: ${error.message}`);
+    }
+  }
 }
 
 export default new GeminiService();

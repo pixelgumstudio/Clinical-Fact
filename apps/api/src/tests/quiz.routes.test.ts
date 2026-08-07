@@ -11,7 +11,6 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 // Test utilities
 let authToken: string;
 let userId: string;
-let secondAuthToken: string;
 let secondUserId: string;
 let testNote: any;
 let secondNote: any;
@@ -73,11 +72,6 @@ describe('Quiz API Endpoints', () => {
       },
     });
     secondUserId = secondUser._id.toString();
-    secondAuthToken = generateAccessToken({
-      userId: secondUserId,
-      email: secondUser.email,
-      username: secondUser.username,
-    });
 
     // Create test notes
     testNote = await Note.create({

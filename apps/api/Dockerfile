@@ -23,8 +23,8 @@ RUN npm ci --include-workspace-root
 COPY . .
 
 # 4. Build the API and all its local dependencies using Turbo
-# This handles the building of @clinicfact/validation, shared, and types automatically
-RUN npx turbo run build --filter=@clinicfact/api...
+# This handles the building of @clinicalfact/validation, shared, and types automatically
+RUN npx turbo run build --filter=@clinicalfact/api...
 
 # ========================================
 # Stage 2: Production

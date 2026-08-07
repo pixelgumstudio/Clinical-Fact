@@ -8,7 +8,7 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(uuid)/)',
+    'node_modules/(?!(uuid|expo-server-sdk)/)',
   ],
   collectCoverageFrom: [
     'src/**/*.ts',

@@ -1,8 +1,8 @@
-# ClinicFact API — Backend Handoff Guide
+# Clinical Fact API — Backend Handoff Guide
 
 This document exists because the Postman collection tells you *what* to call, not *why* it exists or *what happens on the server* when you call it. Read this once, top to bottom, before touching the code — it will save you hours of guessing.
 
-ClinicFact turns raw study material (audio, PDF, images, YouTube videos, text) into AI-generated notes, then lets users quiz themselves, drill flashcards, or chat with the material. This is the Express/MongoDB API that powers the mobile app (and eventually the web app).
+Clinical Fact turns raw study material (audio, PDF, images, YouTube videos, text) into AI-generated notes, then lets users quiz themselves, drill flashcards, or chat with the material. This is the Express/MongoDB API that powers the mobile app (and eventually the web app).
 
 ---
 
@@ -150,7 +150,6 @@ Base path for everything below is `/api/v1` unless noted. "Auth" column: **Publi
 | `POST /auth/login` | Public | Email/password login. Returns 401 with an identical message for "no such email" and "wrong password" — deliberately vague to avoid leaking which emails are registered. |
 | `POST /auth/google` | Public | Accepts either a Google **ID token** (verified against Google's public keys) or an **access token** (verified by calling Google's userinfo endpoint). Creates the user on first sign-in, links `googleId` to an existing email account otherwise. Returns `needsProfileSetup: !hasCompletedSignup` so the client knows whether to show the onboarding flow. |
 | `POST /auth/apple` | Public | Same idea for Sign in with Apple. **Important:** Apple only sends the user's email on the *very first* sign-in — subsequent calls omit it, so the client must cache and re-send `email` in the body as a fallback (`clientEmail` in the code). |
-| `POST /auth/restore-user` | Public | Recovery path for a specific incident: if the database gets reset/wiped, a Google-authenticated user can POST their `googleId`/`email`/`name` here; the server re-verifies their subscription **directly with RevenueCat** (source of truth for entitlements survives a DB wipe) and upserts the user record with the correct PRO/FREE status. Not part of normal signup flow. |
 | `POST /auth/refresh-token` (legacy) / `POST /auth/refresh` (canonical) | Public (needs valid refresh token in body) | Rotates tokens — see §5.1 for the replay-detection behavior. Both paths do the exact same thing; keep both wired up, older mobile app builds may still call the legacy path. |
 | `GET /auth/me` | User | Returns the current user's full profile. Also **lazily backfills** `my_referral_code` if a legacy user doesn't have one yet, and generates a fresh 7-day presigned MinIO URL for the avatar on every call (so a stale URL never gets returned even if the underlying signed URL from a previous request expired). |
 | `PUT /auth/profile` | User | Updates `name`/`username`/`preferredLanguage`. Checks username uniqueness first. |

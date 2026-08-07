@@ -13,12 +13,12 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@clinicfact/validation": ["../../packages/validation/dist", "../../packages/validation/src"],
-      "@clinicfact/validation/*": ["../../packages/validation/dist/*", "../../packages/validation/src/*"],
-      "@clinicfact/shared": ["../../packages/shared/dist", "../../packages/shared/src"],
-      "@clinicfact/shared/*": ["../../packages/shared/dist/*", "../../packages/shared/src/*"],
-      "@clinicfact/types": ["../../packages/types/dist", "../../packages/types/src"],
-      "@clinicfact/types/*": ["../../packages/types/dist/*", "../../packages/types/src/*"]
+      "@clinicalfact/validation": ["../../packages/validation/dist", "../../packages/validation/src"],
+      "@clinicalfact/validation/*": ["../../packages/validation/dist/*", "../../packages/validation/src/*"],
+      "@clinicalfact/shared": ["../../packages/shared/dist", "../../packages/shared/src"],
+      "@clinicalfact/shared/*": ["../../packages/shared/dist/*", "../../packages/shared/src/*"],
+      "@clinicalfact/types": ["../../packages/types/dist", "../../packages/types/src"],
+      "@clinicalfact/types/*": ["../../packages/types/dist/*", "../../packages/types/src/*"]
     }
   },
   "include": ["src/**/*"],

@@ -163,7 +163,7 @@ class OcrService {
    */
   async extractTextWithPreprocessing(
     fileKey: string,
-    options: {
+    _options: {
       grayscale?: boolean;
       threshold?: boolean;
       invert?: boolean;

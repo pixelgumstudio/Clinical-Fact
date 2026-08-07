@@ -4,6 +4,9 @@ import { authenticate } from '../middleware/auth';
 
 const router = Router();
 
+// Create standalone medical Q&A chat session (no note/document required)
+router.post('/medical', authenticate, chatController.createMedicalChatSession);
+
 // Create chat session from note
 router.post('/create-from-note', authenticate, chatController.createChatSessionFromNote);
 router.post('/', authenticate, chatController.createChatSessionFromNote);
@@ -16,6 +19,9 @@ router.get('/', authenticate, chatController.listChatSessions);
 
 // Get chat session
 router.get('/:sessionId', authenticate, chatController.getChatSession);
+
+// Attach an additional note/file to an existing session (embeds into the same session)
+router.post('/:sessionId/attach', authenticate, chatController.attachSourceToSession);
 
 // Send message in chat session
 router.post('/:sessionId/message', authenticate, chatController.sendMessage);

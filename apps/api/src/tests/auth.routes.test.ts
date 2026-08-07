@@ -2,8 +2,8 @@ import request from 'supertest';
 import mongoose from 'mongoose';
 import { app } from '../server';
 import { User } from '../models/User';
-import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../utils/jwt';
-import { issueAndStoreTokens, hashToken } from '../services/auth.service';
+import { generateAccessToken } from '../utils/jwt';
+import { issueAndStoreTokens } from '../services/auth.service';
 
 const { MongoMemoryServer } = require('mongodb-memory-server');
 

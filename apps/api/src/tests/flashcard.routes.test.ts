@@ -240,7 +240,7 @@ describe('Flashcard Routes Integration Tests', () => {
       });
 
       // Create flashcard sets for both users
-      const set1 = await FlashcardSet.create({
+      await FlashcardSet.create({
         userId: user1._id,
         noteId: note1._id,
         title: 'User 1 Set',
@@ -252,7 +252,7 @@ describe('Flashcard Routes Integration Tests', () => {
         masteredCards: 0,
       });
 
-      const set2 = await FlashcardSet.create({
+      await FlashcardSet.create({
         userId: user1._id,
         noteId: note1._id,
         title: 'User 1 Set 2',
@@ -263,7 +263,7 @@ describe('Flashcard Routes Integration Tests', () => {
         masteredCards: 0,
       });
 
-      const set3 = await FlashcardSet.create({
+      await FlashcardSet.create({
         userId: user2._id,
         noteId: note2._id,
         title: 'User 2 Set',

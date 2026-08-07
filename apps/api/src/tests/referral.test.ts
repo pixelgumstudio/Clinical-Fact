@@ -411,7 +411,7 @@ describe('Referral System API Endpoints', () => {
       expect(partnerResponse.body.data.type).toBe('partner');
 
       // Create user with referral code
-      const userWithCode = await User.create({
+      await User.create({
         email: 'integration@example.com',
         password: 'hashed_password',
         name: 'Integration User',

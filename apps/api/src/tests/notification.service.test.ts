@@ -1,22 +1,26 @@
 /**
  * Notification Service Unit Tests
- * Tests FCM integration, device token management, notification delivery
+ * Tests Expo push integration, device token management, notification delivery
  */
 
 import notificationService from '../services/notification.service';
 import { User } from '../models/User';
 import Notification from '../models/Notification';
-import admin from 'firebase-admin';
+import { Expo } from 'expo-server-sdk';
 
-const mockSend = jest.fn();
-const mockMessagingInstance = { send: mockSend };
+// Mock Expo push SDK. The jest.fn()s are created inside the factory (not referenced from
+// outer scope) since jest.mock() factories are hoisted above module-level const declarations —
+// referencing an outer const directly here would hit it before its initialization.
+jest.mock('expo-server-sdk', () => {
+  const sendPushNotificationsAsync = jest.fn();
+  const MockExpo: any = jest.fn().mockImplementation(() => ({ sendPushNotificationsAsync }));
+  MockExpo.isExpoPushToken = jest.fn(() => true);
+  MockExpo.__sendPushNotificationsAsync = sendPushNotificationsAsync;
+  return { Expo: MockExpo };
+});
 
-// Mock Firebase Admin
-jest.mock('firebase-admin', () => ({
-  apps: [{}], // Non-empty array so Firebase is considered initialized
-  initializeApp: jest.fn(),
-  messaging: jest.fn(() => mockMessagingInstance),
-}));
+const mockSendPushNotificationsAsync = (Expo as any).__sendPushNotificationsAsync as jest.Mock;
+const mockIsExpoPushToken = Expo.isExpoPushToken as unknown as jest.Mock;
 
 describe('NotificationService', () => {
   const mockUserId = 'user123';
@@ -25,7 +29,8 @@ describe('NotificationService', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mockSend.mockReset();
+    mockSendPushNotificationsAsync.mockReset();
+    mockIsExpoPushToken.mockReturnValue(true);
   });
 
   describe('sendJobCompletionNotification', () => {
@@ -39,7 +44,7 @@ describe('NotificationService', () => {
       };
 
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id-123');
+      mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id-123' }]);
 
       // Act
       const result = await notificationService.sendJobCompletionNotification(
@@ -51,21 +56,19 @@ describe('NotificationService', () => {
 
       // Assert
       expect(result).toBe(true);
-      expect(mockSend).toHaveBeenCalledTimes(1);
-      expect(mockSend).toHaveBeenCalledWith(
+      expect(mockSendPushNotificationsAsync).toHaveBeenCalledTimes(1);
+      expect(mockSendPushNotificationsAsync).toHaveBeenCalledWith([
         expect.objectContaining({
-          notification: expect.objectContaining({
-            title: expect.stringContaining('✅'),
-            body: expect.stringContaining('Note'),
-          }),
+          to: mockDeviceToken,
+          title: expect.stringContaining('✅'),
+          body: expect.stringContaining('Note'),
           data: expect.objectContaining({
             jobId: mockJobId,
             jobType: 'note',
             status: 'completed',
           }),
-          token: mockDeviceToken,
-        })
-      );
+        }),
+      ]);
     });
 
     it('should return false if user has no device tokens', async () => {
@@ -115,7 +118,7 @@ describe('NotificationService', () => {
       };
 
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id-123');
+      mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id-123' }]);
 
       // Act
       await notificationService.sendJobCompletionNotification(
@@ -126,13 +129,11 @@ describe('NotificationService', () => {
       );
 
       // Assert
-      expect(mockSend).toHaveBeenCalledWith(
+      expect(mockSendPushNotificationsAsync).toHaveBeenCalledWith([
         expect.objectContaining({
-          notification: expect.objectContaining({
-            title: expect.stringContaining('❌'),
-          }),
-        })
-      );
+          title: expect.stringContaining('❌'),
+        }),
+      ]);
     });
 
     it('should handle multiple device tokens', async () => {
@@ -148,7 +149,7 @@ describe('NotificationService', () => {
       };
 
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id');
+      mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id' }]);
 
       // Act
       const result = await notificationService.sendJobCompletionNotification(
@@ -160,7 +161,7 @@ describe('NotificationService', () => {
 
       // Assert
       expect(result).toBe(true);
-      expect(mockSend).toHaveBeenCalledTimes(2);
+      expect(mockSendPushNotificationsAsync).toHaveBeenCalledTimes(2);
     });
 
     it('should use correct job label for different job types', async () => {
@@ -172,9 +173,6 @@ describe('NotificationService', () => {
         ],
       };
 
-      jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id');
-
       const jobTypes: Array<'note' | 'chat' | 'quiz' | 'flashcard' | 'youtube'> = [
         'note',
         'chat',
@@ -184,9 +182,9 @@ describe('NotificationService', () => {
       ];
 
       for (const jobType of jobTypes) {
-        mockSend.mockClear();
+        mockSendPushNotificationsAsync.mockClear();
         jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-        mockSend.mockResolvedValue('message-id');
+        mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id' }]);
 
         // Act
         await notificationService.sendJobCompletionNotification(
@@ -197,15 +195,13 @@ describe('NotificationService', () => {
         );
 
         // Assert
-        expect(mockSend).toHaveBeenCalledWith(
+        expect(mockSendPushNotificationsAsync).toHaveBeenCalledWith([
           expect.objectContaining({
-            notification: expect.objectContaining({
-              body: expect.stringContaining(
-                jobType === 'youtube' ? 'YouTube note' : jobType.charAt(0).toUpperCase() + jobType.slice(1)
-              ),
-            }),
-          })
-        );
+            body: expect.stringContaining(
+              jobType === 'youtube' ? 'YouTube note' : jobType.charAt(0).toUpperCase() + jobType.slice(1)
+            ),
+          }),
+        ]);
       }
     });
 
@@ -219,7 +215,7 @@ describe('NotificationService', () => {
       };
 
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id');
+      mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id' }]);
       jest.spyOn(Notification, 'create').mockResolvedValue({} as any);
 
       // Act
@@ -242,7 +238,7 @@ describe('NotificationService', () => {
       );
     });
 
-    it('should handle FCM send failure gracefully', async () => {
+    it('should handle Expo push send failure gracefully', async () => {
       // Arrange
       const mockUser = {
         _id: mockUserId,
@@ -252,7 +248,7 @@ describe('NotificationService', () => {
       };
 
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockRejectedValue(new Error('FCM error'));
+      mockSendPushNotificationsAsync.mockRejectedValue(new Error('Expo push error'));
 
       // Act
       const result = await notificationService.sendJobCompletionNotification(
@@ -264,6 +260,31 @@ describe('NotificationService', () => {
 
       // Assert
       expect(result).toBe(false);
+    });
+
+    it('should skip sending to a token that is not a valid Expo push token', async () => {
+      // Arrange
+      const mockUser = {
+        _id: mockUserId,
+        deviceTokens: [
+          { token: mockDeviceToken, platform: 'ios', registeredAt: new Date() },
+        ],
+      };
+
+      jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
+      mockIsExpoPushToken.mockReturnValue(false);
+
+      // Act
+      const result = await notificationService.sendJobCompletionNotification(
+        mockUserId,
+        mockJobId,
+        'note',
+        'completed'
+      );
+
+      // Assert
+      expect(result).toBe(false);
+      expect(mockSendPushNotificationsAsync).not.toHaveBeenCalled();
     });
   });
 
@@ -327,7 +348,7 @@ describe('NotificationService', () => {
         ],
       };
       jest.spyOn(User, 'findById').mockResolvedValue(mockUser as any);
-      mockSend.mockResolvedValue('message-id');
+      mockSendPushNotificationsAsync.mockResolvedValue([{ status: 'ok', id: 'message-id' }]);
 
       // Act
       await notificationService.retryFailedNotifications();
