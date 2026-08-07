@@ -17,6 +17,10 @@
 !/.gitattributes
 !/.npmrc
 
+# Re-include the CI/CD workflow directory
+!/.github
+!/.github/workflows
+
 # Re-include apps/, but only the api app inside it
 !/apps
 /apps/*

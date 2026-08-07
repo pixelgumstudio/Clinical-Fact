@@ -1,0 +1,61 @@
+version: "3.8"
+
+# Production stack for the VPS. MongoDB (Atlas) and file storage (Cloudflare
+# R2) are external managed services configured entirely through apps/api/.env
+# — nothing for them runs here. Redis and Qdrant stay self-hosted since
+# they're simple single-container services with no replica-set/cluster setup.
+
+services:
+  api:
+    image: ghcr.io/pixelgumstudio/clinical-fact-api:latest
+    container_name: clinicalfact-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - QDRANT_URL=http://qdrant:6333
+    ports:
+      - "127.0.0.1:5000:5000"
+    depends_on:
+      - redis
+      - qdrant
+    networks:
+      - clinicalfact-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  redis:
+    image: redis:7-alpine
+    container_name: clinicalfact-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    networks:
+      - clinicalfact-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: clinicalfact-qdrant
+    restart: unless-stopped
+    volumes:
+      - qdrant-storage:/qdrant/storage
+    networks:
+      - clinicalfact-network
+
+volumes:
+  redis-data:
+  qdrant-storage:
+
+networks:
+  clinicalfact-network:
+    driver: bridge
