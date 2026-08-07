@@ -13,11 +13,15 @@ or the root workspace files triggers `.github/workflows/deploy.yml`:
 MongoDB and file storage are **not** part of this stack — they're external managed
 services (Atlas, R2) configured entirely through `apps/api/.env` on the server.
 
-This server also hosts another project behind nginx, so this stack is fully
-namespaced to avoid colliding with it: compose project name `clinicalfact`,
-container names prefixed `clinicalfact-*`, its own Docker network/volumes, and
-the `api` container only binds to `127.0.0.1:5001` (not the `5000` the other
-project uses). nginx is what fronts both — see step 5.
+This server also hosts another project (`notedrill-*`), whose own `nginx`
+container already owns host ports 80/443/5000. That nginx container reaches
+its backend by Docker DNS name on its `notedrill_notedrill-network` network,
+not via host ports — so rather than running a second nginx, this stack's
+`api` container also joins that same external network, reachable there as
+`clinicalfact-api:5000`, and we add a new server block to the existing shared
+`nginx.conf`. Everything here is otherwise namespaced (compose project name
+`clinicalfact`, `clinicalfact-*` container names, its own network/volumes) to
+avoid colliding with the other project. See step 5.
 
 ## One-time server setup
 
@@ -55,40 +59,79 @@ project uses). nginx is what fronts both — see step 5.
    # ...plus any other keys the API reads (Gemini, OAuth, RevenueCat, etc.)
    ```
 
-5. Add an nginx server block for the API's subdomain, proxying to the
-   container's host port (`5001`). Drop this in
-   `/etc/nginx/sites-available/api.yourdomain.com` and symlink it into
-   `sites-enabled` (adjust to however the other project's config is
-   structured if it differs):
+5. Point DNS for the API's subdomain at the VPS IP (DNS-only/grey-cloud if on
+   Cloudflare, matching how `api.notedrill.com` is set up — this box's other
+   site uses Let's Encrypt at the origin, not Cloudflare edge TLS).
 
-   ```nginx
-   server {
-       listen 80;
-       server_name api.yourdomain.com;
+   Then edit the other project's shared `/var/www/Notedrill/nginx.conf` on
+   the host (it's bind-mounted into `notedrill-nginx`, so the container picks
+   up changes on reload — no rebuild needed):
 
-       location / {
-           proxy_pass http://127.0.0.1:5001;
-           proxy_http_version 1.1;
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
+   - Add an ACME challenge location to the existing catch-all `server { listen 80; server_name _; ... }`
+     block, above its `location /`:
 
-           # job-status SSE endpoint needs a long-lived, unbuffered connection
-           proxy_buffering off;
-           proxy_read_timeout 3600s;
-       }
-   }
-   ```
+     ```nginx
+     location /.well-known/acme-challenge/ {
+         root /var/www/certbot;
+     }
+     ```
 
-   Then `sudo nginx -t && sudo systemctl reload nginx`.
+   - Test and reload: `docker exec notedrill-nginx nginx -t && docker exec notedrill-nginx nginx -s reload`
+   - Issue the cert: `certbot certonly --webroot -w /var/www/certbot -d <api-subdomain>`
+   - Add a new upstream + HTTPS server block (mirroring the existing
+     `api.notedrill.com` block), referencing our container by the Docker DNS
+     name it gets on the shared network:
 
-   For TLS: if the other project already gets its certs via Certbot, run
-   `sudo certbot --nginx -d api.yourdomain.com` to add this host to the same
-   setup. If instead it relies on Cloudflare's proxy (orange-cloud DNS) for
-   TLS, just point `api.yourdomain.com`'s DNS record at the VPS IP with the
-   proxy toggle on, the same way the other project's record is set up — no
-   nginx TLS config needed in that case, Cloudflare terminates it at the edge.
+     ```nginx
+     upstream clinicalfact_backend {
+         server clinicalfact-api:5000;
+         keepalive 32;
+     }
+
+     server {
+         listen 443 ssl http2;
+         server_name <api-subdomain>;
+
+         ssl_certificate /etc/letsencrypt/live/<api-subdomain>/fullchain.pem;
+         ssl_certificate_key /etc/letsencrypt/live/<api-subdomain>/privkey.pem;
+         ssl_protocols TLSv1.2 TLSv1.3;
+         ssl_ciphers HIGH:!aNULL:!MD5;
+         ssl_prefer_server_ciphers on;
+         ssl_session_cache shared:SSL:10m;
+         ssl_session_timeout 10m;
+
+         location /health {
+             proxy_pass http://clinicalfact_backend;
+             proxy_http_version 1.1;
+             proxy_set_header Connection "";
+             access_log off;
+         }
+
+         location / {
+             proxy_pass http://clinicalfact_backend;
+             proxy_http_version 1.1;
+             proxy_set_header Upgrade $http_upgrade;
+             proxy_set_header Connection 'upgrade';
+             proxy_set_header Host $host;
+             proxy_set_header X-Real-IP $remote_addr;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+             proxy_set_header X-Forwarded-Proto $scheme;
+             proxy_cache_bypass $http_upgrade;
+
+             # job-status SSE endpoint needs long-lived, unbuffered connections
+             proxy_buffering off;
+             proxy_connect_timeout 300s;
+             proxy_send_timeout 300s;
+             proxy_read_timeout 3600s;
+         }
+     }
+     ```
+
+   - Test and reload again: `docker exec notedrill-nginx nginx -t && docker exec notedrill-nginx nginx -s reload`
+
+   The cert must be issued (previous bullet) *before* adding this block —
+   nginx refuses to load a config referencing `ssl_certificate` files that
+   don't exist yet.
 
 6. First manual deploy: `cd /opt/clinical-fact/apps/api && docker compose -f docker-compose.prod.yml up -d`.
 

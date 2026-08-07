@@ -9,9 +9,12 @@ version: "3.8"
 # here. Redis and Qdrant stay self-hosted since they're simple single-container
 # services with no replica-set/cluster setup.
 #
-# The other project already owns nginx on 80/443 and port 5000 — this stack
-# exposes the API on host port 5001 only, for nginx (or whatever's already
-# running) to reverse-proxy to. See apps/api/deploy/README.md.
+# The other project (notedrill-*) already owns host ports 80/443/5000 via its
+# own nginx container, which reverse-proxies to containers by Docker DNS name
+# on its "notedrill_notedrill-network" network — not via host ports. So this
+# api container joins that same external network too, reachable there as
+# "clinicalfact-api:5000". The 127.0.0.1:5001 host mapping below is just for
+# local debugging (curl from the VPS itself); nginx never uses it.
 
 name: clinicalfact
 
@@ -32,6 +35,7 @@ services:
       - qdrant
     networks:
       - clinicalfact-network
+      - notedrill_notedrill-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 30s
@@ -69,3 +73,5 @@ volumes:
 networks:
   clinicalfact-network:
     driver: bridge
+  notedrill_notedrill-network:
+    external: true
