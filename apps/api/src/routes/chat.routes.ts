@@ -29,6 +29,9 @@ router.post('/:sessionId/message', authenticate, chatController.sendMessage);
 // Move chat session to folder
 router.put('/:sessionId/move-to-folder', authenticate, chatController.moveChatToFolder);
 
+// Pin/unpin (bookmark) a chat session
+router.put('/:sessionId/pin', authenticate, chatController.togglePinChatSession);
+
 // Get chat session statistics
 router.get('/:sessionId/statistics', authenticate, chatController.getStatistics);
 

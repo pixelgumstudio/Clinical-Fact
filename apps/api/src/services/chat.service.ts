@@ -3,6 +3,8 @@ import embeddingService from './embedding.vertexai.service';
 import vectorDbService from './vectorDb.service';
 import geminiService from './gemini.service';
 import europePmcService, { EuropePmcResult, EuropePmcFilters } from './europePmc.service';
+import semanticScholarService from './semanticScholar.service';
+import pubmedService from './pubmed.service';
 import wikimediaImageSearchService, { WikimediaImageResult } from './wikimediaImageSearch.service';
 import openFdaService, { OpenFdaDrugResult } from './openFda.service';
 
@@ -28,6 +30,16 @@ interface MedicalLiveChatResponse {
   images: WikimediaImageResult[];
   groundingSources: { uri: string; title: string }[];
   drugLabels: OpenFdaDrugResult[];
+}
+
+/** EuropePmcFilters plus which of the two additional literature APIs to include — Europe PMC
+ *  itself always runs (same as before); these two are ADDED alongside it, each independently
+ *  toggleable, and merged+deduped into one citation list. Both default on when unset. */
+export interface MedicalSearchFilters extends EuropePmcFilters {
+  sources?: {
+    semanticScholar?: boolean;
+    pubmed?: boolean;
+  };
 }
 
 class ChatService {
@@ -209,7 +221,7 @@ ${context}`;
   async chatMedicalLive(
     userQuery: string,
     history: ChatMessage[] = [],
-    filters?: EuropePmcFilters,
+    filters?: MedicalSearchFilters,
     sessionId?: string,
     excludeImageUrls: string[] = []
   ): Promise<MedicalLiveChatResponse> {
@@ -222,8 +234,15 @@ ${context}`;
         })()
       : Promise.resolve([]);
 
-    const [literatureSettled, imagesSettled, attachedSettled, drugLabelsSettled] = await Promise.allSettled([
+    // Europe PMC always runs (unchanged); Semantic Scholar and PubMed are ADDED alongside it,
+    // each independently toggleable from the "+" attach sheet, defaulting on when unset.
+    const includeSemanticScholar = filters?.sources?.semanticScholar !== false;
+    const includePubMed = filters?.sources?.pubmed !== false;
+
+    const [europePmcSettled, semanticScholarSettled, pubmedSettled, imagesSettled, attachedSettled, drugLabelsSettled] = await Promise.allSettled([
       europePmcService.search(userQuery, 5, filters),
+      includeSemanticScholar ? semanticScholarService.search(userQuery, 5) : Promise.resolve([]),
+      includePubMed ? pubmedService.search(userQuery, 5) : Promise.resolve([]),
       // Cap at 6 — Wikimedia relevance drops off fast past that, and this app isn't compulsory
       // about hitting a fixed count (see excludeImageUrls: only genuinely-matching, not-already-
       // shown images make it into the response at all).
@@ -232,13 +251,21 @@ ${context}`;
       openFdaService.search(userQuery, 3),
     ]);
 
-    const literatureResults = literatureSettled.status === 'fulfilled' ? literatureSettled.value : [];
+    const europePmcResults = europePmcSettled.status === 'fulfilled' ? europePmcSettled.value : [];
+    const semanticScholarResults = semanticScholarSettled.status === 'fulfilled' ? semanticScholarSettled.value : [];
+    const pubmedResults = pubmedSettled.status === 'fulfilled' ? pubmedSettled.value : [];
     const imageResults = imagesSettled.status === 'fulfilled' ? imagesSettled.value : [];
     const attachedChunks = attachedSettled.status === 'fulfilled' ? attachedSettled.value : [];
     const drugLabelResults = drugLabelsSettled.status === 'fulfilled' ? drugLabelsSettled.value : [];
 
-    if (literatureSettled.status === 'rejected') {
-      console.error('❌ Europe PMC search failed:', literatureSettled.reason);
+    if (europePmcSettled.status === 'rejected') {
+      console.error('❌ Europe PMC search failed:', europePmcSettled.reason);
+    }
+    if (semanticScholarSettled.status === 'rejected') {
+      console.error('❌ Semantic Scholar search failed:', semanticScholarSettled.reason);
+    }
+    if (pubmedSettled.status === 'rejected') {
+      console.error('❌ PubMed search failed:', pubmedSettled.reason);
     }
     if (imagesSettled.status === 'rejected') {
       console.error('❌ Wikimedia Commons image search failed:', imagesSettled.reason);
@@ -249,6 +276,11 @@ ${context}`;
     if (drugLabelsSettled.status === 'rejected') {
       console.error('❌ openFDA search failed:', drugLabelsSettled.reason);
     }
+
+    // A paper indexed in more than one source (common — Europe PMC and PubMed both cover
+    // MEDLINE) should only appear, and be cited, once. Dedup by DOI where available, falling
+    // back to a normalized title; re-numbered sequentially afterward for the citation list.
+    const literatureResults = this.mergeLiteratureResults(europePmcResults, semanticScholarResults, pubmedResults);
 
     // Attached-document chunks are numbered first, then literature results, then FDA drug
     // labels continue the sequence — one unified citation list regardless of where a source
@@ -307,7 +339,7 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
     // the live web unfiltered.
     const { text, groundingSources } = await geminiService.chatWithGrounding(messages, systemInstruction);
 
-    console.log(`✅ Generated live medical chat response (${text.length} chars) using ${literatureResults.length} literature sources, ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
+    console.log(`✅ Generated live medical chat response (${text.length} chars) using ${literatureResults.length} literature sources (${europePmcResults.length} EuropePMC + ${semanticScholarResults.length} Semantic Scholar + ${pubmedResults.length} PubMed, merged+deduped), ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
 
     return {
       text,
@@ -316,6 +348,29 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
       groundingSources,
       drugLabels: drugLabelResults,
     };
+  }
+
+  /**
+   * Merges literature results from multiple sources into one deduped, sequentially-numbered
+   * list — a paper indexed in more than one source (common: Europe PMC and PubMed both cover
+   * MEDLINE) should only appear once. Earlier sources in the argument list win on duplicates.
+   */
+  private mergeLiteratureResults(...sourceResultSets: EuropePmcResult[][]): EuropePmcResult[] {
+    const seenKeys = new Set<string>();
+    const merged: Omit<EuropePmcResult, 'index'>[] = [];
+
+    for (const results of sourceResultSets) {
+      for (const result of results) {
+        const key = result.doi
+          ? result.doi.replace(/^https?:\/\/doi\.org\//i, '').toLowerCase()
+          : result.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (!key || seenKeys.has(key)) continue;
+        seenKeys.add(key);
+        merged.push(result);
+      }
+    }
+
+    return merged.map((result, i) => ({ ...result, index: i + 1 }));
   }
 
   /**

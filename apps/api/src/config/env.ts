@@ -17,6 +17,8 @@ export const validateEnv = () => {
     'YOUTUBE_COOKIE',
     'GOOGLE_CUSTOM_SEARCH_API_KEY',
     'GOOGLE_SEARCH_ENGINE_ID',
+    'SEMANTIC_SCHOLAR_API_KEY',
+    'NCBI_API_KEY',
   ];
 
   const missing: string[] = [];

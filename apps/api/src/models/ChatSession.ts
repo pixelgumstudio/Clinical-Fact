@@ -41,6 +41,9 @@ export interface IChatSession extends Document {
     totalTokens?: number;
     modelUsed?: string;
   };
+  /** Set when the user pins/bookmarks this chat — pinned chats sort to the top of the list
+   *  (see chat.controller listChatSessions). Null/undefined means not pinned. */
+  pinnedAt?: Date | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -152,6 +155,10 @@ const ChatSessionSchema = new Schema<IChatSession>(
       totalTokens: Number,
       modelUsed: String,
     },
+    pinnedAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
@@ -163,5 +170,6 @@ ChatSessionSchema.index({ userId: 1, createdAt: -1 });
 ChatSessionSchema.index({ userId: 1, sourceType: 1 });
 ChatSessionSchema.index({ userId: 1, embeddingStatus: 1 });
 ChatSessionSchema.index({ userId: 1, folderId: 1 });
+ChatSessionSchema.index({ userId: 1, pinnedAt: -1 });
 
 export default mongoose.model<IChatSession>('ChatSession', ChatSessionSchema);

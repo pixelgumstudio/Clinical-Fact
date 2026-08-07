@@ -6,10 +6,11 @@ import File from '../models/File';
 import chatService from '../services/chat.service';
 import pdfService from '../services/pdf.service';
 import ocrService from '../services/ocr.service';
-import storageService from '../services/storage.service';
 import { createJob, updateJob } from '../services/job.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
+
+const MAX_PINNED_CHATS = 3;
 
 class ChatController {
   /**
@@ -637,29 +638,13 @@ class ChatController {
         });
       }
 
-      // Attachment URLs are resolved on read (not stored) since MinIO presigned URLs expire.
-      const sessionObj: any = chatSession.toObject();
-      const attachmentFileIds = sessionObj.messages
-        .filter((m: any) => m.attachmentFileId)
-        .map((m: any) => m.attachmentFileId);
-
-      if (attachmentFileIds.length > 0) {
-        const files = await File.find({ _id: { $in: attachmentFileIds } }).select('fileKey');
-        const fileKeyById = new Map(files.map((f) => [f._id.toString(), f.fileKey]));
-        await Promise.all(
-          sessionObj.messages.map(async (m: any) => {
-            const fileKey = m.attachmentFileId && fileKeyById.get(m.attachmentFileId.toString());
-            if (fileKey) {
-              m.attachmentUrl = await storageService.getFileUrl(fileKey, 3600);
-            }
-          })
-        );
-      }
-
+      // Messages carry their own `attachmentFileId` already (see sendMessage) — the client
+      // builds the actual image URL from it directly (GET /upload/:fileId/content), so there's
+      // nothing to resolve here.
       res.json({
         success: true,
         message: 'Chat session retrieved successfully',
-        data: sessionObj
+        data: chatSession
       });
     } catch (error: any) {
       console.error('❌ Error getting chat session:', error);
@@ -699,7 +684,8 @@ class ChatController {
 
       const [sessions, total] = await Promise.all([
         ChatSession.find(query)
-          .sort({ updatedAt: -1 })
+          // Pinned chats first (most recently pinned first), then the rest by activity.
+          .sort({ pinnedAt: -1, updatedAt: -1 })
           .skip(skip)
           .limit(limitNum)
           .populate('noteId', 'title')
@@ -760,6 +746,45 @@ class ChatController {
     } catch (error: any) {
       console.error('❌ Error updating chat session:', error);
       res.status(500).json({ success: false, message: error.message || 'Failed to update chat session' });
+    }
+  }
+
+  /**
+   * Pin/unpin (bookmark) a chat session. Pinned chats sort to the top of the list
+   * (see listChatSessions), capped at MAX_PINNED_CHATS at a time.
+   */
+  async togglePinChatSession(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+      const userId = req.user._id;
+      const { sessionId } = req.params;
+
+      const chatSession = await ChatSession.findOne({ _id: sessionId, userId });
+      if (!chatSession) {
+        return res.status(404).json({ success: false, message: 'Chat session not found' });
+      }
+
+      if (chatSession.pinnedAt) {
+        chatSession.pinnedAt = null;
+      } else {
+        const pinnedCount = await ChatSession.countDocuments({ userId, pinnedAt: { $ne: null } });
+        if (pinnedCount >= MAX_PINNED_CHATS) {
+          return res.status(400).json({
+            success: false,
+            message: `You can only pin up to ${MAX_PINNED_CHATS} chats. Unpin one first.`,
+          });
+        }
+        chatSession.pinnedAt = new Date();
+      }
+
+      await chatSession.save();
+
+      res.json({ success: true, message: 'Chat session updated successfully', data: chatSession });
+    } catch (error: any) {
+      console.error('❌ Error pinning chat session:', error);
+      res.status(500).json({ success: false, message: error.message || 'Failed to pin chat session' });
     }
   }
 

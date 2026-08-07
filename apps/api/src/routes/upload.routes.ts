@@ -40,6 +40,10 @@ router.get('/:fileId', authenticate, uploadController.getFile);
 // Get file download URL
 router.get('/:fileId/url', authenticate, uploadController.getFileUrl);
 
+// Stream the file's raw bytes through the API server (see streamFile for why, vs. the MinIO
+// presigned URL above)
+router.get('/:fileId/content', authenticate, uploadController.streamFile);
+
 // Delete file
 router.delete('/:fileId', authenticate, uploadController.deleteFile);
 

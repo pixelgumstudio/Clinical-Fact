@@ -137,6 +137,40 @@ class UploadController {
   }
 
   /**
+   * Stream a file's raw bytes through the API server itself, instead of a MinIO presigned URL.
+   * MinIO's own port isn't necessarily reachable from a client on the same LAN (firewall/Docker
+   * networking), whereas the API server's port already has to be reachable for the app to work
+   * at all — so proxying through it here is more robust than depending on MinIO's port too.
+   * Used for rendering attachment thumbnails (e.g. an image sent in a chat message).
+   */
+  async streamFile(req: AuthRequest, res: Response) {
+    try {
+      if (!req.user) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+      const { fileId } = req.params;
+      const userId = req.user._id;
+
+      const file = await File.findOne({ _id: fileId, userId });
+      if (!file) {
+        return res.status(404).json({ error: 'File not found' });
+      }
+
+      const stream = await storageService.getFileStream(file.fileKey);
+      res.setHeader('Content-Type', file.mimeType);
+      res.setHeader('Cache-Control', 'private, max-age=3600');
+      stream.on('error', (error) => {
+        console.error('❌ Error streaming file:', error);
+        if (!res.headersSent) res.status(500).json(errorResponse('Failed to stream file'));
+      });
+      stream.pipe(res);
+    } catch (error: any) {
+      console.error('❌ Error streaming file:', error);
+      res.status(500).json(errorResponse('Failed to stream file'));
+    }
+  }
+
+  /**
    * Delete file
    */
   async deleteFile(req: AuthRequest, res: Response) {
