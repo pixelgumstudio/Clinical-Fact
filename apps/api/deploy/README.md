@@ -13,10 +13,17 @@ or the root workspace files triggers `.github/workflows/deploy.yml`:
 MongoDB and file storage are **not** part of this stack — they're external managed
 services (Atlas, R2) configured entirely through `apps/api/.env` on the server.
 
+This server also hosts another project behind nginx, so this stack is fully
+namespaced to avoid colliding with it: compose project name `clinicalfact`,
+container names prefixed `clinicalfact-*`, its own Docker network/volumes, and
+the `api` container only binds to `127.0.0.1:5001` (not the `5000` the other
+project uses). nginx is what fronts both — see step 5.
+
 ## One-time server setup
 
 1. Provision a VPS (Ubuntu/Debian) and run `apps/api/deploy/setup-server.sh` on it
-   (installs Docker + cloudflared, clones the repo to `/opt/clinical-fact`).
+   (installs Docker, clones the repo to `/opt/clinical-fact`). nginx is assumed
+   to already be installed, since the other project on this box uses it.
 2. Create `MongoDB Atlas` cluster (free M0 tier is fine to start) → grab the
    connection string. Atlas clusters are replica sets out of the box, which the
    API's SSE job-status endpoint requires (a standalone `mongod` can't open a
@@ -48,26 +55,40 @@ services (Atlas, R2) configured entirely through `apps/api/.env` on the server.
    # ...plus any other keys the API reads (Gemini, OAuth, RevenueCat, etc.)
    ```
 
-5. Set up the Cloudflare Tunnel (no inbound ports opened on the VPS):
+5. Add an nginx server block for the API's subdomain, proxying to the
+   container's host port (`5001`). Drop this in
+   `/etc/nginx/sites-available/api.yourdomain.com` and symlink it into
+   `sites-enabled` (adjust to however the other project's config is
+   structured if it differs):
 
+   ```nginx
+   server {
+       listen 80;
+       server_name api.yourdomain.com;
+
+       location / {
+           proxy_pass http://127.0.0.1:5001;
+           proxy_http_version 1.1;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+
+           # job-status SSE endpoint needs a long-lived, unbuffered connection
+           proxy_buffering off;
+           proxy_read_timeout 3600s;
+       }
+   }
    ```
-   cloudflared tunnel login
-   cloudflared tunnel create clinical-fact-api
-   cloudflared tunnel route dns clinical-fact-api api.yourdomain.com
-   ```
 
-   `/etc/cloudflared/config.yml`:
+   Then `sudo nginx -t && sudo systemctl reload nginx`.
 
-   ```yaml
-   tunnel: clinical-fact-api
-   credentials-file: /root/.cloudflared/<tunnel-id>.json
-   ingress:
-     - hostname: api.yourdomain.com
-       service: http://localhost:5000
-     - service: http_status:404
-   ```
-
-   Then `cloudflared service install` to run it as a systemd service.
+   For TLS: if the other project already gets its certs via Certbot, run
+   `sudo certbot --nginx -d api.yourdomain.com` to add this host to the same
+   setup. If instead it relies on Cloudflare's proxy (orange-cloud DNS) for
+   TLS, just point `api.yourdomain.com`'s DNS record at the VPS IP with the
+   proxy toggle on, the same way the other project's record is set up — no
+   nginx TLS config needed in that case, Cloudflare terminates it at the edge.
 
 6. First manual deploy: `cd /opt/clinical-fact/apps/api && docker compose -f docker-compose.prod.yml up -d`.
 

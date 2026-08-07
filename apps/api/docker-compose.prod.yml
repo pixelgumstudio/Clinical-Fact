@@ -1,9 +1,19 @@
 version: "3.8"
 
-# Production stack for the VPS. MongoDB (Atlas) and file storage (Cloudflare
-# R2) are external managed services configured entirely through apps/api/.env
-# — nothing for them runs here. Redis and Qdrant stay self-hosted since
-# they're simple single-container services with no replica-set/cluster setup.
+# Production stack for the VPS. This server also hosts another project, so
+# everything here is explicitly namespaced (project name, container names,
+# network, volumes, host port) to avoid colliding with it.
+#
+# MongoDB (Atlas) and file storage (Cloudflare R2) are external managed
+# services configured entirely through apps/api/.env — nothing for them runs
+# here. Redis and Qdrant stay self-hosted since they're simple single-container
+# services with no replica-set/cluster setup.
+#
+# The other project already owns nginx on 80/443 and port 5000 — this stack
+# exposes the API on host port 5001 only, for nginx (or whatever's already
+# running) to reverse-proxy to. See apps/api/deploy/README.md.
+
+name: clinicalfact
 
 services:
   api:
@@ -16,7 +26,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - QDRANT_URL=http://qdrant:6333
     ports:
-      - "127.0.0.1:5000:5000"
+      - "127.0.0.1:5001:5000"
     depends_on:
       - redis
       - qdrant

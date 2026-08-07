@@ -14,14 +14,6 @@ if ! command -v docker >/dev/null 2>&1; then
   usermod -aG docker "${SUDO_USER:-$USER}" || true
 fi
 
-echo "==> Installing cloudflared"
-if ! command -v cloudflared >/dev/null 2>&1; then
-  ARCH=$(dpkg --print-architecture)
-  curl -fsSL "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-${ARCH}.deb" -o /tmp/cloudflared.deb
-  dpkg -i /tmp/cloudflared.deb
-  rm /tmp/cloudflared.deb
-fi
-
 echo "==> Cloning repo to ${DEPLOY_PATH}"
 if [ ! -d "${DEPLOY_PATH}/.git" ]; then
   git clone "${REPO_URL}" "${DEPLOY_PATH}"
@@ -33,12 +25,10 @@ echo ""
 echo "==> Bootstrap done. Remaining manual steps:"
 echo "  1. Create ${DEPLOY_PATH}/apps/api/.env with production values"
 echo "     (see apps/api/deploy/README.md for the checklist)."
-echo "  2. Log into Cloudflare and create the tunnel:"
-echo "       cloudflared tunnel login"
-echo "       cloudflared tunnel create clinical-fact-api"
-echo "       cloudflared tunnel route dns clinical-fact-api api.yourdomain.com"
-echo "     Then create /etc/cloudflared/config.yml routing to http://localhost:5000"
-echo "     and run: cloudflared service install"
+echo "  2. Add an nginx server block routing api.yourdomain.com to"
+echo "     127.0.0.1:5001 (see apps/api/deploy/README.md) and get a cert"
+echo "     for it (certbot, or Cloudflare-proxied DNS if that's already"
+echo "     how the other project on this box does TLS)."
 echo "  3. First deploy:"
 echo "       cd ${DEPLOY_PATH}/apps/api && docker compose -f docker-compose.prod.yml up -d"
 echo "  4. Add the GitHub Actions secrets listed in deploy/README.md so pushes"
