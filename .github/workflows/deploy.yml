@@ -62,7 +62,7 @@ jobs:
           script: |
             set -e
             cd "${{ secrets.DEPLOY_PATH }}"
-            docker compose -f docker-compose.prod.yml pull api
+            docker compose -f docker-compose.prod.yml pull clinicalfact-api
             docker compose -f docker-compose.prod.yml up -d
             docker image prune -f
 

@@ -13,11 +13,24 @@
 # api container joins that same external network too, reachable there as
 # "clinicalfact-api:5000". The 127.0.0.1:5001 host mapping below is just for
 # local debugging (curl from the VPS itself); nginx never uses it.
+#
+# IMPORTANT: the service key below (and every service key in this file) must
+# never be named "api" (or anything else notedrill's own docker-compose.yml
+# uses as a service name). Compose auto-registers a network alias equal to
+# the *service name* on every network a service joins, including external
+# ones — a service here named "api" collides with notedrill's own "api"
+# service on the shared network, and Docker's DNS round-robins between the
+# two containers for anyone resolving "api", silently misrouting requests
+# between the two live apps. Learned this the hard way — see git history.
+# The explicit `aliases:` below is a second layer of defense against this,
+# so this container is only ever reachable on the shared network by the one
+# name nginx actually references, regardless of how either project's service
+# names evolve.
 
 name: clinicalfact
 
 services:
-  api:
+  clinicalfact-api:
     image: ghcr.io/pixelgumstudio/clinical-fact-api:latest
     container_name: clinicalfact-api
     restart: unless-stopped
@@ -32,8 +45,10 @@ services:
       - redis
       - qdrant
     networks:
-      - clinicalfact-network
-      - notedrill_notedrill-network
+      clinicalfact-network: {}
+      notedrill_notedrill-network:
+        aliases:
+          - clinicalfact-api
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 30s
