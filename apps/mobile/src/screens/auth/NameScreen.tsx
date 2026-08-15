@@ -110,7 +110,7 @@ export const NameScreen = () => {
             />
           </View>
 
-          <Button variant="primary" fullWidth onPress={handleContinue} disabled={!isValid}>
+          <Button variant="dark" fullWidth onPress={handleContinue} disabled={!isValid}>
             {t('auth.buttons.continue')}
           </Button>
         </View>
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.spacing[4], // 16
-    paddingTop: theme.spacing[2], // 8
+    paddingTop: theme.spacing[8], // 8
   },
   backButton: {
     width: 32,
@@ -144,10 +144,10 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: theme.spacing[4], // 16
-    gap: theme.spacing[10], // 40, confirmed gap before Continue
+    gap: theme.spacing[6], // 40, confirmed gap before Continue
   },
   titleSection: {
-    paddingVertical: theme.spacing[6], // 24
+    paddingTop: theme.spacing[8], // 32
   },
   title: {
     ...theme.typography.textStyles.h5,
@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
   },
   inputRow: {
     flexDirection: 'row',
+    paddingBottom: theme.spacing[4], // 16
     gap: theme.spacing[4], // 16, confirmed
   },
   inputHalf: {

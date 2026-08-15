@@ -17,7 +17,7 @@ import {
 } from '../screens/create';
 import { QuizScreen, QuizResultsScreen, QuizReviewScreen, QuizGroupDetailScreen } from '../screens/quiz';
 import { ChatFileSelectScreen, ChatConversationScreen } from '../screens/chat';
-import { FolderScreen, QuizHistoryScreen, FlashcardHistoryScreen, LibraryScreen } from '../screens/main';
+import { FolderScreen, QuizHistoryScreen, FlashcardHistoryScreen, LibraryScreen, ChatsScreen } from '../screens/main';
 
 interface QuizOption {
   id: string;
@@ -33,6 +33,7 @@ interface QuizQuestion {
 
 export type MainStackParamList = {
   MainTabs: undefined;
+  ChatList: undefined;
   Folder: undefined;
   NoteDetail: { noteId: string; title: string };
   NoteTranscript: { noteId: string; title: string };
@@ -155,6 +156,7 @@ export const MainStackNavigator = () => {
       }} 
     >
       <Stack.Screen name="MainTabs" component={MainTabNavigator} />
+      <Stack.Screen name="ChatList" component={ChatsScreen} />
       <Stack.Screen name="Folder" component={FolderScreen} />
       <Stack.Screen name="NoteDetail" component={NoteDetailScreen} />
       <Stack.Screen name="NoteTranscript" component={NoteTranscriptScreen} />

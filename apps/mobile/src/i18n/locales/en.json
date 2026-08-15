@@ -90,8 +90,8 @@
     "enterVerificationCode": "Please enter the complete verification code",
     "buttons": {
       "continue": "Continue",
-      "continueWithEmail": "Continue with Email",
-      "continueWithGoogle": "Continue with Google",
+      "continueWithEmail": "Continue with Google",
+      "continueWithGoogle": "Continue with Apple",
       "skip": "Skip",
       "verify": "Verified!",
       "next": "Next",
@@ -157,8 +157,18 @@
       "signUpWithEmail": "Sign up with Email Address"
     },
     "intro": {
-      "headline": "Ask anything Medical. Get the clinical fact",
-      "description": "Ask any Medical question and get an answer backed by real, cited sources from PubMed, clinical guidelines, and trusted medical literature"
+      "slide1": {
+        "headline": "Ask anything Medical. Get the clinical fact",
+        "description": "Ask any Medical question and get an answer backed by real, cited sources from PubMed, clinical guidelines, and trusted medical literature"
+      },
+      "slide2": {
+        "headline": "Every Answer, Backed by a Source",
+        "description": "No guessing, no invented facts, every ClinicFact answer links back to real, checkable medical research."
+      },
+      "slide3": {
+        "headline": "Study Smarter, Pass Your Medical Exams",
+        "description": "Turn any question or upload into a quiz or flashcard set in seconds,  practice built straight from what you're learning."
+      }
     },
     "otp": {
       "title": "Confirm your Email address",
@@ -188,7 +198,7 @@
     },
     "onboarding": {
       "username": "Let's get your username",
-      "usernameSubtitle": "It helps make your account\\nmore personal",
+      "usernameSubtitle": "It helps make your account more personal",
       "goals": "What do you use Clinical Fact\\nto help you with",
       "goalsSubtitle": "Select all that apply. We'll tailor the experience for you.",
       "contentType": "Which type of content do\\nyou mostly use",
@@ -212,8 +222,8 @@
       "title": "Setting up your personalised\\nworkspace, {{firstName}}..."
     },
     "thanks": {
-      "title": "Thanks for trusting Clinical Fact",
-      "subtitle": "You're joining 5000+ medical personnel who turned their messy notes into clarity and confidence.",
+      "title": "Thanks for trusting ClinicFact",
+      "subtitle": "You're joining thousands of nursing and medical students",
       "stars": "⭐⭐⭐⭐⭐"
     },
     "demoVideo": {
@@ -221,49 +231,21 @@
       "subtitle": "Record it. Research it. Quiz it. Master it."
     },
     "features": {
-      "transcribe": {
-        "title": "Get medical research on any topics",
-        "description": "Every Clinical Fact answer comes with a real, checkable source.",
-        "badge": "NEW",
-        "demoLabel": "From a 50-min audio",
-        "noteTitle": "📌 Meeting with the Zoe corps",
-        "noteBody": "A motion has been made and seconded to amend the motion to increase the state match local litigation taxes to the maximum amounts to require 25 percent of the proceeds from",
-        "actionPointsLabel": "🎯 Action points",
-        "actionItem1": "Follow up with Zaltar Corp",
-        "actionItem2": "Send intro email to the Volkov",
-        "actionItem3": "Schedule a meeting with Ito"
+      "feature1": {
+        "title": "Get Real medical answers and Follow-up questions",
+        "description": "Ask any medical question and get a clear explanation plus smart follow-up questions, so you never hit a dead end mid-study."
       },
-      "chat": {
-        "title": "Get medical backed summaries",
-        "description": "Ask any document questions and get instant AI-powered answers.",
-        "featureChatLabel": "Notechat",
-        "docTitle": "Solar energy",
-        "questionText": "What challenges affect CRM implementation?",
-        "answerBold1": "Data Silos: ",
-        "answerRegular1": "Information scattered across different systems hinders a unified view.",
-        "answerBold2": "Scalability: ",
-        "answerRegular2": "Choosing a CRM that doesn't grow with your business limits long-term potential.",
-        "answerBold3": "Lack of Customization: ",
-        "answerRegular3": "Inability to tailor the CRM to specific business needs reduces its effectiveness.",
-        "suggestionText": "What problems businesses face with CRMs?"
+      "feature2": {
+        "title": "Every Medical answer,\nbacked by a real source",
+        "description": "Citations pulled from PubMed, Semantic Scholar, and Europe PMC checkable, not invented."
       },
-      "flashcards": {
-        "title": "Learn concepts better. Flashcards!",
-        "description": "Automatically generate quizzes and flashcards from your notes. Track your progress and master any subject."
+      "feature3": {
+        "title": "Upload your notes, Get Medical summaries on your materials",
+        "description": "Turn any lecture slide, PDF, or note into a clear explanation backed by trusted medical sources."
       },
-      "quiz": {
-        "title": "Turn your chat into\\nQuiz & Flashcards",
-        "description": "Turn notes into quizzes and flashcards.\\nLearn faster and retain more.",
-        "questionCounter": "Question 1 of 5",
-        "questionText": "Which artery is most commonly injured\\nin an epidural hematoma?",
-        "answer1": "Anterior cerebral artery",
-        "answer2": "Middle meningeal artery",
-        "answer3": "Internal carotid artery",
-        "answer4": "Basilar artery",
-        "scoredLabel": "YOU SCORED",
-        "scoredValue": "3/15",
-        "timeLabel": "TIME (IN SECONDS)",
-        "timeValue": "03:12"
+      "feature4": {
+        "title": "Turn any chat into a Quiz or flashcards for practice",
+        "description": "No separate app for studying, generate practice questions straight from your chats and uploads."
       }
     }
   },

@@ -6,6 +6,7 @@ import {
   Alert,
   Platform,
   Image,
+  Keyboard,
   KeyboardAvoidingView,
   TextInput,
 } from 'react-native';
@@ -58,7 +59,21 @@ export const WelcomeScreen = () => {
   } = useSignupStore();
   const { setAuthState, sendOtp } = useAuthStore();
   const [localEmail, setLocalEmail] = useState('');
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const emailInputRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    const showEvent = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
+    const hideEvent = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
+
+    const showSub = Keyboard.addListener(showEvent, () => setKeyboardVisible(true));
+    const hideSub = Keyboard.addListener(hideEvent, () => setKeyboardVisible(false));
+
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
 
   const validateEmail = (value: string) => {
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -289,8 +304,11 @@ export const WelcomeScreen = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 24}
       >
-        <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-          <View style={styles.card}>
+        <SafeAreaView
+          style={styles.safeArea}
+          edges={isKeyboardVisible ? ['top'] : ['top', 'bottom']}
+        >
+          <View style={[styles.card, isKeyboardVisible && styles.cardKeyboardOpen]}>
             <View style={styles.grabber} />
 
             <Text style={styles.cardTitle}>{t('auth.welcomeScreen.createAccountTitle')}</Text>
@@ -355,10 +373,12 @@ export const WelcomeScreen = () => {
             </View>
 
             <Text style={styles.termsText}>
-              {t('auth.labels.byAgree')}{' '}
+              {t('auth.labels.byAgree')}{' '} 
+              <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 4 }}>
               <Text style={styles.termsLink}>{t('auth.labels.termsAndConditions')}</Text>
-              {' '}{t('auth.labels.and')}{' '}
+              <Text >{t('auth.labels.and')}</Text>
               <Text style={styles.termsLink}>{t('auth.labels.privacyPolicy')}</Text>
+            </View>
             </Text>
           </View>
         </SafeAreaView>
@@ -396,6 +416,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.linen[300],
     borderRadius: theme.spacing[8], // 32
     gap: theme.spacing[6], // 24
+  },
+  cardKeyboardOpen: {
+    marginHorizontal: 0,
+    marginBottom: 0,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
   grabber: {
     alignSelf: 'center',

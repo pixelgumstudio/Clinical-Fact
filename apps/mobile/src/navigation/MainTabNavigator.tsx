@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon, theme } from '@clinicalfact/design-system';
-import { ChatsScreen, ProfileScreen } from '../screens/main';
+import { ProfileScreen } from '../screens/main';
+import { ChatConversationScreen } from '../screens/chat';
 import { QuizHistoryScreen } from '../screens/main/QuizHistoryScreen';
 import { FlashcardHistoryScreen } from '../screens/main/FlashcardHistoryScreen';
 import { OnboardingOverlay } from '../components/OnboardingOverlay';
@@ -49,7 +50,7 @@ export const MainTabNavigator = () => {
       >
         <Tab.Screen
           name="Home"
-          component={ChatsScreen}
+          component={ChatConversationScreen}
           options={{
             tabBarIcon: ({ color }) => <Icon name="chatFill" size={24} color={color} />,
           }}

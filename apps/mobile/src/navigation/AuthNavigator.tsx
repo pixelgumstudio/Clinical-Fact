@@ -16,16 +16,17 @@ import { AiToolsUsedScreen } from '../screens/auth/AiToolsUsedScreen';
 import { AiToolIssueScreen } from '../screens/auth/AiToolIssueScreen';
 import { AiTrustLevelScreen } from '../screens/auth/AiTrustLevelScreen';
 import { BiggestNeedScreen } from '../screens/auth/BiggestNeedScreen';
-import { FeatureShowcaseScreen } from '../screens/auth/FeatureShowcaseScreen';
-import { FeatureTranscribeScreen } from '../screens/auth/FeatureTranscribeScreen';
-import { FeatureChatScreen } from '../screens/auth/FeatureChatScreen';
-import { FeatureQuizScreen } from '../screens/auth/FeatureQuizScreen';
+import { Feature1Screen } from '../screens/auth/Feature1Screen';
+import { Feature2Screen } from '../screens/auth/Feature2Screen';
+import { Feature3Screen } from '../screens/auth/Feature3Screen';
+import { Feature4Screen } from '../screens/auth/Feature4Screen';
 import { ThanksScreen } from '../screens/auth/ThanksScreen';
 import { StudyTimeScreen } from '../screens/auth/StudyTimeScreen';
 import { ComingUpScreen } from '../screens/auth/ComingUpScreen';
 import { ReferralScreen } from '../screens/auth/ReferralScreen';
 import { ReferralCodeScreen } from '../screens/auth/ReferralCodeScreen';
 import { SetupScreen } from '../screens/auth/SetupScreen';
+import { PaywallScreen } from '../screens/auth/PaywallScreen';
 import { DemoVideoScreen } from '../screens/auth/DemoVideoScreen';
 
 export type AuthStackParamList = {
@@ -52,24 +53,24 @@ export type AuthStackParamList = {
   BiggestNeed: undefined;
 
   // Shared Flow (both Email and Google)
-  FeatureShowcase: undefined;
-  FeatureTranscribe: undefined;
-  FeatureChat: undefined;
-  FeatureQuiz: undefined;
+  Feature1: undefined;
+  Feature2: undefined;
+  Feature3: undefined;
+  Feature4: undefined;
 
   // Extended Flow (Google auth includes these additional screens)
   Thanks: undefined;
 
-  // Post-Thanks mini survey (confirmed 2026-07-29) — sits between Thanks and Referral.
+  // Post-Thanks mini survey — Referral (who referred you) → StudyTime →
+  // ComingUp → ReferralCode (enter code), immediately before Setup.
+  Referral: undefined;
   StudyTime: undefined;
   ComingUp: undefined;
-
-  // Referral sits immediately before Setup (confirmed 2026-07-29).
-  Referral: undefined;
   ReferralCode: undefined;
 
   // Final Screens
   Setup: undefined;
+  Paywall: undefined;
   DemoVideo: undefined;
 };
 
@@ -109,25 +110,31 @@ export const AuthNavigator = ({ initialRouteName = 'Intro' }: AuthNavigatorProps
       <Stack.Screen name="AiTrustLevel" component={AiTrustLevelScreen} />
       <Stack.Screen name="BiggestNeed" component={BiggestNeedScreen} />
 
-      {/* Feature Showcase Screen (swipeable pager) */}
-      <Stack.Screen name="FeatureShowcase" component={FeatureShowcaseScreen} />
-
       {/* Feature Detail Screens */}
-      <Stack.Screen name="FeatureTranscribe" component={FeatureTranscribeScreen} />
-      <Stack.Screen name="FeatureChat" component={FeatureChatScreen} />
-      <Stack.Screen name="FeatureQuiz" component={FeatureQuizScreen} />
+      <Stack.Screen name="Feature1" component={Feature1Screen} />
+      <Stack.Screen name="Feature2" component={Feature2Screen} />
+      <Stack.Screen name="Feature3" component={Feature3Screen} />
+      <Stack.Screen name="Feature4" component={Feature4Screen} />
 
       {/* Extended Personalization Screens (primarily for Google flow) */}
       <Stack.Screen name="Thanks" component={ThanksScreen} />
+      <Stack.Screen name="Referral" component={ReferralScreen} />
       <Stack.Screen name="StudyTime" component={StudyTimeScreen} />
       <Stack.Screen name="ComingUp" component={ComingUpScreen} />
-      <Stack.Screen name="Referral" component={ReferralScreen} />
       <Stack.Screen name="ReferralCode" component={ReferralCodeScreen} />
 
       {/* Final Screens */}
       <Stack.Screen
         name="Setup"
         component={SetupScreen}
+        options={{
+          gestureEnabled: false,
+          animation: 'fade',
+        }}
+      />
+      <Stack.Screen
+        name="Paywall"
+        component={PaywallScreen}
         options={{
           gestureEnabled: false,
           animation: 'fade',

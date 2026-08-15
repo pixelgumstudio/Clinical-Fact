@@ -595,7 +595,7 @@ const styles = StyleSheet.create({
     height: 56,
   },
   avatarText: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "500",
     color: "#FFFFFF",
   },
@@ -683,7 +683,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing[2],
   },
   menuValue: {
-    ...theme.typography.textStyles.p2,
+    ...theme.typography.textStyles.p1,
     color: theme.colors.grey[600],
   },
   deleteModalOverlay: {

@@ -354,11 +354,13 @@ export const QuizScreen = () => {
                 onPress={() => handleSelectOption(option.id)}
                 activeOpacity={0.7}
               >
-                <Icon
-                  name={isSelected ? 'sucessful' : 'unsucessful'}
-                  size={24}
-                  color={isSelected ? theme.colors.yale[700] : theme.colors.grey[200]}
-                />
+                {isSelected ? (
+                  <View style={styles.radioSelected}>
+                    <Icon name="sucessful" size={14} color="#FFFFFF" />
+                  </View>
+                ) : (
+                  <Icon name="unsucessful" size={24} color={theme.colors.grey[200]} />
+                )}
                 <Text
                   style={[
                     styles.optionText,
@@ -586,6 +588,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderWidth: 1.5,
     borderColor: theme.colors.yale[700],
+  },
+  radioSelected: {
+    width: 24,
+    height: 24,
+    borderRadius: theme.borderRadius.full,
+    backgroundColor: theme.colors.yale[700],
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   optionText: {
     flex: 1,

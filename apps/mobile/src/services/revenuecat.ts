@@ -6,7 +6,7 @@ const RC_API_KEY_IOS     = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS     ??
 const RC_API_KEY_ANDROID = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID ?? '';
 
 const ENTITLEMENT_ID = 'Clinical Fact Pro';
-const INAPP_OFFERING = 'inapp offering';
+const INAPP_OFFERING = 'Onboarding'; 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

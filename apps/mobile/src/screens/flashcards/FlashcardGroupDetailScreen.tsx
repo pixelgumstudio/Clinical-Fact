@@ -372,10 +372,10 @@ export const FlashcardGroupDetailScreen = () => {
             <Text style={[styles.tabText, activeTab === 'sets' && styles.tabTextActive]}>Flashcard history</Text>
             {activeTab === 'sets' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
-          {/* <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('quizzes')} activeOpacity={0.7}>
+          <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('quizzes')} activeOpacity={0.7}>
             <Text style={[styles.tabText, activeTab === 'quizzes' && styles.tabTextActive]}>Quiz history</Text>
             {activeTab === 'quizzes' && <View style={styles.tabUnderline} />}
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         </View>
         <View style={styles.tabsDivider} />
 

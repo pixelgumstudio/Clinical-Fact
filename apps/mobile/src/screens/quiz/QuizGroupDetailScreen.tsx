@@ -410,10 +410,10 @@ export const QuizGroupDetailScreen = () => {
             <Text style={[styles.tabText, activeTab === 'history' && styles.tabTextActive]}>Quiz history</Text>
             {activeTab === 'history' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
-          {/* <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('flashcards')} activeOpacity={0.7}>
+          <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('flashcards')} activeOpacity={0.7}>
             <Text style={[styles.tabText, activeTab === 'flashcards' && styles.tabTextActive]}>Flashcard history</Text>
             {activeTab === 'flashcards' && <View style={styles.tabUnderline} />}
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         </View>
         <View style={styles.tabsDivider} />
 

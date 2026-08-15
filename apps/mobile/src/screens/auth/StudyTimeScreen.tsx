@@ -8,7 +8,7 @@ import { useSignupStore, STUDY_TIME_OPTIONS } from '../../store/signupStore';
 
 type StudyTimeScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'StudyTime'>;
 
-/** Screen 1 of 2 — post-Thanks mini survey (confirmed 2026-07-29), sits between Thanks and Referral. */
+/** Screen 2 of 3 — post-Thanks mini survey, sits between Referral and ComingUp. */
 export const StudyTimeScreen = () => {
   const { t } = useTranslation();
   const navigation = useNavigation<StudyTimeScreenNavigationProp>();
@@ -21,8 +21,8 @@ export const StudyTimeScreen = () => {
       selectedId={data.studyTimePerWeek || null}
       onSelect={setStudyTimePerWeek}
       onContinue={() => navigation.navigate('ComingUp')}
-      step={1}
-      totalSteps={2}
+      step={2}
+      totalSteps={3}
     />
   );
 };

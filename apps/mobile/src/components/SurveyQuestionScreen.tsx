@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.spacing[4], // 16
-    paddingTop: theme.spacing[2], // 8
+    paddingVertical: theme.spacing[4], // 32
   },
   backButton: {
     width: 32,

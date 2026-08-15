@@ -131,7 +131,7 @@ export const ReferralCodeScreen = () => {
         ) : (
           <View style={styles.backButton} />
         )}
-        <View style={styles.progressTrack}>
+        {/* <View style={styles.progressTrack}>
           <LinearGradient
             colors={CHECKBOX_GRADIENT}
             start={{ x: 0, y: 0 }}
@@ -141,7 +141,7 @@ export const ReferralCodeScreen = () => {
               { width: `${(CURRENT_STEP / TOTAL_STEPS) * 100}%` },
             ]}
           />
-        </View>
+        </View> */}
         <View style={styles.backButton} />
       </View>
 

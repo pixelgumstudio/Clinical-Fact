@@ -8,7 +8,7 @@ import { useSignupStore, COMING_UP_OPTIONS } from '../../store/signupStore';
 
 type ComingUpScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'ComingUp'>;
 
-/** Screen 2 of 2 — post-Thanks mini survey (confirmed 2026-07-29), sits between Thanks and Referral. */
+/** Screen 3 of 3 — post-Thanks mini survey, sits between StudyTime and ReferralCode. */
 export const ComingUpScreen = () => {
   const { t } = useTranslation();
   const navigation = useNavigation<ComingUpScreenNavigationProp>();
@@ -20,9 +20,9 @@ export const ComingUpScreen = () => {
       options={COMING_UP_OPTIONS}
       selectedId={data.comingUp || null}
       onSelect={setComingUp}
-      onContinue={() => navigation.navigate('Referral')}
-      step={2}
-      totalSteps={2}
+      onContinue={() => navigation.navigate('ReferralCode')}
+      step={3}
+      totalSteps={3}
     />
   );
 };

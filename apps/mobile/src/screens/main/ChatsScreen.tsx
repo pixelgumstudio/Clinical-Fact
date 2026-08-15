@@ -14,6 +14,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import {
   ChevronDownIcon,
+  ChevronLeftIcon,
   Icon,
   theme,
 } from '@clinicalfact/design-system';
@@ -159,6 +160,9 @@ export const ChatsScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton} activeOpacity={0.7}>
+            <ChevronLeftIcon size={24} color={theme.colors.grey[900]} />
+          </TouchableOpacity>
           <Icon name="logo" size={32} />
           <Text style={styles.logoText}>Clinicalfact</Text>
           <View style={[styles.statusBadge, hasAccess ? styles.proBadge : styles.freeBadge]}>
@@ -261,6 +265,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.spacing[2], // 8
+  },
+  backButton: {
+    marginRight: theme.spacing[1], // 4
   },
   logoText: {
     ...theme.typography.textStyles.title1,

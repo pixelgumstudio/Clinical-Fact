@@ -184,7 +184,7 @@ export const OTPVerificationScreen = () => {
           </View>
 
           <Button
-            variant="primary"
+            variant="dark"
             fullWidth
             onPress={() => handleVerify()}
             loading={isVerifyingOtp}
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.spacing[4], // 16
-    paddingTop: theme.spacing[2], // 8
+    paddingTop: theme.spacing[12], // 8
   },
   backButton: {
     width: 32,
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   },
   resendSection: {
     alignItems: 'center',
-    paddingVertical: theme.spacing[2], // 8
+    paddingVertical: theme.spacing[4], // 8
   },
   resendText: {
     ...theme.typography.textStyles.p1,

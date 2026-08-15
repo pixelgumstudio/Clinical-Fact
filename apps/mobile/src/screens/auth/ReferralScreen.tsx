@@ -19,9 +19,9 @@ export const ReferralScreen = () => {
       options={REFERRAL_OPTIONS}
       selectedId={data.referralSource || null}
       onSelect={setReferralSource}
-      onContinue={() => navigation.navigate('ReferralCode')}
+      onContinue={() => navigation.navigate('StudyTime')}
       step={1}
-      totalSteps={1}
+      totalSteps={3}
     />
   );
 };

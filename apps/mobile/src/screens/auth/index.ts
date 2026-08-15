@@ -12,7 +12,6 @@ export { AiToolsUsedScreen } from './AiToolsUsedScreen';
 export { AiToolIssueScreen } from './AiToolIssueScreen';
 export { AiTrustLevelScreen } from './AiTrustLevelScreen';
 export { BiggestNeedScreen } from './BiggestNeedScreen';
-export { FeatureShowcaseScreen } from './FeatureShowcaseScreen';
 export { ThanksScreen } from './ThanksScreen';
 export { ReferralScreen } from './ReferralScreen';
 export { SetupScreen } from './SetupScreen';

@@ -11,10 +11,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Icon, theme } from '@clinicalfact/design-system';
+import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
 import { api } from '../../services/api';
+
+type SetupScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Setup'>;
 
 const SETUP_ITEMS: { label: string; icon: 'ai' | 'translate' | 'link'; color: string }[] = [
   { label: 'Setting up Medical research or research', icon: 'ai', color: theme.colors.yale[700] },
@@ -33,8 +38,9 @@ const GRADIENT_COLORS: readonly [string, string, ...string[]] = [
 ];
 
 export const SetupScreen = () => {
-  const { data, resetSignup } = useSignupStore();
-  const { setOnboardingComplete } = useAuthStore();
+  const navigation = useNavigation<SetupScreenNavigationProp>();
+  const { data } = useSignupStore();
+  const { persistOnboardingFlag } = useAuthStore();
 
   const [completedItems, setCompletedItems] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -101,10 +107,12 @@ export const SetupScreen = () => {
 
   const handleContinue = () => {
     // DemoVideo is hidden from the flow for now (kept in the codebase to
-    // return to later), so Setup itself now completes onboarding directly
-    // instead of handing off to it.
-    setOnboardingComplete();
-    resetSignup();
+    // return to later). Setup hands off to Paywall next, which completes
+    // onboarding itself once the paywall closes. Only the crash-protection
+    // flag is written here, so a hard-kill before Paywall finishes doesn't
+    // replay the whole signup flow but also doesn't skip the paywall.
+    persistOnboardingFlag();
+    navigation.navigate('Paywall');
   };
 
   const fillWidth = trackWidth > 0
@@ -186,7 +194,7 @@ export const SetupScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.colors.linen[300],
   },
   badgeSection: {
     alignItems: 'center',

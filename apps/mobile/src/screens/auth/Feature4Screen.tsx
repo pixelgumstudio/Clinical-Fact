@@ -5,21 +5,21 @@ import { useTranslation } from 'react-i18next';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { FeatureScreenLayout } from '../../components/FeatureScreenLayout';
 
-type Feature1NavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Feature1'>;
+type Feature4NavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Feature4'>;
 
-export const Feature1Screen = () => {
+export const Feature4Screen = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation<Feature1NavigationProp>();
+  const navigation = useNavigation<Feature4NavigationProp>();
 
   return (
     <FeatureScreenLayout
-      image={require('../../../assets/FeatureShowcase1.png')}
-      title={t('auth.features.feature1.title')}
-      subtitle={t('auth.features.feature1.description')}
+      image={require('../../../assets/FeatureShowcase4.png')}
+      title={t('auth.features.feature4.title')}
+      subtitle={t('auth.features.feature4.description')}
       continueLabel={t('auth.buttons.continue')}
-      onContinue={() => navigation.navigate('Feature2')}
+      onContinue={() => navigation.navigate('Thanks')}
     />
   );
 };
 
-export default Feature1Screen;
+export default Feature4Screen;

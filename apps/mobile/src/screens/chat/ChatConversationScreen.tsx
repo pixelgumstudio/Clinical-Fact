@@ -44,7 +44,8 @@ import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
-import { ChatSidebar, ChatSessionSummary } from '../../components/ChatSidebar';
+// Sidebar disabled — logo now navigates to the chat list instead of opening it.
+// import { ChatSidebar, ChatSessionSummary } from '../../components/ChatSidebar';
 import { CustomAlertModal } from '../../components/CustomAlertModal';
 import { Toast } from '../../components/Toast';
 import { MedicalFilterModal } from '../../components/MedicalFilterModal';
@@ -529,40 +530,41 @@ export const ChatConversationScreen = () => {
     }
   };
 
-  const handleSelectSession = (session: ChatSessionSummary) => {
-    setIsSidebarVisible(false);
-    navigation.navigate('ChatConversation', {
-      chatId: session._id,
-      title: session.title,
-      type: session.sourceType,
-      noteId: session.noteId,
-    });
-  };
+  // Sidebar disabled — these handlers only fed ChatSidebar's callbacks.
+  // const handleSelectSession = (session: ChatSessionSummary) => {
+  //   setIsSidebarVisible(false);
+  //   navigation.navigate('ChatConversation', {
+  //     chatId: session._id,
+  //     title: session.title,
+  //     type: session.sourceType,
+  //     noteId: session.noteId,
+  //   });
+  // };
 
-  const handleStartNewFromSidebar = (fileType: 'note' | 'image' | 'document') => {
-    setIsSidebarVisible(false);
-    navigation.navigate('ChatFileSelect', { type: fileType });
-  };
+  // const handleStartNewFromSidebar = (fileType: 'note' | 'image' | 'document') => {
+  //   setIsSidebarVisible(false);
+  //   navigation.navigate('ChatFileSelect', { type: fileType });
+  // };
 
-  const handleStartMedicalFromSidebar = async () => {
-    setIsSidebarVisible(false);
-    try {
-      const response = await api.createMedicalChatSession();
-      if (response.success && response.data) {
-        navigation.navigate('ChatConversation', {
-          chatId: response.data._id,
-          title: response.data.title,
-          type: 'medical_qa',
-        });
-      } else if (response.quotaExceeded) {
-        await showInAppPaywall();
-      } else {
-        showAlert('Error', response.message || 'Failed to start a new question. Please try again.');
-      }
-    } catch (error: any) {
-      showAlert('Error', error.message || 'Failed to start a new question. Please try again.');
-    }
-  };
+  // const handleStartMedicalFromSidebar = async () => {
+  //   setIsSidebarVisible(false);
+  //   try {
+  //     const response = await api.createMedicalChatSession();
+  //     if (response.success && response.data) {
+  //       navigation.navigate('ChatConversation', {
+  //         chatId: response.data._id,
+  //         title: response.data.title,
+  //         type: 'medical_qa',
+  //       });
+  //     } else if (response.quotaExceeded) {
+  //       await showInAppPaywall();
+  //     } else {
+  //       showAlert('Error', response.message || 'Failed to start a new question. Please try again.');
+  //     }
+  //   } catch (error: any) {
+  //     showAlert('Error', error.message || 'Failed to start a new question. Please try again.');
+  //   }
+  // };
 
   /** Picks + uploads an image in the background and shows it as a removable thumbnail above
    *  the composer — the actual attach-to-session/create-session call happens on Send (see
@@ -1265,15 +1267,15 @@ export const ChatConversationScreen = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* Header — full redesign: avatar (opens sidebar) + Upgrade on the left,
+      {/* Header — full redesign: avatar (opens chat list) + Upgrade on the left,
           bookmark + options ("•••") on the right. Chat title moves to its own row below,
-          still tappable to rename. No back chevron: this screen is the "Chat" tab's root,
-          which has no back semantics (same as Home/Library/Profile); when reached via a
+          still tappable to rename. No back chevron: this screen is the "Home" tab's root,
+          which has no back semantics (same as Library/Profile); when reached via a
           push from elsewhere, the OS back gesture/button still works regardless. */}
       <View style={styles.header}>
         <View style={styles.headerTopRow}>
           <View style={styles.headerLeftGroup}>
-            <TouchableOpacity onPress={() => setIsSidebarVisible(true)} activeOpacity={0.7}>
+            <TouchableOpacity onPress={() => navigation.navigate('ChatList')} activeOpacity={0.7}>
               <Icon name="logo" size={40} />
             </TouchableOpacity>
             <Text style={styles.headerWordmark}>Clinicalfact</Text>
@@ -1395,20 +1397,27 @@ export const ChatConversationScreen = () => {
           ListFooterComponent={isSendingMessage ? <TypingIndicator /> : null}
         />
 
-        {/* Suggested questions — only once a session/attachment exists; the bare
-            welcome state has its own topic cards in ChatWelcomeHero instead. */}
-        {messages.length === 0 && sessionId && embeddingStatus === 'completed' && (
+        {/* Suggested questions — shown once a session/attachment exists with no messages yet
+            (the bare welcome state has its own topic cards in ChatWelcomeHero instead), and
+            again after every AI reply as follow-up prompts; hidden while the next reply is
+            still streaming in and as soon as the user sends a new message. */}
+        {sessionId && embeddingStatus === 'completed' && !isSendingMessage &&
+          (messages.length === 0 || messages[messages.length - 1]?.role === 'assistant') && (
           <View style={styles.suggestedSection}>
-            <Text style={styles.suggestedTitle}>💬 Try asking:</Text>
+            <Text style={styles.suggestedTitle}>Follow up questions</Text>
             <View style={styles.suggestedContainer}>
               {suggestedQuestions.map((question, index) => (
                 <TouchableOpacity
                   key={index}
-                  style={styles.suggestedButton}
+                  style={[
+                    styles.suggestedRow,
+                    index < suggestedQuestions.length - 1 && styles.suggestedRowDivider,
+                  ]}
                   onPress={() => handleSuggestedQuestion(question)}
                   activeOpacity={0.7}
                 >
                   <Text style={styles.suggestedText}>{question}</Text>
+                  <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
               ))}
             </View>
@@ -1770,6 +1779,7 @@ export const ChatConversationScreen = () => {
         </TouchableOpacity>
       </Modal>
 
+      {/* Sidebar disabled — logo in the header now navigates to the chat list instead.
       <ChatSidebar
         visible={isSidebarVisible}
         onClose={() => setIsSidebarVisible(false)}
@@ -1785,6 +1795,7 @@ export const ChatConversationScreen = () => {
           }
         }}
       />
+      */}
 
       {/* Full-screen image preview */}
       <Modal
@@ -2352,7 +2363,10 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing[2], // 8
   },
   citationPillText: {
-    ...theme.typography.textStyles.label2,
+    fontFamily: theme.typography.fontFamily.interRegular,
+    fontWeight: '400',
+    fontSize: 10,
+    lineHeight: 12,
     color: theme.colors.grey[900],
   },
   sourceLinkArrow: {
@@ -2431,33 +2445,36 @@ const styles = StyleSheet.create({
     paddingBottom: spacing[3],
   },
   suggestedTitle: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
-    marginBottom: spacing[2],
+    fontFamily: theme.typography.fontFamily.lora,
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+    color: theme.colors.grey[900],
+    marginBottom: theme.spacing[4], // 16
   },
   suggestedContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing[2],
+    backgroundColor: theme.colors.white,
+    borderRadius: theme.borderRadius.lg, // 16
+    borderWidth: 1,
+    borderColor: theme.colors.grey[100],
+    overflow: 'hidden',
   },
-  suggestedButton: {
-    backgroundColor: colors.background.primary,
-    borderRadius: 20,
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[3],
-    borderWidth: 1.5,
-    borderColor: colors.border.main,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 2,
-    elevation: 1,
+  suggestedRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.spacing[3], // 12
+    paddingHorizontal: theme.spacing[4], // 16
+    paddingVertical: theme.spacing[3], // 12
+  },
+  suggestedRowDivider: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.grey[50],
   },
   suggestedText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
+    flex: 1,
+    ...theme.typography.textStyles.p1,
+    color: theme.colors.grey[900],
   },
   inputContainer: {
     backgroundColor: theme.colors.linen[300],

@@ -10,8 +10,8 @@ type BiggestNeedScreenNavigationProp = NativeStackNavigationProp<AuthStackParamL
 
 /**
  * Screen 8 of 8 — confirmed 2026-07-30 onboarding survey. Continues into
- * the existing FeatureTranscribe/FeatureChat/FeatureQuiz/Thanks chain,
- * preserving the link the old (now-retired) ContentType screen used to own.
+ * the Feature1/Feature2/Feature3/Thanks chain, preserving the link the old
+ * (now-retired) ContentType screen used to own.
  */
 export const BiggestNeedScreen = () => {
   const { t } = useTranslation();
@@ -24,7 +24,7 @@ export const BiggestNeedScreen = () => {
       options={BIGGEST_NEED_OPTIONS}
       selectedId={data.biggestNeed || null}
       onSelect={setBiggestNeed}
-      onContinue={() => navigation.navigate('FeatureTranscribe')}
+      onContinue={() => navigation.navigate('Feature1')}
       step={8}
       totalSteps={8}
     />

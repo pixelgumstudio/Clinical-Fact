@@ -13,29 +13,29 @@ const TESTIMONIALS: { id: number; quote: string; author: string; offset: Dimensi
   {
     id: 1,
     quote:
-      'My lecture recordings used to pile up for weeks. Now, Clinical Fact transcribes and summarizes everything before the next class.',
-    author: 'Amara Smith, Havard university',
+      'I used to spend hours digging through textbooks just to check if an answer was even right. Now I ask and get the source right there.',
+    author: 'Amara S., Nursing student',
     offset: '11%',
   },
   {
     id: 2,
     quote:
-      'I used to copy notes from videos manually. Now, I just paste the link and get highlights ready for revision.',
-    author: 'Kenny vaughan, Youtube learner',
+      "Between shifts I don't have time to dig through journals. ClinicFact gives me a fast, cited answer I can actually trust at the bedside.",
+    author: 'Kenny V., RN, 4 years experience',
     offset: '22%',
   },
   {
     id: 3,
     quote:
-      "I'm terrible at remembering key details. Clinical Fact's flashcards and Quiz mastery makes it stick easily for rememberance",
-    author: 'Clara Johnson, University of california',
+      "It's become my go-to for a quick literature check when I need a second look at something faster than searching PubMed myself.",
+    author: 'Dr. Barry R., Family Medicine',
     offset: '6%',
   },
   {
     id: 4,
     quote:
-      'Clinical Fact feels like a study buddy who already understands how I learn best',
-    author: 'Barry Rice, Walmart staff',
+      'I use it to double-check drug interactions against the FDA label before I finalize a plan. Genuinely saves me time',
+    author: 'Maria T., PA-C',
     offset: '22%',
   },
 ];
@@ -70,7 +70,7 @@ export const ThanksScreen = () => {
       </ScrollView>
 
       <View style={styles.footer}>
-        <Button variant="primary" fullWidth onPress={() => navigation.navigate('StudyTime')}>
+        <Button variant="primary" fullWidth onPress={() => navigation.navigate('Referral')}>
           {t('auth.buttons.continue')}
         </Button>
       </View>
@@ -103,9 +103,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingTop: theme.spacing[8], // 32
+    paddingTop: theme.spacing[6], // 32
     paddingBottom: theme.spacing[4],
-    gap: theme.spacing[6], // 24
+    gap: theme.spacing[4], // 24
   },
   card: {
     backgroundColor: theme.colors.white,

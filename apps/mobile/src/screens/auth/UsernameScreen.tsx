@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     ...theme.typography.textStyles.p1,
     color: theme.colors.grey[600],
     textAlign: 'center',
+    width: '65%',
   },
   inputSection: {
     gap: theme.spacing[10], // 40, confirmed gap before Continue

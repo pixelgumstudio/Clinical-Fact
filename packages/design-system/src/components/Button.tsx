@@ -42,7 +42,7 @@ import { theme } from '../theme';
 
 export interface ButtonProps extends Omit<PressableProps, 'style'> {
   /** primary: solid yale fill · secondary: white with grey border · light: cream pill for use over photo backgrounds */
-  variant?: 'primary' | 'secondary' | 'light';
+  variant?: 'primary' | 'secondary' | 'dark' | 'light';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   disabled?: boolean;
@@ -63,6 +63,7 @@ const SIZE_TEXT_STYLE: Record<NonNullable<ButtonProps['size']>, TextStyle> = {
 const SPINNER_COLOR: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary: theme.colors.white,
   secondary: theme.colors.grey[900],
+  dark: theme.colors.yale[700],
   light: theme.colors.yale[900],
 };
 
@@ -180,6 +181,20 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.grey[50],
   },
 
+    // Primary — confirmed Normal/Focus+Pressed colors
+  variant_dark: {
+    backgroundColor: theme.colors.yale[700],
+    borderColor: theme.colors.yale[700],
+  },
+  variant_dark_pressed: {
+    backgroundColor: theme.colors.yale[700],
+    borderColor: theme.colors.yale[700],
+  },
+  variant_dark_disabled: {
+    backgroundColor: theme.colors.yale[700],
+    borderColor: theme.colors.yale[700],
+  },
+
   // Light — confirmed Normal color only; pressed/disabled interpolated
   // along the same linen scale used elsewhere for hover/pressed steps.
   variant_light: {
@@ -213,6 +228,14 @@ const styles = StyleSheet.create({
   },
   text_secondary_disabled: {
     color: theme.colors.grey[300],
+  },
+
+  text_dark: {
+    color: theme.colors.neutral[0],
+    textAlign: 'center',
+  },
+  text_dark_disabled: {
+    color: theme.colors.neutral[0],
   },
 
   text_light: {

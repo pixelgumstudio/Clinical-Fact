@@ -246,7 +246,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
                 inputRefs.current[index]?.focus();
               }}
               activeOpacity={0.7}
-              style={[boxStyle, index > 0 && { marginLeft: theme.spacing[2] }]}
+              style={[boxStyle, index > 0 && { marginLeft: theme.spacing[3] }]}
             >
               <TextInput
                 ref={(ref) => {
