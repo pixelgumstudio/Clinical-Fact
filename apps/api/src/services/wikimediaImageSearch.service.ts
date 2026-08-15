@@ -78,9 +78,12 @@ class WikimediaImageSearchService {
       const results: WikimediaImageResult[] = Object.values(pages)
         .map((page: any) => {
           const info = page?.imageinfo?.[0];
-          if (!info?.url) return null;
+          // Require the rasterized thumburl — falling back to info.url would let through
+          // SVGs/other non-raster originals that thumbnailing failed on, which render blank
+          // in React Native's <Image> (see iiurlwidth comment above).
+          if (!info?.thumburl) return null;
 
-          const url = info.thumburl || info.url;
+          const url = info.thumburl;
           if (excludeSet.has(url) || seenUrls.has(url)) return null;
           seenUrls.add(url);
 

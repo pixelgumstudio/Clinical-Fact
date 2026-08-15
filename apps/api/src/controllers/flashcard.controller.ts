@@ -370,7 +370,7 @@ class FlashcardController {
       const chatIds = groupList.filter((g) => g.sourceType === 'chat').map((g) => g.chatSessionId!);
 
       const [notes, chatSessions] = await Promise.all([
-        noteIds.length ? Note.find({ _id: { $in: noteIds } }).select('title').lean() : Promise.resolve([]),
+        noteIds.length ? Note.find({ _id: { $in: noteIds }, deletedAt: null }).select('title').lean() : Promise.resolve([]),
         chatIds.length ? ChatSession.find({ _id: { $in: chatIds } }).select('title').lean() : Promise.resolve([]),
       ]);
 
@@ -428,7 +428,7 @@ class FlashcardController {
 
       let source: { type: 'note' | 'chat'; id: string; title: string; createdAt: Date } | null = null;
       if (noteId) {
-        const note = await Note.findOne({ _id: noteId, userId: req.user._id }).select('title createdAt').lean();
+        const note = await Note.findOne({ _id: noteId, userId: req.user._id, deletedAt: null }).select('title createdAt').lean();
         if (note) {
           source = { type: 'note', id: (note as any)._id.toString(), title: (note as any).title, createdAt: (note as any).createdAt };
         }
