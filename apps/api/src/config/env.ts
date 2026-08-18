@@ -19,6 +19,8 @@ export const validateEnv = () => {
     'GOOGLE_SEARCH_ENGINE_ID',
     'SEMANTIC_SCHOLAR_API_KEY',
     'NCBI_API_KEY',
+    'APP_REVIEW_EMAIL',
+    'APP_REVIEW_OTP_CODE',
   ];
 
   const missing: string[] = [];

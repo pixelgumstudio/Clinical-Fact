@@ -13,8 +13,18 @@ const createTransporter = () => {
   });
 };
 
+// Fixed OTP for the designated Apple App Review account (see App Review Information notes)
+const APP_REVIEW_EMAIL = (process.env.APP_REVIEW_EMAIL || 'appreview@clinicalfact.app').trim().toLowerCase();
+const APP_REVIEW_OTP_CODE = process.env.APP_REVIEW_OTP_CODE || '000000';
+
+export const isAppReviewEmail = (email: string): boolean =>
+  email.trim().toLowerCase() === APP_REVIEW_EMAIL;
+
 // Generate 6-digit OTP
-export const generateOTP = (): string => {
+export const generateOTP = (email?: string): string => {
+  if (email && isAppReviewEmail(email)) {
+    return APP_REVIEW_OTP_CODE;
+  }
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 

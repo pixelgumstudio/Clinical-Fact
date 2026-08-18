@@ -172,6 +172,8 @@ Used as a passwordless alternative to email/password. All OTPs are 10 minutes, m
 | `POST /otp/verify/login` | Public | Verifies the code for an existing user, marks `isEmailVerified: true`, returns tokens. |
 | `POST /otp/resend` | Public | Deletes the previous OTP for `{email, type}` and issues a new one. |
 
+**App Review backdoor:** the account whose email matches `APP_REVIEW_EMAIL` (defaults to `appreview@clinicalfact.app`) always gets/needs `APP_REVIEW_OTP_CODE` (defaults to `000000`) instead of a random code, and no email is actually sent for it — see `email.service.ts` (`isAppReviewEmail`, `generateOTP`) and `otp.controller.ts`. This exists so Apple's reviewer has a stable login path without needing a real inbox; that exact email/code pair is given to Apple directly in the App Review Information notes. Don't "fix" this into always sending real email — it's intentional.
+
 ### 7.4 User device tokens — `user.routes.ts` (logic lives inline in the route file, not a separate controller)
 
 For push notifications.

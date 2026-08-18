@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { OTP } from '../models/OTP';
 import { User } from '../models/User';
-import { generateOTP, sendOTPEmail } from '../services/email.service';
+import { generateOTP, sendOTPEmail, isAppReviewEmail } from '../services/email.service';
 import { issueAndStoreTokens } from '../services/auth.service';
 import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
 
@@ -16,12 +16,12 @@ export const sendOTP = async (req: Request, res: Response): Promise<void> => {
     // Delete any existing OTPs for this email
     await OTP.deleteMany({ email });
 
-    const otp = generateOTP();
+    const otp = generateOTP(email);
     const expiresAt = new Date(Date.now() + OTP_EXPIRY_MINUTES * 60 * 1000);
 
     await OTP.create({ email, otp, type: 'signup', expiresAt });
 
-    const emailSent = await sendOTPEmail(email, otp, 'signup');
+    const emailSent = isAppReviewEmail(email) ? true : await sendOTPEmail(email, otp, 'signup');
 
     if (!emailSent) {
       res.status(500).json(
@@ -57,7 +57,7 @@ export const sendSignupOTP = async (req: Request, res: Response): Promise<void> 
     await OTP.deleteMany({ email, type: 'signup' });
 
     // Generate new OTP
-    const otp = generateOTP();
+    const otp = generateOTP(email);
     const expiresAt = new Date(Date.now() + OTP_EXPIRY_MINUTES * 60 * 1000);
 
     // Save OTP to database
@@ -69,7 +69,7 @@ export const sendSignupOTP = async (req: Request, res: Response): Promise<void> 
     });
 
     // Send OTP email
-    const emailSent = await sendOTPEmail(email, otp, 'signup');
+    const emailSent = isAppReviewEmail(email) ? true : await sendOTPEmail(email, otp, 'signup');
 
     if (!emailSent) {
       res.status(500).json(
@@ -113,7 +113,7 @@ export const sendLoginOTP = async (req: Request, res: Response): Promise<void> =
     await OTP.deleteMany({ email, type: 'login' });
 
     // Generate new OTP
-    const otp = generateOTP();
+    const otp = generateOTP(email);
     const expiresAt = new Date(Date.now() + OTP_EXPIRY_MINUTES * 60 * 1000);
 
     // Save OTP to database
@@ -125,7 +125,7 @@ export const sendLoginOTP = async (req: Request, res: Response): Promise<void> =
     });
 
     // Send OTP email
-    const emailSent = await sendOTPEmail(email, otp, 'login');
+    const emailSent = isAppReviewEmail(email) ? true : await sendOTPEmail(email, otp, 'login');
 
     if (!emailSent) {
       res.status(500).json(
@@ -398,7 +398,7 @@ export const resendOTP = async (req: Request, res: Response): Promise<void> => {
     await OTP.deleteMany({ email, type });
 
     // Generate new OTP
-    const otp = generateOTP();
+    const otp = generateOTP(email);
     const expiresAt = new Date(Date.now() + OTP_EXPIRY_MINUTES * 60 * 1000);
 
     // Save OTP to database
@@ -410,7 +410,7 @@ export const resendOTP = async (req: Request, res: Response): Promise<void> => {
     });
 
     // Send OTP email
-    const emailSent = await sendOTPEmail(email, otp, type as 'signup' | 'login');
+    const emailSent = isAppReviewEmail(email) ? true : await sendOTPEmail(email, otp, type as 'signup' | 'login');
 
     if (!emailSent) {
       res.status(500).json(
