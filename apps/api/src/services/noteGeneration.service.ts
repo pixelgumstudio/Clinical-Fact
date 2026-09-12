@@ -47,9 +47,6 @@ class NoteGenerationService {
    * Build intelligent note generation prompt that adapts based on content type
    */
   private buildNotePrompt(content: string): string {
-    const detectedType = this.detectContentType(content);
-    const typeGuidance = this.getTypeSpecificGuidance(detectedType);
-
     // Scale note length to content length
     const wordCount = content.trim().split(/\s+/).length;
     const lengthInstruction =
@@ -61,7 +58,7 @@ class NoteGenerationService {
         ? 'Write notes proportional to the content — do not pad or expand beyond what is in the source.'
         : 'Cover the material thoroughly but stay within what the source contains.';
 
-    return `You are a note-taking assistant. Your job is to analyze the provided material and create organized, structured notes that capture the key information.
+    return `You are Clinical Fact, a note-taking assistant for nursing and medical students. Your job is to analyze the provided material and create organized, structured study notes that capture the key clinical information.
 
 Respond with a single JSON object matching this exact schema:
 {
@@ -89,14 +86,7 @@ HTML formatting rules for the content field:
 - <b> or <strong> for emphasis
 - No markdown, only HTML tags
 
-Content type: ${detectedType.toUpperCase()}
-Focus: ${typeGuidance}
-
-IMPORTANT: Adapt your note-taking style to the content:
-- For educational/textbook material: Create concept-based study notes with clear explanations
-- For financial/transaction documents: Summarize key figures, totals, patterns, and important transactions
-- For reports/articles: Extract main points, conclusions, and significant findings
-- For other documents: Organize the most important information in a clear, logical structure
+Focus: Medical concepts and terminology, mechanisms, causes and symptoms, standard treatment and dosing considerations, and clinically relevant details a nursing or medical student would need to retain — not just a paraphrase of the source.
 
 --- SOURCE MATERIAL ---
 ${content}
@@ -118,114 +108,6 @@ Structure the content value like this (omit sections if the source doesn't have 
 
 Return ONLY the JSON object. No markdown code blocks, no surrounding text.`;
   }
-
-  /**
-   * Detect content type from actual content
-   */
-  private detectContentType(content: string): string {
-    // Crime/Mystery
-    if (
-      /murder|crime|detective|suspect|investigation|criminal|accused|murder|detective|suspect/i.test(
-        content
-      )
-    ) {
-      return 'crime/mystery';
-    }
-
-    // Fiction/Literature
-    if (
-      /once upon|character|protagonist|dialogue|novel|chapter|story|fiction|plot|narrative|author/i.test(
-        content
-      )
-    ) {
-      return 'fiction/literature';
-    }
-
-    // Scientific/Educational
-    if (
-      /research|study|evidence|hypothesis|experiment|scientific|theory|data|analysis|method|conclusion/i.test(
-        content
-      )
-    ) {
-      return 'scientific/educational';
-    }
-
-    // Business/Economics
-    if (
-      /business|market|economics|profit|revenue|investment|company|strategy|management|finance/i.test(
-        content
-      )
-    ) {
-      return 'business/economics';
-    }
-
-    // History
-    if (/historical|war|century|empire|revolution|dynasty|period|era|timeline|ancient/i.test(content)) {
-      return 'history';
-    }
-
-    // Biography
-    if (/born|life of|biography|achieved|contribution|career|accomplishment|legacy/i.test(content)) {
-      return 'biography';
-    }
-
-    // Technology/Programming
-    if (/code|software|algorithm|function|database|system|program|tech|digital|cyber/i.test(content)) {
-      return 'technology/programming';
-    }
-
-    // Medical/Health
-    if (/disease|patient|treatment|medical|health|symptom|diagnosis|therapy|doctor|clinical/i.test(content)) {
-      return 'medical/health';
-    }
-
-    // Art/Culture
-    if (/art|painting|sculpture|culture|music|aesthetic|artist|creative|style|movement/i.test(content)) {
-      return 'art/culture';
-    }
-
-    return 'general knowledge';
-  }
-
-  /**
-   * Get type-specific guidance for the AI
-   */
-  private getTypeSpecificGuidance(contentType: string): string {
-    const guidance: { [key: string]: string } = {
-      'crime/mystery':
-        'Focus on: Plot timeline, suspects and motives, evidence and clues, investigative techniques, logical deductions, key revelations. Emphasize how evidence supports conclusions.',
-
-      'fiction/literature':
-        'Focus on: Characters and development, plot structure, themes and symbolism, literary devices, writing style, lessons and messages. Help readers understand motivations and emotional arcs.',
-
-      'scientific/educational':
-        'Focus on: Core theories and concepts, evidence and experimental support, step-by-step processes, practical applications, mathematical formulas if relevant. Make complex science accessible without losing accuracy.',
-
-      'business/economics':
-        'Focus on: Business models and strategies, market analysis, economic principles, financial insights, competitive landscape, practical takeaways. Explain economic concepts in business context.',
-
-      'history':
-        'Focus on: Timeline of events, key figures and roles, causes and consequences, political/social context, cultural significance, connections showing patterns and cause-effect relationships.',
-
-      'biography':
-        'Focus on: Life milestones and achievements, challenges overcome, contributions and legacy, historical era context, personal qualities and their impact. Show how their journey led to accomplishments.',
-
-      'technology/programming':
-        'Focus on: Concepts and principles, how systems work, practical applications, step-by-step guides if applicable, common patterns and best practices, real-world examples.',
-
-      'medical/health':
-        'Focus on: Medical concepts and terminology, causes and symptoms, treatment options, prevention strategies, relevant statistics and research, practical health information. Be accurate but accessible.',
-
-      'art/culture':
-        'Focus on: Historical and cultural context, artistic techniques and styles, cultural significance, major movements and periods, notable figures, impact on society and other art forms.',
-
-      'general knowledge':
-        'Create well-structured, comprehensive notes covering all major points. Ensure logical flow and clear explanations suitable for any subject.',
-    };
-
-    return guidance[contentType] || guidance['general knowledge'];
-  }
- 
 
   /**
    * Generate note from YouTube video

@@ -6,7 +6,7 @@ import europePmcService, { EuropePmcResult, EuropePmcFilters } from './europePmc
 import semanticScholarService from './semanticScholar.service';
 import pubmedService from './pubmed.service';
 import wikimediaImageSearchService, { WikimediaImageResult } from './wikimediaImageSearch.service';
-import openFdaService, { OpenFdaDrugResult } from './openFda.service';
+import openFdaService from './openFda.service';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -24,12 +24,37 @@ interface ChatResponse {
   }>;
 }
 
+/**
+ * One unified, sequentially-numbered citation — attached document chunks, literature results,
+ * and FDA drug labels all share this shape and one running `index`, matching exactly the [n]
+ * numbers the AI is instructed to cite inline (see the context-block loop in chatMedicalLive).
+ * Type-specific fields are optional and only populated for their own `type`.
+ */
+export interface MedicalCitation {
+  index: number;
+  type: 'attached' | 'literature' | 'drug_label';
+  title: string;
+  // literature only
+  authors?: string;
+  journal?: string;
+  year?: string;
+  doi?: string;
+  abstract?: string;
+  provider?: string;
+  // drug_label only
+  brandName?: string;
+  genericName?: string;
+  indications?: string;
+  dosage?: string;
+  warnings?: string;
+  interactions?: string;
+}
+
 interface MedicalLiveChatResponse {
   text: string;
-  sources: EuropePmcResult[];
+  sources: MedicalCitation[];
   images: WikimediaImageResult[];
   groundingSources: { uri: string; title: string }[];
-  drugLabels: OpenFdaDrugResult[];
 }
 
 /** EuropePmcFilters plus which of the two additional literature APIs to include — Europe PMC
@@ -153,7 +178,7 @@ class ChatService {
         .join('\n\n---\n\n');
 
       const systemInstruction = deepResearch
-        ? `You are a knowledgeable tutor. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
+        ? `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
@@ -167,16 +192,16 @@ CRITICAL INSTRUCTIONS:
 Answer in simple, conversational language. Combine web search and local material. Use examples and analogies.
 
 Local study material:
-${context}`: `You are a friendly and helpful tutor. Explain things naturally, like you're talking to a friend. Be warm and conversational, not stiff or robotic.
+${context}`: `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. Explain things naturally, like you're talking to a friend — warm and conversational, not stiff or robotic.
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
 
 How to answer:
-- Use simple, everyday language
-- Only use information from the material below
-- If you don't know from the material, say "I don't see that in the material"
-- Break complex ideas into simple pieces; use examples and analogies
+- Use simple, everyday language; break complex ideas into pieces and use examples and analogies
+- Prioritize the material below, since the user chose to bring it into this conversation
+- Fill in standard, well-established medical knowledge (causes, mechanisms, symptoms, standard treatment) when the material doesn't fully cover the question — that's expected and normal, not "prior knowledge" you need permission for
+- Only say you don't have enough information if the question is itself obscure/unsettled enough that even general medical knowledge can't answer it responsibly — never say that for standard textbook topics just because the material happens to be narrow
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
 - Do NOT output a bibliography, reference list, or "Sources" section at the end of your response.
 
@@ -284,26 +309,60 @@ ${context}`;
 
     // Attached-document chunks are numbered first, then literature results, then FDA drug
     // labels continue the sequence — one unified citation list regardless of where a source
-    // came from.
-    const attachedContextBlocks = attachedChunks.map((chunk, i) => {
+    // came from. Built in a single pass so the numbers the AI is told to cite (in the prompt
+    // context block) and the numbers in the `sources` array returned to the client can never
+    // drift out of sync with each other.
+    let citationIndex = 0;
+    const citations: MedicalCitation[] = [];
+    const contextBlocks: string[] = [];
+
+    for (const chunk of attachedChunks) {
+      citationIndex++;
       const title = chunk.metadata?.attachedTitle || chunk.metadata?.noteTitle || 'Attached document';
-      return `[${i + 1}] "${title}" (from your attached material)\n${chunk.text}`;
-    });
-    const literatureContextBlocks = literatureResults.map(
-      (r) => `[${attachedContextBlocks.length + r.index}] "${r.title}" (${r.year}, ${r.authors})\nAbstract: ${r.abstract}`
-    );
-    const drugLabelContextBlocks = drugLabelResults.map((r, i) => {
+      citations.push({ index: citationIndex, type: 'attached', title });
+      contextBlocks.push(`[${citationIndex}] "${title}" (from your attached material)\n${chunk.text}`);
+    }
+
+    for (const r of literatureResults) {
+      citationIndex++;
+      citations.push({
+        index: citationIndex,
+        type: 'literature',
+        title: r.title,
+        authors: r.authors,
+        journal: r.journal,
+        year: r.year,
+        doi: r.doi,
+        abstract: r.abstract,
+        provider: r.provider,
+      });
+      contextBlocks.push(`[${citationIndex}] "${r.title}" (${r.year}, ${r.authors})\nAbstract: ${r.abstract}`);
+    }
+
+    for (const r of drugLabelResults) {
+      citationIndex++;
       const name = r.brandName || r.genericName || 'Unknown drug';
-      const num = attachedContextBlocks.length + literatureContextBlocks.length + i + 1;
+      citations.push({
+        index: citationIndex,
+        type: 'drug_label',
+        title: name,
+        brandName: r.brandName,
+        genericName: r.genericName,
+        indications: r.indications,
+        dosage: r.dosage,
+        warnings: r.warnings,
+        interactions: r.interactions,
+      });
       const sections = [
         r.indications && `Indications: ${r.indications}`,
         r.dosage && `Dosage: ${r.dosage}`,
         r.warnings && `Warnings: ${r.warnings}`,
         r.interactions && `Interactions: ${r.interactions}`,
       ].filter(Boolean).join('\n');
-      return `[${num}] "${name}" (FDA drug label)\n${sections}`;
-    });
-    const context = [...attachedContextBlocks, ...literatureContextBlocks, ...drugLabelContextBlocks].join('\n\n---\n\n');
+      contextBlocks.push(`[${citationIndex}] "${name}" (FDA drug label)\n${sections}`);
+    }
+
+    const context = contextBlocks.join('\n\n---\n\n');
 
     const systemInstruction = `You are Clinical Fact, a medical reference AI built for nursing and medical students. Answer accurately using your own medical knowledge as the foundation, and be straightforward and concise — this is a study tool students read on their phone between classes, not an essay. Answer the actual question directly, then stop. Don't pad with restating the question, generic disclaimers, or covering angles the student didn't ask about.
 
@@ -343,10 +402,9 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
 
     return {
       text,
-      sources: literatureResults,
+      sources: citations,
       images: imageResults,
       groundingSources,
-      drugLabels: drugLabelResults,
     };
   }
 
@@ -401,31 +459,10 @@ Assistant: ${plainReply.slice(0, 500)}`;
   }
 
   /**
-   * Chat without RAG (simple conversation)
-   */
-  async simpleChat(
-    userMessage: string,
-    chatHistory: ChatMessage[] = []
-  ): Promise<string> {
-    try {
-      const systemInstruction = `You are a helpful AI tutor assistant. Help users with their learning questions in a friendly, clear, and educational way.`;
-
-      const messages = [
-        ...chatHistory,
-        { role: 'user' as const, content: userMessage },
-      ];
-
-      const response = await aiService.chat(messages, systemInstruction);
-
-      return response;
-    } catch (error: any) {
-      console.error('❌ Error in simple chat:', error);
-      throw new Error(`Chat failed: ${error.message}`);
-    }
-  }
-
-  /**
-   * Summarize chat history
+   * Summarize a conversation into one short line for a chat-history list preview — shown in
+   * place of the raw last message so a student can recognize an old session at a glance.
+   * Runs on Groq (via aiService.chat), same as the conversation itself: cheap, fast, and this
+   * doesn't need OpenAI's stronger reasoning.
    */
   async summarizeChat(messages: ChatMessage[]): Promise<string> {
     try {
@@ -433,13 +470,14 @@ Assistant: ${plainReply.slice(0, 500)}`;
         .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
         .join('\n\n');
 
-      const prompt = `Summarize this conversation in 2-3 sentences, focusing on the main topics discussed and key takeaways:
+      const prompt = `Summarize this medical study conversation in ONE concise sentence (under 20 words) that would help a nursing or medical student recognize it later in their conversation history. Focus on the specific topic discussed, not generic phrasing like "a conversation about X".
 
-${conversationText}`;
+${conversationText}
 
-      const summary = await aiService.generateText(prompt);
+Reply with ONLY the summary sentence, nothing else.`;
 
-      return summary;
+      const raw = await aiService.chat([{ role: 'user', content: prompt }]);
+      return raw.replace(/^["']|["']$/g, '').replace(/\.$/, '').trim();
     } catch (error: any) {
       console.error('❌ Error summarizing chat:', error);
       throw new Error(`Chat summarization failed: ${error.message}`);
@@ -447,28 +485,31 @@ ${conversationText}`;
   }
 
   /**
-   * Generate suggested follow-up questions
+   * Suggest follow-up questions that build on what was just discussed, shown as tappable
+   * chips beneath the assistant's reply. Runs on Groq (via aiService.chatJSON) — cheap, fast,
+   * and follow-up suggestions don't need OpenAI's stronger reasoning either. Never throws:
+   * a failure here should never break the actual chat response, so it degrades to no chips.
    */
-  async generateFollowUpQuestions(
-    _sessionId: string,
-    chatHistory: ChatMessage[]
-  ): Promise<string[]> {
+  async generateFollowUpQuestions(chatHistory: ChatMessage[]): Promise<string[]> {
     try {
       const lastMessages = chatHistory.slice(-4);
       const conversationText = lastMessages
         .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
         .join('\n\n');
 
-      const prompt = `Based on this conversation, suggest 3 relevant follow-up questions the user might want to ask:
+      const prompt = `Based on this medical study conversation, suggest 3 relevant follow-up questions a nursing or medical student might naturally want to ask next — questions that build on what was just discussed (e.g. related mechanisms, complications, comparisons, or clinical application). Keep each question short and specific, not generic.
 
 ${conversationText}
 
-Return ONLY a JSON array of questions (no markdown):
-["Question 1?", "Question 2?", "Question 3?"]`;
+Respond with ONLY a JSON object in this exact shape, nothing else:
+{"questions": ["Question 1?", "Question 2?", "Question 3?"]}`;
 
-      const questions = await aiService.generateJSON(prompt);
+      const result = await aiService.chatJSON(
+        [{ role: 'user', content: prompt }],
+        'You are a medical education assistant. Always respond with valid JSON matching the requested shape.'
+      );
 
-      return Array.isArray(questions) ? questions : [];
+      return Array.isArray(result?.questions) ? result.questions : [];
     } catch (error: any) {
       console.error('❌ Error generating follow-up questions:', error);
       return [];

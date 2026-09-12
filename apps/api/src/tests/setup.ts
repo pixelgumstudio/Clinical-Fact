@@ -56,6 +56,7 @@ jest.mock('../services/ai.service', () => {
       extractTextFromImage: jest.fn().mockResolvedValue('Mocked text from image'),
       extractTextFromPdf: jest.fn().mockResolvedValue('Mocked text from PDF'),
       chat: jest.fn().mockResolvedValue('Mocked chat response'),
+      chatJSON: jest.fn().mockResolvedValue({ questions: ['Mocked follow-up question?'] }),
       chatWithSearch: jest.fn().mockResolvedValue('Mocked search response'),
       chatWithGrounding: jest.fn().mockResolvedValue({ text: 'Mocked grounded response', groundingSources: [] }),
     },

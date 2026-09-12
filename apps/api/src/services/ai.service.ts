@@ -120,25 +120,8 @@ class AiService {
         throw new Error('Empty response from OpenAI API');
       }
 
-      let cleanText: string;
-      const fenceMatch = finalText.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-      if (fenceMatch) {
-        cleanText = fenceMatch[1].trim();
-      } else {
-        const jsonMatch = finalText.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
-        cleanText = jsonMatch ? jsonMatch[1] : finalText;
-      }
-
-      let jsonData: any;
-      try {
-        jsonData = safeParseJSON<any>(cleanText);
-      } catch (parseError: any) {
-        console.error('Malformed JSON from OpenAI:', cleanText.substring(0, 500));
-        throw new Error(`Failed to parse JSON response: ${parseError.message}`);
-      }
-
       console.log('✅ Generated JSON successfully');
-      return jsonData;
+      return this.parseJsonFromText(finalText, 'OpenAI');
 
     } catch (error: any) {
       console.error('❌ OpenAI API Error:', {
@@ -147,6 +130,29 @@ class AiService {
       });
 
       throw new Error(`AI generation failed: ${error.message}`);
+    }
+  }
+
+  /**
+   * Extracts and parses a JSON object/array from a model's raw text response, tolerating a
+   * markdown code fence or leading/trailing prose around it. Shared by every JSON-returning
+   * method regardless of which provider produced the text.
+   */
+  private parseJsonFromText(text: string, sourceLabel: string): any {
+    let cleanText: string;
+    const fenceMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (fenceMatch) {
+      cleanText = fenceMatch[1].trim();
+    } else {
+      const jsonMatch = text.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
+      cleanText = jsonMatch ? jsonMatch[1] : text;
+    }
+
+    try {
+      return safeParseJSON<any>(cleanText);
+    } catch (parseError: any) {
+      console.error(`Malformed JSON from ${sourceLabel}:`, cleanText.substring(0, 500));
+      throw new Error(`Failed to parse JSON response: ${parseError.message}`);
     }
   }
 
@@ -268,6 +274,47 @@ class AiService {
       });
 
       throw new Error(`Chat generation failed: ${error.message}`);
+    }
+  }
+
+  /**
+   * Like chat(), but for lightweight structured tasks (e.g. suggesting follow-up questions)
+   * that don't need OpenAI's stronger reasoning — runs on Groq with JSON mode enabled so the
+   * response is guaranteed valid JSON syntax (though not schema-validated).
+   */
+  async chatJSON(
+    messages: ChatMessage[],
+    systemInstruction?: string
+  ): Promise<any> {
+    try {
+      const groq = this.getGroq();
+      const groqMessages: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
+        ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
+        ...messages.map((m) => ({ role: m.role, content: m.content })),
+      ];
+
+      const result = await groq.chat.completions.create({
+        model: GROQ_CHAT_MODEL,
+        messages: groqMessages,
+        max_tokens: 2048,
+        response_format: { type: 'json_object' },
+      });
+
+      const finalText = String(result.choices[0]?.message?.content || '').trim();
+
+      if (!finalText) {
+        throw new Error('Empty response from Groq API');
+      }
+
+      return this.parseJsonFromText(finalText, 'Groq');
+
+    } catch (error: any) {
+      console.error('❌ Groq JSON Chat Error:', {
+        message: error.message,
+        status: error.status
+      });
+
+      throw new Error(`Chat JSON generation failed: ${error.message}`);
     }
   }
 

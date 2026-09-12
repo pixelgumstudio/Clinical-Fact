@@ -8,6 +8,9 @@ export interface EuropePmcResult {
   year: string;
   doi: string;
   abstract: string;
+  /** Which literature API this result came from — lets the client group/label sources by
+   *  provider when journal metadata is missing (see mergeLiteratureResults callers). */
+  provider: 'Europe PMC' | 'Semantic Scholar' | 'PubMed';
 }
 
 export interface EuropePmcFilters {
@@ -106,6 +109,7 @@ class EuropePmcService {
         year: result.pubYear || 'Unknown year',
         doi: result.doi ? `https://doi.org/${result.doi}` : '',
         abstract: result.abstractText || '',
+        provider: 'Europe PMC' as const,
       }));
     } catch (error: any) {
       console.error('❌ Europe PMC search error:', error.message);

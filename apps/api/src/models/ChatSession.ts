@@ -30,6 +30,10 @@ export interface IChatSession extends Document {
   fileId?: mongoose.Types.ObjectId;
   folderId?: mongoose.Types.ObjectId;
   title: string;
+  /** One-sentence, AI-generated summary of the conversation — shown in the session list in
+   *  place of the raw last message. Regenerated after every assistant reply (see
+   *  chat.controller's async job handler); undefined until the first exchange completes. */
+  summary?: string;
   sourceType: 'note' | 'image' | 'document' | 'pdf' | 'audio' | 'medical_qa';
   sourceContent?: string;
   attachedSources: IAttachedSource[];
@@ -100,6 +104,10 @@ const ChatSessionSchema = new Schema<IChatSession>(
     title: {
       type: String,
       required: true,
+      trim: true,
+    },
+    summary: {
+      type: String,
       trim: true,
     },
     sourceType: {

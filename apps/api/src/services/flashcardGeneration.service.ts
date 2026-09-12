@@ -88,7 +88,7 @@ class FlashcardGenerationService {
       ? `\n- Generate all flashcard content (front, back) in ${targetLanguage}. Use that language for all questions, answers, and explanations.`
       : '';
 
-    return `You are an expert educator creating flashcards for active recall and spaced repetition learning.
+    return `You are Clinical Fact, creating flashcards for nursing and medical students using active recall and spaced repetition.
 
 Create ${cardCount} high-quality flashcard pairs from these study notes:
 
@@ -99,11 +99,12 @@ ${noteContent}
 
 Requirements:
 - ${difficultyInstruction}
-- Cover the most important concepts systematically
+- Cover the most important, clinically relevant concepts systematically — prioritize what students are actually tested on or need at the bedside (mechanisms, key signs/symptoms, dosing/contraindications, standard treatment) over trivia-style facts
 - Front side: Clear, specific question or term (keep it focused on ONE thing)
-- Back side: Concise answer or definition (2-3 sentences maximum)
+- Back side: Concise answer or definition (2-3 sentences maximum), medically accurate
 - Use active recall principles (test understanding, not just memorization)
 - Avoid yes/no questions${focusInstruction}${exampleInstruction}${languageInstruction}
+- If the notes are too thin, garbled, or lack enough substantive content to write real flashcards from, do NOT invent medical facts to fill the gap — instead return {"insufficientMaterial": true} and nothing else
 
 Card types to include:
 - "definition": Key terms and their meanings
@@ -115,18 +116,18 @@ Return ONLY a JSON object in this exact format (no markdown, no code blocks):
 {
   "cards": [
     {
-      "front": "What is photosynthesis?",
-      "back": "The process by which plants convert light energy into chemical energy (glucose) using carbon dioxide and water.",
+      "front": "What is the mechanism of action of furosemide?",
+      "back": "A loop diuretic that inhibits the Na-K-2Cl cotransporter in the ascending loop of Henle, increasing excretion of sodium, chloride, and water.",
       "type": "definition"
     },
     {
-      "front": "Explain how photosynthesis helps the environment",
-      "back": "Photosynthesis removes CO2 from the atmosphere and releases O2, helping maintain atmospheric balance and providing oxygen for aerobic organisms.",
+      "front": "Why should potassium be monitored in a patient on furosemide?",
+      "back": "Loop diuretics increase potassium excretion, putting patients at risk for hypokalemia, which can cause dangerous cardiac arrhythmias.",
       "type": "concept"
     },
     {
-      "front": "Give an example of a non-plant organism that performs photosynthesis",
-      "back": "Cyanobacteria are prokaryotes that perform photosynthesis, contributing significantly to ocean oxygen production.",
+      "front": "Give a clinical example of when furosemide would be used",
+      "back": "A patient with acute decompensated heart failure and pulmonary edema, to rapidly reduce fluid overload.",
       "type": "example"
     }
   ]
@@ -134,7 +135,7 @@ Return ONLY a JSON object in this exact format (no markdown, no code blocks):
 
 Notes:
 - Each card should test ONE specific piece of knowledge
-- Answers should be concise but complete
+- Answers should be concise but complete, and medically accurate
 - Avoid ambiguous questions
 - Ensure proper JSON formatting`;
   }
@@ -143,6 +144,10 @@ Notes:
    * Validate and format flashcard data from AI
    */
   private validateAndFormatFlashcards(flashcardData: any): FlashcardData[] {
+    if (flashcardData.insufficientMaterial) {
+      throw new Error('AI_REFUSAL: Note content was insufficient to generate meaningful flashcards');
+    }
+
     // Validate structure
     if (!flashcardData.cards || !Array.isArray(flashcardData.cards)) {
       throw new Error('Invalid flashcard format: missing cards array');

@@ -532,7 +532,7 @@ class ChatController {
           let jobResult: Record<string, any>;
 
           if (mode === 'medical_live') {
-            const { text, sources, images, groundingSources, drugLabels } = await chatService.chatMedicalLive(
+            const { text, sources, images, groundingSources } = await chatService.chatMedicalLive(
               message,
               chatHistory.slice(0, -1),
               filters,
@@ -540,7 +540,7 @@ class ChatController {
               Array.isArray(excludeImageUrls) ? excludeImageUrls : []
             );
             assistantContent = text;
-            jobResult = { text, sources, images, groundingSources, drugLabels };
+            jobResult = { text, sources, images, groundingSources };
           } else {
             const { response, sources } = await chatService.chat(
               sessionId,
@@ -555,8 +555,11 @@ class ChatController {
           // Re-fetch to avoid overwriting concurrent saves.
           const updated = await ChatSession.findById(sessionId);
           let generatedTitle: string | undefined;
+          let followUpQuestions: string[] = [];
           if (updated) {
             updated.messages.push({ role: 'assistant', content: assistantContent, timestamp: new Date() });
+
+            const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
 
             // First exchange in this session — auto-title it from what was actually asked,
             // same as ChatGPT/Claude do, instead of leaving the generic default title.
@@ -565,12 +568,26 @@ class ChatController {
               updated.title = generatedTitle;
             }
 
+            // Follow-up suggestions (shown as tappable chips) and the session-list summary are
+            // both cheap Groq calls — run them alongside each other, and never let either one
+            // fail the actual chat response that the user is waiting on.
+            const [followUpsSettled, summarySettled] = await Promise.allSettled([
+              chatService.generateFollowUpQuestions(updatedHistory),
+              chatService.summarizeChat(updatedHistory),
+            ]);
+            followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
+            if (summarySettled.status === 'fulfilled') {
+              updated.summary = summarySettled.value;
+            } else {
+              console.error('❌ Failed to update chat summary:', summarySettled.reason);
+            }
+
             await updated.save();
           }
 
           await updateJob(jobId, {
             status: 'completed',
-            result: { ...jobResult, messageCount: updated?.messages.length ?? 0, title: generatedTitle },
+            result: { ...jobResult, messageCount: updated?.messages.length ?? 0, title: generatedTitle, followUpQuestions },
           });
 
           // Send notification for chat message completion

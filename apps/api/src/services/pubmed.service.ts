@@ -8,6 +8,7 @@ export interface PubMedResult {
   year: string;
   doi: string;
   abstract: string;
+  provider: 'PubMed';
 }
 
 /**
@@ -47,6 +48,7 @@ class PubMedService {
             year: (summary.pubdate || '').split(' ')[0] || 'Unknown year',
             doi: doiEntry ? `https://doi.org/${doiEntry.value}` : '',
             abstract: abstracts[id] || '',
+            provider: 'PubMed' as const,
           };
         })
         .filter((r): r is PubMedResult => r !== null);

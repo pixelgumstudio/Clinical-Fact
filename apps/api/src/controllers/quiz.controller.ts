@@ -148,6 +148,13 @@ class QuizController {
       });
     } catch (error: any) {
       console.error(`[${req.correlationId}] Error generating quiz:`, error);
+      if (error.message?.includes('AI_REFUSAL')) {
+        return res.status(400).json({
+          success: false,
+          message: 'This note doesn\'t have enough content to generate a meaningful quiz. Try a note with more detail.',
+          error: error.message,
+        });
+      }
       return res.status(500).json({
         success: false,
         message: 'Failed to generate quiz',
@@ -245,6 +252,13 @@ class QuizController {
       });
     } catch (error: any) {
       console.error(`[${req.correlationId}] Error generating quiz from text:`, error);
+      if (error.message?.includes('AI_REFUSAL')) {
+        return res.status(400).json({
+          success: false,
+          message: 'This text doesn\'t have enough content to generate a meaningful quiz. Try adding more detail.',
+          error: error.message,
+        });
+      }
       return res.status(500).json({
         success: false,
         message: 'Failed to generate quiz',

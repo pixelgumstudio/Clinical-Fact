@@ -8,6 +8,7 @@ export interface SemanticScholarResult {
   year: string;
   doi: string;
   abstract: string;
+  provider: 'Semantic Scholar';
 }
 
 /**
@@ -41,6 +42,7 @@ class SemanticScholarService {
         year: r.year ? String(r.year) : 'Unknown year',
         doi: r.externalIds?.DOI ? `https://doi.org/${r.externalIds.DOI}` : '',
         abstract: r.abstract || '',
+        provider: 'Semantic Scholar' as const,
       }));
     } catch (error: any) {
       console.error('❌ Semantic Scholar search error:', error.message);
