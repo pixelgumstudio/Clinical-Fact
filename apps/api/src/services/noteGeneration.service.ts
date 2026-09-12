@@ -1,5 +1,5 @@
 // api/src/services/noteGeneration.service.ts
-import geminiService from './gemini.service';
+import aiService from './ai.service';
 
 class NoteGenerationService {
   /**
@@ -13,7 +13,7 @@ class NoteGenerationService {
     try {
       const prompt = this.buildNotePrompt(content);
 
-      const parsed = await geminiService.generateJSON(prompt);
+      const parsed = await aiService.generateJSON(prompt);
 
       let title = '';
       let noteContent = '';
@@ -261,7 +261,7 @@ Keep the same general structure but improve:
 
 Return the enhanced notes in standard HTML format using <h3>, <p>, <ul>, <li>, and <b>. Do not use markdown. Do not wrap in JSON.`;
 
-      return await geminiService.generateText(prompt);
+      return await aiService.generateText(prompt);
     } catch (error: any) {
       throw new Error(`Note enhancement failed: ${error.message}`);
     }
@@ -285,7 +285,7 @@ Your summary should:
 
 Write in a friendly, conversational tone. Focus on what students NEED to know, not just listing topics.`;
 
-      return await geminiService.generateText(prompt);
+      return await aiService.generateText(prompt);
     } catch (error: any) {
       throw new Error(`Note summarization failed: ${error.message}`);
     }

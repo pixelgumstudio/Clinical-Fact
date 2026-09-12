@@ -613,17 +613,17 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
             // Guard: word-count quality check (not just character count)
             const words = pdfResult.text.trim().split(/\s+/).filter(w => w.length > 2);
             if (words.length < 50) {
-              // ── OCR Fallback: pass PDF directly to Gemini Vision ──────────────
+              // ── OCR Fallback: pass PDF directly to GPT-5.6 Luna Vision ──────────────
               console.log(
                 `⚠️ [PDF] Low text yield (${words.length} words, type: ${pdfResult.pdfType}) — ` +
-                `attempting Gemini Vision OCR fallback`
+                `attempting Vision OCR fallback`
               );
-              const geminiService = (await import('../services/gemini.service')).default;
+              const aiService = (await import('../services/ai.service')).default;
               let ocrText = '';
               try {
-                ocrText = await geminiService.extractTextFromPdf(fileBuffer);
+                ocrText = await aiService.extractTextFromPdf(fileBuffer);
               } catch (ocrErr: any) {
-                console.error('❌ [PDF] Gemini Vision OCR fallback error:', ocrErr.message);
+                console.error('❌ [PDF] Vision OCR fallback error:', ocrErr.message);
                 // Fall through to the quality-error throw below
               }
 

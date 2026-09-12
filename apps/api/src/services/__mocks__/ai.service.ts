@@ -1,4 +1,4 @@
-// Mock Gemini service for tests
+// Mock AI service (OpenAI/Groq/Tavily) for tests
 const mockGenerateJSON = jest.fn().mockImplementation((prompt: string) => {
   if (prompt.includes('quiz') || prompt.includes('Quiz')) {
     return Promise.resolve({
@@ -38,6 +38,8 @@ export default {
   generateText: jest.fn().mockResolvedValue('Mocked enhanced content'),
   generateJSON: mockGenerateJSON,
   extractTextFromImage: jest.fn().mockResolvedValue('Mocked text from image'),
+  extractTextFromPdf: jest.fn().mockResolvedValue('Mocked text from PDF'),
   chat: jest.fn().mockResolvedValue('Mocked chat response'),
   chatWithSearch: jest.fn().mockResolvedValue('Mocked search response'),
+  chatWithGrounding: jest.fn().mockResolvedValue({ text: 'Mocked grounded response', groundingSources: [] }),
 };

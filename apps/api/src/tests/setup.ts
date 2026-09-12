@@ -6,12 +6,13 @@ process.env.NODE_ENV = 'test';
 process.env.JWT_SECRET = 'test-jwt-secret-key';
 process.env.JWT_REFRESH_SECRET = 'test-jwt-refresh-secret-key';
 process.env.MONGODB_URI_TEST = process.env.MONGODB_URI_TEST || 'mongodb://localhost:27017/clinicalfact-test';
-process.env.GEMINI_API_KEY = 'test-gemini-api-key'; // Required for service initialization
+process.env.OPENAI_API_KEY = 'test-openai-api-key'; // Required for service initialization
+process.env.GROQ_API_KEY = 'test-groq-api-key'; // Required for service initialization
 
 // Increase timeout for async operations
 jest.setTimeout(30000);
 
-// === MOCK GEMINI SERVICE FIRST (before any modules that use it are loaded) ===
+// === MOCK AI SERVICE FIRST (before any modules that use it are loaded) ===
 const mockGenerateJSON = jest.fn().mockImplementation((prompt: string) => {
   if (prompt.includes('quiz') || prompt.includes('Quiz')) {
     return Promise.resolve({
@@ -47,11 +48,16 @@ const mockGenerateJSON = jest.fn().mockImplementation((prompt: string) => {
   });
 });
 
-jest.mock('../services/gemini.service', () => {
+jest.mock('../services/ai.service', () => {
   return {
     default: {
       generateText: jest.fn().mockResolvedValue('Mocked enhanced content'),
       generateJSON: mockGenerateJSON,
+      extractTextFromImage: jest.fn().mockResolvedValue('Mocked text from image'),
+      extractTextFromPdf: jest.fn().mockResolvedValue('Mocked text from PDF'),
+      chat: jest.fn().mockResolvedValue('Mocked chat response'),
+      chatWithSearch: jest.fn().mockResolvedValue('Mocked search response'),
+      chatWithGrounding: jest.fn().mockResolvedValue({ text: 'Mocked grounded response', groundingSources: [] }),
     },
   };
 });

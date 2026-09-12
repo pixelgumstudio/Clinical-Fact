@@ -28,6 +28,6 @@ module.exports = {
   testTimeout: 30000,
   setupFilesAfterEnv: ['<rootDir>/src/tests/setup.ts'],
   moduleNameMapper: {
-    '^../services/gemini\\.service$': '<rootDir>/src/services/__mocks__/gemini.service.ts',
+    '^../services/ai\\.service$': '<rootDir>/src/services/__mocks__/ai.service.ts',
   },
 };

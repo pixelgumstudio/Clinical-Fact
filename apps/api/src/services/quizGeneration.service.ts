@@ -1,4 +1,4 @@
-import geminiService from './gemini.service';
+import aiService from './ai.service';
 
 interface QuizQuestion {
   questionText: string;
@@ -48,8 +48,8 @@ class QuizGenerationService {
         targetLanguage
       );
 
-      // Generate quiz using Gemini
-      const quizData = await geminiService.generateJSON(prompt);
+      // Generate quiz using GPT-5.6 Luna
+      const quizData = await aiService.generateJSON(prompt);
 
       // Validate and format quiz data
       const formattedQuiz = this.validateAndFormatQuiz(quizData, noteTitle);

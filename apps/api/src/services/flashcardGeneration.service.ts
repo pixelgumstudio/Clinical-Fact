@@ -1,4 +1,4 @@
-import geminiService from './gemini.service';
+import aiService from './ai.service';
 
 interface FlashcardData {
   front: string;
@@ -43,8 +43,8 @@ class FlashcardGenerationService {
         targetLanguage
       );
 
-      // Generate flashcards using Gemini
-      const flashcardData = await geminiService.generateJSON(prompt);
+      // Generate flashcards using GPT-5.6 Luna
+      const flashcardData = await aiService.generateJSON(prompt);
 
       // Validate and format flashcards
       const formattedCards = this.validateAndFormatFlashcards(flashcardData);

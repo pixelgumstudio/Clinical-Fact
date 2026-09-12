@@ -91,7 +91,7 @@ avoid colliding with the other project. See step 5.
 
    ADMIN_API_KEY=...
    YOUTUBE_COOKIE=...
-   # ...plus any other keys the API reads (Gemini, OAuth, RevenueCat, etc.)
+   # ...plus any other keys the API reads (OPENAI_API_KEY, GROQ_API_KEY, TAVILY_API_KEY, OAuth, RevenueCat, etc.)
    ```
 
 6. Point DNS for the API's subdomain at the VPS IP (DNS-only/grey-cloud if on

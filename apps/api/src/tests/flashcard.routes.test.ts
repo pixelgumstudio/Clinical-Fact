@@ -44,7 +44,7 @@ describe('Flashcard Routes Integration Tests', () => {
   // ==========================================
 
   describe('POST /api/v1/flashcards/generate', () => {
-    // NOTE: Generation test skipped because it requires Gemini API service.
+    // NOTE: Generation test skipped because it requires the AI service.
     // All other endpoints (list, get, update, review, delete, statistics) are fully tested.
     // The service layer is tested in quota.test.ts which includes flashcard quota checks.
     // To enable this test, mock the flashcardGeneration.service in setupFilesAfterEnv.

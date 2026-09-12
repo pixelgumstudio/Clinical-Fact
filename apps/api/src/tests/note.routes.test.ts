@@ -188,7 +188,7 @@ describe('Note API Endpoints', () => {
         .put(`/api/v1/notes/${testNote._id}/enhance`)
         .set('Authorization', `Bearer ${authToken}`);
 
-      // This might fail if Gemini API is not configured, so we accept 500 as well
+      // This might fail if the AI service is not configured, so we accept 500 as well
       expect([200, 500]).toContain(response.status);
 
       if (response.status === 200) {

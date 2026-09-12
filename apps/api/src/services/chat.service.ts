@@ -1,7 +1,7 @@
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import embeddingService from './embedding.vertexai.service';
 import vectorDbService from './vectorDb.service';
-import geminiService from './gemini.service';
+import aiService from './ai.service';
 import europePmcService, { EuropePmcResult, EuropePmcFilters } from './europePmc.service';
 import semanticScholarService from './semanticScholar.service';
 import pubmedService from './pubmed.service';
@@ -153,7 +153,7 @@ class ChatService {
         .join('\n\n---\n\n');
 
       const systemInstruction = deepResearch
-        ? `You are a knowledgeable tutor. You have access to Google Search — use it to find up-to-date information to supplement the user's local study material.
+        ? `You are a knowledgeable tutor. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
@@ -161,10 +161,10 @@ FORMAT YOUR ANSWER AS HTML:
 CRITICAL INSTRUCTIONS:
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
 - Do NOT output a bibliography, reference list, or "Sources" section at the end of your response.
-- Do NOT output any markdown links for Google Search results.
+- Do NOT output any markdown links for web search results.
 - Weave the information naturally into your HTML answer without explicitly referencing where you got it from.
 
-Answer in simple, conversational language. Combine Google Search and local material. Use examples and analogies.
+Answer in simple, conversational language. Combine web search and local material. Use examples and analogies.
 
 Local study material:
 ${context}`: `You are a friendly and helpful tutor. Explain things naturally, like you're talking to a friend. Be warm and conversational, not stiff or robotic.
@@ -189,10 +189,10 @@ ${context}`;
       ];
 
       const response = deepResearch
-        ? await geminiService.chatWithSearch(messages, systemInstruction)
-        : await geminiService.chat(messages, systemInstruction);
+        ? await aiService.chatWithSearch(messages, systemInstruction)
+        : await aiService.chat(messages, systemInstruction);
 
-      console.log(`✅ Generated chat response (${response.length} chars) using ${uniqueChunks.length} local chunks${deepResearch ? ' + native Google Search' : ''}`);
+      console.log(`✅ Generated chat response (${response.length} chars) using ${uniqueChunks.length} local chunks${deepResearch ? ' + live web search' : ''}`);
 
       // const sources = uniqueChunks.slice(0, 5).map(chunk => ({
       //   text: chunk.text.substring(0, 200) + '...',
@@ -324,7 +324,7 @@ PATIENT-SPECIFIC QUESTIONS:
 
 Some sources below are pulled from medical literature, others are official FDA drug labels (marked "FDA drug label" — authoritative for dosing, indications, warnings, and interactions), and others (marked "from your attached material") are from a note or document the user attached to this conversation. Treat all as valid, citeable context, and prioritize attached material since the user chose to bring it into this specific conversation.
 
-You also have live Google Search access — use it to verify current guidance or fill gaps the sources below don't cover. Do not use bracketed citation numbers for anything found via Google Search; the numbered [n] citations above are reserved for the sources list below. Web-grounded information is shown to the user separately, so just write it naturally into the answer.
+You also have live web search results (restricted to authoritative medical domains like NIH, CDC, WHO, FDA, and MedlinePlus) — use them to verify current guidance or fill gaps the sources below don't cover. Do not use bracketed citation numbers for anything found via web search; the numbered [n] citations above are reserved for the sources list below. Web-grounded information is shown to the user separately, so just write it naturally into the answer.
 
 Sources:
 ${context || 'No sources found — answer from your own medical knowledge.'}`;
@@ -335,9 +335,9 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
     ];
 
     // Note: EuropePmcFilters (date range/source categories) only ever apply to the Europe PMC
-    // search above — Google Search grounding has no equivalent filter API and always searches
-    // the live web unfiltered.
-    const { text, groundingSources } = await geminiService.chatWithGrounding(messages, systemInstruction);
+    // search above — Tavily web grounding has no equivalent filter API and always searches
+    // the trusted-domain web unfiltered.
+    const { text, groundingSources } = await aiService.chatWithGrounding(messages, systemInstruction);
 
     console.log(`✅ Generated live medical chat response (${text.length} chars) using ${literatureResults.length} literature sources (${europePmcResults.length} EuropePMC + ${semanticScholarResults.length} Semantic Scholar + ${pubmedResults.length} PubMed, merged+deduped), ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
 
@@ -391,7 +391,7 @@ User: ${userMessage.slice(0, 500)}
 Assistant: ${plainReply.slice(0, 500)}`;
 
     try {
-      const raw = await geminiService.chat([{ role: 'user', content: prompt }]);
+      const raw = await aiService.chat([{ role: 'user', content: prompt }]);
       const title = raw.replace(/^["']|["']$/g, '').replace(/\.$/, '').trim();
       return title.slice(0, 80) || userMessage.slice(0, 60);
     } catch (error) {
@@ -415,7 +415,7 @@ Assistant: ${plainReply.slice(0, 500)}`;
         { role: 'user' as const, content: userMessage },
       ];
 
-      const response = await geminiService.chat(messages, systemInstruction);
+      const response = await aiService.chat(messages, systemInstruction);
 
       return response;
     } catch (error: any) {
@@ -437,7 +437,7 @@ Assistant: ${plainReply.slice(0, 500)}`;
 
 ${conversationText}`;
 
-      const summary = await geminiService.generateText(prompt);
+      const summary = await aiService.generateText(prompt);
 
       return summary;
     } catch (error: any) {
@@ -466,7 +466,7 @@ ${conversationText}
 Return ONLY a JSON array of questions (no markdown):
 ["Question 1?", "Question 2?", "Question 3?"]`;
 
-      const questions = await geminiService.generateJSON(prompt);
+      const questions = await aiService.generateJSON(prompt);
 
       return Array.isArray(questions) ? questions : [];
     } catch (error: any) {

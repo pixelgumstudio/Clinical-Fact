@@ -12,7 +12,7 @@ Clinical Fact turns raw study material (audio, PDF, images, YouTube videos, text
 - **Database:** MongoDB via Mongoose
 - **Queue/Jobs:** BullMQ + Redis (used for YouTube audio transcription fallback), plus a lightweight custom "Job" pattern (Mongo-backed) for note generation and chat replies — explained in §4.
 - **File storage:** MinIO (S3-compatible) via `storage.service.ts`
-- **AI:** Google Gemini (`gemini.service.ts`) for note/quiz/flashcard generation, OCR, and translation; Vertex AI / Gemini embeddings for chat RAG; Qdrant/Pinecone as the vector DB (`vectorDb.service.ts`)
+- **AI:** `ai.service.ts` — OpenAI (GPT-5.6 Luna) for note/quiz/flashcard generation and OCR, Groq (Llama 3.3 70B) for chat, Tavily (domain-restricted to authoritative medical sites) for live web grounding; Vertex AI embeddings for chat RAG; Qdrant/Pinecone as the vector DB (`vectorDb.service.ts`)
 - **Auth:** Custom JWT (access + refresh tokens), plus Google/Apple OAuth
 - **Payments:** RevenueCat (mobile IAP), verified via webhook
 
@@ -211,7 +211,7 @@ The core resource. A Note always has a `sourceType` (`audio`/`video`/`text`/`pdf
 2. **Text source with no file** → handled **synchronously**, note is created and the request returns `201` directly (no job).
 3. **Everything else (file upload)** → the uploaded file buffer is written to a temp file on disk *before* responding, specifically so the multer buffer isn't held in memory across the whole async generation lifetime. The endpoint then creates a `Job`, responds `202` with `{jobId}`, and does the real work in a detached async block:
    - **Audio:** uploads to MinIO (non-fatal if it fails), creates a placeholder Note (`processingStatus: 'transcribing'`), runs the full Whisper transcription pipeline, and finalizes the note.
-   - **PDF:** extracts text via `pdf.service`. If extraction yields fewer than 50 real words (common for scanned/image PDFs), it **automatically falls back to Gemini Vision OCR** on the raw PDF bytes before giving up with a user-facing "this looks like a scanned PDF" error.
+   - **PDF:** extracts text via `pdf.service`. If extraction yields fewer than 50 real words (common for scanned/image PDFs), it **automatically falls back to GPT-5.6 Luna Vision OCR** on the raw PDF bytes before giving up with a user-facing "this looks like a scanned PDF" error.
    - **YouTube/other text-based sources:** runs straight through `noteGenerationService`.
    - Auto-titling: if the client-supplied title looks like a raw filename (`IMG_1234.jpg`, `recording.mp3`, or literally `"Untitled Note"`), the AI-generated title overrides it. A real user-typed title is always preserved.
    - Quota is only incremented **after** the note is successfully persisted — a failed generation never burns the user's free slot.
@@ -224,7 +224,7 @@ Generic file storage plus three specialized "upload + immediately extract" endpo
 | Method & Path | Auth | What it does |
 |---|---|---|
 | `POST /upload` | User | Generic file upload to MinIO, no processing. Stores a `File` record. |
-| `POST /upload/image-ocr` | User | Uploads an image and runs OCR **synchronously** (the request blocks until Tesseract/Gemini OCR finishes) — returns extracted text + confidence directly in the response. |
+| `POST /upload/image-ocr` | User | Uploads an image and runs OCR **synchronously** (the request blocks until Tesseract/GPT-5.6 Luna Vision OCR finishes) — returns extracted text + confidence directly in the response. |
 | `GET /upload/image-ocr/:fileId/status` | User | Polling endpoint — largely redundant since OCR above is synchronous, but kept for consistency with the PDF/audio status endpoints. |
 | `POST /upload/audio-transcribe` | User | Uploads audio; transcription runs **in the background** (fire-and-forget, no job pattern, no immediate response value beyond `status: 'processing'`) — client must poll the status endpoint below. Plan-based size limit enforced here (§8.1). |
 | `GET /upload/audio/:fileId/status` | User | Poll for transcription completion; returns a text preview once done. |
