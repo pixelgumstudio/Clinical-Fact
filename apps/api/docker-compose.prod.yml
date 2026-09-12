@@ -39,6 +39,13 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - QDRANT_URL=http://qdrant:6333
+    volumes:
+      # google-credentials.json is gitignored/dockerignored (it's a secret
+      # service-account key), so it can't be baked into the image - mount it
+      # from the host instead. Place the file at
+      # ${DEPLOY_PATH}/apps/api/google-credentials.json on the server; this
+      # path must match GOOGLE_APPLICATION_CREDENTIALS in .env.
+      - ./google-credentials.json:/app/apps/api/google-credentials.json:ro
     ports:
       - "127.0.0.1:5001:5000"
     depends_on:

@@ -37,7 +37,27 @@ avoid colliding with the other project. See step 5.
    speaks plain S3 API, so R2 is a drop-in: point `MINIO_ENDPOINT` at your R2
    S3 endpoint (`<account-id>.r2.cloudflarestorage.com`), `MINIO_USE_SSL=true`,
    `MINIO_PORT=443`, and use the R2 access/secret key pair.
-4. Write `${DEPLOY_PATH}/apps/api/.env` on the server (never commit this file):
+4. Set up the Google Cloud project used for Vertex AI embeddings
+   (`embedding.vertexai.service.ts`, via `chat.service.ts`) and the
+   Translation API (`translation.service.ts`, used by note translation).
+   These are separate from the OAuth client IDs used for Google Sign-In —
+   both can live in the same GCP project, but need their own setup:
+
+   - In the GCP project's console, enable **Vertex AI API** and
+     **Cloud Translation API** (APIs & Services → Enable APIs).
+   - IAM & Admin → Service Accounts → Create Service Account. Grant it:
+     - `Vertex AI User` (`roles/aiplatform.user`)
+     - `Cloud Translation API User` (`roles/cloudtranslate.user`)
+   - Open the service account → Keys → Add Key → JSON. This downloads a
+     key file — rename it `google-credentials.json` and place it at
+     `${DEPLOY_PATH}/apps/api/google-credentials.json` on the server
+     (`scp` it up; never commit it — it's already in `.gitignore` and
+     `.dockerignore`). `docker-compose.prod.yml` mounts this path
+     read-only into the container, since it can't be baked into the image.
+   - Note the **Project ID** shown on the console dashboard (not the
+     project number, and not necessarily the display name) — that's the
+     value for `GOOGLE_PROJECT_ID` below.
+5. Write `${DEPLOY_PATH}/apps/api/.env` on the server (never commit this file):
 
    ```
    MONGODB_URI=<atlas connection string>
@@ -54,12 +74,27 @@ avoid colliding with the other project. See step 5.
    # REDIS_URL / QDRANT_URL are already set by docker-compose.prod.yml —
    # don't put them in .env or the compose file's override wins anyway.
 
+   # Web client ID from Google Cloud Console (the "Clinicalfact" web app
+   # OAuth client) - must match EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID in the
+   # mobile app's eas.json, since that's the audience Android's Google
+   # Sign-In idToken is issued for. Without this set, googleAuth() skips
+   # audience verification entirely instead of failing loudly.
+   GOOGLE_CLIENT_ID=370250130816-rm73ltjdbgiiqdh5q433q9h26nl1lapc.apps.googleusercontent.com
+
+   # Vertex AI + Translation API - see step 4 above for how to get these.
+   # GOOGLE_APPLICATION_CREDENTIALS is a path *inside the container*
+   # (WORKDIR is /app/apps/api there), matching the volume mount in
+   # docker-compose.prod.yml - not a path on the host.
+   GOOGLE_PROJECT_ID=<GCP project ID from the console dashboard>
+   GOOGLE_LOCATION=us-central1
+   GOOGLE_APPLICATION_CREDENTIALS=./google-credentials.json
+
    ADMIN_API_KEY=...
    YOUTUBE_COOKIE=...
    # ...plus any other keys the API reads (Gemini, OAuth, RevenueCat, etc.)
    ```
 
-5. Point DNS for the API's subdomain at the VPS IP (DNS-only/grey-cloud if on
+6. Point DNS for the API's subdomain at the VPS IP (DNS-only/grey-cloud if on
    Cloudflare, matching how `api.notedrill.com` is set up — this box's other
    site uses Let's Encrypt at the origin, not Cloudflare edge TLS).
 
@@ -133,7 +168,7 @@ avoid colliding with the other project. See step 5.
    nginx refuses to load a config referencing `ssl_certificate` files that
    don't exist yet.
 
-6. First manual deploy: `cd /opt/clinical-fact/apps/api && docker compose -f docker-compose.prod.yml up -d`.
+7. First manual deploy: `cd /opt/clinical-fact/apps/api && docker compose -f docker-compose.prod.yml up -d`.
 
 ## GitHub Actions secrets
 
