@@ -7,6 +7,7 @@ export type { IconName, IconRegistryEntry } from './registry';
 
 export { EmailIcon } from './EmailIcon';
 export { GoogleIcon, AppleIcon, FacebookIcon } from './SocialIcons';
+export { SparkleIcon } from './SparkleIcon';
 export {
   LogoIcon,
   AuthIcon1,

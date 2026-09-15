@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Icon, theme } from '@clinicalfact/design-system';
-import { ProfileScreen } from '../screens/main';
+import { Icon, SparkleIcon, theme } from '@clinicalfact/design-system';
+import { HomeScreen, ProfileScreen } from '../screens/main';
 import { ChatConversationScreen } from '../screens/chat';
 import { QuizHistoryScreen } from '../screens/main/QuizHistoryScreen';
 import { FlashcardHistoryScreen } from '../screens/main/FlashcardHistoryScreen';
@@ -13,6 +13,7 @@ import { useAuthStore } from '../store/authStore';
 export type MainTabParamList = {
   Home: undefined;
   Quiz: undefined;
+  Chat: undefined;
   Flashcards: undefined;
   Profile: undefined;
 };
@@ -50,7 +51,7 @@ export const MainTabNavigator = () => {
       >
         <Tab.Screen
           name="Home"
-          component={ChatConversationScreen}
+          component={HomeScreen}
           options={{
             tabBarIcon: ({ color }) => <Icon name="chatFill" size={24} color={color} />,
           }}
@@ -60,6 +61,18 @@ export const MainTabNavigator = () => {
           component={QuizHistoryScreen}
           options={{
             tabBarIcon: ({ color }) => <Icon name="quizFill" size={24} color={color} />,
+          }}
+        />
+        <Tab.Screen
+          name="Chat"
+          component={ChatConversationScreen}
+          options={{
+            tabBarLabel: () => null,
+            tabBarIcon: () => (
+              <View style={styles.chatTabButton}>
+                <SparkleIcon size={32} color={theme.colors.white} />
+              </View>
+            ),
           }}
         />
         <Tab.Screen
@@ -95,5 +108,14 @@ const styles = StyleSheet.create({
   tabLabel: {
     ...theme.typography.textStyles.label2,
     marginTop: 4,
+  },
+  chatTabButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: theme.colors.yale[700],
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...theme.shadows.md,
   },
 });
