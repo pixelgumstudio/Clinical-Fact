@@ -17,6 +17,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Icon, IconName, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../navigation/MainStackNavigator';
 import api from '../services/api';
+import { useAIConsentStore } from '../store/aiConsentStore';
 import { CreateQuizModal } from './CreateQuizModal';
 import { CreateFlashcardsModal } from './CreateFlashcardsModal';
 
@@ -144,6 +145,8 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
 
   const handleConfirmGenerateFlashcards = async (cardCount: number) => {
     if (!pendingChat) return;
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     setIsGenerating(true);
     try {
       const response = await api.generateFlashcardsFromText(

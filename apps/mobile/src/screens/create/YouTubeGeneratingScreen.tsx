@@ -22,8 +22,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { api } from '../../services/api';
 import appLifecycleService from '../../services/appLifecycleService';
 import { useInvalidateNotes } from '../../hooks/queries';
-import { AIConsentModal } from '../../components/AIConsentModal';
-import { checkAIConsent, saveAIConsent } from '../../hooks/useAIConsent';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
 
 type YouTubeGeneratingRouteProp = RouteProp<MainStackParamList, 'YouTubeGenerating'>;
@@ -54,7 +53,6 @@ export const YouTubeGeneratingScreen = () => {
   const [isComplete, setIsComplete] = useState(false);
   const [generatedNoteId, setGeneratedNoteId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [showConsentModal, setShowConsentModal] = useState(false);
   const invalidateNotes = useInvalidateNotes();
 
   const pollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -89,13 +87,10 @@ export const YouTubeGeneratingScreen = () => {
   };
 
   useEffect(() => {
-    checkAIConsent().then((hasConsented) => {
-      if (hasConsented) {
-        processYouTubeVideo();
-      } else {
-        setShowConsentModal(true);
-      }
-    });
+    useAIConsentStore.getState().requestConsent(
+      () => processYouTubeVideo(),
+      () => navigation.goBack()
+    );
     return () => {
       if (pollTimerRef.current) clearTimeout(pollTimerRef.current);
       stopSimulatedProgress();
@@ -298,24 +293,8 @@ export const YouTubeGeneratingScreen = () => {
     );
   };
 
-  const handleConsentAccept = async () => {
-    await saveAIConsent();
-    setShowConsentModal(false);
-    processYouTubeVideo();
-  };
-
-  const handleConsentDecline = () => {
-    navigation.goBack();
-  };
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <AIConsentModal
-        visible={showConsentModal}
-        onAccept={handleConsentAccept}
-        onDecline={handleConsentDecline}
-      />
-
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>

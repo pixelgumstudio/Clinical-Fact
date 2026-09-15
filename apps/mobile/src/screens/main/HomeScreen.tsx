@@ -1,66 +1,57 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
   ActivityIndicator,
-  FlatList,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { LinearGradient } from 'expo-linear-gradient';
-import {
-  colors,
-  spacing,
-  typography,
-  AudioWaveLogoIcon,
-  ChevronDownIcon,
-  EmptyFolderIcon,
-  CreateNotesIcon,
-  ChatPDFIcon,
-  QuizIcon,
-  FlashcardIcon,
-  ChevronRightIcon,
-  NoteCard,
-} from '@clinicalfact/design-system';
-import { CreateNoteModal } from '../../components/CreateNoteModal';
+import { useTranslation } from 'react-i18next';
+import { ChevronDownIcon, Icon, SparkleIcon, theme } from '@clinicalfact/design-system';
+import { CreateQuizModal } from '../../components/CreateQuizModal';
+import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
-import { useNotes, useRefetchOnFocus } from '../../hooks/queries';
 import { useAuthStore } from '../../store/authStore';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useFlashcardSync } from '../../hooks/useFlashcardSync';
-import { Alert } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { showInAppPaywall } from '../../services/revenuecat';
 import { changeLanguage } from '../../i18n';
 
 type HomeNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
-type NoteCardType = 'audio' | 'text' | 'pdf' | 'video' | 'image' | 'youtube';
+interface ChatSession {
+  _id: string;
+  title: string;
+  /** AI-generated one-sentence summary of the conversation, regenerated after every reply —
+   *  undefined until the first exchange completes. */
+  summary?: string;
+  sourceType: 'note' | 'image' | 'document' | 'pdf' | 'medical_qa';
+  createdAt: string;
+  /** Populated with { _id, title } by the backend when this session has a note attached. */
+  noteId?: { _id: string; title: string } | string;
+  messages?: { role: 'user' | 'assistant'; content: string }[];
+}
 
-const mapSourceType = (sourceType: string): NoteCardType => {
-  switch (sourceType) {
-    case 'upload_audio':
-    case 'record_audio':
-    case 'audio':
-      return 'audio';
-    case 'youtube':
-      return 'youtube';
-    case 'pdf':
-    case 'pdf_document':
-      return 'pdf';
-    case 'image':
-      return 'image';
-    case 'video':
-      return 'video';
-    default:
-      return 'text';
-  }
+const getLinkedNote = (session?: ChatSession) => {
+  const noteId = session?.noteId;
+  return noteId && typeof noteId === 'object' ? noteId : undefined;
 };
+
+/** Plain-text transcript of a session's messages — used as the source for quiz/flashcard
+ *  generation when the chat has no note behind it (mirrors ChatConversationScreen). */
+const buildSessionTranscript = (session?: ChatSession) =>
+  (session?.messages ?? [])
+    .map((m) => `${m.role === 'user' ? 'Q' : 'A'}: ${stripHtml(m.content)}`)
+    .join('\n\n');
 
 const getLanguageInfo = (code: string): { flag: string; code: string } => {
   const languageMap: Record<string, { flag: string; code: string }> = {
@@ -69,33 +60,27 @@ const getLanguageInfo = (code: string): { flag: string; code: string } => {
     fr: { flag: '🇫🇷', code: 'Fr' },
     de: { flag: '🇩🇪', code: 'De' },
     pt: { flag: '🇵🇹', code: 'Pt' },
-    'zh-CN': { flag: '🇨🇳', code: 'Zh' },
-    'zh-TW': { flag: '🇹🇼', code: 'Zh' },
-    ja: { flag: '🇯🇵', code: 'Ja' },
-    ko: { flag: '🇰🇷', code: 'Ko' },
-    ar: { flag: '🇸🇦', code: 'Ar' },
-    hi: { flag: '🇮🇳', code: 'Hi' },
-    ru: { flag: '🇷🇺', code: 'Ru' },
-    it: { flag: '🇮🇹', code: 'It' },
-    pl: { flag: '🇵🇱', code: 'Pl' },
-    nl: { flag: '🇳🇱', code: 'Nl' },
-    sv: { flag: '🇸🇪', code: 'Sv' },
-    tr: { flag: '🇹🇷', code: 'Tr' },
-    vi: { flag: '🇻🇳', code: 'Vi' },
-    th: { flag: '🇹🇭', code: 'Th' },
-    id: { flag: '🇮🇩', code: 'Id' },
   };
   return languageMap[code] || { flag: '🇺🇸', code: 'En' };
 };
 
+const formatCreatedAt = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const isToday = date.toDateString() === now.toDateString();
+  const day = isToday
+    ? 'Today'
+    : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  return `Created ${day}, ${time}`;
+};
+
+// Note summaries come back as rich text — strip tags for the one-line preview here.
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+
 export const HomeScreen = () => {
   const { t } = useTranslation();
   const navigation = useNavigation<HomeNavigationProp>();
-  const [isCreateModalVisible, setCreateModalVisible] = useState(false);
-  const [languageModalVisible, setLanguageModalVisible] = useState(false);
-  const { data: rawNotes = [], isLoading, refetch } = useNotes({ limit: 10, page: 1 });
-  const notes = rawNotes.slice(0, 10);
-  useRefetchOnFocus(refetch);
   const { user } = useAuthStore();
   const { hasAccess } = useSubscriptionStore();
   const { withAccess } = useGatedFeature();
@@ -108,104 +93,160 @@ export const HomeScreen = () => {
     });
   }, []);
 
-  const handleOpenCreateModal = () => {
-    setCreateModalVisible(true);
-  };
+  const [sessions, setSessions] = useState<ChatSession[]>([]);
+  const [isSessionsLoading, setSessionsLoading] = useState(true);
+  const [languageModalVisible, setLanguageModalVisible] = useState(false);
+  const [quizModalVisible, setQuizModalVisible] = useState(false);
+  const [flashcardsModalVisible, setFlashcardsModalVisible] = useState(false);
+  const [isGeneratingFlashcards, setGeneratingFlashcards] = useState(false);
 
-  const handleCloseCreateModal = () => {
-    setCreateModalVisible(false);
-  };
-
-  const handleSelectCreateOption = (optionType: string) => {
-    handleCloseCreateModal();
-    switch (optionType) {
-      case 'upload_audio':
-        navigation.navigate('UploadAudio');
-        break;
-      case 'record_audio':
-        navigation.navigate('RecordAudio');
-        break;
-      case 'youtube':
-        navigation.navigate('YouTubeInput');
-        break;
-      case 'pdf_document':
-        navigation.navigate('UploadPDF');
-        break;
-      case 'custom_text':
-        navigation.navigate('CustomTextInput');
-        break;
-      case 'image':
-        navigation.navigate('UploadImage');
-        break;
-      default:
-        break;
+  const loadSessions = useCallback(async () => {
+    try {
+      const response = await api.getChatSessions({ limit: 10 });
+      if (response.success && response.data) {
+        setSessions((response.data.sessions || (response.data as any).data || []) as ChatSession[]);
+      }
+    } catch (error) {
+      console.error('Failed to load chat sessions:', error);
+    } finally {
+      setSessionsLoading(false);
     }
-  };
+  }, []);
 
-  const handleChatWithPDF = () => {
-    withAccess(() => (navigation as any).navigate('ChatFileSelect', { type: 'document' }));
-  };
+  useFocusEffect(
+    useCallback(() => {
+      loadSessions();
+    }, [loadSessions])
+  );
 
   const handleLanguageSelect = async (languageCode: string) => {
     try {
       setLanguageModalVisible(false);
-
-      // Change app language immediately (i18n)
       await changeLanguage(languageCode);
-
-      // Update user preference in backend
       const response = await api.updateUserLanguage(languageCode);
-
       if (response.success && response.data?.user) {
-        // Update local user state with the full user data from API
-        const updatedUserData = response.data.user;
         await useAuthStore.getState().updateUser({
-          preferredLanguage: updatedUserData.preferredLanguage || languageCode,
+          preferredLanguage: response.data.user.preferredLanguage || languageCode,
         });
-
-        Alert.alert('Success', 'Language preference updated');
       } else {
         Alert.alert('Error', response.message || 'Failed to update language');
       }
     } catch (error: any) {
-      console.error('Language update error:', error);
       Alert.alert('Error', error.message || 'Failed to update language');
     }
   };
 
+  const handleTalkToAI = () => {
+    // No params — lands on ChatConversationScreen's own branded welcome state.
+    navigation.navigate('ChatConversation');
+  };
+
+  const handleSelectSession = (session: ChatSession) => {
+    navigation.navigate('ChatConversation', {
+      chatId: session._id,
+      title: session.title,
+      type: session.sourceType === 'pdf' ? 'document' : session.sourceType,
+      noteId: getLinkedNote(session)?._id,
+    });
+  };
+
+  const handleOpenQuizModal = () => {
+    withAccess(() => setQuizModalVisible(true));
+  };
+
+  const handleGenerateQuiz = (questionCount: number, timeInMinutes: number) => {
+    setQuizModalVisible(false);
+    if (!topSession) return;
+    if (topLinkedNote) {
+      navigation.navigate('Quiz', {
+        noteId: topLinkedNote._id,
+        noteTitle: topLinkedNote.title,
+        questionCount,
+        timeInMinutes,
+      });
+    } else {
+      navigation.navigate('Quiz', {
+        chatTranscript: buildSessionTranscript(topSession),
+        noteTitle: topSession.title,
+        questionCount,
+        timeInMinutes,
+        chatSessionId: topSession._id,
+      });
+    }
+  };
+
+  const handleOpenFlashcardsModal = () => {
+    if (!topSession) return;
+    if (topLinkedNote) {
+      withAccess(() =>
+        navigation.navigate('CreateFlashcards', {
+          noteId: topLinkedNote._id,
+          noteTitle: topLinkedNote.title,
+        })
+      );
+    } else if (buildSessionTranscript(topSession).length < 100) {
+      Alert.alert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
+    } else {
+      withAccess(() => setFlashcardsModalVisible(true));
+    }
+  };
+
+  const handleConfirmGenerateFlashcards = async (cardCount: number) => {
+    if (!topSession) return;
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
+    setGeneratingFlashcards(true);
+    try {
+      const response = await api.generateFlashcardsFromText(
+        buildSessionTranscript(topSession),
+        topSession.title,
+        cardCount,
+        undefined,
+        undefined,
+        undefined,
+        topSession._id
+      );
+      if (response.success && response.data) {
+        setFlashcardsModalVisible(false);
+        navigation.navigate('FlashcardReview', {
+          setId: response.data._id,
+          title: response.data.title,
+        });
+      } else if (response.quotaExceeded) {
+        setFlashcardsModalVisible(false);
+        await showInAppPaywall();
+      } else {
+        Alert.alert('Error', response.message || 'Failed to generate flashcards');
+      }
+    } catch (error: any) {
+      Alert.alert('Error', error.message || 'Failed to generate flashcards');
+    } finally {
+      setGeneratingFlashcards(false);
+    }
+  };
+
   const currentLanguage = getLanguageInfo(user?.preferredLanguage || 'en');
+  const isLoading = isSessionsLoading;
+  const hasChats = sessions.length > 0;
+  const topSession = sessions[0];
+  const recentSessions = sessions.slice(1);
+  const topLinkedNote = getLinkedNote(topSession);
+  const jumpDescription = topSession?.summary ? stripHtml(topSession.summary) : '';
 
-  const renderNoteItem = useCallback(({ item: note }: { item: any }) => (
-    <NoteCard
-      style={styles.noteCardSpacing}
-      note={{
-        id: note._id,
-        name: note.title || 'Untitled Note',
-        type: mapSourceType(note.sourceType),
-        createdAt: new Date(note.createdAt),
-        // transcription: note.summary,
-      }}
-      onPress={() => navigation.navigate('NoteDetail', {
-        noteId: note._id,
-        title: note.title || 'Untitled Note',
-      })}
-    />
-  ), [navigation]);
-
-  const ListHeader = (
-    <>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <AudioWaveLogoIcon size={28} />
-          <Text style={styles.logoText}>{t('home.title')}</Text>
-          <View style={[styles.statusBadge, hasAccess ? styles.proBadge : styles.freeBadge]}>
-            <Text style={[styles.statusBadgeText, hasAccess ? styles.proBadgeText : styles.freeBadgeText]}>
-              {hasAccess ? t('profile.pro') : t('profile.free')}
-            </Text>
+  return (
+    <SafeAreaView style={styles.container} edges={['top']}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            <Icon name="logo" size={32} />
+            <Text style={styles.logoText}>{t('home.title')}</Text>
+            <View style={[styles.statusBadge, hasAccess ? styles.proBadge : styles.freeBadge]}>
+              <Text style={[styles.statusBadgeText, hasAccess ? styles.proBadgeText : styles.freeBadgeText]}>
+                {hasAccess ? t('profile.pro') : t('profile.free')}
+              </Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.headerRight}>
           <TouchableOpacity
             style={styles.languageSelector}
             onPress={() => setLanguageModalVisible(true)}
@@ -213,168 +254,122 @@ export const HomeScreen = () => {
           >
             <Text style={styles.flagIcon}>{currentLanguage.flag}</Text>
             <Text style={styles.languageText}>{currentLanguage.code}</Text>
-            <ChevronDownIcon size={14} color="#6B7280" />
+            <ChevronDownIcon size={14} color={theme.colors.grey[600]} />
           </TouchableOpacity>
         </View>
-      </View>
 
-      {/* Feature Cards - 2x2 Grid */}
-      <View style={styles.featureCards}>
-        {/* Card 1: Capture Notes */}
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={handleOpenCreateModal}
-          style={styles.featureCardTouchable}
-        >
-          <LinearGradient
-            colors={['#FFEBEA', '#CBEAFF', '#FBD0CD', '#B9EDBA']}
-            start={{ x: 0.15, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.featureCard}
-          >
-            <View style={styles.featureCardTop}>
-              <CreateNotesIcon size={24} />
-              <ChevronRightIcon size={24} color="#A6A6A6" />
+        {/* Upgrade banner — free users only */}
+        {!hasAccess && (
+          <View style={styles.upgradeCard}>
+            <View style={styles.upgradeCardText}>
+              <Text style={styles.upgradeTitle}>Upgrade to pro</Text>
+              <Text style={styles.upgradeDescription}>Get 80% discount when you upgrade your account</Text>
             </View>
-            <View>
-              <Text style={styles.featureCardTitle}>Capture Notes</Text>
-              <Text style={styles.featureCardDescription}>Record, paste, or upload to start</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
-
-        {/* Card 2: Chat Smart */}
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={handleChatWithPDF}
-          style={styles.featureCardTouchable}
-        >
-          <LinearGradient
-            colors={['#CBEAFF', '#DAFADB', '#CCFBF1', '#2DD4C0']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.featureCard}
-          >
-            <View style={styles.featureCardTop}>
-              <ChatPDFIcon size={24} />
-              <ChevronRightIcon size={24} color="#A6A6A6" />
-            </View>
-            <View>
-              <Text style={styles.featureCardTitle}>Chat Smart</Text>
-              <Text style={styles.featureCardDescription}>Ask questions about any note, Chat with PDF & Doc</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
-
-        {/* Card 3: Practice Tests */}
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={() => navigation.navigate('QuizHistoryScreen')}
-          style={styles.featureCardTouchable}
-        >
-          <LinearGradient
-            colors={['#F6FEE7', '#BAED65', '#B5D975', '#F0EAAA']}
-            start={{ x: 0.296, y: 0.5 }}
-            end={{ x: 1, y: 0.5 }}
-            style={styles.featureCard}
-          >
-            <View style={styles.featureCardTop}>
-              <QuizIcon size={24} />
-              <ChevronRightIcon size={24} color="#A6A6A6" />
-            </View>
-            <View>
-              <Text style={styles.featureCardTitle}>Practice Tests</Text>
-              <Text style={styles.featureCardDescription}>Auto-generate quizzes instantly</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
-
-        {/* Card 4: Make Flashcards */}
-        <TouchableOpacity
-          activeOpacity={0.9}
-          onPress={() => navigation.navigate('FlashcardHistoryScreen')}
-          style={styles.featureCardTouchable}
-        >
-          <LinearGradient
-            colors={['#DCEEB9', '#FFB09C', '#EBE19F', '#F9C597']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.featureCard}
-          >
-            <View style={styles.featureCardTop}>
-              <FlashcardIcon size={24} />
-              <ChevronRightIcon size={24} color="#A6A6A6" />
-            </View>
-            <View>
-              <Text style={styles.featureCardTitle}>Make flashcards</Text>
-              <Text style={styles.featureCardDescription}>Master concepts with spaced rep</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-
-      {/* Notes section header — only when there are notes */}
-      {!isLoading && notes.length > 0 && (
-        <View style={[styles.notesSection, { paddingBottom: 0 }]}>
-          <View style={styles.notesSectionHeader}>
-            <Text style={styles.notesTitle}>{t('home.recentNotes')}</Text>
-            <TouchableOpacity onPress={() => (navigation as any).navigate('MainTabs', { screen: 'Library' })}>
-              <Text style={styles.viewAllLink}>{t('home.seeAll')}</Text>
+            <TouchableOpacity style={styles.unlockButton} onPress={() => showInAppPaywall()} activeOpacity={0.85}>
+              <Text style={styles.unlockButtonText}>Unlock PRO</Text>
             </TouchableOpacity>
           </View>
-        </View>
-      )}
-    </>
-  );
+        )}
 
-  return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      {isLoading ? (
-        <FlatList
-          data={[]}
-          renderItem={null}
-          ListHeaderComponent={ListHeader}
-          ListFooterComponent={
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color={colors.neutral[900]} />
-              <Text style={styles.loadingText}>{t('home.loadingNotes')}</Text>
+        {isLoading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={theme.colors.yale[700]} />
+          </View>
+        ) : !hasChats ? (
+          // Empty state
+          <View style={styles.emptyCard}>
+            <View style={styles.emptyIconCircle}>
+              <SparkleIcon size={32} color={theme.colors.white} />
             </View>
-          }
-          showsVerticalScrollIndicator={false}
-        />
-      ) : notes.length === 0 ? (
-        <FlatList
-          data={[]}
-          renderItem={null}
-          ListHeaderComponent={ListHeader}
-          ListFooterComponent={
-            <View style={styles.emptyState}>
-              <EmptyFolderIcon size={80} color="#D1D5DB" />
-              <Text style={styles.emptyTitle}>{t('home.noNotes')}</Text>
-              <Text style={styles.emptyDescription}>{t('home.noNotesDesc')}</Text>
-            </View>
-          }
-          showsVerticalScrollIndicator={false}
-        />
-      ) : (
-        <FlatList
-          data={notes}
-          keyExtractor={(item) => item._id}
-          renderItem={renderNoteItem}
-          ListHeaderComponent={ListHeader}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.notesSection}
-          initialNumToRender={10}
-          maxToRenderPerBatch={10}
-          windowSize={5}
-          removeClippedSubviews
-        />
-      )}
+            <Text style={styles.emptyTitle}>No medical chats</Text>
+            <Text style={styles.emptyDescription}>
+              You have not created any medical chats , please start a new chat and get cited sources
+            </Text>
+            <TouchableOpacity style={styles.primaryButton} onPress={handleTalkToAI} activeOpacity={0.85}>
+              <Text style={styles.primaryButtonText}>Talk to Clinicalfact AI</Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <>
+            {!!topSession && (
+              <>
+                <Text style={styles.sectionLabel}>Jump in where you stopped</Text>
+                <View style={styles.jumpCard}>
+                  <Text style={styles.jumpTitle} numberOfLines={2}>{topSession.title}</Text>
+                  {!!jumpDescription && (
+                    <Text style={styles.jumpDescription} numberOfLines={2}>{jumpDescription}</Text>
+                  )}
+                  <View style={styles.jumpActionsRow}>
+                    <TouchableOpacity style={styles.jumpChip} onPress={handleOpenQuizModal} activeOpacity={0.7}>
+                      <View style={styles.jumpChipFlex}>
+                      {/* <View style={[styles.jumpChipIcon, styles.jumpChipIconGreen]}> */}
+                        <Icon name="quizFill" size={32} color={theme.colors.green[700]} />
+                      <Icon name="foward" size={32} color={theme.colors.grey[300]} />
+                      </View>
+                      <Text style={styles.jumpChipText}>Practice Quiz</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.jumpChip} onPress={handleOpenFlashcardsModal} activeOpacity={0.7}>
+                       <View style={styles.jumpChipFlex}>
+                        <Icon name="flashcardsFill" size={32} color={theme.colors.orange[700]} />
+                      <Icon name="foward" size={32} color={theme.colors.grey[300]} />
+                      </View>
+                      <Text style={styles.jumpChipText}>Make flashcards</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <TouchableOpacity
+                    style={styles.primaryButton}
+                    onPress={() => handleSelectSession(topSession)}
+                    activeOpacity={0.85}
+                  >
+                    <Text style={styles.primaryButtonText}>
+                      {topLinkedNote ? 'Continue chat with Note' : 'Continue chat'}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </>
+            )}
 
-      <CreateNoteModal
-        visible={isCreateModalVisible}
-        onClose={handleCloseCreateModal}
-        onSelectOption={handleSelectCreateOption}
+            {recentSessions.length > 0 && (
+              <>
+                <Text style={styles.sectionLabel}>Recent chats</Text>
+                <View style={styles.chatList}>
+                  {recentSessions.map((session, index) => (
+                    <TouchableOpacity
+                      key={session._id}
+                      style={[styles.chatRow, index < recentSessions.length - 1 && styles.chatRowDivider]}
+                      onPress={() => handleSelectSession(session)}
+                      activeOpacity={0.7}
+                    >
+                      <View style={styles.chatRowIcon}>
+                        <Icon name="chatFill" size={18} color={theme.colors.orange[600]} />
+                      </View>
+                      <View style={styles.chatRowInfo}>
+                        <Text style={styles.chatRowTitle} numberOfLines={1}>{session.title}</Text>
+                        <Text style={styles.chatRowDate}>{formatCreatedAt(session.createdAt)}</Text>
+                      </View>
+                      <Icon name="foward" size={16} color={theme.colors.grey[300]} />
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </>
+            )}
+          </>
+        )}
+      </ScrollView>
+
+      <CreateQuizModal
+        visible={quizModalVisible}
+        onClose={() => setQuizModalVisible(false)}
+        onGenerateQuiz={handleGenerateQuiz}
+        noteTitle={topSession?.title}
+      />
+
+      <CreateFlashcardsModal
+        visible={flashcardsModalVisible}
+        onClose={() => setFlashcardsModalVisible(false)}
+        onGenerateFlashcards={handleConfirmGenerateFlashcards}
+        isGenerating={isGeneratingFlashcards}
+        noteTitle={topSession?.title}
       />
 
       <LanguageSupportModal
@@ -390,167 +385,229 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background.primary,
+    backgroundColor: theme.colors.linen[300],
   },
-  // Header
+  scrollContent: {
+    paddingHorizontal: theme.spacing[5], // 20
+    paddingBottom: theme.spacing[10], // 40
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: spacing[5],
-    paddingTop: spacing[2],
-    paddingBottom: spacing[4],
+    paddingVertical: theme.spacing[3], // 12
   },
   headerLeft: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  headerRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing[2],
+    gap: theme.spacing[2], // 8
   },
   logoText: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
-    marginLeft: spacing[2],
+    ...theme.typography.textStyles.title1,
+    color: theme.colors.grey[900],
   },
   statusBadge: {
-    paddingHorizontal: 8,
+    paddingHorizontal: theme.spacing[2], // 8
     paddingVertical: 2,
-    borderRadius: 4,
-    marginLeft: spacing[2],
+    borderRadius: theme.borderRadius.full,
   },
   proBadge: {
-    backgroundColor: '#6366F1',
+    backgroundColor: theme.colors.green[100],
   },
   freeBadge: {
-    backgroundColor: '#9CA3AF',
+    backgroundColor: theme.colors.white,
   },
   statusBadgeText: {
-    fontSize: 10,
-    fontWeight: typography.fontWeight.semibold,
-    textTransform: 'uppercase',
+    ...theme.typography.textStyles.label2,
   },
   proBadgeText: {
-    color: '#FFFFFF',
+    color: theme.colors.green[700],
   },
   freeBadgeText: {
-    color: '#FFFFFF',
+    color: theme.colors.grey[600],
   },
   languageSelector: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.neutral[100],
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 6,
-    gap: 4,
+    backgroundColor: theme.colors.white,
+    paddingHorizontal: theme.spacing[3], // 12
+    paddingVertical: theme.spacing[2], // 8
+    borderRadius: theme.borderRadius.full,
+    gap: theme.spacing[1], // 4
   },
   flagIcon: {
     fontSize: 16,
   },
   languageText: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.secondary,
-    marginRight: 4,
+    ...theme.typography.textStyles.subtitle2,
+    color: theme.colors.grey[900],
   },
-  // Feature Cards
-  featureCards: {
+  // Upgrade banner
+  upgradeCard: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing[2],
-  },
-  featureCardTouchable: {
-    width: '47%',
-  },
-  featureCard: {
-    flexDirection: 'column',
+    alignItems: 'baseline',
     justifyContent: 'space-between',
-    padding: spacing[4],
-    borderRadius: 16,
-    minHeight: 127,
-    height: 150,
-    overflow: 'hidden',
-    gap: spacing[6],
+    backgroundColor: theme.colors.white,
+    borderRadius: theme.borderRadius.lg, // 16
+    padding: theme.spacing[4], // 16
+    marginBottom: theme.spacing[6], // 24
+    gap: theme.spacing[3], // 12
   },
-  featureCardTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  featureCardTitle: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#1C1C1C',
-    letterSpacing: -0.14,
-    marginBottom: spacing[1],
-  },
-  featureCardDescription: {
-    fontSize: 12,
-    fontWeight: '400',
-    color: '#1C1C1C',
-    letterSpacing: -0.24,
-    lineHeight: 16,
-  },
-  // Empty State
-  emptyState: {
+  upgradeCardText: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing[8],
-    paddingTop: spacing[16],
-    paddingBottom: spacing[8],
   },
-  emptyTitle: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    marginTop: spacing[4],
-    marginBottom: spacing[2],
-    textAlign: 'center',
+  upgradeTitle: {
+    ...theme.typography.textStyles.title1,
+    color: theme.colors.grey[900],
+    marginBottom: 2,
   },
-  emptyDescription: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    lineHeight: 20,
+  upgradeDescription: {
+    ...theme.typography.textStyles.p2,
+    color: theme.colors.grey[500],
+  },
+  unlockButton: {
+    backgroundColor: theme.colors.yale[700],
+    paddingHorizontal: theme.spacing[4], // 16
+    paddingVertical: theme.spacing[3], // 12
+    borderRadius: theme.borderRadius.full,
+  },
+  unlockButtonText: {
+    ...theme.typography.textStyles.button3,
+    color: theme.colors.white,
   },
   loadingContainer: {
-    flex: 1,
+    paddingVertical: theme.spacing[16], // 64
+    alignItems: 'center',
+  },
+  // Empty state
+  emptyCard: {
+    backgroundColor: theme.colors.white,
+    borderRadius: theme.borderRadius.lg, // 16
+    padding: theme.spacing[6], // 24
+    alignItems: 'center',
+  },
+  emptyIconCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: theme.colors.green[600],
+    alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: theme.spacing[4], // 16
+  },
+  emptyTitle: {
+    ...theme.typography.textStyles.h6,
+    color: theme.colors.grey[900],
+    marginBottom: theme.spacing[2], // 8
+  },
+  emptyDescription: {
+    ...theme.typography.textStyles.p2,
+    color: theme.colors.grey[500],
+    textAlign: 'center',
+    marginBottom: theme.spacing[5], // 20
+  },
+  primaryButton: {
+    alignSelf: 'stretch',
+    backgroundColor: theme.colors.yale[700],
+    paddingVertical: theme.spacing[4], // 16
+    borderRadius: theme.borderRadius.full,
     alignItems: 'center',
-    paddingVertical: spacing[16],
   },
-  loadingText: {
-    marginTop: spacing[4],
-    fontSize: typography.fontSize.base,
-    color: colors.text.secondary,
+  primaryButtonText: {
+    ...theme.typography.textStyles.button1,
+    color: theme.colors.white,
   },
-  notesSection: {
-    paddingHorizontal: spacing[5],
-    paddingTop: spacing[6],
-    paddingBottom: spacing[8],
+  // Jump-in card
+  sectionLabel: {
+    ...theme.typography.textStyles.subtitle1,
+    color: theme.colors.grey[900],
+    marginBottom: theme.spacing[4], // 16
   },
-  notesSectionHeader: {
+  jumpCard: {
+    backgroundColor: theme.colors.white,
+    borderRadius: theme.borderRadius.lg, // 16
+    padding: theme.spacing[4], // 16
+    marginBottom: theme.spacing[6], // 24
+  },
+  jumpTitle: {
+    ...theme.typography.textStyles.h6,
+    fontSize: 20,
+    lineHeight: 26,
+    color: theme.colors.grey[900],
+    marginBottom: theme.spacing[3], // 12
+  },
+  jumpDescription: {
+    ...theme.typography.textStyles.p2,
+    color: theme.colors.grey[500],
+    marginBottom: theme.spacing[6], // 24
+  },
+  jumpActionsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: theme.spacing[4], // 16
+    marginBottom: theme.spacing[4], // 16
+  },
+  jumpChip: {
+    display: 'flex',
+    gap: theme.spacing[4], // 16
+    flex: 1,
+    backgroundColor: theme.colors.linen[300],
+    borderRadius: theme.borderRadius.md, // 12
+    padding: theme.spacing[3], // 12
+  },
+  jumpChipFlex: {
+    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing[4],
+    justifyContent: 'space-between',
   },
-  notesTitle: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
+  jumpChipIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: theme.borderRadius.sm, // 8
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: theme.spacing[6], // 24
   },
-  viewAllLink: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.medium,
-    color: '#F97316',
+ 
+  jumpChipText: {
+    ...theme.typography.textStyles.subtitle2,
+    color: theme.colors.grey[900],
   },
-  noteCardSpacing: {
-    marginBottom: spacing[3],
+  // Recent chats
+  chatList: {
+    backgroundColor: theme.colors.linen[100],
+    borderRadius: theme.borderRadius.lg, // 16
+  },
+  chatRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.spacing[3], // 12
+    padding: theme.spacing[3], // 12
+  },
+  chatRowDivider: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.linen[400],
+  },
+  chatRowIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: theme.borderRadius.full,
+    backgroundColor: theme.colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  chatRowInfo: {
+    flex: 1,
+  },
+  chatRowTitle: {
+    ...theme.typography.textStyles.title1,
+    color: theme.colors.grey[900],
+    marginBottom: 2,
+  },
+  chatRowDate: {
+    ...theme.typography.textStyles.p3,
+    color: theme.colors.grey[500],
   },
 });
+
+export default HomeScreen;

@@ -19,6 +19,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import api from '../../services/api';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { useDeleteNote, useFolders } from '../../hooks/queries';
 import {
   colors,
@@ -193,6 +194,8 @@ export const NoteDetailScreen = () => {
         {
           text: 'Re-transcribe',
           onPress: async () => {
+            const consented = await useAIConsentStore.getState().ensureConsent();
+            if (!consented) return;
             try {
               setIsLoading(true);
               const response = await api.retranscribeNote(route.params?.noteId || '');
@@ -327,6 +330,8 @@ export const NoteDetailScreen = () => {
 
   const handleLanguageSelect = async (languageCode: string) => {
     setLanguageModalVisible(false);
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     try {
       setIsLoading(true);
       const response = await api.translateNote(route.params?.noteId, languageCode);

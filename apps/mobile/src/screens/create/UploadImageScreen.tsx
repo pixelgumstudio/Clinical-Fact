@@ -16,6 +16,7 @@ import * as ImageManipulator from 'expo-image-manipulator';
 import { Icon, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import api from '../../services/api';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
 
@@ -106,6 +107,11 @@ export const UploadImageScreen = () => {
 
   const handleContinue = async () => {
     if (!uploadedImage) return;
+
+    // The OCR call below happens here, before GeneratingNoteScreen — so this screen
+    // needs its own gate rather than relying on GeneratingNoteScreen's.
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
 
     setIsUploading(true);
 

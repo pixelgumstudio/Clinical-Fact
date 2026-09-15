@@ -14,6 +14,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import api from '../../services/api';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import {
   colors,
   spacing,
@@ -247,6 +248,8 @@ const checkChatLimit = async () => {
   };
 
   const _doUploadDocument = async () => {
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     try {
       console.log('📄 Opening document picker...');
       // PDF and plain text are supported today — anything else (Word, PowerPoint, etc.) isn't
@@ -353,6 +356,8 @@ const checkChatLimit = async () => {
   };
 
   const _doUploadImage = async () => {
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     try {
       const useCamera = route.params?.imageSource === 'camera';
       console.log(useCamera ? '📷 Opening camera...' : '🖼️ Opening image picker...');
@@ -477,6 +482,8 @@ const checkChatLimit = async () => {
   };
 
   const _doUploadAudio = async () => {
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     try {
       console.log('🎙️ Opening audio file picker...');
       const result = await DocumentPicker.getDocumentAsync({

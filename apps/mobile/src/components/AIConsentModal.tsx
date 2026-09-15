@@ -29,7 +29,7 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
           <View style={styles.handle} />
           <Text style={styles.title}>Before we process your content</Text>
           <Text style={styles.subtitle}>
-            Clinical Fact uses AI to turn your content into notes. Here's what you need to know:
+            Clinical Fact uses AI to answer your questions and turn your content into notes, quizzes, and flashcards. Here's what you need to know:
           </Text>
 
           <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
@@ -37,8 +37,9 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>What data is sent</Text>
               <View style={styles.bulletList}>
+                <BulletItem text="Questions and messages you type in chat" />
                 <BulletItem text="Audio recordings or uploaded audio files" />
-                <BulletItem text="PDF and Word documents" />
+                <BulletItem text="PDF and text documents you upload" />
                 <BulletItem text="Images you upload" />
                 <BulletItem text="YouTube video URLs and their transcripts" />
                 <BulletItem text="Custom text you enter" />
@@ -49,7 +50,7 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Who receives your data</Text>
               <Text style={styles.sectionBody}>
-                Your content is sent to <Text style={styles.bold}>OpenAI</Text> (for transcription and note generation) via our secure backend servers. We do not sell your data to any third party.
+                Your content is sent to <Text style={styles.bold}>OpenAI</Text> (note, quiz, and flashcard generation; transcription; document and image processing) and <Text style={styles.bold}>Groq</Text> (chat responses) via our secure backend servers. When live medical search is used, your question is also sent to <Text style={styles.bold}>Tavily</Text> to find citations from trusted sources like NIH, CDC, MedlinePlus, WHO, and Mayo Clinic. These providers process your data only to generate your answer — they do not use it to train their own general-purpose AI models, and we do not sell your data to any third party.
               </Text>
             </View>
 
@@ -57,7 +58,7 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>How it's used</Text>
               <Text style={styles.sectionBody}>
-                Your content is used solely to generate your notes. OpenAI's data usage policies apply to content processed through their API. For more details, see our Privacy Policy.
+                Your content is used solely to generate the answer, note, quiz, or flashcards you requested. Each provider's own data usage policies apply to content processed through their API. For more details, see our Privacy Policy.
               </Text>
             </View>
           </ScrollView>

@@ -13,6 +13,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { I18nextProvider } from 'react-i18next';
 import * as Notifications from 'expo-notifications';
 import { AppNavigator } from './src/navigation/AppNavigator';
+import { TabletContainer } from './src/components/TabletContainer';
+import { AIConsentGate } from './src/components/AIConsentGate';
 import { navigationRef } from './src/navigation/navigationRef';
 import i18n, { loadUserLanguage } from './src/i18n';
 import { useAuthStore } from './src/store/authStore';
@@ -197,7 +199,10 @@ function AppInner() {
       persistOptions={{ persister, maxAge: 24 * 60 * 60 * 1000 }}
     >
       <I18nextProvider i18n={i18n}>
-        <AppNavigator />
+        <TabletContainer>
+          <AppNavigator />
+        </TabletContainer>
+        <AIConsentGate />
         <StatusBar style="auto" />
       </I18nextProvider>
     </PersistQueryClientProvider>

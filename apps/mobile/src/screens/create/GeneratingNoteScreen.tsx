@@ -21,9 +21,8 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import appLifecycleService from '../../services/appLifecycleService';
 import { useInvalidateNotes } from '../../hooks/queries';
-import { AIConsentModal } from '../../components/AIConsentModal';
 import { CustomAlertModal } from '../../components/CustomAlertModal';
-import { checkAIConsent, saveAIConsent } from '../../hooks/useAIConsent';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { useAuthStore } from '../../store/authStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
 import { showInAppPaywall } from '../../services/revenuecat';
@@ -215,7 +214,6 @@ export const GeneratingNoteScreen = () => {
 
   const [isComplete, setIsComplete] = useState(false);
   const [currentStepIndex] = useState(0);
-  const [showConsentModal, setShowConsentModal] = useState(false);
   const [alertConfig, setAlertConfig] = useState<{
     visible: boolean;
     title: string;
@@ -271,13 +269,10 @@ export const GeneratingNoteScreen = () => {
   };
 
   useEffect(() => {
-    checkAIConsent().then((hasConsented) => {
-      if (hasConsented) {
-        generateNote();
-      } else {
-        setShowConsentModal(true);
-      }
-    });
+    useAIConsentStore.getState().requestConsent(
+      () => generateNote(),
+      () => navigation.goBack()
+    );
     return () => {
       stopSimulatedProgress();
       if (earlyCreepRef.current) clearInterval(earlyCreepRef.current);
@@ -783,23 +778,8 @@ export const GeneratingNoteScreen = () => {
     );
   };
 
-  const handleConsentAccept = async () => {
-    await saveAIConsent();
-    setShowConsentModal(false);
-    generateNote();
-  };
-
-  const handleConsentDecline = () => {
-    navigation.goBack();
-  };
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <AIConsentModal
-        visible={showConsentModal}
-        onAccept={handleConsentAccept}
-        onDecline={handleConsentDecline}
-      />
       <CreateQuizModal
         visible={isCreateQuizModalVisible}
         onClose={() => setCreateQuizModalVisible(false)}

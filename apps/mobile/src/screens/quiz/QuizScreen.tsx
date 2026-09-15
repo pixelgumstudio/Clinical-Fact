@@ -16,6 +16,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { showInAppPaywall } from '../../services/revenuecat';
 import { useAuthStore } from '../../store/authStore';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { CustomAlertModal } from '../../components/CustomAlertModal';
 
 type QuizScreenRouteProp = RouteProp<MainStackParamList, 'Quiz'>;
@@ -80,9 +81,17 @@ export const QuizScreen = () => {
     }
   }, [noteId]);
 
-  // Load questions on mount
+  // Load questions on mount — reviewing an already-generated quiz (quizId) doesn't send
+  // any new content to an AI provider, so only the generation paths need the consent gate.
   useEffect(() => {
-    loadQuestions();
+    if (quizId) {
+      loadQuestions();
+      return;
+    }
+    useAIConsentStore.getState().requestConsent(
+      () => loadQuestions(),
+      () => navigation.goBack()
+    );
   }, []);
 
   // Timer effect - starts only after questions are loaded

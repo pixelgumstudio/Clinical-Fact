@@ -26,6 +26,7 @@ import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import api, { MedicalChatFilters, MedicalChatSource, MedicalChatImage, MedicalChatGroundingSource } from '../../services/api';
 import appLifecycleService from '../../services/appLifecycleService';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import {
   colors,
   spacing,
@@ -571,6 +572,13 @@ export const ChatConversationScreen = () => {
    *  handleSendMessage), so the caption typed alongside it goes out as the same action. */
   const pickAndStageImage = async (source: 'camera' | 'library') => {
     await waitForAttachSheetToFullyClose();
+    // Checked after the attach sheet (a native Modal) has fully closed — showing the
+    // consent modal while it's still animating out causes the same iOS Modal-stacking
+    // collision noted elsewhere in this file.
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => pickAndStageImage(source));
+      return;
+    }
     const { status } = source === 'camera'
       ? await ImagePicker.requestCameraPermissionsAsync()
       : await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -621,6 +629,10 @@ export const ChatConversationScreen = () => {
    *  supported today; Word/PowerPoint/etc. aren't wired to a text extractor yet. */
   const handleUploadFileOption = async () => {
     await waitForAttachSheetToFullyClose();
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => handleUploadFileOption());
+      return;
+    }
     const result = await DocumentPicker.getDocumentAsync({
       type: ['application/pdf', 'text/plain'],
       copyToCacheDirectory: true,
@@ -730,6 +742,10 @@ export const ChatConversationScreen = () => {
     if (!message.trim()) return;
     if (pendingAttachment?.isUploading) return; // Send button is disabled for this too — belt and suspenders.
     if (isSendingRef.current) return; // A repeated tap while the first send is still in flight — ignore it.
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => handleSendMessage());
+      return;
+    }
     isSendingRef.current = true;
 
     // React state updates are async, so if this call auto-creates a session below, `sessionId`
@@ -854,7 +870,13 @@ export const ChatConversationScreen = () => {
       // Track in-flight chat message job for background processing
       await appLifecycleService.trackInFlightJob(response.data.jobId, 'chat');
 
-      await listenChatJob(response.data.jobId, activeIsMedical);
+      // Must match `useLiveSearch` above, not just `activeIsMedical` — the request was sent
+      // with mode: 'medical_live' (and its {text, sources, images, ...} response shape)
+      // whenever useLiveSearch is true, even for a non-medical document chat with the live
+      // search switch on. Reading it as a plain chat job here would read the wrong result
+      // field (data.result.response, which doesn't exist on a medical_live job) and silently
+      // show a blank/undefined reply.
+      await listenChatJob(response.data.jobId, useLiveSearch);
     } catch (error: any) {
       console.error('Failed to send message:', error);
       showAlert('Error', error.message || 'Failed to send message');
@@ -931,6 +953,10 @@ export const ChatConversationScreen = () => {
   };
 
   const handleConfirmGenerateFlashcards = async (cardCount: number) => {
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => handleConfirmGenerateFlashcards(cardCount));
+      return;
+    }
     setGeneratingActionId('flashcards-chat');
     try {
       const transcript = buildChatTranscript();
@@ -964,6 +990,10 @@ export const ChatConversationScreen = () => {
 
   const handleRegenerateResponse = async (messageIndex: number) => {
     if (!sessionId) return;
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => handleRegenerateResponse(messageIndex));
+      return;
+    }
 
     const userMessageIndex = messageIndex - 1;
     if (userMessageIndex < 0 || userMessageIndex >= messages.length) return;
@@ -974,7 +1004,8 @@ export const ChatConversationScreen = () => {
     setIsSendingMessage(true);
 
     try {
-      const response = (isMedical || liveSearchEnabled)
+      const useLiveSearch = isMedical || liveSearchEnabled;
+      const response = useLiveSearch
         ? await api.sendChatMessage(sessionId, userMessage.content, false, 'medical_live', medicalFilters, getShownImageUrls(priorMessages))
         : await api.sendChatMessage(sessionId, userMessage.content);
 
@@ -985,7 +1016,8 @@ export const ChatConversationScreen = () => {
       // Track in-flight chat message job for background processing
       await appLifecycleService.trackInFlightJob(response.data.jobId, 'chat');
 
-      await listenChatJob(response.data.jobId, isMedical);
+      // Must match `useLiveSearch` above — see the identical fix/comment in handleSendMessage.
+      await listenChatJob(response.data.jobId, useLiveSearch);
     } catch (error: any) {
       showAlert('Error', 'Failed to regenerate response');
       setMessages(messages);
@@ -994,20 +1026,48 @@ export const ChatConversationScreen = () => {
     }
   };
 
-  /** Groups sources by journal for the pill row ("Journal +N") — the design shows
-   *  pills grouped by source provider (NHS/PubMed/etc.), but that isn't a field
-   *  the API returns; journal is the closest available grouping key. */
+  /** The literature APIs fall back to literal strings like "Unknown journal"/"Unknown year"
+   *  when a paper has no journal metadata (common for preprints, conference papers, etc.) —
+   *  showing that placeholder verbatim reads as a bug ("unknown source"), so treat it the same
+   *  as missing and fall back to the actual provider name (Europe PMC / Semantic Scholar /
+   *  PubMed) instead, which is always real, known information. */
+  const hasRealJournal = (s: MedicalChatSource) => !!s.journal && !/^unknown/i.test(s.journal);
+  const hasRealYear = (s: MedicalChatSource) => !!s.year && !/^unknown/i.test(s.year);
+
+  /** Pill/grouping label for a source — journal for literature (falling back to provider when
+   *  unknown), and a fixed label for the other two citation types, which have no journal at all. */
+  const pillLabelFor = (s: MedicalChatSource): string => {
+    if (s.type === 'drug_label') return 'FDA';
+    if (s.type === 'attached') return 'Attached';
+    return hasRealJournal(s) ? s.journal! : (s.provider || 'Source');
+  };
+
+  /** Groups sources by pillLabelFor for the pill row ("Journal +N" / "FDA +N" / "Attached +N"). */
   const groupSourcesForPills = (sources: MedicalChatSource[]) => {
-    const byJournal = new Map<string, MedicalChatSource[]>();
+    const byKey = new Map<string, MedicalChatSource[]>();
     sources.forEach((s) => {
-      const key = s.journal || 'Source';
-      if (!byJournal.has(key)) byJournal.set(key, []);
-      byJournal.get(key)!.push(s);
+      const key = pillLabelFor(s);
+      if (!byKey.has(key)) byKey.set(key, []);
+      byKey.get(key)!.push(s);
     });
-    return Array.from(byJournal.entries()).map(([journal, group]) => ({
-      label: group.length > 1 ? `${journal} +${group.length - 1}` : journal,
+    return Array.from(byKey.entries()).map(([label, group]) => ({
+      label: group.length > 1 ? `${label} +${group.length - 1}` : label,
       sources: group,
     }));
+  };
+
+  /** Meta line for a citation card ("Journal · Year" for literature, a fixed tag for the other
+   *  two types) — omits journal/year when they're the generic "Unknown ..." placeholder and
+   *  falls back to the provider name instead of showing "Unknown journal · Unknown year" verbatim. */
+  const formatSourceMeta = (source: MedicalChatSource): string => {
+    if (source.type === 'drug_label') return 'FDA drug label';
+    if (source.type === 'attached') return 'From your attached material';
+    const parts = [
+      hasRealJournal(source) ? source.journal : null,
+      hasRealYear(source) ? source.year : null,
+    ].filter((p): p is string => !!p);
+    if (parts.length === 0) return source.provider || '';
+    return parts.join(' · ');
   };
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
@@ -1243,28 +1303,6 @@ export const ChatConversationScreen = () => {
     );
   };
 
-  const getSuggestedQuestions = () => {
-    switch (type) {
-      case 'note':
-        return ['Summarize this note for me', 'What are the main topics covered?', 'Create a quiz from this content'];
-      case 'image':
-        return ['What text is in this image?', 'Summarize the content', 'Explain what you see'];
-      case 'document':
-        return ['Give me a brief summary', 'What are the key points?', 'Explain the main concepts'];
-      case 'medical_qa':
-      default:
-        // Also covers the welcome screen (type is undefined until a session exists) — typing
-        // directly there starts a medical_qa session, so these examples apply there too.
-        return [
-          'What are the causes, symptoms, and treatments of pneumonia?',
-          'What are common ACE inhibitor drug interactions?',
-          'What is the standard dosing range for metformin?',
-        ];
-    }
-  };
-
-  const suggestedQuestions = getSuggestedQuestions();
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header — full redesign: avatar (opens chat list) + Upgrade on the left,
@@ -1396,33 +1434,6 @@ export const ChatConversationScreen = () => {
           ListEmptyComponent={renderEmptyChat()}
           ListFooterComponent={isSendingMessage ? <TypingIndicator /> : null}
         />
-
-        {/* Suggested questions — shown once a session/attachment exists with no messages yet
-            (the bare welcome state has its own topic cards in ChatWelcomeHero instead), and
-            again after every AI reply as follow-up prompts; hidden while the next reply is
-            still streaming in and as soon as the user sends a new message. */}
-        {sessionId && embeddingStatus === 'completed' && !isSendingMessage &&
-          (messages.length === 0 || messages[messages.length - 1]?.role === 'assistant') && (
-          <View style={styles.suggestedSection}>
-            <Text style={styles.suggestedTitle}>Follow up questions</Text>
-            <View style={styles.suggestedContainer}>
-              {suggestedQuestions.map((question, index) => (
-                <TouchableOpacity
-                  key={index}
-                  style={[
-                    styles.suggestedRow,
-                    index < suggestedQuestions.length - 1 && styles.suggestedRowDivider,
-                  ]}
-                  onPress={() => handleSuggestedQuestion(question)}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.suggestedText}>{question}</Text>
-                  <Icon name="foward" size={16} color={theme.colors.grey[200]} />
-                </TouchableOpacity>
-              ))}
-            </View>
-          </View>
-        )}
 
         {/* Input area */}
         {isLocked ? (
@@ -1767,7 +1778,7 @@ export const ChatConversationScreen = () => {
                 >
                   <View style={styles.citationCardText}>
                     <Text style={styles.citationCardMeta} numberOfLines={1}>
-                      {[source.journal, source.year].filter(Boolean).join(' · ')}
+                      {formatSourceMeta(source)}
                     </Text>
                     <Text style={styles.citationCardTitle} numberOfLines={2}>{source.title}</Text>
                   </View>
@@ -2439,42 +2450,6 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     padding: theme.spacing[1], // 4
-  },
-  suggestedSection: {
-    paddingHorizontal: spacing[4],
-    paddingBottom: spacing[3],
-  },
-  suggestedTitle: {
-    fontFamily: theme.typography.fontFamily.lora,
-    fontSize: 16,
-    fontWeight: '600',
-    lineHeight: 22,
-    color: theme.colors.grey[900],
-    marginBottom: theme.spacing[4], // 16
-  },
-  suggestedContainer: {
-    backgroundColor: theme.colors.white,
-    borderRadius: theme.borderRadius.lg, // 16
-    borderWidth: 1,
-    borderColor: theme.colors.grey[100],
-    overflow: 'hidden',
-  },
-  suggestedRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: theme.spacing[3], // 12
-    paddingHorizontal: theme.spacing[4], // 16
-    paddingVertical: theme.spacing[3], // 12
-  },
-  suggestedRowDivider: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.grey[50],
-  },
-  suggestedText: {
-    flex: 1,
-    ...theme.typography.textStyles.p1,
-    color: theme.colors.grey[900],
   },
   inputContainer: {
     backgroundColor: theme.colors.linen[300],

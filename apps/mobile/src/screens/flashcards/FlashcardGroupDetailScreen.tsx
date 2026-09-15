@@ -16,6 +16,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Icon, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportFlashcard } from '../../hooks/useExportFlashcard';
@@ -172,6 +173,8 @@ export const FlashcardGroupDetailScreen = () => {
 
   const handleGenerateNew = async (cardCount: number) => {
     if (!data) return;
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     setIsPreparingAction('new');
     try {
       const response = await generateSet(cardCount);
@@ -194,6 +197,8 @@ export const FlashcardGroupDetailScreen = () => {
   const handleSelectLanguage = async (languageCode: string) => {
     if (!data) return;
     setLanguageModalVisible(false);
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
     setIsPreparingAction('translate');
     try {
       const response = await generateSet(data.latestCardCount, languageCode);

@@ -30,6 +30,7 @@ import {
 import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import api from "../../services/api";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
+import { useAIConsentStore } from "../../store/aiConsentStore";
 import { useSubscriptionStore } from "../../store/subscriptionStore";
 import { useAuthStore } from "../../store/authStore";
 import { showInAppPaywall } from "../../services/revenuecat";
@@ -145,6 +146,11 @@ export const CreateFlashcardsScreen = () => {
 
   if (numCards < 1 || numCards > 100) {
     Alert.alert(t('common.error'), t('flashcards.invalidCardCount'));
+    return;
+  }
+
+  if (!useAIConsentStore.getState().hasConsented) {
+    useAIConsentStore.getState().requestConsent(() => handleStartCreating());
     return;
   }
 
