@@ -90,8 +90,9 @@
     "enterVerificationCode": "Please enter the complete verification code",
     "buttons": {
       "continue": "Continue",
-      "continueWithEmail": "Continue with Google",
-      "continueWithGoogle": "Continue with Apple",
+      "continueWithEmail": "Continue with Email",
+      "continueWithGoogle": "Continue with Google",
+      "continueWithApple": "Continue with Apple",
       "skip": "Skip",
       "verify": "Verified!",
       "next": "Next",
@@ -140,7 +141,10 @@
       "googleStartFailed": "Failed to start Google sign-in. Please try again.",
       "setupRequired": "Setup Required",
       "googleOAuthMissing": "Google Sign-In requires OAuth Client IDs.\\n\\nPlease add credentials to your .env file.",
-      "youCanStillUseEmail": "You can still use \"Continue with Email\"."
+      "youCanStillUseEmail": "You can still use \"Continue with Email\".",
+      "appleSignInFailed": "Apple Sign In Failed",
+      "appleTokenFailed": "Failed to process Apple token",
+      "appleIosOnly": "Sign in with Apple is only available on iOS."
     },
     "messages": {
       "signingIn": "Signing in...",

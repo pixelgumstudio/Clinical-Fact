@@ -17,6 +17,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
+import * as AppleAuthentication from 'expo-apple-authentication';
 import { Button, Input, Icon, theme } from '@clinicalfact/design-system';
 
 // Conditionally import GoogleSignin (not available in Expo Go)
@@ -50,8 +51,11 @@ export const WelcomeScreen = () => {
     setAuthMethod,
     setEmail,
     setGoogleUserData,
+    setAppleUserData,
     isGoogleLoading,
     setGoogleLoading,
+    isAppleLoading,
+    setAppleLoading,
     isSendingOtp,
     setSendingOtp,
     setError,
@@ -182,12 +186,6 @@ export const WelcomeScreen = () => {
     }
   };
 
-  // Focuses the inline email field rather than submitting — this button has
-  // no email value of its own to send yet.
-  const handleFocusEmailInput = () => {
-    emailInputRef.current?.focus();
-  };
-
   // Sends the OTP directly from this screen and goes straight to
   // verification — there's no separate "enter your email" screen anymore.
   // sendOtp/verifyOtp already handle sign-up and sign-in identically
@@ -286,6 +284,66 @@ export const WelcomeScreen = () => {
     }
   };
 
+  // iOS only: native Sign in with Apple
+  const handleAppleAuth = async () => {
+    if (Platform.OS !== 'ios') {
+      Alert.alert(t('common.error'), t('auth.errors.appleIosOnly'));
+      return;
+    }
+    if (isGoogleLoading || isAppleLoading || isSendingOtp) return;
+
+    setAppleLoading(true);
+    setError(null);
+    try {
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+      });
+
+      if (!credential.identityToken) {
+        throw new Error(t('auth.errors.authTokenFailed'));
+      }
+
+      const authResponse = await api.appleAuth(
+        credential.identityToken,
+        credential.fullName?.givenName ?? undefined,
+        credential.fullName?.familyName ?? undefined,
+        credential.email ?? undefined
+      );
+
+      if (authResponse.success && authResponse.data) {
+        const { user, tokens, isNewUser, needsProfileSetup } = authResponse.data;
+
+        await setAuthState(user, tokens, isNewUser ?? true, needsProfileSetup ?? true);
+
+        const nameParts = (user.name || '').split(' ');
+        setAppleUserData({
+          email: user.email,
+          firstName: credential.fullName?.givenName ?? nameParts[0] ?? '',
+          lastName: credential.fullName?.familyName ?? nameParts.slice(1).join(' ') ?? '',
+        });
+
+        if (needsProfileSetup || isNewUser) {
+          navigation.navigate('Role');
+        }
+      } else {
+        throw new Error(authResponse.message || 'Failed to authenticate with server');
+      }
+    } catch (err: any) {
+      if (err.code === 'ERR_REQUEST_CANCELED') {
+        // user cancelled — do nothing
+      } else {
+        const message = err.message || t('auth.errors.appleSignInFailed');
+        setError(message);
+        Alert.alert(t('auth.errors.appleSignInFailed'), message);
+      }
+    } finally {
+      setAppleLoading(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -314,31 +372,36 @@ export const WelcomeScreen = () => {
             <Text style={styles.cardTitle}>{t('auth.welcomeScreen.createAccountTitle')}</Text>
 
             <View style={styles.buttonGroup}>
-              {/* Icon/label pairing here is intentionally as designed: the
-                  Google-mark button reads "Continue with Email" and the
-                  envelope-icon button reads "Continue with Google" —
-                  confirmed correct against a real device screenshot
-                  (2026-07-29), not a mismatch to fix. Each button's onPress
-                  follows its label text, since that's what the user reads. */}
               <Button
                 variant="primary"
                 leftIcon={<Icon name="google" size={24} />}
-                onPress={handleFocusEmailInput}
-                disabled={isGoogleLoading || isSendingOtp}
-              >
-                {t('auth.buttons.continueWithEmail')}
-              </Button>
-
-              <Button
-                variant="primary"
-                leftIcon={<Icon name="emailFill" size={24} color={theme.colors.white} />}
                 onPress={handleGoogleAuth}
-                disabled={isGoogleLoading || !request || !hasRequiredClientId}
+                disabled={isGoogleLoading || isAppleLoading || isSendingOtp || !request || !hasRequiredClientId}
                 loading={isGoogleLoading}
-                style={styles.emailAuthButton}
               >
                 {t('auth.buttons.continueWithGoogle')}
               </Button>
+
+              {Platform.OS === 'ios' && (
+                // Apple Guideline 4: must be their exact official button component/artwork,
+                // not a recreated icon+label — expo-apple-authentication renders the real
+                // native ASAuthorizationAppleIDButton, so this is the actual asset, not a copy.
+                <View
+                  style={[
+                    styles.appleButtonWrap,
+                    (isGoogleLoading || isAppleLoading || isSendingOtp) && styles.appleButtonWrapDisabled,
+                  ]}
+                  pointerEvents={isGoogleLoading || isAppleLoading || isSendingOtp ? 'none' : 'auto'}
+                >
+                  <AppleAuthentication.AppleAuthenticationButton
+                    buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
+                    buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+                    cornerRadius={theme.heights.button.large / 2}
+                    style={styles.appleButton}
+                    onPress={handleAppleAuth}
+                  />
+                </View>
+              )}
             </View>
 
             <View style={styles.divider}>
@@ -366,7 +429,7 @@ export const WelcomeScreen = () => {
                 fullWidth
                 onPress={handleEmailAuth}
                 loading={isSendingOtp}
-                disabled={isGoogleLoading || isSendingOtp}
+                disabled={isGoogleLoading || isAppleLoading || isSendingOtp}
               >
                 {t('auth.welcomeScreen.signUpWithEmail')}
               </Button>
@@ -439,9 +502,15 @@ const styles = StyleSheet.create({
   buttonGroup: {
     gap: theme.spacing[3], // 12
   },
-  emailAuthButton: {
-    backgroundColor: theme.colors.yale[900],
-    borderColor: theme.colors.yale[900],
+  appleButtonWrap: {
+    width: '100%',
+  },
+  appleButtonWrapDisabled: {
+    opacity: 0.5,
+  },
+  appleButton: {
+    width: '100%',
+    height: theme.heights.button.large,
   },
   divider: {
     flexDirection: 'row',

@@ -64,14 +64,30 @@ export interface MedicalChatFilters {
   };
 }
 
+/** One unified, sequentially-numbered citation card — mirrors apps/api's MedicalCitation.
+ *  `type` determines which of the optional fields are populated and how the card renders:
+ *  'literature' uses authors/journal/year/doi/abstract/provider, 'drug_label' uses
+ *  brandName/genericName/indications/dosage/warnings/interactions, 'attached' only has a title. */
 export interface MedicalChatSource {
   index: number;
+  type: 'attached' | 'literature' | 'drug_label';
   title: string;
-  authors: string;
-  journal: string;
-  year: string;
-  doi: string;
-  abstract: string;
+  // literature only
+  authors?: string;
+  journal?: string;
+  year?: string;
+  doi?: string;
+  abstract?: string;
+  /** Which literature API this came from (Europe PMC / Semantic Scholar / PubMed) — used as a
+   *  fallback grouping label when the paper itself has no journal metadata. */
+  provider?: string;
+  // drug_label only
+  brandName?: string;
+  genericName?: string;
+  indications?: string;
+  dosage?: string;
+  warnings?: string;
+  interactions?: string;
 }
 
 export interface MedicalChatImage {
@@ -95,7 +111,7 @@ export interface User {
   username: string;
   subscription: 'FREE' | 'PRO';
   profilePicture?: string;
-  authProvider: 'local' | 'google' | 'phone';
+  authProvider: 'local' | 'google' | 'apple' | 'phone';
   isEmailVerified: boolean;
   isPhoneVerified?: boolean;
   hasCompletedSignup: boolean;

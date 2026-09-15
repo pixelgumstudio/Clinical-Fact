@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export type AuthMethod = 'email' | 'google' | null;
+export type AuthMethod = 'email' | 'google' | 'apple' | null;
 
 export interface SignupData {
   email: string;
@@ -58,6 +58,7 @@ interface SignupState {
   isSendingOtp: boolean;
   isVerifyingOtp: boolean;
   isGoogleLoading: boolean;
+  isAppleLoading: boolean;
 
   // Error states
   error: string | null;
@@ -91,6 +92,7 @@ interface SignupState {
   setProfilePhoto: (photo: string) => void;
   setGoogleId: (id: string) => void;
   setGoogleUserData: (userData: { email: string; firstName: string; lastName: string; photo?: string; googleId: string }) => void;
+  setAppleUserData: (userData: { email?: string; firstName?: string; lastName?: string }) => void;
   setOtpCode: (code: string) => void;
   setOtpVerified: (verified: boolean) => void;
   setCurrentStep: (step: number) => void;
@@ -100,6 +102,7 @@ interface SignupState {
   setSendingOtp: (sending: boolean) => void;
   setVerifyingOtp: (verifying: boolean) => void;
   setGoogleLoading: (loading: boolean) => void;
+  setAppleLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
   resetSignup: () => void;
 }
@@ -143,6 +146,7 @@ export const useSignupStore = create<SignupState>()(
   isSendingOtp: false,
   isVerifyingOtp: false,
   isGoogleLoading: false,
+  isAppleLoading: false,
   error: null,
 
   setAuthMethod: (authMethod) => set({ authMethod }),
@@ -335,6 +339,18 @@ export const useSignupStore = create<SignupState>()(
       error: null,
     })),
 
+  setAppleUserData: (userData) =>
+    set((state) => ({
+      authMethod: 'apple',
+      data: {
+        ...state.data,
+        email: userData.email ?? state.data.email,
+        firstName: userData.firstName ?? state.data.firstName,
+        lastName: userData.lastName ?? state.data.lastName,
+      },
+      error: null,
+    })),
+
   setOtpCode: (otpCode) => set({ otpCode, error: null }),
 
   setOtpVerified: (isOtpVerified) => set({ isOtpVerified }),
@@ -359,6 +375,8 @@ export const useSignupStore = create<SignupState>()(
 
   setGoogleLoading: (isGoogleLoading) => set({ isGoogleLoading }),
 
+  setAppleLoading: (isAppleLoading) => set({ isAppleLoading }),
+
   setError: (error) => set({ error }),
 
   resetSignup: () =>
@@ -372,6 +390,7 @@ export const useSignupStore = create<SignupState>()(
       isSendingOtp: false,
       isVerifyingOtp: false,
       isGoogleLoading: false,
+      isAppleLoading: false,
       error: null,
     }),
   }),
