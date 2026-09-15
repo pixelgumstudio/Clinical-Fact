@@ -66,7 +66,7 @@ export const letterSpacing = {
 export const textStyles = {
   h1: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 90, lineHeight: 104, letterSpacing: -3.6 },
   h2: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 60, lineHeight: 70, letterSpacing: -2.4 },
-  h3: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 48, lineHeight: 58, letterSpacing: -1.92 },
+  h3: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 48, lineHeight: 54, letterSpacing: -1.92 },
   h4: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 32, lineHeight: 39, letterSpacing: -1 },
   h5: { fontFamily: fontFamily.lora, fontWeight: fontWeight.medium, fontSize: 24, lineHeight: 32, letterSpacing: -0.48 },
   h6: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 24, lineHeight: 36, letterSpacing: -0.48 },
@@ -77,14 +77,14 @@ export const textStyles = {
   title3: { fontFamily: fontFamily.interSemiBold, fontWeight: fontWeight.semibold, fontSize: 12, lineHeight: 16, letterSpacing: -0.12 },
 
   subtitle1: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 16, lineHeight: 22, letterSpacing: -0.16 },
-  subtitle2: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 14, lineHeight: 20, letterSpacing: -0.28 },
+  subtitle2: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 14, lineHeight: 20, letterSpacing: -0.42 },
 
   p1: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 16, lineHeight: 24, letterSpacing: -0.64 },
   p2: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 14, lineHeight: 20, letterSpacing: -0.28 },
-  p3: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 12, lineHeight: 16, letterSpacing: -0.24 },
+  p3: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 12, lineHeight: 16, letterSpacing: -0.36 },
 
   label1: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 12, lineHeight: 16, letterSpacing: -0.12 },
-  label2: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 10, lineHeight: 12, letterSpacing: -0.1 },
+  label2: { fontFamily: fontFamily.interMedium, fontWeight: fontWeight.medium, fontSize: 10, lineHeight: 12, letterSpacing: 0.7 },
 
   caption1: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 12, lineHeight: 16, letterSpacing: -0.12 },
   caption2: { fontFamily: fontFamily.interRegular, fontWeight: fontWeight.regular, fontSize: 10, lineHeight: 12, letterSpacing: -0.1 },
