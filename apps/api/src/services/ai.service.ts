@@ -255,7 +255,11 @@ class AiService {
       const result = await groq.chat.completions.create({
         model: GROQ_CHAT_MODEL,
         messages: groqMessages,
-        max_tokens: 8192,
+        // This account's on_demand tier caps openai/gpt-oss-120b at 8000 TPM per request —
+        // 8192 alone already exceeded that before counting a single prompt token (Groq counts
+        // max_tokens toward the request's reserved capacity, not just actual output length),
+        // so every grounded/medical-live chat with any prompt content at all got a 413.
+        max_tokens: 4096,
       });
 
       const finalText = String(result.choices[0]?.message?.content || '').trim();
