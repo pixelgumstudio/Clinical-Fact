@@ -173,7 +173,7 @@ class ChatService {
             title = `${sourceType.charAt(0).toUpperCase() + sourceType.slice(1)} Passage ${i + 1}`;
           }
           const sourceType = chunk.metadata?.sourceType ? ` [${chunk.metadata.sourceType}]` : '';
-          return `[${i + 1}] "${title}"${sourceType} (Relevance: ${(chunk.score * 100).toFixed(0)}%)\n${chunk.text}`;
+          return `[${i + 1}] "${title}"${sourceType} (Relevance: ${(chunk.score * 100).toFixed(0)}%)\n${this.truncateText(chunk.text, 800)}`;
         })
         .join('\n\n---\n\n');
 
@@ -208,8 +208,9 @@ How to answer:
 Material to answer from:
 ${context}`;
 
+      const MAX_HISTORY_MESSAGES = 6;
       const messages = [
-        ...chatHistory,
+        ...chatHistory.slice(-MAX_HISTORY_MESSAGES),
         { role: 'user' as const, content: userMessage },
       ];
 
@@ -320,7 +321,7 @@ ${context}`;
       citationIndex++;
       const title = chunk.metadata?.attachedTitle || chunk.metadata?.noteTitle || 'Attached document';
       citations.push({ index: citationIndex, type: 'attached', title });
-      contextBlocks.push(`[${citationIndex}] "${title}" (from your attached material)\n${chunk.text}`);
+      contextBlocks.push(`[${citationIndex}] "${title}" (from your attached material)\n${this.truncateText(chunk.text, 800)}`);
     }
 
     for (const r of literatureResults) {
@@ -336,7 +337,7 @@ ${context}`;
         abstract: r.abstract,
         provider: r.provider,
       });
-      contextBlocks.push(`[${citationIndex}] "${r.title}" (${r.year}, ${r.authors})\nAbstract: ${r.abstract}`);
+      contextBlocks.push(`[${citationIndex}] "${r.title}" (${r.year}, ${r.authors})\nAbstract: ${this.truncateText(r.abstract, 500)}`);
     }
 
     for (const r of drugLabelResults) {
@@ -354,15 +355,25 @@ ${context}`;
         interactions: r.interactions,
       });
       const sections = [
-        r.indications && `Indications: ${r.indications}`,
-        r.dosage && `Dosage: ${r.dosage}`,
-        r.warnings && `Warnings: ${r.warnings}`,
-        r.interactions && `Interactions: ${r.interactions}`,
+        r.indications && `Indications: ${this.truncateText(r.indications, 300)}`,
+        r.dosage && `Dosage: ${this.truncateText(r.dosage, 300)}`,
+        r.warnings && `Warnings: ${this.truncateText(r.warnings, 300)}`,
+        r.interactions && `Interactions: ${this.truncateText(r.interactions, 300)}`,
       ].filter(Boolean).join('\n');
       contextBlocks.push(`[${citationIndex}] "${name}" (FDA drug label)\n${sections}`);
     }
 
-    const context = contextBlocks.join('\n\n---\n\n');
+    // Per-item truncation above bounds the common case, but a query that happens to surface
+    // the maximum from every source at once (5 attached chunks + ~15 literature results + 3
+    // drug labels) could still add up — this is the hard backstop that guarantees the prompt
+    // Groq sees never blows the account's 8000 TPM cap regardless of combination. Truncated
+    // from the end so it keeps attached material and the earliest (highest-relevance) results,
+    // matching the priority the system instruction below already tells the model to use.
+    const MAX_CONTEXT_CHARS = 12000;
+    let context = contextBlocks.join('\n\n---\n\n');
+    if (context.length > MAX_CONTEXT_CHARS) {
+      context = `${context.slice(0, MAX_CONTEXT_CHARS)}…`;
+    }
 
     const systemInstruction = `You are Clinical Fact, a medical reference AI built for nursing and medical students. Answer accurately using your own medical knowledge as the foundation, and be straightforward and concise — this is a study tool students read on their phone between classes, not an essay. Answer the actual question directly, then stop. Don't pad with restating the question, generic disclaimers, or covering angles the student didn't ask about.
 
@@ -388,8 +399,12 @@ You also have live web search results (restricted to authoritative medical domai
 Sources:
 ${context || 'No sources found — answer from your own medical knowledge.'}`;
 
+    // Full conversation history stacks on top of the (already capped) sources context above —
+    // uncapped, a long-running chat would eventually blow the token budget on history alone.
+    // Recent turns matter far more for a follow-up question than turns from many exchanges ago.
+    const MAX_HISTORY_MESSAGES = 6;
     const messages = [
-      ...history,
+      ...history.slice(-MAX_HISTORY_MESSAGES),
       { role: 'user' as const, content: userQuery },
     ];
 
@@ -406,6 +421,13 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
       images: imageResults,
       groundingSources,
     };
+  }
+
+  /** Hard char cap on any one piece of source text going into the prompt (~125 tokens at the
+   *  usual ~4 chars/token) — a single long FDA warnings section or journal abstract shouldn't
+   *  be able to crowd out every other citation. */
+  private truncateText(text: string, maxChars = 500): string {
+    return text.length > maxChars ? `${text.slice(0, maxChars)}…` : text;
   }
 
   /**

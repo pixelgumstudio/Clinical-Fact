@@ -255,11 +255,12 @@ class AiService {
       const result = await groq.chat.completions.create({
         model: GROQ_CHAT_MODEL,
         messages: groqMessages,
-        // This account's on_demand tier caps openai/gpt-oss-120b at 8000 TPM per request —
-        // 8192 alone already exceeded that before counting a single prompt token (Groq counts
-        // max_tokens toward the request's reserved capacity, not just actual output length),
-        // so every grounded/medical-live chat with any prompt content at all got a 413.
-        max_tokens: 4096,
+        // This account's on_demand tier caps openai/gpt-oss-120b at 8000 TPM per request, and
+        // Groq counts max_tokens toward that reserved capacity regardless of actual output
+        // length. Medical-live chat's context block (attached chunks + literature + drug
+        // labels) is now capped in chat.service.ts, but leave real headroom here too rather
+        // than relying on that budget being exactly right for every combination.
+        max_tokens: 2048,
       });
 
       const finalText = String(result.choices[0]?.message?.content || '').trim();
