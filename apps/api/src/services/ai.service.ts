@@ -51,7 +51,15 @@ class AiService {
       throw new Error('GROQ_API_KEY environment variable is not set');
     }
 
-    this.groq = new Groq({ apiKey });
+    // Groq's TPM limit on this account (8000, on_demand tier) is a rolling per-minute budget
+    // shared across every request, not just a per-request cap — even well-sized individual
+    // requests can collide if several land in the same ~60s window (confirmed by reproducing
+    // it against the live API: concurrent requests failed outright at the SDK's default
+    // maxRetries: 2, but all succeeded at maxRetries: 5, ~60s total). The SDK already reads
+    // Groq's `retry-after` header and waits the exact right amount — it just needs enough
+    // retry budget to outlast a busy window. Chat runs as a background job with no hard
+    // deadline, so trading a slower response for not surfacing a 429 to the user is worth it.
+    this.groq = new Groq({ apiKey, maxRetries: 5 });
     console.log('✅ Groq service initialized');
     return this.groq;
   }
