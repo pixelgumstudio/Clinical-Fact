@@ -51,15 +51,10 @@ class AiService {
       throw new Error('GROQ_API_KEY environment variable is not set');
     }
 
-    // Groq's TPM limit on this account (8000, on_demand tier) is a rolling per-minute budget
-    // shared across every request, not just a per-request cap — even well-sized individual
-    // requests can collide if several land in the same ~60s window (confirmed by reproducing
-    // it against the live API: concurrent requests failed outright at the SDK's default
-    // maxRetries: 2, but all succeeded at maxRetries: 5, ~60s total). The SDK already reads
-    // Groq's `retry-after` header and waits the exact right amount — it just needs enough
-    // retry budget to outlast a busy window. Chat runs as a background job with no hard
-    // deadline, so trading a slower response for not surfacing a 429 to the user is worth it.
-    this.groq = new Groq({ apiKey, maxRetries: 5 });
+    // maxRetries: 0 — the SDK's own retry would otherwise sit and wait out Groq's `retry-after`
+    // (often 20s+) internally before chat() ever sees the error, which is exactly the slow
+    // behavior chat() is now designed to avoid by failing over to OpenAI immediately instead.
+    this.groq = new Groq({ apiKey, maxRetries: 0 });
     console.log('✅ Groq service initialized');
     return this.groq;
   }
@@ -286,8 +281,48 @@ class AiService {
         status: error.status
       });
 
+      // 429 here means Groq's account-wide 8000 TPM budget is currently exhausted by other
+      // requests, not that this specific request was malformed — waiting it out can take 20s+
+      // (see the removed maxRetries above), so reroute to OpenAI immediately instead. Anything
+      // other than 429 (bad key, model error, etc.) still surfaces normally rather than being
+      // silently masked by a fallback.
+      if (error?.status === 429) {
+        console.warn('⏳ Groq rate-limited — falling back to OpenAI for this chat response');
+        try {
+          return await this.chatViaOpenAI(messages, systemInstruction);
+        } catch (fallbackError: any) {
+          console.error('❌ OpenAI fallback also failed:', fallbackError.message);
+          throw new Error(`Chat generation failed: ${error.message}`);
+        }
+      }
+
       throw new Error(`Chat generation failed: ${error.message}`);
     }
+  }
+
+  /** Used only when Groq is rate-limited — same conversation, routed through the OpenAI model
+   *  this app already uses for generation, so a busy Groq window never surfaces as a user-facing
+   *  error or a long wait. */
+  private async chatViaOpenAI(messages: ChatMessage[], systemInstruction?: string): Promise<string> {
+    const openai = this.getOpenAI();
+    const input = [
+      ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
+      ...messages.map((m) => ({ role: m.role, content: m.content })),
+    ];
+
+    const result = await openai.responses.create({
+      model: OPENAI_MODEL,
+      input,
+      max_output_tokens: 2048,
+    });
+
+    const finalText = String(result.output_text || '').trim();
+    if (!finalText) {
+      throw new Error('Empty response from OpenAI fallback');
+    }
+
+    console.log('✅ Generated chat response via OpenAI fallback, length:', finalText.length);
+    return finalText;
   }
 
   /**
