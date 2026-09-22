@@ -3,7 +3,7 @@
     "entryPoint": "./index.js",
     "name": "Clinical Fact",
     "slug": "clinicfact-app",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "scheme": "clinicalfact",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,7 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "2",
+      "buildNumber": "4",
       "supportsTablet": false,
       "bundleIdentifier": "com.clinicalfact.app",
       "infoPlist": {
@@ -29,7 +29,7 @@
       }
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -93,9 +93,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "2950c359-bd5e-44e7-8144-5eb2251af225"
+        "projectId": "028b5df9-8331-46d9-857c-027ac1665769"
       }
     },
-    "owner": "pixelgumstudio"
+    "owner": "pixelgumstudioapps"
   }
 }
