@@ -35,17 +35,17 @@ export const FeatureScreenLayout: React.FC<FeatureScreenLayoutProps> = ({
 
   return (
     <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+      {image ? (
+        <Image source={image} style={styles.image} resizeMode="contain" />
+      ) : (
+        <View style={styles.image}>{children}</View>
+      )}
+
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {image ? (
-          <Image source={image} style={styles.image} resizeMode="contain" />
-        ) : (
-          children
-        )}
-
         <View style={styles.titleSection}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subtitle}>{subtitle}</Text>
@@ -96,17 +96,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
+    // The image used to flow inside this content box and give it height for
+    // titleSection's `position: absolute, bottom: ...` to anchor against — now that
+    // the image is a full-screen background sibling instead, this box needs its own
+    // height (at least the screen) or that absolute positioning collapses to the top.
+    flexGrow: 1,
     paddingBottom: theme.spacing[4],
   },
   image: {
-    alignSelf: 'center',
+    ...StyleSheet.absoluteFillObject,
     width: '100%',
-    aspectRatio: 393 / 850,
+    height: '100%',
   },
   titleSection: {
      position: 'absolute',
     //  backgroundColor: theme.colors.white,
-    bottom: theme.spacing[32], // 8
+    bottom: theme.spacing[16], // 8
     gap: theme.spacing[2], // 8
     paddingHorizontal: theme.spacing[4], // 16
     paddingVertical: theme.spacing[8], // 24

@@ -20,6 +20,7 @@ import { Feature1Screen } from '../screens/auth/Feature1Screen';
 import { Feature2Screen } from '../screens/auth/Feature2Screen';
 import { Feature3Screen } from '../screens/auth/Feature3Screen';
 import { Feature4Screen } from '../screens/auth/Feature4Screen';
+import { Feature5Screen } from '../screens/auth/Feature5Screen';
 import { ThanksScreen } from '../screens/auth/ThanksScreen';
 import { StudyTimeScreen } from '../screens/auth/StudyTimeScreen';
 import { ComingUpScreen } from '../screens/auth/ComingUpScreen';
@@ -57,6 +58,7 @@ export type AuthStackParamList = {
   Feature2: undefined;
   Feature3: undefined;
   Feature4: undefined;
+  Feature5: undefined;
 
   // Extended Flow (Google auth includes these additional screens)
   Thanks: undefined;
@@ -115,6 +117,7 @@ export const AuthNavigator = ({ initialRouteName = 'Intro' }: AuthNavigatorProps
       <Stack.Screen name="Feature2" component={Feature2Screen} />
       <Stack.Screen name="Feature3" component={Feature3Screen} />
       <Stack.Screen name="Feature4" component={Feature4Screen} />
+      <Stack.Screen name="Feature5" component={Feature5Screen} />
 
       {/* Extended Personalization Screens (primarily for Google flow) */}
       <Stack.Screen name="Thanks" component={ThanksScreen} />

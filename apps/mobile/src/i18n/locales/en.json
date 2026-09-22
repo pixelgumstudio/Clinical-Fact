@@ -250,6 +250,10 @@
       "feature4": {
         "title": "Turn any chat into a Quiz or flashcards for practice",
         "description": "No separate app for studying, generate practice questions straight from your chats and uploads."
+      },
+      "feature5": {
+        "title": "Turn any chat or document into flashcard questions for practice",
+        "description": "No separate app for studying,  generate practice questions straight from your chats and uploads."
       }
     }
   },
