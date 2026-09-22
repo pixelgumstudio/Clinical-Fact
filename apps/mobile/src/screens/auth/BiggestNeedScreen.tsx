@@ -24,7 +24,10 @@ export const BiggestNeedScreen = () => {
       options={BIGGEST_NEED_OPTIONS}
       selectedId={data.biggestNeed || null}
       onSelect={setBiggestNeed}
-      onContinue={() => navigation.navigate('Feature1')}
+      // TEMPORARY: skip straight to Thanks, bypassing the Feature1-5 showcase screens, after
+      // an App Store rejection — restore `navigate('Feature1')` once the app is approved.
+      // The Feature1-5 screens/routes are untouched, just not reached from anywhere right now.
+      onContinue={() => navigation.navigate('Thanks')}
       step={8}
       totalSteps={8}
     />
