@@ -9,7 +9,6 @@ import { FlashcardHistoryScreen } from '../screens/main/FlashcardHistoryScreen';
 import { OnboardingOverlay } from '../components/OnboardingOverlay';
 import { useOnboardingStore } from '../store/onboardingStore';
 import { useAuthStore } from '../store/authStore';
-import { useAIConsentStore } from '../store/aiConsentStore';
 
 export type MainTabParamList = {
   Home: undefined;
@@ -38,19 +37,6 @@ export const MainTabNavigator = () => {
       return () => clearTimeout(timer);
     }
   }, [user?.id, hasCompletedOnboarding, isOnboardingActive]);
-
-  // Ask for AI-data consent right here, as soon as the user lands on the main app after
-  // onboarding — rather than waiting for the first AI-triggering action (chat, note, quiz,
-  // flashcards, etc). No-ops immediately for anyone who already consented, so this is safe to
-  // fire on every fresh landing; the per-action consent checks elsewhere stay in place as a
-  // fallback for the rare case this proactive prompt doesn't fire (e.g. a declined prompt).
-  useEffect(() => {
-    if (!user) return;
-    const timer = setTimeout(() => {
-      useAIConsentStore.getState().requestConsent(() => {}, () => {});
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [user?.id]);
 
   return (
     <>
