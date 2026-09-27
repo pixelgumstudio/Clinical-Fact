@@ -56,6 +56,7 @@
     "p-finally": "^1.0.0",
     "pdf-parse": "^2.4.5",
     "pdfkit": "^0.13.0",
+    "posthog-node": "^5.54.1",
     "redis": "^4.6.10",
     "tesseract.js": "^6.0.1",
     "uuid": "^13.0.0",

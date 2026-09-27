@@ -9,6 +9,7 @@ import { Feedback } from '../models/Feedback';
 import { ReferralPartner } from '../models/ReferralPartner';
 import { transcriptionQueue } from '../queue/transcription.queue';
 import { successResponse, errorResponse, paginatedResponse, ERROR_CODES } from '../utils/response';
+import { buildUserFilter, USER_SORT_OPTIONS } from '../utils/userFilters';
 
 // GET /admin/stats
 export const getStats = async (_req: Request, res: Response) => {
@@ -102,70 +103,14 @@ export const getUsers = async (req: Request, res: Response) => {
   try {
     const page = Math.max(1, parseInt(req.query.page as string) || 1);
     const limit = Math.min(100, parseInt(req.query.limit as string) || 20);
-    const search = req.query.search as string;
-    const plan = req.query.plan as string;
-    const dateFrom = req.query.dateFrom as string;
-    const dateTo = req.query.dateTo as string;
-    const lastActive = req.query.lastActive as string;
-    const goals = req.query.goals as string;
-    const referralSource = req.query.referralSource as string;
-    const reviewStyle = req.query.reviewStyle as string;
-    const contentTypes = req.query.contentTypes as string;
-    const frustrations = req.query.frustrations as string;
     const sortBy = (req.query.sortBy as string) || 'createdAt';
 
-    const filter: Record<string, any> = {};
-
-    if (search) {
-      filter.$or = [
-        { email: { $regex: search, $options: 'i' } },
-        { name: { $regex: search, $options: 'i' } },
-        { username: { $regex: search, $options: 'i' } },
-      ];
-    }
-
-    if (plan === 'PRO' || plan === 'FREE') filter.subscription = plan;
-
-    if (dateFrom || dateTo) {
-      filter.createdAt = {};
-      if (dateFrom) filter.createdAt.$gte = new Date(dateFrom);
-      if (dateTo) {
-        const end = new Date(dateTo);
-        end.setHours(23, 59, 59, 999);
-        filter.createdAt.$lte = end;
-      }
-    }
-
-    if (lastActive) {
-      const now = new Date();
-      const cutoffs: Record<string, Date> = {
-        today: new Date(now.getFullYear(), now.getMonth(), now.getDate()),
-        '7days': new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000),
-        '30days': new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000),
-      };
-      if (lastActive === 'inactive') {
-        filter.lastActiveAt = { $lt: new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000) };
-      } else if (cutoffs[lastActive]) {
-        filter.lastActiveAt = { $gte: cutoffs[lastActive] };
-      }
-    }
-
-    if (goals) filter.goals = { $in: goals.split(',').map((g) => g.trim()) };
-    if (referralSource) filter.referralSource = { $regex: referralSource, $options: 'i' };
-    if (reviewStyle) filter.reviewStyle = { $regex: reviewStyle, $options: 'i' };
-    if (contentTypes) filter.contentTypes = { $in: contentTypes.split(',').map((c) => c.trim()) };
-    if (frustrations) filter.frustrations = { $in: frustrations.split(',').map((f) => f.trim()) };
-
-    const sortOrder: Record<string, any> = {
-      createdAt: { createdAt: -1 },
-      lastActive: { lastActiveAt: -1 },
-      name: { name: 1 },
-    };
+    const filter = buildUserFilter(req.query as any);
 
     const [users, total] = await Promise.all([
       User.find(filter)
         .select('-password')
-        .sort(sortOrder[sortBy] ?? { createdAt: -1 })
+        .sort(USER_SORT_OPTIONS[sortBy] ?? { createdAt: -1 })
         .skip((page - 1) * limit)
         .limit(limit)
         .lean(),
@@ -299,6 +244,112 @@ export const toggleUserBan = async (req: Request, res: Response) => {
   } catch (error: any) {
     console.error('[admin] toggleUserBan error:', error);
     res.status(500).json(errorResponse('Failed to update ban status', ERROR_CODES.SERVER_ERROR));
+  }
+};
+
+const QUOTA_FEATURES = ['notes', 'quizzes', 'flashcards', 'chats', 'medicalChats'] as const;
+type QuotaFeature = (typeof QUOTA_FEATURES)[number];
+
+function isQuotaFeature(value: any): value is QuotaFeature {
+  return QUOTA_FEATURES.includes(value);
+}
+
+// GET /admin/users/ids — every user id matching the Users-page filters,
+// unpaginated. Powers "select all N matching this filter" in the bulk-select UI.
+export const getUserIds = async (req: Request, res: Response) => {
+  try {
+    const filter = buildUserFilter(req.query as any);
+    const users = await User.find(filter).select('_id').lean();
+    res.json(successResponse({ ids: users.map((u) => u._id.toString()), total: users.length }));
+  } catch (error: any) {
+    console.error('[admin] getUserIds error:', error);
+    res.status(500).json(errorResponse('Failed to fetch user ids', ERROR_CODES.SERVER_ERROR));
+  }
+};
+
+// PATCH /admin/users/bulk
+export const bulkUserAction = async (req: Request, res: Response) => {
+  try {
+    const { userIds, action, amount, feature } = req.body;
+
+    if (!Array.isArray(userIds) || userIds.length === 0) {
+      res.status(400).json(errorResponse('userIds must be a non-empty array', ERROR_CODES.VALIDATION_ERROR));
+      return;
+    }
+
+    if (action === 'upgrade_pro') {
+      const result = await User.updateMany({ _id: { $in: userIds } }, { $set: { subscription: 'PRO' } });
+      res.json(successResponse({ matched: result.matchedCount, modified: result.modifiedCount }));
+      return;
+    }
+
+    if (action === 'grant_bonus_credits') {
+      const quotaFeature = isQuotaFeature(feature) ? feature : 'notes';
+      const grantAmount = Number(amount) > 0 ? Number(amount) : 1;
+      const result = await User.updateMany(
+        { _id: { $in: userIds } },
+        { $inc: { [`bonusCredits.${quotaFeature}`]: grantAmount } }
+      );
+      res.json(successResponse({ matched: result.matchedCount, modified: result.modifiedCount }));
+      return;
+    }
+
+    res.status(400).json(errorResponse('Unsupported bulk action', ERROR_CODES.VALIDATION_ERROR));
+  } catch (error: any) {
+    console.error('[admin] bulkUserAction error:', error);
+    res.status(500).json(errorResponse('Failed to apply bulk action', ERROR_CODES.SERVER_ERROR));
+  }
+};
+
+// PATCH /admin/users/:id/quota
+export const manageUserQuota = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { action, amount, feature } = req.body;
+
+    if (!mongoose.isValidObjectId(id)) {
+      res.status(400).json(errorResponse('Invalid user ID', ERROR_CODES.VALIDATION_ERROR));
+      return;
+    }
+
+    const quotaFeature = isQuotaFeature(feature) ? feature : undefined;
+
+    if (action === 'reset_daily') {
+      const update = quotaFeature
+        ? { $set: { [`freeUsage.${quotaFeature}.count`]: 0 } }
+        : { $set: Object.fromEntries(QUOTA_FEATURES.map((f) => [`freeUsage.${f}.count`, 0])) };
+      const user = await User.findByIdAndUpdate(id, update, { new: true }).select('-password');
+      if (!user) {
+        res.status(404).json(errorResponse('User not found', ERROR_CODES.NOT_FOUND));
+        return;
+      }
+      res.json(successResponse(user, 'Daily usage reset'));
+      return;
+    }
+
+    if (action === 'grant_bonus') {
+      if (!quotaFeature) {
+        res.status(400).json(errorResponse('feature is required for grant_bonus', ERROR_CODES.VALIDATION_ERROR));
+        return;
+      }
+      const grantAmount = Number(amount) > 0 ? Number(amount) : 1;
+      const user = await User.findByIdAndUpdate(
+        id,
+        { $inc: { [`bonusCredits.${quotaFeature}`]: grantAmount } },
+        { new: true }
+      ).select('-password');
+      if (!user) {
+        res.status(404).json(errorResponse('User not found', ERROR_CODES.NOT_FOUND));
+        return;
+      }
+      res.json(successResponse(user, `Granted ${grantAmount} ${quotaFeature} credit(s)`));
+      return;
+    }
+
+    res.status(400).json(errorResponse('Unsupported quota action', ERROR_CODES.VALIDATION_ERROR));
+  } catch (error: any) {
+    console.error('[admin] manageUserQuota error:', error);
+    res.status(500).json(errorResponse('Failed to update quota', ERROR_CODES.SERVER_ERROR));
   }
 };
 

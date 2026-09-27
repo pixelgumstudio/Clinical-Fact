@@ -28,6 +28,7 @@ import adminRoutes from './routes/admin.routes';
 import jobRoutes from './routes/job.routes';
 import feedbackRoutes from './routes/feedback.routes';
 import vectorDbService from './services/vectorDb.service';
+import analyticsService from './services/analytics.service';
 import { startYouTubeKeepAlive } from './worker/youtube-keepalive.worker';
 import {
   requestLogger,
@@ -250,8 +251,9 @@ if (require.main === module) {
   });
 
   // Prevent the process from exiting when run directly
-  process.on('SIGINT', () => {
+  process.on('SIGINT', async () => {
     console.log('\n⚠️ Received SIGINT, shutting down gracefully...');
+    await analyticsService.shutdown();
     process.exit(0);
   });
 }

@@ -170,6 +170,80 @@ class NotificationService {
   }
 
   /**
+   * Send a campaign notification to every device matching a user filter,
+   * optionally restricted to one platform. Uses Expo's chunked batch API
+   * (rather than one-at-a-time like sendJobCompletionNotification) since
+   * campaign audiences can run into the thousands.
+   */
+  async sendCampaign(
+    userFilter: Record<string, any>,
+    platform: 'ios' | 'android' | 'all',
+    title: string,
+    body: string,
+    data?: Record<string, any>
+  ): Promise<{
+    audienceCount: number;
+    sentCount: number;
+    failedCount: number;
+    sentByPlatform: { ios: number; android: number };
+    failedByPlatform: { ios: number; android: number };
+  }> {
+    const users = await User.find(userFilter).select('deviceTokens').lean();
+    const payload = this.createPayload(title, body, data);
+
+    const messages: ExpoPushMessage[] = [];
+    const messagePlatforms: ('ios' | 'android')[] = [];
+
+    for (const user of users) {
+      for (const deviceToken of user.deviceTokens || []) {
+        if (deviceToken.platform !== 'ios' && deviceToken.platform !== 'android') continue;
+        if (platform !== 'all' && deviceToken.platform !== platform) continue;
+        if (!Expo.isExpoPushToken(deviceToken.token)) continue;
+
+        messages.push({
+          to: deviceToken.token,
+          title: payload.title,
+          body: payload.body,
+          data: payload.data,
+          sound: 'default',
+        });
+        messagePlatforms.push(deviceToken.platform);
+      }
+    }
+
+    const sentByPlatform = { ios: 0, android: 0 };
+    const failedByPlatform = { ios: 0, android: 0 };
+    let cursor = 0;
+
+    const chunks = expo.chunkPushNotifications(messages);
+    for (const chunk of chunks) {
+      try {
+        const tickets = await expo.sendPushNotificationsAsync(chunk);
+        tickets.forEach((ticket, i) => {
+          const p = messagePlatforms[cursor + i];
+          if (ticket.status === 'ok') sentByPlatform[p]++;
+          else failedByPlatform[p]++;
+        });
+      } catch (error: any) {
+        console.error('❌ Campaign chunk send failed:', error.message);
+        chunk.forEach((_, i) => {
+          const p = messagePlatforms[cursor + i];
+          failedByPlatform[p]++;
+        });
+      }
+      cursor += chunk.length;
+    }
+
+    return {
+      audienceCount: messages.length,
+      sentCount: sentByPlatform.ios + sentByPlatform.android,
+      failedCount: failedByPlatform.ios + failedByPlatform.android,
+      sentByPlatform,
+      failedByPlatform,
+    };
+  }
+
+  /**
    * Retry failed notifications
    */
   async retryFailedNotifications(): Promise<void> {
