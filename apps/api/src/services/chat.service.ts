@@ -120,6 +120,7 @@ class ChatService {
     userMessage: string,
     chatHistory: ChatMessage[] = [],
     deepResearch = false,
+    language = 'en',
     signal?: AbortSignal
   ): AsyncGenerator<ChatStreamEvent, void, unknown> {
     console.log(`💬 Streaming chat message for session ${sessionId}...`);
@@ -187,6 +188,12 @@ class ChatService {
       })
       .join('\n\n---\n\n');
 
+    // Matches the same targetLanguage convention already used by quiz/flashcard generation
+    // (see quizGeneration.service.ts) — 'en' needs no instruction since it's the model's default.
+    const languageInstruction = language !== 'en'
+      ? `\n\nRespond in ${language} — write your entire answer in that language, not English.`
+      : '';
+
     const systemInstruction = deepResearch
       ? `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
 
@@ -203,7 +210,7 @@ CRITICAL INSTRUCTIONS:
 Answer in simple, conversational language. Combine web search and local material. Use examples and analogies.
 
 Local study material:
-${context}`: `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. Explain things naturally, like you're talking to a friend — warm and conversational, not stiff or robotic.
+${context}${languageInstruction}`: `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. Explain things naturally, like you're talking to a friend — warm and conversational, not stiff or robotic.
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
@@ -218,7 +225,7 @@ How to answer:
 - Do NOT write out image URLs or tell the user to open a link for an image — this chat has no image search feature, so any such link would be fabricated. If asked to show/fetch an image, just answer the underlying question in text and don't mention images at all.
 
 Material to answer from:
-${context}`;
+${context}${languageInstruction}`;
 
     const MAX_HISTORY_MESSAGES = 6;
     const messages = [
@@ -255,6 +262,7 @@ ${context}`;
     filters?: MedicalSearchFilters,
     sessionId?: string,
     excludeImageUrls: string[] = [],
+    language = 'en',
     signal?: AbortSignal
   ): AsyncGenerator<ChatStreamEvent, void, unknown> {
     console.log(`🩺 Streaming live medical chat for query: "${userQuery}"...`);
@@ -412,7 +420,7 @@ Some sources below are pulled from medical literature, others are official FDA d
 You also have live web search results (restricted to authoritative medical domains like NIH, CDC, WHO, FDA, and MedlinePlus) — use them to verify current guidance or fill gaps the sources below don't cover. Do not use bracketed citation numbers for anything found via web search; the numbered [n] citations above are reserved for the sources list below. Web-grounded information is shown to the user separately, so just write it naturally into the answer.
 
 Sources:
-${context || 'No sources found — answer from your own medical knowledge.'}`;
+${context || 'No sources found — answer from your own medical knowledge.'}${language !== 'en' ? `\n\nRespond in ${language} — write your entire answer in that language, not English.` : ''}`;
 
     // Full conversation history stacks on top of the (already capped) sources context above —
     // uncapped, a long-running chat would eventually blow the token budget on history alone.

@@ -133,15 +133,8 @@ class ChatController {
       }
       const userId = req.user._id;
 
-      try {
-        checkQuota(req.user, 'medicalChats');
-      } catch (e) {
-        if (e instanceof QuotaExceededError) {
-          return res.status(402).json({ success: false, quotaExceeded: true, feature: e.feature, message: e.message });
-        }
-        throw e;
-      }
-
+      // Starting a session is free — the medicalChats quota is metered per query (message
+      // sent) instead, checked/incremented in sendMessage. See the comment there for why.
       // No note/file/embedding for this session type — mark embedding as already "completed"
       // so nothing in the existing embeddingStatus-gated UI ever shows a stuck processing state.
       const chatSession = await ChatSession.create({
@@ -152,8 +145,6 @@ class ChatController {
         embeddingStatus: 'completed',
         embeddingProgress: 100,
       });
-
-      incrementQuota(userId.toString(), 'medicalChats');
 
       res.json({
         success: true,
@@ -492,6 +483,24 @@ class ChatController {
         });
       }
 
+      // Standalone "Ask Anything" medical Q&A sessions are metered per query (message sent),
+      // not per session — creating one is free, but each question asked in it counts against
+      // the FREE tier's medicalChats limit. Scoped to sourceType, not the per-message `mode`
+      // flag, so a document/note chat with the "Live medical search" switch on (which also
+      // sends mode: 'medical_live') is unaffected — that's still governed by the `chats` quota
+      // at session-creation time, unchanged.
+      if (chatSession.sourceType === 'medical_qa') {
+        try {
+          checkQuota(req.user, 'medicalChats');
+        } catch (e) {
+          if (e instanceof QuotaExceededError) {
+            return res.status(402).json({ success: false, quotaExceeded: true, feature: e.feature, message: e.message });
+          }
+          throw e;
+        }
+        incrementQuota(userId.toString(), 'medicalChats');
+      }
+
       // Live medical mode bypasses the local Qdrant document store entirely,
       // so it doesn't need to wait on document embedding to finish.
       if (mode !== 'medical_live' && chatSession.embeddingStatus !== 'completed') {
@@ -557,6 +566,12 @@ class ChatController {
 
         let assistantContent = '';
 
+        // Same priority order as quiz/flashcard generation (studyLanguage — the language the
+        // student is actively studying in — wins over the device/account-level preferredLanguage).
+        // Chat has no per-request override param like quiz/flashcard's `targetLanguage`, since
+        // there's no per-note language context to inherit here.
+        const language = req.user.studyLanguage || req.user.preferredLanguage || 'en';
+
         const eventStream = mode === 'medical_live'
           ? chatService.chatMedicalLiveStream(
               message,
@@ -564,6 +579,7 @@ class ChatController {
               filters,
               sessionId,
               Array.isArray(excludeImageUrls) ? excludeImageUrls : [],
+              language,
               abortController.signal
             )
           : chatService.chatStream(
@@ -571,6 +587,7 @@ class ChatController {
               message,
               chatHistory.slice(0, -1),
               !!deepResearch,
+              language,
               abortController.signal
             );
 
