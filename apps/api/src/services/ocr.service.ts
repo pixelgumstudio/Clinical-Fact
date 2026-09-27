@@ -87,7 +87,7 @@ class OcrService {
       }
 
       // Create worker with English language
-      // Use GPT-5.6 Luna Vision for accurate text extraction
+      // Use GPT-6 Luna Vision for accurate text extraction
       const aiService = (await import('./ai.service')).default;
       const mimeType = isHeic ? 'image/jpeg' : (fileKey.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg');
       const text = await aiService.extractTextFromImage(imageBuffer, mimeType);

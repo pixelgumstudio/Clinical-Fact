@@ -613,7 +613,7 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
             // Guard: word-count quality check (not just character count)
             const words = pdfResult.text.trim().split(/\s+/).filter(w => w.length > 2);
             if (words.length < 50) {
-              // ── OCR Fallback: pass PDF directly to GPT-5.6 Luna Vision ──────────────
+              // ── OCR Fallback: pass PDF directly to GPT-6 Luna Vision ──────────────
               console.log(
                 `⚠️ [PDF] Low text yield (${words.length} words, type: ${pdfResult.pdfType}) — ` +
                 `attempting Vision OCR fallback`

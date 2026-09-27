@@ -43,7 +43,7 @@ class FlashcardGenerationService {
         targetLanguage
       );
 
-      // Generate flashcards using GPT-5.6 Luna
+      // Generate flashcards using GPT-6 Luna
       const flashcardData = await aiService.generateJSON(prompt);
 
       // Validate and format flashcards

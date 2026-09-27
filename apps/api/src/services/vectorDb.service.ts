@@ -61,6 +61,23 @@ class VectorDbService {
 
       console.log(`✅ Collection '${this.collectionName}' created`);
     }
+
+    // Every query filters on `sessionId` (searchSimilar, deleteSession, countSessionPoints) —
+    // an explicit keyword index lets Qdrant use its indexed-filter path for those instead of a
+    // full payload scan per request. Safe to call unconditionally on every startup: it runs
+    // whether the collection above was just created or already existed (an existing collection
+    // from before this index was introduced still needs it), and Qdrant is idempotent about
+    // re-creating an index that's already there — but a version mismatch/race could still
+    // surface as an error, which must never crash startup over what's just a perf optimization.
+    try {
+      await this.client.createPayloadIndex(this.collectionName, {
+        field_name: 'sessionId',
+        field_schema: 'keyword',
+      });
+      console.log(`✅ Payload index ensured on '${this.collectionName}.sessionId'`);
+    } catch (error: any) {
+      console.warn(`⚠️ Could not ensure payload index on '${this.collectionName}.sessionId' (likely already exists):`, error.message);
+    }
   }
 
   /**

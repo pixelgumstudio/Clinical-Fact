@@ -1,3 +1,4 @@
+import { performance } from 'perf_hooks';
 import { Response } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import ChatSession from '../models/ChatSession';
@@ -6,7 +7,6 @@ import File from '../models/File';
 import chatService from '../services/chat.service';
 import pdfService from '../services/pdf.service';
 import ocrService from '../services/ocr.service';
-import { createJob, updateJob } from '../services/job.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
 
@@ -448,9 +448,18 @@ class ChatController {
   }
 
   /**
-   * Send message in chat session.
-   * Returns 202 immediately with a jobId; AI response is generated asynchronously.
-   * Client polls GET /api/v1/jobs/:jobId for the result.
+   * Send message in chat session — streams the AI response back over Server-Sent Events
+   * instead of the old 202+job-polling flow. Events emitted, in order:
+   *   - `metadata` — citations/sources/images, sent once retrieval finishes, before generation.
+   *   - `chunk`    — one per text delta as the LLM generates them ({ text }).
+   *   - `done`     — sent once, after the assistant reply is persisted ({ messageIndex,
+   *                  messageCount, title, followUpQuestions, status }).
+   *   - `error`    — sent instead of `done` if generation fails after streaming has started.
+   * Pre-stream validation errors (auth/not-found/still-embedding) are still plain JSON, since
+   * SSE headers aren't sent until validation passes.
+   *
+   * Note: chat messages have no persisted `_id` (ChatMessageSchema uses `_id: false`), so
+   * `messageIndex` is the assistant message's position in the `messages` array, not a document id.
    */
   async sendMessage(req: AuthRequest, res: Response) {
     try {
@@ -513,117 +522,153 @@ class ChatController {
       });
       await chatSession.save();
 
-      // Snapshot chat history for the async closure (the chatSession object may be mutated later).
       const chatHistory = chatSession.messages.map(msg => ({ role: msg.role, content: msg.content }));
 
-      const jobId = await createJob(userId.toString(), 'chat_message');
+      // ── SSE from here on ──────────────────────────────────────────────────────────────
+      res.setHeader('Content-Type', 'text/event-stream');
+      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Connection', 'keep-alive');
+      // Tells the Nginx/Traefik layer in front of this process (see server.ts) not to buffer
+      // this response. Without it, Nginx's default response buffering can hold the entire SSE
+      // stream until this connection closes, then deliver it all at once — the client sees
+      // nothing update in real time despite the backend streaming chunks correctly.
+      res.setHeader('X-Accel-Buffering', 'no');
+      res.flushHeaders();
 
-      res.status(202).json({
-        success: true,
-        message: 'Message processing started',
-        data: { jobId },
+      const sendEvent = (event: string, data: any) => {
+        if (res.writableEnded) return;
+        res.write(`event: ${event}\n`);
+        res.write(`data: ${JSON.stringify(data)}\n\n`);
+      };
+
+      // Aborts the in-flight LLM call the moment the client goes away, instead of paying for
+      // (and eventually discarding) a full generation nobody is listening to anymore.
+      const abortController = new AbortController();
+      let clientDisconnected = false;
+      req.on('close', () => {
+        clientDisconnected = true;
+        abortController.abort();
       });
 
-      (async () => {
-        try {
-          console.log(`💬 Async processing message in session ${sessionId} (job ${jobId}, mode: ${mode || 'standard'})...`);
+      const requestStartedAt = performance.now();
 
-          let assistantContent: string;
-          let jobResult: Record<string, any>;
+      try {
+        console.log(`💬 Streaming message in session ${sessionId} (mode: ${mode || 'standard'})...`);
 
-          if (mode === 'medical_live') {
-            const { text, sources, images, groundingSources } = await chatService.chatMedicalLive(
+        let assistantContent = '';
+
+        const eventStream = mode === 'medical_live'
+          ? chatService.chatMedicalLiveStream(
               message,
               chatHistory.slice(0, -1),
               filters,
               sessionId,
-              Array.isArray(excludeImageUrls) ? excludeImageUrls : []
-            );
-            assistantContent = text;
-            jobResult = { text, sources, images, groundingSources };
-          } else {
-            const { response, sources } = await chatService.chat(
+              Array.isArray(excludeImageUrls) ? excludeImageUrls : [],
+              abortController.signal
+            )
+          : chatService.chatStream(
               sessionId,
               message,
               chatHistory.slice(0, -1),
-              !!deepResearch
+              !!deepResearch,
+              abortController.signal
             );
-            assistantContent = response;
-            jobResult = { response, sources };
+
+        for await (const event of eventStream) {
+          if (clientDisconnected) break;
+          if (event.type === 'metadata') {
+            sendEvent('metadata', event.metadata);
+          } else {
+            assistantContent += event.text;
+            sendEvent('chunk', { text: event.text });
           }
-
-          // Re-fetch to avoid overwriting concurrent saves.
-          const updated = await ChatSession.findById(sessionId);
-          let generatedTitle: string | undefined;
-          let followUpQuestions: string[] = [];
-          if (updated) {
-            updated.messages.push({ role: 'assistant', content: assistantContent, timestamp: new Date() });
-
-            const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
-
-            // First exchange in this session — auto-title it from what was actually asked,
-            // same as ChatGPT/Claude do, instead of leaving the generic default title.
-            if (updated.messages.length === 2) {
-              generatedTitle = await chatService.generateChatTitle(message, assistantContent);
-              updated.title = generatedTitle;
-            }
-
-            // Follow-up suggestions (shown as tappable chips) and the session-list summary are
-            // both cheap Groq calls — run them alongside each other, and never let either one
-            // fail the actual chat response that the user is waiting on.
-            const [followUpsSettled, summarySettled] = await Promise.allSettled([
-              chatService.generateFollowUpQuestions(updatedHistory),
-              chatService.summarizeChat(updatedHistory),
-            ]);
-            followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
-            if (summarySettled.status === 'fulfilled') {
-              updated.summary = summarySettled.value;
-            } else {
-              console.error('❌ Failed to update chat summary:', summarySettled.reason);
-            }
-
-            await updated.save();
-          }
-
-          await updateJob(jobId, {
-            status: 'completed',
-            result: { ...jobResult, messageCount: updated?.messages.length ?? 0, title: generatedTitle, followUpQuestions },
-          });
-
-          // Send notification for chat message completion
-          const sessionIdStr = sessionId.toString();
-          await notificationService.sendJobCompletionNotification(
-            userId.toString(),
-            sessionIdStr,
-            'chat',
-            'completed'
-          ).catch(err => console.error('Failed to send chat completion notification:', err));
-
-        } catch (error: any) {
-          console.error(`❌ Async chat error (job ${jobId}):`, error);
-          await updateJob(jobId, {
-            status: 'failed',
-            error: error.message || 'Failed to get AI response',
-          }).catch(() => {});
-
-          // Send notification for chat message failure
-          const sessionIdStr = sessionId.toString();
-          await notificationService.sendJobCompletionNotification(
-            userId.toString(),
-            sessionIdStr,
-            'chat',
-            'failed'
-          ).catch(err => console.error('Failed to send chat failure notification:', err));
         }
-      })();
+
+        if (clientDisconnected) {
+          console.log(`🔌 Client disconnected mid-stream for session ${sessionId} — discarding the partial response`);
+          return;
+        }
+
+        // Re-fetch to avoid overwriting concurrent saves.
+        const updated = await ChatSession.findById(sessionId);
+        let generatedTitle: string | undefined;
+        let followUpQuestions: string[] = [];
+        let messageIndex: number | undefined;
+
+        if (updated) {
+          updated.messages.push({ role: 'assistant', content: assistantContent, timestamp: new Date() });
+          messageIndex = updated.messages.length - 1;
+
+          const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
+
+          // First exchange in this session — auto-title it from what was actually asked,
+          // same as ChatGPT/Claude do, instead of leaving the generic default title.
+          if (updated.messages.length === 2) {
+            generatedTitle = await chatService.generateChatTitle(message, assistantContent);
+            updated.title = generatedTitle;
+          }
+
+          // Follow-up suggestions (shown as tappable chips) and the session-list summary are
+          // both cheap Groq calls — run them alongside each other, and never let either one
+          // fail the actual chat response that the user is waiting on.
+          const [followUpsSettled, summarySettled] = await Promise.allSettled([
+            chatService.generateFollowUpQuestions(updatedHistory),
+            chatService.summarizeChat(updatedHistory),
+          ]);
+          followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
+          if (summarySettled.status === 'fulfilled') {
+            updated.summary = summarySettled.value;
+          } else {
+            console.error('❌ Failed to update chat summary:', summarySettled.reason);
+          }
+
+          await updated.save();
+        }
+
+        console.log(`⏱️ Total end-to-end request duration: ${(performance.now() - requestStartedAt).toFixed(0)}ms`);
+
+        sendEvent('done', {
+          messageIndex,
+          messageCount: updated?.messages.length ?? 0,
+          title: generatedTitle,
+          followUpQuestions,
+          status: 'completed',
+        });
+        res.end();
+
+        const sessionIdStr = sessionId.toString();
+        await notificationService.sendJobCompletionNotification(
+          userId.toString(),
+          sessionIdStr,
+          'chat',
+          'completed'
+        ).catch(err => console.error('Failed to send chat completion notification:', err));
+
+      } catch (error: any) {
+        console.error(`❌ Streaming chat error (session ${sessionId}):`, error);
+        if (!clientDisconnected) {
+          sendEvent('error', { message: error.message || 'Failed to get AI response' });
+          res.end();
+        }
+
+        const sessionIdStr = sessionId.toString();
+        await notificationService.sendJobCompletionNotification(
+          userId.toString(),
+          sessionIdStr,
+          'chat',
+          'failed'
+        ).catch(err => console.error('Failed to send chat failure notification:', err));
+      }
 
     } catch (error: any) {
       console.error('❌ Error sending message:', error);
-      res.status(500).json({
-        success: false,
-        message: error.message || 'Failed to send message',
-        error: 'Failed to send message'
-      });
+      if (!res.headersSent) {
+        res.status(500).json({
+          success: false,
+          message: error.message || 'Failed to send message',
+          error: 'Failed to send message'
+        });
+      }
     }
   }
 

@@ -48,7 +48,7 @@ class QuizGenerationService {
         targetLanguage
       );
 
-      // Generate quiz using GPT-5.6 Luna
+      // Generate quiz using GPT-6 Luna
       const quizData = await aiService.generateJSON(prompt);
 
       // Validate and format quiz data

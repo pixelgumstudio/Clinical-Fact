@@ -1,10 +1,11 @@
 // apps/api/src/services/ai.service.ts
+import { performance } from 'perf_hooks';
 import OpenAI from 'openai';
 import Groq from 'groq-sdk';
 import { tavily } from '@tavily/core';
 import { safeParseJSON } from '../utils/jsonParser';
 
-const OPENAI_MODEL = 'gpt-5.6-luna';
+const OPENAI_MODEL = 'gpt-6-luna';
 const GROQ_CHAT_MODEL = 'openai/gpt-oss-120b'; // llama-3.3-70b-versatile was retired from Groq's catalog
 
 // Live web search (via Tavily) is restricted to these domains so grounded answers stay
@@ -192,7 +193,7 @@ class AiService {
   }
 
   /**
-   * Extract all text from a PDF buffer using GPT-5.6 Luna's native PDF understanding.
+   * Extract all text from a PDF buffer using GPT-6 Luna's native PDF understanding.
    * Supports scanned/image-based PDFs that pdf-parse cannot handle.
    * Inline limit: ~20 MB. Throws for oversized files so callers can decide.
    */
@@ -249,60 +250,50 @@ class AiService {
     systemInstruction?: string
   ): Promise<string> {
     try {
-      const groq = this.getGroq();
-      const groqMessages: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
-        ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
-        ...messages.map((m) => ({ role: m.role, content: m.content })),
-      ];
-
-      const result = await groq.chat.completions.create({
-        model: GROQ_CHAT_MODEL,
-        messages: groqMessages,
-        // This account's on_demand tier caps openai/gpt-oss-120b at 8000 TPM per request, and
-        // Groq counts max_tokens toward that reserved capacity regardless of actual output
-        // length. Medical-live chat's context block (attached chunks + literature + drug
-        // labels) is now capped in chat.service.ts, but leave real headroom here too rather
-        // than relying on that budget being exactly right for every combination.
-        max_tokens: 2048,
-      });
-
-      const finalText = String(result.choices[0]?.message?.content || '').trim();
-
-      if (!finalText) {
-        throw new Error('Empty response from Groq API');
-      }
-
-      console.log('✅ Generated chat response successfully, length:', finalText.length);
-      return finalText;
-
+      return await this.chatViaGroq(messages, systemInstruction);
     } catch (error: any) {
       console.error('❌ Groq Chat API Error:', {
         message: error.message,
-        status: error.status
+        status: error.status,
       });
 
-      // 429 here means Groq's account-wide 8000 TPM budget is currently exhausted by other
-      // requests, not that this specific request was malformed — waiting it out can take 20s+
-      // (see the removed maxRetries above), so reroute to OpenAI immediately instead. Anything
-      // other than 429 (bad key, model error, etc.) still surfaces normally rather than being
-      // silently masked by a fallback.
-      if (error?.status === 429) {
-        console.warn('⏳ Groq rate-limited — falling back to OpenAI for this chat response');
-        try {
-          return await this.chatViaOpenAI(messages, systemInstruction);
-        } catch (fallbackError: any) {
-          console.error('❌ OpenAI fallback also failed:', fallbackError.message);
-          throw new Error(`Chat generation failed: ${error.message}`);
-        }
+      // Groq is primary for speed and cost — LPU inference is dramatically faster than typical
+      // API latency, and openai/gpt-oss-120b is cheaper per-token than gpt-6-luna. OpenAI is
+      // kept wired as a fallback for resilience if Groq errors out (rate limit, outage, etc).
+      console.warn('⏳ Groq chat failed — falling back to OpenAI for this chat response');
+      try {
+        return await this.chatViaOpenAI(messages, systemInstruction);
+      } catch (fallbackError: any) {
+        console.error('❌ OpenAI fallback also failed:', fallbackError.message);
+        throw new Error(`Chat generation failed: ${error.message}`);
       }
-
-      throw new Error(`Chat generation failed: ${error.message}`);
     }
   }
 
-  /** Used only when Groq is rate-limited — same conversation, routed through the OpenAI model
-   *  this app already uses for generation, so a busy Groq window never surfaces as a user-facing
-   *  error or a long wait. */
+  /** Primary chat path. */
+  private async chatViaGroq(messages: ChatMessage[], systemInstruction?: string): Promise<string> {
+    const groq = this.getGroq();
+    const groqMessages: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
+      ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
+      ...messages.map((m) => ({ role: m.role, content: m.content })),
+    ];
+
+    const result = await groq.chat.completions.create({
+      model: GROQ_CHAT_MODEL,
+      messages: groqMessages,
+      max_completion_tokens: 2048, // max_tokens is deprecated on Groq's chat completions API
+    });
+
+    const finalText = String(result.choices[0]?.message?.content || '').trim();
+    if (!finalText) {
+      throw new Error('Empty response from Groq');
+    }
+
+    console.log('✅ Generated chat response successfully, length:', finalText.length);
+    return finalText;
+  }
+
+  /** Fallback path only — used when Groq errors out. */
   private async chatViaOpenAI(messages: ChatMessage[], systemInstruction?: string): Promise<string> {
     const openai = this.getOpenAI();
     const input = [
@@ -326,6 +317,110 @@ class AiService {
   }
 
   /**
+   * Streaming counterpart of chat() — same primary/fallback shape, but yields text deltas as
+   * they arrive instead of waiting for the full response. The OpenAI fallback is only usable
+   * before any Groq token has reached the caller: once partial text has already been streamed
+   * out, silently continuing on a second provider would read as a jarring tone/style shift
+   * mid-answer, so a failure past that point is thrown instead of failed-over.
+   */
+  async *chatStream(
+    messages: ChatMessage[],
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): AsyncGenerator<string, void, unknown> {
+    const startedAt = performance.now();
+    let emittedAny = false;
+    try {
+      for await (const piece of this.chatStreamViaGroq(messages, systemInstruction, signal)) {
+        if (!emittedAny) {
+          console.log(`⏱️ TTFT (Groq): ${(performance.now() - startedAt).toFixed(0)}ms`);
+        }
+        emittedAny = true;
+        yield piece;
+      }
+      console.log(`⏱️ Total generation time (Groq): ${(performance.now() - startedAt).toFixed(0)}ms`);
+      return;
+    } catch (error: any) {
+      if (signal?.aborted) return;
+      console.error('❌ Groq Chat Stream Error:', { message: error.message, status: error.status });
+      if (emittedAny) {
+        throw new Error(`Chat stream failed after partial output: ${error.message}`);
+      }
+      console.warn('⏳ Groq stream failed before any tokens — falling back to OpenAI');
+    }
+
+    for await (const piece of this.chatStreamViaOpenAI(messages, systemInstruction, signal)) {
+      if (!emittedAny) {
+        console.log(`⏱️ TTFT (OpenAI fallback): ${(performance.now() - startedAt).toFixed(0)}ms`);
+      }
+      emittedAny = true;
+      yield piece;
+    }
+    console.log(`⏱️ Total generation time (OpenAI fallback): ${(performance.now() - startedAt).toFixed(0)}ms`);
+  }
+
+  /** Primary streaming path. */
+  private async *chatStreamViaGroq(
+    messages: ChatMessage[],
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): AsyncGenerator<string, void, unknown> {
+    const groq = this.getGroq();
+    const groqMessages: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
+      ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
+      ...messages.map((m) => ({ role: m.role, content: m.content })),
+    ];
+
+    const stream = await groq.chat.completions.create(
+      {
+        model: GROQ_CHAT_MODEL,
+        messages: groqMessages,
+        max_completion_tokens: 2048, // max_tokens is deprecated on Groq's chat completions API
+        stream: true,
+      },
+      { signal }
+    );
+
+    for await (const chunk of stream) {
+      const delta = chunk.choices[0]?.delta?.content;
+      if (delta) yield delta;
+    }
+  }
+
+  /** Fallback streaming path only — used when the Groq stream fails before any output. */
+  private async *chatStreamViaOpenAI(
+    messages: ChatMessage[],
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): AsyncGenerator<string, void, unknown> {
+    const openai = this.getOpenAI();
+    const input = [
+      ...(systemInstruction ? [{ role: 'system' as const, content: systemInstruction }] : []),
+      ...messages.map((m) => ({ role: m.role, content: m.content })),
+    ];
+
+    const stream = await openai.responses.create(
+      {
+        model: OPENAI_MODEL,
+        input,
+        max_output_tokens: 2048,
+        stream: true,
+      },
+      { signal }
+    );
+
+    for await (const event of stream) {
+      if (event.type === 'response.output_text.delta') {
+        yield event.delta;
+      } else if (event.type === 'response.failed') {
+        throw new Error(event.response?.error?.message || 'OpenAI response stream failed');
+      } else if (event.type === 'error') {
+        throw new Error(event.message || 'OpenAI stream reported an error event');
+      }
+    }
+  }
+
+  /**
    * Like chat(), but for lightweight structured tasks (e.g. suggesting follow-up questions)
    * that don't need OpenAI's stronger reasoning — runs on Groq with JSON mode enabled so the
    * response is guaranteed valid JSON syntax (though not schema-validated).
@@ -344,7 +439,7 @@ class AiService {
       const result = await groq.chat.completions.create({
         model: GROQ_CHAT_MODEL,
         messages: groqMessages,
-        max_tokens: 2048,
+        max_completion_tokens: 2048, // max_tokens is deprecated on Groq's chat completions API
         response_format: { type: 'json_object' },
       });
 
@@ -391,59 +486,55 @@ class AiService {
     }
   }
 
-  async chatWithSearch(
+  /**
+   * Streaming counterpart of the old chatWithSearch — runs the Tavily search up front (it has
+   * to resolve before the prompt can be built), then hands back a text-delta generator for the
+   * actual generation. The search itself can't be streamed, only the LLM's answer.
+   */
+  async chatWithSearchStream(
     messages: ChatMessage[],
-    systemInstruction?: string
-  ): Promise<string> {
-    try {
-      const lastMessage = messages[messages.length - 1];
-      const webResults = await this.searchWeb(lastMessage.content);
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): Promise<AsyncGenerator<string, void, unknown>> {
+    const lastMessage = messages[messages.length - 1];
+    const webResults = await this.searchWeb(lastMessage.content);
 
-      const webContext = webResults.length
-        ? `\n\nLive web search results (weave naturally into your answer, no citation numbers):\n${webResults
-            .map((r) => `- ${r.title}: ${r.content}`)
-            .join('\n')}`
-        : '';
+    const webContext = webResults.length
+      ? `\n\nLive web search results (weave naturally into your answer, no citation numbers):\n${webResults
+          .map((r) => `- ${r.title}: ${r.content}`)
+          .join('\n')}`
+      : '';
 
-      const text = await this.chat(messages, `${systemInstruction || ''}${webContext}`);
-
-      console.log(`✅ Search-grounded chat response, length: ${text.length}, ${webResults.length} web results used`);
-      return text;
-
-    } catch (error: any) {
-      console.error('❌ Search Chat Error:', error.message);
-      throw new Error(`Search-grounded chat failed: ${error.message}`);
-    }
+    console.log(`🔎 Search-grounded chat stream starting, ${webResults.length} web results used`);
+    return this.chatStream(messages, `${systemInstruction || ''}${webContext}`, signal);
   }
 
   /**
-   * Like chatWithSearch, but also returns the web sources used (instead of discarding them) —
-   * needed by callers that want to show real citations to the user, not just a search-informed answer.
+   * Streaming counterpart of the old chatWithGrounding — the Tavily search resolves before this
+   * returns, so `groundingSources` is available immediately (for an upfront "metadata" event),
+   * while `stream` carries the actual answer as text deltas.
    */
-  async chatWithGrounding(
+  async chatWithGroundingStream(
     messages: ChatMessage[],
-    systemInstruction?: string
-  ): Promise<{ text: string; groundingSources: { uri: string; title: string }[] }> {
-    try {
-      const lastMessage = messages[messages.length - 1];
-      const webResults = await this.searchWeb(lastMessage.content);
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): Promise<{ stream: AsyncGenerator<string, void, unknown>; groundingSources: { uri: string; title: string }[] }> {
+    const lastMessage = messages[messages.length - 1];
+    const webResults = await this.searchWeb(lastMessage.content);
 
-      const webContext = webResults.length
-        ? `\n\nLive web search results (weave naturally into your answer, no citation numbers — shown to the user separately):\n${webResults
-            .map((r) => `- ${r.title}: ${r.content}`)
-            .join('\n')}`
-        : '';
+    const webContext = webResults.length
+      ? `\n\nLive web search results (weave naturally into your answer, no citation numbers — shown to the user separately):\n${webResults
+          .map((r) => `- ${r.title}: ${r.content}`)
+          .join('\n')}`
+      : '';
 
-      const text = await this.chat(messages, `${systemInstruction || ''}${webContext}`);
-      const groundingSources = webResults.map((r) => ({ uri: r.uri, title: r.title }));
+    const groundingSources = webResults.map((r) => ({ uri: r.uri, title: r.title }));
+    console.log(`🔎 Grounded chat stream starting, ${groundingSources.length} grounding sources`);
 
-      console.log(`✅ Grounded chat response, length: ${text.length}, ${groundingSources.length} grounding sources`);
-      return { text, groundingSources };
-
-    } catch (error: any) {
-      console.error('❌ Grounded Chat Error:', error.message);
-      throw new Error(`Grounded chat failed: ${error.message}`);
-    }
+    return {
+      stream: this.chatStream(messages, `${systemInstruction || ''}${webContext}`, signal),
+      groundingSources,
+    };
   }
 }
 

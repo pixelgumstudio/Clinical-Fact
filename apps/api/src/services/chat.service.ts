@@ -1,3 +1,4 @@
+import { performance } from 'perf_hooks';
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import embeddingService from './embedding.vertexai.service';
 import vectorDbService from './vectorDb.service';
@@ -13,21 +14,10 @@ interface ChatMessage {
   content: string;
 }
 
-interface ChatResponse {
-  response: string;
-  sources: Array<{
-    text: string;
-    score: number;
-    title?: string;
-    sourceType?: string;
-    url?: string;
-  }>;
-}
-
 /**
  * One unified, sequentially-numbered citation — attached document chunks, literature results,
  * and FDA drug labels all share this shape and one running `index`, matching exactly the [n]
- * numbers the AI is instructed to cite inline (see the context-block loop in chatMedicalLive).
+ * numbers the AI is instructed to cite inline (see the context-block loop in chatMedicalLiveStream).
  * Type-specific fields are optional and only populated for their own `type`.
  */
 export interface MedicalCitation {
@@ -50,12 +40,23 @@ export interface MedicalCitation {
   interactions?: string;
 }
 
-interface MedicalLiveChatResponse {
-  text: string;
-  sources: MedicalCitation[];
-  images: WikimediaImageResult[];
-  groundingSources: { uri: string; title: string }[];
+/** Emitted first (after retrieval, before generation starts) so the client can render
+ *  citations/images alongside the streamed answer instead of waiting for it to finish. */
+export interface ChatStreamMetadata {
+  sources: Array<{
+    text: string;
+    score: number;
+    title?: string;
+    sourceType?: string;
+    url?: string;
+  }> | MedicalCitation[];
+  images?: WikimediaImageResult[];
+  groundingSources?: { uri: string; title: string }[];
 }
+
+export type ChatStreamEvent =
+  | { type: 'metadata'; metadata: ChatStreamMetadata }
+  | { type: 'chunk'; text: string };
 
 /** EuropePmcFilters plus which of the two additional literature APIs to include — Europe PMC
  *  itself always runs (same as before); these two are ADDED alongside it, each independently
@@ -110,75 +111,84 @@ class ChatService {
   }
 
   /**
-   * Chat with document using RAG
+   * Chat with document using RAG — streaming. Yields one `metadata` event (after retrieval,
+   * before generation starts), then one `chunk` event per text delta from the LLM. The caller
+   * is responsible for accumulating `chunk` text for persistence (see chat.controller.ts).
    */
-  async chat(
+  async *chatStream(
     sessionId: string,
     userMessage: string,
     chatHistory: ChatMessage[] = [],
-    deepResearch = false
-  ): Promise<ChatResponse> {
-    try {
-      console.log(`💬 Processing chat message for session ${sessionId}...`);
+    deepResearch = false,
+    signal?: AbortSignal
+  ): AsyncGenerator<ChatStreamEvent, void, unknown> {
+    console.log(`💬 Streaming chat message for session ${sessionId}...`);
 
-      // Generate embedding for user question
-      const queryEmbedding = await embeddingService.generateQueryEmbedding(userMessage);
+    const retrievalStartedAt = performance.now();
 
-      // Search for relevant chunks in vector database with improved thresholds
-      // Retrieve top 10 chunks with lower similarity threshold for better recall
-      const relevantChunks = await vectorDbService.searchSimilar(
+    // Generate embedding for user question
+    const queryEmbedding = await embeddingService.generateQueryEmbedding(userMessage);
+
+    // Search for relevant chunks in vector database with improved thresholds
+    // Retrieve top 10 chunks with lower similarity threshold for better recall
+    let relevantChunks = await vectorDbService.searchSimilar(
+      queryEmbedding,
+      sessionId,
+      10, // Increased from 5 to get more context
+      0.15 // Lowered from 0.25 for better recall (more lenient matching)
+    );
+
+    if (relevantChunks.length === 0) {
+      // Fallback: Try with even lower threshold
+      const fallbackChunks = await vectorDbService.searchSimilar(
         queryEmbedding,
         sessionId,
-        10, // Increased from 5 to get more context
-        0.15 // Lowered from 0.25 for better recall (more lenient matching)
+        5,
+        0.05 // Very low threshold as fallback
       );
 
-      if (relevantChunks.length === 0) {
-        // Fallback: Try with even lower threshold
-        const fallbackChunks = await vectorDbService.searchSimilar(
-          queryEmbedding,
-          sessionId,
-          5,
-          0.05 // Very low threshold as fallback
-        );
-
-        if (fallbackChunks.length === 0) {
-          return {
-            response: "I couldn't find relevant information in this document to answer your question. Could you rephrase your question or ask about something else in the document?",
-            sources: [],
-          };
-        }
-
-        // Use fallback chunks if found
-        relevantChunks.push(...fallbackChunks);
+      if (fallbackChunks.length === 0) {
+        console.log(`⏱️ Vector retrieval duration (no matches): ${(performance.now() - retrievalStartedAt).toFixed(0)}ms`);
+        yield { type: 'metadata', metadata: { sources: [] } };
+        yield {
+          type: 'chunk',
+          text: "I couldn't find relevant information in this document to answer your question. Could you rephrase your question or ask about something else in the document?",
+        };
+        return;
       }
 
-      // Filter chunks by quality and remove duplicates
-      const uniqueChunks = relevantChunks
-        .filter(chunk => chunk.score && chunk.score > 0.05)
-        .filter((chunk, index, self) =>
-          index === self.findIndex(c => c.text.substring(0, 100) === chunk.text.substring(0, 100))
-        );
+      // Use fallback chunks if found
+      relevantChunks = [...relevantChunks, ...fallbackChunks];
+    }
 
-      const contextChunks = uniqueChunks.slice(0, 8);
+    console.log(`⏱️ Vector retrieval duration: ${(performance.now() - retrievalStartedAt).toFixed(0)}ms`);
 
-      // Build numbered context from local chunks only
-      const context = contextChunks
-        .map((chunk, i) => {
-          // Use note title if available, otherwise generate smart fallback
-          let title = chunk.metadata?.noteTitle || chunk.metadata?.title;
-          if (!title) {
-            // Generate context-aware title based on available metadata
-            const sourceType = chunk.metadata?.sourceType || 'text';
-            title = `${sourceType.charAt(0).toUpperCase() + sourceType.slice(1)} Passage ${i + 1}`;
-          }
-          const sourceType = chunk.metadata?.sourceType ? ` [${chunk.metadata.sourceType}]` : '';
-          return `[${i + 1}] "${title}"${sourceType} (Relevance: ${(chunk.score * 100).toFixed(0)}%)\n${this.truncateText(chunk.text, 800)}`;
-        })
-        .join('\n\n---\n\n');
+    // Filter chunks by quality and remove duplicates
+    const uniqueChunks = relevantChunks
+      .filter(chunk => chunk.score && chunk.score > 0.05)
+      .filter((chunk, index, self) =>
+        index === self.findIndex(c => c.text.substring(0, 100) === chunk.text.substring(0, 100))
+      );
 
-      const systemInstruction = deepResearch
-        ? `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
+    const contextChunks = uniqueChunks.slice(0, 8);
+
+    // Build numbered context from local chunks only
+    const context = contextChunks
+      .map((chunk, i) => {
+        // Use note title if available, otherwise generate smart fallback
+        let title = chunk.metadata?.noteTitle || chunk.metadata?.title;
+        if (!title) {
+          // Generate context-aware title based on available metadata
+          const sourceType = chunk.metadata?.sourceType || 'text';
+          title = `${sourceType.charAt(0).toUpperCase() + sourceType.slice(1)} Passage ${i + 1}`;
+        }
+        const sourceType = chunk.metadata?.sourceType ? ` [${chunk.metadata.sourceType}]` : '';
+        return `[${i + 1}] "${title}"${sourceType} (Relevance: ${(chunk.score * 100).toFixed(0)}%)\n${this.truncateText(chunk.text, 800)}`;
+      })
+      .join('\n\n---\n\n');
+
+    const systemInstruction = deepResearch
+      ? `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
@@ -187,6 +197,7 @@ CRITICAL INSTRUCTIONS:
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
 - Do NOT output a bibliography, reference list, or "Sources" section at the end of your response.
 - Do NOT output any markdown links for web search results.
+- Do NOT write out image URLs or tell the user to open a link for an image — this chat has no image search feature, so any such link would be fabricated. If asked to show/fetch an image, just answer the underlying question in text and don't mention images at all.
 - Weave the information naturally into your HTML answer without explicitly referencing where you got it from.
 
 Answer in simple, conversational language. Combine web search and local material. Use examples and analogies.
@@ -204,37 +215,30 @@ How to answer:
 - Only say you don't have enough information if the question is itself obscure/unsettled enough that even general medical knowledge can't answer it responsibly — never say that for standard textbook topics just because the material happens to be narrow
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
 - Do NOT output a bibliography, reference list, or "Sources" section at the end of your response.
+- Do NOT write out image URLs or tell the user to open a link for an image — this chat has no image search feature, so any such link would be fabricated. If asked to show/fetch an image, just answer the underlying question in text and don't mention images at all.
 
 Material to answer from:
 ${context}`;
 
-      const MAX_HISTORY_MESSAGES = 6;
-      const messages = [
-        ...chatHistory.slice(-MAX_HISTORY_MESSAGES),
-        { role: 'user' as const, content: userMessage },
-      ];
+    const MAX_HISTORY_MESSAGES = 6;
+    const messages = [
+      ...chatHistory.slice(-MAX_HISTORY_MESSAGES),
+      { role: 'user' as const, content: userMessage },
+    ];
 
-      const response = deepResearch
-        ? await aiService.chatWithSearch(messages, systemInstruction)
-        : await aiService.chat(messages, systemInstruction);
+    // Sources stay hardcoded empty here, matching the pre-streaming behavior — the real
+    // per-chunk source data is computed above but not surfaced to the client on this path.
+    yield { type: 'metadata', metadata: { sources: [] } };
 
-      console.log(`✅ Generated chat response (${response.length} chars) using ${uniqueChunks.length} local chunks${deepResearch ? ' + live web search' : ''}`);
+    const upstream = deepResearch
+      ? await aiService.chatWithSearchStream(messages, systemInstruction, signal)
+      : aiService.chatStream(messages, systemInstruction, signal);
 
-      // const sources = uniqueChunks.slice(0, 5).map(chunk => ({
-      //   text: chunk.text.substring(0, 200) + '...',
-      //   score: chunk.score,
-      //   title: chunk.metadata?.noteTitle || chunk.metadata?.title,
-      //   sourceType: chunk.metadata?.sourceType,
-      // }));
-
-      return {
-        response,
-        sources: [],
-      };
-    } catch (error: any) {
-      console.error('❌ Error in chat:', error);
-      throw new Error(`Chat failed: ${error.message}`);
+    for await (const piece of upstream) {
+      yield { type: 'chunk', text: piece };
     }
+
+    console.log(`✅ Finished streaming chat response using ${uniqueChunks.length} local chunks${deepResearch ? ' + live web search' : ''}`);
   }
 
   /**
@@ -242,16 +246,20 @@ ${context}`;
    * instead of the local Qdrant document store — unless the session has attached sources
    * (see chatController.attachSourceToSession), in which case their embedded chunks are
    * retrieved from Qdrant and merged into the same numbered citation list alongside the
-   * live literature results.
+   * live literature results. Streaming: yields one `metadata` event (citations/images/grounding
+   * sources — all known before generation starts) then one `chunk` event per text delta.
    */
-  async chatMedicalLive(
+  async *chatMedicalLiveStream(
     userQuery: string,
     history: ChatMessage[] = [],
     filters?: MedicalSearchFilters,
     sessionId?: string,
-    excludeImageUrls: string[] = []
-  ): Promise<MedicalLiveChatResponse> {
-    console.log(`🩺 Processing live medical chat for query: "${userQuery}"...`);
+    excludeImageUrls: string[] = [],
+    signal?: AbortSignal
+  ): AsyncGenerator<ChatStreamEvent, void, unknown> {
+    console.log(`🩺 Streaming live medical chat for query: "${userQuery}"...`);
+
+    const retrievalStartedAt = performance.now();
 
     const attachedChunksPromise = sessionId
       ? (async () => {
@@ -276,6 +284,8 @@ ${context}`;
       attachedChunksPromise,
       openFdaService.search(userQuery, 3),
     ]);
+
+    console.log(`⏱️ Retrieval duration (literature + attached + drug labels): ${(performance.now() - retrievalStartedAt).toFixed(0)}ms`);
 
     const europePmcResults = europePmcSettled.status === 'fulfilled' ? europePmcSettled.value : [];
     const semanticScholarResults = semanticScholarSettled.status === 'fulfilled' ? semanticScholarSettled.value : [];
@@ -387,6 +397,11 @@ FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
 - Default to a short, direct answer — a couple of tight paragraphs or a short list is usually enough. Only reach for multiple <h3> sections when the question truly has several distinct parts (e.g. explicitly asks for causes AND symptoms AND treatment) — and even then keep each section brief, not a full writeup.
 
+IMAGES:
+- Any relevant images are found and shown by the app itself, in a separate row above your answer — you never receive image URLs and have no way to know what, if anything, was found for this specific message.
+- Never write out an image URL, a markdown image/link, or instructions like "open this link in a browser" or "here are the direct links" — you cannot see or verify any such link, so it would be fabricated.
+- If the user asks to see, fetch, or find images/illustrations, just answer the underlying medical question in text as usual and don't comment on images at all — the app's own image row (or its absence) already tells the user whether anything new was found for this message.
+
 PATIENT-SPECIFIC QUESTIONS:
 - Case-study or exam-style questions (a hypothetical patient framing, e.g. "a 65-year-old presents with...") are normal study material — answer these fully and directly, this is the core use case and must not be over-blocked.
 - If a question reads as a real, active clinical situation asking you to make the care decision for a specific real patient (e.g. "my patient," "what do I give her right now"), answer the general/reference version of the underlying clinical question, then add one brief sentence noting that the specific decision belongs with the patient's treating clinician using their full assessment. Do not refuse outright.
@@ -411,16 +426,18 @@ ${context || 'No sources found — answer from your own medical knowledge.'}`;
     // Note: EuropePmcFilters (date range/source categories) only ever apply to the Europe PMC
     // search above — Tavily web grounding has no equivalent filter API and always searches
     // the trusted-domain web unfiltered.
-    const { text, groundingSources } = await aiService.chatWithGrounding(messages, systemInstruction);
+    const { stream, groundingSources } = await aiService.chatWithGroundingStream(messages, systemInstruction, signal);
 
-    console.log(`✅ Generated live medical chat response (${text.length} chars) using ${literatureResults.length} literature sources (${europePmcResults.length} EuropePMC + ${semanticScholarResults.length} Semantic Scholar + ${pubmedResults.length} PubMed, merged+deduped), ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
-
-    return {
-      text,
-      sources: citations,
-      images: imageResults,
-      groundingSources,
+    yield {
+      type: 'metadata',
+      metadata: { sources: citations, images: imageResults, groundingSources },
     };
+
+    for await (const piece of stream) {
+      yield { type: 'chunk', text: piece };
+    }
+
+    console.log(`✅ Finished streaming live medical chat using ${literatureResults.length} literature sources (${europePmcResults.length} EuropePMC + ${semanticScholarResults.length} Semantic Scholar + ${pubmedResults.length} PubMed, merged+deduped), ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
   }
 
   /** Hard char cap on any one piece of source text going into the prompt (~125 tokens at the

@@ -2,6 +2,14 @@ import axios from 'axios';
 import { GoogleAuth } from 'google-auth-library';
 
 /**
+ * text-embedding-004 is an asymmetric retrieval model — a chunk indexed with
+ * RETRIEVAL_DOCUMENT and the query later embedded with RETRIEVAL_QUERY land closer together in
+ * vector space than if both used the same task type (or none, which silently falls back to a
+ * generic, less accurate embedding). Every caller must specify which one it's doing.
+ */
+export type EmbeddingTaskType = 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY';
+
+/**
  * Embedding service using Vertex AI (text-embedding-004 model)
  * Uses service account credentials from GOOGLE_APPLICATION_CREDENTIALS
  * Calls Vertex AI REST API directly for text embeddings
@@ -36,9 +44,10 @@ class VertexAIEmbeddingService {
   }
 
   /**
-   * Generate embedding for a single text
+   * Generate embedding for a single text. `taskType` defaults to RETRIEVAL_DOCUMENT (indexing) —
+   * generateQueryEmbedding below is the only caller that passes RETRIEVAL_QUERY.
    */
-  async generateEmbedding(text: string): Promise<number[]> {
+  async generateEmbedding(text: string, taskType: EmbeddingTaskType = 'RETRIEVAL_DOCUMENT'): Promise<number[]> {
     try {
       // Truncate text if too long
       const truncatedText = text.substring(0, 12000);
@@ -54,6 +63,7 @@ class VertexAIEmbeddingService {
           instances: [
             {
               content: truncatedText,
+              taskType,
             },
           ],
         },
@@ -87,7 +97,9 @@ class VertexAIEmbeddingService {
   }
 
   /**
-   * Generate embeddings for multiple texts in batch
+   * Generate embeddings for multiple texts in batch — always RETRIEVAL_DOCUMENT, since this is
+   * only ever called to index document/note chunks for later retrieval (see chat.service.ts's
+   * embedDocument), never for a live search query.
    */
   async generateEmbeddings(texts: string[]): Promise<number[][]> {
     try {
@@ -97,7 +109,7 @@ class VertexAIEmbeddingService {
 
       // Process texts sequentially to avoid rate limits
       for (const text of texts) {
-        const embedding = await this.generateEmbedding(text);
+        const embedding = await this.generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
         embeddings.push(embedding);
 
         // Add small delay between requests to respect rate limits
@@ -113,11 +125,12 @@ class VertexAIEmbeddingService {
   }
 
   /**
-   * Generate embedding for a query
+   * Generate embedding for a query — RETRIEVAL_QUERY, so it lands close to chunks indexed with
+   * RETRIEVAL_DOCUMENT above in text-embedding-004's asymmetric vector space. Same model either
+   * way; only the task type differs.
    */
   async generateQueryEmbedding(query: string): Promise<number[]> {
-    // For Vertex AI, query embedding uses the same model as document embedding
-    return this.generateEmbedding(query);
+    return this.generateEmbedding(query, 'RETRIEVAL_QUERY');
   }
 }
 
