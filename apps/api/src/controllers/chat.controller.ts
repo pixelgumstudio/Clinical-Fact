@@ -4,7 +4,7 @@ import { AuthRequest } from '../middleware/auth';
 import ChatSession from '../models/ChatSession';
 import Note from '../models/Note';
 import File from '../models/File';
-import chatService from '../services/chat.service';
+import chatService, { ChatStreamMetadata } from '../services/chat.service';
 import pdfService from '../services/pdf.service';
 import ocrService from '../services/ocr.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
@@ -565,6 +565,7 @@ class ChatController {
         console.log(`💬 Streaming message in session ${sessionId} (mode: ${mode || 'standard'})...`);
 
         let assistantContent = '';
+        let assistantMetadata: ChatStreamMetadata | undefined;
 
         // Same priority order as quiz/flashcard generation (studyLanguage — the language the
         // student is actively studying in — wins over the device/account-level preferredLanguage).
@@ -594,6 +595,7 @@ class ChatController {
         for await (const event of eventStream) {
           if (clientDisconnected) break;
           if (event.type === 'metadata') {
+            assistantMetadata = event.metadata;
             sendEvent('metadata', event.metadata);
           } else {
             assistantContent += event.text;
@@ -613,7 +615,17 @@ class ChatController {
         let messageIndex: number | undefined;
 
         if (updated) {
-          updated.messages.push({ role: 'assistant', content: assistantContent, timestamp: new Date() });
+          // Persist the citations/images/grounding sources alongside the reply — previously
+          // these only ever existed transiently (sent over SSE, shown once), so reopening a
+          // session later showed the plain text with no images/references/follow-ups at all.
+          updated.messages.push({
+            role: 'assistant',
+            content: assistantContent,
+            timestamp: new Date(),
+            sources: assistantMetadata?.sources,
+            images: assistantMetadata?.images,
+            groundingSources: assistantMetadata?.groundingSources,
+          });
           messageIndex = updated.messages.length - 1;
 
           const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
@@ -633,6 +645,7 @@ class ChatController {
             chatService.summarizeChat(updatedHistory),
           ]);
           followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
+          updated.messages[messageIndex].followUpQuestions = followUpQuestions;
           if (summarySettled.status === 'fulfilled') {
             updated.summary = summarySettled.value;
           } else {

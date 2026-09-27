@@ -9,6 +9,16 @@ interface IChatMessage {
    *  getChatSession) rather than stored, since MinIO presigned URLs expire. */
   attachmentFileId?: mongoose.Types.ObjectId;
   attachmentMimeType?: string;
+  /** Assistant messages only — the citations/images/grounding sources and follow-up chips
+   *  that came with this specific reply (see chat.controller.ts sendMessage). Shapes vary by
+   *  chat mode (MedicalCitation[] for medical_live vs the plain {text,score,...} shape for
+   *  standard doc chat, WikimediaImageResult[] for images), so stored loosely rather than with
+   *  a strict sub-schema — this is display data reflected straight back to the client, never
+   *  queried/filtered on server-side. */
+  sources?: any[];
+  images?: any[];
+  groundingSources?: any[];
+  followUpQuestions?: string[];
 }
 
 /**
@@ -73,6 +83,18 @@ const ChatMessageSchema = new Schema<IChatMessage>(
     },
     attachmentMimeType: {
       type: String,
+    },
+    sources: {
+      type: [Schema.Types.Mixed],
+    },
+    images: {
+      type: [Schema.Types.Mixed],
+    },
+    groundingSources: {
+      type: [Schema.Types.Mixed],
+    },
+    followUpQuestions: {
+      type: [String],
     },
   },
   { _id: false }

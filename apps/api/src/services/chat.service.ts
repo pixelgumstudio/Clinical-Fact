@@ -8,6 +8,7 @@ import semanticScholarService from './semanticScholar.service';
 import pubmedService from './pubmed.service';
 import wikimediaImageSearchService, { WikimediaImageResult } from './wikimediaImageSearch.service';
 import openFdaService from './openFda.service';
+import { getLanguageName } from '../utils/language';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -190,8 +191,11 @@ class ChatService {
 
     // Matches the same targetLanguage convention already used by quiz/flashcard generation
     // (see quizGeneration.service.ts) — 'en' needs no instruction since it's the model's default.
+    // Spelled out as a full name ("French") rather than the raw code ("fr") and phrased as a
+    // standalone directive — a bare code tacked onto the end of an English-heavy prompt is easy
+    // for the model to under-weight against all the English source material above it.
     const languageInstruction = language !== 'en'
-      ? `\n\nRespond in ${language} — write your entire answer in that language, not English.`
+      ? `\n\nIMPORTANT: Regardless of the language of the material above, you must write your entire response in ${getLanguageName(language)} only. Do not respond in English.`
       : '';
 
     const systemInstruction = deepResearch
@@ -420,7 +424,7 @@ Some sources below are pulled from medical literature, others are official FDA d
 You also have live web search results (restricted to authoritative medical domains like NIH, CDC, WHO, FDA, and MedlinePlus) — use them to verify current guidance or fill gaps the sources below don't cover. Do not use bracketed citation numbers for anything found via web search; the numbered [n] citations above are reserved for the sources list below. Web-grounded information is shown to the user separately, so just write it naturally into the answer.
 
 Sources:
-${context || 'No sources found — answer from your own medical knowledge.'}${language !== 'en' ? `\n\nRespond in ${language} — write your entire answer in that language, not English.` : ''}`;
+${context || 'No sources found — answer from your own medical knowledge.'}${language !== 'en' ? `\n\nIMPORTANT: Regardless of the language of the sources above, you must write your entire response in ${getLanguageName(language)} only. Do not respond in English.` : ''}`;
 
     // Full conversation history stacks on top of the (already capped) sources context above —
     // uncapped, a long-running chat would eventually blow the token budget on history alone.

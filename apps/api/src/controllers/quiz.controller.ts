@@ -83,12 +83,14 @@ class QuizController {
       if (quizType === 'practice') {
         quizData = await quizGenerationService.generatePracticeQuiz(
           note.content,
-          note.title
+          note.title,
+          effectiveLanguage
         );
       } else if (quizType === 'comprehensive') {
         quizData = await quizGenerationService.generateComprehensiveQuiz(
           note.content,
-          note.title
+          note.title,
+          effectiveLanguage
         );
       } else {
         quizData = await quizGenerationService.generateQuiz(

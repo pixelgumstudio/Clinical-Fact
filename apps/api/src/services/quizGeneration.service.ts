@@ -1,4 +1,5 @@
 import aiService from './ai.service';
+import { getLanguageName } from '../utils/language';
 
 interface QuizQuestion {
   questionText: string;
@@ -85,8 +86,8 @@ class QuizGenerationService {
         ? `\nFocus specifically on these topics: ${focusTopics.join(', ')}`
         : '';
 
-    const languageInstruction = targetLanguage
-      ? `\n- Generate all quiz content (questions, options, explanations, title) in ${targetLanguage}. Use that language throughout.`
+    const languageInstruction = targetLanguage && targetLanguage !== 'en'
+      ? `\n- IMPORTANT: Write all quiz content (questions, options, explanations, title) in ${getLanguageName(targetLanguage)} only — regardless of the language of the notes above, do not use English.`
       : '';
 
     return `You are Clinical Fact, generating a quiz for nursing and medical students preparing for exams and clinical practice.
@@ -253,12 +254,14 @@ Return the JSON now:`;
    */
   async generatePracticeQuiz(
     noteContent: string,
-    noteTitle: string
+    noteTitle: string,
+    targetLanguage?: string
   ): Promise<{ title: string; questions: QuizQuestion[] }> {
     return this.generateQuiz(noteContent, noteTitle, {
       questionCount: 5,
       difficulty: 'easy',
       questionTypes: ['multiple-choice', 'true-false'],
+      targetLanguage,
     });
   }
 
@@ -267,12 +270,14 @@ Return the JSON now:`;
    */
   async generateComprehensiveQuiz(
     noteContent: string,
-    noteTitle: string
+    noteTitle: string,
+    targetLanguage?: string
   ): Promise<{ title: string; questions: QuizQuestion[] }> {
     return this.generateQuiz(noteContent, noteTitle, {
       questionCount: 15,
       difficulty: 'mixed',
       questionTypes: ['multiple-choice', 'true-false', 'fill-blank'],
+      targetLanguage,
     });
   }
 
@@ -282,12 +287,14 @@ Return the JSON now:`;
   async generateTopicQuiz(
     noteContent: string,
     noteTitle: string,
-    topics: string[]
+    topics: string[],
+    targetLanguage?: string
   ): Promise<{ title: string; questions: QuizQuestion[] }> {
     return this.generateQuiz(noteContent, noteTitle, {
       questionCount: 10,
       difficulty: 'mixed',
       focusTopics: topics,
+      targetLanguage,
     });
   }
 }

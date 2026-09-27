@@ -1,4 +1,5 @@
 import aiService from './ai.service';
+import { getLanguageName } from '../utils/language';
 
 interface FlashcardData {
   front: string;
@@ -84,8 +85,8 @@ class FlashcardGenerationService {
       ? '\n- Include practical examples and applications'
       : '';
 
-    const languageInstruction = targetLanguage
-      ? `\n- Generate all flashcard content (front, back) in ${targetLanguage}. Use that language for all questions, answers, and explanations.`
+    const languageInstruction = targetLanguage && targetLanguage !== 'en'
+      ? `\n- IMPORTANT: Write all flashcard content (front, back) in ${getLanguageName(targetLanguage)} only — regardless of the language of the notes above, do not use English.`
       : '';
 
     return `You are Clinical Fact, creating flashcards for nursing and medical students using active recall and spaced repetition.
