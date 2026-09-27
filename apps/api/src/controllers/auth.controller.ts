@@ -203,6 +203,7 @@ export const getMe = async (req: AuthRequest, res: Response): Promise<void> => {
             reviewStyle: user.reviewStyle,
             preferredLanguage: user.preferredLanguage,
             studyLanguage: user.studyLanguage,
+            freeUsage: user.freeUsage,
             notesCount: user.notesCount ?? 0,
             reviewStatus: user.reviewStatus ?? { promptsThisYear: 0, hasOptedOut: false },
             my_referral_code: user.my_referral_code,
