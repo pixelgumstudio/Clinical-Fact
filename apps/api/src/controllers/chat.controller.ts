@@ -641,7 +641,7 @@ class ChatController {
           // both cheap Groq calls — run them alongside each other, and never let either one
           // fail the actual chat response that the user is waiting on.
           const [followUpsSettled, summarySettled] = await Promise.allSettled([
-            chatService.generateFollowUpQuestions(updatedHistory),
+            chatService.generateFollowUpQuestions(updatedHistory, language),
             chatService.summarizeChat(updatedHistory),
           ]);
           followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];

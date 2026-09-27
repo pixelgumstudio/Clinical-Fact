@@ -541,14 +541,18 @@ Reply with ONLY the summary sentence, nothing else.`;
    * and follow-up suggestions don't need OpenAI's stronger reasoning either. Never throws:
    * a failure here should never break the actual chat response, so it degrades to no chips.
    */
-  async generateFollowUpQuestions(chatHistory: ChatMessage[]): Promise<string[]> {
+  async generateFollowUpQuestions(chatHistory: ChatMessage[], language = 'en'): Promise<string[]> {
     try {
       const lastMessages = chatHistory.slice(-4);
       const conversationText = lastMessages
         .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
         .join('\n\n');
 
-      const prompt = `Based on this medical study conversation, suggest 3 relevant follow-up questions a nursing or medical student might naturally want to ask next — questions that build on what was just discussed (e.g. related mechanisms, complications, comparisons, or clinical application). Keep each question short and specific, not generic.
+      const languageInstruction = language !== 'en'
+        ? ` Write the questions in ${getLanguageName(language)} only, regardless of the language of the conversation above — do not use English.`
+        : '';
+
+      const prompt = `Based on this medical study conversation, suggest 3 relevant follow-up questions a nursing or medical student might naturally want to ask next — questions that build on what was just discussed (e.g. related mechanisms, complications, comparisons, or clinical application). Keep each question short and specific, not generic.${languageInstruction}
 
 ${conversationText}
 
