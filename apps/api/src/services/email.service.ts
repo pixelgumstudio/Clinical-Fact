@@ -1,16 +1,20 @@
-import nodemailer from 'nodemailer';
+import axios from 'axios';
 
-// Create transporter
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
+// ZeptoMail (Zoho's transactional email API). Replaces the earlier Gmail SMTP
+// setup — a personal Gmail account hits sending caps and anti-abuse throttling
+// once real traffic shows up, which was silently breaking OTP delivery.
+// Docs: https://www.zoho.com/zeptomail/help/api/email-sending.html
+const ZEPTOMAIL_API_URL = process.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.com/v1.1/email';
+const ZEPTOMAIL_TOKEN = process.env.ZEPTOMAIL_TOKEN;
+
+// EMAIL_FROM can be "Name <address@domain>" or a bare address.
+const parseFromAddress = (): { address: string; name: string } => {
+  const raw = process.env.EMAIL_FROM || 'Clinical Fact <noreply@clinicalfact.com>';
+  const match = raw.match(/^(.*)<(.+)>$/);
+  if (match) {
+    return { name: match[1].trim() || 'Clinical Fact', address: match[2].trim() };
+  }
+  return { name: 'Clinical Fact', address: raw.trim() };
 };
 
 // Fixed OTP for the designated Apple App Review account (see App Review Information notes)
@@ -34,7 +38,10 @@ export const sendOTPEmail = async (
   otp: string,
   type: 'signup' | 'login' | 'reset_password'
 ): Promise<boolean> => {
-  const transporter = createTransporter();
+  if (!ZEPTOMAIL_TOKEN) {
+    console.error('Cannot send OTP email: ZEPTOMAIL_TOKEN is not set');
+    return false;
+  }
 
   const subjects = {
     signup: 'Verify your email - Clinical Fact',
@@ -91,29 +98,38 @@ export const sendOTPEmail = async (
   `;
 
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM || 'Clinical Fact <noreply@clinicalfact.com>',
-      to: email,
-      subject: subjects[type],
-      html: htmlTemplate,
-    });
+    await axios.post(
+      ZEPTOMAIL_API_URL,
+      {
+        from: parseFromAddress(),
+        to: [{ email_address: { address: email } }],
+        subject: subjects[type],
+        htmlbody: htmlTemplate,
+      },
+      {
+        headers: {
+          Authorization: `Zoho-enczapikey ${ZEPTOMAIL_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        timeout: 10000,
+      }
+    );
     console.log(`OTP email sent to ${email}`);
     return true;
-  } catch (error) {
-    console.error('Error sending OTP email:', error);
+  } catch (error: any) {
+    console.error('Error sending OTP email:', error.response?.data || error.message);
     return false;
   }
 };
 
-// Verify SMTP connection
+// Confirms the ZeptoMail API is configured. There's no cheap "ping" endpoint on
+// the ZeptoMail API, so this just checks the token is present rather than
+// verifying a live connection the way the old SMTP transporter did.
 export const verifyEmailConnection = async (): Promise<boolean> => {
-  try {
-    const transporter = createTransporter();
-    await transporter.verify();
-    console.log('Email service connected successfully');
-    return true;
-  } catch (error) {
-    console.error('Email service connection failed:', error);
+  if (!ZEPTOMAIL_TOKEN) {
+    console.error('Email service not configured: ZEPTOMAIL_TOKEN is missing');
     return false;
   }
+  console.log('Email service configured (ZeptoMail)');
+  return true;
 };

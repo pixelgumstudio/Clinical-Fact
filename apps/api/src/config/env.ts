@@ -22,6 +22,7 @@ export const validateEnv = () => {
     'NCBI_API_KEY',
     'APP_REVIEW_EMAIL',
     'APP_REVIEW_OTP_CODE',
+    'ZEPTOMAIL_TOKEN',
     'OPENAI_API_KEY',
     'GROQ_API_KEY',
     'TAVILY_API_KEY',
