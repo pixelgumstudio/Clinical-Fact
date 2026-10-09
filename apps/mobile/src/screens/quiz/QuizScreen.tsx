@@ -148,7 +148,7 @@ export const QuizScreen = () => {
     else if ((response as any).quotaExceeded === true || (response as any).status === 402) {
       navigation.goBack();
       setTimeout(() => {
-        showInAppPaywall().catch(err => console.error("Paywall error:", err));
+        showInAppPaywall('Quiz').catch(err => console.error("Paywall error:", err));
       }, 600);
     } 
     else {
@@ -166,7 +166,7 @@ export const QuizScreen = () => {
     if (isQuotaError) {
       navigation.goBack(); // Dismiss the loading screen
       setTimeout(() => {
-        showInAppPaywall().catch(err => console.error("Paywall error:", err));
+        showInAppPaywall('Quiz').catch(err => console.error("Paywall error:", err));
       }, 600);
       return;
     }
