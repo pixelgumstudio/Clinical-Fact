@@ -21,6 +21,8 @@
         "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "370250130816-akc1qnurlop4l4730agoj20o6j8f81fm.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "370250130816-igh9hm4o5p0s891o8duh81g48crk33i7.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "370250130816-rm73ltjdbgiiqdh5q433q9h26nl1lapc.apps.googleusercontent.com",
+        "EXPO_PUBLIC_POSTHOG_KEY": "phc_BY5Gxb8iXufUyV3fsRJxfubBnpA67qQnL59q7tqhxFdc",
+        "EXPO_PUBLIC_POSTHOG_HOST": "https://us.i.posthog.com",
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     },
@@ -42,11 +44,14 @@
         "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "370250130816-akc1qnurlop4l4730agoj20o6j8f81fm.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "370250130816-1hkiuc2tejsb7bhd0gmv226ogivk05r2.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "370250130816-rm73ltjdbgiiqdh5q433q9h26nl1lapc.apps.googleusercontent.com",
+        "EXPO_PUBLIC_POSTHOG_KEY": "phc_BY5Gxb8iXufUyV3fsRJxfubBnpA67qQnL59q7tqhxFdc",
+        "EXPO_PUBLIC_POSTHOG_HOST": "https://us.i.posthog.com",
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     },
     "production": {
       "distribution": "store",
+      "channel": "production",
       "autoIncrement": true,
       "android": {
         "buildType": "app-bundle"
@@ -63,6 +68,8 @@
         "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "370250130816-akc1qnurlop4l4730agoj20o6j8f81fm.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "370250130816-igh9hm4o5p0s891o8duh81g48crk33i7.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "370250130816-rm73ltjdbgiiqdh5q433q9h26nl1lapc.apps.googleusercontent.com",
+        "EXPO_PUBLIC_POSTHOG_KEY": "phc_BY5Gxb8iXufUyV3fsRJxfubBnpA67qQnL59q7tqhxFdc",
+        "EXPO_PUBLIC_POSTHOG_HOST": "https://us.i.posthog.com",
         "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     }
