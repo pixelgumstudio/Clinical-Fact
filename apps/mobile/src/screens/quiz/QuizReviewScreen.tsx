@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp, CommonActions } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
-import { Icon, theme } from '@clinicalfact/design-system';
+import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 
@@ -257,7 +257,7 @@ export const QuizReviewScreen = () => {
                   <Icon
                     name={isCorrectOption || isWrongUserOption ? 'sucessfulFill' : 'unsucessful'}
                     size={24}
-                    color={isCorrectOption ? '#3D7A4E' : isWrongUserOption ? '#B0453A' : theme.colors.grey[200]}
+                    color={isCorrectOption ? colors.success.main : isWrongUserOption ? colors.error.main : theme.colors.grey[200]}
                   />
                   <Text style={styles.optionText} numberOfLines={2}>
                     {optionText}
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   timerBadge: {
     paddingHorizontal: theme.spacing[3],
     paddingVertical: theme.spacing[2],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.full,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
@@ -434,14 +434,14 @@ const styles = StyleSheet.create({
     gap: theme.spacing[2],
   },
   optionCorrect: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1.5,
-    borderColor: '#3D7A4E',
+    borderColor: colors.success.main,
   },
   optionIncorrect: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1.5,
-    borderColor: '#B0453A',
+    borderColor: colors.error.main,
   },
   optionText: {
     flex: 1,
@@ -453,8 +453,8 @@ const styles = StyleSheet.create({
     top: -10,
     right: theme.spacing[4],
     paddingHorizontal: theme.spacing[2],
-    paddingVertical: theme.spacing[1],
-    backgroundColor: '#307132',
+    paddingVertical: theme.spacing[1.5],
+    backgroundColor: colors.success.dark,
     borderRadius: theme.spacing[2],
   },
   incorrectBadge: {
@@ -462,13 +462,13 @@ const styles = StyleSheet.create({
     top: -10,
     right: theme.spacing[4],
     paddingHorizontal: theme.spacing[2],
-    paddingVertical: theme.spacing[1],
-    backgroundColor: '#B0453A',
+    paddingVertical: theme.spacing[1.5],
+    backgroundColor: colors.error.main,
     borderRadius: theme.spacing[2],
   },
   badgeText: {
     ...theme.typography.textStyles.label2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   explanationCard: {
     backgroundColor: theme.colors.linen[50],
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
     width: '48%',
     paddingVertical: theme.spacing[4],
     borderRadius: theme.borderRadius.full,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
     alignItems: 'center',
@@ -525,7 +525,7 @@ const styles = StyleSheet.create({
   },
   goToNotesButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   errorText: {
     ...theme.typography.textStyles.p1,

@@ -35,7 +35,7 @@ type RecordingState = "idle" | "recording" | "paused" | "stopped";
 // Pause/Play Button Icon
 const PauseIcon = ({
   size = 24,
-  color = "#FFFFFF",
+  color = colors.white,
 }: {
   size?: number;
   color?: string;
@@ -48,7 +48,7 @@ const PauseIcon = ({
 
 const PlayIcon = ({
   size = 24,
-  color = "#FFFFFF",
+  color = colors.white,
 }: {
   size?: number;
   color?: string;
@@ -60,7 +60,7 @@ const PlayIcon = ({
 
 const StopIcon = ({
   size = 24,
-  color = "#EF4444",
+  color = colors.vivid.error[500],
 }: {
   size?: number;
   color?: string;
@@ -477,7 +477,7 @@ export const RecordAudioScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <ChevronLeftIcon size={24} color="#1F2937" />
+          <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         {recordingState !== "idle" && (
           <Text style={styles.headerTitle}>Recording Audio</Text>
@@ -557,9 +557,9 @@ export const RecordAudioScreen = () => {
                 activeOpacity={0.8}
               >
                 {recordingState === "recording" ? (
-                  <PauseIcon size={32} color="#FFFFFF" />
+                  <PauseIcon size={32} color={colors.white} />
                 ) : (
-                  <PlayIcon size={32} color="#FFFFFF" />
+                  <PlayIcon size={32} color={colors.white} />
                 )}
               </TouchableOpacity>
 
@@ -614,9 +614,9 @@ export const RecordAudioScreen = () => {
                 onPress={handlePlayPause}
               >
                 {isPlaying ? (
-                  <PauseIcon size={24} color="#1F2937" />
+                  <PauseIcon size={24} color={colors.slate[800]} />
                 ) : (
-                  <PlayIcon size={24} color="#1F2937" />
+                  <PlayIcon size={24} color={colors.slate[800]} />
                 )}
               </TouchableOpacity>
               <TouchableOpacity style={styles.skipButton} onPress={skipForward}>
@@ -729,7 +729,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: "#EF4444",
+    backgroundColor: colors.vivid.error[500],
   },
   waveformContainer: {
     flexDirection: "row",
@@ -746,7 +746,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   waveformBarActive: {
-    backgroundColor: "#EF4444",
+    backgroundColor: colors.vivid.error[500],
   },
   recordingStatus: {
     flexDirection: "row",
@@ -757,12 +757,12 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: "#EF4444",
+    backgroundColor: colors.vivid.error[500],
     marginRight: spacing[2],
   },
   recordingText: {
     fontSize: typography.fontSize.sm,
-    color: "#EF4444",
+    color: colors.vivid.error[500],
     fontWeight: typography.fontWeight.medium,
   },
   controlsContainer: {
@@ -902,7 +902,7 @@ const styles = StyleSheet.create({
   continueButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: "#FFFFFF",
+    color: colors.white,
   },
   continueButtonTextDisabled: {
     color: colors.neutral[400],

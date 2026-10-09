@@ -77,7 +77,7 @@ const formatNoteDate = (date: Date): string => {
 };
 
 const NoteTypeIcon = ({ type, size = 18 }: { type: NoteCardType; size?: number }) => {
-  const color = '#8B8B8B';
+  const color = colors.grey[400];
   switch (type) {
     case 'audio':
       return <AudioFilePreviewIcon size={size} color={color} />;
@@ -230,7 +230,7 @@ export const LibraryScreen = () => {
           onPress={() => setAddFolderVisible(true)}
           activeOpacity={0.8}
         >
-          <PlusIcon size={12} color="#FFFFFF" />
+          <PlusIcon size={12} color={colors.white} />
           <Text style={styles.addFolderPillText}>Add folder</Text>
         </TouchableOpacity>
       </View>
@@ -238,11 +238,11 @@ export const LibraryScreen = () => {
       {/* Search Bar with inline filter button */}
       <View style={styles.searchContainer}>
         <View style={styles.searchBar}>
-          <SearchIcon size={18} color="#A6A6A6" />
+          <SearchIcon size={18} color={colors.grey[300]} />
           <TextInput
             style={styles.searchInput}
             placeholder="Search for a note / folder"
-            placeholderTextColor="#A6A6A6"
+            placeholderTextColor={colors.grey[300]}
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
@@ -251,7 +251,7 @@ export const LibraryScreen = () => {
             onPress={() => setFilterVisible(true)}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
-            <FilterIcon size={16} color={filterType ? '#FFFFFF' : '#8B8B8B'} />
+            <FilterIcon size={16} color={filterType ? colors.white : colors.grey[400]} />
           </TouchableOpacity>
         </View>
       </View>
@@ -275,7 +275,7 @@ export const LibraryScreen = () => {
               {folders.length === 0 ? (
                 <View style={styles.emptyFolders}>
                   <View style={styles.emptyIcon}>
-                    <FolderIcon size={36} color="#D1D5DB" />
+                    <FolderIcon size={36} color={colors.slate[300]} />
                   </View>
                   <Text style={styles.emptyTitle}>No folders to display</Text>
                   <Text style={styles.emptySubtext}>
@@ -290,14 +290,14 @@ export const LibraryScreen = () => {
                     onPress={() => handleFolderSelect(null)}
                     activeOpacity={0.7}
                   >
-                    <View style={[styles.folderIconContainer, { backgroundColor: '#E5E7EB' }]}>
-                      <DocumentFileIcon size={20} color="#6B7280" />
+                    <View style={[styles.folderIconContainer, { backgroundColor: colors.slate[200] }]}>
+                      <DocumentFileIcon size={20} color={colors.slate[500]} />
                     </View>
                     <View style={styles.folderCardContent}>
                       <Text style={styles.folderCardName}>All Notes</Text>
                       <Text style={styles.folderCardCount}>{allNotesTotal} items</Text>
                     </View>
-                    <ChevronRightIcon size={18} color="#A6A6A6" />
+                    <ChevronRightIcon size={18} color={colors.grey[300]} />
                   </TouchableOpacity>
                   {folders.map(folder => {
                     const isSelected = selectedFolderId === folder._id;
@@ -312,10 +312,10 @@ export const LibraryScreen = () => {
                         <View
                           style={[
                             styles.folderIconContainer,
-                            { backgroundColor: folder.color || '#FFD4A3' },
+                            { backgroundColor: folder.color || colors.folderTagPalette.orange },
                           ]}
                         >
-                          <FolderIcon size={20} color="#FFFFFF" />
+                          <FolderIcon size={20} color={colors.white} />
                         </View>
                         <View style={styles.folderCardContent}>
                           <Text style={styles.folderCardName}>{folder.name}</Text>
@@ -323,7 +323,7 @@ export const LibraryScreen = () => {
                             {(folder as any).itemCount ?? 0} items
                           </Text>
                         </View>
-                        <ChevronRightIcon size={18} color="#A6A6A6" />
+                        <ChevronRightIcon size={18} color={colors.grey[300]} />
                       </TouchableOpacity>
                     );
                   })}
@@ -342,7 +342,7 @@ export const LibraryScreen = () => {
                     onPress={() => handleFolderSelect(null)}
                     hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
                   >
-                    <CloseIcon size={16} color="#8B8B8B" />
+                    <CloseIcon size={16} color={colors.grey[400]} />
                   </TouchableOpacity>
                 )}
               </View>
@@ -383,7 +383,7 @@ export const LibraryScreen = () => {
           ) : (
             <View style={styles.emptyNotes}>
               <View style={styles.emptyIcon}>
-                <DocumentFileIcon size={36} color="#D1D5DB" />
+                <DocumentFileIcon size={36} color={colors.slate[300]} />
               </View>
               <Text style={styles.emptyTitle}>
                 {searchQuery
@@ -429,7 +429,7 @@ export const LibraryScreen = () => {
                     onPress={() => setFilterVisible(false)}
                     hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                   >
-                    <CloseIcon size={24} color="#6B7280" />
+                    <CloseIcon size={24} color={colors.slate[500]} />
                   </TouchableOpacity>
                 </View>
                 {([
@@ -472,7 +472,7 @@ export const LibraryScreen = () => {
                     >
                       <View style={styles.filterItemIcon}>{icon}</View>
                       <Text style={styles.filterItemLabel}>{label}</Text>
-                      {isSelected && <CheckIcon size={20} color="#10B981" />}
+                      {isSelected && <CheckIcon size={20} color={colors.vivid.success[500]} />}
                     </TouchableOpacity>
                   );
                 })}
@@ -535,7 +535,7 @@ export const LibraryScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
   header: {
     flexDirection: 'row',
@@ -548,7 +548,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.48,
     lineHeight: 32,
   },
@@ -559,7 +559,7 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     borderRadius: 16,
     paddingHorizontal: spacing[4],
     height: 48,
@@ -568,19 +568,19 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.32,
   },
   filterIconButton: {
     width: 30,
     height: 30,
     borderRadius: 8,
-    backgroundColor: '#EFEFEF',
+    backgroundColor: colors.oneOff.libraryIconBg,
     justifyContent: 'center',
     alignItems: 'center',
   },
   filterIconButtonActive: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
   },
   flatList: {
     flex: 1,
@@ -608,14 +608,14 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.16,
     lineHeight: 22,
   },
   addFolderPill: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     paddingHorizontal: spacing[3],
     paddingVertical: 6,
     borderRadius: 9999,
@@ -624,17 +624,17 @@ const styles = StyleSheet.create({
   addFolderPillText: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.12,
     lineHeight: 16,
   },
   folderCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#F9F9F9',
+    borderColor: colors.grey[10],
     paddingHorizontal: spacing[4],
     paddingVertical: spacing[3],
     marginBottom: spacing[3],
@@ -642,8 +642,8 @@ const styles = StyleSheet.create({
     gap: spacing[3],
   },
   folderCardSelected: {
-    borderColor: '#E5E7EB',
-    backgroundColor: '#FAFAFA',
+    borderColor: colors.slate[200],
+    backgroundColor: colors.oneOff.libraryFolderSelectedBg,
   },
   folderIconContainer: {
     width: 40,
@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
   folderCardName: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.16,
     lineHeight: 22,
     marginBottom: 2,
@@ -666,7 +666,7 @@ const styles = StyleSheet.create({
   folderCardCount: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#636363',
+    color: colors.grey[600],
     letterSpacing: -0.28,
     lineHeight: 20,
   },
@@ -680,7 +680,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 9999,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     justifyContent: 'center',
     alignItems: 'center',
     flexShrink: 0,
@@ -691,7 +691,7 @@ const styles = StyleSheet.create({
   noteRowTitle: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#2D2D2D',
+    color: colors.grey[800],
     letterSpacing: -0.28,
     lineHeight: 20,
     marginBottom: 2,
@@ -699,19 +699,19 @@ const styles = StyleSheet.create({
   noteRowDate: {
     fontSize: 12,
     fontWeight: '400',
-    color: '#757575',
+    color: colors.grey[500],
     letterSpacing: -0.24,
     lineHeight: 16,
   },
   noteMoreDots: {
     fontSize: 18,
-    color: '#8B8B8B',
+    color: colors.grey[400],
     letterSpacing: 1,
     lineHeight: 18,
   },
   noteDivider: {
     height: StyleSheet.hairlineWidth,
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.slate[200],
     marginLeft: 52,
   },
   loadingContainer: {
@@ -730,7 +730,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 16,
-    backgroundColor: '#F3F3F4',
+    backgroundColor: colors.oneOff.libraryEmptyIconBg,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: spacing[4],
@@ -738,7 +738,7 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#484848',
+    color: colors.grey[700],
     letterSpacing: -0.16,
     lineHeight: 22,
     textAlign: 'center',
@@ -747,7 +747,7 @@ const styles = StyleSheet.create({
   emptySubtext: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#8B8B8B',
+    color: colors.grey[400],
     letterSpacing: -0.28,
     lineHeight: 20,
     textAlign: 'center',

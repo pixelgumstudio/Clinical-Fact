@@ -26,6 +26,7 @@ import api from '../../services/api';
 import { useAuthStore } from '../../store/authStore';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { changeLanguage } from '../../i18n';
+import { getLanguageInfo } from '../../utils/language';
 
 type ChatsNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -38,17 +39,6 @@ interface ChatSession {
   fileId?: string;
   pinnedAt?: string | null;
 }
-
-const getLanguageInfo = (code: string): { flag: string; code: string } => {
-  const languageMap: Record<string, { flag: string; code: string }> = {
-    en: { flag: '🇺🇸', code: 'En' },
-    es: { flag: '🇪🇸', code: 'Es' },
-    fr: { flag: '🇫🇷', code: 'Fr' },
-    de: { flag: '🇩🇪', code: 'De' },
-    pt: { flag: '🇵🇹', code: 'Pt' },
-  };
-  return languageMap[code] || { flag: '🇺🇸', code: 'En' };
-};
 
 const formatCreatedAt = (dateString: string) => {
   const date = new Date(dateString);

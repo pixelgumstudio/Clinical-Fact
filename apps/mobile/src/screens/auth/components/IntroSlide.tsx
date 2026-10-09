@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, ImageSourcePropType, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '@clinicalfact/design-system';
 
@@ -20,12 +19,6 @@ export const IntroSlide = ({ image, headline, description, children }: IntroSlid
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.heroImage} resizeMode="cover" />
-      <LinearGradient
-        colors={['rgba(2, 22, 39, 1)', 'rgba(2, 22, 39, 0.85)', 'rgba(2, 22, 39, 1)']}
-        locations={[0, 0.08, 1]}
-        style={styles.scrim}
-      />
-
       <SafeAreaView style={styles.content} edges={['bottom']}>
         <View style={styles.textBlock}>
           <Text style={styles.headline}>{headline}</Text>
@@ -64,6 +57,7 @@ const styles = StyleSheet.create({
   textBlock: {
     gap: theme.spacing[6], // 24
     marginBottom: theme.spacing[28], // 24
+    maxWidth: 310,
   },
   headline: {
     ...theme.typography.textStyles.h4,

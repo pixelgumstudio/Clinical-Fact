@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold } from '@expo-google-fonts/inter';
 import { Lora_500Medium } from '@expo-google-fonts/lora';
+import { TiroBangla_400Regular } from '@expo-google-fonts/tiro-bangla';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
@@ -21,6 +22,7 @@ import { useAuthStore } from './src/store/authStore';
 import { queryClient } from './src/lib/queryClient';
 import notificationService from './src/services/notificationService';
 import api from './src/services/api';
+import { configureAnalytics, identifyUser, captureEvent } from './src/services/analytics';
 
 // Keep splash screen visible until the design system's fonts (Inter/Lora)
 // have loaded — every text style in the theme references these families,
@@ -129,7 +131,12 @@ function AppInner() {
     };
 
     initLanguage();
+    configureAnalytics();
   }, []);
+
+  useEffect(() => {
+    if (userId) identifyUser(userId);
+  }, [userId]);
 
   // Register this device for push notifications once the user is signed in — the
   // backend needs a userId to attach the token to, so this can't run before login.
@@ -159,8 +166,17 @@ function AppInner() {
   useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(async (response) => {
       const data = response.notification.request.content.data as
-        | { jobId?: string; jobType?: string }
+        | { jobId?: string; jobType?: string; campaignId?: string }
         | undefined;
+
+      // Captured for every tap — job-completion or admin campaign — before the
+      // job-specific deep-link handling below, which a campaign send (no jobId)
+      // wouldn't reach. This is what attributes an app-open back to a specific
+      // campaign in PostHog, not just its send/delivery counts.
+      if (data?.jobType || data?.campaignId) {
+        captureEvent('notification_opened', { jobType: data.jobType, campaignId: data.campaignId });
+      }
+
       if (!data?.jobId || !navigationRef.isReady() || !useAuthStore.getState().isAuthenticated) return;
 
       try {
@@ -215,6 +231,7 @@ export default function App() {
     Inter_500Medium,
     Inter_600SemiBold,
     Lora_500Medium,
+    TiroBangla_400Regular,
   });
 
   const onLayoutRootView = useCallback(async () => {

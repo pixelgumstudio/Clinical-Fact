@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
+import { colors } from '@clinicalfact/design-system';
 
 type TooltipPosition = 'top' | 'bottom';
 
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
 
   // Tooltip card — white, 277px, rounded-24, p-16, gap-24
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 24,
     padding: 16,
     width: 277,
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     lineHeight: 22,
     letterSpacing: -0.16,
   },
@@ -136,14 +137,14 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: colors.oneOff.lightGrayChip,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 1,
   },
   closeIcon: {
     fontSize: 10,
-    color: '#1C1C1C',
+    color: colors.grey[900],
     fontWeight: '500',
     lineHeight: 14,
   },
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#636363',
+    color: colors.grey[600],
     lineHeight: 20,
     letterSpacing: -0.28,
     marginTop: -8, // compensate for card gap to match Figma 16px between title and desc
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
 
   // Skip — grey pill, #EBEBEB bg
   skipButton: {
-    backgroundColor: '#EBEBEB',
+    backgroundColor: colors.grey[50],
     borderRadius: 999,
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -175,13 +176,13 @@ const styles = StyleSheet.create({
   skipText: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.12,
   },
 
   // Next/Done — black pill
   nextButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     borderRadius: 999,
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -189,7 +190,7 @@ const styles = StyleSheet.create({
   nextText: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.12,
   },
 });

@@ -25,6 +25,7 @@ import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useFlashcardSync } from '../../hooks/useFlashcardSync';
 import { showInAppPaywall } from '../../services/revenuecat';
 import { changeLanguage } from '../../i18n';
+import { getLanguageInfo } from '../../utils/language';
 
 type HomeNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -52,17 +53,6 @@ const buildSessionTranscript = (session?: ChatSession) =>
   (session?.messages ?? [])
     .map((m) => `${m.role === 'user' ? 'Q' : 'A'}: ${stripHtml(m.content)}`)
     .join('\n\n');
-
-const getLanguageInfo = (code: string): { flag: string; code: string } => {
-  const languageMap: Record<string, { flag: string; code: string }> = {
-    en: { flag: '🇺🇸', code: 'En' },
-    es: { flag: '🇪🇸', code: 'Es' },
-    fr: { flag: '🇫🇷', code: 'Fr' },
-    de: { flag: '🇩🇪', code: 'De' },
-    pt: { flag: '🇵🇹', code: 'Pt' },
-  };
-  return languageMap[code] || { flag: '🇺🇸', code: 'En' };
-};
 
 const formatCreatedAt = (dateString: string) => {
   const date = new Date(dateString);

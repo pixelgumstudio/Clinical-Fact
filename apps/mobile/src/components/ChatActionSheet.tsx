@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   deleteText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: '#EF4444',
+    color: colors.vivid.error[500],
   },
   cancelText: {
     fontSize: typography.fontSize.base,

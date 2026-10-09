@@ -24,7 +24,6 @@ import { useSubscriptionStore } from "../../store/subscriptionStore";
 import { showInAppPaywall, getSubscriptionStatus } from "../../services/revenuecat";
 import { LanguageSupportModal } from "../../components/LanguageSupportModal";
 import { ReferralModal } from "../../components/ReferralModal";
-import { CustomAlertModal } from "../../components/CustomAlertModal";
 import { api } from "../../services/api";
 import { changeLanguage } from "../../i18n";
 import { useTranslation } from "react-i18next";
@@ -41,16 +40,6 @@ export const ProfileScreen = () => {
   const deletingRef = useRef(false);
   const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
   const [localAvatarUri, setLocalAvatarUri] = useState<string | null>(null);
-  const [alertConfig, setAlertConfig] = useState<{
-    visible: boolean;
-    title: string;
-    message: string;
-    buttonText: string;
-  }>({ visible: false, title: '', message: '', buttonText: 'Got it' });
-
-  const closeAlert = () =>
-    setAlertConfig(prev => ({ ...prev, visible: false }));
-
   const { status: subscriptionStatus, setStatus } = useSubscriptionStore();
   const isActive = subscriptionStatus === "premium" || subscriptionStatus === "trial";
   const isExpired = subscriptionStatus === "cancelled";
@@ -266,7 +255,7 @@ export const ProfileScreen = () => {
           >
             <View style={styles.avatar}>
               {isUploadingAvatar ? (
-                <ActivityIndicator color="#FFFFFF" />
+                <ActivityIndicator color={colors.white} />
               ) : (localAvatarUri || user?.profilePicture) ? (
                 <Image
                   key={localAvatarUri || user?.profilePicture}
@@ -299,7 +288,7 @@ export const ProfileScreen = () => {
           activeOpacity={0.85}
         >
           <View style={styles.subscriptionIcon}>
-            <Icon name="star" size={20} color="#FFFFFF" />
+            <Icon name="star" size={20} color={colors.white} />
           </View>
           <View style={styles.subscriptionTextGroup}>
             <Text style={styles.subscriptionTitle}>
@@ -506,13 +495,6 @@ export const ProfileScreen = () => {
       )}
 
       {/* Referral Copy Alert Modal */}
-      <CustomAlertModal
-        visible={alertConfig.visible}
-        title={alertConfig.title}
-        message={alertConfig.message}
-        buttonText={alertConfig.buttonText}
-        onClose={closeAlert}
-      />
     </SafeAreaView>
   );
 };
@@ -597,7 +579,7 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 24,
     fontWeight: "500",
-    color: "#FFFFFF",
+    color: colors.white,
   },
   name: {
     ...theme.typography.textStyles.subtitle1,
@@ -653,7 +635,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing[6],
   },
   menuGroup: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
@@ -739,7 +721,7 @@ const styles = StyleSheet.create({
   },
   logoutConfirmButton: {
     flex: 1,
-    backgroundColor: "#1C1C1C",
+    backgroundColor: colors.grey[900],
     borderRadius: 12,
     paddingVertical: spacing[3],
     alignItems: "center",

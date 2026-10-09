@@ -36,19 +36,19 @@ type FolderDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 
 const getNoteIcon = (type: string) => {
   switch (type) {
     case 'audio':
-      return <AudioIcon size={20} color="#6B7280" />;
+      return <AudioIcon size={20} color={colors.slate[500]} />;
     case 'video':
-      return <VideoIcon size={20} color="#6B7280" />;
+      return <VideoIcon size={20} color={colors.slate[500]} />;
     case 'text':
-      return <TextIcon size={20} color="#6B7280" />;
+      return <TextIcon size={20} color={colors.slate[500]} />;
     case 'image':
-      return <ImageIcon size={20} color="#6B7280" />;
+      return <ImageIcon size={20} color={colors.slate[500]} />;
     case 'document':
-      return <DocumentIcon size={20} color="#6B7280" />;
+      return <DocumentIcon size={20} color={colors.slate[500]} />;
     case 'transcript':
-      return <MicrophoneIcon size={20} color="#6B7280" />;
+      return <MicrophoneIcon size={20} color={colors.slate[500]} />;
     default:
-      return <DocumentIcon size={20} color="#6B7280" />;
+      return <DocumentIcon size={20} color={colors.slate[500]} />;
   }
 };
 
@@ -145,7 +145,7 @@ export const FolderDetailScreen = () => {
             style={styles.backButton}
             activeOpacity={0.7}
           >
-            <ChevronLeftIcon size={24} color="#1C1C1C" />
+            <ChevronLeftIcon size={24} color={colors.grey[900]} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Folder not found</Text>
           <View style={styles.placeholder} />
@@ -162,7 +162,7 @@ export const FolderDetailScreen = () => {
           style={styles.backButton}
           activeOpacity={0.7}
         >
-          <ChevronLeftIcon size={24} color="#1C1C1C" />
+          <ChevronLeftIcon size={24} color={colors.grey[900]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle} numberOfLines={1}>
           {folder.name}
@@ -178,7 +178,7 @@ export const FolderDetailScreen = () => {
 
       {isLoading ? (
         <View style={styles.emptyState}>
-          <ActivityIndicator size="large" color="#1C1C1C" />
+          <ActivityIndicator size="large" color={colors.grey[900]} />
         </View>
       ) : notes.length === 0 ? (
         <View style={styles.emptyState}>
@@ -214,13 +214,13 @@ export const FolderDetailScreen = () => {
                 <View style={styles.pickerHeader}>
                   <Text style={styles.pickerTitle}>Add note to folder</Text>
                   <TouchableOpacity onPress={() => setPickerVisible(false)} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-                    <CloseIcon size={22} color="#6B7280" />
+                    <CloseIcon size={22} color={colors.slate[500]} />
                   </TouchableOpacity>
                 </View>
 
                 {isPickerLoading ? (
                   <View style={styles.pickerEmpty}>
-                    <ActivityIndicator size="large" color="#1C1C1C" />
+                    <ActivityIndicator size="large" color={colors.grey[900]} />
                   </View>
                 ) : allNotes.length === 0 ? (
                   <View style={styles.pickerEmpty}>
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing[3],
   },
   addButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     paddingHorizontal: spacing[4],
     paddingVertical: spacing[2],
     borderRadius: 20,

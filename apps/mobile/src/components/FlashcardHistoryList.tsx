@@ -7,8 +7,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Alert,
-  Modal,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import {
   colors,
@@ -21,6 +19,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MainStackParamList } from '../navigation/MainStackNavigator';
 import { useExportFlashcard } from '../hooks/useExportFlashcard';
 import { ExportSettingsModal } from './ExportSettingsModal';
+import { HistoryItemActionSheet } from './HistoryItemActionSheet';
+import { formatDateTime } from '../utils/formatDate';
 
 interface FlashcardSet {
   id: string;
@@ -109,22 +109,6 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
     });
   };
 
-  const formatDate = (dateString: string) => {
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-      });
-    } catch {
-      return dateString;
-    }
-  };
-
   const calculatePercentage = (set: FlashcardSet): number => {
     if (!set.cardsReviewedCount || set.cardsReviewedCount === 0) return 0;
     return Math.round(((set.masteredCount || 0) / set.cardsReviewedCount) * 100);
@@ -184,7 +168,7 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
                     {item.title}
                   </Text>
                   <Text style={styles.flashcardDate}>
-                    {formatDate(item.reviewedAt || item.createdAt)}
+                    {formatDateTime(item.reviewedAt || item.createdAt)}
                   </Text>
                   {item.cardsReviewedCount !== undefined && (
                     <Text style={styles.flashcardStats}>
@@ -227,61 +211,28 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
       />
 
       {/* Action Menu Modal */}
-      <Modal
+      <HistoryItemActionSheet
         visible={selectedMenuItem !== null}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setSelectedMenuItem(null)}
-      >
-        <TouchableWithoutFeedback onPress={() => setSelectedMenuItem(null)}>
-          <View style={styles.menuModalOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={styles.menuModalContainer}>
-                <View style={styles.menuHandleBar} />
-                <TouchableOpacity
-                  style={styles.menuModalOption}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('view', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionText}>👁️ View</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.menuModalOption}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('export', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionText}>📤 Export</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.menuModalOption, styles.menuModalOptionDelete]}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('delete', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionTextDelete}>🗑️ Delete</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.menuModalCancel}
-                  onPress={() => setSelectedMenuItem(null)}
-                >
-                  <Text style={styles.menuModalCancelText}>Cancel</Text>
-                </TouchableOpacity>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+        onView={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('view', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onExport={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('export', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onDelete={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('delete', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onCancel={() => setSelectedMenuItem(null)}
+      />
     </View>
   );
 };
@@ -313,7 +264,7 @@ const styles = StyleSheet.create({
     padding: spacing[4],
     marginBottom: spacing[3],
     borderLeftWidth: 4,
-    borderLeftColor: '#10B981', // Green for flashcards
+    borderLeftColor: colors.vivid.success[500], // Green for flashcards
   },
   flashcardContent: {
     flex: 1,
@@ -329,7 +280,7 @@ const styles = StyleSheet.create({
   totalCardsText: {
     fontSize: typography.fontSize.lg,
     fontWeight: typography.fontWeight.bold,
-    color: '#10B981',
+    color: colors.vivid.success[500],
   },
   statsLabel: {
     fontSize: typography.fontSize.xs,
@@ -375,55 +326,5 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.lg,
     fontWeight: typography.fontWeight.bold,
     color: colors.text.secondary,
-  },
-  menuModalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  menuModalContainer: {
-    backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingBottom: spacing[8],
-  },
-  menuHandleBar: {
-    width: 40,
-    height: 4,
-    backgroundColor: colors.neutral[300],
-    borderRadius: 2,
-    alignSelf: 'center',
-    marginTop: spacing[3],
-    marginBottom: spacing[2],
-  },
-  menuModalOption: {
-    paddingVertical: spacing[4],
-    paddingHorizontal: spacing[5],
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  menuModalOptionDelete: {
-    borderBottomWidth: 0,
-  },
-  menuModalOptionText: {
-    fontSize: typography.fontSize.base,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  menuModalOptionTextDelete: {
-    fontSize: typography.fontSize.base,
-    color: '#EF4444',
-    fontWeight: typography.fontWeight.medium,
-  },
-  menuModalCancel: {
-    paddingVertical: spacing[4],
-    paddingHorizontal: spacing[5],
-    marginTop: spacing[2],
-    alignItems: 'center',
-  },
-  menuModalCancelText: {
-    fontSize: typography.fontSize.base,
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
   },
 });

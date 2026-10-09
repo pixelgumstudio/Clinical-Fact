@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "519267137891",
+    "firebase_url": "https://pptdesigner-9ccaf-default-rtdb.firebaseio.com",
+    "project_id": "pptdesigner-9ccaf",
+    "storage_bucket": "pptdesigner-9ccaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519267137891:android:95dab3716f070f94737b56",
+        "android_client_info": {
+          "package_name": "com.clinicalfact.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519267137891-gh1k0p1sr9h86hn42nitljgd7gn4jt7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3YmAW_Vq7Ml0BBODuClBKqGCEZAMnXG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519267137891-gh1k0p1sr9h86hn42nitljgd7gn4jt7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

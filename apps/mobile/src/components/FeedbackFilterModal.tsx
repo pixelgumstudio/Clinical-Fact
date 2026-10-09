@@ -182,12 +182,12 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
   happyButton: {
-    backgroundColor: '#F0FDF4',
-    borderColor: '#10B981',
+    backgroundColor: colors.vivid.success[50],
+    borderColor: colors.vivid.success[500],
   },
   sadButton: {
-    backgroundColor: '#FFF7ED',
-    borderColor: '#F59E0B',
+    backgroundColor: colors.vivid.accent[50],
+    borderColor: colors.vivid.warning[500],
   },
   reactionEmoji: {
     fontSize: 32,
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     width: '100%',
-    backgroundColor: '#10B981',
+    backgroundColor: colors.vivid.success[500],
     paddingVertical: spacing[4],
     borderRadius: 12,
     alignItems: 'center',
@@ -228,6 +228,6 @@ const styles = StyleSheet.create({
   submitButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

@@ -7,8 +7,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Alert,
-  Modal,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -21,6 +19,8 @@ import { MainStackParamList } from '../navigation/MainStackNavigator';
 import api from '../services/api';
 import { useExportQuiz } from '../hooks/useExportQuiz';
 import { ExportSettingsModal } from './ExportSettingsModal';
+import { HistoryItemActionSheet } from './HistoryItemActionSheet';
+import { formatDateTime } from '../utils/formatDate';
 
 type QuizHistoryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -118,22 +118,6 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
     );
   };
 
-  const formatDate = (dateString: string) => {
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-      });
-    } catch {
-      return dateString;
-    }
-  };
-
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
@@ -173,7 +157,7 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
                     {item.title}
                   </Text>
                   <Text style={styles.quizDate}>
-                    {formatDate(item.createdAt)}
+                    {formatDateTime(item.createdAt)}
                   </Text>
                   <Text style={styles.quizStats}>
                     {item.correctAnswers || 0} correct
@@ -214,61 +198,28 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
       />
 
       {/* Action Menu Modal */}
-      <Modal
+      <HistoryItemActionSheet
         visible={selectedMenuItem !== null}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setSelectedMenuItem(null)}
-      >
-        <TouchableWithoutFeedback onPress={() => setSelectedMenuItem(null)}>
-          <View style={styles.menuModalOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={styles.menuModalContainer}>
-                <View style={styles.menuHandleBar} />
-                <TouchableOpacity
-                  style={styles.menuModalOption}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('view', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionText}>👁️ View</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.menuModalOption}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('export', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionText}>📤 Export</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.menuModalOption, styles.menuModalOptionDelete]}
-                  onPress={() => {
-                    if (selectedMenuItem) {
-                      handleMenuAction('delete', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
-                      setSelectedMenuItem(null);
-                    }
-                  }}
-                >
-                  <Text style={styles.menuModalOptionTextDelete}>🗑️ Delete</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.menuModalCancel}
-                  onPress={() => setSelectedMenuItem(null)}
-                >
-                  <Text style={styles.menuModalCancelText}>Cancel</Text>
-                </TouchableOpacity>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+        onView={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('view', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onExport={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('export', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onDelete={() => {
+          if (selectedMenuItem) {
+            handleMenuAction('delete', selectedMenuItem.id || selectedMenuItem._id || '', selectedMenuItem.title);
+            setSelectedMenuItem(null);
+          }
+        }}
+        onCancel={() => setSelectedMenuItem(null)}
+      />
     </View>
   );
 };
@@ -303,7 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: spacing[4],
     borderLeftWidth: 4,
-    borderLeftColor: '#3B82F6', // Blue for quizzes
+    borderLeftColor: colors.vivid.info[500], // Blue for quizzes
   },
   quizContent: {
     flex: 1,
@@ -319,7 +270,7 @@ const styles = StyleSheet.create({
   totalQuestionsText: {
     fontSize: typography.fontSize.lg,
     fontWeight: typography.fontWeight.bold,
-    color: '#3B82F6', // Blue for quizzes
+    color: colors.vivid.info[500], // Blue for quizzes
   },
   statsLabel: {
     fontSize: typography.fontSize.xs,
@@ -358,55 +309,5 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.lg,
     fontWeight: typography.fontWeight.bold,
     color: colors.text.secondary,
-  },
-  menuModalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  menuModalContainer: {
-    backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingBottom: spacing[8],
-  },
-  menuHandleBar: {
-    width: 40,
-    height: 4,
-    backgroundColor: colors.neutral[300],
-    borderRadius: 2,
-    alignSelf: 'center',
-    marginTop: spacing[3],
-    marginBottom: spacing[2],
-  },
-  menuModalOption: {
-    paddingVertical: spacing[4],
-    paddingHorizontal: spacing[5],
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  menuModalOptionDelete: {
-    borderBottomWidth: 0,
-  },
-  menuModalOptionText: {
-    fontSize: typography.fontSize.base,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  menuModalOptionTextDelete: {
-    fontSize: typography.fontSize.base,
-    color: '#EF4444',
-    fontWeight: typography.fontWeight.medium,
-  },
-  menuModalCancel: {
-    paddingVertical: spacing[4],
-    paddingHorizontal: spacing[5],
-    marginTop: spacing[2],
-    alignItems: 'center',
-  },
-  menuModalCancelText: {
-    fontSize: typography.fontSize.base,
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
   },
 });

@@ -13,7 +13,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
-import { Icon, theme } from '@clinicalfact/design-system';
+import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useAIConsentStore } from '../../store/aiConsentStore';
@@ -181,7 +181,7 @@ export const UploadImageScreen = () => {
       >
         {/* Icon */}
         <View style={styles.iconCircle}>
-          <Icon name="imageFill" size={40} color="#FFFFFF" />
+          <Icon name="imageFill" size={40} color={colors.white} />
         </View>
 
         {/* Title */}
@@ -230,7 +230,7 @@ export const UploadImageScreen = () => {
           activeOpacity={0.8}
         >
           {isUploading ? (
-            <ActivityIndicator color="#FFFFFF" />
+            <ActivityIndicator color={colors.white} />
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>
           )}
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing[6],
     paddingHorizontal: theme.spacing[6],
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
   uploadAreaIcon: {
     width: 48,
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     padding: theme.spacing[4],
     borderWidth: 1,
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing[4],
     paddingVertical: theme.spacing[2],
     paddingHorizontal: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
@@ -378,6 +378,6 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

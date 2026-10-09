@@ -16,6 +16,7 @@ import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { api } from '../../services/api';
 import { useDebounce } from '../../hooks/useDebounce';
 import Purchases from 'react-native-purchases';
+import { colors } from '@clinicalfact/design-system';
 
 type ReferralCodeScreenNavigationProp = NativeStackNavigationProp<
   AuthStackParamList,
@@ -26,12 +27,12 @@ const CURRENT_STEP = 4;
 const TOTAL_STEPS = 4;
 
 const CHECKBOX_GRADIENT: [string, string, ...string[]] = [
-  '#CEF9D0',
-  '#DCEEB9',
-  '#FFB09C',
-  '#ECE19F',
-  '#F3DA93',
-  '#F9C597',
+  colors.pastelRainbow.mint,
+  colors.pastelRainbow.lime,
+  colors.pastelRainbow.coral,
+  colors.pastelRainbow.honeydew,
+  colors.pastelRainbow.wheat,
+  colors.pastelRainbow.apricot,
 ];
 
 export const ReferralCodeScreen = () => {
@@ -164,11 +165,11 @@ export const ReferralCodeScreen = () => {
             value={code}
             onChangeText={handleValidate}
             placeholder="e.g. JOHN or TECHBRO"
-            placeholderTextColor="#999"
+            placeholderTextColor={colors.oneOff.mutedPlaceholder}
             editable={!isApplying}
             style={styles.textInput}
           />
-          {isValidating && <ActivityIndicator size="small" color="#1C1C1C" />}
+          {isValidating && <ActivityIndicator size="small" color={colors.grey[900]} />}
         </View>
 
         {code.trim().length >= 8 && code.trim().length <= 10 && error ? (
@@ -189,7 +190,7 @@ export const ReferralCodeScreen = () => {
           activeOpacity={0.85}
         >
           {isApplying ? (
-            <ActivityIndicator size="small" color="#fff" />
+            <ActivityIndicator size="small" color={colors.white} />
           ) : (
             <Text style={styles.continueButtonText}>
               {isCodeValid ? 'Continue' : 'Skip'}
@@ -204,7 +205,7 @@ export const ReferralCodeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
   header: {
     flexDirection: 'row',
@@ -221,13 +222,13 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#1C1C1C',
+    color: colors.grey[900],
     fontWeight: '500',
   },
   progressTrack: {
     flex: 1,
     height: 6,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     borderRadius: 3,
     overflow: 'hidden',
   },
@@ -249,7 +250,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.48,
     lineHeight: 32,
     marginBottom: 10,
@@ -257,7 +258,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
     fontWeight: '400',
-    color: '#636363',
+    color: colors.grey[600],
     letterSpacing: -0.3,
     lineHeight: 22,
   },
@@ -270,20 +271,20 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: colors.oneOff.disabledBorder,
     borderRadius: 8,
     padding: 14,
     fontSize: 16,
-    color: '#1C1C1C',
+    color: colors.grey[900],
   },
   errorText: {
-    color: '#e74c3c',
+    color: colors.oneOff.flatError,
     fontSize: 14,
     marginBottom: 12,
     marginHorizontal: 0,
   },
   successText: {
-    color: '#27ae60',
+    color: colors.oneOff.flatSuccess,
     fontSize: 14,
     marginBottom: 12,
   },
@@ -293,7 +294,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   continueButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     borderRadius: 9999,
     height: 56,
     justifyContent: 'center',
@@ -305,11 +306,11 @@ const styles = StyleSheet.create({
   continueButtonText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.16,
   },
   skipText: {
-    color: '#999',
+    color: colors.oneOff.mutedPlaceholder,
     fontSize: 14,
   },
 });

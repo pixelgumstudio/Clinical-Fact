@@ -9,7 +9,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Icon, theme } from '@clinicalfact/design-system';
+import { colors, Icon, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { FlashcardCard, IFlashcard } from '../../components/FlashcardCard';
 import api from '../../services/api';
@@ -208,7 +208,7 @@ export const FlashcardReviewScreen = () => {
           style={styles.navButtonPrimary}
           activeOpacity={0.7}
         >
-          <Icon name="foward" size={20} color="#FFFFFF" />
+          <Icon name="foward" size={20} color={colors.white} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
   timerBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     paddingHorizontal: theme.spacing[3],
     paddingVertical: theme.spacing[2],
     borderRadius: theme.borderRadius.full,
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: theme.borderRadius.full,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
     justifyContent: 'center',
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
   },
   retryButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   doneHeader: {
     paddingHorizontal: theme.spacing[4],
@@ -377,6 +377,6 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

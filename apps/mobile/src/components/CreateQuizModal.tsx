@@ -11,9 +11,7 @@ import { Icon, theme } from "@clinicalfact/design-system";
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import { showInAppPaywall } from '../services/revenuecat';
 
-// 🚧 TEMP: Pro paywall gate on quiz generation is disabled for testing.
-// Set back to true before shipping to production.
-const QUIZ_PAYWALL_ENABLED = false;
+const QUIZ_PAYWALL_ENABLED = true;
 
 interface CreateQuizModalProps {
   visible: boolean;

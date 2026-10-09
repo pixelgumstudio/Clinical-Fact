@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { colors } from '@clinicalfact/design-system';
 import { useFlashcardStore, Flashcard } from '../store/flashcardStore';
 import api from '../services/api';
 
@@ -77,7 +78,7 @@ export const useFlashcardSync = () => {
                 serverSet._id,
                 card.front || '',
                 card.back || '',
-                card.color || '#FFD1B8'
+                card.color || colors.flashcardTagPalette[0]
               );
             });
           }

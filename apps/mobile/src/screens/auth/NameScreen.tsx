@@ -64,7 +64,7 @@ export const NameScreen = () => {
         <View style={styles.header}>
           {canGoBack ? (
             <Pressable onPress={handleBack} style={styles.backButton}>
-              <Icon name="backFill" size={24} color="#7F8783" />
+              <Icon name="backFill" size={24} color={theme.colors.grey[600]} />
             </Pressable>
           ) : (
             <View style={styles.backButton} />

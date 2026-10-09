@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as DocumentPicker from 'expo-document-picker';
-import { Icon, theme, MicrophoneIcon } from '@clinicalfact/design-system';
+import { colors, Icon, theme, MicrophoneIcon } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
@@ -112,7 +112,7 @@ export const UploadAudioScreen = () => {
       >
         {/* Icon */}
         <View style={styles.iconCircle}>
-          <MicrophoneIcon size={36} color="#FFFFFF" />
+          <MicrophoneIcon size={36} color={colors.white} />
         </View>
 
         {/* Title */}
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing[6],
     paddingHorizontal: theme.spacing[6],
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
   uploadAreaIcon: {
     width: 48,
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     padding: theme.spacing[4],
     borderWidth: 1,
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing[4],
     paddingVertical: theme.spacing[2],
     paddingHorizontal: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
@@ -305,6 +305,6 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

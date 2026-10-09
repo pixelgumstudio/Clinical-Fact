@@ -138,7 +138,7 @@ export const YouTubeInputScreen = () => {
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-            <ChevronLeftIcon size={24} color="#1F2937" />
+            <ChevronLeftIcon size={24} color={colors.slate[800]} />
           </TouchableOpacity>
           <View style={styles.headerSpacer} />
         </View>
@@ -318,14 +318,14 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   errorContainer: {
-    backgroundColor: "#FEE2E2",
+    backgroundColor: colors.vivid.error[100],
     borderRadius: 12,
     padding: spacing[4],
     marginBottom: spacing[4],
   },
   errorText: {
     fontSize: typography.fontSize.sm,
-    color: "#DC2626",
+    color: colors.vivid.error[600],
     textAlign: "center",
   },
   previewCard: {
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
   continueButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: "#FFFFFF",
+    color: colors.white,
   },
   continueButtonTextDisabled: {
     color: colors.neutral[400],

@@ -262,9 +262,12 @@ export const OTPInput: React.FC<OTPInputProps> = ({
                 maxLength={1}
                 selectTextOnFocus
                 editable={!disabled}
-                autoComplete={Platform.OS === 'android' ? 'sms-otp' : undefined}
+                // This code is emailed, never sent by SMS — autoComplete="sms-otp" here
+                // told Android's Autofill/SMS Retriever to wait for a text message that
+                // never arrives, which can block or delay manual typing into these boxes.
+                autoComplete={Platform.OS === 'android' ? 'off' : undefined}
                 textContentType={Platform.OS === 'ios' ? 'oneTimeCode' : undefined}
-                importantForAutofill={Platform.OS === 'android' ? 'yes' : undefined}
+                importantForAutofill={Platform.OS === 'android' ? 'no' : undefined}
                 autoFocus={autoFocus && index === 0}
                 returnKeyType="next"
                 blurOnSubmit={false}

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing[6],
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 20,
     padding: 28,
     width: '100%',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.2,
   },
 });

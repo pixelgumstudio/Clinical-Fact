@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { colors } from '@clinicalfact/design-system';
 
 export const PoweredByFooter = () => (
   <View style={styles.container}>
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#636363',
+    color: colors.grey[600],
     letterSpacing: -0.28,
   },
   logoRow: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   wordmark: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.5,
   },
 });

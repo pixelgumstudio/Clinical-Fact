@@ -16,12 +16,14 @@ import {
   Icon,
   IconName,
   theme,
+  colors,
 } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import appLifecycleService from '../../services/appLifecycleService';
 import { useInvalidateNotes } from '../../hooks/queries';
-import { CustomAlertModal } from '../../components/CustomAlertModal';
+import { useAlertDialog } from '../../hooks/useAlertDialog';
+import { AlertDialog } from '../../components/AlertDialog';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { useAuthStore } from '../../store/authStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
@@ -214,16 +216,7 @@ export const GeneratingNoteScreen = () => {
 
   const [isComplete, setIsComplete] = useState(false);
   const [currentStepIndex] = useState(0);
-  const [alertConfig, setAlertConfig] = useState<{
-    visible: boolean;
-    title: string;
-    message: string;
-    buttonText: string;
-    onButtonPress?: () => void;
-  }>({ visible: false, title: '', message: '', buttonText: 'Got it' });
-
-  const closeAlert = () =>
-    setAlertConfig({ visible: false, title: '', message: '', buttonText: 'Got it' });
+  const { alertConfig, showAlert, closeAlert } = useAlertDialog('Got it');
   const invalidateNotes = useInvalidateNotes();
   const simulatedProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sseCleanupRef = useRef<(() => void) | null>(null);
@@ -521,12 +514,11 @@ export const GeneratingNoteScreen = () => {
 
       if (error.code === 'AI_GENERATION_RATE_LIMITED') {
         if (user?.isPro) {
-          setAlertConfig({
-            visible: true,
-            title: 'Whoa, speedy! 🏃💨',
-            message: "You're generating content a bit too fast. Take a quick 60-second breather before trying again so our AI can catch up.",
-            buttonText: 'Got it',
-          });
+          showAlert(
+            'Whoa, speedy! 🏃💨',
+            "You're generating content a bit too fast. Take a quick 60-second breather before trying again so our AI can catch up.",
+            'Got it'
+          );
         } else {
           await showInAppPaywall();
         }
@@ -534,25 +526,23 @@ export const GeneratingNoteScreen = () => {
       }
 
       if (error.code === 'AUDIO_FREE_LIMIT_EXCEEDED') {
-        setAlertConfig({
-          visible: true,
-          title: 'File Too Large',
-          message: 'Your file exceeds the 15MB limit for free users. Upgrade to PRO to upload lectures up to 100MB.',
-          buttonText: 'Upgrade to PRO',
-          onButtonPress: () => {
+        showAlert(
+          'File Too Large',
+          'Your file exceeds the 15MB limit for free users. Upgrade to PRO to upload lectures up to 100MB.',
+          'Upgrade to PRO',
+          () => {
             closeAlert();
             showInAppPaywall();
-          },
-        });
+          }
+        );
         return;
       }
 
-      setAlertConfig({
-        visible: true,
-        title: 'Oops, we hit a snag 🚧',
-        message: "We couldn't generate that right now. Give it a moment and try again!",
-        buttonText: 'Got it',
-      });
+      showAlert(
+        'Oops, we hit a snag 🚧',
+        "We couldn't generate that right now. Give it a moment and try again!",
+        'Got it'
+      );
     }
   };
 
@@ -707,7 +697,8 @@ export const GeneratingNoteScreen = () => {
     if (!generatedNoteId) return;
     setIsGeneratingFlashcards(true);
     try {
-      const response = await api.generateFlashcards(generatedNoteId, cardCount, 'medium', []);
+      const effectiveLanguage = user?.studyLanguage ?? user?.preferredLanguage ?? 'en';
+      const response = await api.generateFlashcards(generatedNoteId, cardCount, 'medium', [], effectiveLanguage);
       if (response.success && response.data) {
         setCreateFlashcardsModalVisible(false);
         navigation.navigate('FlashcardReview', {
@@ -741,7 +732,7 @@ export const GeneratingNoteScreen = () => {
     if (isComplete) {
       return (
         <View style={[styles.stepIconContainer, styles.stepIconContainerComplete]}>
-          <Icon name="sucessfulFill" size={24} color="#FFFFFF" />
+          <Icon name="sucessfulFill" size={24} color={colors.white} />
         </View>
       );
     }
@@ -793,14 +784,7 @@ export const GeneratingNoteScreen = () => {
         isGenerating={isGeneratingFlashcards}
         noteTitle={fileName}
       />
-      <CustomAlertModal
-        visible={alertConfig.visible}
-        title={alertConfig.title}
-        message={alertConfig.message}
-        buttonText={alertConfig.buttonText}
-        onClose={closeAlert}
-        onButtonPress={alertConfig.onButtonPress}
-      />
+      <AlertDialog alertConfig={alertConfig} onClose={closeAlert} />
 
       {/* Header */}
       <View style={styles.header}>
@@ -978,7 +962,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   noteBox: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
@@ -1005,7 +989,7 @@ const styles = StyleSheet.create({
   },
   primaryButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   secondaryButton: {
     backgroundColor: theme.colors.yale[700],
@@ -1015,12 +999,12 @@ const styles = StyleSheet.create({
   },
   secondaryButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   buttonDisabled: {
     opacity: 0.4,
   },
   buttonTextDisabled: {
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

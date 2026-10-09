@@ -298,7 +298,7 @@ export const YouTubeGeneratingScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <ChevronLeftIcon size={24} color="#1F2937" />
+          <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
           {isComplete ? 'Note Generated' : 'Generating note'}
@@ -381,23 +381,23 @@ const styles = StyleSheet.create({
   stepRow:          { flexDirection: 'row', marginBottom: spacing[2] },
   stepIconColumn:   { alignItems: 'center', marginRight: spacing[4] },
   stepLine:         { width: 2, flex: 1, backgroundColor: colors.neutral[200], marginTop: spacing[2], minHeight: 40 },
-  stepLineCompleted:{ backgroundColor: '#10B981' },
-  stepLineError:    { backgroundColor: '#DC2626' },
+  stepLineCompleted:{ backgroundColor: colors.vivid.success[500] },
+  stepLineError:    { backgroundColor: colors.vivid.error[600] },
   stepContent:      { flex: 1, paddingBottom: spacing[6] },
   stepTitle:        { fontSize: typography.fontSize.base, fontWeight: typography.fontWeight.medium, color: colors.text.primary, marginBottom: spacing[1] },
-  stepTitleCompleted:{ color: '#10B981' },
-  stepTitleError:   { color: '#DC2626' },
+  stepTitleCompleted:{ color: colors.vivid.success[500] },
+  stepTitleError:   { color: colors.vivid.error[600] },
   stepSubtitle:     { fontSize: typography.fontSize.sm, color: colors.text.tertiary },
   progressBarContainer: { flexDirection: 'row', alignItems: 'center', marginTop: spacing[3] },
   progressBarBackground:{ flex: 1, height: 6, backgroundColor: colors.neutral[200], borderRadius: 3, marginRight: spacing[3], overflow: 'hidden' },
-  progressBarFill:  { height: '100%', backgroundColor: '#F59E0B', borderRadius: 3 },
+  progressBarFill:  { height: '100%', backgroundColor: colors.vivid.warning[500], borderRadius: 3 },
   progressPercentage:{ fontSize: typography.fontSize.sm, fontWeight: typography.fontWeight.medium, color: colors.text.primary, width: 40, textAlign: 'right' },
   errorIcon:        { width: 24, height: 24, alignItems: 'center', justifyContent: 'center' },
-  errorContainer:   { backgroundColor: '#FEE2E2', borderRadius: 12, padding: spacing[4], marginTop: spacing[4] },
-  errorText:        { fontSize: typography.fontSize.sm, color: '#DC2626', textAlign: 'center' },
+  errorContainer:   { backgroundColor: colors.vivid.error[100], borderRadius: 12, padding: spacing[4], marginTop: spacing[4] },
+  errorText:        { fontSize: typography.fontSize.sm, color: colors.vivid.error[600], textAlign: 'center' },
   footer:           { paddingHorizontal: spacing[5], paddingVertical: spacing[4], paddingBottom: spacing[8] },
-  primaryButton:    { backgroundColor: '#10B981', paddingVertical: spacing[4], borderRadius: 12, alignItems: 'center' },
-  primaryButtonText:{ fontSize: typography.fontSize.base, fontWeight: typography.fontWeight.semibold, color: '#FFFFFF' },
+  primaryButton:    { backgroundColor: colors.vivid.success[500], paddingVertical: spacing[4], borderRadius: 12, alignItems: 'center' },
+  primaryButtonText:{ fontSize: typography.fontSize.base, fontWeight: typography.fontWeight.semibold, color: colors.white },
   secondaryButton:  { borderWidth: 1, borderColor: colors.border.light, paddingVertical: spacing[4], borderRadius: 12, alignItems: 'center' },
   secondaryButtonText:{ fontSize: typography.fontSize.base, fontWeight: typography.fontWeight.semibold, color: colors.text.primary },
 });

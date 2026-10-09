@@ -95,7 +95,7 @@ export const SharedNoteScreen = () => {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <ChevronLeftIcon size={24} color="#1F2937" />
+          <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle} numberOfLines={1}>Shared Note</Text>
         <View style={styles.headerRight} />
@@ -129,7 +129,7 @@ export const SharedNoteScreen = () => {
           activeOpacity={0.8}
         >
           {isSaving ? (
-            <ActivityIndicator size="small" color="#FFFFFF" />
+            <ActivityIndicator size="small" color={colors.white} />
           ) : (
             <Text style={styles.saveButtonText}>
               {isSaved ? 'Saved to library' : 'Save to my library'}
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   sharedBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#EEF2FF',
+    backgroundColor: colors.oneOff.sharedBadgeBg,
     borderRadius: 12,
     paddingHorizontal: spacing[3],
     paddingVertical: spacing[1],
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   sharedBadgeText: {
     fontSize: typography.fontSize.xs,
     fontWeight: typography.fontWeight.semibold,
-    color: '#6366F1',
+    color: colors.oneOff.sharedBadgeText,
   },
   noteTitle: {
     fontSize: typography.fontSize.xl,
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.neutral[400],
   },
   saveButtonText: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
   },

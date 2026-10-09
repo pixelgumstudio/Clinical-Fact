@@ -9,6 +9,10 @@ buildscript {
     classpath('com.android.tools.build:gradle')
     classpath('com.facebook.react:react-native-gradle-plugin')
     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+    // Reads android/app/google-services.json at build time and wires the app up to this
+    // project's Firebase config (FCM sender ID, API key, etc) — required for
+    // expo-notifications' Expo push tokens to register with FCM on Android at all.
+    classpath('com.google.gms:google-services:4.4.2')
   }
 }
 

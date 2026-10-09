@@ -28,6 +28,7 @@ export interface FreeUsage {
   quizzes?: FreeUsageFeature;
   flashcards?: FreeUsageFeature;
   chats?: FreeUsageFeature;
+  medicalChats?: FreeUsageFeature;
 }
 
 export interface User {
@@ -64,6 +65,10 @@ interface AuthState {
   needsProfileSetup: boolean;
   isLoading: boolean;
   isInitialized: boolean;
+  // One-shot, in-memory signal set the moment a first-time user finishes onboarding —
+  // lets MainTabNavigator land them on Chat instead of Home just this once, then gets
+  // cleared. Never persisted, so a later cold start always resets it to false.
+  justCompletedOnboarding: boolean;
 
   // Auth actions
   sendOtp: (email: string) => Promise<{ error: Error | null }>;
@@ -76,6 +81,7 @@ interface AuthState {
   updateUser: (userData: Partial<User>) => void;
   setAuthState: (u: any, tokens: { accessToken: string; refreshToken: string }, isNewUser: boolean, needsProfileSetup: boolean) => Promise<void>;
   setOnboardingComplete: () => void;
+  clearJustCompletedOnboarding: () => void;
   persistOnboardingFlag: () => void;
   setFirstTimeUser: (isFirstTime: boolean) => void;
   setNeedsProfileSetup: (needs: boolean) => void;
@@ -121,6 +127,8 @@ function mapUser(u: any): User {
     goals: u.goals,
     contentTypes: u.contentTypes,
     reviewStyle: u.reviewStyle,
+    preferredLanguage: u.preferredLanguage,
+    studyLanguage: u.studyLanguage,
     isPro: subscription === 'PRO',
     notesCount: u.notesCount ?? 0,
     freeUsage: u.freeUsage,
@@ -138,6 +146,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   hasCompletedOnboarding: false,
   isFirstTimeUser: true,
   needsProfileSetup: false,
+  justCompletedOnboarding: false,
   isLoading: false,
   isInitialized: false,
 
@@ -300,6 +309,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       hasCompletedOnboarding: false,
       isFirstTimeUser: true,
       needsProfileSetup: false,
+      justCompletedOnboarding: false,
       isLoading: false,
     });
     Sentry.setUser(null);
@@ -334,14 +344,18 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   setOnboardingComplete: () => {
     const currentUser = get().user;
+    const wasFirstTimeUser = get().isFirstTimeUser;
     set({
       hasCompletedOnboarding: true,
       isFirstTimeUser: false,
       needsProfileSetup: false,
+      justCompletedOnboarding: wasFirstTimeUser,
       ...(currentUser && { user: { ...currentUser, hasCompletedSignup: true } }),
     });
     AsyncStorage.setItem('@clinicalfact:signup_complete', '1').catch(() => {});
   },
+
+  clearJustCompletedOnboarding: () => set({ justCompletedOnboarding: false }),
 
   // Writes only the crash-protection AsyncStorage flag without touching in-memory
   // auth state. Used mid-onboarding so a hard-kill during the paywall doesn't

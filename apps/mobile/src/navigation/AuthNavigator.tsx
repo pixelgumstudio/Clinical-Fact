@@ -27,6 +27,8 @@ import { ComingUpScreen } from '../screens/auth/ComingUpScreen';
 import { ReferralScreen } from '../screens/auth/ReferralScreen';
 import { ReferralCodeScreen } from '../screens/auth/ReferralCodeScreen';
 import { SetupScreen } from '../screens/auth/SetupScreen';
+import { ResultsChartScreen } from '../screens/auth/ResultsChartScreen';
+import { NotificationsPromptScreen } from '../screens/auth/NotificationsPromptScreen';
 import { PaywallScreen } from '../screens/auth/PaywallScreen';
 import { DemoVideoScreen } from '../screens/auth/DemoVideoScreen';
 
@@ -72,6 +74,11 @@ export type AuthStackParamList = {
 
   // Final Screens
   Setup: undefined;
+
+  // Post-Setup social proof + permission screens, shown right before Paywall.
+  ResultsChart: undefined;
+  NotificationsPrompt: undefined;
+
   Paywall: undefined;
   DemoVideo: undefined;
 };
@@ -135,6 +142,8 @@ export const AuthNavigator = ({ initialRouteName = 'Intro' }: AuthNavigatorProps
           animation: 'fade',
         }}
       />
+      <Stack.Screen name="ResultsChart" component={ResultsChartScreen} />
+      <Stack.Screen name="NotificationsPrompt" component={NotificationsPromptScreen} />
       <Stack.Screen
         name="Paywall"
         component={PaywallScreen}
