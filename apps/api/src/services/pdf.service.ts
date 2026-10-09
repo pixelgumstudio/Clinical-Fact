@@ -52,42 +52,44 @@ class PdfService {
   }
 
   /**
-   * Executes the parser handling both Function and Class behaviors
-   * AND converts Buffer to Uint8Array to satisfy pdfjs-dist requirements.
+   * Executes the parser against the installed pdf-parse version's real API.
+   * v2.x (what package.json's "^2.4.5" actually resolves to) exports a `PDFParse`
+   * CLASS with async getText()/getInfo() methods — not the v1.x plain callable
+   * function this file originally targeted. Confirmed against the installed
+   * package's .d.ts: the class takes a LoadParameters object (`{ data }`), and
+   * getText() returns a TextResult (`{ text, total, pages[] }`) — there is no
+   * `.numpages` field, which is what previously made page counts always read 0.
    */
-  private async runParser(buffer: Buffer): Promise<any> {
+  private async runParser(buffer: Buffer): Promise<{ text: string; pageCount: number; info: any }> {
     const parser = this.getParser();
-    
-    // --- THE FIX: Convert Node Buffer to Uint8Array ---
-    // Newer versions of pdfjs-dist strictly require Uint8Array
-    const dataArray = new Uint8Array(buffer);
-    // -------------------------------------------------
+    const data = new Uint8Array(buffer);
 
-    try {
-      // Attempt 1: Standard Function Call (v1 docs)
-      // We try passing the buffer first (legacy), if that fails, we try the array
-      return await parser(buffer);
-    } catch (error: any) {
-      
-      // Attempt 2: Handle "Uint8Array" requirement for Functions
-      if (error.message && error.message.includes("Uint8Array")) {
-         return await parser(dataArray);
+    // v2.x: a class exposing getText()/getInfo(). These MUST be called sequentially,
+    // not concurrently (e.g. via Promise.all) — calling both at once on the same
+    // instance races pdfjs-dist's worker postMessage transport and throws
+    // "Cannot transfer object of unsupported type." (confirmed by reproduction).
+    if (parser.prototype && typeof parser.prototype.getText === 'function') {
+      const instance = new parser({ data });
+      try {
+        const textResult = await instance.getText();
+        const infoResult = await instance.getInfo();
+        return {
+          text: textResult.text || '',
+          pageCount: textResult.total ?? infoResult.total ?? 0,
+          info: infoResult.info || {},
+        };
+      } finally {
+        await instance.destroy();
       }
-
-      // Attempt 3: Class Instantiation (If usage as function fails)
-      if (error.message && error.message.includes("Class constructor")) {
-        console.log('⚠️ PDF Parser is a Class. Instantiating with "new"...');
-        
-        // Pass the Uint8Array to the class constructor
-        const instance = new parser(dataArray);
-        
-        if (typeof instance.getText === 'function') {
-           return await instance.getText();
-        }
-        return instance;
-      }
-      throw error;
     }
+
+    // v1.x fallback: plain function returning { text, numpages, info } directly
+    const legacyResult = await parser(buffer);
+    return {
+      text: legacyResult.text || '',
+      pageCount: legacyResult.numpages || 0,
+      info: legacyResult.info || {},
+    };
   }
 
   /**
@@ -101,7 +103,7 @@ class PdfService {
       if (!pdfLib) throw new Error('pdf-parse library is missing.');
 
       const data = await this.runParser(pdfBuffer);
-      const pageCount = data.numpages || 0;
+      const pageCount = data.pageCount || 0;
       const extractedText = data.text ? data.text.trim() : '';
       const textLength = extractedText.length;
 
@@ -169,7 +171,7 @@ class PdfService {
 
       // Validation & Cleaning
       const cleanText = data.text ? data.text.trim() : '';
-      const pageCount = data.numpages || 0;
+      const pageCount = data.pageCount || 0;
 
       // Check for "Scanned PDF" scenario (Empty text)
       if (cleanText.length === 0 && pageCount > 0) {

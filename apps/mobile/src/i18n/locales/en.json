@@ -167,7 +167,7 @@
       },
       "slide2": {
         "headline": "Every Answer, Backed by a Source",
-        "description": "No guessing, no invented facts, every ClinicFact answer links back to real, checkable medical research."
+        "description": "No guessing, no invented facts, every answer links back to real, checkable medical research."
       },
       "slide3": {
         "headline": "Study Smarter, Pass Your Medical Exams",
@@ -226,7 +226,7 @@
       "title": "Setting up your personalised\\nworkspace, {{firstName}}..."
     },
     "thanks": {
-      "title": "Thanks for trusting ClinicFact",
+      "title": "Thanks for trusting Clinical Fact",
       "subtitle": "You're joining thousands of nursing and medical students",
       "stars": "⭐⭐⭐⭐⭐"
     },

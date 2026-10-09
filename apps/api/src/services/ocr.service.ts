@@ -86,21 +86,65 @@ class OcrService {
         }
       }
 
-      // Create worker with English language
-      // Use GPT-6 Luna Vision for accurate text extraction
-      const aiService = (await import('./ai.service')).default;
-      const mimeType = isHeic ? 'image/jpeg' : (fileKey.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg');
-      const text = await aiService.extractTextFromImage(imageBuffer, mimeType);
+      // Prefer GPT-6 Luna Vision — notably more accurate than Tesseract on real-world photos
+      // (handwriting, skewed angles, textbook photos). Falls back to local Tesseract below if
+      // Vision is unavailable (no API credits, rate limited, provider outage) so OCR degrades
+      // gracefully instead of failing outright.
+      try {
+        const aiService = (await import('./ai.service')).default;
+        const mimeType = isHeic ? 'image/jpeg' : (fileKey.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg');
+        const text = await aiService.extractTextFromImage(imageBuffer, mimeType);
 
-      console.log(`✅ OCR completed, extracted ${text.length} characters`);
+        console.log(`✅ OCR completed via Vision, extracted ${text.length} characters`);
 
-      return {
-        text: text.trim(),
-        confidence: 95,
-      };
+        return {
+          text: text.trim(),
+          confidence: 95,
+        };
+      } catch (visionError: any) {
+        console.warn(`⚠️ Vision OCR unavailable (${visionError.message}), falling back to local Tesseract OCR`);
+        return await this.runTesseractOcr(imageBuffer);
+      }
     } catch (error: any) {
       console.error('❌ Error performing OCR:', error);
       throw new Error(`OCR failed: ${error.message}`);
+    }
+  }
+
+  /** Local Tesseract OCR on an already-downloaded/converted buffer — shared by the Vision
+   *  fallback above and extractTextWithLanguages below. */
+  private async runTesseractOcr(imageBuffer: Buffer, langString: string = 'eng'): Promise<OcrResult> {
+    let worker;
+    try {
+      worker = await createWorker(langString, undefined, {
+        logger: (info) => {
+          if (info.status === 'recognizing text') {
+            console.log(`Tesseract OCR progress: ${Math.round((info.progress || 0) * 100)}%`);
+          }
+        },
+      });
+
+      const result = await worker.recognize(imageBuffer);
+      const text = result.data.text || '';
+      const confidence = result.data.confidence || 0;
+
+      console.log(`✅ OCR completed via Tesseract with ${Math.round(confidence)}% confidence`);
+
+      await worker.terminate();
+
+      return {
+        text: text.trim(),
+        confidence: Math.round(confidence),
+      };
+    } catch (error: any) {
+      if (worker) {
+        try {
+          await worker.terminate();
+        } catch (terminateError) {
+          console.error('Error terminating worker:', terminateError);
+        }
+      }
+      throw error;
     }
   }
 
@@ -111,7 +155,6 @@ class OcrService {
     fileKey: string,
     languages: string[]
   ): Promise<OcrResult> {
-    let worker;
     try {
       console.log(`🔍 Starting OCR with languages: ${languages.join(', ')}...`);
 
@@ -123,37 +166,9 @@ class OcrService {
       // Join languages with '+' for Tesseract v6
       const langString = languages.join('+');
 
-      // Create worker with multiple languages
-      worker = await createWorker(langString, undefined, {
-        logger: (info) => {
-          if (info.status === 'recognizing text') {
-            const progress = Math.round((info.progress || 0) * 100);
-            console.log(`OCR Progress: ${progress}%`);
-          }
-        },
-      });
-
-      const result = await worker.recognize(imageBuffer);
-      const text = result.data.text || '';
-      const confidence = result.data.confidence || 0;
-
-      console.log(`✅ OCR completed with ${Math.round(confidence)}% confidence`);
-
-      await worker.terminate();
-
-      return {
-        text: text.trim(),
-        confidence: Math.round(confidence),
-      };
+      return await this.runTesseractOcr(imageBuffer, langString);
     } catch (error: any) {
       console.error('❌ Error performing OCR with multiple languages:', error);
-      if (worker) {
-        try {
-          await worker.terminate();
-        } catch (terminateError) {
-          console.error('Error terminating worker:', terminateError);
-        }
-      }
       throw new Error(`OCR failed: ${error.message}`);
     }
   }

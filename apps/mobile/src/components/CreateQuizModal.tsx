@@ -71,7 +71,7 @@ const handleGenerate = async () => {
 
       setTimeout(async () => {
         try {
-          const unlocked = await showInAppPaywall();
+          const unlocked = await showInAppPaywall('Quiz');
           // Only proceed once the user actually has access (purchased/restored/already entitled) —
           // previously this branch closed the modal and never called onGenerateQuiz at all, even
           // on a successful purchase.

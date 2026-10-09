@@ -20,7 +20,7 @@ const TESTIMONIALS: { id: number; quote: string; author: string; offset: Dimensi
   {
     id: 2,
     quote:
-      "Between shifts I don't have time to dig through journals. ClinicFact gives me a fast, cited answer I can actually trust at the bedside.",
+      "Between shifts I don't have time to dig through journals. Clinical Fact gives me a fast, cited answer I can actually trust at the bedside.",
     author: 'Kenny V., RN, 4 years experience',
     offset: '22%',
   },
