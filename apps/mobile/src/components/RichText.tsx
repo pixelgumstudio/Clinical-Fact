@@ -140,12 +140,28 @@ interface RichTextProps {
   content: string;
   /** Extra style on the container View */
   containerStyle?: object;
+  /** Called with a block's raw inner HTML before rendering; return the text that should actually
+   *  be displayed (e.g. with citation markers like "[1]" stripped). Purely a text transform — kept
+   *  generic so this component stays domain-agnostic even though its one current use is chat
+   *  citations. Not applied to dividers. */
+  transformBlockText?: (html: string) => string;
+  /** Rendered directly under a block, given that block's original (untransformed) html so the
+   *  caller can pull its own markers out of it before transformBlockText strips them. Not called
+   *  for dividers. */
+  renderBlockFooter?: (html: string, blockIndex: number) => React.ReactNode;
 }
 
-export const RichText: React.FC<RichTextProps> = ({ content, containerStyle }) => {
+export const RichText: React.FC<RichTextProps> = ({
+  content,
+  containerStyle,
+  transformBlockText,
+  renderBlockFooter,
+}) => {
   if (!content) return null;
 
   const blocks = parseBlocks(content);
+  const displayHtml = (html: string) => (transformBlockText ? transformBlockText(html) : html);
+  const footerFor = (html: string, i: number) => renderBlockFooter?.(html, i) ?? null;
 
   return (
     <View style={containerStyle}>
@@ -157,6 +173,11 @@ export const RichText: React.FC<RichTextProps> = ({ content, containerStyle }) =
         if (block.kind === 'heading') {
           const headingStyle = [
             styles.heading,
+            // h1/h2 read as the message's own title (restated question) — navy, medium weight.
+            // h3/h4 are in-body section headers (e.g. "Sodium") — black, semibold, so they read
+            // as part of the answer's body copy rather than a second title.
+            (block.level === 1 || block.level === 2) && styles.headingTitle,
+            (block.level === 3 || block.level === 4) && styles.headingSection,
             block.level === 1 && styles.h1,
             block.level === 2 && styles.h2,
             block.level === 3 && styles.h3,
@@ -164,19 +185,25 @@ export const RichText: React.FC<RichTextProps> = ({ content, containerStyle }) =
             i === 0 && { marginTop: 0 },
           ];
           return (
-            <Text key={i} style={headingStyle}>
-              {renderInline(block.html) as any}
-            </Text>
+            <View key={i}>
+              <Text style={headingStyle}>
+                {renderInline(displayHtml(block.html)) as any}
+              </Text>
+              {footerFor(block.html, i)}
+            </View>
           );
         }
 
         if (block.kind === 'listitem') {
           return (
-            <View key={i} style={styles.listRow}>
-              <Text style={styles.bullet}>{block.bullet}</Text>
-              <Text style={styles.listText}>
-                {renderInline(block.html) as any}
-              </Text>
+            <View key={i}>
+              <View style={styles.listRow}>
+                <Text style={styles.bullet}>{block.bullet}</Text>
+                <Text style={styles.listText}>
+                  {renderInline(displayHtml(block.html)) as any}
+                </Text>
+              </View>
+              {footerFor(block.html, i)}
             </View>
           );
         }
@@ -184,9 +211,12 @@ export const RichText: React.FC<RichTextProps> = ({ content, containerStyle }) =
         // paragraph
         const isLast = i === blocks.length - 1;
         return (
-          <Text key={i} style={[styles.paragraph, isLast && { marginBottom: 0 }]}>
-            {renderInline(block.html) as any}
-          </Text>
+          <View key={i}>
+            <Text style={[styles.paragraph, isLast && { marginBottom: 0 }]}>
+              {renderInline(displayHtml(block.html)) as any}
+            </Text>
+            {footerFor(block.html, i)}
+          </View>
         );
       })}
     </View>
@@ -210,10 +240,16 @@ const inlineStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   heading: {
     fontFamily: theme.typography.fontFamily.lora,
-    color: theme.colors.yale[900],
-    fontWeight: '500',
     marginTop: 20,
     marginBottom: 6,
+  },
+  headingTitle: {
+    color: theme.colors.yale[900],
+    fontWeight: '500',
+  },
+  headingSection: {
+    color: theme.colors.grey[900],
+    fontWeight: '600',
   },
   h1: { fontSize: 20, lineHeight: 28 },
   h2: { fontSize: 18, lineHeight: 26 },
@@ -222,10 +258,10 @@ const styles = StyleSheet.create({
 
   paragraph: {
     fontFamily: theme.typography.fontFamily.lora,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '400',
     color: theme.colors.grey[900],
-    lineHeight: 22,
+    lineHeight: 24,
     marginBottom: 12,
   },
 
@@ -237,8 +273,8 @@ const styles = StyleSheet.create({
   },
   bullet: {
     fontFamily: theme.typography.fontFamily.lora,
-    fontSize: 14,
-    lineHeight: 22,
+    fontSize: 16,
+    lineHeight: 24,
     color: theme.colors.grey[600],
     marginRight: 8,
     width: 12,
@@ -246,10 +282,10 @@ const styles = StyleSheet.create({
   listText: {
     flex: 1,
     fontFamily: theme.typography.fontFamily.lora,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '400',
     color: theme.colors.grey[900],
-    lineHeight: 22,
+    lineHeight: 24,
   },
 
   divider: {

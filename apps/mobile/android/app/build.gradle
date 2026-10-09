@@ -182,3 +182,7 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// Must be applied after the android {} block (Google's own requirement) — this is what
+// actually reads google-services.json and generates the Firebase config the app links against.
+apply plugin: "com.google.gms.google-services"

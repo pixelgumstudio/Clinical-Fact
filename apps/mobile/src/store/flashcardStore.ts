@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { colors } from '@clinicalfact/design-system';
 
 export interface Flashcard {
   id: string;
@@ -33,12 +34,7 @@ interface FlashcardState {
 
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
-const flashcardColors = [
-  '#FFD1B8',
-  '#B8E0D8',
-  '#FFE0A8',
-  '#C8E0B8',
-];
+const flashcardColors = colors.flashcardTagPalette;
 
 export const useFlashcardStore = create<FlashcardState>((set, get) => ({
   flashcardSets: [],

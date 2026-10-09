@@ -33,6 +33,7 @@ export const yale = {
   500: '#098EC3',
   600: '#07729C',
   700: '#054D69',
+  701: '#075878',
   800: '#04394E',
   900: '#021627',
 } as const;
@@ -94,6 +95,100 @@ export const orange = {
   900: '#654118',
 } as const;
 
+// ── Vivid accents ────────────────────────────────────────────────────────────
+// Literal values preserved as-is from screens that were built against a
+// Tailwind-style palette instead of the scales above (success/error/warning
+// checkmarks, badges, accent icons across chat/flashcards/quizzes/feedback).
+// Kept as a separate set — not merged into success/error/warning above —
+// because those are deliberately muted and swapping call sites onto them
+// would change the live appearance of those screens. Centralizing the
+// literals here first; whether vivid and muted should converge is a design
+// decision for later, not something this token addition should force.
+export const slate = {
+  50: '#F9FAFB',
+  100: '#F3F4F6',
+  200: '#E5E7EB',
+  300: '#D1D5DB',
+  400: '#9CA3AF',
+  500: '#6B7280',
+  700: '#374151',
+  800: '#1F2937',
+  900: '#111827',
+} as const;
+
+export const vivid = {
+  success: { 50: '#F0FDF4', 100: '#DCFCE7', 200: '#D1FAE5', 500: '#10B981', 600: '#059669' },
+  error: { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#EF4444', 600: '#DC2626', 800: '#991B1B', 900: '#7F1D1D' },
+  warning: { 100: '#FEF3C7', 500: '#F59E0B', 800: '#92400E' },
+  accent: { 50: '#FFF7ED', 100: '#FFEDD5', 500: '#F97316' },
+  info: { 100: '#DBEAFE', 200: '#BFDBFE', 300: '#93C5FD', 500: '#3B82F6', 800: '#1E40AF' },
+} as const;
+
+// ── Decorative tag palettes ──────────────────────────────────────────────────
+// Fixed sets of pastel colors used for visual variety (not semantic meaning)
+// across flashcard tags, folder tags, and progress/loading gradients. These
+// were previously duplicated as raw literals across several files — in one
+// case (SetupScreen's GRADIENT_COLORS) with a one-character copy-paste drift
+// in the second stop ('#DCEE89' vs the '#DCEEB9' used everywhere else).
+// Centralizing them here as named stops fixes that drift and lets each call
+// site pick exactly the stops it needs by name instead of by fragile array
+// position/order.
+export const pastelRainbow = {
+  mint: '#CEF9D0',
+  lime: '#DCEEB9',
+  coral: '#FFB09C',
+  honeydew: '#ECE19F',
+  wheat: '#F3DA93',
+  apricot: '#F9C597',
+} as const;
+
+// Rotating per-card color (apps/mobile/src/store/flashcardStore.ts)
+export const flashcardTagPalette = ['#FFD1B8', '#B8E0D8', '#FFE0A8', '#C8E0B8'] as const;
+
+// User-assignable folder color (apps/mobile/src/components/FoldersModal.tsx).
+// Kept to exactly these 6 keys — AddFolderModal renders one swatch per
+// Object.entries(FOLDER_COLORS) key, so adding a 7th key here would silently
+// add a 7th swatch to that picker.
+export const folderTagPalette = {
+  orange: '#FFD4A3',
+  blue: vivid.info[300],
+  red: '#FCA5A5',
+  purple: '#C4B5FD',
+  green: '#D9F99D',
+  peach: '#FED7AA',
+} as const;
+
+// Lighter tint of folderTagPalette.orange, used for the "no folder" tile
+// background in FoldersModal.tsx — not part of the swatch picker above.
+export const folderAccentLight = '#FFE5CC';
+
+// ── Component-specific one-offs ─────────────────────────────────────────────
+// Each of these is used at exactly one call site (or a couple of the same
+// semantic kind) for a bespoke accent that doesn't belong to any palette
+// above — a locked/premium banner, a single badge, a single decorative
+// border. They're centralized here, per this file's own role as the single
+// color source of truth, so no screen hardcodes hex directly — but unlike
+// the palettes above, there's no expectation these get reused elsewhere.
+export const oneOff = {
+  mutedPlaceholder: '#999999', // ReferralCodeScreen, FlashcardHistoryScreen, QuizHistoryScreen — muted icon/placeholder
+  disabledBorder: '#DDDDDD', // ReferralCodeScreen — disabled input border
+  flatError: '#E74C3C', // ReferralCodeScreen — referral-code validation error text
+  flatSuccess: '#27AE60', // ReferralCodeScreen — referral-code validation success text
+  sharedBadgeBg: '#EEF2FF', // SharedNoteScreen
+  sharedBadgeText: '#6366F1', // SharedNoteScreen
+  lockedBannerBg: '#1A1A1A', // ChatComposer — premium-locked composer banner
+  lockedBannerGold: '#FFD700', // ChatComposer — same banner, border + text
+  musicBannerBorder: '#FDE68A', // NoteTranscriptScreen
+  quizAccentGradientStop: '#FCD0D0', // NoteDetailScreen — 2nd stop of a 2-stop gradient
+  starGold: '#FCB500', // ThanksScreen — rating stars
+  setupCheckmark: '#000000', // SetupScreen
+  setupBorder: '#E0E0E0', // SetupScreen
+  libraryIconBg: '#EFEFEF', // LibraryScreen
+  libraryFolderSelectedBg: '#FAFAFA', // LibraryScreen
+  libraryEmptyIconBg: '#F3F3F4', // LibraryScreen
+  lightGrayChip: '#F0F0F0', // OnboardingTooltip close button, OnboardingScreen label pill
+} as const;
+
 // ── Semantic layer ──────────────────────────────────────────────────────────
 // Kept in the same shape existing components already consume (primary[500],
 // success.main, text.primary, etc.) so this redesign doesn't require touching
@@ -150,6 +245,19 @@ export const colors = {
   green,
   red,
   orange,
+
+  // Secondary scales — see comment above `slate`/`vivid` definitions
+  slate,
+  vivid,
+
+  // Decorative tag palettes — see comment above their definitions
+  pastelRainbow,
+  flashcardTagPalette,
+  folderTagPalette,
+  folderAccentLight,
+
+  // Component-specific one-offs — see comment above their definitions
+  oneOff,
 } as const;
 
 export type ColorPalette = typeof colors;

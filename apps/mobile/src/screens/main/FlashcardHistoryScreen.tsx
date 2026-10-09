@@ -27,6 +27,7 @@ import {
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { CreateFromSourceSheet } from '../../components/CreateFromSourceSheet';
+import { formatCreatedLabel } from '../../utils/formatDate';
 
 type FlashcardHistoryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -82,20 +83,6 @@ export const FlashcardHistoryScreen: React.FC = () => {
       console.error('Error loading flashcard groups:', error);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    try {
-      const date = new Date(dateString);
-      const isToday = date.toDateString() === new Date().toDateString();
-      const day = isToday
-        ? 'Today'
-        : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-      return `Created ${day}, ${time}`;
-    } catch {
-      return dateString;
     }
   };
 
@@ -165,7 +152,7 @@ export const FlashcardHistoryScreen: React.FC = () => {
             {item.sourceTitle}
           </Text>
           <View style={styles.flashcardMeta}>
-            <Text style={styles.flashcardDate}>{formatDate(item.createdAt)}</Text>
+            <Text style={styles.flashcardDate}>{formatCreatedLabel(item.createdAt)}</Text>
             {item.setCount > 1 && (
               <Text style={styles.flashcardSetCount}>{item.setCount} sets</Text>
             )}
@@ -200,11 +187,11 @@ export const FlashcardHistoryScreen: React.FC = () => {
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <View style={styles.searchInputWrapper}>
-          <SearchIcon size={20} color="#999" />
+          <SearchIcon size={20} color={colors.oneOff.mutedPlaceholder} />
           <TextInput
             style={styles.searchInput}
             placeholder="Search flashcards..."
-            placeholderTextColor="#BFBFBF"
+            placeholderTextColor={colors.grey[200]}
             value={searchText}
             onChangeText={setSearchText}
           />
@@ -218,7 +205,7 @@ export const FlashcardHistoryScreen: React.FC = () => {
         </View>
       ) : filteredGroups.length === 0 ? (
         <View style={styles.emptyState}>
-          <EmptyFolderLargeIcon size={80} color="#D1D5DB" />
+          <EmptyFolderLargeIcon size={80} color={colors.slate[300]} />
           <Text style={styles.emptyTitle}>No flashcards yet</Text>
           <Text style={styles.emptyDescription}>
             Create a flashcard set from a note to get started
@@ -321,7 +308,7 @@ const styles = StyleSheet.create({
   searchInputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     borderRadius: 16,
     paddingHorizontal: spacing[3],
     height: 48,
@@ -418,7 +405,7 @@ const styles = StyleSheet.create({
   createButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
   },
   menuModalOverlay: {
@@ -427,7 +414,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   menuModalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],

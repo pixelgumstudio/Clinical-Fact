@@ -13,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Icon, theme } from '@clinicalfact/design-system';
+import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
@@ -29,12 +29,12 @@ const SETUP_ITEMS: { label: string; icon: 'ai' | 'translate' | 'link'; color: st
 ];
 
 const GRADIENT_COLORS: readonly [string, string, ...string[]] = [
-  '#CEF9D0',
-  '#DCEE89',
-  '#FFB09C',
-  '#EBE19F',
-  '#F3DA93',
-  '#F9C597',
+  colors.pastelRainbow.mint,
+  colors.pastelRainbow.lime,
+  colors.pastelRainbow.coral,
+  colors.pastelRainbow.honeydew,
+  colors.pastelRainbow.wheat,
+  colors.pastelRainbow.apricot,
 ];
 
 export const SetupScreen = () => {
@@ -107,12 +107,13 @@ export const SetupScreen = () => {
 
   const handleContinue = () => {
     // DemoVideo is hidden from the flow for now (kept in the codebase to
-    // return to later). Setup hands off to Paywall next, which completes
-    // onboarding itself once the paywall closes. Only the crash-protection
-    // flag is written here, so a hard-kill before Paywall finishes doesn't
-    // replay the whole signup flow but also doesn't skip the paywall.
+    // return to later). Setup hands off to ResultsChart → NotificationsPrompt
+    // → Paywall next, which completes onboarding itself once the paywall
+    // closes. Only the crash-protection flag is written here, so a hard-kill
+    // before Paywall finishes doesn't replay the whole signup flow but also
+    // doesn't skip the paywall.
     persistOnboardingFlag();
-    navigation.navigate('Paywall');
+    navigation.navigate('ResultsChart');
   };
 
   const fillWidth = trackWidth > 0
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.48,
     lineHeight: 32,
     textAlign: 'center',
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
   },
   progressTrack: {
     height: 6,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     borderRadius: 3,
     overflow: 'hidden',
     marginBottom: 8,
@@ -242,16 +243,16 @@ const styles = StyleSheet.create({
   progressPercent: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.28,
     textAlign: 'center',
   },
   card: {
     marginHorizontal: 16,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#F9F9F9',
+    borderColor: colors.grey[10],
     overflow: 'hidden',
   },
   cardRow: {
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '400',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     letterSpacing: -0.32,
     lineHeight: 24,
   },
@@ -286,18 +287,18 @@ const styles = StyleSheet.create({
   checkMark: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#000000',
+    color: colors.oneOff.setupCheckmark,
   },
   checkCircleEmpty: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 1.5,
-    borderColor: '#E0E0E0',
+    borderColor: colors.oneOff.setupBorder,
   },
   divider: {
     height: 1,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     marginHorizontal: 0,
   },
   footer: {
@@ -305,7 +306,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   continueButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     borderRadius: 9999,
     height: 56,
     alignItems: 'center',
@@ -317,7 +318,7 @@ const styles = StyleSheet.create({
   continueButtonText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.16,
   },
 });

@@ -11,6 +11,7 @@ export const fontFamily = {
   interRegular: 'Inter_400Regular',
   interMedium: 'Inter_500Medium',
   interSemiBold: 'Inter_600SemiBold',
+  tiroBangla: 'TiroBangla_400Regular',
   // Back-compat alias for older components still referencing a single "primary" family
   primary: 'Inter_400Regular',
   mono: 'Courier New',

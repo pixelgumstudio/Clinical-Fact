@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   highlightBorder: {
     position: 'absolute',
     borderWidth: 2,
-    borderColor: '#F97316',
+    borderColor: colors.vivid.accent[500],
     borderRadius: 12,
   },
   tooltipContainer: {

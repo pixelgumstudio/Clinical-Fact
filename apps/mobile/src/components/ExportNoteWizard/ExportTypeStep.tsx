@@ -16,10 +16,9 @@ import {
   ExportTranscriptIcon,
   ChevronRightIcon,
 } from '@clinicalfact/design-system';
+import type { ExportType } from './ExportNoteWizardModal';
 
-export type ExportType = 'summary' | 'transcript';
-
-interface ExportNoteModalProps {
+interface ExportTypeStepProps {
   visible: boolean;
   onClose: () => void;
   onSelectExportType: (type: ExportType) => void;
@@ -35,11 +34,11 @@ const ExportOption: React.FC<ExportOptionProps> = ({ icon, label, onPress }) => 
   <TouchableOpacity style={styles.optionItem} onPress={onPress} activeOpacity={0.7}>
     <View style={styles.optionIcon}>{icon}</View>
     <Text style={styles.optionLabel}>{label}</Text>
-    <ChevronRightIcon size={20} color="#9CA3AF" />
+    <ChevronRightIcon size={20} color={colors.slate[400]} />
   </TouchableOpacity>
 );
 
-export const ExportNoteModal: React.FC<ExportNoteModalProps> = ({
+export const ExportTypeStep: React.FC<ExportTypeStepProps> = ({
   visible,
   onClose,
   onSelectExportType,
@@ -66,7 +65,7 @@ export const ExportNoteModal: React.FC<ExportNoteModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
               </View>
 

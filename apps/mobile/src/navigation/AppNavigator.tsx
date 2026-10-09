@@ -14,6 +14,7 @@ import {
   identifyRevenueCatUser,
   resetRevenueCatUser,
 } from '../services/revenuecat';
+import { colors } from '@clinicalfact/design-system';
 
 const linking: LinkingOptions<any> = {
   prefixes: ['clinicalfact://'],
@@ -78,7 +79,7 @@ export const AppNavigator = () => {
   if (onboardingLoading || !isInitialized) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#111827" />
+        <ActivityIndicator size="large" color={colors.slate[900]} />
       </View>
     );
   }
@@ -95,7 +96,7 @@ export const AppNavigator = () => {
       ) : needsSignupCompletion ? (
         <AuthNavigator
           initialRouteName={
-            isFirstTimeUser && authMethod === 'email' ? 'Name' : 'Role'
+            isFirstTimeUser && authMethod === 'email' ? 'Name' : 'ProfessionalDeclaration'
           }
         />
       ) : (
@@ -110,6 +111,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
 });

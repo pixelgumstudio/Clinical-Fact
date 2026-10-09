@@ -13,7 +13,7 @@ import { useNavigation, useRoute, RouteProp, CommonActions } from '@react-naviga
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Svg, { Circle } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
-import { theme } from '@clinicalfact/design-system';
+import { colors, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useQuizStore } from '../../store/quizStore';
 
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
   },
   reviewButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   footerButtonsRow: {
     flexDirection: 'row',
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
   },
   retakeButton: {
     width: '48%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
     paddingVertical: theme.spacing[4],
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   },
   notesButton: {
     width: '48%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
     paddingVertical: theme.spacing[4],

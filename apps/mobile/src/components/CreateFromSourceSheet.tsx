@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Icon, IconName, theme } from '@clinicalfact/design-system';
+import { Icon, IconName, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../navigation/MainStackNavigator';
 import api from '../services/api';
 import { useAIConsentStore } from '../store/aiConsentStore';
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
@@ -402,7 +402,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: theme.borderRadius.md,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -410,7 +410,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: theme.borderRadius.full,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },

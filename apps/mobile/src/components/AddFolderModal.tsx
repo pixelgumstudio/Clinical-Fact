@@ -75,7 +75,7 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Add folder</Text>
                 <View style={styles.headerSpacer} />
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
   },
   colorOptionSelected: {
     borderWidth: 3,
-    borderColor: '#FFFFFF',
+    borderColor: colors.white,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
   checkmarkText: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#1F2937',
+    color: colors.slate[800],
   },
   createButton: {
     backgroundColor: colors.neutral[900],
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   createButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   createButtonTextDisabled: {
     color: colors.neutral[500],

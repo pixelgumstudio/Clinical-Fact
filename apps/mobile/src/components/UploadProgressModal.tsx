@@ -40,12 +40,12 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
       return <Text style={styles.successIcon}>✓</Text>;
     }
     if (type === 'document') {
-      return <PDFDocumentIcon size={48} color="#F97316" />;
+      return <PDFDocumentIcon size={48} color={colors.vivid.accent[500]} />;
     }
     if (type === 'audio') {
       return <AudioFileIcon size={48} />;
     }
-    return <ImageIcon size={48} color="#F97316" />;
+    return <ImageIcon size={48} color={colors.vivid.accent[500]} />;
   };
 
   const getTitle = () => {
@@ -89,9 +89,9 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
   };
 
   const getStatusColor = () => {
-    if (status === 'error') return '#DC2626';
-    if (status === 'success') return '#10B981';
-    return '#F97316';
+    if (status === 'error') return colors.vivid.error[600];
+    if (status === 'success') return colors.vivid.success[500];
+    return colors.vivid.accent[500];
   };
 
   return (
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#FFF7ED',
+    backgroundColor: colors.vivid.accent[50],
     borderWidth: 3,
     justifyContent: 'center',
     alignItems: 'center',
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   successIcon: {
     fontSize: 56,
-    color: '#10B981',
+    color: colors.vivid.success[500],
   },
   errorIcon: {
     fontSize: 56,
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing[4],
   },
   errorDescription: {
-    color: '#DC2626',
+    color: colors.vivid.error[600],
   },
   progressContainer: {
     marginVertical: spacing[4],
@@ -265,10 +265,10 @@ const styles = StyleSheet.create({
     marginRight: spacing[3],
   },
   stepDotActive: {
-    backgroundColor: '#F97316',
+    backgroundColor: colors.vivid.accent[500],
   },
   stepDotComplete: {
-    backgroundColor: '#10B981',
+    backgroundColor: colors.vivid.success[500],
   },
   stepText: {
     fontSize: typography.fontSize.sm,

@@ -21,7 +21,7 @@ export type MainTabParamList = {
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export const MainTabNavigator = () => {
-  const { user } = useAuthStore();
+  const { user, justCompletedOnboarding, clearJustCompletedOnboarding } = useAuthStore();
   const {
     hasCompletedOnboarding,
     isOnboardingActive,
@@ -38,9 +38,18 @@ export const MainTabNavigator = () => {
     }
   }, [user?.id, hasCompletedOnboarding, isOnboardingActive]);
 
+  // Consume the one-shot "just finished onboarding" signal so it only ever
+  // steers the very first landing on the main app, never a later remount.
+  useEffect(() => {
+    if (justCompletedOnboarding) {
+      clearJustCompletedOnboarding();
+    }
+  }, []);
+
   return (
     <>
       <Tab.Navigator
+        initialRouteName={justCompletedOnboarding ? 'Chat' : 'Home'}
         screenOptions={{
           headerShown: false,
           tabBarStyle: styles.tabBar,

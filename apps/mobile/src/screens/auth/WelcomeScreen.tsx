@@ -9,6 +9,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   TextInput,
+  Pressable,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -64,6 +65,7 @@ export const WelcomeScreen = () => {
   const { setAuthState, sendOtp } = useAuthStore();
   const [localEmail, setLocalEmail] = useState('');
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+  const [isSignInMode, setIsSignInMode] = useState(false);
   const emailInputRef = useRef<TextInput>(null);
 
   useEffect(() => {
@@ -172,7 +174,7 @@ export const WelcomeScreen = () => {
         });
 
         if (needsProfileSetup || isNewUser) {
-          navigation.navigate('Role');
+          navigation.navigate('ProfessionalDeclaration');
         }
       } else {
         throw new Error(authResponse.message || 'Failed to authenticate with server');
@@ -326,7 +328,7 @@ export const WelcomeScreen = () => {
         });
 
         if (needsProfileSetup || isNewUser) {
-          navigation.navigate('Role');
+          navigation.navigate('ProfessionalDeclaration');
         }
       } else {
         throw new Error(authResponse.message || 'Failed to authenticate with server');
@@ -409,6 +411,7 @@ export const WelcomeScreen = () => {
               <Text style={styles.dividerText}>{t('auth.welcomeScreen.orSignUpWith')}</Text>
               <View style={styles.dividerLine} />
             </View>
+            
 
             <View style={styles.emailGroup}>
               <Input
@@ -431,10 +434,25 @@ export const WelcomeScreen = () => {
                 loading={isSendingOtp}
                 disabled={isGoogleLoading || isAppleLoading || isSendingOtp}
               >
-                {t('auth.welcomeScreen.signUpWithEmail')}
+                {isSignInMode
+                  ? t('auth.welcomeScreen.signInWithEmail')
+                  : t('auth.welcomeScreen.signUpWithEmail')}
               </Button>
-            </View>
 
+            </View>
+            <Pressable
+              style={styles.signedInDivider}
+              onPress={() => setIsSignInMode((prev) => !prev)}
+            >
+              <Text style={styles.alreadySignedInText}>
+                {isSignInMode
+                  ? t('auth.welcomeScreen.dontHaveAccount')
+                  : t('auth.welcomeScreen.alreadyHaveAccount')}
+              </Text>
+              <Text style={styles.signedInText}>
+                {isSignInMode ? t('auth.signUp') : t('auth.signIn')}
+              </Text>
+            </Pressable>
             <Text style={styles.termsText}>
               {t('auth.labels.byAgree')}{' '} 
               <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 4 }}>
@@ -528,6 +546,21 @@ const styles = StyleSheet.create({
   },
   emailGroup: {
     gap: theme.spacing[3], // 12
+  },
+signedInDivider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.spacing[2] // 8
+  },
+    alreadySignedInText: {
+    ...theme.typography.textStyles.p1,
+    color: theme.colors.yale[900],
+  },
+     signedInText: {
+    ...theme.typography.textStyles.subtitle1,
+    fontWeight: theme.typography.fontWeight.bold,
+    color: theme.colors.yale[500],
   },
   termsText: {
     ...theme.typography.textStyles.p2,

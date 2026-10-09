@@ -3,6 +3,7 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
 import { showInAppPaywall } from '../../services/revenuecat';
+import { colors } from '@clinicalfact/design-system';
 
 export const PaywallScreen = () => {
   const { resetSignup } = useSignupStore();
@@ -17,7 +18,7 @@ export const PaywallScreen = () => {
     // change what happens next — onboarding completes either way, and free
     // users will simply hit this same paywall again at their first gated
     // feature via useGatedFeature.
-    showInAppPaywall().finally(() => {
+    showInAppPaywall('Onboarding').finally(() => {
       setOnboardingComplete();
       resetSignup();
     });
@@ -25,7 +26,7 @@ export const PaywallScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color="#111827" />
+      <ActivityIndicator size="large" color={colors.slate[900]} />
     </View>
   );
 };
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
 });

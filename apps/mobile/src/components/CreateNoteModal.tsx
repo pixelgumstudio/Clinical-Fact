@@ -135,7 +135,7 @@ const handleOptionPress = async (optionType: string) => {
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
               </View>
 

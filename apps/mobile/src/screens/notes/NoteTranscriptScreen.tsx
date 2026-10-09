@@ -169,11 +169,11 @@ export const NoteTranscriptScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <ChevronLeftIcon size={24} color="#1F2937" />
+          <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Note transcript</Text>
         <TouchableOpacity style={styles.moreButton}>
-          <MoreVerticalIcon size={24} color="#6B7280" />
+          <MoreVerticalIcon size={24} color={colors.slate[500]} />
         </TouchableOpacity>
       </View>
 
@@ -280,13 +280,13 @@ const styles = StyleSheet.create({
   musicBanner: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: '#FEF3C7',
+    backgroundColor: colors.vivid.warning[100],
     borderRadius: 10,
     marginHorizontal: spacing[5],
     marginBottom: spacing[4],
     padding: spacing[3],
     borderWidth: 1,
-    borderColor: '#FDE68A',
+    borderColor: colors.oneOff.musicBannerBorder,
     gap: spacing[2],
   },
   musicBannerIcon: {
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
   musicBannerText: {
     flex: 1,
     fontSize: typography.fontSize.sm,
-    color: '#92400E',
+    color: colors.vivid.warning[800],
     lineHeight: 20,
   },
   transcriptContent: {
@@ -332,6 +332,6 @@ const styles = StyleSheet.create({
   goToNoteButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

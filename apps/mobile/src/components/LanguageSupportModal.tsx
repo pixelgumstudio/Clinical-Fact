@@ -146,7 +146,7 @@ export const LanguageSupportModal: React.FC<LanguageSupportModalProps> = ({
       >
         <FlagEmoji countryCode={item.flag} />
         <Text style={styles.languageName}>{t(item.nameKey)}</Text>
-        {isSelected && <CheckIcon size={20} color="#10B981" />}
+        {isSelected && <CheckIcon size={20} color={colors.vivid.success[500]} />}
       </TouchableOpacity>
     );
   };
@@ -175,18 +175,18 @@ export const LanguageSupportModal: React.FC<LanguageSupportModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
               </View>
 
               {/* Search Bar */}
               <View style={styles.searchContainer}>
                 <View style={styles.searchBar}>
-                  <SearchIcon size={18} color="#9CA3AF" />
+                  <SearchIcon size={18} color={colors.slate[400]} />
                   <TextInput
                     style={styles.searchInput}
                     placeholder={t('common.search')}
-                    placeholderTextColor="#9CA3AF"
+                    placeholderTextColor={colors.slate[400]}
                     value={searchQuery}
                     onChangeText={setSearchQuery}
                   />

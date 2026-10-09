@@ -15,7 +15,7 @@ import {
   RadioSelectedIcon,
   RadioUnselectedIcon,
 } from '@clinicalfact/design-system';
-import { ExportType } from './ExportNoteModal';
+import type { ExportType } from './ExportNoteWizardModal';
 
 type FormatOption = {
   id: string;
@@ -34,15 +34,14 @@ const transcriptFormats: FormatOption[] = [
   { id: 'doc', label: 'Doc file' },
 ];
 
-
-interface ExportFormatModalProps {
+interface ExportFormatStepProps {
   visible: boolean;
   exportType: ExportType | null;
   onClose: () => void;
   onExport: (format: string) => void;
 }
 
-export const ExportFormatModal: React.FC<ExportFormatModalProps> = ({
+export const ExportFormatStep: React.FC<ExportFormatStepProps> = ({
   visible,
   exportType,
   onClose,
@@ -110,7 +109,7 @@ export const ExportFormatModal: React.FC<ExportFormatModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
               </View>
 
@@ -127,9 +126,9 @@ export const ExportFormatModal: React.FC<ExportFormatModalProps> = ({
                     activeOpacity={0.7}
                   >
                     {selectedFormat === format.id ? (
-                      <RadioSelectedIcon size={20} color="#F97316" />
+                      <RadioSelectedIcon size={20} color={colors.vivid.accent[500]} />
                     ) : (
-                      <RadioUnselectedIcon size={20} color="#D1D5DB" />
+                      <RadioUnselectedIcon size={20} color={colors.slate[300]} />
                     )}
                     <Text
                       style={[
@@ -202,7 +201,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   formatItemSelected: {
-    backgroundColor: '#FFF7ED',
+    backgroundColor: colors.vivid.accent[50],
   },
   formatLabel: {
     fontSize: typography.fontSize.base,
@@ -225,6 +224,6 @@ const styles = StyleSheet.create({
   exportButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

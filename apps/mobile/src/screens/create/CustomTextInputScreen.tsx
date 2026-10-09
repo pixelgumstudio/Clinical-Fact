@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Icon, theme } from "@clinicalfact/design-system";
+import { colors, Icon, theme } from "@clinicalfact/design-system";
 import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
 import { PoweredByFooter } from "../../components/PoweredByFooter";
@@ -71,7 +71,7 @@ export const CustomTextInputScreen = () => {
         >
           {/* Icon */}
           <View style={styles.iconCircle}>
-            <Icon name="textFill" size={40} color="#FFFFFF" />
+            <Icon name="textFill" size={40} color={colors.white} />
           </View>
 
           {/* Title */}
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing[3],
   },
   textInputContainer: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     minHeight: 181,
   },
@@ -206,6 +206,6 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     ...theme.typography.textStyles.button2,
-    color: "#FFFFFF",
+    color: colors.white,
   },
 });

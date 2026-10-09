@@ -327,7 +327,12 @@ export const CreateFlashcardsScreen = () => {
               <Text style={styles.generatingStatus}>{FLASHCARD_STATUSES[statusIndex]}</Text>
               <View style={styles.simProgressBar}>
                 <LinearGradient
-                  colors={['#F9C597', '#FFB09C', '#EBE19F', '#CEF9D0'] as any}
+                  colors={[
+                    colors.pastelRainbow.apricot,
+                    colors.pastelRainbow.coral,
+                    colors.pastelRainbow.honeydew,
+                    colors.pastelRainbow.mint,
+                  ] as any}
                   start={{ x: 0, y: 0.5 }}
                   end={{ x: 1, y: 0.5 }}
                   style={[styles.simProgressFill, { width: `${simProgress}%` as any }]}
@@ -436,7 +441,7 @@ export const CreateFlashcardsScreen = () => {
             onPress={() => navigation.goBack()}
             style={styles.backIcon}
           >
-            <ChevronLeftIcon size={24} color="#1C1C1C" />
+            <ChevronLeftIcon size={24} color={colors.grey[900]} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{t('flashcards.headerTitle')}</Text>
           {step === "review" && currentSet && (
@@ -457,7 +462,12 @@ export const CreateFlashcardsScreen = () => {
           </Text>
           <View style={styles.progressBarBg}>
             <LinearGradient
-              colors={['#F9C597', '#FFB09C', '#EBE19F', '#CEF9D0'] as any}
+              colors={[
+                colors.pastelRainbow.apricot,
+                colors.pastelRainbow.coral,
+                colors.pastelRainbow.honeydew,
+                colors.pastelRainbow.mint,
+              ] as any}
               start={{ x: 0, y: 0.5 }}
               end={{ x: 1, y: 0.5 }}
               style={[styles.progressBarFill, { width: `${progress}%` as any }]}
@@ -568,7 +578,7 @@ export const CreateFlashcardsScreen = () => {
             >
               <ChevronLeftIcon
                 size={24}
-                color={currentCardIndex === 0 ? "#6B7280" : "#FFFFFF"}
+                color={currentCardIndex === 0 ? colors.slate[500] : colors.white}
               />
             </TouchableOpacity>
 
@@ -587,8 +597,8 @@ export const CreateFlashcardsScreen = () => {
                 size={24}
                 color={
                   step !== "review" && !currentQuestion.trim()
-                    ? "#6B7280"
-                    : "#FFFFFF"
+                    ? colors.slate[500]
+                    : colors.white
                 }
               />
             </TouchableOpacity>
@@ -635,7 +645,7 @@ const styles = StyleSheet.create({
   flashcardIcon: {
     width: 120,
     height: 120,
-    backgroundColor: "#FFF7ED",
+    backgroundColor: colors.vivid.accent[50],
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
@@ -644,7 +654,7 @@ const styles = StyleSheet.create({
   iconCard: {
     width: 80,
     height: 80,
-    backgroundColor: "#FFEDD5",
+    backgroundColor: colors.vivid.accent[100],
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
@@ -696,7 +706,7 @@ const styles = StyleSheet.create({
   simProgressBar: {
     width: "100%",
     height: 6,
-    backgroundColor: "#F9F9F9",
+    backgroundColor: colors.grey[10],
     borderRadius: 3,
     overflow: "hidden",
     marginBottom: spacing[2],
@@ -711,7 +721,7 @@ const styles = StyleSheet.create({
   },
   generateButton: {
     width: "100%",
-    backgroundColor: "#1C1C1C",
+    backgroundColor: colors.grey[900],
     borderRadius: 24,
     paddingVertical: spacing[4],
     alignItems: "center",
@@ -767,7 +777,7 @@ const styles = StyleSheet.create({
   },
   progressBarBg: {
     height: 6,
-    backgroundColor: "#F9F9F9",
+    backgroundColor: colors.grey[10],
     borderRadius: 3,
     marginBottom: spacing[2],
     overflow: "hidden",
@@ -826,7 +836,7 @@ const styles = StyleSheet.create({
   cardInput: {
     flex: 1,
     fontSize: typography.fontSize.xl,
-    color: "#FFF",
+    color: colors.white,
     fontWeight: typography.fontWeight.semibold,
     textAlign: "center",
   },
@@ -856,7 +866,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: "#1C1C1C",
+    backgroundColor: colors.grey[900],
     justifyContent: "center",
     alignItems: "center",
   },
@@ -878,14 +888,14 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: "#FFEDD5",
+    backgroundColor: colors.vivid.accent[100],
     justifyContent: "center",
     alignItems: "center",
     marginBottom: spacing[6],
   },
   completeBadgeText: {
     fontSize: 60,
-    color: "#F97316",
+    color: colors.vivid.accent[500],
   },
   completeTitle: {
     fontSize: typography.fontSize["3xl"],
@@ -900,7 +910,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     width: "100%",
-    backgroundColor: "#1C1C1C",
+    backgroundColor: colors.grey[900],
     borderRadius: 24,
     paddingVertical: spacing[4],
     alignItems: "center",
@@ -924,7 +934,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabActive: {
-    borderBottomColor: '#1C1C1C',
+    borderBottomColor: colors.grey[900],
   },
   tabText: {
     fontSize: typography.fontSize.base,
@@ -932,7 +942,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   tabTextActive: {
-    color: '#1C1C1C',
+    color: colors.grey[900],
     fontWeight: typography.fontWeight.semibold,
   },
 });

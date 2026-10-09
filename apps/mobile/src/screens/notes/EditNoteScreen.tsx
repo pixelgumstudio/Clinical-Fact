@@ -175,7 +175,7 @@ export const EditNoteScreen = () => {
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-            <ChevronLeftIcon size={24} color="#1F2937" />
+            <ChevronLeftIcon size={24} color={colors.slate[800]} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Edit note</Text>
           <View style={styles.headerSpacer} />
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   overlayBackdrop: {
     flex: 1,
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
   },
   overlayCard: {
     width: '100%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 20,
     padding: spacing[6],
     shadowColor: '#000',

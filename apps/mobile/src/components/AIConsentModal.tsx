@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   agreeText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.semibold,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   declineButton: {
     paddingVertical: spacing[3],

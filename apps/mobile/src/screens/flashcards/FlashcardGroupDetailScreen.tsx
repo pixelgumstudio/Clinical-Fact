@@ -13,7 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Icon, theme } from '@clinicalfact/design-system';
+import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
@@ -21,6 +21,7 @@ import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportFlashcard } from '../../hooks/useExportFlashcard';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
+import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
 
 type FlashcardGroupDetailRouteProp = RouteProp<MainStackParamList, 'FlashcardGroupDetail'>;
 type FlashcardGroupDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FlashcardGroupDetail'>;
@@ -70,28 +71,6 @@ const getSetStatus = (set: SetRow) => {
   if (set.masteredCards > 0) return 'In Progress';
   return 'Not Started';
 };
-
-const formatRelativeTime = (dateString: string) => {
-  const date = new Date(dateString);
-  const diffMin = Math.floor((Date.now() - date.getTime()) / 60000);
-  if (diffMin < 1) return 'Just now';
-  if (diffMin < 60) return `${diffMin} min ago`;
-  const diffHr = Math.floor(diffMin / 60);
-  if (diffHr < 24) return `${diffHr} hr ago`;
-  const diffDay = Math.floor(diffHr / 24);
-  if (diffDay < 7) return `${diffDay}d ago`;
-  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-};
-
-const formatFullDate = (dateString: string) =>
-  new Date(dateString).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-  });
 
 export const FlashcardGroupDetailScreen = () => {
   const navigation = useNavigation<FlashcardGroupDetailNavigationProp>();
@@ -297,7 +276,7 @@ export const FlashcardGroupDetailScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>{displayTitle}</Text>
         {earliestCreatedAt && (
-          <Text style={styles.createdAt}>Created {formatFullDate(earliestCreatedAt)}</Text>
+          <Text style={styles.createdAt}>Created {formatDateTime(earliestCreatedAt)}</Text>
         )}
 
         {data.source && (
@@ -307,7 +286,7 @@ export const FlashcardGroupDetailScreen = () => {
             </View>
             <View style={styles.sourceInfo}>
               <Text style={styles.sourceTitle} numberOfLines={1}>{data.source.title}</Text>
-              <Text style={styles.sourceDate}>Created {formatFullDate(data.source.createdAt)}</Text>
+              <Text style={styles.sourceDate}>Created {formatDateTime(data.source.createdAt)}</Text>
             </View>
             <Icon name="foward" size={16} color={theme.colors.grey[200]} />
           </TouchableOpacity>
@@ -556,7 +535,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
@@ -616,7 +595,7 @@ const styles = StyleSheet.create({
   },
   primaryButtonText: {
     ...theme.typography.textStyles.subtitle1,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   secondaryButtonsRow: {
     flexDirection: 'row',
@@ -630,7 +609,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: theme.spacing[2],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
@@ -672,7 +651,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.spacing[3],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: theme.borderRadius.lg,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
@@ -719,7 +698,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   menuModalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],

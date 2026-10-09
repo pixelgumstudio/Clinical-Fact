@@ -8,54 +8,54 @@ import {
   FlatList,
   KeyboardAvoidingView,
   Platform,
-  ActivityIndicator,
   Clipboard,
-  Modal,
   Animated,
-  Pressable,
-  Image,
   ScrollView,
-  Linking,
   LayoutAnimation,
   UIManager,
   Easing,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { RichText } from '../../components/RichText';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import api, { MedicalChatFilters, MedicalChatSource, MedicalChatImage, MedicalChatGroundingSource } from '../../services/api';
-import appLifecycleService from '../../services/appLifecycleService';
+import api, { MedicalChatFilters, MedicalChatSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import {
   colors,
   spacing,
   typography,
-  SendMessageIcon,
-  DocumentPreviewSmallIcon,
-  ImagePreviewSmallIcon,
-  NoteFilePreviewIcon,
-  FilterIcon,
-  RegenerateIcon,
   Icon,
   theme,
-  Switch as DSSwitch,
 } from '@clinicalfact/design-system';
 import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
-// Sidebar disabled — logo now navigates to the chat list instead of opening it.
-// import { ChatSidebar, ChatSessionSummary } from '../../components/ChatSidebar';
-import { CustomAlertModal } from '../../components/CustomAlertModal';
+import { useAlertDialog } from '../../hooks/useAlertDialog';
+import { AlertDialog } from '../../components/AlertDialog';
+import { TypingIndicator } from './ChatConversation/TypingIndicator';
+import { ChatGeneratedContentSection } from './ChatConversation/ChatGeneratedContentSection';
+import { ChatWelcomeHero } from './ChatConversation/ChatWelcomeHero';
+import { ChatMessageBubble } from './ChatConversation/ChatMessageBubble';
+import { ChatEmptyState } from './ChatConversation/ChatEmptyState';
+import { ChatHeader } from './ChatConversation/ChatHeader';
+import { ChatCitationsSheet } from './ChatConversation/ChatCitationsSheet';
+import { ChatImagePreviewModal } from './ChatConversation/ChatImagePreviewModal';
+import { ChatRenameModal } from './ChatConversation/ChatRenameModal';
+import { ChatAttachSheet } from './ChatConversation/ChatAttachSheet';
+import { ChatComposer } from './ChatConversation/ChatComposer';
+import { Message, PendingAttachment } from './ChatConversation/types';
 import { Toast } from '../../components/Toast';
 import { MedicalFilterModal } from '../../components/MedicalFilterModal';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
+import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useAuthStore } from '../../store/authStore';
 import { useMedicalSearchStore } from '../../store/medicalSearchStore';
 import { showInAppPaywall } from '../../services/revenuecat';
+import { changeLanguage } from '../../i18n';
+import { getLanguageInfo } from '../../utils/language';
 
 type ChatConversationRouteProp = RouteProp<MainStackParamList, 'ChatConversation'>;
 type ChatConversationNavigationProp = NativeStackNavigationProp<MainStackParamList, 'ChatConversation'>;
@@ -66,129 +66,8 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-interface Message {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  timestamp: Date;
-  sources?: MedicalChatSource[];
-  images?: MedicalChatImage[];
-  groundingSources?: MedicalChatGroundingSource[];
-  /** The attached image's URL, shown as a tappable thumbnail on the bubble. On the optimistic
-   *  send it's the local device URI; once loaded from history it's the server-resolved
-   *  (presigned) URL — same field either way, since both render identically. */
-  attachedImageUri?: string;
-}
-
-/** An image or document picked via the "+" sheet, uploaded in the background, and shown as a
- *  removable thumbnail above the composer until the user sends (or removes) it. */
-interface PendingAttachment {
-  uri: string;
-  fileName: string;
-  kind: 'image' | 'document';
-  fileId?: string;
-  isUploading: boolean;
-}
-
-// Animated typing dots component
-const TypingIndicator = () => {
-  const dot1 = useRef(new Animated.Value(0)).current;
-  const dot2 = useRef(new Animated.Value(0)).current;
-  const dot3 = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    const animate = (dot: Animated.Value, delay: number) =>
-      Animated.loop(
-        Animated.sequence([
-          Animated.delay(delay),
-          Animated.timing(dot, { toValue: 1, duration: 300, useNativeDriver: true }),
-          Animated.timing(dot, { toValue: 0, duration: 300, useNativeDriver: true }),
-          Animated.delay(600 - delay),
-        ])
-      );
-
-    const a1 = animate(dot1, 0);
-    const a2 = animate(dot2, 200);
-    const a3 = animate(dot3, 400);
-    a1.start(); a2.start(); a3.start();
-    return () => { a1.stop(); a2.stop(); a3.stop(); };
-  }, []);
-
-  const dotStyle = (dot: Animated.Value) => ({
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#F97316',
-    marginHorizontal: 2,
-    opacity: dot.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] }),
-    transform: [{ translateY: dot.interpolate({ inputRange: [0, 1], outputRange: [0, -4] }) }],
-  });
-
-  return (
-    <View style={styles.messageContainer}>
-      <View style={styles.typingBubble}>
-        <Animated.View style={dotStyle(dot1)} />
-        <Animated.View style={dotStyle(dot2)} />
-        <Animated.View style={dotStyle(dot3)} />
-      </View>
-    </View>
-  );
-};
-
-// Confirmed 2026-07-29 — replaces the old Gemini-style "Hi, what's on your mind?"
-// greeting with the branded hero + starter-topic cards shown when a new chat is
-// created with no session yet.
-const CHAT_WELCOME_TOPICS = [
-  { emoji: '🔋', label: 'Electrolyte imbalance explained', question: 'Explain electrolyte imbalance — causes, symptoms, and treatment' },
-  { emoji: '🩵', label: 'ECG interpretation basics', question: 'What are the basics of ECG interpretation?' },
-  { emoji: '💊', label: 'Common drug interactions to know', question: 'What are some common and important drug interactions I should know?' },
-  { emoji: '🫀', label: 'NCLEX-style practice topics', question: 'Give me an NCLEX-style practice question' },
-];
-
-const ChatWelcomeHero: React.FC<{ onSelectTopic: (question: string) => void }> = ({ onSelectTopic }) => {
-  const opacity = useRef(new Animated.Value(0)).current;
-  const scale = useRef(new Animated.Value(0.92)).current;
-
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(opacity, { toValue: 1, duration: 450, useNativeDriver: true }),
-      Animated.spring(scale, { toValue: 1, friction: 7, tension: 60, useNativeDriver: true }),
-    ]).start();
-  }, [opacity, scale]);
-
-  return (
-    <Animated.View style={[styles.welcomeContainer, { opacity, transform: [{ scale }] }]}>
-      <View style={styles.welcomeLogoRow}>
-        <Icon name="logo" size={36} />
-        <Text style={styles.welcomeWordmark}>Clinicalfact</Text>
-      </View>
-      <Text style={styles.welcomeTagline}>
-        Ask anything medical, Get the{'\n'}Cited fact backed by real sources
-      </Text>
-      <Text style={styles.welcomeSubtitle}>Evidence-based · PubMed sources · Peer-reviewed</Text>
-
-      <Text style={styles.welcomeTopicsLabel}>Try out any of this topics to get started</Text>
-      <View style={styles.welcomeTopicsList}>
-        {CHAT_WELCOME_TOPICS.map((topic) => (
-          <TouchableOpacity
-            key={topic.label}
-            style={styles.welcomeTopicCard}
-            onPress={() => onSelectTopic(topic.question)}
-            activeOpacity={0.7}
-          >
-            <View style={styles.welcomeTopicTop}>
-              <View style={styles.welcomeTopicIcon}>
-                <Text style={styles.welcomeTopicEmoji}>{topic.emoji}</Text>
-              </View>
-              <Icon name="foward" size={16} color={theme.colors.grey[200]} />
-            </View>
-            <Text style={styles.welcomeTopicText}>{topic.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </Animated.View>
-  );
-};
+// Real launch limit for free-tier medical Q&A queries (apps/api/src/config/quota.config.ts).
+const MEDICAL_CHAT_FREE_LIMIT = 2;
 
 export const ChatConversationScreen = () => {
   const navigation = useNavigation<ChatConversationNavigationProp>();
@@ -205,8 +84,9 @@ export const ChatConversationScreen = () => {
   const [isPinned, setIsPinned] = useState(false);
   const [isPinning, setIsPinning] = useState(false);
   const [citationsSheetSources, setCitationsSheetSources] = useState<MedicalChatSource[] | null>(null);
-  // Commented out (not deleted) rather than the "•••" options menu it drove — replaced by a
-  // direct "advanced filters" header icon below, but kept in case the menu is needed again.
+  // Commented out (not deleted) rather than the "•••" options menu it drove — replaced by the
+  // "+" attach sheet's own rows (filters, quiz/flashcard generation, etc.), but kept in case
+  // the menu is needed again.
   // const [isOptionsMenuVisible, setIsOptionsMenuVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState<MedicalChatImage | null>(null);
 
@@ -259,6 +139,48 @@ export const ChatConversationScreen = () => {
   const waitForAttachSheetToFullyClose = () =>
     new Promise<void>((resolve) => closeAttachMenu(() => setTimeout(resolve, 200)));
 
+  // Medical research filters — a drill-in from the attach sheet above, sharing the exact same
+  // Animated slide-up/down mechanics (and the same iOS Modal-stacking-race workaround) so the
+  // handoff between the two sheets looks like one continuous transition instead of an abrupt
+  // cut. See the attach-menu block above for what each piece mirrors.
+  const filterModalTranslateY = useRef(new Animated.Value(400)).current;
+  const filterModalOpacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (isFilterModalVisible) {
+      filterModalTranslateY.setValue(400);
+      filterModalOpacity.setValue(0);
+      Animated.parallel([
+        Animated.timing(filterModalTranslateY, { toValue: 0, duration: 260, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
+        Animated.timing(filterModalOpacity, { toValue: 1, duration: 220, useNativeDriver: true }),
+      ]).start();
+    }
+  }, [isFilterModalVisible, filterModalTranslateY, filterModalOpacity]);
+
+  const closeFilterModal = (onComplete?: () => void) => {
+    Animated.parallel([
+      Animated.timing(filterModalTranslateY, { toValue: 400, duration: 200, easing: Easing.in(Easing.cubic), useNativeDriver: true }),
+      Animated.timing(filterModalOpacity, { toValue: 0, duration: 180, useNativeDriver: true }),
+    ]).start(() => {
+      setIsFilterModalVisible(false);
+      onComplete?.();
+    });
+  };
+
+  const waitForFilterModalToFullyClose = () =>
+    new Promise<void>((resolve) => closeFilterModal(() => setTimeout(resolve, 200)));
+
+  /** Backdrop tap / Android hardware back on the filter screen — dismisses everything, all
+   *  the way back to the plain chat screen (does NOT reopen the attach sheet). */
+  const handleCloseFilterModal = () => closeFilterModal();
+
+  /** The filter screen's back chevron specifically — returns to the "+" attach sheet it was
+   *  drilled into from, rather than dismissing all the way out. */
+  const handleBackFromFilterModal = async () => {
+    await waitForFilterModalToFullyClose();
+    setIsAttachMenuVisible(true);
+  };
+
   // Semantic Scholar and PubMed are real, independently-toggleable APIs added alongside Europe
   // PMC (which always runs regardless — see chatService.chatMedicalLive). Both default on.
   // Independent of the advanced MedicalFilterModal, which is a separate, more granular Europe
@@ -274,23 +196,10 @@ export const ChatConversationScreen = () => {
       },
     }));
   };
-  // Ask Anything is the first thing shown now that typing directly works with no session —
-  // the sidebar no longer needs to auto-open, it's just reachable via the hamburger button.
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const [sidebarRefreshKey, setSidebarRefreshKey] = useState(0);
   const [attachedSources, setAttachedSources] = useState<{ type: 'note' | 'file'; title: string }[]>([]);
+  const [languageModalVisible, setLanguageModalVisible] = useState(false);
 
-  const [alertConfig, setAlertConfig] = useState<{
-    visible: boolean;
-    title: string;
-    message: string;
-    buttonText: string;
-    onButtonPress?: () => void;
-  }>({ visible: false, title: '', message: '', buttonText: 'OK' });
-
-  const showAlert = (title: string, message: string, buttonText = 'OK', onButtonPress?: () => void) =>
-    setAlertConfig({ visible: true, title, message, buttonText, onButtonPress });
-  const closeAlert = () => setAlertConfig((prev) => ({ ...prev, visible: false }));
+  const { alertConfig, showAlert, closeAlert } = useAlertDialog();
 
   // Generic self-dismissing toast (copy confirmation, pin-limit notice, etc.) — one instance
   // reused for all of them since only one is ever relevant at a time.
@@ -299,6 +208,14 @@ export const ChatConversationScreen = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(chatId || null);
+  // Mirrors the server's real launch limit for medicalChats (quota.config.ts). Shown for the
+  // blank Chat-tab entry point (no session/note/attachment yet) and for an ongoing medical
+  // Q&A session; hidden once the user has Pro access.
+  const isMedicalContext = isMedical || (!sessionId && !noteId && !fileName && !type);
+  const queriesRemaining = !hasAccess && isMedicalContext
+    ? Math.max(0, MEDICAL_CHAT_FREE_LIMIT - (user?.freeUsage?.medicalChats?.count ?? 0))
+    : null;
+  const currentLanguage = getLanguageInfo(user?.preferredLanguage || 'en');
   const [chatTitle, setChatTitle] = useState(fileName || title || 'Chat');
   const [isLoadingSession, setIsLoadingSession] = useState(true);
   const [isSendingMessage, setIsSendingMessage] = useState(false);
@@ -322,6 +239,32 @@ export const ChatConversationScreen = () => {
   // makes FlatList treat it as "the list changed" and re-evaluate everything, which for a chat
   // full of rich content (markdown, citation images) reads as the screen visibly reloading.
   const invertedMessages = useMemo(() => [...messages], [messages]);
+  // Mirrors invertedMessages so scrollToMessageTop (called from inside a requestAnimationFrame,
+  // after this render has already finished) always reads the current array instead of closing
+  // over a stale one from whichever render scheduled the callback.
+  const invertedMessagesRef = useRef(invertedMessages);
+  useEffect(() => {
+    invertedMessagesRef.current = invertedMessages;
+  }, [invertedMessages]);
+
+  // Scrolls so the message with this id sits at the TOP of the viewport — the chat is meant to
+  // anchor on the query you just sent (or reopened to), not auto-follow the response to the
+  // bottom. Only ever called once per query (on send/regenerate/retry/initial load), never from
+  // a content-size watcher, so it won't fight you scrolling down to read a long response.
+  const scrollToMessageTop = (id: string, animated = true) => {
+    const attempt = () => {
+      const index = invertedMessagesRef.current.findIndex((m) => m.id === id);
+      if (index === -1) return;
+      flatListRef.current?.scrollToIndex({ index, viewPosition: 0, viewOffset: 8, animated });
+    };
+    // Same two-attempt timing as the old scroll-to-bottom logic this replaces: the first run can
+    // land before variable-height bubbles above it finish laying out, so retry once more a beat
+    // later. onScrollToIndexFailed on the FlatList below covers the rest (item not yet measured).
+    requestAnimationFrame(() => {
+      attempt();
+      setTimeout(attempt, 150);
+    });
+  };
 
   // Depends on chatId, not just []: when this screen is already the top of the stack and the
   // sidebar/attach-menu navigates to a *different* chatId, React Navigation merges the new
@@ -393,17 +336,21 @@ export const ChatConversationScreen = () => {
               content: msg.content,
               timestamp: new Date(msg.timestamp),
               attachedImageUri: msg.attachmentFileId ? await api.getFileContentUrl(msg.attachmentFileId) : undefined,
+              sources: msg.sources,
+              images: msg.images,
+              groundingSources: msg.groundingSources,
+              followUpQuestions: msg.followUpQuestions,
             }))
           );
           setMessages(loadedMessages);
 
-          // Belt-and-suspenders alongside the FlatList's onContentSizeChange/onLayout handlers:
-          // scrollToEnd right after mount can land on a stale offset before variable-height
-          // message bubbles finish laying out, so retry once more a beat later.
-          requestAnimationFrame(() => {
-            flatListRef.current?.scrollToEnd({ animated: false });
-            setTimeout(() => flatListRef.current?.scrollToEnd({ animated: false }), 150);
-          });
+          // Land on the last query, not the true bottom — same anchoring as a freshly-sent
+          // message (see scrollToMessageTop), so reopening a chat looks consistent with sending
+          // a new one.
+          const lastUserMessage = [...loadedMessages].reverse().find((m) => m.role === 'user');
+          if (lastUserMessage) {
+            scrollToMessageTop(lastUserMessage.id, false);
+          }
 
           if (response.data.embeddingStatus === 'processing') {
             pollEmbeddingStatus(response.data._id);
@@ -508,6 +455,23 @@ export const ChatConversationScreen = () => {
     setIsRenameModalVisible(true);
   };
 
+  const handleLanguageSelect = async (languageCode: string) => {
+    try {
+      setLanguageModalVisible(false);
+      await changeLanguage(languageCode);
+      const response = await api.updateUserLanguage(languageCode);
+      if (response.success && response.data?.user) {
+        await useAuthStore.getState().updateUser({
+          preferredLanguage: response.data.user.preferredLanguage || languageCode,
+        });
+      } else {
+        showAlert('Error', response.message || 'Failed to update language');
+      }
+    } catch (error: any) {
+      showAlert('Error', error.message || 'Failed to update language');
+    }
+  };
+
   const handleTogglePin = async () => {
     if (!sessionId || isPinning) return;
     setIsPinning(true);
@@ -530,42 +494,6 @@ export const ChatConversationScreen = () => {
       setIsPinning(false);
     }
   };
-
-  // Sidebar disabled — these handlers only fed ChatSidebar's callbacks.
-  // const handleSelectSession = (session: ChatSessionSummary) => {
-  //   setIsSidebarVisible(false);
-  //   navigation.navigate('ChatConversation', {
-  //     chatId: session._id,
-  //     title: session.title,
-  //     type: session.sourceType,
-  //     noteId: session.noteId,
-  //   });
-  // };
-
-  // const handleStartNewFromSidebar = (fileType: 'note' | 'image' | 'document') => {
-  //   setIsSidebarVisible(false);
-  //   navigation.navigate('ChatFileSelect', { type: fileType });
-  // };
-
-  // const handleStartMedicalFromSidebar = async () => {
-  //   setIsSidebarVisible(false);
-  //   try {
-  //     const response = await api.createMedicalChatSession();
-  //     if (response.success && response.data) {
-  //       navigation.navigate('ChatConversation', {
-  //         chatId: response.data._id,
-  //         title: response.data.title,
-  //         type: 'medical_qa',
-  //       });
-  //     } else if (response.quotaExceeded) {
-  //       await showInAppPaywall();
-  //     } else {
-  //       showAlert('Error', response.message || 'Failed to start a new question. Please try again.');
-  //     }
-  //   } catch (error: any) {
-  //     showAlert('Error', error.message || 'Failed to start a new question. Please try again.');
-  //   }
-  // };
 
   /** Picks + uploads an image in the background and shows it as a removable thumbnail above
    *  the composer — the actual attach-to-session/create-session call happens on Send (see
@@ -682,59 +610,160 @@ export const ChatConversationScreen = () => {
     }
   };
 
-  // isMedical is passed in explicitly rather than read from state: this function can run
-  // moments after setIsMedical(true) on the very first message (auto-created session from
-  // the welcome screen), before React has re-rendered — reading the state directly here
-  // would still see the stale `false` from the render that started this call, silently
-  // reading data.result.response (undefined for medical_live jobs) instead of data.result.text.
-  const listenChatJob = (jobId: string, isMedicalForJob: boolean): Promise<void> => {
-    return new Promise<void>((resolve, reject) => {
-      const cleanup = api.listenToJobStream(
-        jobId,
-        (data) => {
-          sseChatCleanupRef.current = null;
-          if (data.status === 'failed') {
-            reject(new Error(data.error || 'Failed to get AI response.'));
-          } else {
-            // Medical live mode returns { text, sources, images }; standard RAG chat
-            // returns { response, sources }. Different shape from the same job endpoint.
-            const aiResponse: Message = isMedicalForJob
-              ? {
-                  id: `ai-${Date.now()}`,
-                  role: 'assistant',
-                  content: data.result.text,
-                  timestamp: new Date(),
-                  sources: data.result.sources,
-                  images: data.result.images,
-                  groundingSources: data.result.groundingSources,
-                }
-              : {
-                  id: `ai-${Date.now()}`,
-                  role: 'assistant',
-                  content: data.result.response,
-                  timestamp: new Date(),
-                };
-            LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-            setMessages((prev) => [...prev, aiResponse]);
+  /** Cancels the in-flight streaming response (Stop Generating, or leaving the screen — see the
+   *  cleanup in the chatId effect above, which already calls sseChatCleanupRef.current()). The
+   *  backend detects the dropped connection and aborts the LLM call server-side. */
+  const handleStopGenerating = () => {
+    sseChatCleanupRef.current?.();
+    sseChatCleanupRef.current = null;
+    setIsSendingMessage(false);
+  };
 
+  /**
+   * Starts a streaming chat request and wires it into `messages` state: an empty assistant
+   * placeholder is pushed immediately (renders as a growing bubble via ChatMessageBubble's
+   * existing content rendering — no per-message loading UI needed), then grows in place as
+   * `chunk` events arrive, gets its citations/images/groundingSources attached on `metadata`,
+   * and its follow-up chips + title on `done`. Resolves once the stream finishes so callers can
+   * `await` it the same way they awaited the old job-polling flow; rejects on `error`, having
+   * already marked that message `status: 'failed'` (ChatMessageBubble renders an inline Retry
+   * button for it) — the rejected Error carries `isStreamFailure: true` so callers can tell this
+   * apart from an earlier, pre-stream failure that still needs its own alert.
+   */
+  const streamChatResponse = (
+    activeSessionId: string,
+    msgContent: string,
+    useLiveSearch: boolean,
+    options: {
+      filters?: MedicalChatFilters;
+      excludeImageUrls?: string[];
+      attachmentFileId?: string;
+      /** Reuse an existing (failed) assistant message's id instead of pushing a new placeholder
+       *  — used by handleRetryMessage so a retry updates the same bubble in place. */
+      reuseMessageId?: string;
+      /** True only for a genuine standalone medical Q&A session (sourceType 'medical_qa' on the
+       *  backend) — passed explicitly rather than read from the `isMedical`/`isMedicalContext`
+       *  closure, since those can be stale here: this function can run moments after
+       *  setIsMedical(true) on the very first message, before React has re-rendered. Used to
+       *  optimistically bump the local freeUsage.medicalChats count so the "X QUERY REMAINING"
+       *  pill updates immediately instead of waiting for a full app reload. */
+      isMedicalQuery?: boolean;
+    } = {}
+  ): Promise<void> => {
+    return new Promise<void>((resolve, reject) => {
+      const placeholderId = options.reuseMessageId ?? `ai-${Date.now()}`;
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      if (options.reuseMessageId) {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === placeholderId
+              ? { ...m, content: '', status: 'loading', sources: undefined, images: undefined, groundingSources: undefined, followUpQuestions: undefined }
+              : m
+          )
+        );
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { id: placeholderId, role: 'assistant', content: '', timestamp: new Date(), status: 'loading' },
+        ]);
+      }
+
+      // Guards against onDone/onError firing after a manual stop (the underlying connection is
+      // aborted synchronously, so this shouldn't race in practice, but a stale late event must
+      // never double-settle this promise).
+      let settled = false;
+
+      const cleanup = api.streamChatMessage(
+        activeSessionId,
+        msgContent,
+        {
+          mode: useLiveSearch ? 'medical_live' : undefined,
+          filters: options.filters,
+          excludeImageUrls: options.excludeImageUrls,
+          attachmentFileId: options.attachmentFileId,
+        },
+        {
+          onMetadata: (metadata: ChatStreamMetadataPayload) => {
+            setMessages((prev) =>
+              prev.map((m) =>
+                m.id === placeholderId
+                  ? { ...m, sources: metadata.sources, images: metadata.images, groundingSources: metadata.groundingSources }
+                  : m
+              )
+            );
+          },
+          onChunk: (text: string) => {
+            setMessages((prev) =>
+              prev.map((m) => (m.id === placeholderId ? { ...m, content: m.content + text } : m))
+            );
+          },
+          onDone: (data: ChatStreamDonePayload) => {
+            if (settled) return;
+            settled = true;
+            sseChatCleanupRef.current = null;
+            setMessages((prev) =>
+              prev.map((m) =>
+                m.id === placeholderId ? { ...m, status: undefined, followUpQuestions: data.followUpQuestions } : m
+              )
+            );
             // Present only on the very first exchange — the backend auto-titles the session
             // from what was actually asked, same as ChatGPT/Claude, instead of leaving the
-            // generic default. Refresh the sidebar so the new title shows there too.
-            if (data.result.title) {
-              setChatTitle(data.result.title);
-              setSidebarRefreshKey((k) => k + 1);
+            // generic default.
+            if (data.title) {
+              setChatTitle(data.title);
             }
-
+            // The backend increments freeUsage.medicalChats.count per query for a medical_qa
+            // session (see chat.controller.ts), but that only updates the DB — bump the local
+            // copy too so the "X QUERY REMAINING" pill reflects it on this same screen without
+            // needing a full app reload. Pro users are unmetered, so skip it for them.
+            if (options.isMedicalQuery && !hasAccess) {
+              const current = useAuthStore.getState().user;
+              if (current) {
+                useAuthStore.getState().updateUser({
+                  freeUsage: {
+                    ...current.freeUsage,
+                    medicalChats: { count: (current.freeUsage?.medicalChats?.count ?? 0) + 1 },
+                  },
+                });
+              }
+            }
             resolve();
-          }
-        },
-        () => {
-          sseChatCleanupRef.current = null;
-          reject(new Error('Connection error. Please try again.'));
-        },
-        3 * 60 * 1000
+          },
+          onError: (errorMessage: string, quotaExceeded?: boolean) => {
+            if (settled) return;
+            settled = true;
+            sseChatCleanupRef.current = null;
+            if (quotaExceeded) {
+              // Not a retry-able failure — the caller handles showing the paywall and removing
+              // its own optimistic user-message bubble, so just drop the empty placeholder here.
+              setMessages((prev) => prev.filter((m) => m.id !== placeholderId));
+            } else {
+              setMessages((prev) =>
+                prev.map((m) => (m.id === placeholderId ? { ...m, status: 'failed' } : m))
+              );
+            }
+            const err = new Error(errorMessage) as Error & { isStreamFailure?: boolean; quotaExceeded?: boolean };
+            err.isStreamFailure = true;
+            err.quotaExceeded = quotaExceeded;
+            reject(err);
+          },
+        }
       );
-      sseChatCleanupRef.current = cleanup;
+
+      // A manual "Stop Generating" must also settle this promise (not just abort the
+      // connection) — otherwise the caller's `await` on this promise hangs forever, and with it
+      // the `finally` block that resets isSendingRef/isSendingMessage, permanently blocking
+      // every future send. Stopping keeps whatever partial text has streamed in so far and
+      // clears the loading status (it's a deliberate stop, not a failure, so no Retry button).
+      sseChatCleanupRef.current = () => {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        setMessages((prev) =>
+          prev.map((m) => (m.id === placeholderId ? { ...m, status: undefined } : m))
+        );
+        resolve();
+      };
     });
   };
 
@@ -776,6 +805,7 @@ export const ChatConversationScreen = () => {
     };
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setMessages((prev) => [...prev, userMessage]);
+    scrollToMessageTop(tempId);
     setMessage('');
     setPendingAttachment(null);
     setIsSendingMessage(true);
@@ -859,28 +889,28 @@ export const ChatConversationScreen = () => {
       // pulls in this session's own embedded content via sessionId, so a document/image chat
       // gets both its own content AND live FDA/PubMed/Wikipedia search in the same answer.
       const useLiveSearch = activeIsMedical || liveSearchEnabled;
-      const response = useLiveSearch
-        ? await api.sendChatMessage(activeSessionId, msgContent, false, 'medical_live', medicalFilters, getShownImageUrls(), attachmentFileIdForMessage)
-        : await api.sendChatMessage(activeSessionId, msgContent, false, undefined, undefined, undefined, attachmentFileIdForMessage);
-
-      if (!response.success || !response.data?.jobId) {
-        throw new Error(response.message || 'Failed to start message processing');
-      }
-
-      // Track in-flight chat message job for background processing
-      await appLifecycleService.trackInFlightJob(response.data.jobId, 'chat');
-
-      // Must match `useLiveSearch` above, not just `activeIsMedical` — the request was sent
-      // with mode: 'medical_live' (and its {text, sources, images, ...} response shape)
-      // whenever useLiveSearch is true, even for a non-medical document chat with the live
-      // search switch on. Reading it as a plain chat job here would read the wrong result
-      // field (data.result.response, which doesn't exist on a medical_live job) and silently
-      // show a blank/undefined reply.
-      await listenChatJob(response.data.jobId, useLiveSearch);
+      await streamChatResponse(activeSessionId, msgContent, useLiveSearch, {
+        filters: medicalFilters,
+        excludeImageUrls: getShownImageUrls(),
+        attachmentFileId: attachmentFileIdForMessage,
+        isMedicalQuery: activeIsMedical,
+      });
     } catch (error: any) {
       console.error('Failed to send message:', error);
-      showAlert('Error', error.message || 'Failed to send message');
-      setMessages((prev) => prev.filter((m) => m.id !== tempId));
+      if (error?.quotaExceeded) {
+        // The free-tier medical-question limit was hit on this specific message (checked
+        // server-side per query, not per session) — nothing was persisted, so drop the
+        // optimistic user bubble too and let the paywall be the only next step.
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
+        await showInAppPaywall();
+      } else if (!error?.isStreamFailure) {
+        // A streaming failure already left an inline Retry button on the failed assistant
+        // bubble (see streamChatResponse's onError) — no need to also pop an alert and delete
+        // the user's message. Only a pre-stream failure (session creation, attach, etc.
+        // throwing unexpectedly instead of returning success:false) falls through here.
+        showAlert('Error', error.message || 'Failed to send message');
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
+      }
     } finally {
       setIsSendingMessage(false);
       isSendingRef.current = false;
@@ -1001,26 +1031,70 @@ export const ChatConversationScreen = () => {
     const userMessage = messages[userMessageIndex];
     const priorMessages = messages.slice(0, messageIndex);
     setMessages(priorMessages);
+    scrollToMessageTop(userMessage.id);
     setIsSendingMessage(true);
 
     try {
       const useLiveSearch = isMedical || liveSearchEnabled;
-      const response = useLiveSearch
-        ? await api.sendChatMessage(sessionId, userMessage.content, false, 'medical_live', medicalFilters, getShownImageUrls(priorMessages))
-        : await api.sendChatMessage(sessionId, userMessage.content);
-
-      if (!response.success || !response.data?.jobId) {
-        throw new Error(response.message || 'Failed to regenerate response');
-      }
-
-      // Track in-flight chat message job for background processing
-      await appLifecycleService.trackInFlightJob(response.data.jobId, 'chat');
-
-      // Must match `useLiveSearch` above — see the identical fix/comment in handleSendMessage.
-      await listenChatJob(response.data.jobId, useLiveSearch);
+      await streamChatResponse(sessionId, userMessage.content, useLiveSearch, {
+        filters: medicalFilters,
+        excludeImageUrls: getShownImageUrls(priorMessages),
+        isMedicalQuery: isMedical,
+      });
     } catch (error: any) {
-      showAlert('Error', 'Failed to regenerate response');
-      setMessages(messages);
+      if (error?.quotaExceeded) {
+        setMessages(messages);
+        await showInAppPaywall();
+      } else if (!error?.isStreamFailure) {
+        // See the identical isStreamFailure check in handleSendMessage — a streaming failure
+        // already left an inline Retry button on the failed placeholder streamChatResponse just
+        // pushed onto `priorMessages`, so reverting to the pre-regenerate `messages` here would
+        // wipe that out instead of letting the user retry.
+        showAlert('Error', 'Failed to regenerate response');
+        setMessages(messages);
+      }
+    } finally {
+      setIsSendingMessage(false);
+    }
+  };
+
+  /**
+   * Retries a failed assistant reply in place — same bubble, same position, no truncation of
+   * anything sent after it (unlike handleRegenerateResponse, which discards the old answer and
+   * everything after it to generate a fresh alternative). Mirrors handleRegenerateResponse's
+   * shape otherwise (consent check, useLiveSearch derivation, isStreamFailure-aware catch).
+   */
+  const handleRetryMessage = async (failedMessageIndex: number) => {
+    if (!sessionId) return;
+    if (!useAIConsentStore.getState().hasConsented) {
+      useAIConsentStore.getState().requestConsent(() => handleRetryMessage(failedMessageIndex));
+      return;
+    }
+
+    const userMessageIndex = failedMessageIndex - 1;
+    if (userMessageIndex < 0 || userMessageIndex >= messages.length) return;
+
+    const failedMessage = messages[failedMessageIndex];
+    if (!failedMessage || failedMessage.role !== 'assistant') return;
+    const userMessage = messages[userMessageIndex];
+
+    scrollToMessageTop(userMessage.id);
+    setIsSendingMessage(true);
+
+    try {
+      const useLiveSearch = isMedical || liveSearchEnabled;
+      await streamChatResponse(sessionId, userMessage.content, useLiveSearch, {
+        filters: medicalFilters,
+        excludeImageUrls: getShownImageUrls(messages.slice(0, failedMessageIndex)),
+        reuseMessageId: failedMessage.id,
+        isMedicalQuery: isMedical,
+      });
+    } catch (error: any) {
+      if (error?.quotaExceeded) {
+        await showInAppPaywall();
+      } else if (!error?.isStreamFailure) {
+        showAlert('Error', 'Failed to retry response');
+      }
     } finally {
       setIsSendingMessage(false);
     }
@@ -1031,360 +1105,60 @@ export const ChatConversationScreen = () => {
    *  showing that placeholder verbatim reads as a bug ("unknown source"), so treat it the same
    *  as missing and fall back to the actual provider name (Europe PMC / Semantic Scholar /
    *  PubMed) instead, which is always real, known information. */
-  const hasRealJournal = (s: MedicalChatSource) => !!s.journal && !/^unknown/i.test(s.journal);
-  const hasRealYear = (s: MedicalChatSource) => !!s.year && !/^unknown/i.test(s.year);
+  const renderMessage = ({ item, index }: { item: Message; index: number }) => (
+    <ChatMessageBubble
+      item={item}
+      index={index}
+      isSendingMessage={isSendingMessage}
+      onPreviewImage={setPreviewImage}
+      onOpenCitations={setCitationsSheetSources}
+      onRegenerate={handleRegenerateResponse}
+      onCopy={handleCopyMessage}
+      onSelectFollowUp={handleSuggestedQuestion}
+      onRetryMessage={handleRetryMessage}
+    />
+  );
 
-  /** Pill/grouping label for a source — journal for literature (falling back to provider when
-   *  unknown), and a fixed label for the other two citation types, which have no journal at all. */
-  const pillLabelFor = (s: MedicalChatSource): string => {
-    if (s.type === 'drug_label') return 'FDA';
-    if (s.type === 'attached') return 'Attached';
-    return hasRealJournal(s) ? s.journal! : (s.provider || 'Source');
-  };
+  const renderEmptyChat = () => (
+    <ChatEmptyState
+      isLoadingSession={isLoadingSession}
+      sessionId={sessionId}
+      embeddingStatus={embeddingStatus}
+      embeddingProgress={embeddingProgress}
+      isMedical={isMedical}
+      type={type}
+      fileName={fileName}
+      title={title}
+      onSelectTopic={handleSuggestedQuestion}
+      onGoBack={handleGoBack}
+    />
+  );
 
-  /** Groups sources by pillLabelFor for the pill row ("Journal +N" / "FDA +N" / "Attached +N"). */
-  const groupSourcesForPills = (sources: MedicalChatSource[]) => {
-    const byKey = new Map<string, MedicalChatSource[]>();
-    sources.forEach((s) => {
-      const key = pillLabelFor(s);
-      if (!byKey.has(key)) byKey.set(key, []);
-      byKey.get(key)!.push(s);
-    });
-    return Array.from(byKey.entries()).map(([label, group]) => ({
-      label: group.length > 1 ? `${label} +${group.length - 1}` : label,
-      sources: group,
-    }));
-  };
-
-  /** Meta line for a citation card ("Journal · Year" for literature, a fixed tag for the other
-   *  two types) — omits journal/year when they're the generic "Unknown ..." placeholder and
-   *  falls back to the provider name instead of showing "Unknown journal · Unknown year" verbatim. */
-  const formatSourceMeta = (source: MedicalChatSource): string => {
-    if (source.type === 'drug_label') return 'FDA drug label';
-    if (source.type === 'attached') return 'From your attached material';
-    const parts = [
-      hasRealJournal(source) ? source.journal : null,
-      hasRealYear(source) ? source.year : null,
-    ].filter((p): p is string => !!p);
-    if (parts.length === 0) return source.provider || '';
-    return parts.join(' · ');
-  };
-
-  const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-    const isUser = item.role === 'user';
-
-    return (
-      <View style={[styles.messageContainer, isUser && styles.userMessageContainer]}>
-        {isUser ? (
-          <View style={styles.userMessageColumn}>
-            {!!item.attachedImageUri && (
-              <TouchableOpacity
-                onPress={() => setPreviewImage({
-                  url: item.attachedImageUri!,
-                  title: '',
-                  contextUrl: '',
-                  attributionRequired: false,
-                })}
-                activeOpacity={0.8}
-              >
-                <Image source={{ uri: item.attachedImageUri }} style={styles.sentAttachmentThumb} />
-              </TouchableOpacity>
-            )}
-            <View style={styles.userMessage}>
-              <Text style={styles.userMessageText}>{item.content}</Text>
-            </View>
-          </View>
-        ) : (
-          <View>
-            <View style={styles.assistantMessage}>
-              {/* Static disclosure row — not wired to a real "reasoning" payload;
-                  tapping it opens the citations sheet when sources exist. */}
-              <TouchableOpacity
-                style={styles.thinkingRow}
-                onPress={() => item.sources?.length && setCitationsSheetSources(item.sources)}
-                activeOpacity={item.sources?.length ? 0.7 : 1}
-              >
-                <Icon name="ai" size={20} color={theme.colors.grey[400]} />
-                <Text style={styles.thinkingText}>Thinking and finding resources for you...</Text>
-                <Icon name="foward" size={16} color={theme.colors.grey[400]} style={{ transform: [{ rotate: '90deg' }] }} />
-              </TouchableOpacity>
-
-              <RichText content={item.content} />
-            </View>
-
-            {!!item.images?.length && (
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={styles.imagesRow}
-                contentContainerStyle={styles.imagesRowContent}
-              >
-                {item.images.map((image, i) => (
-                  <TouchableOpacity
-                    key={`${item.id}-image-${i}`}
-                    onPress={() => setPreviewImage(image)}
-                    activeOpacity={0.8}
-                  >
-                    <Image source={{ uri: image.url }} style={styles.citationImage} resizeMode="cover" />
-                    {!!image.attribution && (
-                      <Text style={styles.imageAttribution} numberOfLines={1}>{image.attribution}</Text>
-                    )}
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-            )}
-
-            {!!item.sources?.length && (
-              <View style={styles.citationPillsRow}>
-                {groupSourcesForPills(item.sources).map((group) => (
-                  <TouchableOpacity
-                    key={group.label}
-                    style={styles.citationPill}
-                    onPress={() => setCitationsSheetSources(item.sources!)}
-                    activeOpacity={0.7}
-                  >
-                    <Text style={styles.citationPillText}>{group.label}</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-
-            {!!item.groundingSources?.length && (
-              <View style={styles.groundingContainer}>
-                <Text style={styles.groundingHeader}>Also referenced from the web</Text>
-                {item.groundingSources.map((source, i) => (
-                  <TouchableOpacity
-                    key={`${item.id}-grounding-${i}`}
-                    style={styles.groundingCard}
-                    onPress={() => Linking.openURL(source.uri)}
-                    activeOpacity={0.7}
-                  >
-                    <Text style={styles.groundingTitle} numberOfLines={2}>{source.title}</Text>
-                    <Text style={styles.sourceLinkArrow}>↗</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-
-            <View style={styles.messageActions}>
-              <TouchableOpacity
-                style={styles.actionButton}
-                onPress={() => handleRegenerateResponse(index)}
-                activeOpacity={0.7}
-                disabled={isSendingMessage}
-              >
-                <RegenerateIcon size={20} color={theme.colors.grey[700]} />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.actionButton}
-                onPress={() => handleCopyMessage(item.content)}
-                activeOpacity={0.7}
-              >
-                <Icon name="copy" size={20} color={theme.colors.grey[700]} />
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-      </View>
-    );
-  };
-
-  const renderEmptyChat = () => {
-    if (isLoadingSession) {
-      return (
-        <View style={styles.emptyChat}>
-          <ActivityIndicator size="large" color={colors.neutral[900]} />
-          <Text style={styles.emptyText}>Initializing chat...</Text>
-        </View>
-      );
-    }
-
-    if (!sessionId) {
-      return (
-        <View style={styles.emptyChat}>
-          <ChatWelcomeHero onSelectTopic={handleSuggestedQuestion} />
-        </View>
-      );
-    }
-
-    if (embeddingStatus === 'processing') {
-      return (
-        <View style={styles.emptyChat}>
-          <View style={styles.attachedDocument}>
-            <View style={styles.attachedDocumentIcon}>
-              {type === 'note' && <NoteFilePreviewIcon size={48} />}
-              {type === 'image' && <ImagePreviewSmallIcon size={48} color="#F97316" />}
-              {type === 'document' && <DocumentPreviewSmallIcon size={48} color="#F97316" />}
-            </View>
-            <View style={styles.attachedDocumentInfo}>
-              <Text style={styles.attachedDocumentTitle} numberOfLines={2}>
-                {fileName || title}
-              </Text>
-              <View style={styles.progressContainer}>
-                <View style={styles.progressBar}>
-                  <View style={[styles.progressFill, { width: `${embeddingProgress}%` }]} />
-                </View>
-                <Text style={styles.progressText}>{embeddingProgress}%</Text>
-              </View>
-              <Text style={styles.embeddingStatusText}>
-                {type === 'image' ? 'Extracting text from image...' :
-                 type === 'document' ? 'Processing PDF document...' :
-                 'Analyzing your note...'}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.processingInfo}>
-            <Text style={styles.processingInfoText}>
-              ⏱️ This usually takes just a few seconds. You'll be able to chat once processing is complete.
-            </Text>
-          </View>
-        </View>
-      );
-    }
-
-    if (embeddingStatus === 'failed') {
-      return (
-        <View style={styles.emptyChat}>
-          <View style={styles.errorContainer}>
-            <Text style={styles.errorIcon}>⚠️</Text>
-            <Text style={styles.errorText}>Processing Failed</Text>
-            <Text style={styles.errorSubtext}>
-              We couldn't process this {type === 'note' ? 'note' : type === 'image' ? 'image' : 'document'}.
-              This might be due to:
-            </Text>
-            <View style={styles.errorReasons}>
-              <Text style={styles.errorReason}>• File might be corrupted or unreadable</Text>
-              <Text style={styles.errorReason}>• {type === 'image' ? 'Image quality too low' : type === 'document' ? 'PDF is password-protected' : 'Content format not supported'}</Text>
-              <Text style={styles.errorReason}>• Network connection issue</Text>
-            </View>
-            <TouchableOpacity style={styles.errorButton} onPress={handleGoBack}>
-              <Text style={styles.errorButtonText}>Try a Different File</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
-
-    if (isMedical) {
-      return (
-        <View style={styles.emptyChat}>
-          <View style={styles.hintContainer}>
-            <Text style={styles.hintText}>
-              💡 Ask any clinical question — no upload needed. I'll answer using cited medical literature, with relevant images where available.
-            </Text>
-          </View>
-        </View>
-      );
-    }
-
-    return (
-      <View style={styles.emptyChat}>
-        <View style={styles.attachedDocument}>
-          <View style={styles.attachedDocumentIcon}>
-            {type === 'note' && <NoteFilePreviewIcon size={40} />}
-            {type === 'image' && <ImagePreviewSmallIcon size={40} color="#3B82F6" />}
-            {type === 'document' && <DocumentPreviewSmallIcon size={40} color="#3B82F6" />}
-          </View>
-          <View style={styles.attachedDocumentInfo}>
-            <Text style={styles.attachedDocumentTitle} numberOfLines={2}>
-              {fileName || title}
-            </Text>
-            <View style={styles.readyBadge}>
-              <Text style={styles.readyBadgeText}>✓ Ready to chat</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.hintContainer}>
-          <Text style={styles.hintText}>
-            💡 Ask me anything about this {type === 'note' ? 'note' : type === 'image' ? 'image' : 'document'}. I can summarize, explain concepts, or answer specific questions.
-          </Text>
-        </View>
-      </View>
-    );
-  };
+  // The placeholder assistant bubble (pushed the moment streaming starts, see streamChatResponse)
+  // already renders in the list with growing content, so the dots-only TypingIndicator footer
+  // is only useful for the brief window before the first chunk arrives — once real text is
+  // showing, a separate "typing" indicator below it would just be redundant.
+  const lastMessage = messages[messages.length - 1];
+  const showTypingIndicator = isSendingMessage && (!lastMessage || lastMessage.role !== 'assistant' || !lastMessage.content);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* Header — full redesign: avatar (opens chat list) + Upgrade on the left,
-          bookmark + options ("•••") on the right. Chat title moves to its own row below,
-          still tappable to rename. No back chevron: this screen is the "Home" tab's root,
-          which has no back semantics (same as Library/Profile); when reached via a
-          push from elsewhere, the OS back gesture/button still works regardless. */}
-      <View style={styles.header}>
-        <View style={styles.headerTopRow}>
-          <View style={styles.headerLeftGroup}>
-            <TouchableOpacity onPress={() => navigation.navigate('ChatList')} activeOpacity={0.7}>
-              <Icon name="logo" size={40} />
-            </TouchableOpacity>
-            <Text style={styles.headerWordmark}>Clinicalfact</Text>
-            <TouchableOpacity
-              style={[styles.headerStatusBadge2, hasAccess ? styles.headerProBadge : styles.headerFreeBadge]}
-              onPress={() => { if (!hasAccess) showInAppPaywall(); }}
-              activeOpacity={hasAccess ? 1 : 0.85}
-              disabled={hasAccess}
-            >
-              <Text style={[styles.headerStatusBadgeText, hasAccess ? styles.headerProBadgeText : styles.headerFreeBadgeText]}>
-                {hasAccess ? 'Pro' : 'Free'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.headerRightGroup}>
-            <TouchableOpacity
-              style={[styles.headerIconButton, isPinned && styles.headerIconButtonActive]}
-              onPress={handleTogglePin}
-              activeOpacity={0.7}
-              disabled={!sessionId || isPinning}
-            >
-              <Icon name="bookmarks" size={24} color={isPinned ? theme.colors.white : theme.colors.grey[900]} />
-            </TouchableOpacity>
-            {/* Commented out (not deleted) — the "•••" menu (rename chat + advanced filters)
-                this used to open. Rename is still reachable by tapping the chat title itself
-                (see headerTitleRow below); advanced filters now opens directly from the icon
-                underneath instead of via this menu. Kept in case the menu is needed again.
-            <TouchableOpacity
-              style={styles.headerIconButton}
-              onPress={() => setIsOptionsMenuVisible(true)}
-              activeOpacity={0.7}
-            >
-              <Icon name="options" size={24} color={theme.colors.grey[900]} />
-            </TouchableOpacity>
-            */}
-            {(isMedical || liveSearchEnabled) && (
-              <TouchableOpacity
-                style={styles.headerIconButton}
-                onPress={() => setIsFilterModalVisible(true)}
-                activeOpacity={0.7}
-              >
-                <FilterIcon size={24} color={theme.colors.grey[900]} />
-              </TouchableOpacity>
-            )}
-          </View>
-        </View>
-
-        {sessionId && (
-          <TouchableOpacity
-            style={styles.headerTitleRow}
-            onPress={handleOpenRename}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.headerTitle} numberOfLines={1}>
-              {chatTitle}
-            </Text>
-            {embeddingStatus === 'completed' && (
-              <View style={styles.headerStatusBadge}>
-                <View style={styles.statusDot} />
-                <Text style={styles.headerSubtitle}>Ready · tap to rename</Text>
-              </View>
-            )}
-            {embeddingStatus === 'processing' && (
-              <View style={styles.headerStatusBadge}>
-                <ActivityIndicator size="small" color="#F59E0B" style={{ marginRight: 4 }} />
-                <Text style={[styles.headerSubtitle, { color: '#F59E0B' }]}>Processing {embeddingProgress}%</Text>
-              </View>
-            )}
-          </TouchableOpacity>
-        )}
-      </View>
+      <ChatHeader
+        hasAccess={hasAccess}
+        isPinned={isPinned}
+        isPinning={isPinning}
+        sessionId={sessionId}
+        chatTitle={chatTitle}
+        embeddingStatus={embeddingStatus}
+        embeddingProgress={embeddingProgress}
+        currentLanguageFlag={currentLanguage.flag}
+        currentLanguageCode={currentLanguage.code}
+        onOpenChatList={() => navigation.navigate('ChatList')}
+        onUpgrade={() => showInAppPaywall()}
+        onTogglePin={handleTogglePin}
+        onOpenRename={handleOpenRename}
+        onOpenLanguageModal={() => setLanguageModalVisible(true)}
+      />
 
       {attachedSources.length > 0 && (
         <ScrollView
@@ -1420,11 +1194,17 @@ export const ChatConversationScreen = () => {
             messages.length === 0 && styles.emptyMessagesList,
           ]}
           showsVerticalScrollIndicator={false}
-          // Not inverted, so the list otherwise mounts scrolled to the top (oldest message) —
-          // both on reopening a chat with history already loaded and as new messages stream in.
-          // Re-running scrollToEnd whenever content height changes covers both cases.
-          onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
-          onLayout={() => flatListRef.current?.scrollToEnd({ animated: false })}
+          // Deliberately no onContentSizeChange/onLayout auto-scroll-to-bottom here — the chat
+          // anchors on the query (see scrollToMessageTop, called from handleSendMessage/
+          // initializeChat/regenerate/retry) and stays put as the response streams in below it,
+          // rather than auto-following new content to the bottom.
+          onScrollToIndexFailed={(info) => {
+            // Target row isn't measured yet (outside the currently-rendered window) — let more
+            // of the list render, then retry once.
+            setTimeout(() => {
+              flatListRef.current?.scrollToIndex({ index: info.index, viewPosition: 0, viewOffset: 8, animated: true });
+            }, 100);
+          }}
           // Called immediately (an element), not passed as a bare function reference — FlatList
           // treats ListEmptyComponent-as-function as a component *type*, and renderEmptyChat is
           // redefined every render (every keystroke, since the composer is a controlled input),
@@ -1432,108 +1212,35 @@ export const ChatConversationScreen = () => {
           // including ChatWelcomeHero's mount-triggered entrance animation, which is what was
           // visibly "reloading".
           ListEmptyComponent={renderEmptyChat()}
-          ListFooterComponent={isSendingMessage ? <TypingIndicator /> : null}
+          ListFooterComponent={
+            <>
+              {sessionId && <ChatGeneratedContentSection chatSessionId={sessionId} />}
+              {showTypingIndicator && <TypingIndicator />}
+            </>
+          }
         />
 
         {/* Input area */}
-        {isLocked ? (
-        // The Locked State UI
-        <Pressable 
-          onPress={() => showInAppPaywall()}
-          style={{
-            marginHorizontal: 16,
-            marginBottom: insets.bottom > 0 ? insets.bottom : 16,
-            padding: 16,
-            backgroundColor: '#1A1A1A', // Dark premium background
-            borderRadius: 12,
-            borderWidth: 1,
-            borderColor: '#FFD700', // Gold border for Pro
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text style={{ color: '#FFD700', fontSize: 16, fontWeight: 'bold' }}>
-           Upgrade to Pro to continue chatting
-          </Text>
-        </Pressable>
-      ) :
-        <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, spacing[4]) }]}>
-          {/* Main input card — text field on top, attach (+) and send on a row below.
-              The "+" is always available: with no chat open yet, it starts a new one; inside
-              an open chat, it attaches to that chat instead. */}
-          <View style={[styles.inputRow, isInputFocused && styles.inputRowFocused]}>
-            {pendingAttachment && (
-              <View style={styles.pendingAttachmentThumb}>
-                {pendingAttachment.kind === 'image' ? (
-                  <Image source={{ uri: pendingAttachment.uri }} style={styles.pendingAttachmentImage} />
-                ) : (
-                  <View style={styles.pendingAttachmentFileIcon}>
-                    <Icon name="files" size={28} color={theme.colors.yale[900]} />
-                  </View>
-                )}
-                {pendingAttachment.isUploading && (
-                  <View style={styles.pendingAttachmentUploadingOverlay}>
-                    <ActivityIndicator size="small" color="#FFFFFF" />
-                  </View>
-                )}
-                <TouchableOpacity
-                  style={styles.pendingAttachmentClose}
-                  onPress={handleRemovePendingAttachment}
-                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                >
-                  <Icon name="close" size={14} color={theme.colors.grey[900]} />
-                </TouchableOpacity>
-              </View>
-            )}
-            <TextInput
-              style={styles.textInput}
-              placeholder={
-                !sessionId
-                  ? 'Ask a medical question to get more clarifications'
-                  : embeddingStatus === 'completed'
-                  ? 'Ask anything about this document...'
-                  : type === 'image' ? 'Extracting text...' :
-                    type === 'document' ? 'Processing PDF...' :
-                    'Processing...'
-              }
-              placeholderTextColor={theme.colors.grey[300]}
-              value={message}
-              onChangeText={setMessage}
-              multiline
-              maxLength={1000}
-              editable={(!sessionId || embeddingStatus === 'completed') && !isSendingMessage}
-              onFocus={() => setIsInputFocused(true)}
-              onBlur={() => setIsInputFocused(false)}
-            />
-            <View style={styles.inputActionsRow}>
-              <TouchableOpacity
-                style={styles.attachButton}
-                onPress={() => setIsAttachMenuVisible(true)}
-                activeOpacity={0.7}
-              >
-                <Icon name="add" size={20} color={theme.colors.grey[900]} />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[
-                  styles.sendButton,
-                  (!message.trim() || (!!sessionId && embeddingStatus !== 'completed') || isSendingMessage || pendingAttachment?.isUploading) && styles.sendButtonDisabled,
-                ]}
-                onPress={() => withAccess(handleSendMessage)}
-                disabled={!message.trim() || (!!sessionId && embeddingStatus !== 'completed') || isSendingMessage || pendingAttachment?.isUploading}
-              >
-                {isSendingMessage ? (
-                  <ActivityIndicator size="small" color="#FFFFFF" />
-                ) : (
-                  <SendMessageIcon size={20} color="#FFFFFF" />
-                )}
-              </TouchableOpacity>
-            </View>
-          </View>
-          {message.length > 800 && (
-            <Text style={styles.characterCount}>{message.length}/1000</Text>
-          )}
-        </View>
-  }
+        <ChatComposer
+          isLocked={isLocked}
+          onUpgrade={() => showInAppPaywall()}
+          queriesRemaining={queriesRemaining}
+          insetsBottom={insets.bottom}
+          pendingAttachment={pendingAttachment}
+          onRemovePendingAttachment={handleRemovePendingAttachment}
+          message={message}
+          onChangeMessage={setMessage}
+          sessionId={sessionId}
+          embeddingStatus={embeddingStatus}
+          type={type}
+          isSendingMessage={isSendingMessage}
+          isInputFocused={isInputFocused}
+          onFocus={() => setIsInputFocused(true)}
+          onBlur={() => setIsInputFocused(false)}
+          onOpenAttachMenu={() => setIsAttachMenuVisible(true)}
+          onSend={() => withAccess(handleSendMessage)}
+          onStopGenerating={handleStopGenerating}
+        />
       </KeyboardAvoidingView>
 
       <Toast
@@ -1542,19 +1249,15 @@ export const ChatConversationScreen = () => {
         onHide={() => setToastMessage(null)}
       />
 
-<CustomAlertModal
-        visible={alertConfig.visible}
-        title={alertConfig.title}
-        message={alertConfig.message}
-        buttonText={alertConfig.buttonText}
-        onClose={closeAlert}
-        onButtonPress={alertConfig.onButtonPress}
-      />
+      <AlertDialog alertConfig={alertConfig} onClose={closeAlert} />
 
       {(isMedical || liveSearchEnabled) && (
         <MedicalFilterModal
           visible={isFilterModalVisible}
-          onClose={() => setIsFilterModalVisible(false)}
+          opacity={filterModalOpacity}
+          translateY={filterModalTranslateY}
+          onClose={handleCloseFilterModal}
+          onBack={handleBackFromFilterModal}
           filters={medicalFilters}
           onApply={setMedicalFilters}
         />
@@ -1575,322 +1278,58 @@ export const ChatConversationScreen = () => {
         noteTitle={chatTitle}
       />
 
-      {/* "Add to chat" sheet — the redesigned "+" menu. Card grid for attaching a new
-          source, optional source-search toggles (medical chats only), and whole-chat
-          quiz/flashcard generation once there's actually a conversation to draw from. */}
-      <Modal
+      <LanguageSupportModal
+        visible={languageModalVisible}
+        onClose={() => setLanguageModalVisible(false)}
+        onSelectLanguage={handleLanguageSelect}
+        selectedLanguage={user?.preferredLanguage || 'en'}
+      />
+
+      <ChatAttachSheet
         visible={isAttachMenuVisible}
-        transparent
-        animationType="none"
-        onRequestClose={() => closeAttachMenu()}
-      >
-        <Animated.View style={[styles.attachSheetOverlay, { opacity: attachMenuOpacity }]}>
-          <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={1} onPress={() => closeAttachMenu()} />
-          <Animated.View
-            style={[
-              styles.attachSheet,
-              { transform: [{ translateY: attachMenuTranslateY }], paddingBottom: insets.bottom + spacing[4] },
-            ]}
-          >
-            <View style={styles.attachSheetHandle} />
-            <View style={styles.attachSheetHeader}>
-              <TouchableOpacity onPress={() => closeAttachMenu()} style={styles.attachSheetCloseButton} activeOpacity={0.7}>
-                <Icon name="close" size={20} color={theme.colors.grey[900]} />
-              </TouchableOpacity>
-              <Text style={styles.attachSheetTitle}>Add to chat</Text>
-              <View style={styles.attachSheetCloseButton} />
-            </View>
-
-            <View style={styles.attachCardGrid}>
-              <TouchableOpacity style={styles.attachCard} onPress={handleCameraCapture} activeOpacity={0.7}>
-                <View style={styles.attachCardIcon}>
-                  <Icon name="camera" size={24} color={theme.colors.yale[900]} />
-                </View>
-                <Text style={styles.attachCardText}>Camera</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.attachCard} onPress={handlePhotoLibraryOption} activeOpacity={0.7}>
-                <View style={styles.attachCardIcon}>
-                  <Icon name="imageFill" size={24} color={theme.colors.yale[900]} />
-                </View>
-                <Text style={styles.attachCardText}>Photos</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.attachCard} onPress={handleUploadFileOption} activeOpacity={0.7}>
-                <View style={styles.attachCardIcon}>
-                  <Icon name="files" size={24} color={theme.colors.yale[900]} />
-                </View>
-                <Text style={styles.attachCardText}>Files</Text>
-              </TouchableOpacity>
-            </View>
-
-            {messages.length > 0 && (
-              <View style={styles.attachActionList}>
-                <TouchableOpacity
-                  style={styles.attachActionRow}
-                  onPress={() => { closeAttachMenu(); handleGenerateQuizFromChat(); }}
-                  activeOpacity={0.7}
-                  disabled={!!generatingActionId}
-                >
-                  <Icon name="quizFill" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.attachActionText}>Generate Quiz</Text>
-                  <Icon name="foward" size={16} color={theme.colors.grey[200]} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.attachActionRow}
-                  onPress={() => { closeAttachMenu(); handleGenerateFlashcardsFromChat(); }}
-                  activeOpacity={0.7}
-                  disabled={!!generatingActionId}
-                >
-                  <Icon name="flashcardsFill" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.attachActionText}>Generate Flashcards</Text>
-                  <Icon name="foward" size={16} color={theme.colors.grey[200]} />
-                </TouchableOpacity>
-              </View>
-            )}
-
-            <View style={styles.sourceToggleSection}>
-              <Text style={styles.attachSheetSectionLabel}>Medical source database</Text>
-              <View style={styles.sourceToggleGroup}>
-                <View style={styles.sourceToggleRow}>
-                  <View style={styles.sourceToggleLeft}>
-                    <Icon name="knowledge" size={20} color={theme.colors.yale[700]} />
-                    <Text style={styles.sourceToggleLabel}>Live medical search</Text>
-                  </View>
-                  <DSSwitch value={liveSearchEnabled} onValueChange={toggleLiveSearch} />
-                </View>
-                {/* Per-provider filters only matter once live search is actually on — for a
-                    medical_qa session it's always on, for any other chat type it depends on
-                    the switch above. Each toggle here gates a real, independent API (Semantic
-                    Scholar Graph API / NCBI PubMed E-utilities), added alongside Europe PMC
-                    (which always runs regardless) and merged+deduped into one citation list —
-                    see chatService.chatMedicalLive. */}
-                {(isMedical || liveSearchEnabled) && (
-                  <>
-                    <View style={styles.sourceToggleDivider} />
-                    <View style={styles.sourceToggleRow}>
-                      <View style={styles.sourceToggleLeft}>
-                        <Icon name="knowledge" size={20} color={theme.colors.yale[700]} />
-                        <Text style={styles.sourceToggleLabel}>Semantic scholar</Text>
-                      </View>
-                      <DSSwitch value={semanticScholarEnabled} onValueChange={() => toggleLiteratureSource('semanticScholar')} />
-                    </View>
-                    <View style={styles.sourceToggleDivider} />
-                    <View style={styles.sourceToggleRow}>
-                      <View style={styles.sourceToggleLeft}>
-                        <Icon name="knowledge" size={20} color={theme.colors.yale[700]} />
-                        <Text style={styles.sourceToggleLabel}>PUB med resource</Text>
-                      </View>
-                      <DSSwitch value={pubmedEnabled} onValueChange={() => toggleLiteratureSource('pubmed')} />
-                    </View>
-                    <View style={styles.sourceToggleDivider} />
-                    <View style={styles.sourceToggleRow}>
-                      <View style={styles.sourceToggleLeft}>
-                        <Icon name="knowledge" size={20} color={theme.colors.yale[700]} />
-                        <Text style={styles.sourceToggleLabel}>FDA medical database (always on)</Text>
-                      </View>
-                      {/* Always on, not user-togglable — the actual FDA drug label lookup
-                          (openFdaService) runs unconditionally whenever live search is on, so
-                          this switch reflects that truthfully rather than implying it can be
-                          turned off. No `disabled` prop: that style washes the track to a
-                          neutral white regardless of value, which would visually read as "off"
-                          — a no-op onValueChange keeps the true "on" (yale-700) look. */}
-                      <DSSwitch value={true} onValueChange={() => {}} />
-                    </View>
-                  </>
-                )}
-              </View>
-            </View>
-          </Animated.View>
-        </Animated.View>
-      </Modal>
-
-      {/* "•••" options menu — commented out (not deleted), replaced by direct header icons
-          (advanced filters opens straight from its own icon now; rename is still reachable by
-          tapping the chat title). Disabled via a false-guard rather than a JSX comment block,
-          since this content contains characters that would prematurely close a wrapping one.
-          Kept in case needed again; also needs isOptionsMenuVisible/setIsOptionsMenuVisible
-          (see declaration above) restored if reinstated. */}
-      {false && (
-      <Modal
-        visible={false}
-        transparent
-        animationType="fade"
-        onRequestClose={() => {}}
-      >
-        <TouchableOpacity
-          style={styles.optionsMenuOverlay}
-          activeOpacity={1}
-          onPress={() => {}}
-        >
-          <View style={styles.optionsMenu}>
-            <TouchableOpacity
-              style={styles.attachMenuItem}
-              onPress={() => { handleOpenRename(); }}
-              activeOpacity={0.7}
-              disabled={!sessionId}
-            >
-              <Text style={styles.attachMenuIconText}>✏️</Text>
-              <Text style={styles.attachMenuText}>Rename chat</Text>
-            </TouchableOpacity>
-            {(isMedical || liveSearchEnabled) && (
-              <TouchableOpacity
-                style={styles.attachMenuItem}
-                onPress={() => { setIsFilterModalVisible(true); }}
-                activeOpacity={0.7}
-              >
-                <FilterIcon size={20} color={colors.text.primary} />
-                <Text style={styles.attachMenuText}>Advanced filters</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        </TouchableOpacity>
-      </Modal>
-      )}
-
-      {/* "Check citations" sheet — opened by tapping a citation pill or the
-          "Thinking..." disclosure row on an assistant message. */}
-      <Modal
-        visible={!!citationsSheetSources}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setCitationsSheetSources(null)}
-      >
-        <TouchableOpacity
-          style={styles.attachSheetOverlay}
-          activeOpacity={1}
-          onPress={() => setCitationsSheetSources(null)}
-        >
-          <TouchableOpacity activeOpacity={1} style={styles.attachSheet}>
-            <View style={styles.attachSheetHandle} />
-            <View style={styles.attachSheetHeader}>
-              <TouchableOpacity onPress={() => setCitationsSheetSources(null)} style={styles.attachSheetCloseButton} activeOpacity={0.7}>
-                <Icon name="close" size={20} color={theme.colors.grey[900]} />
-              </TouchableOpacity>
-              <Text style={styles.attachSheetTitle}>Check citations</Text>
-              <View style={styles.attachSheetCloseButton} />
-            </View>
-            <ScrollView style={styles.citationsList} showsVerticalScrollIndicator={false}>
-              {citationsSheetSources?.map((source) => (
-                <TouchableOpacity
-                  key={source.index}
-                  style={styles.citationCard}
-                  onPress={() => source.doi && Linking.openURL(source.doi)}
-                  activeOpacity={source.doi ? 0.7 : 1}
-                >
-                  <View style={styles.citationCardText}>
-                    <Text style={styles.citationCardMeta} numberOfLines={1}>
-                      {formatSourceMeta(source)}
-                    </Text>
-                    <Text style={styles.citationCardTitle} numberOfLines={2}>{source.title}</Text>
-                  </View>
-                  <Icon name="foward" size={16} color={theme.colors.grey[300]} />
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </TouchableOpacity>
-        </TouchableOpacity>
-      </Modal>
-
-      {/* Sidebar disabled — logo in the header now navigates to the chat list instead.
-      <ChatSidebar
-        visible={isSidebarVisible}
-        onClose={() => setIsSidebarVisible(false)}
-        activeSessionId={sessionId ?? undefined}
-        onSelectSession={handleSelectSession}
-        onStartNew={handleStartNewFromSidebar}
-        onStartMedical={handleStartMedicalFromSidebar}
-        refreshKey={sidebarRefreshKey}
-        onSessionDeleted={(deletedId) => {
-          if (deletedId === sessionId) {
-            setIsSidebarVisible(false);
-            navigation.replace('ChatConversation');
-          }
+        opacity={attachMenuOpacity}
+        translateY={attachMenuTranslateY}
+        insetsBottom={insets.bottom}
+        onClose={() => closeAttachMenu()}
+        onCameraCapture={handleCameraCapture}
+        onPhotoLibrary={handlePhotoLibraryOption}
+        onUploadFile={handleUploadFileOption}
+        hasMessages={messages.length > 0}
+        generatingActionId={generatingActionId}
+        onGenerateQuiz={() => { closeAttachMenu(); handleGenerateQuizFromChat(); }}
+        onGenerateFlashcards={() => { closeAttachMenu(); handleGenerateFlashcardsFromChat(); }}
+        liveSearchEnabled={liveSearchEnabled}
+        onToggleLiveSearch={toggleLiveSearch}
+        isMedical={isMedical}
+        semanticScholarEnabled={semanticScholarEnabled}
+        pubmedEnabled={pubmedEnabled}
+        onToggleLiteratureSource={toggleLiteratureSource}
+        onOpenFilters={async () => {
+          // Same Modal-stacking race noted above (pickAndStageImage) — presenting the filter
+          // modal before the attach sheet's own Modal has fully torn down can make it silently
+          // fail to appear, especially on iOS.
+          await waitForAttachSheetToFullyClose();
+          setIsFilterModalVisible(true);
         }}
       />
-      */}
 
-      {/* Full-screen image preview */}
-      <Modal
-        visible={!!previewImage}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setPreviewImage(null)}
-      >
-        <View style={styles.imagePreviewOverlay}>
-          <TouchableOpacity
-            style={styles.imagePreviewCloseButton}
-            onPress={() => setPreviewImage(null)}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.imagePreviewCloseText}>✕</Text>
-          </TouchableOpacity>
-          {!!previewImage && (
-            <TouchableOpacity
-              style={styles.imagePreviewBackdrop}
-              activeOpacity={1}
-              onPress={() => setPreviewImage(null)}
-            >
-              <Image
-                source={{ uri: previewImage.url }}
-                style={styles.imagePreviewFull}
-                resizeMode="contain"
-              />
-              {!!previewImage.attribution && (
-                <Text style={styles.imagePreviewAttribution}>
-                  {previewImage.attribution}
-                  {previewImage.license ? ` · ${previewImage.license}` : ''}
-                </Text>
-              )}
-              {!!previewImage.contextUrl && (
-                <TouchableOpacity onPress={() => Linking.openURL(previewImage.contextUrl)} activeOpacity={0.7}>
-                  <Text style={styles.imagePreviewSourceLink}>View source ↗</Text>
-                </TouchableOpacity>
-              )}
-            </TouchableOpacity>
-          )}
-        </View>
-      </Modal>
+      <ChatCitationsSheet
+        sources={citationsSheetSources}
+        onClose={() => setCitationsSheetSources(null)}
+      />
 
-      {/* Rename Modal */}
-      <Modal
+      <ChatImagePreviewModal
+        image={previewImage}
+        onClose={() => setPreviewImage(null)}
+      />
+
+      <ChatRenameModal
         visible={isRenameModalVisible}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setIsRenameModalVisible(false)}
-      >
-        <TouchableOpacity
-          style={styles.modalOverlay}
-          activeOpacity={1}
-          onPress={() => setIsRenameModalVisible(false)}
-        >
-          <TouchableOpacity style={styles.renameModal} activeOpacity={1}>
-            <Text style={styles.renameTitle}>Rename Chat</Text>
-            <TextInput
-              style={styles.renameInput}
-              value={renameValue}
-              onChangeText={setRenameValue}
-              autoFocus
-              selectTextOnFocus
-              maxLength={100}
-              returnKeyType="done"
-              onSubmitEditing={handleSaveRename}
-            />
-            <View style={styles.renameButtons}>
-              <TouchableOpacity
-                style={styles.renameCancelButton}
-                onPress={() => setIsRenameModalVisible(false)}
-              >
-                <Text style={styles.renameCancelText}>Cancel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.renameSaveButton}
-                onPress={handleSaveRename}
-              >
-                <Text style={styles.renameSaveText}>Save</Text>
-              </TouchableOpacity>
-            </View>
-          </TouchableOpacity>
-        </TouchableOpacity>
-      </Modal>
+        value={renameValue}
+        onChangeValue={setRenameValue}
+        onClose={() => setIsRenameModalVisible(false)}
+        onSave={handleSaveRename}
+      />
     </SafeAreaView>
   );
 };
@@ -1899,85 +1338,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.linen[300],
-  },
-  header: {
-    backgroundColor: theme.colors.linen[300],
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[3],
-  },
-  headerTopRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  headerLeftGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing[2],
-  },
-  headerWordmark: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  headerStatusBadge2: {
-    paddingHorizontal: theme.spacing[2], // 8
-    paddingVertical: 6,
-    borderRadius: theme.borderRadius.full,
-  },
-  headerProBadge: {
-    backgroundColor: theme.colors.green[100],
-  },
-  headerFreeBadge: {
-    backgroundColor: theme.colors.grey[100],
-  },
-  headerStatusBadgeText: {
-    ...theme.typography.textStyles.label1,
-  },
-  headerProBadgeText: {
-    color: theme.colors.green[700],
-  },
-  headerFreeBadgeText: {
-    color: theme.colors.grey[600],
-  },
-  headerRightGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[4], // 16
-  },
-  headerIconButton: {
-    width: 32,
-    height: 32,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.white,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerIconButtonActive: {
-    backgroundColor: theme.colors.grey[900],
-  },
-  headerTitleRow: {
-    marginTop: spacing[2],
-  },
-  headerTitle: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-  },
-  headerStatusBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 2,
-  },
-  statusDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: '#10B981',
-    marginRight: 4,
-  },
-  headerSubtitle: {
-    fontSize: typography.fontSize.xs,
-    color: '#10B981',
   },
   attachedChipsRow: {
     maxHeight: 44,
@@ -2000,19 +1360,6 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.xs,
     color: colors.text.secondary,
   },
-  inputActionsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  attachButton: {
-    width: 36,
-    height: 36,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.linen[300],
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   keyboardView: {
     flex: 1,
   },
@@ -2023,732 +1370,5 @@ const styles = StyleSheet.create({
   emptyMessagesList: {
     flexGrow: 1,
     justifyContent: 'center',
-  },
-  emptyChat: {
-    paddingTop: spacing[4],
-    alignItems: 'center',
-  },
-  emptyText: {
-    marginTop: spacing[4],
-    fontSize: typography.fontSize.base,
-    color: colors.text.secondary,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing[4], // 16
-    width: '100%',
-  },
-  welcomeLogoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[2], // 8
-    marginBottom: theme.spacing[6], // 24
-  },
-  welcomeWordmark: {
-    ...theme.typography.textStyles.h6,
-    color: theme.colors.yale[700],
-  },
-  welcomeTagline: {
-    ...theme.typography.textStyles.h7,
-    fontFamily: theme.typography.fontFamily.lora,
-    fontWeight: theme.typography.fontWeight.medium,
-    color: theme.colors.yale[900],
-    textAlign: 'center',
-    marginBottom: theme.spacing[2], // 8
-  },
-  welcomeSubtitle: {
-    ...theme.typography.textStyles.caption1,
-    color: theme.colors.grey[600],
-    textAlign: 'center',
-    marginBottom: theme.spacing[6], // 24
-  },
-  welcomeTopicsLabel: {
-    ...theme.typography.textStyles.subtitle2,
-    color: theme.colors.yale[900],
-    textAlign: 'center',
-    marginBottom: theme.spacing[2], // 8
-  },
-  welcomeTopicsList: {
-    width: '100%',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing[3], // 12
-  },
-  welcomeTopicCard: {
-    width: '48%',
-    backgroundColor: theme.colors.white,
-    borderWidth: 1,
-    borderColor: theme.colors.grey[100],
-    borderRadius: theme.borderRadius.lg, // 16
-    padding: theme.spacing[4], // 16
-    gap: theme.spacing[4], // 16
-  },
-  welcomeTopicTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  welcomeTopicIcon: {
-    width: 32,
-    height: 32,
-    borderRadius: theme.borderRadius.sm, // 8
-    backgroundColor: theme.colors.linen[300],
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  welcomeTopicEmoji: {
-    fontSize: 16,
-  },
-  welcomeTopicText: {
-    ...theme.typography.textStyles.subtitle2,
-    color: theme.colors.grey[900],
-  },
-  typingBubble: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background.secondary,
-    borderRadius: 20,
-    borderBottomLeftRadius: 4,
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[3],
-    alignSelf: 'flex-start',
-    marginVertical: spacing[2],
-    minWidth: 64,
-  },
-  errorContainer: {
-    backgroundColor: '#FEF2F2',
-    borderRadius: 16,
-    padding: spacing[5],
-    borderWidth: 1,
-    borderColor: '#FEE2E2',
-    alignItems: 'center',
-  },
-  errorIcon: {
-    fontSize: 48,
-    marginBottom: spacing[2],
-  },
-  errorText: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.semibold,
-    color: '#DC2626',
-    marginBottom: spacing[2],
-  },
-  errorSubtext: {
-    fontSize: typography.fontSize.sm,
-    color: '#991B1B',
-    textAlign: 'center',
-    marginBottom: spacing[3],
-    lineHeight: 20,
-  },
-  errorReasons: {
-    alignSelf: 'stretch',
-    marginBottom: spacing[4],
-  },
-  errorReason: {
-    fontSize: typography.fontSize.sm,
-    color: '#7F1D1D',
-    marginBottom: spacing[1],
-    lineHeight: 20,
-  },
-  errorButton: {
-    backgroundColor: '#DC2626',
-    paddingHorizontal: spacing[5],
-    paddingVertical: spacing[3],
-    borderRadius: 12,
-  },
-  errorButtonText: {
-    color: '#FFFFFF',
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
-  },
-  attachedDocument: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#DBEAFE',
-    borderRadius: 8,
-    padding: spacing[3],
-    borderWidth: 1,
-    borderColor: '#BFDBFE',
-    width: '100%',
-    maxWidth: 280,
-  },
-  attachedDocumentIcon: {
-    marginRight: spacing[2],
-  },
-  attachedDocumentInfo: {
-    flex: 1,
-  },
-  attachedDocumentTitle: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.medium,
-    color: '#1E40AF',
-    marginBottom: 0,
-  },
-  progressContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing[2],
-  },
-  progressBar: {
-    flex: 1,
-    height: 6,
-    backgroundColor: colors.neutral[200],
-    borderRadius: 3,
-    overflow: 'hidden',
-    marginRight: spacing[2],
-  },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#F59E0B',
-    borderRadius: 3,
-  },
-  progressText: {
-    fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
-    width: 35,
-  },
-  embeddingStatusText: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.tertiary,
-  },
-  readyBadge: {
-    backgroundColor: '#D1FAE5',
-    paddingHorizontal: spacing[2],
-    paddingVertical: 4,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-    marginTop: spacing[1],
-  },
-  readyBadgeText: {
-    fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.semibold,
-    color: '#059669',
-  },
-  hintContainer: {
-    backgroundColor: '#F9FAFB',
-    borderRadius: 8,
-    padding: spacing[3],
-    marginTop: spacing[4],
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-  },
-  hintText: {
-    fontSize: typography.fontSize.sm,
-    color: '#6B7280',
-    lineHeight: 20,
-  },
-  processingInfo: {
-    backgroundColor: '#F9FAFB',
-    borderRadius: 8,
-    padding: spacing[3],
-    marginTop: spacing[4],
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-  },
-  processingInfoText: {
-    fontSize: typography.fontSize.sm,
-    color: '#6B7280',
-    lineHeight: 20,
-    textAlign: 'center',
-  },
-  messageContainer: {
-    marginVertical: spacing[2],
-  },
-  userMessageContainer: {
-    alignItems: 'flex-end',
-  },
-  userMessageColumn: {
-    alignItems: 'flex-end',
-    gap: theme.spacing[2],
-  },
-  sentAttachmentThumb: {
-    width: 64,
-    height: 64,
-    borderRadius: theme.borderRadius.lg,
-    backgroundColor: theme.colors.linen[100],
-  },
-  userMessage: {
-    backgroundColor: theme.colors.white,
-    borderWidth: 1,
-    borderColor: theme.colors.grey[100],
-    borderTopLeftRadius: theme.borderRadius.lg, // 16
-    borderTopRightRadius: theme.borderRadius.lg,
-    borderBottomLeftRadius: theme.borderRadius.lg,
-    borderBottomRightRadius: 4,
-    paddingHorizontal: theme.spacing[3], // 12
-    paddingVertical: theme.spacing[3], // 12
-    maxWidth: '80%',
-  },
-  userMessageText: {
-    ...theme.typography.textStyles.p2,
-    color: theme.colors.grey[900],
-  },
-  assistantMessage: {
-    maxWidth: '100%',
-  },
-  thinkingRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[2], // 8
-    marginBottom: theme.spacing[4], // 16
-  },
-  thinkingText: {
-    flex: 1,
-    ...theme.typography.textStyles.p2,
-    color: theme.colors.grey[400],
-  },
-  imagesRow: {
-    marginTop: theme.spacing[4], // 16
-  },
-  imagesRowContent: {
-    gap: theme.spacing[4], // 16
-  },
-  citationImage: {
-    width: 170,
-    height: 150,
-    borderRadius: theme.borderRadius.lg, // 16
-    backgroundColor: theme.colors.grey[50],
-  },
-  imageAttribution: {
-    fontSize: 10,
-    color: colors.text.tertiary,
-    marginTop: spacing[1],
-    maxWidth: 120,
-  },
-  imagePreviewOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.92)',
-  },
-  imagePreviewCloseButton: {
-    position: 'absolute',
-    top: 56,
-    right: spacing[4],
-    zIndex: 1,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255,255,255,0.15)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imagePreviewCloseText: {
-    fontSize: 18,
-    color: '#FFFFFF',
-  },
-  imagePreviewBackdrop: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing[4],
-  },
-  imagePreviewFull: {
-    width: '100%',
-    height: '70%',
-  },
-  imagePreviewAttribution: {
-    fontSize: typography.fontSize.sm,
-    color: 'rgba(255,255,255,0.8)',
-    marginTop: spacing[4],
-    textAlign: 'center',
-  },
-  imagePreviewSourceLink: {
-    fontSize: typography.fontSize.sm,
-    color: '#FFFFFF',
-    fontWeight: typography.fontWeight.semibold,
-    marginTop: spacing[2],
-    textDecorationLine: 'underline',
-  },
-  citationPillsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing[2], // 8
-    marginTop: theme.spacing[4], // 16
-  },
-  citationPill: {
-    backgroundColor: theme.colors.white,
-    borderWidth: 1,
-    borderColor: theme.colors.grey[50],
-    borderRadius: theme.borderRadius.full,
-    paddingHorizontal: theme.spacing[2], // 8
-    paddingVertical: theme.spacing[2], // 8
-  },
-  citationPillText: {
-    fontFamily: theme.typography.fontFamily.interRegular,
-    fontWeight: '400',
-    fontSize: 10,
-    lineHeight: 12,
-    color: theme.colors.grey[900],
-  },
-  sourceLinkArrow: {
-    fontSize: 16,
-    color: colors.text.tertiary,
-    marginTop: 2,
-  },
-  citationsList: {
-    width: '100%',
-    maxHeight: 420,
-  },
-  citationCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[3], // 12
-    backgroundColor: theme.colors.linen[100],
-    borderRadius: theme.borderRadius.md, // 12
-    padding: theme.spacing[4], // 16
-    marginBottom: theme.spacing[3], // 12
-  },
-  citationCardText: {
-    flex: 1,
-    gap: theme.spacing[1.5],
-  },
-  citationCardMeta: {
-    ...theme.typography.textStyles.caption1,
-    color: theme.colors.grey[600],
-  },
-  citationCardTitle: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  groundingContainer: {
-    marginTop: spacing[3],
-    paddingLeft: spacing[2],
-    paddingTop: spacing[3],
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-    gap: spacing[2],
-  },
-  groundingHeader: {
-    fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.tertiary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: spacing[1],
-  },
-  groundingCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing[3],
-    backgroundColor: colors.background.secondary,
-    borderRadius: 12,
-    paddingVertical: spacing[2],
-    paddingHorizontal: spacing[3],
-  },
-  groundingTitle: {
-    flex: 1,
-    fontSize: typography.fontSize.sm,
-    color: colors.text.primary,
-    lineHeight: 18,
-  },
-  messageActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[4], // 16
-    marginTop: theme.spacing[3], // 12
-  },
-  actionButton: {
-    padding: theme.spacing[1], // 4
-  },
-  inputContainer: {
-    backgroundColor: theme.colors.linen[300],
-    paddingHorizontal: spacing[4],
-    paddingTop: spacing[3],
-  },
-  inputRow: {
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    backgroundColor: theme.colors.white,
-    borderRadius: theme.borderRadius['2xl'], // 24
-    padding: theme.spacing[4], // 16
-    borderWidth: 1,
-    borderColor: theme.colors.grey[100],
-    gap: theme.spacing[3], // 12
-  },
-  inputRowFocused: {
-    borderColor: theme.colors.yale[700],
-  },
-  pendingAttachmentThumb: {
-    width: 80,
-    height: 80,
-    borderRadius: theme.borderRadius.lg,
-    backgroundColor: theme.colors.linen[100],
-    alignSelf: 'flex-start',
-    overflow: 'visible',
-  },
-  pendingAttachmentImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: theme.borderRadius.lg,
-  },
-  pendingAttachmentFileIcon: {
-    width: '100%',
-    height: '100%',
-    borderRadius: theme.borderRadius.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pendingAttachmentUploadingOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: theme.borderRadius.lg,
-    backgroundColor: 'rgba(28, 28, 28, 0.4)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pendingAttachmentClose: {
-    position: 'absolute',
-    top: -8,
-    right: -8,
-    width: 24,
-    height: 24,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.grey[50],
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textInput: {
-    ...theme.typography.textStyles.p1,
-    color: theme.colors.grey[900],
-    maxHeight: 100,
-    padding: 0,
-  },
-  characterCount: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.tertiary,
-    alignSelf: 'flex-end',
-    marginTop: spacing[1],
-  },
-  sendButton: {
-    backgroundColor: theme.colors.yale[700],
-    width: 36,
-    height: 36,
-    borderRadius: theme.borderRadius.full,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'flex-end',
-  },
-  sendButtonDisabled: {
-    backgroundColor: theme.colors.grey[200],
-  },
-  // Rename modal
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: spacing[6],
-  },
-  attachSheetOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    justifyContent: 'flex-end',
-  },
-  attachSheet: {
-    backgroundColor: theme.colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'], // 32
-    borderTopRightRadius: theme.borderRadius['3xl'],
-    paddingTop: theme.spacing[6], // 24
-    paddingHorizontal: spacing[5],
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 16,
-    elevation: 12,
-  },
-  attachSheetHandle: {
-    width: 60,
-    height: 8,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.grey[50],
-    alignSelf: 'center',
-    marginBottom: spacing[3],
-  },
-  attachSheetHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: theme.spacing[6], // 24
-  },
-  attachSheetTitle: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  attachSheetCloseButton: {
-    width: 32,
-    height: 32,
-    borderRadius: theme.borderRadius.full,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  attachCardGrid: {
-    flexDirection: 'row',
-    gap: theme.spacing[5], // 20
-  },
-  attachCard: {
-    flex: 1,
-    alignItems: 'center',
-    padding: theme.spacing[4], // 16
-    borderRadius: theme.borderRadius['2xl'], // 24
-    backgroundColor: theme.colors.linen[100],
-    gap: theme.spacing[1], // 4
-  },
-  attachCardIcon: {
-    width: 32,
-    height: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  attachCardText: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  attachSheetSectionLabel: {
-    ...theme.typography.textStyles.p2,
-    color: theme.colors.grey[400],
-    marginTop: theme.spacing[2], // 8
-    marginBottom: theme.spacing[2], // 8
-  },
-  attachActionList: {
-    width: '100%',
-    gap: theme.spacing[4], // 16
-    marginTop: theme.spacing[6], // 24
-  },
-  attachActionRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[3], // 12
-    backgroundColor: theme.colors.linen[100],
-    borderRadius: theme.borderRadius.lg, // 16
-    padding: theme.spacing[4], // 16
-  },
-  attachActionText: {
-    flex: 1,
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  sourceToggleSection: {
-    width: '100%',
-    gap: theme.spacing[2], // 8
-  },
-  sourceToggleGroup: {
-    backgroundColor: theme.colors.linen[100],
-    borderRadius: theme.borderRadius.lg, // 16
-    overflow: 'hidden',
-  },
-  sourceToggleDivider: {
-    height: 1,
-    backgroundColor: theme.colors.grey[50],
-  },
-  sourceToggleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: theme.spacing[4], // 16
-    paddingVertical: theme.spacing[3], // 12
-  },
-  sourceToggleLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[3], // 12
-  },
-  sourceToggleLabel: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-  },
-  attachMenuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing[3],
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[3],
-  },
-  attachMenuIconText: {
-    fontSize: 20,
-    width: 22,
-    textAlign: 'center',
-  },
-  attachMenuDivider: {
-    height: 1,
-    backgroundColor: colors.border.light,
-    marginVertical: spacing[1],
-  },
-  attachMenuText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.medium,
-    flex: 1,
-  },
-  optionsMenuOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.15)',
-    alignItems: 'flex-end',
-    paddingRight: spacing[4],
-    paddingTop: 90,
-  },
-  optionsMenu: {
-    backgroundColor: colors.background.primary,
-    borderRadius: 16,
-    width: 220,
-    paddingVertical: spacing[2],
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  renameModal: {
-    backgroundColor: colors.background.primary,
-    borderRadius: 16,
-    padding: spacing[5],
-    width: '100%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  renameTitle: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
-    marginBottom: spacing[4],
-  },
-  renameInput: {
-    backgroundColor: colors.background.secondary,
-    borderRadius: 10,
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[3],
-    fontSize: typography.fontSize.base,
-    color: colors.text.primary,
-    borderWidth: 1.5,
-    borderColor: colors.border.main,
-    marginBottom: spacing[4],
-  },
-  renameButtons: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: spacing[3],
-  },
-  renameCancelButton: {
-    paddingHorizontal: spacing[4],
-    paddingVertical: spacing[2],
-  },
-  renameCancelText: {
-    fontSize: typography.fontSize.base,
-    color: colors.text.secondary,
-    fontWeight: typography.fontWeight.medium,
-  },
-  renameSaveButton: {
-    backgroundColor: '#F97316',
-    paddingHorizontal: spacing[5],
-    paddingVertical: spacing[2],
-    borderRadius: 10,
-  },
-  renameSaveText: {
-    fontSize: typography.fontSize.base,
-    color: '#FFFFFF',
-    fontWeight: typography.fontWeight.semibold,
   },
 });

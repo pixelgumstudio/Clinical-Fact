@@ -7,8 +7,12 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
 } from "react-native";
-import { Icon, theme } from "@clinicalfact/design-system";
+import { Icon, theme, colors } from "@clinicalfact/design-system";
+import { CounterInput } from "./CounterInput";
 
 interface CreateFlashcardsModalProps {
   visible: boolean;
@@ -27,18 +31,6 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
 }) => {
   const [questionCount, setQuestionCount] = useState(3);
 
-  const handleDecreaseQuestions = () => {
-    if (questionCount > 1) {
-      setQuestionCount(questionCount - 1);
-    }
-  };
-
-  const handleIncreaseQuestions = () => {
-    if (questionCount < 50) {
-      setQuestionCount(questionCount + 1);
-    }
-  };
-
   const handleGenerate = () => {
     onGenerateFlashcards(questionCount);
   };
@@ -51,8 +43,11 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
       onRequestClose={isGenerating ? undefined : onClose}
     >
       <TouchableWithoutFeedback onPress={isGenerating ? undefined : onClose}>
-        <View style={styles.overlay}>
-          <TouchableWithoutFeedback>
+        <KeyboardAvoidingView style={styles.overlay} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+          {/* Tapping anywhere inside the sheet (but outside the counter input itself) just
+              dismisses the keyboard — closing the whole modal is reserved for the X button or
+              a tap genuinely outside the sheet (the outer TouchableWithoutFeedback above). */}
+          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={styles.modalContainer}>
               <View style={styles.dragHandle} />
 
@@ -71,7 +66,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
               <View style={styles.content}>
                 {/* Flashcards Icon */}
                 <View style={styles.iconCircle}>
-                  <Icon name="flashcardsFill" size={40} color="#FFFFFF" />
+                  <Icon name="flashcardsFill" size={40} color={colors.white} />
                 </View>
 
                 {/* Title */}
@@ -85,29 +80,13 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                 {/* Question Count Selector */}
                 <View style={styles.selectorContainer}>
                   <Text style={styles.selectorLabel}>How many questions</Text>
-                  <View style={styles.counterContainer}>
-                    <TouchableOpacity
-                      style={styles.counterButton}
-                      onPress={handleDecreaseQuestions}
-                      activeOpacity={0.7}
-                      disabled={isGenerating}
-                    >
-                      <Icon name="remove" size={24} color={theme.colors.grey[900]} />
-                    </TouchableOpacity>
-                    <View style={styles.counterValue}>
-                      <Text style={styles.counterValueText}>
-                        {questionCount}
-                      </Text>
-                    </View>
-                    <TouchableOpacity
-                      style={styles.counterButton}
-                      onPress={handleIncreaseQuestions}
-                      activeOpacity={0.7}
-                      disabled={isGenerating}
-                    >
-                      <Icon name="add" size={24} color={theme.colors.grey[900]} />
-                    </TouchableOpacity>
-                  </View>
+                  <CounterInput
+                    value={questionCount}
+                    onChange={setQuestionCount}
+                    min={1}
+                    max={50}
+                    disabled={isGenerating}
+                  />
                 </View>
 
                 {/* Generate Button */}
@@ -118,7 +97,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                   disabled={isGenerating}
                 >
                   {isGenerating ? (
-                    <ActivityIndicator size="small" color="#FFFFFF" />
+                    <ActivityIndicator size="small" color={colors.white} />
                   ) : (
                     <Text style={styles.generateButtonText}>Generate Flashcards</Text>
                   )}
@@ -126,7 +105,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
               </View>
             </View>
           </TouchableWithoutFeedback>
-        </View>
+        </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </Modal>
   );
@@ -139,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
@@ -192,7 +171,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing[2],
   },
   subtitle: {
-    ...theme.typography.textStyles.p2,
+    ...theme.typography.textStyles.p1,
     color: theme.colors.grey[600],
     textAlign: "center",
     marginBottom: theme.spacing[6],
@@ -205,42 +184,10 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing[4],
   },
   selectorLabel: {
-    ...theme.typography.textStyles.p2,
-    fontWeight: '500',
+    ...theme.typography.textStyles.subtitle1,
     color: theme.colors.grey[900],
     textAlign: "center",
     marginBottom: theme.spacing[4],
-  },
-  counterContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: theme.spacing[6],
-  },
-  counterButton: {
-    width: 56,
-    height: 56,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1.5,
-    borderColor: theme.colors.grey[100],
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  counterValue: {
-    minWidth: 90,
-    paddingVertical: theme.spacing[3],
-    paddingHorizontal: theme.spacing[4],
-    backgroundColor: '#FFFFFF',
-    borderRadius: theme.borderRadius.lg,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  counterValueText: {
-    fontSize: 32,
-    lineHeight: 39,
-    fontWeight: '600',
-    color: theme.colors.grey[900],
   },
   generateButton: {
     width: "100%",
@@ -254,7 +201,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   generateButtonText: {
-    ...theme.typography.textStyles.button2,
-    color: "#FFFFFF",
+    ...theme.typography.textStyles.button1,
+    color: colors.white,
   },
 });

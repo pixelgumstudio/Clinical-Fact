@@ -36,14 +36,7 @@ interface FoldersModalProps {
 }
 
 // Export FOLDER_COLORS for use in AddFolderModal
-export const FOLDER_COLORS: Record<string, string> = {
-  orange: '#FFD4A3',
-  blue: '#93C5FD',
-  red: '#FCA5A5',
-  purple: '#C4B5FD',
-  green: '#D9F99D',
-  peach: '#FED7AA',
-};
+export const FOLDER_COLORS: Record<string, string> = colors.folderTagPalette;
 
 export const FoldersModal: React.FC<FoldersModalProps> = ({
   visible,
@@ -91,16 +84,16 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
         activeOpacity={0.7}
       >
         <View style={[styles.folderIconContainer, { backgroundColor: item.color }]}>
-          <FolderIcon size={26} color="#FFF" />
+          <FolderIcon size={26} color={colors.white} />
         </View>
         <View style={styles.folderContent}>
           <Text style={styles.folderName}>{item.name}</Text>
           <Text style={styles.folderCount}>{(item as any).itemCount || 0} items</Text>
         </View>
         {isSelected ? (
-          <CheckIcon size={20} color="#10B981" />
+          <CheckIcon size={20} color={colors.vivid.success[500]} />
         ) : (
-          <ChevronRightIcon size={20} color="#9CA3AF" />
+          <ChevronRightIcon size={20} color={colors.slate[400]} />
         )}
       </TouchableOpacity>
     );
@@ -129,7 +122,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
 
             <View style={styles.addFolderContent}>
               <View style={styles.folderIconLarge}>
-                <FolderIcon size={64} color="#F97316" />
+                <FolderIcon size={64} color={colors.vivid.accent[500]} />
               </View>
 
               <Text style={styles.addFolderTitle}>Enter your folder name</Text>
@@ -137,7 +130,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
               <TextInput
                 style={styles.folderInput}
                 placeholder="Your folder name"
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor={colors.slate[400]}
                 value={folderName}
                 onChangeText={setFolderName}
                 autoFocus
@@ -182,14 +175,14 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Folders</Text>
                 <TouchableOpacity
                   style={styles.addFolderButton}
                   onPress={() => setShowAddFolder(true)}
                 >
-                  <PlusIcon size={14} color="#FFFFFF" />
+                  <PlusIcon size={14} color={colors.white} />
                   <Text style={styles.addFolderButtonText}>Add folder</Text>
                 </TouchableOpacity>
               </View>
@@ -198,7 +191,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
               {folders.length === 0 ? (
                 <View style={styles.emptyState}>
                   <View style={styles.emptyFolderIcon}>
-                    <FolderIcon size={36} color="#D1D5DB" />
+                    <FolderIcon size={36} color={colors.slate[300]} />
                   </View>
                   <Text style={styles.emptyTitle}>No folders to display</Text>
                   <Text style={styles.emptyDescription}>
@@ -219,14 +212,14 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                     onPress={() => handleSelectFolder(null)}
                     activeOpacity={0.7}
                   >
-                    <View style={[styles.folderIconContainer, { backgroundColor: '#FFD4A3' }]}>
-                      <FolderIcon size={26} color="#FFF" />
+                    <View style={[styles.folderIconContainer, { backgroundColor: colors.folderTagPalette.orange }]}>
+                      <FolderIcon size={26} color={colors.white} />
                     </View>
                     <View style={styles.folderContent}>
                       <Text style={styles.folderName}>All folders</Text>
                       <Text style={styles.folderCount}>{totalItems} items</Text>
                     </View>
-                    <ChevronRightIcon size={20} color="#9CA3AF" />
+                    <ChevronRightIcon size={20} color={colors.slate[400]} />
                   </TouchableOpacity>
 
                   <FlatList
@@ -289,7 +282,7 @@ const styles = StyleSheet.create({
   addFolderButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     paddingHorizontal: spacing[3],
     paddingVertical: spacing[2],
     borderRadius: 20,
@@ -298,7 +291,7 @@ const styles = StyleSheet.create({
   addFolderButtonText: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.semibold,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   folderList: {
     maxHeight: 380,
@@ -366,7 +359,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing[6],
   },
   emptyAddButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     paddingHorizontal: spacing[8],
     paddingVertical: spacing[3],
     borderRadius: 24,
@@ -405,7 +398,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     borderRadius: 28,
-    backgroundColor: '#FFE5CC',
+    backgroundColor: colors.folderAccentLight,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: spacing[8],
@@ -428,7 +421,7 @@ const styles = StyleSheet.create({
   },
   createButton: {
     width: '100%',
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     borderRadius: 24,
     paddingVertical: spacing[4],
     alignItems: 'center',

@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   ActivityIndicator,
 } from 'react-native';
-import { Icon, theme, Switch as DSSwitch } from '@clinicalfact/design-system';
+import { colors, Icon, theme, Switch as DSSwitch } from '@clinicalfact/design-system';
 
 interface ExportSettingsModalProps {
   visible: boolean;
@@ -156,7 +156,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
                   activeOpacity={0.8}
                 >
                   {isLoading ? (
-                    <ActivityIndicator color="#FFFFFF" size="small" />
+                    <ActivityIndicator color={colors.white} size="small" />
                   ) : (
                     <Text style={styles.exportButtonText}>Export</Text>
                   )}
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   formatButtonActive: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderColor: theme.colors.yale[700],
   },
   formatButtonText: {
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.borderRadius.full,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     alignItems: 'center',
   },
   exportButton: {
@@ -312,6 +312,6 @@ const styles = StyleSheet.create({
   },
   exportButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

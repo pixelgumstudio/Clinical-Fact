@@ -11,8 +11,9 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import { Icon, theme } from '@clinicalfact/design-system';
-import { CustomAlertModal } from './CustomAlertModal';
+import { Icon, theme, colors } from '@clinicalfact/design-system';
+import { useAlertDialog } from '../hooks/useAlertDialog';
+import { AlertDialog } from './AlertDialog';
 import api from '../services/api';
 
 interface ReferredFriend {
@@ -33,21 +34,13 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
   referralCode,
   referralCount = 0,
 }) => {
-  const [alertConfig, setAlertConfig] = useState<{
-    visible: boolean;
-    title: string;
-    message: string;
-    buttonText: string;
-  }>({ visible: false, title: '', message: '', buttonText: 'Got it' });
+  const { alertConfig, showAlert, closeAlert } = useAlertDialog('Got it');
 
   const [friends, setFriends] = useState<ReferredFriend[]>([]);
   const [isLoadingFriends, setIsLoadingFriends] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-
-  const closeAlert = () =>
-    setAlertConfig(prev => ({ ...prev, visible: false }));
 
   const fetchFriends = useCallback(async (pageNum: number, append: boolean) => {
     if (pageNum === 1) setIsLoadingFriends(true);
@@ -85,12 +78,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
   const handleCopyCode = () => {
     if (referralCode) {
       Clipboard.setString(referralCode);
-      setAlertConfig({
-        visible: true,
-        title: 'Copied!',
-        message: 'Your referral code has been copied to clipboard.',
-        buttonText: 'Got it',
-      });
+      showAlert('Copied!', 'Your referral code has been copied to clipboard.');
     }
   };
 
@@ -154,7 +142,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
 
                 <View style={styles.content}>
                   <View style={styles.iconCircle}>
-                    <Icon name="link" size={32} color="#FFFFFF" />
+                    <Icon name="link" size={32} color={colors.white} />
                   </View>
                   <Text style={styles.title}>Your Referral Code</Text>
                   <Text style={styles.subtitle}>Share with friends to earn rewards</Text>
@@ -181,7 +169,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                       onPress={handleCopyCode}
                       activeOpacity={0.7}
                     >
-                      <Icon name="copy" size={18} color="#FFFFFF" />
+                      <Icon name="copy" size={18} color={colors.white} />
                       <Text style={styles.copyButtonText}>Copy Code</Text>
                     </TouchableOpacity>
                   </View>
@@ -242,13 +230,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
         </TouchableWithoutFeedback>
       </Modal>
 
-      <CustomAlertModal
-        visible={alertConfig.visible}
-        title={alertConfig.title}
-        message={alertConfig.message}
-        buttonText={alertConfig.buttonText}
-        onClose={closeAlert}
-      />
+      <AlertDialog alertConfig={alertConfig} onClose={closeAlert} />
     </>
   );
 };
@@ -260,7 +242,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
@@ -352,13 +334,13 @@ const styles = StyleSheet.create({
   },
   copyButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   shareButton: {
     flex: 1,
     flexDirection: 'row',
     gap: theme.spacing[2],
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
     borderRadius: theme.borderRadius.full,
@@ -404,7 +386,7 @@ const styles = StyleSheet.create({
   friendAvatarText: {
     ...theme.typography.textStyles.p2,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: colors.white,
   },
   friendInfo: {
     flex: 1,

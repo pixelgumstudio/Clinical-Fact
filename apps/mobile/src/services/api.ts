@@ -104,6 +104,26 @@ export interface MedicalChatGroundingSource {
   title: string;
 }
 
+/** Emitted once, right after retrieval finishes and before the LLM starts generating —
+ *  standard doc-RAG chats always send `sources: []` (unchanged from the old response shape);
+ *  medical_live chats send real citations/images/groundingSources. */
+export interface ChatStreamMetadataPayload {
+  sources: MedicalChatSource[];
+  images?: MedicalChatImage[];
+  groundingSources?: MedicalChatGroundingSource[];
+}
+
+/** Emitted once, after the assistant reply is generated and persisted. `messageIndex` is the
+ *  message's position in the session's `messages` array — chat messages have no persisted
+ *  document id (see chat.controller.ts), so this is a position, not a real id. */
+export interface ChatStreamDonePayload {
+  messageIndex?: number;
+  messageCount: number;
+  title?: string;
+  followUpQuestions: string[];
+  status: string;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -1018,19 +1038,127 @@ class ApiClient {
     return `${this.baseUrl}/upload/${fileId}/content${token ? `?token=${encodeURIComponent(token)}` : ''}`;
   }
 
-  async sendChatMessage(
+  /**
+   * Streams a chat message reply over Server-Sent Events. Replaces the old sendChatMessage +
+   * job-polling flow now that POST /chat/:sessionId/message itself streams the response instead
+   * of returning a jobId. react-native-sse's EventSource supports POST + a body directly, so no
+   * separate "start" request is needed. pollingInterval/timeoutBeforeConnection are both 0: this
+   * is a one-shot request/response stream, not a live feed, so the library's own auto-reconnect
+   * (which would otherwise silently re-POST the same message ~5s after the stream completes)
+   * must stay disabled.
+   *
+   * Returns a `close` function — call it to cancel the in-flight generation (e.g. "Stop
+   * Generating", or on screen leave); the backend detects the dropped connection and aborts
+   * the LLM call server-side.
+   */
+  streamChatMessage(
     sessionId: string,
     message: string,
-    deepResearch = false,
-    mode?: 'medical_live',
-    filters?: MedicalChatFilters,
-    excludeImageUrls?: string[],
-    attachmentFileId?: string
-  ): Promise<ApiResponse<{ jobId: string }>> {
-    return this.request(`/chat/${sessionId}/message`, {
-      method: 'POST',
-      body: JSON.stringify({ message, deepResearch, mode, filters, excludeImageUrls, attachmentFileId }),
-    }, true, 30000);
+    options: {
+      deepResearch?: boolean;
+      mode?: 'medical_live';
+      filters?: MedicalChatFilters;
+      excludeImageUrls?: string[];
+      attachmentFileId?: string;
+    },
+    callbacks: {
+      onMetadata: (metadata: ChatStreamMetadataPayload) => void;
+      onChunk: (text: string) => void;
+      onDone: (data: ChatStreamDonePayload) => void;
+      onError: (message: string, quotaExceeded?: boolean) => void;
+    }
+  ): () => void {
+    let es: InstanceType<typeof EventSource> | null = null;
+    let closed = false;
+
+    const close = () => {
+      closed = true;
+      es?.close();
+    };
+
+    (async () => {
+      const token = await this.getAuthToken();
+      if (closed) return;
+
+      es = new EventSource(`${this.baseUrl}/chat/${sessionId}/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          message,
+          deepResearch: options.deepResearch,
+          mode: options.mode,
+          filters: options.filters,
+          excludeImageUrls: options.excludeImageUrls,
+          attachmentFileId: options.attachmentFileId,
+        }),
+        pollingInterval: 0,
+        timeoutBeforeConnection: 0,
+      });
+
+      es.addEventListener('metadata', (event: any) => {
+        if (closed || !event.data) return;
+        try {
+          callbacks.onMetadata(JSON.parse(event.data));
+        } catch {
+          // ignore malformed frame
+        }
+      });
+
+      es.addEventListener('chunk', (event: any) => {
+        if (closed || !event.data) return;
+        try {
+          const { text } = JSON.parse(event.data);
+          if (text) callbacks.onChunk(text);
+        } catch {
+          // ignore malformed frame
+        }
+      });
+
+      es.addEventListener('done', (event: any) => {
+        if (closed) return;
+        try {
+          callbacks.onDone(event.data ? JSON.parse(event.data) : { messageCount: 0, followUpQuestions: [], status: 'completed' });
+        } catch {
+          callbacks.onDone({ messageCount: 0, followUpQuestions: [], status: 'completed' });
+        } finally {
+          close();
+        }
+      });
+
+      // react-native-sse reuses its built-in 'error' event both for our server-sent
+      // `event: error` frames (which carry `.data`, a JSON string) and for real connection-level
+      // failures (network drop, non-2xx status, timeout — which carry `.message`, no `.data`).
+      // A pre-stream rejection (e.g. quota exceeded) is the latter case: the server responds
+      // with a plain 402 JSON body before ever setting SSE headers, so it arrives here as raw
+      // JSON text in `.message`, not as a proper `data:` frame.
+      es.addEventListener('error', (event: any) => {
+        if (closed) return;
+        let errorMessage = 'Connection error. Please try again.';
+        let quotaExceeded = false;
+        if (event?.data) {
+          try {
+            errorMessage = JSON.parse(event.data).message || errorMessage;
+          } catch {
+            // keep default
+          }
+        } else if (event?.message) {
+          try {
+            const parsed = JSON.parse(event.message);
+            errorMessage = parsed.message || errorMessage;
+            quotaExceeded = parsed.quotaExceeded === true;
+          } catch {
+            errorMessage = event.message;
+          }
+        }
+        callbacks.onError(errorMessage, quotaExceeded);
+        close();
+      });
+    })();
+
+    return close;
   }
 
   async getJobStatus(jobId: string): Promise<ApiResponse<{

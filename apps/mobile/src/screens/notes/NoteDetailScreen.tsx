@@ -41,8 +41,8 @@ import { FeedbackFilterModal } from '../../components/FeedbackFilterModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { NoteOptionsModal } from '../../components/NoteOptionsModal';
 import { DeleteNoteModal } from '../../components/DeleteNoteModal';
-import { ExportNoteModal, ExportType } from '../../components/ExportNoteModal';
-import { ExportFormatModal } from '../../components/ExportFormatModal';
+import { ExportNoteWizardModal, ExportType } from '../../components/ExportNoteWizard/ExportNoteWizardModal';
+import { formatDateShort, formatDateTime } from '../../utils/formatDate';
 import { FoldersModal, Folder } from '../../components/FoldersModal';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 // import { HtmlRenderer } from '../../components/HtmlRenderer';
@@ -68,8 +68,6 @@ export const NoteDetailScreen = () => {
   const [isNoteOptionsVisible, setNoteOptionsVisible] = useState(false);
   const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
   const [isExportModalVisible, setExportModalVisible] = useState(false);
-  const [isExportFormatVisible, setExportFormatVisible] = useState(false);
-  const [selectedExportType, setSelectedExportType] = useState<ExportType | null>(null);
   const [isFoldersModalVisible, setFoldersModalVisible] = useState(false);
   const [isQuizModalVisible, setQuizModalVisible] = useState(false);
   const [isFeedbackModalVisible, setIsFeedbackModalVisible] = useState(false);
@@ -252,19 +250,13 @@ export const NoteDetailScreen = () => {
     });
   };
 
-  const handleSelectExportType = (type: ExportType) => {
+  const handleExportFormat = async (exportType: ExportType, format: string) => {
     setExportModalVisible(false);
-    setSelectedExportType(type);
-    setExportFormatVisible(true);
-  };
-
-  const handleExportFormat = async (format: string) => {
-    setExportFormatVisible(false);
-    if (!selectedExportType || !route.params?.noteId) return;
+    if (!route.params?.noteId) return;
 
     try {
       setIsLoading(true);
-      const response = await api.exportNote(route.params.noteId, selectedExportType, format);
+      const response = await api.exportNote(route.params.noteId, exportType, format);
 
       if (!response.success || !response.data) {
         Alert.alert('Error', response.message || 'Failed to export note');
@@ -286,13 +278,13 @@ export const NoteDetailScreen = () => {
         });
       } else if (format === 'pdf') {
         const htmlDoc = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
-          body{font-family:-apple-system,Helvetica,sans-serif;font-size:14px;color:#374151;line-height:1.7;padding:24px 32px;}
-          h1{font-size:22px;color:#1C1C1C;margin-bottom:8px;}
-          h2{font-size:17px;color:#1C1C1C;margin-top:24px;margin-bottom:6px;}
-          h3{font-size:15px;color:#1C1C1C;}
+          body{font-family:-apple-system,Helvetica,sans-serif;font-size:14px;color:${colors.slate[700]};line-height:1.7;padding:24px 32px;}
+          h1{font-size:22px;color:${colors.grey[900]};margin-bottom:8px;}
+          h2{font-size:17px;color:${colors.grey[900]};margin-top:24px;margin-bottom:6px;}
+          h3{font-size:15px;color:${colors.grey[900]};}
           p{margin:0 0 12px;}
           li{margin-bottom:6px;}
-          code{background:#F3F4F6;padding:2px 4px;border-radius:3px;font-family:Courier,monospace;}
+          code{background:${colors.slate[100]};padding:2px 4px;border-radius:3px;font-family:Courier,monospace;}
         </style></head><body><h1>${title}</h1>${htmlContent}</body></html>`;
         const { uri } = await Print.printToFileAsync({ html: htmlDoc, base64: false });
         const destUri = `${FileSystem.documentDirectory}${safeFilename}.pdf`;
@@ -421,7 +413,7 @@ export const NoteDetailScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <ChevronLeftIcon size={24} color="#1F2937" />
+          <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle} numberOfLines={1}>
           {noteData.title.length > 20
@@ -429,7 +421,7 @@ export const NoteDetailScreen = () => {
             : noteData.title}
         </Text>
         <TouchableOpacity style={styles.moreButton} onPress={handleOpenNoteOptions}>
-          <MoreVerticalIcon size={24} color="#6B7280" />
+          <MoreVerticalIcon size={24} color={colors.slate[500]} />
         </TouchableOpacity>
       </View>
 
@@ -439,11 +431,7 @@ export const NoteDetailScreen = () => {
           <Text style={styles.noteTitle}>{noteData.title}</Text>
           <View style={styles.metaRow}>
             <Text style={styles.noteDate}>
-              {new Date(noteData.createdAt).toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
-              })}
+              {formatDateShort(noteData.createdAt)}
             </Text>
             {/* <TouchableOpacity
               style={styles.addToFolderButton}
@@ -457,13 +445,13 @@ export const NoteDetailScreen = () => {
                       ? `${selectedFolder.name.substring(0, 15)}...`
                       : selectedFolder.name}
                   </Text>
-                  <ChevronRightIcon size={16} color="#6B7280" />
+                  <ChevronRightIcon size={16} color={colors.slate[500]} />
                 </>
               ) : (
                 <>
-                  <FolderAddIcon size={18} color="#F97316" />
+                  <FolderAddIcon size={18} color={colors.vivid.accent[500]} />
                   <Text style={styles.addToFolderText}>Add to folder</Text>
-                  <ChevronRightIcon size={16} color="#F97316" />
+                  <ChevronRightIcon size={16} color={colors.vivid.accent[500]} />
                 </>
               )}
             </TouchableOpacity> */}
@@ -478,14 +466,7 @@ export const NoteDetailScreen = () => {
               {noteData.sourceType === 'image' ? 'Image Note' : noteData.title}
             </Text>
             <Text style={styles.sourceFileDate}>
-              Created {new Date(noteData.createdAt).toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit',
-                hour12: true,
-              })}
+              Created {formatDateTime(noteData.createdAt)}
             </Text>
           </View>
         </View>
@@ -496,21 +477,21 @@ export const NoteDetailScreen = () => {
             style={styles.actionButton}
             onPress={handleTranslate}
           >
-            <TranslateIcon size={18} color="#6B7280" />
+            <TranslateIcon size={18} color={colors.slate[500]} />
             <Text style={styles.actionButtonText}>Translate</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionButton}
             onPress={handleTranscribe}
           >
-            <TranscribeIcon size={18} color="#6B7280" />
+            <TranscribeIcon size={18} color={colors.slate[500]} />
             <Text style={styles.actionButtonText}>Transcribe</Text>
           </TouchableOpacity>
         </View>
 
         {/* Edit Note Button */}
         <TouchableOpacity style={styles.editButton} onPress={handleEditNote}>
-          <EditPencilIcon size={18} color="#FFFFFF" />
+          <EditPencilIcon size={18} color={colors.white} />
           <Text style={styles.editButtonText}>Edit this note</Text>
         </TouchableOpacity>
 
@@ -539,7 +520,7 @@ export const NoteDetailScreen = () => {
           <>
             <TouchableOpacity activeOpacity={0.9} onPress={handleCreateFlashcards}>
               <LinearGradient
-                colors={['#DCFCE7', '#FEE2E2']}
+                colors={[colors.vivid.success[100], colors.vivid.error[100]]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 style={styles.flashcardsCard}
@@ -565,7 +546,7 @@ export const NoteDetailScreen = () => {
           <>
             <TouchableOpacity activeOpacity={0.9} onPress={handleOpenQuizModal}>
               <LinearGradient
-                colors={['#DBEAFE', '#FCD0D0']}
+                colors={[colors.vivid.info[100], colors.oneOff.quizAccentGradientStop]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 style={styles.quizCard}
@@ -640,17 +621,9 @@ export const NoteDetailScreen = () => {
       />
 
       {/* Export Note Modal */}
-      <ExportNoteModal
+      <ExportNoteWizardModal
         visible={isExportModalVisible}
         onClose={() => setExportModalVisible(false)}
-        onSelectExportType={handleSelectExportType}
-      />
-
-      {/* Export Format Modal */}
-      <ExportFormatModal
-        visible={isExportFormatVisible}
-        exportType={selectedExportType}
-        onClose={() => setExportFormatVisible(false)}
         onExport={handleExportFormat}
       />
 
@@ -742,7 +715,7 @@ const styles = StyleSheet.create({
   },
   addToFolderText: {
     fontSize: typography.fontSize.sm,
-    color: '#F97316',
+    color: colors.vivid.accent[500],
     marginLeft: spacing[1],
     marginRight: spacing[1],
   },
@@ -812,7 +785,7 @@ const styles = StyleSheet.create({
   editButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   tabsContainer: {
     flexDirection: 'row',

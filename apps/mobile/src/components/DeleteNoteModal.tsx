@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   deleteButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
   },
   cancelButton: {
     backgroundColor: colors.neutral[200],

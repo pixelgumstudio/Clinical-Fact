@@ -158,7 +158,10 @@
       "description": "Turn audio, docs, or videos into clear, searchable notes and instantly create quizzes, flashcards, and summaries.",
       "createAccountTitle": "Create an account",
       "orSignUpWith": "OR SIGN UP WITH",
-      "signUpWithEmail": "Sign up with Email Address"
+      "signUpWithEmail": "Sign up with Email Address",
+      "signInWithEmail": "Sign in with Email Address",
+      "alreadyHaveAccount": "Already have an account ? ",
+      "dontHaveAccount": "Don't have an account ? "
     },
     "intro": {
       "slide1": {

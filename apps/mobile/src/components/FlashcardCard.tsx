@@ -8,7 +8,7 @@ import {
   Animated,
   ScrollView,
 } from 'react-native';
-import { theme } from '@clinicalfact/design-system';
+import { colors, theme } from '@clinicalfact/design-system';
 
 export interface IFlashcard {
   id: string;
@@ -68,7 +68,7 @@ export const FlashcardCard: React.FC<FlashcardCardProps> = ({
         <View style={styles.cardWrapper}>
           {isLoading ? (
             <View style={[styles.flashcard, { backgroundColor: cardColor }]}>
-              <ActivityIndicator size="large" color="#FFFFFF" />
+              <ActivityIndicator size="large" color={colors.white} />
             </View>
           ) : !card ? (
             <View style={[styles.flashcard, { backgroundColor: cardColor }]}>
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     ...theme.typography.textStyles.h7,
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
     width: '100%',
   },
@@ -193,6 +193,6 @@ const styles = StyleSheet.create({
   },
   flipButtonText: {
     ...theme.typography.textStyles.button2,
-    color: '#FFFFFF',
+    color: colors.white,
   },
 });

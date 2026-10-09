@@ -27,6 +27,7 @@ import {
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { CreateFromSourceSheet } from '../../components/CreateFromSourceSheet';
+import { formatCreatedLabel } from '../../utils/formatDate';
 
 type QuizHistoryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -86,19 +87,6 @@ export const QuizHistoryScreen: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    try {
-      const date = new Date(dateString);
-      const isToday = date.toDateString() === new Date().toDateString();
-      const day = isToday
-        ? 'Today'
-        : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-      return `Created ${day}, ${time}`;
-    } catch {
-      return dateString;
-    }
-  };
 
   const handleOpenGroup = (group: QuizGroup) => {
     if (group.sourceType === 'standalone') {
@@ -167,7 +155,7 @@ export const QuizHistoryScreen: React.FC = () => {
             {item.sourceTitle}
           </Text>
           <View style={styles.quizMeta}>
-            <Text style={styles.quizDate}>{formatDate(item.createdAt)}</Text>
+            <Text style={styles.quizDate}>{formatCreatedLabel(item.createdAt)}</Text>
             {item.lastScore && (
               <Text style={styles.quizScore}>
                 {item.lastScore.correct}/{item.lastScore.total} correct
@@ -207,11 +195,11 @@ export const QuizHistoryScreen: React.FC = () => {
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <View style={styles.searchInputWrapper}>
-          <SearchIcon size={20} color="#999" />
+          <SearchIcon size={20} color={colors.oneOff.mutedPlaceholder} />
           <TextInput
             style={styles.searchInput}
             placeholder="Search quizzes..."
-            placeholderTextColor="#BFBFBF"
+            placeholderTextColor={colors.grey[200]}
             value={searchText}
             onChangeText={setSearchText}
           />
@@ -225,7 +213,7 @@ export const QuizHistoryScreen: React.FC = () => {
         </View>
       ) : filteredGroups.length === 0 ? (
         <View style={styles.emptyState}>
-          <EmptyFolderLargeIcon size={80} color="#D1D5DB" />
+          <EmptyFolderLargeIcon size={80} color={colors.slate[300]} />
           <Text style={styles.emptyTitle}>No quizzes yet</Text>
           <Text style={styles.emptyDescription}>
             Create a quiz from a note to get started
@@ -328,7 +316,7 @@ const styles = StyleSheet.create({
   searchInputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9F9F9',
+    backgroundColor: colors.grey[10],
     borderRadius: 16,
     paddingHorizontal: spacing[3],
     height: 48,
@@ -375,7 +363,7 @@ const styles = StyleSheet.create({
   },
   quizScore: {
     fontSize: typography.fontSize.xs,
-    color: '#10B981',
+    color: colors.vivid.success[500],
     fontWeight: typography.fontWeight.semibold,
   },
   quizAttempts: {
@@ -430,7 +418,7 @@ const styles = StyleSheet.create({
   createButtonText: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.medium,
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
   },
   menuModalOverlay: {
@@ -439,7 +427,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   menuModalContainer: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderTopLeftRadius: theme.borderRadius['3xl'],
     borderTopRightRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],

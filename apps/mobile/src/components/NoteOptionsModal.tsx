@@ -50,7 +50,7 @@ const OptionItem: React.FC<OptionItemProps> = ({ icon, label, onPress, isDestruc
   <TouchableOpacity style={styles.optionItem} onPress={onPress} activeOpacity={0.7}>
     <View style={styles.optionIcon}>{icon}</View>
     <Text style={[styles.optionLabel, isDestructive && styles.destructiveLabel]}>{label}</Text>
-    <ChevronRightIcon size={20} color="#9CA3AF" />
+    <ChevronRightIcon size={20} color={colors.slate[400]} />
   </TouchableOpacity>
 );
 
@@ -121,7 +121,7 @@ export const NoteOptionsModal: React.FC<NoteOptionsModalProps> = ({
                   style={styles.closeButton}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <CloseIcon size={24} color="#6B7280" />
+                  <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
               </View>
 
@@ -157,7 +157,7 @@ export const NoteOptionsModal: React.FC<NoteOptionsModalProps> = ({
                 )}
                 {onMoveToFolder && (
                   <OptionItem
-                    icon={<FolderIcon size={40} color="#6B7280" />}
+                    icon={<FolderIcon size={40} color={colors.slate[500]} />}
                     label="Move to folder"
                     onPress={onMoveToFolder}
                   />

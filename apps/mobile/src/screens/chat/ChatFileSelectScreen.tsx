@@ -15,6 +15,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import api from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
+import { formatDateTime } from '../../utils/formatDate';
 import {
   colors,
   spacing,
@@ -154,14 +155,7 @@ const checkChatLimit = async () => {
         const mappedFiles = notesResponse.data.notes.map((note: any) => ({
           id: note._id,
           title: note.title,
-          date: `Created ${new Date(note.createdAt).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true,
-          })}`,
+          date: `Created ${formatDateTime(note.createdAt)}`,
           type: note.sourceType || 'note',
         }));
         setFiles(mappedFiles);
@@ -605,14 +599,14 @@ const checkChatLimit = async () => {
     switch (fileType) {
       case 'pdf':
       case 'document':
-        return <DocumentPreviewSmallIcon size={24} color="#F97316" />;
+        return <DocumentPreviewSmallIcon size={24} color={colors.vivid.accent[500]} />;
       case 'image':
         return <ImageGradientIcon size={24} />;
       case 'audio':
         return <AudioFileIcon size={24} />;
       case 'note':
       default:
-        return <DocumentPreviewSmallIcon size={24} color="#6B7280" />;
+        return <DocumentPreviewSmallIcon size={24} color={colors.slate[500]} />;
     }
   };
 
@@ -658,7 +652,7 @@ const checkChatLimit = async () => {
         </Text>
         {folders.length > 0 && !selectedFolder && (
           <TouchableOpacity style={styles.addButton} onPress={handleAddFolder}>
-            <PlusIcon size={14} color="#FFFFFF" />
+            <PlusIcon size={14} color={colors.white} />
             <Text style={styles.addButtonText}>Add folder</Text>
           </TouchableOpacity>
         )}
@@ -682,7 +676,7 @@ const checkChatLimit = async () => {
                   activeOpacity={0.7}
                 >
                   <View style={styles.uploadIconContainer}>
-                    <PDFDocumentIcon size={28} color="#F97316" />
+                    <PDFDocumentIcon size={28} color={colors.vivid.accent[500]} />
                   </View>
                   <View style={styles.uploadTextContainer}>
                     <Text style={styles.uploadTitle}>Upload new document</Text>
@@ -698,7 +692,7 @@ const checkChatLimit = async () => {
                   activeOpacity={0.7}
                 >
                   <View style={styles.uploadIconContainer}>
-                    <ImageIcon size={28} color="#F97316" />
+                    <ImageIcon size={28} color={colors.vivid.accent[500]} />
                   </View>
                   <View style={styles.uploadTextContainer}>
                     <Text style={styles.uploadTitle}>Upload new image</Text>
@@ -820,7 +814,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   addButtonText: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
     marginLeft: spacing[1],
@@ -845,7 +839,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#FFF7ED',
+    backgroundColor: colors.vivid.accent[50],
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: spacing[3],

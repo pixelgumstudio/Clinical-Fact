@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { spacing, typography } from '@clinicalfact/design-system';
+import { colors, spacing, typography } from '@clinicalfact/design-system';
 
 interface ToastProps {
   visible: boolean;
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   text: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
     letterSpacing: -0.1,

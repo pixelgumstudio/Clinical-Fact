@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useOnboardingStore } from '../../store/onboardingStore';
 import { useAuthStore } from '../../store/authStore';
+import { colors } from '@clinicalfact/design-system';
 
 const SLIDES_CONFIG = [
   {
@@ -27,7 +28,7 @@ const SLIDES_CONFIG = [
     label: 'Smart organisation',
     title: () => 'Keep everything\norganised',
     description: 'Create folders, tag notes, and find anything\ninstantly with powerful search.',
-    gradient: ['#DBEAFE', '#EDE9FE', '#FCE7F3'] as [string, string, string],
+    gradient: [colors.vivid.info[100], '#EDE9FE', '#FCE7F3'] as [string, string, string],
     icon: '📁',
   },
   {
@@ -35,7 +36,7 @@ const SLIDES_CONFIG = [
     label: 'AI powered quizzes',
     title: () => 'Learn faster\nwith AI',
     description: 'Auto-generate quizzes, flashcards and\nsummaries directly from your notes.',
-    gradient: ['#FEF9C3', '#FEF3C7', '#FFE4E6'] as [string, string, string],
+    gradient: ['#FEF9C3', colors.vivid.warning[100], '#FFE4E6'] as [string, string, string],
     icon: '🎯',
   },
   {
@@ -43,7 +44,7 @@ const SLIDES_CONFIG = [
     label: "You're all set",
     title: () => "You're ready\nto go",
     description: "Start creating notes and let Clinical Fact\ndo the heavy lifting for you.",
-    gradient: ['#F0FDF4', '#DCFCE7', '#D1FAE5'] as [string, string, string],
+    gradient: [colors.vivid.success[50], colors.vivid.success[100], colors.vivid.success[200]] as [string, string, string],
     icon: '🚀',
   },
 ];
@@ -175,7 +176,7 @@ export const OnboardingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
   },
   header: {
     flexDirection: 'row',
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
   skipText: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#8B8B8B',
+    color: colors.grey[400],
     letterSpacing: -0.15,
   },
   list: {
@@ -214,7 +215,7 @@ const styles = StyleSheet.create({
   },
   labelPill: {
     alignSelf: 'flex-start',
-    backgroundColor: '#F0F0F0',
+    backgroundColor: colors.oneOff.lightGrayChip,
     borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 5,
@@ -222,20 +223,20 @@ const styles = StyleSheet.create({
   labelText: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#8B8B8B',
+    color: colors.grey[400],
     letterSpacing: -0.12,
   },
   slideTitle: {
     fontSize: 32,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.grey[900],
     lineHeight: 38,
     letterSpacing: -0.64,
   },
   slideDescription: {
     fontSize: 16,
     fontWeight: '400',
-    color: '#636363',
+    color: colors.grey[600],
     lineHeight: 24,
     letterSpacing: -0.32,
   },
@@ -256,14 +257,14 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     width: 20,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
   },
   dotInactive: {
     width: 6,
-    backgroundColor: '#D7D7D7',
+    backgroundColor: colors.grey[100],
   },
   nextButton: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.grey[900],
     borderRadius: 9999,
     height: 56,
     justifyContent: 'center',
@@ -275,7 +276,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: -0.16,
   },
 });
