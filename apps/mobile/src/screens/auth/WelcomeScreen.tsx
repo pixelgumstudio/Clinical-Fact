@@ -256,7 +256,9 @@ export const WelcomeScreen = () => {
         console.error('Google sign-in (Android) failed:', err.code, err.message);
         const message = err.message || t('auth.errors.googleSignInFailed');
         setError(message);
-        Alert.alert(t('auth.errors.signInFailed'), message);
+        // The native code is shown too so a failure can be read straight off the screen
+        // (e.g. "10" = package/SHA-1 doesn't match an Android OAuth client).
+        Alert.alert(t('auth.errors.signInFailed'), err.code ? `${message}\n\n(code: ${err.code})` : message);
       }
     } finally {
       setGoogleLoading(false);
