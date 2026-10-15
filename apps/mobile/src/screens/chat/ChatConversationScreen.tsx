@@ -54,6 +54,7 @@ import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useAuthStore } from '../../store/authStore';
 import { useMedicalSearchStore } from '../../store/medicalSearchStore';
 import { showInAppPaywall } from '../../services/revenuecat';
+import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
 
@@ -942,10 +943,7 @@ export const ChatConversationScreen = () => {
 
   /** Plain-text transcript of the whole conversation so far — used as the source for
    *  whole-chat quiz/flashcard generation (not just a single answer). */
-  const buildChatTranscript = () =>
-    messages
-      .map((m) => `${m.role === 'user' ? 'Q' : 'A'}: ${stripHtml(m.content)}`)
-      .join('\n\n');
+  const getChatTranscript = () => buildChatTranscript(messages);
 
   /** Image URLs already shown earlier in this session — sent with the next request so the
    *  backend can exclude them and avoid repeating the same image across different answers. */
@@ -954,6 +952,12 @@ export const ChatConversationScreen = () => {
 
   const handleGenerateQuizFromChat = () => {
     if (generatingActionId || messages.length === 0) return;
+    // A chat linked to a note quizzes the note itself (same as Home), so the length of the
+    // conversation only matters when the transcript is the source.
+    if (!noteId && getChatTranscript().length < MIN_TRANSCRIPT_CHARS) {
+      showAlert('Not enough content yet', 'Chat a bit more before generating a quiz (minimum 100 characters).');
+      return;
+    }
     // The attach sheet's own Modal is still animating closed (~200ms) at this point —
     // opening a second native Modal while it's still mounted causes the incoming touch
     // to also land on the new modal's backdrop and immediately dismiss it. Wait for the
@@ -962,8 +966,12 @@ export const ChatConversationScreen = () => {
   };
 
   const handleConfirmGenerateQuiz = (questionCount: number, timeInMinutes: number) => {
+    if (noteId) {
+      navigation.navigate('Quiz', { noteId, noteTitle: chatTitle, questionCount, timeInMinutes });
+      return;
+    }
     navigation.navigate('Quiz', {
-      chatTranscript: buildChatTranscript(),
+      chatTranscript: getChatTranscript(),
       noteTitle: chatTitle,
       questionCount,
       timeInMinutes,
@@ -973,7 +981,7 @@ export const ChatConversationScreen = () => {
 
   const handleGenerateFlashcardsFromChat = () => {
     if (generatingActionId || messages.length === 0) return;
-    if (buildChatTranscript().length < 100) {
+    if (getChatTranscript().length < MIN_TRANSCRIPT_CHARS) {
       showAlert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
       return;
     }
@@ -989,7 +997,7 @@ export const ChatConversationScreen = () => {
     }
     setGeneratingActionId('flashcards-chat');
     try {
-      const transcript = buildChatTranscript();
+      const transcript = getChatTranscript();
       const response = await api.generateFlashcardsFromText(
         transcript,
         chatTitle,

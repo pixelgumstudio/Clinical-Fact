@@ -238,6 +238,8 @@ export const WelcomeScreen = () => {
     try {
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
       const result = await GoogleSignin.signIn();
+      // v16 reports a dismissed account picker as a result, not a thrown error.
+      if (result.type === 'cancelled') return;
       const idToken = result.data?.idToken;
       if (!idToken) {
         throw new Error(t('auth.errors.authTokenFailed'));
@@ -249,6 +251,9 @@ export const WelcomeScreen = () => {
       } else if (statusCodes && err.code === statusCodes.IN_PROGRESS) {
         // already in progress — do nothing
       } else {
+        // `code` is what separates a signing-key/client-ID mismatch (DEVELOPER_ERROR, "10")
+        // from Play Services or network problems — keep it in the logs.
+        console.error('Google sign-in (Android) failed:', err.code, err.message);
         const message = err.message || t('auth.errors.googleSignInFailed');
         setError(message);
         Alert.alert(t('auth.errors.signInFailed'), message);
@@ -378,7 +383,14 @@ export const WelcomeScreen = () => {
                 variant="primary"
                 leftIcon={<Icon name="google" size={24} />}
                 onPress={handleGoogleAuth}
-                disabled={isGoogleLoading || isAppleLoading || isSendingOtp || !request || !hasRequiredClientId}
+                // `request` belongs to the expo-auth-session browser flow, which Android doesn't use.
+                disabled={
+                  isGoogleLoading ||
+                  isAppleLoading ||
+                  isSendingOtp ||
+                  (Platform.OS !== 'android' && !request) ||
+                  !hasRequiredClientId
+                }
                 loading={isGoogleLoading}
               >
                 {t('auth.buttons.continueWithGoogle')}

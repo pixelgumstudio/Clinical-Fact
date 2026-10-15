@@ -12,7 +12,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
-import { ChevronDownIcon, Icon, SparkleIcon, theme } from '@clinicalfact/design-system';
+import { ChevronDownIcon, Icon, MoreVerticalIcon, SparkleIcon, theme } from '@clinicalfact/design-system';
+import { ChatActionSheet } from '../../components/ChatActionSheet';
+import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
@@ -26,6 +28,7 @@ import { useFlashcardSync } from '../../hooks/useFlashcardSync';
 import { showInAppPaywall } from '../../services/revenuecat';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
+import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
 
 type HomeNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -49,10 +52,7 @@ const getLinkedNote = (session?: ChatSession) => {
 
 /** Plain-text transcript of a session's messages — used as the source for quiz/flashcard
  *  generation when the chat has no note behind it (mirrors ChatConversationScreen). */
-const buildSessionTranscript = (session?: ChatSession) =>
-  (session?.messages ?? [])
-    .map((m) => `${m.role === 'user' ? 'Q' : 'A'}: ${stripHtml(m.content)}`)
-    .join('\n\n');
+const buildSessionTranscript = (session?: ChatSession) => buildChatTranscript(session?.messages);
 
 const formatCreatedAt = (dateString: string) => {
   const date = new Date(dateString);
@@ -85,6 +85,8 @@ export const HomeScreen = () => {
 
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [isSessionsLoading, setSessionsLoading] = useState(true);
+  const [sessionForActionSheet, setSessionForActionSheet] = useState<ChatSession | null>(null);
+  const deleteChatSession = useDeleteChatSession(setSessions);
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
   const [quizModalVisible, setQuizModalVisible] = useState(false);
   const [flashcardsModalVisible, setFlashcardsModalVisible] = useState(false);
@@ -141,6 +143,10 @@ export const HomeScreen = () => {
   };
 
   const handleOpenQuizModal = () => {
+    if (topSession && !topLinkedNote && buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
+      Alert.alert('Not enough content yet', 'Chat a bit more before generating a quiz (minimum 100 characters).');
+      return;
+    }
     withAccess(() => setQuizModalVisible(true));
   };
 
@@ -174,7 +180,7 @@ export const HomeScreen = () => {
           noteTitle: topLinkedNote.title,
         })
       );
-    } else if (buildSessionTranscript(topSession).length < 100) {
+    } else if (buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
       Alert.alert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
     } else {
       withAccess(() => setFlashcardsModalVisible(true));
@@ -328,6 +334,7 @@ export const HomeScreen = () => {
                       key={session._id}
                       style={[styles.chatRow, index < recentSessions.length - 1 && styles.chatRowDivider]}
                       onPress={() => handleSelectSession(session)}
+                      onLongPress={() => setSessionForActionSheet(session)}
                       activeOpacity={0.7}
                     >
                       <View style={styles.chatRowIcon}>
@@ -337,7 +344,13 @@ export const HomeScreen = () => {
                         <Text style={styles.chatRowTitle} numberOfLines={1}>{session.title}</Text>
                         <Text style={styles.chatRowDate}>{formatCreatedAt(session.createdAt)}</Text>
                       </View>
-                      <Icon name="foward" size={16} color={theme.colors.grey[300]} />
+                      <TouchableOpacity
+                        onPress={() => setSessionForActionSheet(session)}
+                        hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                        accessibilityLabel="Chat options"
+                      >
+                        <MoreVerticalIcon size={20} color={theme.colors.grey[300]} />
+                      </TouchableOpacity>
                     </TouchableOpacity>
                   ))}
                 </View>
@@ -360,6 +373,18 @@ export const HomeScreen = () => {
         onGenerateFlashcards={handleConfirmGenerateFlashcards}
         isGenerating={isGeneratingFlashcards}
         noteTitle={topSession?.title}
+      />
+
+      <ChatActionSheet
+        visible={!!sessionForActionSheet}
+        chatTitle={sessionForActionSheet?.title ?? ''}
+        onClose={() => setSessionForActionSheet(null)}
+        onDelete={() => {
+          if (!sessionForActionSheet) return;
+          const session = sessionForActionSheet;
+          setSessionForActionSheet(null);
+          deleteChatSession(session);
+        }}
       />
 
       <LanguageSupportModal

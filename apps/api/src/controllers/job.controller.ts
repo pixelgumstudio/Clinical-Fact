@@ -18,6 +18,7 @@ export const getJobStatus = async (req: AuthRequest, res: Response) => {
         status: job.status,
         result: job.result ?? null,
         error: job.error ?? null,
+        userMessage: job.userMessage ?? null,
       },
       'Job status retrieved'
     ));
@@ -58,6 +59,7 @@ export const streamJobStatus = async (req: AuthRequest, res: Response) => {
         status: job.status,
         result: job.result ?? null,
         error: job.error ?? null,
+        userMessage: job.userMessage ?? null,
         _id: eagerNoteId,
         id: eagerNoteId,
         noteId: eagerNoteId,
@@ -104,6 +106,7 @@ req.on('close', cleanup);
           status: doc.status,
           result: doc.result ?? null,
           error: doc.error ?? null,
+          userMessage: doc.userMessage ?? null,
           _id: streamNoteId,
           id: streamNoteId,
           noteId: streamNoteId,

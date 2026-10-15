@@ -3,7 +3,7 @@ import { User } from '../models/User';
 import { verifyRefreshToken } from '../utils/jwt';
 import { issueAndStoreTokens, hashToken } from '../services/auth.service';
 import { AuthRequest } from '../middleware/auth';
-import { googleOAuthClient } from '../config/google';
+import { googleOAuthClient, getGoogleAudiences } from '../config/google';
 import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
 import { validatePassword } from '../utils/passwordValidator';
 import appleSignin from 'apple-signin-auth';
@@ -240,11 +240,33 @@ export const googleAuth = async (req: Request, res: Response): Promise<void> => 
     let picture: string | undefined;
 
     if (idToken) {
-      // Verify the Google ID token
-      const ticket = await googleOAuthClient.verifyIdToken({
-        idToken,
-        audience: process.env.GOOGLE_CLIENT_ID,
-      });
+      // Verify the Google ID token. Failures are answered with a 401 that says what went wrong
+      // (a client ID mismatch looks different from a bad/expired token) instead of falling
+      // through to the generic 500, so a misconfiguration is visible from the app and the logs.
+      const audiences = getGoogleAudiences();
+      let ticket;
+      try {
+        ticket = await googleOAuthClient.verifyIdToken({
+          idToken,
+          audience: audiences.length > 0 ? audiences : undefined,
+        });
+      } catch (verifyError: any) {
+        console.error(
+          'Google ID token verification failed:',
+          verifyError?.message,
+          `(accepted audiences: ${audiences.length})`
+        );
+        const audienceMismatch = /wrong recipient/i.test(verifyError?.message ?? '');
+        res.status(401).json(
+          errorResponse(
+            audienceMismatch
+              ? 'Google sign-in is misconfigured on the server (client ID mismatch)'
+              : 'Invalid or expired Google ID token',
+            ERROR_CODES.UNAUTHORIZED
+          )
+        );
+        return;
+      }
 
       const payload = ticket.getPayload();
 

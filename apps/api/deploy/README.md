@@ -81,6 +81,13 @@ avoid colliding with the other project. See step 5.
    # audience verification entirely instead of failing loudly.
    GOOGLE_CLIENT_ID=370250130816-rm73ltjdbgiiqdh5q433q9h26nl1lapc.apps.googleusercontent.com
 
+   # Optional: additional client IDs whose ID tokens are also accepted. Not needed for the
+   # standard setup (Android issues tokens for the web client above). A wrong value of
+   # GOOGLE_CLIENT_ID is answered with a 401 "client ID mismatch" and logged as
+   # "Google ID token verification failed: Wrong recipient...".
+   # GOOGLE_ANDROID_CLIENT_ID=
+   # GOOGLE_IOS_CLIENT_ID=
+
    # Vertex AI + Translation API - see step 4 above for how to get these.
    # GOOGLE_APPLICATION_CREDENTIALS is a path *inside the container*
    # (WORKDIR is /app/apps/api there), matching the volume mount in

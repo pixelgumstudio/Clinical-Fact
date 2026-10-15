@@ -29,14 +29,12 @@ export const ChatWelcomeHero: React.FC<ChatWelcomeHeroProps> = ({ onSelectTopic 
 
   return (
     <Animated.View style={[styles.welcomeContainer, { opacity, transform: [{ scale }] }]}>
-      <View style={styles.welcomeLogoRow}>
-        <Image
-          source={require('../../../../assets/Chat_logo.png')}
-          style={styles.welcomeLogo}
-          resizeMode="contain"
-        />
-        <Text style={styles.welcomeWordmark}>Clinicalfact</Text>
-      </View>
+      <Image
+        source={require('../../../../assets/chat_logo_lockup.png')}
+        style={styles.welcomeLogo}
+        resizeMode="contain"
+        accessibilityLabel="Clinicalfact"
+      />
       <Text style={styles.welcomeTagline}>
         Ask anything medical, Get the{'\n'}Cited fact backed by real sources
       </Text>
@@ -71,20 +69,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing[4], // 16
     width: '100%',
   },
-  welcomeLogoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing[2], // 8
-    marginBottom: theme.spacing[6], // 24
-  },
+  // Figma lock-up frame is 163×36 (icon + wordmark in one image)
   welcomeLogo: {
-    width: 36,
+    width: 163,
     height: 36,
-  },
-  welcomeWordmark: {
-    ...theme.typography.textStyles.h6,
-    fontFamily: theme.typography.fontFamily.tiroBangla,
-    color: theme.colors.yale[701],
+    marginBottom: theme.spacing[6], // 24
   },
   welcomeTagline: {
     ...theme.typography.textStyles.h7,

@@ -152,7 +152,9 @@ export const QuizScreen = () => {
       }, 600);
     } 
     else {
-      throw new Error(response.message || 'Generation failed');
+      throw Object.assign(new Error(response.message || 'Generation failed'), {
+        code: (response as any).code,
+      });
     }
   } catch (error: any) {
     console.error('Quiz generation error:', error);
@@ -171,10 +173,14 @@ export const QuizScreen = () => {
       return;
     }
 
+    // The server words these two failures for the user (not enough source content), so show
+    // its message instead of the generic "try again" copy — retrying won't help.
+    const isContentError = error.code === 'AI_REFUSAL' || error.code === 'CONTENT_TOO_SHORT';
+
     setAlertConfig({
       visible: true,
       title: t('quiz.errorTitle'),
-      message: t('quiz.errorMessage'),
+      message: isContentError ? error.message : t('quiz.errorMessage'),
       buttonText: t('common.ok'),
     });
   } finally {

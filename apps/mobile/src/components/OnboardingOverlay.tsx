@@ -39,9 +39,24 @@ export const OnboardingOverlay: React.FC = () => {
     }
   }, [currentStep, isOnboardingActive]);
 
+  // However the tour ends, drop the user back on Chat so they can start using the app.
+  const returnToChat = () => {
+    try {
+      navigation.navigate('Chat');
+    } catch {
+      // Navigation may not be ready — the user is simply left on the current tab
+    }
+  };
+
+  const handleSkip = () => {
+    skipOnboarding();
+    returnToChat();
+  };
+
   const handleNext = () => {
     if (isLastStep) {
       completeOnboarding();
+      returnToChat();
     } else {
       nextStep();
     }
@@ -58,8 +73,8 @@ export const OnboardingOverlay: React.FC = () => {
       description={currentStepConfig.description}
       isLastStep={isLastStep}
       onNext={handleNext}
-      onSkip={() => skipOnboarding()}
-      onClose={() => skipOnboarding()}
+      onSkip={handleSkip}
+      onClose={handleSkip}
       position={currentStepConfig.tooltipPosition}
       tooltipOffset={currentStepConfig.tooltipOffset}
     />

@@ -10,7 +10,17 @@ export interface OnboardingStepConfig {
   tooltipOffset?: number;
 }
 
+// The tour starts on Chat — new users land there right after signup, so the first step
+// shouldn't move them away — and the overlay returns them to Chat when it ends.
 export const onboardingSteps: OnboardingStepConfig[] = [
+  {
+    id: 'chats',
+    heading: 'Chats',
+    description: 'Chat with any notes, Documents or PDF all in one place',
+    targetTab: 'Chat',
+    tooltipPosition: 'bottom',
+    tooltipOffset: 120,
+  },
   {
     id: 'profile-welcome',
     heading: 'Welcome to your Profile',
@@ -52,14 +62,6 @@ export const onboardingSteps: OnboardingStepConfig[] = [
     description:
       'Manage all your notes created, Create folders for your notes and more',
     targetTab: 'Library',
-    tooltipPosition: 'bottom',
-    tooltipOffset: 120,
-  },
-  {
-    id: 'chats',
-    heading: 'Chats',
-    description: 'Chat with any notes, Documents or PDF all in one place',
-    targetTab: 'Chat',
     tooltipPosition: 'bottom',
     tooltipOffset: 120,
   },

@@ -3,7 +3,7 @@
     "entryPoint": "./index.js",
     "name": "Clinical Fact",
     "slug": "clinicfact-app",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "scheme": "clinicalfact",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -62,7 +62,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "runtimeVersion": "1.0.6",
+    "runtimeVersion": "1.0.7",
     "plugins": [
       [
         "expo-build-properties",
