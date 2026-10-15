@@ -344,7 +344,11 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   setOnboardingComplete: () => {
     const currentUser = get().user;
-    const wasFirstTimeUser = get().isFirstTimeUser;
+    // The server reports isNewUser: false for an account that already exists but never finished
+    // signup (aborted earlier, reinstalled, a reused test account). That user still just went
+    // through onboarding, so needsProfileSetup counts as "first time" too — otherwise they
+    // would land on Home instead of Chat.
+    const wasFirstTimeUser = get().isFirstTimeUser || get().needsProfileSetup;
     set({
       hasCompletedOnboarding: true,
       isFirstTimeUser: false,
