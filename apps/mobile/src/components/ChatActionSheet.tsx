@@ -5,10 +5,12 @@ import { colors, spacing, typography } from '@clinicalfact/design-system';
 interface ChatActionSheetProps {
   visible: boolean;
   chatTitle: string;
-  isPinned: boolean;
+  /** Only meaningful together with `onTogglePin`. */
+  isPinned?: boolean;
   onClose: () => void;
   onDelete: () => void;
-  onTogglePin: () => void;
+  /** Omit on screens that don't support pinning — the "Pin chat" row is then hidden. */
+  onTogglePin?: () => void;
 }
 
 /** Long-press context menu for a chat row — text-only, no icons, matching the plain
@@ -30,10 +32,14 @@ export const ChatActionSheet: React.FC<ChatActionSheetProps> = ({
             <View style={styles.sheet}>
               <Text style={styles.chatTitle} numberOfLines={1}>{chatTitle}</Text>
               <View style={styles.divider} />
-              <TouchableOpacity style={styles.row} onPress={onTogglePin} activeOpacity={0.6}>
-                <Text style={styles.pinText}>{isPinned ? 'Unpin chat' : 'Pin chat'}</Text>
-              </TouchableOpacity>
-              <View style={styles.divider} />
+              {onTogglePin && (
+                <>
+                  <TouchableOpacity style={styles.row} onPress={onTogglePin} activeOpacity={0.6}>
+                    <Text style={styles.pinText}>{isPinned ? 'Unpin chat' : 'Pin chat'}</Text>
+                  </TouchableOpacity>
+                  <View style={styles.divider} />
+                </>
+              )}
               <TouchableOpacity style={styles.row} onPress={onDelete} activeOpacity={0.6}>
                 <Text style={styles.deleteText}>Delete chat</Text>
               </TouchableOpacity>

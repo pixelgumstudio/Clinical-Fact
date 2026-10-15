@@ -1166,13 +1166,14 @@ class ApiClient {
     status: 'pending' | 'active' | 'completed' | 'failed';
     result: any;
     error: string | null;
+    userMessage?: string | null;
   }>> {
     return this.request(`/jobs/${jobId}`, { method: 'GET' }, true);
   }
 
   listenToJobStream(
     jobId: string,
-    onUpdate: (data: { jobId: string; status: 'completed' | 'failed'; result: any; error: string | null }) => void,
+    onUpdate: (data: { jobId: string; status: 'completed' | 'failed'; result: any; error: string | null; userMessage?: string | null }) => void,
     onError: (error: any) => void,
     timeoutMs?: number
   ): () => void {

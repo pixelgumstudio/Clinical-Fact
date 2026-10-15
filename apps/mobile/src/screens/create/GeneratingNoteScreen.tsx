@@ -361,14 +361,16 @@ export const GeneratingNoteScreen = () => {
           pollTimerRef.current = setTimeout(poll, 3000);
           return;
         }
-        const { status, result, error } = res.data;
+        const { status, result, error, userMessage } = res.data;
         if (status === 'completed') {
           isPollingRef.current = false;
           handleJobSuccess(result, hasProcessingStepRef.current);
           jobPromiseRef.current?.resolve();
         } else if (status === 'failed') {
           isPollingRef.current = false;
-          jobPromiseRef.current?.reject(new Error(error || 'Note generation failed on the server.'));
+          jobPromiseRef.current?.reject(
+            Object.assign(new Error(error || 'Note generation failed on the server.'), { userMessage })
+          );
         } else {
           pollTimerRef.current = setTimeout(poll, 3000);
         }
@@ -540,7 +542,7 @@ export const GeneratingNoteScreen = () => {
 
       showAlert(
         'Oops, we hit a snag 🚧',
-        "We couldn't generate that right now. Give it a moment and try again!",
+        error.userMessage || "We couldn't generate that right now. Give it a moment and try again!",
         'Got it'
       );
     }
@@ -572,7 +574,11 @@ export const GeneratingNoteScreen = () => {
           sseCleanupRef.current = null;
           if (data.status === 'failed') {
             jobCompleteRef.current = true;
-            reject(new Error(data.error || 'Note generation failed on the server.'));
+            reject(
+              Object.assign(new Error(data.error || 'Note generation failed on the server.'), {
+                userMessage: data.userMessage,
+              })
+            );
           } else {
             handleJobSuccess(data.result, hasProcessingStep);
             resolve();

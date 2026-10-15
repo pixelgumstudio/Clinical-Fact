@@ -24,6 +24,15 @@ export type PaywallOffering = 'Onboarding' | 'Quiz' | 'exit offer' | 'Upgrade';
 const EXIT_OFFER_ELIGIBLE: ReadonlySet<PaywallOffering> = new Set(['Upgrade', 'Quiz']);
 const EXIT_OFFER_DELAY_MS = 20_000;
 
+// Maps each paywall name to its RevenueCat offering identifier on the dashboard.
+// The onboarding paywall is attached to the dashboard's "default" offering.
+const OFFERING_IDS: Record<PaywallOffering, string> = {
+  Onboarding: 'default',
+  Quiz: 'Quiz',
+  'exit offer': 'exit offer',
+  Upgrade: 'Upgrade',
+};
+
 const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -125,11 +134,12 @@ export function listenForSubscriptionChanges(
 export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'): Promise<boolean> {
   try {
     const offerings = await Purchases.getOfferings();
-    const offering  = offerings.all[offeringId];
+    const offeringKey = OFFERING_IDS[offeringId];
+    const offering    = offerings.all[offeringKey];
 
     if (!offering) {
       console.warn(
-        `[RC] Requested offering "${offeringId}" was not in Purchases.getOfferings(). ` +
+        `[RC] Requested offering "${offeringKey}" was not in Purchases.getOfferings(). ` +
         `Available offerings: ${Object.keys(offerings.all).join(', ') || '(none)'}`
       );
     }

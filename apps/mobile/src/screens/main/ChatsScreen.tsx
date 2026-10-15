@@ -24,6 +24,7 @@ import { Toast } from '../../components/Toast';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useAuthStore } from '../../store/authStore';
+import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
@@ -96,15 +97,11 @@ export const ChatsScreen = () => {
     navigation.navigate('ChatConversation');
   };
 
-  const handleDeleteChat = async (session: ChatSession) => {
+  const deleteChatSession = useDeleteChatSession(setSessions);
+
+  const handleDeleteChat = (session: ChatSession) => {
     setSessionForActionSheet(null);
-    // Optimistic removal — restore the row if the request fails.
-    setSessions((prev) => prev.filter((s) => s._id !== session._id));
-    const response = await api.deleteChatSession(session._id);
-    if (!response.success) {
-      setSessions((prev) => [...prev, session]);
-      Alert.alert('Error', response.message || 'Failed to delete chat');
-    }
+    return deleteChatSession(session);
   };
 
   const handleTogglePin = async (session: ChatSession) => {
