@@ -153,6 +153,7 @@ class QuizController {
       if (error.message?.includes('AI_REFUSAL')) {
         return res.status(400).json({
           success: false,
+          code: 'AI_REFUSAL',
           message: 'This note doesn\'t have enough content to generate a meaningful quiz. Try a note with more detail.',
           error: error.message,
         });
@@ -192,6 +193,14 @@ class QuizController {
         return res.status(400).json({
           success: false,
           message: 'content is required',
+        });
+      }
+
+      if (content.trim().length < 100) {
+        return res.status(400).json({
+          success: false,
+          code: 'CONTENT_TOO_SHORT',
+          message: 'Chat a bit more before generating a quiz — there isn\'t enough content yet.',
         });
       }
 
@@ -257,6 +266,7 @@ class QuizController {
       if (error.message?.includes('AI_REFUSAL')) {
         return res.status(400).json({
           success: false,
+          code: 'AI_REFUSAL',
           message: 'This text doesn\'t have enough content to generate a meaningful quiz. Try adding more detail.',
           error: error.message,
         });
