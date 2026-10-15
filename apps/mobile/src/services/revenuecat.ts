@@ -1,6 +1,6 @@
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
-import { Platform } from 'react-native';
+import { Alert, Platform } from 'react-native';
 
 const RC_API_KEY_IOS     = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS     ?? '';
 const RC_API_KEY_ANDROID = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID ?? '';
@@ -131,17 +131,40 @@ export function listenForSubscriptionChanges(
 // Defaults to the "Upgrade" offering, since every call site except PaywallScreen
 // (end of onboarding) is a mid-app gated-feature/profile trigger.
 
+// A paywall that fails to open used to fail silently, which on a gated action (a quiz or note
+// past the free limit) looks like the button doing nothing. Tell the user instead — except for
+// the optional follow-up "exit offer" and the end-of-signup paywall, which they never asked for
+// (signup completes either way).
+function notifyPaywallUnavailable(offeringId: PaywallOffering): void {
+  if (offeringId === 'exit offer' || offeringId === 'Onboarding') return;
+  Alert.alert(
+    'Upgrade unavailable',
+    "We couldn't open the upgrade screen right now. Please check your connection and try again."
+  );
+}
+
 export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'): Promise<boolean> {
   try {
     const offerings = await Purchases.getOfferings();
     const offeringKey = OFFERING_IDS[offeringId];
-    const offering    = offerings.all[offeringKey];
+    let offering = offerings.all[offeringKey];
 
-    if (!offering) {
+    // An offering that exists but has no purchasable packages for this store (e.g. the Google
+    // Play products were never attached to it) can't render a paywall — use the current offering
+    // so the user still sees one, and log which dashboard entry needs fixing.
+    if (!offering || offering.availablePackages.length === 0) {
       console.warn(
-        `[RC] Requested offering "${offeringKey}" was not in Purchases.getOfferings(). ` +
+        `[RC] Offering "${offeringKey}" ${offering ? 'has no packages for this store' : 'was not in Purchases.getOfferings()'}. ` +
         `Available offerings: ${Object.keys(offerings.all).join(', ') || '(none)'}`
       );
+      const current = offerings.current;
+      offering = current && current.availablePackages.length > 0 ? current : (undefined as any);
+    }
+
+    if (!offering) {
+      console.error(`[RC] No offering with packages is available for "${offeringId}" — cannot show a paywall.`);
+      notifyPaywallUnavailable(offeringId);
+      return false;
     }
 
     const result = await RevenueCatUI.presentPaywallIfNeeded({
@@ -158,7 +181,13 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
       return true;
     }
 
-    // CANCELLED or ERROR. For an offering that's eligible for a follow-up, give the user
+    if (result === PAYWALL_RESULT.ERROR) {
+      console.error(`[RC] Paywall for "${offeringKey}" failed to present (PAYWALL_RESULT.ERROR).`);
+      notifyPaywallUnavailable(offeringId);
+      return false;
+    }
+
+    // CANCELLED. For an offering that's eligible for a follow-up, give the user
     // a short beat before re-approaching with the cheaper one-time "exit offer" — showing
     // it instantly, right on the heels of a dismissal, reads as pushy.
     if (EXIT_OFFER_ELIGIBLE.has(offeringId)) {
@@ -169,6 +198,7 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
     return false;
   } catch (e: any) {
     console.error('[RC] In-app paywall error:', e);
+    notifyPaywallUnavailable(offeringId);
     return false;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, AppState } from 'react-native';
 import { NavigationContainer, LinkingOptions } from '@react-navigation/native';
 import { AuthNavigator } from './AuthNavigator';
 import { MainStackNavigator } from './MainStackNavigator';
@@ -8,6 +8,7 @@ import { useAuthStore } from '../store/authStore';
 import { useOnboardingStore } from '../store/onboardingStore';
 import { useSignupStore } from '../store/signupStore';
 import { useSubscriptionStore } from '../store/subscriptionStore';
+import api from '../services/api';
 import {
   configureRevenueCat,
   listenForSubscriptionChanges,
@@ -37,7 +38,7 @@ export const AppNavigator = () => {
 
   const { isLoading: onboardingLoading, loadOnboardingStatus } = useOnboardingStore();
   const { authMethod } = useSignupStore();
-  const { setStatus, reset: resetSubscription } = useSubscriptionStore();
+  const { setStatus, syncBackendSubscription, reset: resetSubscription } = useSubscriptionStore();
 
   // While identify is in flight, RC fires the listener with the anonymous
   // (empty) user info as it transitions — we suppress those 'free' events
@@ -68,6 +69,37 @@ export const AppNavigator = () => {
       resetSubscription();
     }
   }, [isAuthenticated, user?.id]);
+
+  // ── Keep access in step with the backend's PRO flag ─────────────────────
+  // A PRO grant that doesn't come from RevenueCat (admin panel, webhook) only changes the
+  // server's record. Recompute access whenever the profile's subscription changes, and
+  // re-fetch the profile when the app returns to the foreground so a grant made while the
+  // user is signed in applies without a restart or re-login.
+  useEffect(() => {
+    if (isAuthenticated) syncBackendSubscription();
+  }, [user?.subscription]);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const refreshSubscription = async () => {
+      try {
+        const response = await api.getMe();
+        if (!response.success || !response.data?.user) return;
+        const subscription = response.data.user.subscription === 'PRO' ? 'PRO' : 'FREE';
+        if (subscription !== useAuthStore.getState().user?.subscription) {
+          useAuthStore.getState().updateUser({ subscription, isPro: subscription === 'PRO' });
+        }
+      } catch {
+        // Offline or a transient error — keep what we have
+      }
+    };
+
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState === 'active') refreshSubscription();
+    });
+    return () => subscription.remove();
+  }, [isAuthenticated]);
 
   // ── Initialize auth + onboarding ─────────────────────────────────────────
   useEffect(() => {
