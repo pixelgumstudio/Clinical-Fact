@@ -125,7 +125,7 @@ describe('Feature Name', () => {
 ## Mocked Services
 
 The following external services are mocked in tests:
-- Gemini AI service (note generation)
+- AI service (Gemini) — note, quiz, flashcard generation and chat
 - Storage service (MinIO/file upload)
 - PDF extraction service
 - Audio transcription service

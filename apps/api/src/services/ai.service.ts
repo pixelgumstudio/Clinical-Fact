@@ -2,8 +2,23 @@
 import { performance } from 'perf_hooks';
 import OpenAI from 'openai';
 import Groq from 'groq-sdk';
+import { GoogleGenAI, ThinkingLevel, type Content, type GenerateContentConfig } from '@google/genai';
 import { tavily } from '@tavily/core';
 import { safeParseJSON } from '../utils/jsonParser';
+
+// Gemini is the default provider. Set AI_PROVIDER=legacy to roll back to the previous
+// OpenAI (generation/OCR) + Groq (chat) setup below without a code change.
+const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
+const DEFAULT_GEMINI_FALLBACK_MODEL = 'gemini-3.5-flash-lite';
+const GEMINI_CHAT_MAX_OUTPUT_TOKENS = 4096; // includes thinking tokens, so higher than the legacy 2048
+const GEMINI_GENERATION_MAX_OUTPUT_TOKENS = 8192;
+
+const THINKING_LEVELS: Record<string, ThinkingLevel> = {
+  minimal: ThinkingLevel.MINIMAL,
+  low: ThinkingLevel.LOW,
+  medium: ThinkingLevel.MEDIUM,
+  high: ThinkingLevel.HIGH,
+};
 
 const OPENAI_MODEL = 'gpt-6-luna';
 const GROQ_CHAT_MODEL = 'openai/gpt-oss-120b'; // llama-3.3-70b-versatile was retired from Groq's catalog
@@ -28,8 +43,150 @@ type TavilyClient = ReturnType<typeof tavily>;
 class AiService {
   private openai: OpenAI | null = null;
   private groq: Groq | null = null;
+  private gemini: GoogleGenAI | null = null;
   private tvly: TavilyClient | null = null;
   private tavilyWarned = false;
+
+  private get useGemini(): boolean {
+    return (process.env.AI_PROVIDER || 'gemini').toLowerCase() !== 'legacy';
+  }
+
+  private get geminiModel(): string {
+    return process.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL;
+  }
+
+  private get geminiFallbackModel(): string {
+    return process.env.GEMINI_FALLBACK_MODEL || DEFAULT_GEMINI_FALLBACK_MODEL;
+  }
+
+  private getGemini(): GoogleGenAI {
+    if (this.gemini) return this.gemini;
+
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey || apiKey.trim() === '') {
+      throw new Error('GEMINI_API_KEY environment variable is not set');
+    }
+
+    this.gemini = new GoogleGenAI({ apiKey });
+    console.log(`✅ Gemini service initialized (model: ${this.geminiModel}, fallback: ${this.geminiFallbackModel})`);
+    return this.gemini;
+  }
+
+  /**
+   * Shared generation config. Thinking tokens are billed as output, so the level is capped
+   * (GEMINI_THINKING_LEVEL, default 'low') — plenty for notes/quiz/flashcard/chat work.
+   * thinkingLevel is a Gemini 3+ option; older models would reject it, so it's only sent there.
+   */
+  private geminiConfig(model: string, extra: GenerateContentConfig = {}): GenerateContentConfig {
+    const config: GenerateContentConfig = { ...extra };
+    if (/^gemini-3/.test(model)) {
+      const level = THINKING_LEVELS[(process.env.GEMINI_THINKING_LEVEL || 'low').toLowerCase()];
+      if (level) config.thinkingConfig = { thinkingLevel: level };
+    }
+    return config;
+  }
+
+  /** Runs `fn` on the primary Gemini model, retrying once on the fallback model if it throws. */
+  private async withGeminiFallback<T>(label: string, fn: (model: string) => Promise<T>): Promise<T> {
+    try {
+      return await fn(this.geminiModel);
+    } catch (error: any) {
+      if (this.geminiFallbackModel === this.geminiModel) throw error;
+      console.warn(`⏳ Gemini ${label} failed on ${this.geminiModel} (${error.message}) — retrying on ${this.geminiFallbackModel}`);
+      return await fn(this.geminiFallbackModel);
+    }
+  }
+
+  private async geminiGenerate(
+    label: string,
+    contents: Content[] | string,
+    config: GenerateContentConfig = {}
+  ): Promise<string> {
+    const ai = this.getGemini();
+    return this.withGeminiFallback(label, async (model) => {
+      const result = await ai.models.generateContent({ model, contents, config: this.geminiConfig(model, config) });
+      this.logGeminiUsage(label, model, result.usageMetadata);
+      const text = String(result.text || '').trim();
+      if (!text) {
+        // Empty text usually means a safety block or a token-limit cut-off during thinking.
+        // Throwing here (inside the fallback wrapper) retries once on the fallback model.
+        const finishReason = result.candidates?.[0]?.finishReason || result.promptFeedback?.blockReason || 'unknown';
+        throw new Error(`Empty response from Gemini (reason: ${finishReason})`);
+      }
+      return text;
+    });
+  }
+
+  /** One line per call so real token usage (and therefore cost) is visible in the logs. */
+  private logGeminiUsage(
+    label: string,
+    model: string,
+    usage?: { promptTokenCount?: number; candidatesTokenCount?: number; thoughtsTokenCount?: number }
+  ): void {
+    if (!usage) return;
+    console.log(
+      `📊 Gemini usage [${label}] ${model}: in=${usage.promptTokenCount ?? 0} out=${usage.candidatesTokenCount ?? 0} thinking=${usage.thoughtsTokenCount ?? 0}`
+    );
+  }
+
+  private toGeminiContents(messages: ChatMessage[]): Content[] {
+    return messages.map((m) => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }],
+    }));
+  }
+
+  private async *geminiChatStream(
+    messages: ChatMessage[],
+    systemInstruction?: string,
+    signal?: AbortSignal
+  ): AsyncGenerator<string, void, unknown> {
+    const ai = this.getGemini();
+    const contents = this.toGeminiContents(messages);
+    const models = [this.geminiModel, this.geminiFallbackModel].filter((m, i, all) => all.indexOf(m) === i);
+    let emittedAny = false;
+
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i];
+      try {
+        const stream = await ai.models.generateContentStream({
+          model,
+          contents,
+          config: this.geminiConfig(model, {
+            systemInstruction: systemInstruction || undefined,
+            maxOutputTokens: GEMINI_CHAT_MAX_OUTPUT_TOKENS,
+            abortSignal: signal,
+          }),
+        });
+        let usage: Parameters<typeof this.logGeminiUsage>[2];
+        let finishReason: string | undefined;
+        for await (const chunk of stream) {
+          if (chunk.usageMetadata) usage = chunk.usageMetadata;
+          finishReason = chunk.candidates?.[0]?.finishReason || chunk.promptFeedback?.blockReason || finishReason;
+          const piece = chunk.text;
+          if (piece) {
+            emittedAny = true;
+            yield piece;
+          }
+        }
+        this.logGeminiUsage('chatStream', model, usage);
+        if (!emittedAny) {
+          // Blocked or cut off before any text — handled like an error so the fallback model gets a try.
+          throw new Error(`Empty response from Gemini (reason: ${finishReason || 'unknown'})`);
+        }
+        return;
+      } catch (error: any) {
+        if (signal?.aborted) return;
+        console.error('❌ Gemini Chat Stream Error:', { model, message: error.message, status: error.status });
+        // Once text has reached the caller, switching models mid-answer would read as a jarring
+        // tone shift — only fail over if nothing has been streamed yet.
+        if (emittedAny || i === models.length - 1) {
+          throw new Error(`Chat stream failed: ${error.message}`);
+        }
+        console.warn(`⏳ Gemini stream failed before any tokens — retrying on ${models[i + 1]}`);
+      }
+    }
+  }
 
   private getOpenAI(): OpenAI {
     if (this.openai) return this.openai;
@@ -82,6 +239,19 @@ class AiService {
   }
 
   async generateText(prompt: string): Promise<string> {
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate('generateText', prompt, {
+          maxOutputTokens: GEMINI_GENERATION_MAX_OUTPUT_TOKENS,
+        });
+        console.log('✅ Generated text successfully, length:', text.length);
+        return text;
+      } catch (error: any) {
+        console.error('❌ Gemini API Error:', { message: error.message, status: error.status });
+        throw new Error(`AI generation failed: ${error.message}`);
+      }
+    }
+
     try {
       const openai = this.getOpenAI();
       const result = await openai.responses.create({
@@ -110,6 +280,20 @@ class AiService {
   }
 
   async generateJSON(prompt: string): Promise<any> {
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate('generateJSON', prompt, {
+          maxOutputTokens: GEMINI_GENERATION_MAX_OUTPUT_TOKENS,
+          responseMimeType: 'application/json',
+        });
+        console.log('✅ Generated JSON successfully');
+        return this.parseJsonFromText(text, 'Gemini');
+      } catch (error: any) {
+        console.error('❌ Gemini API Error:', { message: error.message, status: error.status });
+        throw new Error(`AI generation failed: ${error.message}`);
+      }
+    }
+
     try {
       const openai = this.getOpenAI();
       const result = await openai.responses.create({
@@ -161,6 +345,31 @@ class AiService {
   }
 
   async extractTextFromImage(imageBuffer: Buffer, mimeType: string = 'image/jpeg'): Promise<string> {
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate(
+          'extractTextFromImage',
+          [
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: 'Extract ALL text from this image exactly as it appears. Preserve the original wording, order, and structure. Do NOT summarize, interpret, or add anything. Return only the raw text found in the image.',
+                },
+                { inlineData: { mimeType, data: imageBuffer.toString('base64') } },
+              ],
+            },
+          ],
+          { maxOutputTokens: GEMINI_GENERATION_MAX_OUTPUT_TOKENS }
+        );
+        console.log('✅ Vision OCR completed, length:', text.length);
+        return text;
+      } catch (error: any) {
+        console.error('❌ Vision OCR Error:', error.message);
+        throw new Error(`Image text extraction failed: ${error.message}`);
+      }
+    }
+
     try {
       const openai = this.getOpenAI();
       const result = await openai.responses.create({
@@ -210,6 +419,32 @@ class AiService {
       `🔍 PDF Vision OCR — ${(pdfBuffer.length / 1024 / 1024).toFixed(2)} MB PDF`
     );
 
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate(
+          'extractTextFromPdf',
+          [
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: 'Extract ALL text from this PDF document exactly as it appears. Preserve paragraphs, headings, and structure. Do NOT summarize or interpret — return only the raw extracted text.',
+                },
+                { inlineData: { mimeType: 'application/pdf', data: pdfBuffer.toString('base64') } },
+              ],
+            },
+          ],
+          // PDFs can be long and OCR output is large; use the model's full output budget.
+          { maxOutputTokens: 32768 }
+        );
+        console.log(`✅ PDF Vision OCR complete — ${text.length} chars extracted`);
+        return text;
+      } catch (error: any) {
+        console.error('❌ PDF Vision OCR Error:', { message: error.message, status: error.status });
+        throw new Error(`PDF extraction failed: ${error.message}`);
+      }
+    }
+
     try {
       const openai = this.getOpenAI();
       const result = await openai.responses.create({
@@ -249,6 +484,20 @@ class AiService {
     messages: ChatMessage[],
     systemInstruction?: string
   ): Promise<string> {
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate('chat', this.toGeminiContents(messages), {
+          systemInstruction: systemInstruction || undefined,
+          maxOutputTokens: GEMINI_CHAT_MAX_OUTPUT_TOKENS,
+        });
+        console.log('✅ Generated chat response successfully, length:', text.length);
+        return text;
+      } catch (error: any) {
+        console.error('❌ Gemini Chat API Error:', { message: error.message, status: error.status });
+        throw new Error(`Chat generation failed: ${error.message}`);
+      }
+    }
+
     try {
       return await this.chatViaGroq(messages, systemInstruction);
     } catch (error: any) {
@@ -330,6 +579,19 @@ class AiService {
   ): AsyncGenerator<string, void, unknown> {
     const startedAt = performance.now();
     let emittedAny = false;
+
+    if (this.useGemini) {
+      for await (const piece of this.geminiChatStream(messages, systemInstruction, signal)) {
+        if (!emittedAny) {
+          console.log(`⏱️ TTFT (Gemini): ${(performance.now() - startedAt).toFixed(0)}ms`);
+        }
+        emittedAny = true;
+        yield piece;
+      }
+      console.log(`⏱️ Total generation time (Gemini): ${(performance.now() - startedAt).toFixed(0)}ms`);
+      return;
+    }
+
     try {
       for await (const piece of this.chatStreamViaGroq(messages, systemInstruction, signal)) {
         if (!emittedAny) {
@@ -429,6 +691,20 @@ class AiService {
     messages: ChatMessage[],
     systemInstruction?: string
   ): Promise<any> {
+    if (this.useGemini) {
+      try {
+        const text = await this.geminiGenerate('chatJSON', this.toGeminiContents(messages), {
+          systemInstruction: systemInstruction || undefined,
+          maxOutputTokens: GEMINI_CHAT_MAX_OUTPUT_TOKENS,
+          responseMimeType: 'application/json',
+        });
+        return this.parseJsonFromText(text, 'Gemini');
+      } catch (error: any) {
+        console.error('❌ Gemini JSON Chat Error:', { message: error.message, status: error.status });
+        throw new Error(`Chat JSON generation failed: ${error.message}`);
+      }
+    }
+
     try {
       const groq = this.getGroq();
       const groqMessages: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
