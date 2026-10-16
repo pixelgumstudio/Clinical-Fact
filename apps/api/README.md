@@ -12,7 +12,7 @@ Clinical Fact turns raw study material (audio, PDF, images, YouTube videos, text
 - **Database:** MongoDB via Mongoose
 - **Queue/Jobs:** BullMQ + Redis (used for YouTube audio transcription fallback), plus a lightweight custom "Job" pattern (Mongo-backed) for note generation and chat replies — explained in §4.
 - **File storage:** MinIO (S3-compatible) via `storage.service.ts`
-- **AI:** `ai.service.ts` — OpenAI (GPT-6 Luna) for note/quiz/flashcard generation and OCR; chat is Groq (`openai/gpt-oss-120b`, primary, for speed/cost) with OpenAI as a fallback if Groq errors; Tavily (domain-restricted to authoritative medical sites) for live web grounding; Vertex AI embeddings for chat RAG; Qdrant as the vector DB (`vectorDb.service.ts`)
+- **AI:** `ai.service.ts` — Gemini (`GEMINI_MODEL`, default `gemini-3.8-flash`, falling back to `GEMINI_FALLBACK_MODEL`, default `gemini-3.5-flash-lite`) for notes, quizzes, flashcards, chat, and image/PDF OCR; `GEMINI_THINKING_LEVEL` (default `low`) caps billed thinking tokens; set `AI_PROVIDER=legacy` to roll back to the previous OpenAI (GPT-6 Luna) + Groq (`openai/gpt-oss-120b`) setup; Tavily (domain-restricted to authoritative medical sites) for live web grounding; Vertex AI embeddings for chat RAG; Qdrant as the vector DB (`vectorDb.service.ts`)
 - **Auth:** Custom JWT (access + refresh tokens), plus Google/Apple OAuth
 - **Payments:** RevenueCat (mobile IAP), verified via webhook
 
