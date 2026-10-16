@@ -554,7 +554,12 @@ class ChatController {
       // (and eventually discarding) a full generation nobody is listening to anymore.
       const abortController = new AbortController();
       let clientDisconnected = false;
-      req.on('close', () => {
+      // Listen on `res`, not `req`: since Node 16 a POST request's 'close' fires as soon as its
+      // body has been read (~1ms in), long before the client leaves — which aborted every
+      // generation instantly and ended the stream with no output. `res` closes before it has
+      // finished only when the connection really dropped.
+      res.on('close', () => {
+        if (res.writableEnded) return;
         clientDisconnected = true;
         abortController.abort();
       });
