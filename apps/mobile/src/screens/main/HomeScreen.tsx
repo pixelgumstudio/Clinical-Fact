@@ -173,18 +173,15 @@ export const HomeScreen = () => {
 
   const handleOpenFlashcardsModal = () => {
     if (!topSession) return;
-    if (topLinkedNote) {
-      withAccess(() =>
-        navigation.navigate('CreateFlashcards', {
-          noteId: topLinkedNote._id,
-          noteTitle: topLinkedNote.title,
-        })
-      );
-    } else if (buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
+    // Same as inside the chat: pick a card count in the modal, then generate right away. A
+    // note-linked chat generates from the note itself (no minimum chat length needed); any
+    // other chat generates from its transcript. (This used to open the note's CreateFlashcards
+    // screen, which only lists existing sets.)
+    if (!topLinkedNote && buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
       Alert.alert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
-    } else {
-      withAccess(() => setFlashcardsModalVisible(true));
+      return;
     }
+    withAccess(() => setFlashcardsModalVisible(true));
   };
 
   const handleConfirmGenerateFlashcards = async (cardCount: number) => {
@@ -193,15 +190,18 @@ export const HomeScreen = () => {
     if (!consented) return;
     setGeneratingFlashcards(true);
     try {
-      const response = await api.generateFlashcardsFromText(
-        buildSessionTranscript(topSession),
-        topSession.title,
-        cardCount,
-        undefined,
-        undefined,
-        undefined,
-        topSession._id
-      );
+      // targetLanguage is left unset so the server resolves it (note -> user study language).
+      const response = topLinkedNote
+        ? await api.generateFlashcards(topLinkedNote._id, cardCount)
+        : await api.generateFlashcardsFromText(
+            buildSessionTranscript(topSession),
+            topSession.title,
+            cardCount,
+            undefined,
+            undefined,
+            undefined,
+            topSession._id
+          );
       if (response.success && response.data) {
         setFlashcardsModalVisible(false);
         navigation.navigate('FlashcardReview', {
