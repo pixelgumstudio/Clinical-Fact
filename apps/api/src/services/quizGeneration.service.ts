@@ -105,8 +105,8 @@ Requirements:
 - Cover the most important, clinically relevant concepts — prioritize what a student would actually be tested on or need at the bedside (mechanisms, red-flag symptoms, dosing/contraindications, standard treatment) over trivia-style facts
 - Questions should test clinical understanding and application, not just memorization — favor NCLEX-style stems (e.g. a brief patient scenario) where the notes support it
 - Provide clear, educational explanations for each answer${focusInstruction}${languageInstruction}
-- Base every question ONLY on what the notes actually say; never invent facts to fill gaps. This applies to any subject — if the notes are not medical, still write the quiz from their own content and skip the clinical-scenario framing
-- Return {"insufficientMaterial": true} and nothing else ONLY when the notes are essentially unusable: empty, gibberish/garbled text, or so short that not even a few real questions can be written. Never use it just because the subject is not medical or the notes are brief but readable — in that case write fewer questions instead
+- Base every question ONLY on what the notes actually say; never invent facts to fill gaps
+- This app is for medical and health-science study material only. Return {"insufficientMaterial": true} and nothing else if the notes are NOT medical, nursing, pharmacology, or health-science content, or if they are essentially unusable (empty, garbled, or so short that not even a few real questions can be written). Do NOT refuse medical notes just because they are brief but readable — for those, write fewer questions instead
 
 CRITICAL FORMATTING RULES:
 1. Return ONLY valid JSON (no markdown, no code blocks, no extra text)

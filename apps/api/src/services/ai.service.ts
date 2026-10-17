@@ -18,6 +18,14 @@ const GEMINI_GENERATION_MAX_OUTPUT_TOKENS = GEMINI_MAX_OUTPUT_TOKENS;
 const GEMINI_PDF_OCR_MAX_OUTPUT_TOKENS = GEMINI_MAX_OUTPUT_TOKENS;
 const GEMINI_MAX_INLINE_PDF_BYTES = 14 * 1024 * 1024; // 20 MB request cap minus base64 overhead
 const GEMINI_MAX_PDF_BYTES = 50 * 1024 * 1024; // Gemini's per-PDF limit
+// Images in this app are study material (slides, textbook pages, labelled diagrams, ECGs, charts,
+// clinical photos), and the extracted text is all the chat/quiz/flashcard features ever see. So
+// besides transcribing text exactly, visual content is described factually — otherwise an image
+// that is mostly a diagram would yield nothing to ask questions about.
+const IMAGE_OCR_PROMPT =
+  'Transcribe ALL text in this image exactly as it appears, preserving the original wording, order and structure (tables as rows). Do not summarize or correct it. ' +
+  'If the image also contains non-text visual content that matters for studying — a diagram, labelled anatomy, chart, graph, ECG/rhythm strip, imaging scan, or clinical photograph — add a section starting with "Visual description:" that factually describes what is shown (structures, labels, axes, values, visible findings). Describe what is visible; do not diagnose or add facts that are not in the image. ' +
+  'If there is no text and nothing study-relevant to describe, return an empty response.';
 const PDF_OCR_PROMPT =
   'Extract ALL text from this PDF document exactly as it appears. Preserve paragraphs, headings, and structure. Do NOT summarize or interpret — return only the raw extracted text.';
 
@@ -401,7 +409,7 @@ class AiService {
               role: 'user',
               parts: [
                 {
-                  text: 'Extract ALL text from this image exactly as it appears. Preserve the original wording, order, and structure. Do NOT summarize, interpret, or add anything. Return only the raw text found in the image.',
+                  text: IMAGE_OCR_PROMPT,
                 },
                 { inlineData: { mimeType, data: imageBuffer.toString('base64') } },
               ],

@@ -118,7 +118,7 @@ class FlashcardController {
       if (error.message?.includes('AI_REFUSAL')) {
         return res.status(400).json({
           success: false,
-          message: 'This note doesn\'t have enough content to generate meaningful flashcards. Try a note with more detail.',
+          message: 'We couldn\'t create flashcards from this note. Please confirm it contains medical study material and has enough detail, then try again.',
           error: error.message,
         });
       }
@@ -219,7 +219,7 @@ class FlashcardController {
       if (error.message?.includes('AI_REFUSAL')) {
         return res.status(400).json({
           success: false,
-          message: 'This text doesn\'t have enough content to generate meaningful flashcards. Try adding more detail.',
+          message: 'We couldn\'t create flashcards from this text. Please confirm it contains medical study material and has enough detail, then try again.',
           error: error.message,
         });
       }

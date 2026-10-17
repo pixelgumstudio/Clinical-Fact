@@ -105,8 +105,8 @@ Requirements:
 - Back side: Concise answer or definition (2-3 sentences maximum), medically accurate
 - Use active recall principles (test understanding, not just memorization)
 - Avoid yes/no questions${focusInstruction}${exampleInstruction}${languageInstruction}
-- Base every flashcard ONLY on what the notes actually say; never invent facts to fill gaps. This applies to any subject — if the notes are not medical, still write the flashcards from their own content
-- Return {"insufficientMaterial": true} and nothing else ONLY when the notes are essentially unusable: empty, gibberish/garbled text, or so short that not even a few real flashcards can be written. Never use it just because the subject is not medical or the notes are brief but readable — in that case write fewer flashcards instead
+- Base every flashcard ONLY on what the notes actually say; never invent facts to fill gaps
+- This app is for medical and health-science study material only. Return {"insufficientMaterial": true} and nothing else if the notes are NOT medical, nursing, pharmacology, or health-science content, or if they are essentially unusable (empty, garbled, or so short that not even a few real flashcards can be written). Do NOT refuse medical notes just because they are brief but readable — for those, write fewer flashcards instead
 
 Card types to include:
 - "definition": Key terms and their meanings
