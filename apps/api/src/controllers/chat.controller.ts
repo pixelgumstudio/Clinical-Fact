@@ -10,6 +10,12 @@ import ocrService from '../services/ocr.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
 
+// Minimum extracted-text length for a chat source. Images (a lab table, a labelled diagram, a
+// single clinical photo) legitimately carry far less text than a document, so they get a much
+// lower bar instead of being rejected as "too short".
+const MIN_SOURCE_CHARS = 100;
+const MIN_IMAGE_SOURCE_CHARS = 20;
+
 const MAX_PINNED_CHATS = 3;
 
 class ChatController {
@@ -58,11 +64,12 @@ class ChatController {
         });
       }
 
-      if (!note.content || note.content.trim().length < 100) {
+      const minNoteChars = note.sourceType === 'image' ? MIN_IMAGE_SOURCE_CHARS : MIN_SOURCE_CHARS;
+      if (!note.content || note.content.trim().length < minNoteChars) {
         return res.status(400).json({
           success: false,
-          message: 'Note content is too short. Minimum 100 characters required.',
-          error: 'Note content is too short. Minimum 100 characters required.'
+          message: `Note content is too short. Minimum ${minNoteChars} characters required.`,
+          error: `Note content is too short. Minimum ${minNoteChars} characters required.`
         });
       }
 
@@ -238,11 +245,12 @@ class ChatController {
         });
       }
 
-      if (documentText.trim().length < 100) {
+      const minDocChars = sourceType === 'image' ? MIN_IMAGE_SOURCE_CHARS : MIN_SOURCE_CHARS;
+      if (documentText.trim().length < minDocChars) {
         return res.status(400).json({
           success: false,
-          message: 'Extracted text is too short. Minimum 100 characters required.',
-          error: 'Extracted text is too short. Minimum 100 characters required.'
+          message: `Extracted text is too short. Minimum ${minDocChars} characters required.`,
+          error: `Extracted text is too short. Minimum ${minDocChars} characters required.`
         });
       }
 
@@ -349,6 +357,7 @@ class ChatController {
       let title = '';
       let sourceType: 'note' | 'file';
       let refId: string;
+      let isImageSource = false;
 
       if (noteId) {
         const note = await Note.findOne({ _id: noteId, userId });
@@ -357,6 +366,7 @@ class ChatController {
         }
         content = note.extractedContent || note.transcriptText || note.content || '';
         title = note.title;
+        isImageSource = note.sourceType === 'image';
         sourceType = 'note';
         refId = note._id.toString();
       } else {
@@ -393,14 +403,16 @@ class ChatController {
         }
 
         title = file.originalName;
+        isImageSource = file.fileType === 'image';
         sourceType = 'file';
         refId = file._id.toString();
       }
 
-      if (!content || content.trim().length < 100) {
+      const minAttachChars = isImageSource ? MIN_IMAGE_SOURCE_CHARS : MIN_SOURCE_CHARS;
+      if (!content || content.trim().length < minAttachChars) {
         return res.status(400).json({
           success: false,
-          message: 'Extracted content is too short. Minimum 100 characters required.',
+          message: `Extracted content is too short. Minimum ${minAttachChars} characters required.`,
         });
       }
 

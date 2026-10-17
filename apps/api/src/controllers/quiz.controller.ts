@@ -154,7 +154,7 @@ class QuizController {
         return res.status(400).json({
           success: false,
           code: 'AI_REFUSAL',
-          message: 'This note doesn\'t have enough content to generate a meaningful quiz. Try a note with more detail.',
+          message: 'We couldn\'t create a quiz from this note. Please confirm it contains medical study material and has enough detail, then try again.',
           error: error.message,
         });
       }
@@ -267,7 +267,7 @@ class QuizController {
         return res.status(400).json({
           success: false,
           code: 'AI_REFUSAL',
-          message: 'This text doesn\'t have enough content to generate a meaningful quiz. Try adding more detail.',
+          message: 'We couldn\'t create a quiz from this text. Please confirm it contains medical study material and has enough detail, then try again.',
           error: error.message,
         });
       }

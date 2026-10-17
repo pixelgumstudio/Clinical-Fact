@@ -53,7 +53,7 @@ class QuizGenerationService {
       const quizData = await aiService.generateJSON(prompt);
 
       // Validate and format quiz data
-      const formattedQuiz = this.validateAndFormatQuiz(quizData, noteTitle);
+      const formattedQuiz = this.validateAndFormatQuiz(quizData, noteTitle, noteContent.length, noteContent);
 
       return formattedQuiz;
     } catch (error: any) {
@@ -105,7 +105,8 @@ Requirements:
 - Cover the most important, clinically relevant concepts — prioritize what a student would actually be tested on or need at the bedside (mechanisms, red-flag symptoms, dosing/contraindications, standard treatment) over trivia-style facts
 - Questions should test clinical understanding and application, not just memorization — favor NCLEX-style stems (e.g. a brief patient scenario) where the notes support it
 - Provide clear, educational explanations for each answer${focusInstruction}${languageInstruction}
-- If the notes are too thin, garbled, or lack enough substantive content to write real questions from, do NOT invent medical facts to fill the gap — instead return {"insufficientMaterial": true} and nothing else
+- Base every question ONLY on what the notes actually say; never invent facts to fill gaps
+- This app is for medical and health-science study material only. Return {"insufficientMaterial": true} and nothing else if the notes are NOT medical, nursing, pharmacology, or health-science content, or if they are essentially unusable (empty, garbled, or so short that not even a few real questions can be written). Do NOT refuse medical notes just because they are brief but readable — for those, write fewer questions instead
 
 CRITICAL FORMATTING RULES:
 1. Return ONLY valid JSON (no markdown, no code blocks, no extra text)
@@ -178,9 +179,12 @@ Return the JSON now:`;
    */
   private validateAndFormatQuiz(
     quizData: any,
-    fallbackTitle: string
+    fallbackTitle: string,
+    noteLength?: number,
+    notePreview?: string
   ): { title: string; questions: QuizQuestion[] } {
     if (quizData.insufficientMaterial) {
+      console.warn(`⚠️ Quiz AI_REFUSAL — note was ${noteLength ?? 'unknown'} chars: "${(notePreview || '').replace(/\s+/g, ' ').slice(0, 200)}"`);
       throw new Error('AI_REFUSAL: Note content was insufficient to generate meaningful quiz questions');
     }
 
