@@ -48,7 +48,7 @@ class FlashcardGenerationService {
       const flashcardData = await aiService.generateJSON(prompt);
 
       // Validate and format flashcards
-      const formattedCards = this.validateAndFormatFlashcards(flashcardData);
+      const formattedCards = this.validateAndFormatFlashcards(flashcardData, noteContent.length, noteContent);
 
       return formattedCards;
     } catch (error: any) {
@@ -105,7 +105,8 @@ Requirements:
 - Back side: Concise answer or definition (2-3 sentences maximum), medically accurate
 - Use active recall principles (test understanding, not just memorization)
 - Avoid yes/no questions${focusInstruction}${exampleInstruction}${languageInstruction}
-- If the notes are too thin, garbled, or lack enough substantive content to write real flashcards from, do NOT invent medical facts to fill the gap — instead return {"insufficientMaterial": true} and nothing else
+- Base every flashcard ONLY on what the notes actually say; never invent facts to fill gaps. This applies to any subject — if the notes are not medical, still write the flashcards from their own content
+- Return {"insufficientMaterial": true} and nothing else ONLY when the notes are essentially unusable: empty, gibberish/garbled text, or so short that not even a few real flashcards can be written. Never use it just because the subject is not medical or the notes are brief but readable — in that case write fewer flashcards instead
 
 Card types to include:
 - "definition": Key terms and their meanings
@@ -144,8 +145,9 @@ Notes:
   /**
    * Validate and format flashcard data from AI
    */
-  private validateAndFormatFlashcards(flashcardData: any): FlashcardData[] {
+  private validateAndFormatFlashcards(flashcardData: any, noteLength?: number, notePreview?: string): FlashcardData[] {
     if (flashcardData.insufficientMaterial) {
+      console.warn(`⚠️ Flashcard AI_REFUSAL — note was ${noteLength ?? 'unknown'} chars: "${(notePreview || '').replace(/\s+/g, ' ').slice(0, 200)}"`);
       throw new Error('AI_REFUSAL: Note content was insufficient to generate meaningful flashcards');
     }
 

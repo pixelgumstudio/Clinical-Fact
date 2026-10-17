@@ -10,9 +10,12 @@ import { safeParseJSON } from '../utils/jsonParser';
 // OpenAI (generation/OCR) + Groq (chat) setup below without a code change.
 const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
 const DEFAULT_GEMINI_FALLBACK_MODEL = 'gemini-3.5-flash-lite';
-const GEMINI_CHAT_MAX_OUTPUT_TOKENS = 4096; // includes thinking tokens, so higher than the legacy 2048
-const GEMINI_GENERATION_MAX_OUTPUT_TOKENS = 8192;
-const GEMINI_PDF_OCR_MAX_OUTPUT_TOKENS = 32768;
+// Output is not artificially capped: every Gemini call is allowed the model's full output limit
+// (65,536 tokens for gemini-3.8-flash, thinking included) so answers and long scans are never cut short.
+const GEMINI_MAX_OUTPUT_TOKENS = 65536;
+const GEMINI_CHAT_MAX_OUTPUT_TOKENS = GEMINI_MAX_OUTPUT_TOKENS;
+const GEMINI_GENERATION_MAX_OUTPUT_TOKENS = GEMINI_MAX_OUTPUT_TOKENS;
+const GEMINI_PDF_OCR_MAX_OUTPUT_TOKENS = GEMINI_MAX_OUTPUT_TOKENS;
 const GEMINI_MAX_INLINE_PDF_BYTES = 14 * 1024 * 1024; // 20 MB request cap minus base64 overhead
 const GEMINI_MAX_PDF_BYTES = 50 * 1024 * 1024; // Gemini's per-PDF limit
 const PDF_OCR_PROMPT =
