@@ -8,6 +8,7 @@ import { AuthRequest } from '../middleware/auth';
 import { z } from 'zod';
 import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
 import { createJob, updateJob } from '../services/job.service';
+import { isGenericTitle } from '../utils/title';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import { User } from '../models/User';
 import notificationService from '../services/notification.service';
@@ -662,18 +663,13 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
             );
             noteContent = generatedNote.content;
             noteSummary = generatedNote.summary || '';
-            const isGenericFilename = !capturedTitle || 
-                                      capturedTitle === 'Untitled Note' || 
-                                      /^IMG_/i.test(capturedTitle) ||
-                                      /\.(pdf|png|jpe?g|txt|docx?)$/i.test(capturedTitle);
-
-            if (isGenericFilename) {
+            if (isGenericTitle(capturedTitle)) {
               // 🗑️ Throw away the ugly filename completely!
               // Use the AI title. If the AI didn't make one, use a clean fallback.
               noteTitle = generatedNote.title || generateDefaultTitle(capturedSourceType);
             } else {
               // ✅ It's a real, custom title typed by the user. Keep it!
-              noteTitle = capturedTitle;
+              noteTitle = capturedTitle as string;
             }
           }
         } else {
@@ -694,7 +690,10 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
             );
             noteContent = generatedNote.content;
             noteSummary = generatedNote.summary || '';
-            if (!capturedTitle) {
+            // Images arrive titled with the device's photo filename (often a random UUID), so only
+            // a title someone actually typed is kept — same rule as the PDF branch above. For
+            // pasted text the title is always user-supplied (or empty), so it behaves as before.
+            if (isGenericTitle(capturedTitle)) {
               noteTitle = generatedNote.title || generateDefaultTitle(capturedSourceType);
             }
           }
