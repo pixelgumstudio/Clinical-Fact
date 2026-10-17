@@ -2,7 +2,7 @@
 import { performance } from 'perf_hooks';
 import OpenAI from 'openai';
 import Groq from 'groq-sdk';
-import { GoogleGenAI, ThinkingLevel, type Content, type GenerateContentConfig } from '@google/genai';
+import { GoogleGenAI, ThinkingLevel, FileState, createPartFromUri, type Content, type GenerateContentConfig } from '@google/genai';
 import { tavily } from '@tavily/core';
 import { safeParseJSON } from '../utils/jsonParser';
 
@@ -12,6 +12,11 @@ const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
 const DEFAULT_GEMINI_FALLBACK_MODEL = 'gemini-3.5-flash-lite';
 const GEMINI_CHAT_MAX_OUTPUT_TOKENS = 4096; // includes thinking tokens, so higher than the legacy 2048
 const GEMINI_GENERATION_MAX_OUTPUT_TOKENS = 8192;
+const GEMINI_PDF_OCR_MAX_OUTPUT_TOKENS = 32768;
+const GEMINI_MAX_INLINE_PDF_BYTES = 14 * 1024 * 1024; // 20 MB request cap minus base64 overhead
+const GEMINI_MAX_PDF_BYTES = 50 * 1024 * 1024; // Gemini's per-PDF limit
+const PDF_OCR_PROMPT =
+  'Extract ALL text from this PDF document exactly as it appears. Preserve paragraphs, headings, and structure. Do NOT summarize or interpret — return only the raw extracted text.';
 
 const THINKING_LEVELS: Record<string, ThinkingLevel> = {
   minimal: ThinkingLevel.MINIMAL,
@@ -127,6 +132,45 @@ class AiService {
     console.log(
       `📊 Gemini usage [${label}] ${model}: in=${usage.promptTokenCount ?? 0} out=${usage.candidatesTokenCount ?? 0} thinking=${usage.thoughtsTokenCount ?? 0}`
     );
+  }
+
+  /**
+   * Scans a PDF with Gemini. Small files are sent inline; larger ones (up to 50 MB) are uploaded
+   * through the Files API first, then deleted afterwards (they also expire on their own).
+   */
+  private async geminiExtractPdfText(pdfBuffer: Buffer): Promise<string> {
+    const ai = this.getGemini();
+    const config = { maxOutputTokens: GEMINI_PDF_OCR_MAX_OUTPUT_TOKENS };
+
+    if (pdfBuffer.length <= GEMINI_MAX_INLINE_PDF_BYTES) {
+      return this.geminiGenerate(
+        'extractTextFromPdf',
+        [{ role: 'user', parts: [{ text: PDF_OCR_PROMPT }, { inlineData: { mimeType: 'application/pdf', data: pdfBuffer.toString('base64') } }] }],
+        config
+      );
+    }
+
+    const uploaded = await ai.files.upload({
+      file: new Blob([new Uint8Array(pdfBuffer)], { type: 'application/pdf' }),
+      config: { mimeType: 'application/pdf', displayName: 'document.pdf' },
+    });
+    try {
+      let file = uploaded;
+      for (let i = 0; i < 60 && file.state === FileState.PROCESSING; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        file = await ai.files.get({ name: uploaded.name as string });
+      }
+      if (file.state !== FileState.ACTIVE || !file.uri) {
+        throw new Error(`Gemini could not process the uploaded PDF (state: ${file.state})`);
+      }
+      return await this.geminiGenerate(
+        'extractTextFromPdf',
+        [{ role: 'user', parts: [{ text: PDF_OCR_PROMPT }, createPartFromUri(file.uri, 'application/pdf')] }],
+        config
+      );
+    } finally {
+      ai.files.delete({ name: uploaded.name as string }).catch(() => {});
+    }
   }
 
   private toGeminiContents(messages: ChatMessage[]): Content[] {
@@ -407,42 +451,34 @@ class AiService {
    * Inline limit: ~20 MB. Throws for oversized files so callers can decide.
    */
   async extractTextFromPdf(pdfBuffer: Buffer): Promise<string> {
-    const MAX_INLINE_BYTES = 19 * 1024 * 1024; // 19 MB — safe margin under 20 MB API cap
-    if (pdfBuffer.length > MAX_INLINE_BYTES) {
-      throw new Error(
-        `PDF is ${(pdfBuffer.length / 1024 / 1024).toFixed(1)} MB — exceeds the 19 MB inline limit. ` +
-        `Please compress or split the PDF and try again.`
-      );
-    }
-
-    console.log(
-      `🔍 PDF Vision OCR — ${(pdfBuffer.length / 1024 / 1024).toFixed(2)} MB PDF`
-    );
+    const sizeMb = pdfBuffer.length / 1024 / 1024;
+    console.log(`🔍 PDF Vision OCR — ${sizeMb.toFixed(2)} MB PDF`);
 
     if (this.useGemini) {
-      try {
-        const text = await this.geminiGenerate(
-          'extractTextFromPdf',
-          [
-            {
-              role: 'user',
-              parts: [
-                {
-                  text: 'Extract ALL text from this PDF document exactly as it appears. Preserve paragraphs, headings, and structure. Do NOT summarize or interpret — return only the raw extracted text.',
-                },
-                { inlineData: { mimeType: 'application/pdf', data: pdfBuffer.toString('base64') } },
-              ],
-            },
-          ],
-          // PDFs can be long and OCR output is large; use the model's full output budget.
-          { maxOutputTokens: 32768 }
+      // Inline requests are capped at 20 MB *after* base64 (+33%), so only ~14 MB of PDF fits.
+      // Larger files go through the Gemini Files API (up to 50 MB).
+      if (pdfBuffer.length > GEMINI_MAX_PDF_BYTES) {
+        throw new Error(
+          `PDF is ${sizeMb.toFixed(1)} MB — exceeds the 50 MB limit. Please compress or split the PDF and try again.`
         );
+      }
+
+      try {
+        const text = await this.geminiExtractPdfText(pdfBuffer);
         console.log(`✅ PDF Vision OCR complete — ${text.length} chars extracted`);
         return text;
       } catch (error: any) {
         console.error('❌ PDF Vision OCR Error:', { message: error.message, status: error.status });
         throw new Error(`PDF extraction failed: ${error.message}`);
       }
+    }
+
+    const MAX_INLINE_BYTES = 19 * 1024 * 1024; // 19 MB — safe margin under 20 MB API cap
+    if (pdfBuffer.length > MAX_INLINE_BYTES) {
+      throw new Error(
+        `PDF is ${sizeMb.toFixed(1)} MB — exceeds the 19 MB inline limit. ` +
+        `Please compress or split the PDF and try again.`
+      );
     }
 
     try {
