@@ -12,7 +12,9 @@ import { useAuthStore } from '../store/authStore';
 
 export type MainTabParamList = {
   Home: undefined;
-  Quiz: undefined;
+  // Not 'Quiz': MainStack has a screen of that name (the real quiz screen), and navigate('Quiz')
+  // from anywhere inside these tabs (e.g. Home) resolved to this list tab instead of the stack.
+  QuizTab: undefined;
   Chat: undefined;
   Flashcards: undefined;
   Profile: undefined;
@@ -66,9 +68,10 @@ export const MainTabNavigator = () => {
           }}
         />
         <Tab.Screen
-          name="Quiz"
+          name="QuizTab"
           component={QuizHistoryScreen}
           options={{
+            title: 'Quiz',
             tabBarIcon: ({ color }) => <Icon name="quizFill" size={24} color={color} />,
           }}
         />
