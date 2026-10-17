@@ -9,6 +9,7 @@ import pdfService from '../services/pdf.service';
 import ocrService from '../services/ocr.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
+import { isGenericTitle } from '../utils/title';
 
 // Minimum extracted-text length for a chat source. Images (a lab table, a labelled diagram, a
 // single clinical photo) legitimately carry far less text than a document, so they get a much
@@ -402,7 +403,8 @@ class ChatController {
           });
         }
 
-        title = file.originalName;
+        // Raw device filenames (UUIDs etc.) aren't something to show as the source's name.
+        title = isGenericTitle(file.originalName) && file.fileType === 'image' ? 'Image' : file.originalName;
         isImageSource = file.fileType === 'image';
         sourceType = 'file';
         refId = file._id.toString();

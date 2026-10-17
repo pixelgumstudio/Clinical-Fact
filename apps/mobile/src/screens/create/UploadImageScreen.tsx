@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Alert,
   ScrollView,
-  ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
@@ -17,7 +16,6 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useAIConsentStore } from '../../store/aiConsentStore';
-import api from '../../services/api';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
 
 type UploadImageNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadImage'>;
@@ -30,12 +28,13 @@ interface UploadedImage {
   type: string;
 }
 
+const MAX_IMAGE_WIDTH = 2048;
+
 export const UploadImageScreen = () => {
   const navigation = useNavigation<UploadImageNavigationProp>();
   const route = useRoute<UploadImageRouteProp>();
   const { withAccess } = useGatedFeature();
   const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
 
   const handleGoBack = () => {
     navigation.goBack();
@@ -77,15 +76,19 @@ export const UploadImageScreen = () => {
         let fileName = asset.fileName || 'Image';
         let mimeType: string = asset.type || 'image';
 
-        // Convert HEIC/HEIF to JPEG since the backend doesn't support HEIC
-        if (rawExt === 'heic' || rawExt === 'heif') {
+        // Convert HEIC/HEIF to JPEG since the backend doesn't support HEIC, and shrink very
+        // large photos (12MP+ camera shots are several MB) — text stays readable at 2048px wide
+        // and the upload + text extraction get much faster.
+        const isHeic = rawExt === 'heic' || rawExt === 'heif';
+        const isHuge = (asset.width ?? 0) > MAX_IMAGE_WIDTH;
+        if (isHeic || isHuge) {
           const converted = await ImageManipulator.manipulateAsync(
             asset.uri,
-            [],
+            isHuge ? [{ resize: { width: MAX_IMAGE_WIDTH } }] : [],
             { compress: 0.85, format: ImageManipulator.SaveFormat.JPEG }
           );
           uri = converted.uri;
-          fileName = fileName.replace(/\.(heic|heif)$/i, '.jpg');
+          fileName = fileName.replace(/\.(heic|heif|png|webp)$/i, '.jpg');
           mimeType = 'image/jpeg';
         }
 
@@ -108,53 +111,18 @@ export const UploadImageScreen = () => {
   const handleContinue = async () => {
     if (!uploadedImage) return;
 
-    // The OCR call below happens here, before GeneratingNoteScreen — so this screen
-    // needs its own gate rather than relying on GeneratingNoteScreen's.
+    // Navigate straight away (like PDF): the upload + text extraction run on GeneratingNote
+    // with visible progress, instead of this screen freezing on a spinner first. That screen
+    // has its own AI-consent gate, but asking here keeps the prompt before navigation.
     const consented = await useAIConsentStore.getState().ensureConsent();
     if (!consented) return;
 
-    setIsUploading(true);
-
-    try {
-      // MIME type was set at pick time (HEIC already converted to image/jpeg)
-      const mimeType = uploadedImage.type.startsWith('image/') ? uploadedImage.type : `image/${uploadedImage.type}`;
-
-      // Upload image with OCR
-      const response = await api.uploadImageWithOCR({
-        uri: uploadedImage.uri,
-        name: uploadedImage.name,
-        type: mimeType,
-      });
-
-      if (!response.success || !response.data) {
-        Alert.alert('Upload Failed', response.message || 'Failed to upload image');
-        setIsUploading(false);
-        return;
-      }
-
-      const { ocrResult } = response.data;
-
-      if (!ocrResult || !ocrResult.text || ocrResult.text.trim().length === 0) {
-        const errorMsg = ocrResult?.error || 'Could not extract any text from the image. Please try a different image with clear text.';
-        Alert.alert('No Text Detected', errorMsg, [{ text: 'OK' }]);
-        setIsUploading(false);
-        return;
-      }
-
-      // Navigate to generating note screen with OCR text
-      navigation.navigate('GeneratingNote', {
-        sourceType: 'image',
-        fileName: uploadedImage.name,
-        fileUri: uploadedImage.uri,
-        ocrText: ocrResult.text,
-        ocrConfidence: ocrResult.confidence,
-        intent: route.params?.intent,
-      });
-    } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to process image');
-    } finally {
-      setIsUploading(false);
-    }
+    navigation.navigate('GeneratingNote', {
+      sourceType: 'image',
+      fileName: uploadedImage.name,
+      fileUri: uploadedImage.uri,
+      intent: route.params?.intent,
+    });
   };
 
   const truncateFileName = (name: string, maxLength: number = 28) => {
@@ -224,16 +192,12 @@ export const UploadImageScreen = () => {
       <View style={styles.footer}>
         <PoweredByFooter />
         <TouchableOpacity
-          style={[styles.continueButton, (!uploadedImage || isUploading) && styles.continueButtonDisabled]}
+          style={[styles.continueButton, !uploadedImage && styles.continueButtonDisabled]}
           onPress={handleContinue}
-          disabled={!uploadedImage || isUploading}
+          disabled={!uploadedImage}
           activeOpacity={0.8}
         >
-          {isUploading ? (
-            <ActivityIndicator color={colors.white} />
-          ) : (
-            <Text style={styles.continueButtonText}>Continue</Text>
-          )}
+          <Text style={styles.continueButtonText}>Continue</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

@@ -383,6 +383,35 @@ export const GeneratingNoteScreen = () => {
     poll();
   };
 
+  // Uploads a picked image and returns the text the server extracted from it. Throws errors
+  // shaped like createNote's (code / quotaExceeded / userMessage) so generateNote's catch block
+  // shows the right paywall or alert.
+  const uploadImageAndExtractText = async (uri: string, name?: string): Promise<string> => {
+    const response = await api.uploadImageWithOCR({
+      uri,
+      name: name || 'image.jpg',
+      type: 'image/jpeg',
+    });
+
+    if (!response.success || !response.data) {
+      const apiError: any = new Error((response as any).message || 'Failed to upload image');
+      apiError.code = (response as any).code;
+      apiError.quotaExceeded = (response as any).quotaExceeded === true;
+      apiError.userMessage = (response as any).message;
+      throw apiError;
+    }
+
+    const { ocrResult } = response.data;
+    if (!ocrResult || !ocrResult.text || ocrResult.text.trim().length === 0) {
+      throw Object.assign(new Error('No text detected in image'), {
+        userMessage:
+          ocrResult?.error ||
+          'We could not read anything from that image. Please try a clearer image of your medical notes.',
+      });
+    }
+    return ocrResult.text;
+  };
+
  const generateNote = async () => {
     try {
       const isFileUpload = sourceType === 'pdf' || sourceType === 'audio';
@@ -392,20 +421,30 @@ export const GeneratingNoteScreen = () => {
         i === 0 ? { ...step, status: 'active', progress: 0, statusMessage: 'Uploading file to server...' } : step
       ));
 
-      await progressWithUpdates(0, 100, 2, [
-        { at: 30, message: 'Preparing file...' },
-        { at: 70, message: 'Almost done...' },
-      ]);
+      // Images arrive without text: upload + extract it here (instead of on the picker screen,
+      // which used to freeze on a spinner before navigating). This is a real network call, so it
+      // replaces the short simulated progress used for the other sources.
+      let imageOcrText: string | null = null;
+      if (sourceType === 'image' && !ocrText && fileUri) {
+        imageOcrText = await uploadImageAndExtractText(fileUri, fileName);
+      } else {
+        await progressWithUpdates(0, 100, 2, [
+          { at: 30, message: 'Preparing file...' },
+          { at: 70, message: 'Almost done...' },
+        ]);
+      }
 
       setSteps((prev) => prev.map((step, i) =>
         i === 0 ? { ...step, status: 'completed', progress: 100, statusMessage: 'Upload complete!' } : step
       ));
 
+      const effectiveContent = contentText ?? imageOcrText;
+
       // --- VALIDATION ---
       if (isFileUpload) {
         if (!fileUri) throw new Error(`Missing file URI for ${sourceType} upload.`);
       } else {
-        if (!contentText || contentText.trim().length === 0) {
+        if (!effectiveContent || effectiveContent.trim().length === 0) {
           throw new Error(`No text content to generate note from. Source: ${sourceType}`);
         }
       }
@@ -469,7 +508,7 @@ export const GeneratingNoteScreen = () => {
         response = await api.createNote(formData as any);
       } else {
         response = await api.createNote({
-          content: contentText!,
+          content: effectiveContent!,
           sourceType: sourceType || 'text',
           title: fileName || 'Untitled Note',
         });
