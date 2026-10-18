@@ -184,6 +184,72 @@ class AiService {
     }
   }
 
+  /**
+   * Cheap utility call for chat images: does this question genuinely benefit from a diagram,
+   * scan or clinical photo, and if so what should be searched for? Returns up to two search
+   * phrases (specific first, broader second). Never throws — any failure means "no image".
+   */
+  async planChatImage(question: string): Promise<{ useImage: boolean; terms: string[] }> {
+    if (!this.useGemini) return { useImage: false, terms: [] };
+    const model = process.env.GEMINI_IMAGE_MODEL || DEFAULT_GEMINI_FALLBACK_MODEL;
+    try {
+      const result = await this.getGemini().models.generateContent({
+        model,
+        contents:
+          `A medical student asked: "${question.slice(0, 500)}"\n` +
+          'Would a diagram, anatomical illustration, ECG strip, radiograph or clinical photograph genuinely help explain the answer? ' +
+          'Dosing, side effects, lab values, scoring scales, management steps, nursing care and plain definitions do NOT need an image.\n' +
+          'Return JSON {"useImage": boolean, "terms": ["specific image search phrase, 2-5 words", "broader fallback phrase, 1-3 words"]}',
+        config: { responseMimeType: 'application/json' },
+      });
+      this.logGeminiUsage('planChatImage', model, result.usageMetadata);
+      const parsed = JSON.parse(String(result.text || '{}'));
+      const terms = (Array.isArray(parsed.terms) ? parsed.terms : [])
+        .map((t: unknown) => String(t || '').trim())
+        .filter((t: string) => t.length > 0)
+        .slice(0, 2);
+      return { useImage: parsed.useImage === true && terms.length > 0, terms };
+    } catch (error: any) {
+      console.warn('⚠️ planChatImage failed:', error.message);
+      return { useImage: false, terms: [] };
+    }
+  }
+
+  /** Vision check: is this image clearly relevant, legible and helpful for the question? */
+  async isImageRelevant(question: string, title: string, image: Buffer, mimeType: string): Promise<boolean> {
+    if (!this.useGemini) return false;
+    const model = process.env.GEMINI_IMAGE_MODEL || DEFAULT_GEMINI_FALLBACK_MODEL;
+    try {
+      const result = await this.getGemini().models.generateContent({
+        model,
+        contents: [
+          {
+            role: 'user',
+            parts: [
+              {
+                text:
+                  `Question from a medical student: "${question.slice(0, 500)}"\nImage title: "${title.slice(0, 200)}"\n` +
+                  'Decide whether this image should be shown under the answer. Accept ONLY if ALL are true:\n' +
+                  '1. It directly depicts what the question asks about. For "what does X look like" or "X on imaging/ECG" questions, the image must visibly show the abnormality or finding of X — a normal image, or another condition, of the same type is a REJECT. For anatomy/physiology questions it must be a diagram or photo of that structure or process.\n' +
+                  '2. It is legible, and any text or labels are in English (or there are none).\n' +
+                  '3. It is not a logo, map, person, or scan of an old book page.\n' +
+                  'A figure that is only loosely related (for example electrode/lead placement for an ECG-interpretation question) is a REJECT. When unsure, REJECT.\n' +
+                  'Return JSON {"ok": boolean}',
+              },
+              { inlineData: { mimeType, data: image.toString('base64') } },
+            ],
+          },
+        ],
+        config: { responseMimeType: 'application/json' },
+      });
+      this.logGeminiUsage('isImageRelevant', model, result.usageMetadata);
+      return JSON.parse(String(result.text || '{}')).ok === true;
+    } catch (error: any) {
+      console.warn('⚠️ isImageRelevant failed:', error.message);
+      return false;
+    }
+  }
+
   private toGeminiContents(messages: ChatMessage[]): Content[] {
     return messages.map((m) => ({
       role: m.role === 'assistant' ? 'model' : 'user',

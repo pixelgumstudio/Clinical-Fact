@@ -6,7 +6,8 @@ import aiService from './ai.service';
 import europePmcService, { EuropePmcResult, EuropePmcFilters } from './europePmc.service';
 import semanticScholarService from './semanticScholar.service';
 import pubmedService from './pubmed.service';
-import wikimediaImageSearchService, { WikimediaImageResult } from './wikimediaImageSearch.service';
+import { WikimediaImageResult } from './wikimediaImageSearch.service';
+import chatImagesService from './chatImages.service';
 import openFdaService from './openFda.service';
 import { getLanguageName } from '../utils/language';
 
@@ -285,18 +286,17 @@ ${context}${languageInstruction}`;
     const includeSemanticScholar = filters?.sources?.semanticScholar !== false;
     const includePubMed = filters?.sources?.pubmed !== false;
 
-    const [europePmcSettled, semanticScholarSettled, pubmedSettled, imagesSettled, attachedSettled, drugLabelsSettled] = await Promise.allSettled([
+    // Images are NOT part of the retrieval below: finding and vetting them takes several
+    // seconds, so they start now, run alongside retrieval and the answer, and are delivered
+    // afterwards in a second `metadata` event (the app overwrites the message's images from
+    // each one). find() never rejects and has its own time limit; it is a no-op unless
+    // CHAT_IMAGES_ENABLED=true.
+    const imagesPromise = chatImagesService.find(userQuery, excludeImageUrls);
+
+    const [europePmcSettled, semanticScholarSettled, pubmedSettled, attachedSettled, drugLabelsSettled] = await Promise.allSettled([
       europePmcService.search(userQuery, 5, filters),
       includeSemanticScholar ? semanticScholarService.search(userQuery, 5) : Promise.resolve([]),
       includePubMed ? pubmedService.search(userQuery, 5) : Promise.resolve([]),
-      // Cap at 6 — Wikimedia relevance drops off fast past that, and this app isn't compulsory
-      // about hitting a fixed count (see excludeImageUrls: only genuinely-matching, not-already-
-      // shown images make it into the response at all).
-      // Off by default (CHAT_IMAGES_ENABLED=true re-enables): results came from a literal
-      // keyword search on the raw question with no relevance check, so they were often off point.
-      process.env.CHAT_IMAGES_ENABLED === 'true'
-        ? wikimediaImageSearchService.search(userQuery, 6, excludeImageUrls)
-        : Promise.resolve([]),
       attachedChunksPromise,
       openFdaService.search(userQuery, 3),
     ]);
@@ -306,7 +306,6 @@ ${context}${languageInstruction}`;
     const europePmcResults = europePmcSettled.status === 'fulfilled' ? europePmcSettled.value : [];
     const semanticScholarResults = semanticScholarSettled.status === 'fulfilled' ? semanticScholarSettled.value : [];
     const pubmedResults = pubmedSettled.status === 'fulfilled' ? pubmedSettled.value : [];
-    const imageResults = imagesSettled.status === 'fulfilled' ? imagesSettled.value : [];
     const attachedChunks = attachedSettled.status === 'fulfilled' ? attachedSettled.value : [];
     const drugLabelResults = drugLabelsSettled.status === 'fulfilled' ? drugLabelsSettled.value : [];
 
@@ -318,9 +317,6 @@ ${context}${languageInstruction}`;
     }
     if (pubmedSettled.status === 'rejected') {
       console.error('❌ PubMed search failed:', pubmedSettled.reason);
-    }
-    if (imagesSettled.status === 'rejected') {
-      console.error('❌ Wikimedia Commons image search failed:', imagesSettled.reason);
     }
     if (attachedSettled.status === 'rejected') {
       console.error('❌ Attached-source retrieval failed:', attachedSettled.reason);
@@ -444,13 +440,40 @@ ${context || 'No sources found — answer from your own medical knowledge.'}${la
     // the trusted-domain web unfiltered.
     const { stream, groundingSources } = await aiService.chatWithGroundingStream(messages, systemInstruction, signal);
 
+    // First metadata event goes out immediately, without images, so citations show right away.
     yield {
       type: 'metadata',
-      metadata: { sources: citations, images: imageResults, groundingSources },
+      metadata: { sources: citations, images: [], groundingSources },
+    };
+
+    // Images arrive whenever they are ready: checked between answer chunks, and awaited once
+    // after the last chunk if still pending (find() bounds the wait). The second metadata event
+    // repeats sources/groundingSources because the app overwrites all three fields each time,
+    // and the controller persists whichever metadata event came last.
+    let imageResults: WikimediaImageResult[] = [];
+    let imagesReady = false;
+    let imagesSent = false;
+    imagesPromise.then((found) => {
+      imageResults = found;
+      imagesReady = true;
+    });
+    const imagesEvent = (): ChatStreamEvent | null => {
+      if (imagesSent || !imagesReady) return null;
+      imagesSent = true;
+      return imageResults.length > 0
+        ? { type: 'metadata', metadata: { sources: citations, images: imageResults, groundingSources } }
+        : null;
     };
 
     for await (const piece of stream) {
       yield { type: 'chunk', text: piece };
+      const early = imagesEvent();
+      if (early) yield early;
+    }
+    if (!imagesSent) {
+      await imagesPromise;
+      const late = imagesEvent();
+      if (late) yield late;
     }
 
     console.log(`✅ Finished streaming live medical chat using ${literatureResults.length} literature sources (${europePmcResults.length} EuropePMC + ${semanticScholarResults.length} Semantic Scholar + ${pubmedResults.length} PubMed, merged+deduped), ${attachedChunks.length} attached-source chunks, ${drugLabelResults.length} drug labels, ${imageResults.length} images, ${groundingSources.length} grounding sources`);
