@@ -292,7 +292,11 @@ ${context}${languageInstruction}`;
       // Cap at 6 — Wikimedia relevance drops off fast past that, and this app isn't compulsory
       // about hitting a fixed count (see excludeImageUrls: only genuinely-matching, not-already-
       // shown images make it into the response at all).
-      wikimediaImageSearchService.search(userQuery, 6, excludeImageUrls),
+      // Off by default (CHAT_IMAGES_ENABLED=true re-enables): results came from a literal
+      // keyword search on the raw question with no relevance check, so they were often off point.
+      process.env.CHAT_IMAGES_ENABLED === 'true'
+        ? wikimediaImageSearchService.search(userQuery, 6, excludeImageUrls)
+        : Promise.resolve([]),
       attachedChunksPromise,
       openFdaService.search(userQuery, 3),
     ]);
