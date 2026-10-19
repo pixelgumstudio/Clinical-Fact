@@ -497,7 +497,7 @@
       "permissionRequired": "Permission Required",
       "pleaseGrantMicrophonePermissionToRecord": "Please grant microphone permission to record audio.",
       "failedToRequestMicrophonePermission": "Failed to request microphone permission",
-      "created": "Created {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Created {{dateTime}}",
       "recordingAudio": "Recording Audio",
       "recordAudio": "Record audio",
       "createANoteFromAnyRecorded": "Create a note from any recorded audio",
@@ -505,7 +505,7 @@
       "recordAgain": "Record again"
     },
     "uploadAudio": {
-      "created": "Created {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Created {{dateTime}}",
       "failedToPickAudioFile": "Failed to pick audio file",
       "uploadAudio": "Upload audio",
       "createANoteFromAnyUploaded": "Create a note from any uploaded audio",
@@ -587,7 +587,7 @@
       "enterYourTextHere": "Enter your text here..."
     },
     "uploadImage": {
-      "created": "Created {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Created {{dateTime}}",
       "permissionRequired": "Permission Required",
       "pleaseAllowAccessToYourPhoto": "Please allow access to your photo library",
       "failedToPickImage": "Failed to pick image",
@@ -598,7 +598,7 @@
       "changeFile": "Change file"
     },
     "uploadPDF": {
-      "created": "Created {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Created {{dateTime}}",
       "failedToPickDocument": "Failed to pick document",
       "uploadPdf": "Upload Pdf",
       "createANoteFromAnyUploaded": "Create a note from any uploaded pdf",
@@ -1365,7 +1365,7 @@
       "chatOptions": "Chat options"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "You are currently offline. Please connect to the internet to perform this action.",
       "failedToDeleteNote": "Failed to delete note",
       "failedToMoveNote": "Failed to move note",
@@ -1452,7 +1452,8 @@
       "minAgo": "{{diffMin}} min ago",
       "hrAgo": "{{diffHr}} hr ago",
       "dAgo": "{{diffDay}}d ago",
-      "created": "Created {{day}}, {{time}}"
+      "created": "Created {{day}}, {{time}}",
+      "today": "Today"
     }
   },
   "store": {

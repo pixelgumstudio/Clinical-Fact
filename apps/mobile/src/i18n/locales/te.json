@@ -516,7 +516,7 @@
       "permissionRequired": "అనుమతి అవసరం",
       "pleaseGrantMicrophonePermissionToRecord": "ఆడియో రికార్డ్ చేయడానికి దయచేసి మైక్రోఫోన్ అనుమతిని ఇవ్వండి.",
       "failedToRequestMicrophonePermission": "మైక్రోఫోన్ అనుమతి అభ్యర్థించడం విఫలమైంది",
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "created": "{{dateTime}}న సృష్టించబడింది",
       "recordingAudio": "ఆడియో రికార్డింగ్",
       "recordAudio": "ఆడియో రికార్డ్ చేయి",
       "createANoteFromAnyRecorded": "రికార్డ్ చేసిన ఏదైనా ఆడియో నుండి నోట్‌ను సృష్టించండి",
@@ -524,7 +524,7 @@
       "recordAgain": "మళ్లీ రికార్డ్ చేయి"
     },
     "uploadAudio": {
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "created": "{{dateTime}}న సృష్టించబడింది",
       "failedToPickAudioFile": "ఆడియో ఫైల్‌ను ఎంచుకోవడం విఫలమైంది",
       "uploadAudio": "ఆడియోను అప్‌లోడ్ చేయండి",
       "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఏదైనా ఆడియో నుండి నోట్‌ను సృష్టించండి",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "మీ టెక్స్ట్‌ను ఇక్కడ నమోదు చేయండి..."
     },
     "uploadImage": {
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "created": "{{dateTime}}న సృష్టించబడింది",
       "permissionRequired": "అనుమతి అవసరం",
       "pleaseAllowAccessToYourPhoto": "దయచేసి మీ ఫోటో లైబ్రరీ యాక్సెస్‌ను అనుమతించండి",
       "failedToPickImage": "ఇమేజ్‌ను ఎంచుకోవడం విఫలమైంది",
@@ -617,7 +617,7 @@
       "changeFile": "ఫైల్‌ను మార్చండి"
     },
     "uploadPDF": {
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "created": "{{dateTime}}న సృష్టించబడింది",
       "failedToPickDocument": "డాక్యుమెంట్‌ను ఎంచుకోవడం విఫలమైంది",
       "uploadPdf": "Pdfని అప్‌లోడ్ చేయండి",
       "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఏదైనా pdf నుండి నోట్‌ను రూపొందించండి",
@@ -1384,7 +1384,7 @@
       "chatOptions": "చాట్ ఎంపికలు"
     },
     "library": {
-      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}} {{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "మీరు ప్రస్తుతం ఆఫ్‌లైన్‌లో ఉన్నారు. ఈ చర్యను పూర్తి చేయడానికి దయచేసి ఇంటర్నెట్‌కి కనెక్ట్ అవ్వండి.",
       "failedToDeleteNote": "నోట్ తొలగింపు విఫలమైంది",
       "failedToMoveNote": "నోట్‌ను తరలించడం విఫలమైంది",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} నిమిషాల క్రితం",
       "hrAgo": "{{diffHr}} గంటల క్రితం",
       "dAgo": "{{diffDay}} రోజుల క్రితం",
-      "created": "{{day}}, {{time}} న సృష్టించబడింది"
+      "created": "{{day}}, {{time}} న సృష్టించబడింది",
+      "today": "ఈరోజు"
     }
   },
   "store": {

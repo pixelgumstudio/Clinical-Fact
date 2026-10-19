@@ -16,7 +16,8 @@ import { RichText } from '../../components/RichText';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useInvalidateNotes } from '../../hooks/queries';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { formatDateShort } from '../../utils/formatDate';
 
 type SharedNoteRouteProp = RouteProp<MainStackParamList, 'SharedNote'>;
 type SharedNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'SharedNote'>;
@@ -110,9 +111,7 @@ export const SharedNoteScreen = () => {
           </View>
           <Text style={styles.noteTitle}>{note.title}</Text>
           <Text style={styles.noteDate}>
-            {new Date(note.createdAt).toLocaleDateString('en-US', {
-              month: 'short', day: 'numeric', year: 'numeric',
-            })}
+            {formatDateShort(note.createdAt)}
           </Text>
         </View>
 

@@ -498,7 +498,7 @@
       "permissionRequired": "Yêu cầu quyền truy cập",
       "pleaseGrantMicrophonePermissionToRecord": "Vui lòng cấp quyền truy cập micro để ghi âm.",
       "failedToRequestMicrophonePermission": "Không thể yêu cầu quyền truy cập micro",
-      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Đã tạo {{dateTime}}",
       "recordingAudio": "Đang ghi âm",
       "recordAudio": "Ghi âm",
       "createANoteFromAnyRecorded": "Tạo ghi chú từ bản ghi âm bất kỳ",
@@ -506,7 +506,7 @@
       "recordAgain": "Ghi âm lại"
     },
     "uploadAudio": {
-      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Đã tạo {{dateTime}}",
       "failedToPickAudioFile": "Không thể chọn tệp âm thanh",
       "uploadAudio": "Tải âm thanh lên",
       "createANoteFromAnyUploaded": "Tạo ghi chú từ tệp âm thanh đã tải lên",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Nhập văn bản của bạn tại đây..."
     },
     "uploadImage": {
-      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Đã tạo {{dateTime}}",
       "permissionRequired": "Yêu cầu quyền truy cập",
       "pleaseAllowAccessToYourPhoto": "Vui lòng cho phép quyền truy cập vào thư viện ảnh của bạn",
       "failedToPickImage": "Chọn ảnh thất bại",
@@ -599,7 +599,7 @@
       "changeFile": "Đổi tệp"
     },
     "uploadPDF": {
-      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Đã tạo {{dateTime}}",
       "failedToPickDocument": "Chọn tài liệu thất bại",
       "uploadPdf": "Tải tệp PDF lên",
       "createANoteFromAnyUploaded": "Tạo ghi chú từ bất kỳ tệp PDF nào được tải lên",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Tùy chọn đoạn chat"
     },
     "library": {
-      "text": "{{hours}}:{{minutes}} {{ampm}}, {{day}} {{month}}, {{year}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Bạn đang ngoại tuyến. Vui lòng kết nối Internet để thực hiện thao tác này.",
       "failedToDeleteNote": "Không thể xóa ghi chú",
       "failedToMoveNote": "Không thể di chuyển ghi chú",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} phút trước",
       "hrAgo": "{{diffHr}} giờ trước",
       "dAgo": "{{diffDay}} ngày trước",
-      "created": "Đã tạo {{day}}, {{time}}"
+      "created": "Đã tạo {{day}}, {{time}}",
+      "today": "Hôm nay"
     }
   },
   "store": {

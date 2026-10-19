@@ -498,7 +498,7 @@
       "permissionRequired": "권한 필요",
       "pleaseGrantMicrophonePermissionToRecord": "오디오를 녹음하려면 마이크 권한을 허용해 주세요.",
       "failedToRequestMicrophonePermission": "마이크 권한 요청 실패",
-      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "생성일: {{dateTime}}",
       "recordingAudio": "오디오 녹음 중",
       "recordAudio": "오디오 녹음",
       "createANoteFromAnyRecorded": "녹음된 오디오로 노트 생성",
@@ -506,7 +506,7 @@
       "recordAgain": "다시 녹음"
     },
     "uploadAudio": {
-      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "생성일: {{dateTime}}",
       "failedToPickAudioFile": "오디오 파일을 선택하지 못했습니다",
       "uploadAudio": "오디오 업로드",
       "createANoteFromAnyUploaded": "업로드한 오디오로 노트 생성",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "여기에 텍스트를 입력하세요..."
     },
     "uploadImage": {
-      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{ampm}} {{formattedHours}}:{{formattedMinutes}}",
+      "created": "생성일: {{dateTime}}",
       "permissionRequired": "권한 필요",
       "pleaseAllowAccessToYourPhoto": "사진 보관함 접근 권한을 허용해 주세요",
       "failedToPickImage": "이미지를 불러오지 못했습니다",
@@ -599,7 +599,7 @@
       "changeFile": "파일 변경"
     },
     "uploadPDF": {
-      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{ampm}} {{formattedHours}}:{{formattedMinutes}}",
+      "created": "생성일: {{dateTime}}",
       "failedToPickDocument": "문서를 불러오지 못했습니다",
       "uploadPdf": "PDF 업로드",
       "createANoteFromAnyUploaded": "업로드한 PDF로 노트 만들기",
@@ -1366,7 +1366,7 @@
       "chatOptions": "채팅 옵션"
     },
     "library": {
-      "text": "{{year}}년 {{month}} {{day}}일 {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "현재 오프라인 상태입니다. 이 작업을 수행하려면 인터넷에 연결해 주세요.",
       "failedToDeleteNote": "노트를 삭제하지 못했습니다",
       "failedToMoveNote": "노트를 이동하지 못했습니다",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}}분 전",
       "hrAgo": "{{diffHr}}시간 전",
       "dAgo": "{{diffDay}}일 전",
-      "created": "{{day}} {{time}} 작성됨"
+      "created": "{{day}} {{time}} 작성됨",
+      "today": "오늘"
     }
   },
   "store": {

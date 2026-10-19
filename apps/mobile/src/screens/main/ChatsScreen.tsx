@@ -28,7 +28,8 @@ import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
-import i18n from '../../i18n';
+import i18n from '../../i18n';
+import { formatDayAndTime } from '../../utils/formatDate';
 
 type ChatsNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -43,13 +44,7 @@ interface ChatSession {
 }
 
 const formatCreatedAt = (dateString: string) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const isToday = date.toDateString() === now.toDateString();
-  const day = isToday
-    ? 'Today'
-    : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  const { day, time } = formatDayAndTime(dateString);
   return i18n.t('main.chats.created', { day, time });
 };
 

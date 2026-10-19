@@ -498,7 +498,7 @@
       "permissionRequired": "Izin Diperlukan",
       "pleaseGrantMicrophonePermissionToRecord": "Harap berikan izin mikrofon untuk merekam audio.",
       "failedToRequestMicrophonePermission": "Gagal meminta izin mikrofon",
-      "created": "Dibuat {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Dibuat {{dateTime}}",
       "recordingAudio": "Merekam Audio",
       "recordAudio": "Rekam audio",
       "createANoteFromAnyRecorded": "Buat catatan dari rekaman audio apa pun",
@@ -506,7 +506,7 @@
       "recordAgain": "Rekam ulang"
     },
     "uploadAudio": {
-      "created": "Dibuat {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Dibuat {{dateTime}}",
       "failedToPickAudioFile": "Gagal memilih file audio",
       "uploadAudio": "Unggah audio",
       "createANoteFromAnyUploaded": "Buat catatan dari audio yang diunggah",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Ketik teks Anda di sini..."
     },
     "uploadImage": {
-      "created": "Dibuat {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dibuat {{dateTime}}",
       "permissionRequired": "Izin Diperlukan",
       "pleaseAllowAccessToYourPhoto": "Izinkan akses ke galeri foto Anda",
       "failedToPickImage": "Gagal memilih gambar",
@@ -599,7 +599,7 @@
       "changeFile": "Ubah file"
     },
     "uploadPDF": {
-      "created": "Dibuat {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dibuat {{dateTime}}",
       "failedToPickDocument": "Gagal memilih dokumen",
       "uploadPdf": "Unggah PDF",
       "createANoteFromAnyUploaded": "Buat catatan dari PDF yang diunggah",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Opsi chat"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Anda sedang offline. Harap sambungkan ke internet untuk melakukan tindakan ini.",
       "failedToDeleteNote": "Gagal menghapus catatan",
       "failedToMoveNote": "Gagal memindahkan catatan",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} mnt lalu",
       "hrAgo": "{{diffHr}} jam lalu",
       "dAgo": "{{diffDay}}h lalu",
-      "created": "Dibuat {{day}}, {{time}}"
+      "created": "Dibuat {{day}}, {{time}}",
+      "today": "Hari Ini"
     }
   },
   "store": {

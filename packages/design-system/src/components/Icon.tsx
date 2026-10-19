@@ -22,7 +22,7 @@
  */
 
 import React from 'react';
-import { View, Image, StyleSheet, ViewStyle, ImageStyle } from 'react-native';
+import { View, Image, StyleSheet, ViewStyle, ImageStyle, I18nManager } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import { theme } from '../theme';
 import { iconRegistry, IconName } from '../icons/registry';
@@ -71,8 +71,14 @@ const SIZE_MAP: Record<string, number> = {
   xl: 40,
 };
 
+// Arrows and chevrons that point along the reading direction — flipped in right-to-left languages
+// (Arabic, Hebrew, Urdu) so "next" still points the way the text flows.
+const DIRECTIONAL_ICONS = new Set<string>(['foward', 'forward', 'backFill', 'backFoward', 'fastFoward', 'send']);
+const MIRRORED = { transform: [{ scaleX: -1 }] };
+
 export const Icon: React.FC<IconProps> = ({ name, size = 'md', color, style }) => {
   const iconSize = typeof size === 'number' ? size : SIZE_MAP[size];
+  const mirrorStyle = I18nManager.isRTL && DIRECTIONAL_ICONS.has(name) ? MIRRORED : undefined;
 
   if (name === 'google') {
     return (
@@ -96,7 +102,7 @@ export const Icon: React.FC<IconProps> = ({ name, size = 'md', color, style }) =
   if (name === 'forward') {
     return (
       <View style={[styles.container, { width: iconSize, height: iconSize }, style]}>
-        <SvgXml xml={FORWARD_ICON_XML} width={iconSize} height={iconSize} />
+        <SvgXml xml={FORWARD_ICON_XML} width={iconSize} height={iconSize} style={mirrorStyle} />
       </View>
     );
   }
@@ -138,7 +144,7 @@ export const Icon: React.FC<IconProps> = ({ name, size = 'md', color, style }) =
 
   return (
     <View style={[styles.container, { width: iconSize, height: iconSize }, style]}>
-      <SvgXml xml={svgSource} width={iconSize} height={iconSize} />
+      <SvgXml xml={svgSource} width={iconSize} height={iconSize} style={mirrorStyle} />
     </View>
   );
 };

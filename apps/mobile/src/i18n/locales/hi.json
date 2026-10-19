@@ -498,7 +498,7 @@
       "permissionRequired": "अनुमति आवश्यक है",
       "pleaseGrantMicrophonePermissionToRecord": "ऑडियो रिकॉर्ड करने के लिए कृपया माइक्रोफ़ोन की अनुमति दें।",
       "failedToRequestMicrophonePermission": "माइक्रोफ़ोन अनुमति का अनुरोध करने में विफल",
-      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "बनाया गया: {{dateTime}}",
       "recordingAudio": "ऑडियो रिकॉर्ड हो रहा है",
       "recordAudio": "ऑडियो रिकॉर्ड करें",
       "createANoteFromAnyRecorded": "किसी भी रिकॉर्ड किए गए ऑडियो से नोट बनाएं",
@@ -506,7 +506,7 @@
       "recordAgain": "फिर से रिकॉर्ड करें"
     },
     "uploadAudio": {
-      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "बनाया गया: {{dateTime}}",
       "failedToPickAudioFile": "ऑडियो फ़ाइल चुनने में विफल",
       "uploadAudio": "ऑडियो अपलोड करें",
       "createANoteFromAnyUploaded": "किसी भी अपलोड किए गए ऑडियो से नोट बनाएं",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "यहाँ अपना टेक्स्ट दर्ज करें..."
     },
     "uploadImage": {
-      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "बनाया गया: {{dateTime}}",
       "permissionRequired": "अनुमति आवश्यक है",
       "pleaseAllowAccessToYourPhoto": "कृपया अपनी फ़ोटो लाइब्रेरी का एक्सेस दें",
       "failedToPickImage": "इमेज चुनी नहीं जा सकी",
@@ -599,7 +599,7 @@
       "changeFile": "फ़ाइल बदलें"
     },
     "uploadPDF": {
-      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "बनाया गया: {{dateTime}}",
       "failedToPickDocument": "दस्तावेज़ चुना नहीं जा सका",
       "uploadPdf": "PDF अपलोड करें",
       "createANoteFromAnyUploaded": "अपलोड की गई किसी भी PDF से नोट बनाएं",
@@ -1361,7 +1361,7 @@
       "chatOptions": "चैट विकल्प"
     },
     "library": {
-      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "आप अभी ऑफ़लाइन हैं। यह क्रिया करने के लिए कृपया इंटरनेट से जुड़ें।",
       "failedToDeleteNote": "नोट हटाया नहीं जा सका",
       "failedToMoveNote": "नोट स्थानांतरित नहीं किया जा सका",
@@ -1448,7 +1448,8 @@
       "minAgo": "{{diffMin}} मिनट पहले",
       "hrAgo": "{{diffHr}} घंटे पहले",
       "dAgo": "{{diffDay}} दिन पहले",
-      "created": "{{day}}, {{time}} को बनाया गया"
+      "created": "{{day}}, {{time}} को बनाया गया",
+      "today": "आज"
     }
   },
   "store": {

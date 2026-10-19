@@ -15,7 +15,8 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { useAlertDialog } from '../hooks/useAlertDialog';
 import { AlertDialog } from './AlertDialog';
 import api from '../services/api';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { formatDateShort } from '../utils/formatDate';
 
 interface ReferredFriend {
   name: string;
@@ -95,11 +96,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
 
   const formatJoinedDate = (dateStr: string) => {
     try {
-      return new Date(dateStr).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      });
+      return formatDateShort(dateStr);
     } catch {
       return dateStr;
     }

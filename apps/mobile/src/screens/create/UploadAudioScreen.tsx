@@ -15,7 +15,8 @@ import { colors, Icon, theme, MicrophoneIcon } from '@clinicalfact/design-system
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { formatDateTime } from '../../utils/formatDate';
 
 type UploadAudioNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadAudio'>;
 type UploadAudioRouteProp = RouteProp<MainStackParamList, 'UploadAudio'>;
@@ -40,16 +41,7 @@ export const UploadAudioScreen = () => {
   };
 
   const formatDate = (date: Date) => {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    const formattedHours = hours % 12 || 12;
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-    return t('create.uploadAudio.created', { month, day, year, formattedHours, formattedMinutes, ampm });
+    return t('create.uploadAudio.created', { dateTime: formatDateTime(date) });
   };
 
   const handlePickFile = async () => {

@@ -516,7 +516,7 @@
       "permissionRequired": "അനുമതി ആവശ്യമാണ്",
       "pleaseGrantMicrophonePermissionToRecord": "ഓഡിയോ റെക്കോർഡ് ചെയ്യാൻ മൈക്രോഫോൺ അനുമതി നൽകുക.",
       "failedToRequestMicrophonePermission": "മൈക്രോഫോൺ അനുമതി അഭ്യർത്ഥിക്കാൻ കഴിഞ്ഞില്ല",
-      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
       "recordingAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുന്നു",
       "recordAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുക",
       "createANoteFromAnyRecorded": "റെക്കോർഡ് ചെയ്ത ഏത് ഓഡിയോയിൽ നിന്നും കുറിപ്പ് തയ്യാറാക്കുക",
@@ -524,7 +524,7 @@
       "recordAgain": "വീണ്ടും റെക്കോർഡ് ചെയ്യുക"
     },
     "uploadAudio": {
-      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
       "failedToPickAudioFile": "ഓഡിയോ ഫയൽ തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
       "uploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
       "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത ഏത് ഓഡിയോയിൽ നിന്നും കുറിപ്പ് തയ്യാറാക്കുക",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "ടെക്സ്റ്റ് ഇവിടെ നൽകുക..."
     },
     "uploadImage": {
-      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
       "permissionRequired": "അനുമതി ആവശ്യമാണ്",
       "pleaseAllowAccessToYourPhoto": "ഫോട്ടോ ലൈബ്രറി ഉപയോഗിക്കാൻ അനുമതി നൽകുക",
       "failedToPickImage": "ചിത്രം തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
@@ -617,7 +617,7 @@
       "changeFile": "ഫയൽ മാറ്റുക"
     },
     "uploadPDF": {
-      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
       "failedToPickDocument": "ഡോക്യുമെന്റ് തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
       "uploadPdf": "PDF അപ്‌ലോഡ് ചെയ്യുക",
       "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത PDF-ൽ നിന്ന് നോട്ട് തയ്യാറാക്കുക",
@@ -1384,7 +1384,7 @@
       "chatOptions": "ചാറ്റ് ഓപ്ഷനുകൾ"
     },
     "library": {
-      "text": "{{year}} {{month}} {{day}}, {{hours}}:{{minutes}} {{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "നിങ്ങൾ ഇപ്പോൾ ഓഫ്‌ലൈനിലാണ്. ഈ പ്രവർത്തനം നടത്താൻ ഇന്റർനെറ്റ് കണക്റ്റ് ചെയ്യുക.",
       "failedToDeleteNote": "നോട്ട് ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല",
       "failedToMoveNote": "നോട്ട് മാറ്റാൻ കഴിഞ്ഞില്ല",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} മിനിറ്റ് മുൻപ്",
       "hrAgo": "{{diffHr}} മണിക്കൂർ മുൻപ്",
       "dAgo": "{{diffDay}} ദിവസം മുൻപ്",
-      "created": "{{day}}, {{time}}-ൽ തയ്യാറാക്കിയത്"
+      "created": "{{day}}, {{time}}-ൽ തയ്യാറാക്കിയത്",
+      "today": "ഇന്ന്"
     }
   },
   "store": {

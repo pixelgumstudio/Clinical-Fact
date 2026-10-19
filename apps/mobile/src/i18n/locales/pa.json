@@ -516,7 +516,7 @@
       "permissionRequired": "ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ",
       "pleaseGrantMicrophonePermissionToRecord": "ਆਡੀਓ ਰਿਕਾਰਡ ਕਰਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।",
       "failedToRequestMicrophonePermission": "ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਇਜਾਜ਼ਤ ਮੰਗਣ ਵਿੱਚ ਅਸਫਲ",
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
+      "created": "{{dateTime}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
       "recordingAudio": "ਆਡੀਓ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ",
       "recordAudio": "ਆਡੀਓ ਰਿਕਾਰਡ ਕਰੋ",
       "createANoteFromAnyRecorded": "ਕਿਸੇ ਵੀ ਰਿਕਾਰਡ ਕੀਤੇ ਆਡੀਓ ਤੋਂ ਨੋਟ ਬਣਾਓ",
@@ -524,7 +524,7 @@
       "recordAgain": "ਦੁਬਾਰਾ ਰਿਕਾਰਡ ਕਰੋ"
     },
     "uploadAudio": {
-      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
+      "created": "{{dateTime}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
       "failedToPickAudioFile": "ਆਡੀਓ ਫ਼ਾਈਲ ਚੁਣਨ ਵਿੱਚ ਅਸਫਲ",
       "uploadAudio": "ਆਡੀਓ ਅੱਪਲੋਡ ਕਰੋ",
       "createANoteFromAnyUploaded": "ਕਿਸੇ ਵੀ ਅੱਪਲੋਡ ਕੀਤੇ ਆਡੀਓ ਤੋਂ ਨੋਟ ਬਣਾਓ",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "ਆਪਣਾ ਟੈਕਸਟ ਇੱਥੇ ਦਰਜ ਕਰੋ..."
     },
     "uploadImage": {
-      "created": "ਬਣਾਇਆ ਗਿਆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "{{dateTime}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
       "permissionRequired": "ਇਜਾਜ਼ਤ ਲੋੜੀਂਦੀ ਹੈ",
       "pleaseAllowAccessToYourPhoto": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਫੋਟੋ ਲਾਇਬ੍ਰੇਰੀ ਤੱਕ ਪਹੁੰਚ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
       "failedToPickImage": "ਤਸਵੀਰ ਚੁਣਨ ਵਿੱਚ ਅਸਫ਼ਲ",
@@ -617,7 +617,7 @@
       "changeFile": "ਫ਼ਾਈਲ ਬਦਲੋ"
     },
     "uploadPDF": {
-      "created": "ਬਣਾਇਆ ਗਿਆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "{{dateTime}} ਨੂੰ ਬਣਾਇਆ ਗਿਆ",
       "failedToPickDocument": "ਦਸਤਾਵੇਜ਼ ਚੁਣਨ ਵਿੱਚ ਅਸਫ਼ਲ",
       "uploadPdf": "PDF ਅੱਪਲੋਡ ਕਰੋ",
       "createANoteFromAnyUploaded": "ਕਿਸੇ ਵੀ ਅੱਪਲੋਡ ਕੀਤੀ PDF ਤੋਂ ਨੋਟ ਬਣਾਓ",
@@ -1384,7 +1384,7 @@
       "chatOptions": "ਚੈਟ ਵਿਕਲਪ"
     },
     "library": {
-      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "ਤੁਸੀਂ ਵਰਤਮਾਨ ਵਿੱਚ ਔਫਲਾਈਨ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਇੰਟਰਨੈੱਟ ਨਾਲ ਜੁੜੋ।",
       "failedToDeleteNote": "ਨੋਟ ਹਟਾਉਣ ਵਿੱਚ ਅਸਫਲ",
       "failedToMoveNote": "ਨੋਟ ਤਬਦੀਲ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} ਮਿੰਟ ਪਹਿਲਾਂ",
       "hrAgo": "{{diffHr}} ਘੰਟੇ ਪਹਿਲਾਂ",
       "dAgo": "{{diffDay}} ਦਿਨ ਪਹਿਲਾਂ",
-      "created": "ਬਣਾਇਆ ਗਿਆ {{day}}, {{time}}"
+      "created": "ਬਣਾਇਆ ਗਿਆ {{day}}, {{time}}",
+      "today": "ਅੱਜ"
     }
   },
   "store": {

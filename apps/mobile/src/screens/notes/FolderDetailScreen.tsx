@@ -29,7 +29,8 @@ import {
 import { useFolders, useNotes, useInvalidateNotes } from '../../hooks/queries';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { formatDateShort } from '../../utils/formatDate';
 
 type FolderDetailRouteProp = RouteProp<MainStackParamList, 'FolderDetail'>;
 type FolderDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FolderDetail'>;
@@ -75,7 +76,7 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, onPress }) => {
           {note.title}
         </Text>
         <Text style={styles.noteDate}>
-         {t('notes.folderDetail.created', { value: new Date(note.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) })}
+         {t('notes.folderDetail.created', { value: formatDateShort(note.createdAt) })}
         </Text>
       </View>
     </TouchableOpacity>
@@ -249,7 +250,7 @@ export const FolderDetailScreen = () => {
                         <View style={styles.noteContent}>
                           <Text style={styles.noteTitle} numberOfLines={1}>{item.title}</Text>
                           <Text style={styles.noteDate}>
-                            {new Date(item.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                            {formatDateShort(item.createdAt)}
                           </Text>
                         </View>
                       </TouchableOpacity>

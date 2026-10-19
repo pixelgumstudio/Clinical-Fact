@@ -516,7 +516,7 @@
       "permissionRequired": "অনুমতি প্রয়োজন",
       "pleaseGrantMicrophonePermissionToRecord": "অডিও রেকর্ড করতে অনুগ্রহ করে মাইক্রোফোনের অনুমতি দিন।",
       "failedToRequestMicrophonePermission": "মাইক্রোফোনের অনুমতি চাওয়া সম্ভব হয়নি",
-      "created": "তৈরি করা হয়েছে {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "তৈরি করা হয়েছে {{dateTime}}",
       "recordingAudio": "অডিও রেকর্ড করা হচ্ছে",
       "recordAudio": "অডিও রেকর্ড করুন",
       "createANoteFromAnyRecorded": "যেকোনো রেকর্ড করা অডিও থেকে নোট তৈরি করুন",
@@ -524,7 +524,7 @@
       "recordAgain": "আবার রেকর্ড করুন"
     },
     "uploadAudio": {
-      "created": "তৈরি করা হয়েছে {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "তৈরি করা হয়েছে {{dateTime}}",
       "failedToPickAudioFile": "অডিও ফাইল নির্বাচন করা যায়নি",
       "uploadAudio": "অডিও আপলোড করুন",
       "createANoteFromAnyUploaded": "যেকোনো আপলোড করা অডিও থেকে নোট তৈরি করুন",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "এখানে আপনার টেক্সট লিখুন..."
     },
     "uploadImage": {
-      "created": "তৈরি হয়েছে {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "তৈরি করা হয়েছে {{dateTime}}",
       "permissionRequired": "অনুমতি প্রয়োজন",
       "pleaseAllowAccessToYourPhoto": "অনুগ্রহ করে আপনার ফটো লাইব্রেরি ব্যবহারের অনুমতি দিন",
       "failedToPickImage": "ছবি নির্বাচন করতে ব্যর্থ হয়েছে",
@@ -617,7 +617,7 @@
       "changeFile": "ফাইল পরিবর্তন করুন"
     },
     "uploadPDF": {
-      "created": "তৈরি হয়েছে {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "তৈরি করা হয়েছে {{dateTime}}",
       "failedToPickDocument": "ডকুমেন্ট নির্বাচন করতে ব্যর্থ হয়েছে",
       "uploadPdf": "PDF আপলোড করুন",
       "createANoteFromAnyUploaded": "আপলোড করা যেকোনো PDF থেকে নোট তৈরি করুন",
@@ -1384,7 +1384,7 @@
       "chatOptions": "চ্যাট অপশন"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "আপনি বর্তমানে অফলাইনে আছেন। এই কাজটি করতে অনুগ্রহ করে ইন্টারনেটে সংযুক্ত হন।",
       "failedToDeleteNote": "নোট মুছে ফেলা যায়নি",
       "failedToMoveNote": "নোট সরানো যায়নি",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} মিনিট আগে",
       "hrAgo": "{{diffHr}} ঘণ্টা আগে",
       "dAgo": "{{diffDay}} দিন আগে",
-      "created": "তৈরি হয়েছে: {{day}}, {{time}}"
+      "created": "তৈরি হয়েছে: {{day}}, {{time}}",
+      "today": "আজ"
     }
   },
   "store": {

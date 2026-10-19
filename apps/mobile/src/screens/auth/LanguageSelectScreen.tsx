@@ -6,6 +6,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { Button, Icon, theme } from '@clinicalfact/design-system';
 import i18n, { loadUserLanguage } from '../../i18n';
+import { syncLayoutDirection } from '../../i18n/rtl';
 import { AppLanguage, isSupportedLanguage, searchLanguages } from '../../i18n/languages';
 import { rememberOnboardingLanguage } from '../../services/languagePreference';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
@@ -35,7 +36,8 @@ export const LanguageSelectScreen = () => {
   const handleSelect = (code: string) => {
     setSelected(code);
     // Apply right away; this also keeps the choice for the next launch.
-    loadUserLanguage(code);
+    // Preview only: the layout direction (and its one restart) waits for Continue.
+    loadUserLanguage(code, { applyDirection: false });
   };
 
   const handleContinue = async () => {
@@ -43,6 +45,7 @@ export const LanguageSelectScreen = () => {
     savingRef.current = true;
     setSaving(true);
     await rememberOnboardingLanguage(selected);
+    if (await syncLayoutDirection(selected)) return; // restarting into the new direction
     navigation.replace('Intro');
   };
 

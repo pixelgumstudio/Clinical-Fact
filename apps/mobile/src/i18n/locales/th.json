@@ -498,7 +498,7 @@
       "permissionRequired": "ต้องได้รับอนุญาตการเข้าถึง",
       "pleaseGrantMicrophonePermissionToRecord": "โปรดอนุญาตให้เข้าถึงไมโครโฟนเพื่อบันทึกเสียง",
       "failedToRequestMicrophonePermission": "ขอสิทธิ์เข้าถึงไมโครโฟนไม่สำเร็จ",
-      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "สร้างเมื่อ {{dateTime}}",
       "recordingAudio": "กำลังบันทึกเสียง",
       "recordAudio": "บันทึกเสียง",
       "createANoteFromAnyRecorded": "สร้างโน้ตจากเสียงที่บันทึกไว้",
@@ -506,7 +506,7 @@
       "recordAgain": "บันทึกใหม่"
     },
     "uploadAudio": {
-      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "สร้างเมื่อ {{dateTime}}",
       "failedToPickAudioFile": "เลือกไฟล์เสียงไม่สำเร็จ",
       "uploadAudio": "อัปโหลดเสียง",
       "createANoteFromAnyUploaded": "สร้างโน้ตจากไฟล์เสียงที่อัปโหลด",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "พิมพ์ข้อความของคุณที่นี่..."
     },
     "uploadImage": {
-      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "สร้างเมื่อ {{dateTime}}",
       "permissionRequired": "จำเป็นต้องได้รับอนุญาต",
       "pleaseAllowAccessToYourPhoto": "โปรดอนุญาตให้เข้าถึงคลังรูปภาพของคุณ",
       "failedToPickImage": "เลือกรูปภาพไม่สำเร็จ",
@@ -599,7 +599,7 @@
       "changeFile": "เปลี่ยนไฟล์"
     },
     "uploadPDF": {
-      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "สร้างเมื่อ {{dateTime}}",
       "failedToPickDocument": "เลือกเอกสารไม่สำเร็จ",
       "uploadPdf": "อัปโหลด PDF",
       "createANoteFromAnyUploaded": "สร้างโน้ตจากไฟล์ PDF ที่อัปโหลด",
@@ -1366,7 +1366,7 @@
       "chatOptions": "ตัวเลือกแชท"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}} {{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "คุณกำลังออฟไลน์ โปรดเชื่อมต่ออินเทอร์เน็ตเพื่อดำเนินการ",
       "failedToDeleteNote": "ลบโน้ตไม่สำเร็จ",
       "failedToMoveNote": "ย้ายโน้ตไม่สำเร็จ",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} นาทีที่แล้ว",
       "hrAgo": "{{diffHr}} ชม. ที่แล้ว",
       "dAgo": "{{diffDay}} วันที่แล้ว",
-      "created": "สร้างเมื่อ {{day}}, {{time}}"
+      "created": "สร้างเมื่อ {{day}}, {{time}}",
+      "today": "วันนี้"
     }
   },
   "store": {

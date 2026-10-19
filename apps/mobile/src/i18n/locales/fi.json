@@ -516,7 +516,7 @@
       "permissionRequired": "Käyttöoikeus vaaditaan",
       "pleaseGrantMicrophonePermissionToRecord": "Myönnä mikrofonin käyttöoikeus äänen tallentamiseksi.",
       "failedToRequestMicrophonePermission": "Mikrofonin käyttöoikeuden pyytäminen epäonnistui",
-      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Luotu {{dateTime}}",
       "recordingAudio": "Äänitetään",
       "recordAudio": "Äänitä",
       "createANoteFromAnyRecorded": "Luo muistiinpano äänitteestä",
@@ -524,7 +524,7 @@
       "recordAgain": "Äänitä uudelleen"
     },
     "uploadAudio": {
-      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Luotu {{dateTime}}",
       "failedToPickAudioFile": "Äänitiedoston valitseminen epäonnistui",
       "uploadAudio": "Lataa äänitiedosto",
       "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta äänitiedostosta",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Kirjoita tekstisi tähän..."
     },
     "uploadImage": {
-      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Luotu {{dateTime}}",
       "permissionRequired": "Käyttöoikeus vaaditaan",
       "pleaseAllowAccessToYourPhoto": "Salli pääsy kuvakirjastoosi",
       "failedToPickImage": "Kuvan valitseminen epäonnistui",
@@ -617,7 +617,7 @@
       "changeFile": "Vaihda tiedosto"
     },
     "uploadPDF": {
-      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Luotu {{dateTime}}",
       "failedToPickDocument": "Tiedoston valitseminen epäonnistui",
       "uploadPdf": "Lataa PDF",
       "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta PDF-tiedostosta",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Keskustelun asetukset"
     },
     "library": {
-      "text": "{{day}}. {{month}}ta {{year}} klo {{hours}}.{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Olet offline-tilassa. Yhdistä internetiin suorittaaksesi tämän toiminnon.",
       "failedToDeleteNote": "Muistiinpanon poistaminen epäonnistui",
       "failedToMoveNote": "Muistiinpanon siirtäminen epäonnistui",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} min sitten",
       "hrAgo": "{{diffHr}} t sitten",
       "dAgo": "{{diffDay}} pv sitten",
-      "created": "Luotu {{day}} klo {{time}}"
+      "created": "Luotu {{day}} klo {{time}}",
+      "today": "Tänään"
     }
   },
   "store": {

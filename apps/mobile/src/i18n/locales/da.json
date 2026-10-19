@@ -516,7 +516,7 @@
       "permissionRequired": "Tilladelse påkrævet",
       "pleaseGrantMicrophonePermissionToRecord": "Giv venligst tilladelse til mikrofonen for at optage lyd.",
       "failedToRequestMicrophonePermission": "Kunne ikke anmode om mikrofontilladelse",
-      "created": "Oprettet {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oprettet {{dateTime}}",
       "recordingAudio": "Optager lyd",
       "recordAudio": "Optag lyd",
       "createANoteFromAnyRecorded": "Opret et notat fra enhver lydoptagelse",
@@ -524,7 +524,7 @@
       "recordAgain": "Optag igen"
     },
     "uploadAudio": {
-      "created": "Oprettet {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oprettet {{dateTime}}",
       "failedToPickAudioFile": "Kunne ikke vælge lydfil",
       "uploadAudio": "Upload lyd",
       "createANoteFromAnyUploaded": "Opret et notat fra enhver uploadet lydfil",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Skriv din tekst her..."
     },
     "uploadImage": {
-      "created": "Oprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oprettet {{dateTime}}",
       "permissionRequired": "Tilladelse påkrævet",
       "pleaseAllowAccessToYourPhoto": "Giv venligst adgang til dit fotobibliotek",
       "failedToPickImage": "Kunne ikke vælge billede",
@@ -617,7 +617,7 @@
       "changeFile": "Skift fil"
     },
     "uploadPDF": {
-      "created": "Oprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oprettet {{dateTime}}",
       "failedToPickDocument": "Kunne ikke vælge dokument",
       "uploadPdf": "Upload PDF",
       "createANoteFromAnyUploaded": "Opret et notat ud fra en uploadet PDF",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Chatindstillinger"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Du er offline i øjeblikket. Opret forbindelse til internettet for at udføre denne handling.",
       "failedToDeleteNote": "Kunne ikke slette noten",
       "failedToMoveNote": "Kunne ikke flytte noten",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} min. siden",
       "hrAgo": "{{diffHr}} t. siden",
       "dAgo": "{{diffDay}} d. siden",
-      "created": "Oprettet {{day}}, {{time}}"
+      "created": "Oprettet {{day}}, {{time}}",
+      "today": "I dag"
     }
   },
   "store": {

@@ -516,7 +516,7 @@
       "permissionRequired": "அனுமதி தேவை",
       "pleaseGrantMicrophonePermissionToRecord": "ஆடியோவைப் பதிவுசெய்ய மைக்ரோஃபோன் அனுமதியை வழங்கவும்.",
       "failedToRequestMicrophonePermission": "மைக்ரோஃபோன் அனுமதியைக் கோர முடியவில்லை",
-      "created": "உருவாக்கப்பட்டது {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "உருவாக்கப்பட்டது {{dateTime}}",
       "recordingAudio": "ஆடியோ பதிவு செய்யப்படுகிறது",
       "recordAudio": "ஆடியோ பதிவு செய்",
       "createANoteFromAnyRecorded": "பதிவுசெய்த எந்த ஆடியோவிலிருந்தும் குறிப்பை உருவாக்கவும்",
@@ -524,7 +524,7 @@
       "recordAgain": "மீண்டும் பதிவு செய்"
     },
     "uploadAudio": {
-      "created": "உருவாக்கப்பட்டது {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "உருவாக்கப்பட்டது {{dateTime}}",
       "failedToPickAudioFile": "ஆடியோ கோப்பைத் தேர்ந்தெடுக்க முடியவில்லை",
       "uploadAudio": "ஆடியோவை பதிவேற்று",
       "createANoteFromAnyUploaded": "பதிவேற்றிய எந்த ஆடியோவிலிருந்தும் குறிப்பை உருவாக்கவும்",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "உங்கள் உரையை இங்கே தட்டச்சு செய்யவும்..."
     },
     "uploadImage": {
-      "created": "உருவாக்கப்பட்டது {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "உருவாக்கப்பட்டது {{dateTime}}",
       "permissionRequired": "அனுமதி தேவை",
       "pleaseAllowAccessToYourPhoto": "உங்கள் புகைப்பட கேலரிக்கான அணுகலை அனுமதிக்கவும்",
       "failedToPickImage": "படத்தைத் தேர்ந்தெடுக்க முடியவில்லை",
@@ -617,7 +617,7 @@
       "changeFile": "கோப்பை மாற்று"
     },
     "uploadPDF": {
-      "created": "உருவாக்கப்பட்டது {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "உருவாக்கப்பட்டது {{dateTime}}",
       "failedToPickDocument": "ஆவணத்தைத் தேர்ந்தெடுக்க முடியவில்லை",
       "uploadPdf": "PDF-ஐப் பதிவேற்று",
       "createANoteFromAnyUploaded": "பதிவேற்றிய PDF-லிருந்து குறிப்பை உருவாக்கவும்",
@@ -1384,7 +1384,7 @@
       "chatOptions": "உரையாடல் விருப்பங்கள்"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "நீங்கள் ஆஃப்லைனில் உள்ளீர்கள். இந்தச் செயலைச் செய்ய இணையத்துடன் இணையவும்.",
       "failedToDeleteNote": "குறிப்பை நீக்க முடியவில்லை",
       "failedToMoveNote": "குறிப்பை நகர்த்த முடியவில்லை",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} நிமி முன்",
       "hrAgo": "{{diffHr}} மணி முன்",
       "dAgo": "{{diffDay}} நா முன்",
-      "created": "உருவாக்கப்பட்டது {{day}}, {{time}}"
+      "created": "உருவாக்கப்பட்டது {{day}}, {{time}}",
+      "today": "இன்று"
     }
   },
   "store": {

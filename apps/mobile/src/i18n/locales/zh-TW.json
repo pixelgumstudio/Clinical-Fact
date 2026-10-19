@@ -498,7 +498,7 @@
       "permissionRequired": "需要權限",
       "pleaseGrantMicrophonePermissionToRecord": "請授予麥克風權限以進行錄音。",
       "failedToRequestMicrophonePermission": "請求麥克風權限失敗",
-      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "建立於 {{dateTime}}",
       "recordingAudio": "錄音中",
       "recordAudio": "錄製音訊",
       "createANoteFromAnyRecorded": "利用任何錄音建立筆記",
@@ -506,7 +506,7 @@
       "recordAgain": "重新錄音"
     },
     "uploadAudio": {
-      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "建立於 {{dateTime}}",
       "failedToPickAudioFile": "選取音訊檔案失敗",
       "uploadAudio": "上傳音訊",
       "createANoteFromAnyUploaded": "利用任何上傳的音訊建立筆記",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "在此輸入您的文字..."
     },
     "uploadImage": {
-      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "建立於 {{dateTime}}",
       "permissionRequired": "需要權限",
       "pleaseAllowAccessToYourPhoto": "請允許存取您的相片圖庫",
       "failedToPickImage": "選取圖片失敗",
@@ -599,7 +599,7 @@
       "changeFile": "更換檔案"
     },
     "uploadPDF": {
-      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "建立於 {{dateTime}}",
       "failedToPickDocument": "選取文件失敗",
       "uploadPdf": "上傳 PDF",
       "createANoteFromAnyUploaded": "從上傳的 PDF 建立筆記",
@@ -1366,7 +1366,7 @@
       "chatOptions": "對話選項"
     },
     "library": {
-      "text": "{{year}}年{{month}}{{day}}日 {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "目前處於離線狀態。請連線至網際網路以執行此操作。",
       "failedToDeleteNote": "無法刪除筆記",
       "failedToMoveNote": "無法移動筆記",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} 分鐘前",
       "hrAgo": "{{diffHr}} 小時前",
       "dAgo": "{{diffDay}} 天前",
-      "created": "建立於 {{day}} {{time}}"
+      "created": "建立於 {{day}} {{time}}",
+      "today": "今天"
     }
   },
   "store": {

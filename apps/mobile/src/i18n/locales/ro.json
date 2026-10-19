@@ -516,7 +516,7 @@
       "permissionRequired": "Permisiune necesară",
       "pleaseGrantMicrophonePermissionToRecord": "Te rugăm să acorzi permisiunea pentru microfon pentru a înregistra audio.",
       "failedToRequestMicrophonePermission": "Solicitarea permisiunii pentru microfon a eșuat",
-      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Creată pe {{dateTime}}",
       "recordingAudio": "Se înregistrează audio",
       "recordAudio": "Înregistrează audio",
       "createANoteFromAnyRecorded": "Creează o notiță din orice înregistrare audio",
@@ -524,7 +524,7 @@
       "recordAgain": "Înregistrează din nou"
     },
     "uploadAudio": {
-      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Creată pe {{dateTime}}",
       "failedToPickAudioFile": "Selectarea fișierului audio a eșuat",
       "uploadAudio": "Încarcă audio",
       "createANoteFromAnyUploaded": "Creează o notiță din orice fișier audio încărcat",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Introdu textul aici..."
     },
     "uploadImage": {
-      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Creată pe {{dateTime}}",
       "permissionRequired": "Permisiune necesară",
       "pleaseAllowAccessToYourPhoto": "Permite accesul la biblioteca foto",
       "failedToPickImage": "Selectarea imaginii a eșuat",
@@ -617,7 +617,7 @@
       "changeFile": "Schimbă fișierul"
     },
     "uploadPDF": {
-      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "created": "Creată pe {{dateTime}}",
       "failedToPickDocument": "Selectarea documentului a eșuat",
       "uploadPdf": "Încarcă PDF",
       "createANoteFromAnyUploaded": "Creează o notiță din orice PDF încărcat",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Opțiuni chat"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Ești offline. Conectează-te la internet pentru a efectua această acțiune.",
       "failedToDeleteNote": "Ștergerea notiței a eșuat",
       "failedToMoveNote": "Mutarea notiței a eșuat",
@@ -1471,7 +1471,8 @@
       "minAgo": "acum {{diffMin}} min",
       "hrAgo": "acum {{diffHr}} ore",
       "dAgo": "acum {{diffDay}} z",
-      "created": "Creat pe {{day}}, {{time}}"
+      "created": "Creat pe {{day}}, {{time}}",
+      "today": "Azi"
     }
   },
   "store": {
