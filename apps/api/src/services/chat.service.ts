@@ -285,6 +285,7 @@ class ChatService {
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
+- Plain text only for math and chemistry — NEVER LaTeX or dollar signs ($...$, ^{}, _{}). Write ions and formulas with Unicode characters (Na⁺, K⁺, Ca²⁺, Mg²⁺, Cl⁻, HCO₃⁻, H₂O, CO₂, O₂) and symbols as real characters (≥ ≤ → ± × °), not HTML entities. If a character has no Unicode form, use <sup> or <sub>.
 
 CRITICAL INSTRUCTIONS:
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
@@ -300,6 +301,7 @@ ${context}${languageInstruction}`: `You are Clinical Fact, a medical reference A
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
+- Plain text only for math and chemistry — NEVER LaTeX or dollar signs ($...$, ^{}, _{}). Write ions and formulas with Unicode characters (Na⁺, K⁺, Ca²⁺, Mg²⁺, Cl⁻, HCO₃⁻, H₂O, CO₂, O₂) and symbols as real characters (≥ ≤ → ± × °), not HTML entities. If a character has no Unicode form, use <sup> or <sub>.
 
 How to answer:
 - Answer from the material below — the user brought this document into the conversation and turned outside medical search off, so what they get back must come from it
@@ -510,6 +512,7 @@ The sources below are supplementary, not a cap on what you're allowed to say:
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
+- Plain text only for math and chemistry — NEVER LaTeX or dollar signs ($...$, ^{}, _{}). Write ions and formulas with Unicode characters (Na⁺, K⁺, Ca²⁺, Mg²⁺, Cl⁻, HCO₃⁻, H₂O, CO₂, O₂) and symbols as real characters (≥ ≤ → ± × °), not HTML entities. If a character has no Unicode form, use <sup> or <sub>.
 - Make it easy to scan on a phone: short paragraphs, <h3> headings when there are two or more distinct parts, <ul>/<ol> for lists and steps, and <b> on key terms and numbers.
 - For a longer answer, finish with a one-line <p><b>Key takeaway:</b> ...</p>.
 - Use a mnemonic only when it is a well-known, standard one.
