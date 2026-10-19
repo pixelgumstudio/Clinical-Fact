@@ -14,7 +14,8 @@
     "next": "다음",
     "done": "완료",
     "search": "검색",
-    "filter": "필터"
+    "filter": "필터",
+    "ok": "확인"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "플랜 업그레이드",
     "everyWeek": "매주",
     "everyMonth": "매월",
-    "everyYear": "매년"
+    "everyYear": "매년",
+    "expired": "만료됨",
+    "reportBug": "오류 신고",
+    "active": "활성",
+    "trial": "체험판"
   },
   "auth": {
     "welcome": "Clinical Fact에 오신 것을 환영합니다",
@@ -89,6 +94,177 @@
       "subtitle": "앱에서 사용할 언어를 선택해 주세요. 프로필에서 언제든지 변경할 수 있어요.",
       "searchPlaceholder": "언어 검색",
       "noResults": "검색 결과가 없습니다"
+    },
+    "buttons": {
+      "continue": "계속하기",
+      "continueWithEmail": "이메일로 계속하기",
+      "continueWithGoogle": "Google로 계속하기",
+      "continueWithApple": "Apple로 계속하기",
+      "skip": "건너뛰기",
+      "verify": "인증 완료!",
+      "next": "다음",
+      "tryNow": "지금 Clinical Fact 무료로 시작하기"
+    },
+    "labels": {
+      "firstName": "이름",
+      "lastName": "성",
+      "username": "@사용자이름",
+      "referralCode": "추천인 코드",
+      "nameScreenTitle": "이름을 입력해 주세요",
+      "byAgree": "계속 진행하면 다음 항목에 동의하게 됩니다:",
+      "termsAndConditions": "이용약관",
+      "privacyPolicy": "개인정보 처리방침",
+      "and": "및"
+    },
+    "placeholders": {
+      "enterEmail": "이메일 주소를 입력해 주세요",
+      "firstName": "이름",
+      "lastName": "성",
+      "username": "@사용자이름",
+      "referralCode": "예: JOHN 또는 TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "올바른 이메일 주소를 입력해 주세요",
+      "emailRequired": "이메일 주소를 입력해 주세요",
+      "firstLastNameRequired": "성과 이름을 모두 입력해 주세요",
+      "usernameRequired": "사용자 이름을 입력해 주세요",
+      "usernameLength": "사용자 이름은 3~20자여야 합니다(영문, 숫자, 밑줄만 가능)",
+      "usernameTaken": "이미 사용 중인 사용자 이름입니다. 다른 이름을 사용해 주세요.",
+      "usernameCheckFailed": "사용자 이름 중복 확인에 실패했습니다",
+      "usernameError": "사용자 이름 확인 중 오류가 발생했습니다. 네트워크 연결을 확인해 주세요.",
+      "invalidOTP": "잘못된 인증 코드입니다. 다시 확인해 주세요.",
+      "otpExpired": "인증 코드가 만료되었습니다. 새 코드를 요청해 주세요.",
+      "otpRequired": "인증 코드를 모두 입력해 주세요",
+      "referralNotFound": "추천인 코드를 찾을 수 없습니다. 코드를 확인하고 다시 시도해 주세요.",
+      "referralValidateFailed": "코드 확인에 실패했습니다. 다시 시도해 주세요.",
+      "referralApplyFailed": "추천인 코드 적용에 실패했습니다. 다시 시도해 주세요.",
+      "codeSendFailed": "인증 코드 전송에 실패했습니다. 다시 시도해 주세요.",
+      "resendCodeFailed": "코드 재전송에 실패했습니다. 다시 시도해 주세요.",
+      "signInFailed": "로그인 실패",
+      "googleSignInFailed": "Google 로그인 실패",
+      "googleTokenFailed": "Google 토큰 처리에 실패했습니다",
+      "googleAccessTokenFailed": "액세스 토큰을 가져오지 못했습니다. 다시 시도해 주세요.",
+      "authTokenFailed": "인증 토큰을 가져오지 못했습니다. 다시 시도해 주세요.",
+      "googleStartFailed": "Google 로그인을 시작하지 못했습니다. 다시 시도해 주세요.",
+      "setupRequired": "설정 필요",
+      "googleOAuthMissing": "Google 로그인에는 OAuth 클라이언트 ID가 필요합니다.\\n\\n.env 파일에 자격 증명을 추가해 주세요.",
+      "youCanStillUseEmail": "\"이메일로 계속하기\"를 사용할 수 있습니다.",
+      "appleSignInFailed": "Apple 로그인 실패",
+      "appleTokenFailed": "Apple 토큰 처리에 실패했습니다",
+      "appleIosOnly": "Apple 로그인은 iOS에서만 지원됩니다."
+    },
+    "messages": {
+      "signingIn": "로그인 중...",
+      "codeValid": "✓ 유효한 코드입니다",
+      "signupFailed": "회원가입을 완료하지 못했습니다",
+      "setupFailed": "설정을 완료하지 못했습니다. 다시 시도해 주세요."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: 더 스마트한 노트 필기의 시작",
+      "tagline": "모든 자료를 완벽한 노트로",
+      "description": "음성, 문서, 동영상을 검색 가능한 깔끔한 노트로 변환하고 퀴즈, 플래시카드, 요약본을 바로 생성해 보세요.",
+      "createAccountTitle": "계정 만들기",
+      "orSignUpWith": "또는 다른 방법으로 가입",
+      "signUpWithEmail": "이메일로 회원가입",
+      "signInWithEmail": "이메일로 로그인",
+      "alreadyHaveAccount": "이미 계정이 있으신가요? ",
+      "dontHaveAccount": "계정이 없으신가요? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "의학 질문의 모든 것, 정확한 임상 근거로 확인하세요",
+        "description": "궁금한 의학 질문을 남겨보세요. PubMed, 임상 진료 지침 및 신뢰할 수 있는 의학 문헌 출처가 포함된 답변을 제공합니다."
+      },
+      "slide2": {
+        "headline": "출처로 뒷받침되는 모든 답변",
+        "description": "어설픈 추측이나 허위 정보 없이, 모든 답변은 직접 검증 가능한 실제 의학 연구로 연결됩니다."
+      },
+      "slide3": {
+        "headline": "더 스마트한 학습, 의학 시험 완벽 대비",
+        "description": "질문이나 업로드한 자료를 몇 초 만에 퀴즈와 플래시카드로 만들어 지금 배우는 내용을 바로 복습하세요."
+      }
+    },
+    "otp": {
+      "title": "이메일 주소 확인",
+      "subtitle": "이메일로 전송된 인증번호를 입력해 주세요"
+    },
+    "professionalDeclaration": {
+      "title": "전문직 면책 조항",
+      "subtitle": "Clinical Fact는 교육용 의학 문헌 검색 도구입니다",
+      "disclaimerIntro": "Clinical Fact는 간호학, 의학 및 보건의료 계열 학생들이 의학 지식, 연구 문헌 및 학습 자료에 접근할 수 있도록 돕는 AI 기반 정보 도구입니다. 본 앱은 의학적 진단, 치료 권고, 임상 지침 또는 환자 맞춤형 의학 조언을 제공하지 않으며, 직접적인 환자 진료나 임상적 의사결정의 근거로 사용되어서는 안 됩니다.",
+      "disclaimerHeading": "Clinical Fact의 답변 생성 방식:",
+      "disclaimerBody": "Clinical Fact는 PubMed, Semantic Scholar, 공식 FDA 의약품 라벨 등 공인된 의학 및 과학 출처에서 직접 정보를 검색하고, AI를 활용해 검색된 내용을 이해하기 쉬운 언어로 요약 및 설명합니다. 모든 답변은 해당 질문에 대해 검색된 출처만을 바탕으로 생성되며, 사용자가 직접 확인할 수 있도록 원본 자료 링크가 함께 제공됩니다. Clinical Fact는 자체 기억에만 의존해 의학적 사실을 만들어내거나 출처를 허위로 생성하지 않습니다.\n\nClinical Fact는 진단 도구, 치료 플랫폼, 의료 기기가 아니며 전문적인 의학적 판단, 공인된 교육 또는 소속 기관의 교육 과정을 대체할 수 없습니다. 답변, 인용, 퀴즈, 플래시카드를 포함하여 앱에서 생성된 모든 정보는 일반적인 교육 및 학습 목적으로만 제공되며, 학술적·임상적·전문적 맥락에서 이를 신뢰하기 전에 사용자가 독립적으로 검증해야 합니다.\nClinical Fact는 제공된 정보의 완전성, 정확성 또는 최신 임상적 유효성을 보장하지 않습니다. 의학 지식은 끊임없이 발전하므로, 중요한 정보는 항상 지도 교수, 임상 슈퍼바이저 및 최신 1차 출처와 대조하여 확인하시기 바랍니다.\n사용자가 직접 문서, 메모 또는 녹음본을 업로드하는 경우, Clinical Fact는 외부 출처가 명시적으로 함께 표시되지 않는 한 업로드된 내용만을 기반으로 답변, 요약, 퀴즈 및 플래시카드를 생성합니다.\n\nClinical Fact는 사용자의 신원, 재학 상태 또는 자격 증명을 확인하거나 인증하지 않습니다. 본 앱은 응급 상황이나 실시간 임상 의사결정에 사용하도록 고안되지 않았습니다.\n계속 진행하면 이러한 약관을 이해하고 동의하며, Clinical Fact를 순수한 학습 및 참고용 보조 도구로만 사용하는 것에 동의하는 것으로 간주됩니다.",
+      "checkboxLabel": "본 앱은 교육 및 참고 목적 전용이며 의학적 조언을 제공하지 않음을 이해했습니다",
+      "acceptButton": "동의하고 계속하기"
+    },
+    "survey": {
+      "role": "{{firstName}} 님을 가장 잘 나타내는 항목은 무엇인가요?",
+      "currentMethod": "현재 의학 질문에 대한 답을 주로 어떻게 찾고 계신가요?",
+      "timeDrain": "어떤 작업에 시간이 가장 많이 소요되나요?",
+      "appExpectation": "의학 앱 Clinical Fact에 어떤 점을 가장 기대하시나요?",
+      "aiToolsUsed": "지금까지 의학 자료 검색 및 연구에 어떤 AI 도구를 사용해 보셨나요?",
+      "aiToolIssue": "기존 도구를 사용하면서 어떤 점이 불편하셨나요?",
+      "aiTrustLevel": "AI 답변이 틀릴 수도 있다는 걱정을 얼마나 자주 하시나요?",
+      "biggestNeed": "지금 가장 필요한 기능은 무엇인가요?",
+      "studyTimePerWeek": "일주일에 공부할 수 있는 시간은 어느 정도인가요?",
+      "comingUp": "어떤 일정을 앞두고 계신가요?",
+      "referralSource": "Clinical Fact를 어떻게 알게 되셨나요?"
+    },
+    "onboarding": {
+      "username": "사용자 이름을 설정해 볼까요?",
+      "usernameSubtitle": "계정을 더욱 맞춤화할 수 있습니다",
+      "goals": "어떤 도움을 받기 위해\\nClinical Fact를 사용하시나요?",
+      "goalsSubtitle": "해당하는 항목을 모두 선택해 주세요. 맞춤 환경을 구성해 드립니다.",
+      "contentType": "주로 어떤 형태의\\n콘텐츠를 사용하시나요?",
+      "contentTypeSubtitle": "해당하는 항목을 모두 선택해 주세요. 맞춤 설정에 도움이 됩니다.",
+      "reviewStyle": "학습한 내용을 어떻게\\n복습하고 싶으신가요?",
+      "reviewStyleSubtitle": "선호하는 복습 방식을 선택해 주세요.",
+      "frustration": "{{firstName}} 님, 필기할 때 가장 답답했던 점은 무엇인가요?",
+      "frustrationSubtitle": "해당하는 항목을 모두 선택해 주세요. 불편한 점을 해결해 드릴게요.",
+      "referral": "{{firstName}} 님,\\nClinical Fact를\\n어떻게 알게 되셨나요?",
+      "referralSubtitle": "한 가지 옵션을 선택해 주세요."
+    },
+    "referralScreen": {
+      "title": "지인 추천으로\\n오셨나요?",
+      "subtitle": "추천인 코드가 있다면 입력해 주세요"
+    },
+    "setup": {
+      "preparingNotes": "노트 준비 중",
+      "preparingFlashcards": "플래시카드 준비 중",
+      "preparingQuiz": "퀴즈 템플릿 준비 중",
+      "preparingChat": "채팅 어시스턴트 준비 중",
+      "title": "{{firstName}} 님을 위한 맞춤형\\n워크스페이스를 설정하고 있습니다..."
+    },
+    "thanks": {
+      "title": "Clinical Fact를 신뢰해 주셔서 감사합니다",
+      "subtitle": "수천 명의 의학 및 간호학 전공생들과 함께하고 계십니다",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "원하는 모든 것을\\n학습할 수 있는 완벽한 도구",
+      "subtitle": "녹음하고, 검색하고, 퀴즈를 풀며 마스터하세요."
+    },
+    "features": {
+      "feature1": {
+        "title": "신뢰할 수 있는 의학 답변과 꼬리 질문",
+        "description": "모든 의학 질문에 대한 명쾌한 설명과 스마트한 꼬리 질문을 받아보세요. 공부 도중 막히는 일 없이 깊이 있게 학습할 수 있습니다."
+      },
+      "feature2": {
+        "title": "실제 출처에 기반한\n모든 의학적 답변",
+        "description": "PubMed, Semantic Scholar, Europe PMC에서 인용한 근거로, 지어낸 내용 없이 직접 검증할 수 있습니다."
+      },
+      "feature3": {
+        "title": "자료를 업로드하고 의학 핵심 요약을 확인하세요",
+        "description": "강의 슬라이드, PDF, 필기 자료를 신뢰할 수 있는 의학 출처 기반의 명쾌한 설명으로 변환해 보세요."
+      },
+      "feature4": {
+        "title": "대화 내용을 실전 퀴즈나 플래시카드로 변환하세요",
+        "description": "별도의 학습 앱 없이 대화 내용과 업로드 자료에서 연습 문제를 바로 생성할 수 있습니다."
+      },
+      "feature5": {
+        "title": "대화나 문서를 복습용 플래시카드로 변환하세요",
+        "description": "별도의 학습 앱 없이 대화 내용과 업로드 자료에서 연습 문제를 바로 생성할 수 있습니다."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "거의 완료...",
     "quizReady": "퀴즈 준비 완료!",
     "startQuiz": "퀴즈 시작",
-    "questionCount": "{{total}}개 중 {{current}}번째"
+    "questionCount": "{{total}}개 중 {{current}}번째",
+    "previous": "이전 문제",
+    "generatingQuiz": "AI로 퀴즈 생성 중...",
+    "exitTitle": "퀴즈를 종료할까요?",
+    "exitMessage": "진행 상황이 저장되지 않습니다.",
+    "exit": "종료",
+    "errorTitle": "문제가 발생했습니다 🚧",
+    "errorMessage": "지금은 문제를 생성할 수 없습니다. 잠시 후 다시 시도해 주세요!",
+    "noQuestions": "이용 가능한 문제가 없습니다.",
+    "reading": "노트 분석 중...",
+    "identifying": "핵심 개념 파악 중...",
+    "structuring": "문제 구성 중...",
+    "almostReady": "거의 다 되었습니다...",
+    "youScored": "내 점수",
+    "timeInSeconds": "소요 시간(초)",
+    "accuracy": "정답률",
+    "grade": "등급",
+    "reportsCard": "성적표",
+    "reviewAnswers": "답안 검토",
+    "correctAnswer": "정답",
+    "yourAnswer": "내 답안",
+    "explanation": "해설",
+    "questionProgress": "문제 {{current}} / {{total}}",
+    "generatingQuizWait": "퀴즈를 생성하고 있습니다. 잠시만 기다려 주세요...",
+    "goToChats": "채팅으로 이동"
   },
   "flashcards": {
     "title": "플래시카드",
@@ -178,7 +378,29 @@
     "previous": "이전",
     "shuffle": "섞기",
     "generating": "플래시카드 생성 중...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "플래시카드를 만들어 기억 효과를 높여보세요",
+    "howManyQuestions": "몇 문제를 만들까요?",
+    "generateButton": "플래시카드 생성",
+    "generatingEllipsis": "생성 중...",
+    "allDone": "학습 완료!",
+    "completedReview": "이 덱의 모든 카드를 검토했습니다",
+    "backToNotes": "노트로 돌아가기",
+    "question": "질문",
+    "answer": "답변",
+    "noQuestionText": "(질문 내용 없음)",
+    "noAnswerText": "(답변 내용 없음)",
+    "enterQuestion": "질문을 입력하세요",
+    "enterAnswer": "답변을 입력하세요",
+    "clickToFlip": "카드를 눌러 뒤집기",
+    "reading": "노트 분석 중...",
+    "identifying": "핵심 개념 파악 중...",
+    "creating": "플래시카드 생성 중...",
+    "almostReady": "거의 다 되었습니다...",
+    "headerTitle": "플래시카드",
+    "progressFormat": "플래시카드 {{current}} / {{total}}",
+    "noteIdRequired": "플래시카드를 생성하려면 노트 ID가 필요합니다",
+    "invalidCardCount": "1개에서 100개 사이의 카드를 선택해 주세요"
   },
   "chat": {
     "title": "채팅",
@@ -211,6 +433,37 @@
     "turkish": "터키어",
     "vietnamese": "베트남어",
     "thai": "태국어",
-    "indonesian": "인도네시아어"
+    "indonesian": "인도네시아어",
+    "englishGB": "영어(영국)",
+    "englishAU": "영어(호주)",
+    "englishCA": "영어(캐나다)",
+    "spanishMX": "스페인어(멕시코)",
+    "frenchCA": "프랑스어(캐나다)",
+    "portuguesePT": "포르투갈어(포르투갈)",
+    "norwegian": "노르웨이어",
+    "danish": "덴마크어",
+    "finnish": "핀란드어",
+    "czech": "체코어",
+    "slovak": "슬로바키아어",
+    "slovenian": "슬로베니아어",
+    "croatian": "크로아티아어",
+    "hungarian": "헝가리어",
+    "romanian": "루마니아어",
+    "greek": "그리스어",
+    "ukrainian": "우크라이나어",
+    "arabicAE": "아랍어 (UAE)",
+    "arabicEG": "아랍어 (이집트)",
+    "hebrew": "히브리어",
+    "bengali": "벵골어",
+    "tamil": "타밀어",
+    "telugu": "텔루구어",
+    "kannada": "칸나다어",
+    "malayalam": "말라얄람어",
+    "marathi": "마라티어",
+    "gujarati": "구자라트어",
+    "punjabi": "펀자브어",
+    "urdu": "우르두어",
+    "malay": "말레이어",
+    "catalan": "카탈루냐어"
   }
 }

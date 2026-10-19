@@ -26,7 +26,7 @@
     "recentNotes": "Viimeisimmät muistiinpanot",
     "seeAll": "Katso kaikki",
     "noNotes": "Ei näytettäviä muistiinpanoja",
-    "noNotesDesc": "Aloita muistiinpanosi luominen clinicalfactille napsauttamalla yllä olevaa painiketta.",
+    "noNotesDesc": "Napauta yllä olevaa painiketta aloittaaksesi\nmuistiinpanon luomisen Clinical Factiin.",
     "loadingNotes": "Muistiinpanoja ladataan..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Päivityspaketti",
     "everyWeek": "Joka viikko",
     "everyMonth": "Joka kuukausi",
-    "everyYear": "Joka vuosi"
+    "everyYear": "Joka vuosi",
+    "reportBug": "Ilmoita virheestä"
   },
   "auth": {
     "welcome": "Tervetuloa Clinical Factiin",
@@ -94,7 +95,8 @@
       "skip": "Ohita",
       "verify": "Vahvistettu!",
       "next": "Seuraava",
-      "tryNow": "Kokeile Clinical Factiä nyt ilmaiseksi"
+      "tryNow": "Kokeile Clinical Factiä nyt ilmaiseksi",
+      "continueWithApple": "Jatka Applella"
     },
     "labels": {
       "firstName": "Etunimi",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Google-sisäänkirjautumisen aloittaminen epäonnistui. Yritä uudelleen.",
       "setupRequired": "Asennus vaaditaan",
       "googleOAuthMissing": "Google-sisäänkirjautuminen vaatii OAuth-asiakastunnukset.\\n\\nLisää tunnistetiedot .env-tiedostoosi.",
-      "youCanStillUseEmail": "Voit edelleen käyttää \"Jatka sähköpostitse\" -vaihtoehtoa."
+      "youCanStillUseEmail": "Voit edelleen käyttää \"Jatka sähköpostitse\" -vaihtoehtoa.",
+      "appleSignInFailed": "Apple-kirjautuminen epäonnistui",
+      "appleTokenFailed": "Apple-tunnuksen käsittely epäonnistui",
+      "appleIosOnly": "Apple-kirjautuminen on käytettävissä vain iOS-laitteilla."
     },
     "messages": {
       "signingIn": "Kirjautuminen sisään...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Muistiinpanoharjoitus:\\nÄlykkäämpiä muistiinpanoja Aloita tästä",
       "tagline": "Muunna mikä tahansa teksti täydellisiksi muistiinpanoiksi",
-      "description": "Muunna äänitteet, dokumentit tai videot selkeiksi, haettaviksi muistiinpanoiksi ja luo välittömästi tietokilpailuja, muistikortteja ja yhteenvetoja."
+      "description": "Muunna äänitteet, dokumentit tai videot selkeiksi, haettaviksi muistiinpanoiksi ja luo välittömästi tietokilpailuja, muistikortteja ja yhteenvetoja.",
+      "createAccountTitle": "Luo tili",
+      "orSignUpWith": "TAI REKISTERÖIDY KÄYTTÄEN",
+      "signUpWithEmail": "Rekisteröidy sähköpostiosoitteella",
+      "signInWithEmail": "Kirjaudu sähköpostiosoitteella",
+      "alreadyHaveAccount": "Onko sinulla jo tili? ",
+      "dontHaveAccount": "Eikö sinulla ole vielä tiliä? "
     },
     "otp": {
       "title": "Vahvista sähköpostiosoitteesi",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Opi nopeammin tietokilpailujen ja muistikorttien avulla",
         "description": "Muunna muistiinpanot tietokilpailuiksi ja muistikorteiksi.\\nOpi nopeammin ja muista enemmän."
+      },
+      "feature1": {
+        "title": "Saat oikeita lääketieteellisiä vastauksia ja jatkokysymyksiä",
+        "description": "Kysy mitä tahansa lääketieteestä ja saat selkeän vastauksen sekä älykkäitä jatkokysymyksiä, jotta opiskelusi ei tyssää kesken kaiken."
+      },
+      "feature2": {
+        "title": "Jokainen lääketieteellinen vastaus\nperustuu aitoon lähteeseen",
+        "description": "Viitteet haetaan PubMedistä, Semantic Scholarista ja Europe PMC:stä – tarkistettavissa, ei keksittyjä."
+      },
+      "feature3": {
+        "title": "Lataa muistiinpanosi ja saa yhteenvedot materiaaleistasi",
+        "description": "Muuta mikä tahansa luentokalvo, PDF tai muistiinpano selkeäksi selitykseksi, joka perustuu luotettaviin lääketieteellisiin lähteisiin."
+      },
+      "feature4": {
+        "title": "Muuta mikä tahansa keskustelu visaksi tai muistikorteiksi kertausta varten",
+        "description": "Et tarvitse erillistä opiskelusovellusta – luo harjoituskysymyksiä suoraan keskusteluistasi ja tiedostoistasi."
+      },
+      "feature5": {
+        "title": "Muuta mikä tahansa keskustelu tai asiakirja muistikorteiksi kertausta varten",
+        "description": "Et tarvitse erillistä opiskelusovellusta – luo harjoituskysymyksiä suoraan keskusteluistasi ja tiedostoistasi."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Valitse sovelluksessa käytettävä kieli. Voit muuttaa sen myöhemmin profiilistasi.",
       "searchPlaceholder": "Hae kieliä",
       "noResults": "Kieliä ei löytynyt"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Kysy mitä tahansa lääketieteestä. Saat kliiniset faktat",
+        "description": "Kysy mitä tahansa lääketieteellistä ja saat vastauksen, joka perustuu aitoihin lähteisiin PubMedistä, hoitosuosituksista ja luotettavasta lääketieteellisestä kirjallisuudesta."
+      },
+      "slide2": {
+        "headline": "Jokainen vastaus perustuu lähteeseen",
+        "description": "Ei arvailua eikä keksittyjä faktoja – jokainen vastaus linkittyy aitoon, tarkistettavissa olevaan lääketieteelliseen tutkimukseen."
+      },
+      "slide3": {
+        "headline": "Opiskele fiksummin, läpäise tentit",
+        "description": "Muuta mikä tahansa kysymys tai tiedosto visaksi tai muistikorteiksi sekunneissa – harjoittele suoraan opiskelemasi materiaalin pohjalta."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Ammatillinen ilmoitus",
+      "subtitle": "Clinical Fact on koulutuksellinen tiedonhakutyökalu",
+      "disclaimerIntro": "Clinical Fact on tekoälypohjainen tietotyökalu, joka on tarkoitettu sairaanhoito-, lääketieteen ja muiden terveystieteiden opiskelijoiden tueksi lääketieteellisen tiedon, tutkimuskirjallisuuden ja opintomateriaalien hakemiseen. Sovellus ei tee lääketieteellisiä diagnooseja, anna hoitosuosituksia, kliinisiä ohjeita tai potilaskohtaisia lääketieteellisiä neuvoja, eikä sitä saa käyttää suoran potilashoidon tai kliinisen päätöksenteon perustana.",
+      "disclaimerHeading": "Miten Clinical Fact luo vastaukset:",
+      "disclaimerBody": "Clinical Fact hakee tiedot suoraan vakiintuneista lääketieteellisistä ja tieteellisistä lähteistä, kuten PubMedistä, Semantic Scholarista ja FDA:n virallisista lääkeselosteista, ja käyttää AI-teknologiaa haetun sisällön tiivistämiseen ja selittämiseen selkokielellä. Jokainen vastaus luodaan ainoastaan kyseistä kysymystä varten haetuista lähteistä, ja viitteet linkittyvät alkuperäiseen materiaaliin, jotta voit tarkistaa ne itse. Clinical Fact ei luo lääketieteellisiä faktoja muistista eikä keksittyjä lähteitä.\n\nClinical Fact ei ole diagnosointityökalu, hoitoalusta, lääkinnällinen laite eikä korvike ammatilliselle lääketieteelliselle arviolle, pätevälle opetukselle tai oppilaitoksesi opetussuunnitelmalle. Kaikki sovelluksen luoma tieto, mukaan lukien vastaukset, viitteet, visat ja muistikortit, on tarkoitettu vain yleiseen koulutus- ja opiskelukäyttöön, ja käyttäjän on varmistettava se itsenäisesti ennen sen hyödyntämistä missään akateemisessa, kliinisessä tai ammatillisessa yhteydessä.\nClinical Fact ei takaa annettujen tietojen täydellisyyttä, tarkkuutta tai ajantasaista kliinistä merkitystä. Lääketieteellinen tieto kehittyy jatkuvasti – vertaa kriittisiä tietoja aina opettajiesi, kliinisten ohjaajiesi ja ajantasaisten ensisijaisten lähteiden kanssa.\nKun lataat omia asiakirjojasi, muistiinpanojasi tai tallenteitasi, Clinical Fact luo vastauksia, tiivistelmiä, visoja ja muistikortteja vain kyseisen ladatun sisällön pohjalta, ei ulkoisista lähteistä, ellei ulkoisia lähteitä näytetä erikseen sen rinnalla.\n\nClinical Fact ei todenna, vahvista tai varmenta käyttäjiensä henkilöllisyyttä, opiskelijastatusta tai pätevyyttä. Sovellusta ei ole tarkoitettu hätätilanteisiin eikä reaaliaikaisten kliinisten päätösten tekemiseen.\nJatkamalla vahvistat ymmärtäväsi nämä ehdot ja sitoudut käyttämään Clinical Fact -sovellusta ainoastaan opiskelun ja tiedonhaun apuvälineenä.",
+      "checkboxLabel": "Ymmärrän, että tämä sovellus on tarkoitettu vain opiskelukäyttöön eikä se anna lääketieteellisiä neuvoja",
+      "acceptButton": "Hyväksy ja jatka"
+    },
+    "survey": {
+      "role": "Mikä kuvaa sinua parhaiten, {{firstName}}?",
+      "currentMethod": "Miten yleensä etsit vastauksia lääketieteellisiin kysymyksiin tällä hetkellä?",
+      "timeDrain": "Mihin sinulla kuluu eniten aikaa hukkaan?",
+      "appExpectation": "Mitä odotat Clinical Fact -sovellukseltamme?",
+      "aiToolsUsed": "Mitä AI-työkaluja olet tähän mennessä käyttänyt lääketieteelliseen tiedonhakuun?",
+      "aiToolIssue": "Mikä kyseisissä työkaluissa tuotti ongelmia?",
+      "aiTrustLevel": "Kuinka usein huolehdit siitä, että AI-vastaus saattaa olla virheellinen?",
+      "biggestNeed": "Mitä tarvitset eniten juuri nyt?",
+      "studyTimePerWeek": "Kuinka paljon sinulla on aikaa opiskella viikossa?",
+      "comingUp": "Mitä sinulla on tulossa seuraavaksi?",
+      "referralSource": "Mistä kuulit Clinical Fact -sovelluksesta?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Melkein valmis...",
     "quizReady": "Visailu valmis!",
     "startQuiz": "Aloita testi",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} / {{total}}",
     "exitTitle": "Poistutaanko testitilasta?",
     "exitMessage": "Edistymisesi menetetään.",
     "exit": "Uloskäynti",
@@ -318,7 +385,9 @@
     "correctAnswer": "Oikea vastaus",
     "yourAnswer": "Vastauksesi",
     "explanation": "Selitys",
-    "questionProgress": "Kysymys {{current}} / {{total}}"
+    "questionProgress": "Kysymys {{current}} / {{total}}",
+    "generatingQuizWait": "Luomme visaasi, odotathan hetken...",
+    "goToChats": "Siirry keskusteluihin"
   },
   "flashcards": {
     "title": "muistikortit",

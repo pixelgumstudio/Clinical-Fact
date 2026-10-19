@@ -26,7 +26,7 @@
     "recentNotes": "Nedávne poznámky",
     "seeAll": "Zobraziť všetko",
     "noNotes": "Žiadne poznámky na zobrazenie",
-    "noNotesDesc": "Kliknite na tlačidlo vyššie a spustite generovanie poznámky pre clinicalfact.",
+    "noNotesDesc": "Kliknite na tlačidlo vyššie a začnite\ngenerovať svoju poznámku pre Clinical Fact.",
     "loadingNotes": "Načítavajú sa poznámky..."
   },
   "profile": {
@@ -48,7 +48,7 @@
     "chatWithUs": "Chatujte s nami",
     "termsAndConditions": "Zmluvné podmienky",
     "privacyPolicy": "Zásady ochrany osobných údajov",
-    "signout": "Signout",
+    "signout": "Odhlásiť sa",
     "deleteAccount": "Odstrániť účet",
     "upgradeTitle": "Prejdite na Pro verziu",
     "upgradeSubtitle": "Získajte 88% zľavu pri prvom nákupe",
@@ -71,7 +71,8 @@
     "upgradePlan": "Plán inovácie",
     "everyWeek": "Každý týždeň",
     "everyMonth": "Každý mesiac",
-    "everyYear": "Každý rok"
+    "everyYear": "Každý rok",
+    "reportBug": "Nahlásiť chybu"
   },
   "auth": {
     "welcome": "Vitajte v Clinical Facte",
@@ -94,7 +95,8 @@
       "skip": "Preskočiť",
       "verify": "Overené!",
       "next": "Ďalej",
-      "tryNow": "Vyskúšajte Clinical Fact teraz zadarmo"
+      "tryNow": "Vyskúšajte Clinical Fact teraz zadarmo",
+      "continueWithApple": "Pokračovať cez Apple"
     },
     "labels": {
       "firstName": "Krstné meno",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Nepodarilo sa spustiť prihlásenie do účtu Google. Skúste to znova.",
       "setupRequired": "Vyžaduje sa nastavenie",
       "googleOAuthMissing": "Prihlásenie cez Google vyžaduje ID klienta OAuth.\\n\\nPridajte, prosím, poverenia do súboru .env.",
-      "youCanStillUseEmail": "Stále môžete použiť možnosť „Pokračovať s e-mailom“."
+      "youCanStillUseEmail": "Stále môžete použiť možnosť „Pokračovať s e-mailom“.",
+      "appleSignInFailed": "Prihlásenie cez Apple zlyhalo",
+      "appleTokenFailed": "Spracovanie Apple tokenu zlyhalo",
+      "appleIosOnly": "Prihlásenie cez Apple je dostupné iba na iOS."
     },
     "messages": {
       "signingIn": "Prihlasovanie...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nInteligentnejšie poznámky Začnite tu",
       "tagline": "Premeňte akýkoľvek text na dokonalé poznámky",
-      "description": "Premeňte zvukové súbory, dokumenty alebo videá na prehľadné a vyhľadávateľné poznámky a okamžite vytvárajte kvízy, kartičky a súhrny."
+      "description": "Premeňte zvukové súbory, dokumenty alebo videá na prehľadné a vyhľadávateľné poznámky a okamžite vytvárajte kvízy, kartičky a súhrny.",
+      "createAccountTitle": "Vytvoriť účet",
+      "orSignUpWith": "ALEBO SA ZAREGISTRUJ CEZ",
+      "signUpWithEmail": "Registrovať sa cez e-mail",
+      "signInWithEmail": "Prihlásiť sa cez e-mail",
+      "alreadyHaveAccount": "Už máš účet? ",
+      "dontHaveAccount": "Nemáš účet? "
     },
     "otp": {
       "title": "Potvrďte svoju e-mailovú adresu",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Učte sa rýchlejšie s kvízmi a kartičkami",
         "description": "Premeňte poznámky na kvízy a kartičky.\\nUčte sa rýchlejšie a zapamätajte si viac."
+      },
+      "feature1": {
+        "title": "Získaj overené medicínske odpovede a nadväzujúce otázky",
+        "description": "Opýtaj sa na čokoľvek z medicíny a získaj jasné vysvetlenie spolu s inteligentnými nadväzujúcimi otázkami, aby ťa pri učení nič nezastavilo."
+      },
+      "feature2": {
+        "title": "Každá medicínska odpoveď\npodložená skutočným zdrojom",
+        "description": "Citácie čerpané z PubMed, Semantic Scholar a Europe PMC – overiteľné, žiadne výmysly."
+      },
+      "feature3": {
+        "title": "Nahraj svoje poznámky a získaj medicínske zhrnutia materiálov",
+        "description": "Premeň akékoľvek prednáškové slajdy, PDF alebo poznámky na zrozumiteľné vysvetlenie podložené dôveryhodnými medicínskymi zdrojmi."
+      },
+      "feature4": {
+        "title": "Premeň akýkoľvek chat na kvíz alebo kartičky na precvičovanie",
+        "description": "Nepotrebuješ samostatnú aplikáciu na štúdium – vygeneruj si otázky na precvičovanie priamo z chatov a nahraných súborov."
+      },
+      "feature5": {
+        "title": "Premeň akýkoľvek chat či dokument na kartičky na precvičovanie",
+        "description": "Nepotrebuješ samostatnú aplikáciu na štúdium – vygeneruj si otázky na precvičovanie priamo z chatov a nahraných súborov."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Vyber si jazyk, ktorý chceš v aplikácii používať. Neskôr ho môžeš zmeniť vo svojom profile.",
       "searchPlaceholder": "Hľadať jazyky",
       "noResults": "Nenašli sa žiadne jazyky"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Opýtaj sa na čokoľvek z medicíny. Zisti klinické fakty",
+        "description": "Zadaj akúkoľvek medicínsku otázku a získaj odpoveď podloženú overenými, citovanými zdrojmi z PubMed, klinických odporúčaní a dôveryhodnej odbornej literatúry."
+      },
+      "slide2": {
+        "headline": "Každá odpoveď podložená zdrojom",
+        "description": "Žiadne hádanie ani vymyslené fakty – každá odpoveď odkazuje na reálny a overiteľný medicínsky výskum."
+      },
+      "slide3": {
+        "headline": "Uč sa efektívnejšie, zvládni medicínske skúšky",
+        "description": "Premeň akúkoľvek otázku alebo nahraný súbor na kvíz či kartičky behom pár sekúnd. Precvičuj presne to, čo sa práve učíš."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Odborné vyhlásenie",
+      "subtitle": "Clinical Fact je vzdelávací nástroj na vyhľadávanie v odbornej literatúre",
+      "disclaimerIntro": "Clinical Fact je informačný nástroj založený na umelej inteligencii (AI), určený na podporu študentov ošetrovateľstva, medicíny a ďalších zdravotníckych odborov pri prístupe k medicínskym poznatkom, odbornej literatúre a študijným materiálom. Aplikácia neposkytuje lekárske diagnózy, odporúčania liečby, klinické pokyny ani individuálne zdravotné poradenstvo a nesmie sa používať ako podklad pre priamu starostlivosť o pacienta ani pre klinické rozhodovanie.",
+      "disclaimerHeading": "Ako Clinical Fact generuje odpovede:",
+      "disclaimerBody": "Clinical Fact čerpá informácie priamo z overených lekárskych a vedeckých zdrojov vrátane PubMed, Semantic Scholar a oficiálnych informácií o liekoch od FDA a využíva AI na zhrnutie a zrozumiteľné vysvetlenie tohto obsahu. Každá odpoveď je generovaná výlučne zo zdrojov vyhľadaných pre danú konkrétnu otázku a citácie odkazujú na pôvodný materiál, aby ste si ich mohli sami overiť. Clinical Fact negeneruje medicínske fakty z pamäte ani si nevymýšľa zdroje.\n\nClinical Fact nie je diagnostický nástroj, liečebná platforma, zdravotnícka pomôcka ani náhrada odborného lekárskeho úsudku, autorizovanej výučby alebo učebných osnov vašej vzdelávacej inštitúcie. Akékoľvek informácie generované aplikáciou vrátane odpovedí, citácií, kvízov a kartičiek slúžia výhradne na všeobecné vzdelávacie a študijné účely a používateľ si ich musí nezávisle overiť predtým, ako sa na ne spoľahne v akomkoľvek akademickom, klinickom alebo profesionálnom kontexte.\nClinical Fact nezaručuje úplnosť, presnosť ani aktuálnu klinickú relevanciu poskytnutých informácií. Medicínske poznatky sa neustále vyvíjajú – kritické informácie vždy overujte s vyučujúcimi, klinickými školiteľmi a aktuálnymi primárnymi zdrojmi.\nKeď nahráte vlastné dokumenty, poznámky alebo nahrávky, Clinical Fact generuje odpovede, súhrny, kvízy a kartičky iba na základe tohto nahraného obsahu, nie z externých zdrojov, pokiaľ pri nich nie sú externé zdroje výslovne uvedené.\n\nClinical Fact neoveruje, neautentifikuje ani nepotvrdzuje totožnosť, štatút študenta ani kvalifikáciu svojich používateľov. Aplikácia nie je určená na použitie v núdzových situáciách ani na rozhodovanie v reálnom čase v klinickej praxi.\nPokračovaním potvrdzujete, že týmto podmienkam rozumiete a súhlasíte s používaním Clinical Fact výhradne ako študijnej a referenčnej pomôcky.",
+      "checkboxLabel": "Rozumiem, že táto aplikácia slúži iba na vzdelávacie účely a neposkytuje lekárske poradenstvo",
+      "acceptButton": "Prijať a pokračovať"
+    },
+    "survey": {
+      "role": "Čo ťa vystihuje najlepšie, {{firstName}}?",
+      "currentMethod": "Ako v súčasnosti zvyčajne hľadáš odpovede na medicínske otázky?",
+      "timeDrain": "Čo ťa stojí najviac času?",
+      "appExpectation": "Čo očakávaš od našej medicínskej aplikácie Clinical Fact?",
+      "aiToolsUsed": "Ktoré AI nástroje si doteraz využíval/a pri štúdiu medicíny?",
+      "aiToolIssue": "V čom tieto nástroje zlyhali?",
+      "aiTrustLevel": "Ako často máš obavy, že odpoveď z AI môže byť nesprávna?",
+      "biggestNeed": "Čo teraz najviac potrebuješ?",
+      "studyTimePerWeek": "Koľko času na štúdium máš každý týždeň?",
+      "comingUp": "Čo ťa v najbližšom období čaká?",
+      "referralSource": "Ako si sa dozvedel/a o Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Takmer hotovo...",
     "quizReady": "Kvíz pripravený!",
     "startQuiz": "Spustiť kvíz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} z {{total}}",
     "exitTitle": "Ukončiť kvíz?",
     "exitMessage": "Váš pokrok sa stratí.",
     "exit": "VÝCHOD",
@@ -318,7 +385,9 @@
     "correctAnswer": "Správna odpoveď",
     "yourAnswer": "Vaša odpoveď",
     "explanation": "Vysvetlenie",
-    "questionProgress": "Otázka {{current}} z {{total}}"
+    "questionProgress": "Otázka {{current}} z {{total}}",
+    "generatingQuizWait": "Pripravujeme pre teba kvíz, počkaj chvíľu, kým sa dokončí...",
+    "goToChats": "Prejsť do chatov"
   },
   "flashcards": {
     "title": "Kartičky",

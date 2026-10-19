@@ -26,7 +26,7 @@
     "recentNotes": "Nedavne opombe",
     "seeAll": "Prikaži vse",
     "noNotes": "Ni zapiskov za prikaz",
-    "noNotesDesc": "Kliknite zgornji gumb, da začnete ustvarjati opombo za clinicalfact.",
+    "noNotesDesc": "Kliknite zgornji gumb, da začnete\nz ustvarjanjem zapiskov za Clinical Fact.",
     "loadingNotes": "Nalaganje zapiskov ..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Nadgradni načrt",
     "everyWeek": "Vsak teden",
     "everyMonth": "Vsak mesec",
-    "everyYear": "Vsako leto"
+    "everyYear": "Vsako leto",
+    "reportBug": "Prijavi napako"
   },
   "auth": {
     "welcome": "Dobrodošli v Clinical Factu",
@@ -94,7 +95,8 @@
       "skip": "Preskoči",
       "verify": "Preverjeno!",
       "next": "Naprej",
-      "tryNow": "Preizkusite Clinical Fact zdaj brezplačno"
+      "tryNow": "Preizkusite Clinical Fact zdaj brezplačno",
+      "continueWithApple": "Nadaljuj z Apple"
     },
     "labels": {
       "firstName": "Ime",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Prijava v Google ni uspela. Poskusite znova.",
       "setupRequired": "Zahtevana nastavitev",
       "googleOAuthMissing": "Prijava z Googlom zahteva ID-je odjemalcev OAuth.\\n\\nDodajte poverilnice v datoteko .env.",
-      "youCanStillUseEmail": "Še vedno lahko uporabite možnost »Nadaljuj z e-pošto«."
+      "youCanStillUseEmail": "Še vedno lahko uporabite možnost »Nadaljuj z e-pošto«.",
+      "appleSignInFailed": "Prijava z Apple ni uspela",
+      "appleTokenFailed": "Obdelava žetona Apple ni uspela",
+      "appleIosOnly": "Prijava z Apple je na voljo samo v sistemu iOS."
     },
     "messages": {
       "signingIn": "Prijava ...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nPametnejše zapiske Začnite tukaj",
       "tagline": "Spremenite katero koli besedilo v popolne zapiske",
-      "description": "Zvok, dokumente ali videoposnetke spremenite v jasne, iskalne zapiske in v trenutku ustvarite kvize, kartice in povzetke."
+      "description": "Zvok, dokumente ali videoposnetke spremenite v jasne, iskalne zapiske in v trenutku ustvarite kvize, kartice in povzetke.",
+      "createAccountTitle": "Ustvari račun",
+      "orSignUpWith": "ALI SE REGISTRIRAJ Z",
+      "signUpWithEmail": "Registracija z e-poštnim naslovom",
+      "signInWithEmail": "Prijava z e-poštnim naslovom",
+      "alreadyHaveAccount": "Že imaš račun? ",
+      "dontHaveAccount": "Še nimaš računa? "
     },
     "otp": {
       "title": "Potrdite svoj e-poštni naslov",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Hitrejše učenje s kvizom in karticami",
         "description": "Spremenite zapiske v kvize in kartice za učenje.\\nUčite se hitreje in si zapomnite več."
+      },
+      "feature1": {
+        "title": "Pridobi prave medicinske odgovore in dodatna vprašanja",
+        "description": "Zastavi poljubno medicinsko vprašanje in prejmi jasno razlago ter pametna podvprašanja, da med študijem nikoli ne zaideš v slepo ulico."
+      },
+      "feature2": {
+        "title": "Vsak medicinski odgovor,\npodprt z resničnim virom",
+        "description": "Citirani viri iz baz PubMed, Semantic Scholar in Europe PMC – preverljivi, ne izmišljeni."
+      },
+      "feature3": {
+        "title": "Naloži zapiske, pridobi medicinske povzetke svojih gradiv",
+        "description": "Pretvori prosojnice s predavanj, PDF ali zapiske v jasno razlago, podprto z zaupanja vrednimi medicinskimi viri."
+      },
+      "feature4": {
+        "title": "Pretvori kateri koli klepet v kviz ali kartice za vajo",
+        "description": "Brez posebne aplikacije za učenje – ustvari vprašanja za vajo neposredno iz svojih klepetov in naloženih gradiv."
+      },
+      "feature5": {
+        "title": "Pretvori kateri koli klepet ali dokument v kartice za vajo",
+        "description": "Brez posebne aplikacije za učenje – ustvari vprašanja za vajo neposredno iz svojih klepetov in naloženih gradiv."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Izberi jezik, ki ga želiš uporabljati v aplikaciji. Pozneje ga lahko spremeniš v svojem profilu.",
       "searchPlaceholder": "Išči jezike",
       "noResults": "Ni najdenih jezikov"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Vprašaj karkoli o medicini. Pridobi klinična dejstva",
+        "description": "Zastavi poljubno medicinsko vprašanje in prejmi odgovor, podprt z verodostojnimi, citiranimi viri iz baze PubMed, kliničnih smernic in zanesljive medicinske literature."
+      },
+      "slide2": {
+        "headline": "Vsak odgovor, podprt z virom",
+        "description": "Brez ugibanja in brez izmišljenih dejstev – vsak odgovor vodi do resničnih, preverljivih medicinskih raziskav."
+      },
+      "slide3": {
+        "headline": "Študiraj pametneje, opravi medicinske izpite",
+        "description": "Pretvori poljubno vprašanje ali naloženo gradivo v kviz ali komplet kartic v nekaj sekundah – vaja, ustvarjena neposredno iz tvoje snovi."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Strokovna izjava",
+      "subtitle": "Clinical Fact je izobraževalno orodje za iskanje literature",
+      "disclaimerIntro": "Clinical Fact je informacijsko orodje, ki temelji na umetni inteligenci (AI) in je namenjeno podpori študentom zdravstvene nege, medicine ter drugih zdravstvenih ved pri dostopanju do medicinskega znanja, raziskovalne literature in študijskega gradiva. Aplikacija ne ponuja zdravstvenih diagnoz, priporočil za zdravljenje, kliničnih navodil ali zdravstvenih nasvetov za posamezne paciente ter se ne sme uporabljati kot osnova za neposredno oskrbo pacientov ali sprejemanje kliničnih odločitev.",
+      "disclaimerHeading": "Kako Clinical Fact ustvarja odgovore:",
+      "disclaimerBody": "Clinical Fact pridobiva informacije neposredno iz uveljavljenih medicinskih in znanstvenih virov, vključno s PubMed, Semantic Scholar in uradnimi podatki FDA o zdravilih, ter uporablja AI za povzemanje in razlago teh vsebin v razumljivem jeziku. Vsak odgovor je ustvarjen izključno iz virov, pridobljenih za dotično vprašanje, citati pa vodijo do izvirnega gradiva, tako da ga lahko sam preveriš. Clinical Fact ne ustvarja medicinskih dejstev iz pomnilnika in si ne izmišljuje virov.\n\nClinical Fact ni diagnostično orodje, platforma za zdravljenje, medicinski pripomoček ali nadomestilo za strokovno zdravniško presojo, pooblaščeni pouk ali učni načrt tvoje ustanove. Vse informacije, ki jih ustvari aplikacija, vključno z odgovori, citati, kvizi in karticami, so namenjene izključno splošnemu izobraževanju in študiju, uporabnik pa jih mora pred zanašanjem nanje v kakršnem koli akademskem, kliničnem ali strokovnem kontekstu neodvisno preveriti.\nClinical Fact ne jamči za popolnost, točnost ali trenutno klinično ustreznost posredovanih informacij. Medicinsko znanje se nenehno razvija – ključne informacije vedno preveri pri svojih predavateljih, kliničnih mentorjih in posodobljenih primarnih virih.\nKo naložiš lastne dokumente, zapiske ali posnetke, Clinical Fact ustvari odgovore, povzetke, kvize in kartice izključno na podlagi te naložene vsebine, ne pa zunanjih virov, razen če so zunanji viri izrecno prikazani poleg nje.\n\nClinical Fact ne preverja, potrjuje ali ugotavlja identitete, statusa vpisa ali strokovnih nazivov svojih uporabnikov. Aplikacija ni namenjena uporabi v nujnih primerih ali sprejemanju kliničnih odločitev v realnem času.\nZ nadaljevanjem potrjuješ, da razumeš te pogoje in se strinjaš z uporabo aplikacije Clinical Fact izključno kot pripomočka za študij in referenco.",
+      "checkboxLabel": "Razumem, da je ta aplikacija namenjena le izobraževalni rabi in ne ponuja medicinskih nasvetov",
+      "acceptButton": "Sprejmi in nadaljuj"
+    },
+    "survey": {
+      "role": "Kaj te najbolje opisuje, {{firstName}}?",
+      "currentMethod": "Kako običajno trenutno iščeš odgovore na medicinska vprašanja?",
+      "timeDrain": "Kaj ti vzame največ časa?",
+      "appExpectation": "Kaj pričakuješ od medicinske aplikacije Clinical Fact?",
+      "aiToolsUsed": "Katera orodja AI si do zdaj uporabil za medicinsko raziskovanje?",
+      "aiToolIssue": "Kaj je šlo pri teh orodjih narobe?",
+      "aiTrustLevel": "Kako pogosto te skrbi, da bi bil odgovor AI napačen?",
+      "biggestNeed": "Kaj trenutno najbolj potrebuješ?",
+      "studyTimePerWeek": "Koliko časa na teden imaš za študij?",
+      "comingUp": "Kaj te čaka v kratkem?",
+      "referralSource": "Kje si izvedel za Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Skoraj končano ...",
     "quizReady": "Kviz pripravljen!",
     "startQuiz": "Začni kviz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} od {{total}}",
     "exitTitle": "Zapustiti kviz?",
     "exitMessage": "Vaš napredek bo izgubljen.",
     "exit": "Izhod",
@@ -318,7 +385,9 @@
     "correctAnswer": "Pravilen odgovor",
     "yourAnswer": "Vaš odgovor",
     "explanation": "Razlaga",
-    "questionProgress": "Vprašanje {{current}} od {{total}}"
+    "questionProgress": "Vprašanje {{current}} od {{total}}",
+    "generatingQuizWait": "Pripravljamo tvoj kviz, prosimo počakaj trenutek ...",
+    "goToChats": "Pojdi na klepete"
   },
   "flashcards": {
     "title": "Kartice",
@@ -398,8 +467,8 @@
     "hindi": "Ne",
     "bengali": "Bengalščina",
     "tamil": "Tamilščina",
-    "telugu": "Telugu",
-    "kannada": "Kannada",
+    "telugu": "Teluščina",
+    "kannada": "Kanadščina",
     "malayalam": "Malajalamščina",
     "marathi": "Maratščina",
     "gujarati": "gudžaratščina",

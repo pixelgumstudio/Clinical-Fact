@@ -26,7 +26,7 @@
     "recentNotes": "Nota Terkini",
     "seeAll": "Lihat semua",
     "noNotes": "Tiada nota untuk dipaparkan",
-    "noNotesDesc": "Sila klik pada butang di atas untuk mula menjana nota anda untuk clinicalfact.",
+    "noNotesDesc": "Sila ketik butang di atas untuk mula\nmenjana nota anda untuk Clinical Fact.",
     "loadingNotes": "Memuatkan nota..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Pelan naik taraf",
     "everyWeek": "Setiap minggu",
     "everyMonth": "Setiap bulan",
-    "everyYear": "Setiap tahun"
+    "everyYear": "Setiap tahun",
+    "reportBug": "Laporkan pepijat"
   },
   "auth": {
     "welcome": "Selamat datang ke Clinical Fact",
@@ -94,7 +95,8 @@
       "skip": "Langkau",
       "verify": "Disahkan!",
       "next": "Seterusnya",
-      "tryNow": "Cuba Clinical Fact sekarang secara percuma"
+      "tryNow": "Cuba Clinical Fact sekarang secara percuma",
+      "continueWithApple": "Teruskan dengan Apple"
     },
     "labels": {
       "firstName": "Nama pertama",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Gagal memulakan log masuk Google. Sila cuba lagi.",
       "setupRequired": "Persediaan Diperlukan",
       "googleOAuthMissing": "Daftar Masuk Google memerlukan ID Klien OAuth.\\n\\nSila tambahkan kelayakan pada fail .env anda.",
-      "youCanStillUseEmail": "Anda masih boleh menggunakan \"Teruskan dengan E-mel\"."
+      "youCanStillUseEmail": "Anda masih boleh menggunakan \"Teruskan dengan E-mel\".",
+      "appleSignInFailed": "Log Masuk Apple Gagal",
+      "appleTokenFailed": "Gagal memproses token Apple",
+      "appleIosOnly": "Log masuk dengan Apple hanya tersedia pada iOS."
     },
     "messages": {
       "signingIn": "Mendaftar masuk...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nNota yang lebih pintar Mula di sini",
       "tagline": "Tukarkan sebarang teks menjadi nota yang sempurna",
-      "description": "Tukarkan audio, dokumen atau video kepada nota yang jelas dan boleh dicari serta cipta kuiz, kad imbasan dan ringkasan serta-merta."
+      "description": "Tukarkan audio, dokumen atau video kepada nota yang jelas dan boleh dicari serta cipta kuiz, kad imbasan dan ringkasan serta-merta.",
+      "createAccountTitle": "Cipta akaun",
+      "orSignUpWith": "ATAU DAFTAR DENGAN",
+      "signUpWithEmail": "Daftar dengan Alamat E-mel",
+      "signInWithEmail": "Log masuk dengan Alamat E-mel",
+      "alreadyHaveAccount": "Sudah mempunyai akaun? ",
+      "dontHaveAccount": "Belum mempunyai akaun? "
     },
     "otp": {
       "title": "Sahkan alamat E-mel anda",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Belajar lebih pantas dengan Kuiz & Kad Imbas",
         "description": "Tukar nota menjadi kuiz dan kad imbasan.\\nBelajar lebih cepat dan ingat lebih banyak."
+      },
+      "feature1": {
+        "title": "Dapatkan jawapan perubatan Sebenar dan soalan Susulan",
+        "description": "Tanya sebarang soalan perubatan dan dapatkan penerangan yang jelas serta soalan susulan pintar, agar sesi pembelajaran anda tidak buntu."
+      },
+      "feature2": {
+        "title": "Setiap jawapan Perubatan,\ndisokong oleh sumber sahih",
+        "description": "Sitasi diambil daripada PubMed, Semantic Scholar dan Europe PMC — boleh disemak, bukan direka."
+      },
+      "feature3": {
+        "title": "Muat naik nota anda, Dapatkan ringkasan Perubatan daripada bahan anda",
+        "description": "Tukarkan sebarang slaid kuliah, PDF atau nota menjadi penerangan yang jelas disokong oleh sumber perubatan yang dipercayai."
+      },
+      "feature4": {
+        "title": "Tukarkan sebarang sembang menjadi Kuiz atau kad imbas untuk latihan",
+        "description": "Tidak memerlukan aplikasi berasingan untuk belajar, jana soalan latihan terus daripada sembang dan bahan muat naik anda."
+      },
+      "feature5": {
+        "title": "Tukarkan sebarang sembang atau dokumen menjadi soalan kad imbas untuk latihan",
+        "description": "Tidak memerlukan aplikasi berasingan untuk belajar, jana soalan latihan terus daripada sembang dan bahan muat naik anda."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Pilih bahasa yang ingin anda gunakan dalam aplikasi. Anda boleh menukarnya kemudian di profil anda.",
       "searchPlaceholder": "Cari bahasa",
       "noResults": "Tiada bahasa ditemui"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Tanya apa sahaja perubatan. Dapatkan fakta klinikal",
+        "description": "Tanya sebarang soalan perubatan dan dapatkan jawapan yang disokong oleh sumber rujukan sahih daripada PubMed, garis panduan klinikal dan literatur perubatan yang dipercayai"
+      },
+      "slide2": {
+        "headline": "Setiap Jawapan, Disokong Sumber",
+        "description": "Tiada tekaan, tiada fakta rekaan, setiap jawapan dipautkan semula kepada penyelidikan perubatan sebenar yang boleh disemak."
+      },
+      "slide3": {
+        "headline": "Belajar Lebih Bijak, Lulus Peperiksaan Perubatan Anda",
+        "description": "Tukarkan sebarang soalan atau dokumen muat naik menjadi set kuiz atau kad imbas dalam beberapa saat, latihan dibina terus daripada apa yang sedang anda pelajari."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Pengisytiharan Profesional",
+      "subtitle": "Clinical Fact ialah alat carian literatur pendidikan",
+      "disclaimerIntro": "Clinical Fact ialah alat maklumat berasaskan kecerdasan buatan yang bertujuan untuk menyokong pelajar kejururawatan, perubatan dan sains kesihatan lain dalam mengakses pengetahuan perubatan, literatur penyelidikan dan bahan pembelajaran. Aplikasi ini tidak menyediakan diagnosis perubatan, cadangan rawatan, arahan klinikal atau nasihat perubatan khusus untuk pesakit, serta tidak boleh digunakan sebagai asas untuk penjagaan pesakit secara langsung atau pembuatan keputusan klinikal.",
+      "disclaimerHeading": "Bagaimana Clinical Fact menjana jawapan:",
+      "disclaimerBody": "Clinical Fact mendapatkan maklumat terus daripada sumber perubatan dan saintifik yang diiktiraf, termasuk PubMed, Semantic Scholar dan pelabelan ubat rasmi FDA, serta menggunakan AI untuk meringkaskan dan menerangkan kandungan yang diperoleh tersebut dalam bahasa yang mudah difahami. Setiap jawapan dijana hanya daripada sumber yang diperoleh untuk soalan khusus tersebut, dan sitasi memaut kembali kepada bahan asal supaya anda boleh mengesahkannya sendiri. Clinical Fact tidak menjana fakta perubatan daripada ingatan semata-mata atau mereka-reka sumber rujukan.\n\nClinical Fact bukanlah alat diagnostik, platform rawatan, peranti perubatan, mahupun pengganti kepada pertimbangan klinikal profesional, bimbingan pengajar berlesen atau kurikulum institusi anda. Sebarang maklumat yang dijana oleh aplikasi ini, termasuk jawapan, sitasi, kuiz dan kad imbas, disediakan untuk tujuan pendidikan dan pembelajaran umum sahaja dan mesti disahkan secara bebas oleh pengguna sebelum digunakan dalam sebarang konteks akademik, klinikal atau profesional.\nClinical Fact tidak menjamin kelengkapan, ketepatan atau perkaitan klinikal semasa bagi sebarang maklumat yang disediakan. Pengetahuan perubatan sentiasa berkembang — sentiasa semak silang maklumat penting dengan pengajar, penyelia klinikal dan sumber primer terkini anda.\nApabila anda memuat naik dokumen, nota atau rakaman anda sendiri, Clinical Fact menjana jawapan, ringkasan, kuiz dan kad imbas berdasarkan kandungan yang dimuat naik itu sahaja, bukan sumber luar melainkan sumber luar dinyatakan secara jelas di sampingnya.\n\nClinical Fact tidak mengesahkan, menentusahkan atau mengesahkan identiti, status pendaftaran atau kelayakan penggunanya. Aplikasi ini tidak bertujuan untuk digunakan dalam situasi kecemasan atau untuk membuat keputusan klinikal masa nyata.\nDengan meneruskan, anda mengakui bahawa anda memahami syarat-syarat ini dan bersetuju untuk menggunakan Clinical Fact semata-mata sebagai alat bantuan pembelajaran dan rujukan.",
+      "checkboxLabel": "Saya faham aplikasi ini adalah untuk rujukan pendidikan sahaja dan tidak menyediakan nasihat perubatan",
+      "acceptButton": "Terima dan teruskan"
+    },
+    "survey": {
+      "role": "Apakah yang paling tepat menggambarkan anda, {{firstName}}?",
+      "currentMethod": "Bagaimanakah anda biasanya mencari jawapan kepada soalan perubatan buat masa ini?",
+      "timeDrain": "Apakah perkara yang paling banyak membuang masa anda?",
+      "appExpectation": "Apakah yang anda harapkan daripada aplikasi perubatan Clinical Fact kami?",
+      "aiToolsUsed": "Alat AI manakah yang telah anda gunakan untuk penyelidikan perubatan anda setakat ini?",
+      "aiToolIssue": "Apakah masalah yang anda hadapi dengan alat tersebut?",
+      "aiTrustLevel": "Berapa kerap anda bimbang bahawa jawapan AI mungkin salah?",
+      "biggestNeed": "Apakah yang paling anda perlukan buat masa ini?",
+      "studyTimePerWeek": "Berapa banyak masa yang anda miliki untuk belajar setiap minggu?",
+      "comingUp": "Apakah cabaran atau peperiksaan yang akan anda hadapi tidak lama lagi?",
+      "referralSource": "Dari mana anda mengetahui tentang Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Hampir selesai...",
     "quizReady": "Kuiz sedia!",
     "startQuiz": "Mulakan Kuiz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} daripada {{total}}",
     "exitTitle": "Keluar Kuiz?",
     "exitMessage": "Kemajuan anda akan hilang.",
     "exit": "Keluar",
@@ -318,7 +385,9 @@
     "correctAnswer": "Jawapan yang betul",
     "yourAnswer": "Jawapan anda",
     "explanation": "Penjelasan",
-    "questionProgress": "Soalan {{current}} daripada {{total}}"
+    "questionProgress": "Soalan {{current}} daripada {{total}}",
+    "generatingQuizWait": "Kami sedang menjana Kuiz anda, sila tunggu sebentar sementara ia disiapkan...",
+    "goToChats": "Pergi ke sembang"
   },
   "flashcards": {
     "title": "Kad Imbas",
@@ -347,7 +416,7 @@
     "creating": "Mencipta kad imbasan...",
     "almostReady": "Hampir siap...",
     "headerTitle": "Kad Imbas",
-    "progressFormat": "Kad Imbas {{semasa}} daripada {{total}}",
+    "progressFormat": "Kad imbas {{current}} daripada {{total}}",
     "noteIdRequired": "ID Nota diperlukan untuk menjana kad imbasan",
     "invalidCardCount": "Sila pilih antara 1 dan 100 kad imbasan"
   },

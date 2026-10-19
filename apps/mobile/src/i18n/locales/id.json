@@ -14,7 +14,8 @@
     "next": "Selanjutnya",
     "done": "Selesai",
     "search": "Cari",
-    "filter": "Filter"
+    "filter": "Filter",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "Tingkatkan paket",
     "everyWeek": "Setiap minggu",
     "everyMonth": "Setiap bulan",
-    "everyYear": "Setiap tahun"
+    "everyYear": "Setiap tahun",
+    "expired": "Kedaluwarsa",
+    "reportBug": "Laporkan bug",
+    "active": "AKTIF",
+    "trial": "UJI COBA"
   },
   "auth": {
     "welcome": "Selamat datang di Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "Pilih bahasa yang ingin Anda gunakan di aplikasi. Anda dapat mengubahnya nanti di profil.",
       "searchPlaceholder": "Cari bahasa",
       "noResults": "Bahasa tidak ditemukan"
+    },
+    "buttons": {
+      "continue": "Lanjutkan",
+      "continueWithEmail": "Lanjutkan dengan Email",
+      "continueWithGoogle": "Lanjutkan dengan Google",
+      "continueWithApple": "Lanjutkan dengan Apple",
+      "skip": "Lewati",
+      "verify": "Terverifikasi!",
+      "next": "Berikutnya",
+      "tryNow": "Coba Clinical Fact sekarang gratis"
+    },
+    "labels": {
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
+      "username": "@username",
+      "referralCode": "Kode referral",
+      "nameScreenTitle": "Nama depan dan belakang Anda",
+      "byAgree": "Dengan melanjutkan, Anda menyetujui",
+      "termsAndConditions": "Syarat dan ketentuan",
+      "privacyPolicy": "kebijakan privasi",
+      "and": "dan"
+    },
+    "placeholders": {
+      "enterEmail": "Masukkan alamat email Anda",
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
+      "username": "@username",
+      "referralCode": "mis. JOHN atau TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Masukkan alamat email yang valid",
+      "emailRequired": "Silakan masukkan alamat email Anda",
+      "firstLastNameRequired": "Silakan masukkan nama depan dan nama belakang Anda",
+      "usernameRequired": "Silakan masukkan username",
+      "usernameLength": "Username harus terdiri dari 3-20 karakter (hanya huruf, angka, garis bawah)",
+      "usernameTaken": "Username sudah digunakan. Silakan coba yang lain.",
+      "usernameCheckFailed": "Gagal memeriksa ketersediaan username",
+      "usernameError": "Gagal memeriksa username. Periksa koneksi Anda.",
+      "invalidOTP": "Kode tidak valid. Silakan periksa dan coba lagi.",
+      "otpExpired": "Kode kedaluwarsa. Silakan minta kode baru.",
+      "otpRequired": "Silakan masukkan kode verifikasi lengkap",
+      "referralNotFound": "Kode referral tidak ditemukan. Periksa ejaan dan coba lagi.",
+      "referralValidateFailed": "Gagal memvalidasi kode. Silakan coba lagi.",
+      "referralApplyFailed": "Gagal menerapkan kode referral. Silakan coba lagi.",
+      "codeSendFailed": "Gagal mengirim kode verifikasi. Silakan coba lagi.",
+      "resendCodeFailed": "Gagal mengirim ulang kode. Silakan coba lagi.",
+      "signInFailed": "Gagal Masuk",
+      "googleSignInFailed": "Gagal Masuk dengan Google",
+      "googleTokenFailed": "Gagal memproses token Google",
+      "googleAccessTokenFailed": "Gagal mendapatkan token akses. Silakan coba lagi.",
+      "authTokenFailed": "Gagal mendapatkan token autentikasi. Silakan coba lagi.",
+      "googleStartFailed": "Gagal memulai proses masuk Google. Silakan coba lagi.",
+      "setupRequired": "Penyiapan Diperlukan",
+      "googleOAuthMissing": "Masuk dengan Google memerlukan Client ID OAuth.\\n\\nSilakan tambahkan kredensial ke file .env Anda.",
+      "youCanStillUseEmail": "Anda tetap dapat menggunakan \"Lanjutkan dengan Email\".",
+      "appleSignInFailed": "Gagal Masuk dengan Apple",
+      "appleTokenFailed": "Gagal memproses token Apple",
+      "appleIosOnly": "Masuk dengan Apple hanya tersedia di iOS."
+    },
+    "messages": {
+      "signingIn": "Sedang masuk...",
+      "codeValid": "✓ Kode valid",
+      "signupFailed": "Gagal menyelesaikan pendaftaran",
+      "setupFailed": "Gagal menyelesaikan penyiapan. Silakan coba lagi."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Catatan Lebih Cerdas Dimulai di Sini",
+      "tagline": "Ubah teks apa pun jadi catatan sempurna",
+      "description": "Ubah audio, dokumen, atau video menjadi catatan rapi yang mudah dicari, serta buat kuis, flashcard, dan rangkuman secara instan.",
+      "createAccountTitle": "Buat akun",
+      "orSignUpWith": "ATAU DAFTAR DENGAN",
+      "signUpWithEmail": "Daftar dengan Alamat Email",
+      "signInWithEmail": "Masuk dengan Alamat Email",
+      "alreadyHaveAccount": "Sudah punya akun? ",
+      "dontHaveAccount": "Belum punya akun? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Tanyakan apa pun seputar medis. Dapatkan fakta klinisnya",
+        "description": "Ajukan pertanyaan medis apa pun dan dapatkan jawaban berbasis sitasi nyata dari PubMed, pedoman klinis, dan literatur medis tepercaya"
+      },
+      "slide2": {
+        "headline": "Setiap Jawaban Didukung Sumber Rujukan",
+        "description": "Tanpa tebakan, tanpa fakta rekaan—setiap jawaban terhubung langsung ke riset medis nyata yang dapat diverifikasi."
+      },
+      "slide3": {
+        "headline": "Belajar Lebih Cerdas, Lulus Ujian Medis",
+        "description": "Ubah pertanyaan atau unggahan apa pun menjadi set kuis atau flashcard dalam hitungan detik. Latihan langsung dari bahan belajarmu."
+      }
+    },
+    "otp": {
+      "title": "Konfirmasi alamat email kamu",
+      "subtitle": "Masukkan kode OTP yang kami kirimkan ke alamat email kamu"
+    },
+    "professionalDeclaration": {
+      "title": "Pernyataan Profesional",
+      "subtitle": "Clinical Fact adalah alat penelusuran literatur untuk tujuan pendidikan",
+      "disclaimerIntro": "Clinical Fact adalah sarana informasi berbasis kecerdasan buatan (AI) yang ditujukan untuk membantu mahasiswa keperawatan, kedokteran, dan ilmu kesehatan lainnya dalam mengakses pengetahuan medis, literatur riset, serta materi belajar. Aplikasi ini tidak memberikan diagnosis medis, rekomendasi pengobatan, instruksi klinis, atau saran medis khusus pasien, dan tidak boleh digunakan sebagai dasar untuk perawatan langsung pasien atau pengambilan keputusan klinis.",
+      "disclaimerHeading": "Cara Clinical Fact menghasilkan jawaban:",
+      "disclaimerBody": "Clinical Fact mengambil informasi langsung dari sumber medis dan ilmiah tepercaya, termasuk PubMed, Semantic Scholar, dan label obat resmi FDA, lalu menggunakan AI untuk merangkum dan menjelaskan konten tersebut dalam bahasa yang mudah dipahami. Setiap jawaban dibuat hanya dari sumber yang diambil untuk pertanyaan spesifik tersebut, dan sitasi terhubung langsung ke materi asli agar kamu dapat memverifikasinya sendiri. Clinical Fact tidak menghasilkan fakta medis dari ingatan atau mengarang sumber.\n\nClinical Fact bukan alat diagnostik, platform penanganan, perangkat medis, atau pengganti penilaian klinis profesional, bimbingan dosen/klinisi berlisensi, atau kurikulum institusi kamu. Segala informasi yang dihasilkan oleh aplikasi ini, termasuk jawaban, sitasi, kuis, dan flashcard, disediakan hanya untuk tujuan pendidikan dan pembelajaran umum, serta harus diverifikasi secara mandiri oleh pengguna sebelum dijadikan rujukan dalam konteks akademik, klinis, atau profesional apa pun.\nClinical Fact tidak menjamin kelengkapan, keakuratan, atau relevansi klinis terkini dari informasi yang diberikan. Ilmu kedokteran terus berkembang — selalu lakukan pengecekan silang untuk informasi krusial dengan dosen, pembimbing klinik, dan sumber primer terbaru.\nSaat kamu mengunggah dokumen, catatan, atau rekaman sendiri, Clinical Fact menghasilkan jawaban, ringkasan, kuis, dan flashcard hanya berdasarkan materi yang diunggah tersebut, bukan dari sumber eksternal kecuali jika sumber eksternal ditampilkan secara eksplisit di sampingnya.\n\nClinical Fact tidak memverifikasi, mengautentikasi, atau mengonfirmasi identitas, status kemahasiswaan, atau kredensial penggunanya. Aplikasi ini tidak ditujukan untuk penggunaan dalam situasi gawat darurat atau untuk pengambilan keputusan klinis seketika.\nDengan melanjutkan, kamu menyatakan memahami ketentuan ini dan setuju untuk menggunakan Clinical Fact semata-mata sebagai sarana belajar dan referensi.",
+      "checkboxLabel": "Saya memahami bahwa aplikasi ini hanya untuk referensi pendidikan dan tidak menyediakan saran medis",
+      "acceptButton": "Setujui dan lanjutkan"
+    },
+    "survey": {
+      "role": "Mana yang paling menggambarkan dirimu, {{firstName}}?",
+      "currentMethod": "Bagaimana caramu mencari jawaban pertanyaan medis saat ini?",
+      "timeDrain": "Apa yang paling banyak menyita waktumu?",
+      "appExpectation": "Apa ekspektasimu terhadap aplikasi medis Clinical Fact ini?",
+      "aiToolsUsed": "Alat AI apa saja yang sudah pernah kamu gunakan untuk riset medis?",
+      "aiToolIssue": "Kendala apa yang kamu temui pada alat-alat tersebut?",
+      "aiTrustLevel": "Seberapa sering kamu khawatir jawaban AI mungkin keliru?",
+      "biggestNeed": "Apa yang paling kamu butuhkan saat ini?",
+      "studyTimePerWeek": "Berapa banyak waktu belajarmu setiap minggu?",
+      "comingUp": "Agenda apa yang sedang kamu persiapkan dalam waktu dekat?",
+      "referralSource": "Dari mana kamu mengetahui tentang Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Yuk, buat username kamu",
+      "usernameSubtitle": "Agar akunmu terasa lebih personal",
+      "goals": "Untuk apa kamu ingin menggunakan\\nClinical Fact?",
+      "goalsSubtitle": "Pilih semua yang sesuai. Kami akan menyesuaikan pengalamanmu.",
+      "contentType": "Jenis konten apa yang\\npaling sering kamu gunakan?",
+      "contentTypeSubtitle": "Pilih semua yang sesuai. Ini membantu kami mempersonalisasi pengalaman belajarmu.",
+      "reviewStyle": "Bagaimana caramu mengulang\\nmateri yang sudah dipelajari?",
+      "reviewStyleSubtitle": "Pilih metode pengulangan materi yang kamu sukai.",
+      "frustration": "{{firstName}}, apa hal yang paling menyulitkan saat mencatat materi?",
+      "frustrationSubtitle": "Pilih semua yang sesuai. Ini membantu kami menemukan solusi untukmu.",
+      "referral": "Ingin tahu nih,\\n{{firstName}},\\ndari mana kamu tahu tentang Clinical Fact?",
+      "referralSubtitle": "Pilih salah satu."
+    },
+    "referralScreen": {
+      "title": "Apakah kamu direkomendasikan\\noleh seseorang?",
+      "subtitle": "Masukkan kode referral mereka jika ada"
+    },
+    "setup": {
+      "preparingNotes": "Menyiapkan catatan",
+      "preparingFlashcards": "Menyiapkan Flashcard",
+      "preparingQuiz": "Menyiapkan templat kuis",
+      "preparingChat": "Menyiapkan asisten Chat",
+      "title": "Menyiapkan ruang belajar personalmu,\\n{{firstName}}..."
+    },
+    "thanks": {
+      "title": "Terima kasih telah memercayai Clinical Fact",
+      "subtitle": "Kamu bergabung dengan ribuan mahasiswa keperawatan dan kedokteran",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Segala yang kamu butuhkan untuk\\nmempelajari apa saja",
+      "subtitle": "Rekam. Telusuri. Uji. Kuasai."
+    },
+    "features": {
+      "feature1": {
+        "title": "Dapatkan jawaban medis nyata dan pertanyaan lanjutan",
+        "description": "Ajukan pertanyaan medis apa pun dan dapatkan penjelasan yang jelas beserta pertanyaan lanjutan yang cerdas, agar proses belajarmu tidak pernah buntu."
+      },
+      "feature2": {
+        "title": "Setiap jawaban medis,\ndidukung sumber terpercaya",
+        "description": "Sitasi diambil dari PubMed, Semantic Scholar, dan Europe PMC—dapat diverifikasi, bukan dibuat-buat."
+      },
+      "feature3": {
+        "title": "Unggah catatan, dapatkan rangkuman medis dari materi kamu",
+        "description": "Ubah slide kuliah, PDF, atau catatan apa pun menjadi penjelasan jelas yang didukung sumber medis tepercaya."
+      },
+      "feature4": {
+        "title": "Ubah obrolan apa pun menjadi Kuis atau flashcard untuk latihan",
+        "description": "Tak perlu aplikasi belajar terpisah, buat soal latihan langsung dari obrolan dan materi unggahanmu."
+      },
+      "feature5": {
+        "title": "Ubah obrolan atau dokumen apa pun menjadi soal flashcard untuk latihan",
+        "description": "Tak perlu aplikasi belajar terpisah, buat soal latihan langsung dari obrolan dan materi unggahanmu."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "Hampir selesai...",
     "quizReady": "Kuis siap!",
     "startQuiz": "Mulai Kuis",
-    "questionCount": "{{current}} dari {{total}}"
+    "questionCount": "{{current}} dari {{total}}",
+    "previous": "Pertanyaan sebelumnya",
+    "generatingQuiz": "Membuat kuis dengan AI...",
+    "exitTitle": "Keluar dari Kuis?",
+    "exitMessage": "Progres kamu akan hilang.",
+    "exit": "Keluar",
+    "errorTitle": "Ups, ada kendala 🚧",
+    "errorMessage": "Kami belum bisa membuatnya sekarang. Tunggu sebentar dan coba lagi!",
+    "noQuestions": "Tidak ada pertanyaan yang tersedia.",
+    "reading": "Membaca catatanmu...",
+    "identifying": "Mengidentifikasi konsep kunci...",
+    "structuring": "Menyusun pertanyaan...",
+    "almostReady": "Hampir siap...",
+    "youScored": "SKOR KAMU",
+    "timeInSeconds": "WAKTU (DETIK)",
+    "accuracy": "AKURASI",
+    "grade": "NILAI",
+    "reportsCard": "Kartu hasil",
+    "reviewAnswers": "Tinjau jawaban",
+    "correctAnswer": "Jawaban benar",
+    "yourAnswer": "Jawaban kamu",
+    "explanation": "Penjelasan",
+    "questionProgress": "Pertanyaan {{current}} dari {{total}}",
+    "generatingQuizWait": "Kami sedang membuat kuis untukmu, mohon tunggu sebentar...",
+    "goToChats": "Buka obrolan"
   },
   "flashcards": {
     "title": "Kartu flash",
@@ -178,7 +378,29 @@
     "previous": "Sebelumnya",
     "shuffle": "Acak",
     "generating": "Membuat kartu flash...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Buat flashcard untuk meningkatkan daya ingatmu",
+    "howManyQuestions": "Berapa banyak pertanyaan?",
+    "generateButton": "Buat flashcard",
+    "generatingEllipsis": "Membuat...",
+    "allDone": "Selesai!",
+    "completedReview": "Kamu sudah meninjau semua kartu di dek ini",
+    "backToNotes": "Kembali ke catatan",
+    "question": "Pertanyaan",
+    "answer": "Jawaban",
+    "noQuestionText": "(Tidak ada teks pertanyaan)",
+    "noAnswerText": "(Tidak ada teks jawaban)",
+    "enterQuestion": "Masukkan pertanyaanmu",
+    "enterAnswer": "Masukkan jawaban",
+    "clickToFlip": "ketuk kartu untuk membalik",
+    "reading": "Membaca catatanmu...",
+    "identifying": "Mengidentifikasi konsep kunci...",
+    "creating": "Membuat flashcard...",
+    "almostReady": "Hampir siap...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} dari {{total}}",
+    "noteIdRequired": "ID Catatan diperlukan untuk membuat flashcard",
+    "invalidCardCount": "Silakan pilih antara 1 hingga 100 flashcard"
   },
   "chat": {
     "title": "Obrolan",
@@ -211,6 +433,37 @@
     "turkish": "Turki",
     "vietnamese": "Vietnam",
     "thai": "Thailand",
-    "indonesian": "Indonesia"
+    "indonesian": "Indonesia",
+    "englishGB": "Inggris (Inggris Raya)",
+    "englishAU": "Inggris (Australia)",
+    "englishCA": "Inggris (Kanada)",
+    "spanishMX": "Spanyol (Meksiko)",
+    "frenchCA": "Prancis (Kanada)",
+    "portuguesePT": "Portugis (Portugal)",
+    "norwegian": "Norwegia",
+    "danish": "Denmark",
+    "finnish": "Finlandia",
+    "czech": "Ceko",
+    "slovak": "Slowakia",
+    "slovenian": "Slovenia",
+    "croatian": "Kroasia",
+    "hungarian": "Hongaria",
+    "romanian": "Rumania",
+    "greek": "Yunani",
+    "ukrainian": "Ukraina",
+    "arabicAE": "Arab (UEA)",
+    "arabicEG": "Arab (Mesir)",
+    "hebrew": "Ibrani",
+    "bengali": "Bengali",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Melayu",
+    "catalan": "Katalan"
   }
 }

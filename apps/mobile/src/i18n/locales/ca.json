@@ -18,7 +18,7 @@
     "ok": "D'acord"
   },
   "home": {
-    "title": "Notadrill",
+    "title": "Clinical Fact",
     "createNotes": "Crea notes",
     "createNotesDesc": "Crea notes, qüestionaris,\ntargetes didàctiques i molt més per ajudar-te a\naprendre més ràpid",
     "chatWithPDF": "Xateja amb qualsevol PDF",
@@ -71,7 +71,8 @@
     "upgradePlan": "Pla d'actualització",
     "everyWeek": "Cada setmana",
     "everyMonth": "Cada mes",
-    "everyYear": "Cada any"
+    "everyYear": "Cada any",
+    "reportBug": "Informa d'un error"
   },
   "auth": {
     "welcome": "Benvinguts a Clinical Fact",
@@ -94,7 +95,8 @@
       "skip": "Omet",
       "verify": "Verificat!",
       "next": "Següent",
-      "tryNow": "Prova Clinical Fact ara gratuïtament"
+      "tryNow": "Prova Clinical Fact ara gratuïtament",
+      "continueWithApple": "Continua amb Apple"
     },
     "labels": {
       "firstName": "Nom",
@@ -139,7 +141,10 @@
       "googleStartFailed": "No s'ha pogut iniciar l'inici de sessió de Google. Torna-ho a provar.",
       "setupRequired": "Configuració necessària",
       "googleOAuthMissing": "L'inici de sessió de Google requereix identificadors de client d'OAuth.\\n\\nAfegiu les credencials al fitxer .env.",
-      "youCanStillUseEmail": "Encara podeu utilitzar \"Continua amb el correu electrònic\"."
+      "youCanStillUseEmail": "Encara podeu utilitzar \"Continua amb el correu electrònic\".",
+      "appleSignInFailed": "Ha fallat l'inici de sessió amb Apple",
+      "appleTokenFailed": "No s'ha pogut processar el testimoni d'Apple",
+      "appleIosOnly": "L'inici de sessió amb Apple només està disponible a iOS."
     },
     "messages": {
       "signingIn": "Iniciant la sessió...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nNotes més intel·ligents Comença aquí",
       "tagline": "Converteix qualsevol text en notes perfectes",
-      "description": "Converteix àudio, documents o vídeos en notes clares i amb capacitat de cerca, i crea qüestionaris, targetes didàctiques i resums a l'instant."
+      "description": "Converteix àudio, documents o vídeos en notes clares i amb capacitat de cerca, i crea qüestionaris, targetes didàctiques i resums a l'instant.",
+      "createAccountTitle": "Crea un compte",
+      "orSignUpWith": "O REGISTRA'T AMB",
+      "signUpWithEmail": "Registra't amb el correu electrònic",
+      "signInWithEmail": "Inicia la sessió amb el correu electrònic",
+      "alreadyHaveAccount": "Ja tens un compte? ",
+      "dontHaveAccount": "No tens cap compte? "
     },
     "otp": {
       "title": "Confirma la teva adreça electrònica",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Aprèn més ràpid amb qüestionaris i targetes didàctiques",
         "description": "Converteix els apunts en qüestionaris i targetes didàctiques.\\nAprèn més ràpid i recorda més."
+      },
+      "feature1": {
+        "title": "Obtén respostes mèdiques fiables i preguntes de seguiment",
+        "description": "Fes qualsevol pregunta mèdica i rep una explicació clara juntament amb preguntes de seguiment intel·ligents per no quedar-te mai encallat mentre estudies."
+      },
+      "feature2": {
+        "title": "Cada resposta mèdica,\navalada per una font real",
+        "description": "Citacions extretes de PubMed, Semantic Scholar i Europe PMC: verificables, no inventades."
+      },
+      "feature3": {
+        "title": "Puja els teus apunts i obtén resums mèdics del teu material",
+        "description": "Converteix qualsevol diapositiva, PDF o apunt en una explicació clara recolzada per fonts mèdiques contrastades."
+      },
+      "feature4": {
+        "title": "Converteix qualsevol xat en un qüestionari o targetes per practicar",
+        "description": "Sense necessitat d'altres aplicacions per estudiar: genera preguntes pràctiques directament dels teus xats i arxius."
+      },
+      "feature5": {
+        "title": "Converteix qualsevol xat o document en targetes per practicar",
+        "description": "Sense necessitat d'altres aplicacions per estudiar: genera preguntes pràctiques directament dels teus xats i arxius."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Tria l'idioma que vols utilitzar a l'aplicació. Pots canviar-lo més endavant al teu perfil.",
       "searchPlaceholder": "Cerca idiomes",
       "noResults": "No s'ha trobat cap idioma"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Pregunta qualsevol dubte mèdic. Obtén la dada clínica contrastada",
+        "description": "Fes qualsevol consulta mèdica i rep respostes basades en fonts reals i citades de PubMed, guies clíniques i literatura mèdica de confiança"
+      },
+      "slide2": {
+        "headline": "Cada resposta, avalada per una font",
+        "description": "Sense conjectures ni dades inventades: cada resposta enllaça directament a recerques mèdiques reals i verificables."
+      },
+      "slide3": {
+        "headline": "Estudia millor, aprova els teus exàmens mèdics",
+        "description": "Converteix qualsevol dubte o document en un qüestionari o joc de targetes en segons; practica directament amb el temari que estàs aprenent."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Declaració professional",
+      "subtitle": "Clinical Fact és una eina educativa de cerca bibliogràfica",
+      "disclaimerIntro": "Clinical Fact és una eina informativa basada en intel·ligència artificial destinada a donar suport als estudiants d'infermeria, medicina i altres ciències de la salut en l'accés al coneixement mèdic, la literatura científica i els materials d'estudi. L'aplicació no proporciona diagnòstics mèdics, recomanacions de tractament, instruccions clíniques ni consell mèdic individualitzat per a pacients, i no s'ha d'utilitzar com a base per a l'atenció directa al pacient o la presa de decisions clíniques.",
+      "disclaimerHeading": "Com genera les respostes Clinical Fact:",
+      "disclaimerBody": "Clinical Fact recupera informació directament de fonts mèdiques i científiques de referència, com ara PubMed, Semantic Scholar i fitxes tècniques oficials de la FDA, i utilitza la AI per resumir i explicar aquest contingut de manera clara. Cada resposta es genera exclusivament a partir de les fonts obtingudes per a aquella consulta específica, i les citacions enllacen al material original perquè puguis verificar-lo tu mateix. Clinical Fact no genera informació mèdica de memòria ni inventa fonts.\n\nClinical Fact no és una eina de diagnòstic, ni una plataforma de tractament, ni un producte sanitari, ni un substitut del criteri mèdic professional, de la docència reglada o del pla d'estudis de la teva institució. Qualsevol informació generada per l'aplicació, incloses respostes, citacions, qüestionaris i targetes d'estudi, es proporciona únicament amb finalitats educatives i formatives generals, i l'usuari l'ha de verificar de manera independent abans d'utilitzar-la en qualsevol context acadèmic, clínic o professional.\nClinical Fact no garanteix l'exhaustivitat, l'exactitud ni la vigència clínica de la informació facilitada. El coneixement mèdic evoluciona contínuament; contrasta sempre les dades rellevants amb els teus professors, tutors clínics i fonts primàries actualitzades.\nQuan puges els teus propis documents, apunts o gravacions, Clinical Fact genera respostes, resums, qüestionaris i targetes d'estudi basant-se exclusivament en aquest contingut aportat, no en fonts externes, tret que aquestes es mostrin de manera explícita al costat.\n\nClinical Fact no verifica, autentica ni confirma la identitat, la matrícula ni les titulacions dels seus usuaris. L'aplicació no està dissenyada per ser utilitzada en situacions d'emergència ni per a la presa de decisions clíniques en temps real.\nEn continuar, declares que entens aquests termes i acceptes utilitzar Clinical Fact exclusivament com una ajuda d'estudi i consulta.",
+      "checkboxLabel": "Entenc que aquesta aplicació és només per a consulta educativa i no ofereix assessorament mèdic",
+      "acceptButton": "Accepta i continua"
+    },
+    "survey": {
+      "role": "Com et definiries millor, {{firstName}}?",
+      "currentMethod": "Com acostumes a resoldre els teus dubtes mèdics actualment?",
+      "timeDrain": "Què és el que et pren més temps?",
+      "appExpectation": "Què esperes de la nostra aplicació mèdica Clinical Fact?",
+      "aiToolsUsed": "Quines eines d'AI has utilitzat fins ara per a les teves consultes mèdiques?",
+      "aiToolIssue": "Quin problema has tingut amb aquestes eines?",
+      "aiTrustLevel": "Amb quina freqüència et preocupa que una resposta d'AI pugui ser incorrecta?",
+      "biggestNeed": "Què és el que més necessites ara mateix?",
+      "studyTimePerWeek": "De quant de temps disposes per estudiar cada setmana?",
+      "comingUp": "Quins reptes o exàmens tens a la vista?",
+      "referralSource": "Com has conegut Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Gairebé acabat...",
     "quizReady": "Quiz a punt!",
     "startQuiz": "Inicia el qüestionari",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} de {{total}}",
     "exitTitle": "Sortida del qüestionari?",
     "exitMessage": "El teu progrés es perdrà.",
     "exit": "Sortida",
@@ -318,7 +385,9 @@
     "correctAnswer": "Resposta correcta",
     "yourAnswer": "La teva resposta",
     "explanation": "Explicació",
-    "questionProgress": "Pregunta {{current}} de {{total}}"
+    "questionProgress": "Pregunta {{current}} de {{total}}",
+    "generatingQuizWait": "Estem generant el teu qüestionari, un moment si us plau...",
+    "goToChats": "Ves als xats"
   },
   "flashcards": {
     "title": "Targetes didàctiques",
@@ -400,10 +469,10 @@
     "tamil": "Tàmil",
     "telugu": "Telugu",
     "kannada": "Kannada",
-    "malayalam": "Malayalam",
+    "malayalam": "Malaiàlam",
     "marathi": "Marathi",
     "gujarati": "Gujarati",
-    "punjabi": "Punjabi",
+    "punjabi": "Panjabi",
     "urdu": "Urdú",
     "chineseSimplified": "Xinès (simplificat)",
     "chineseTraditional": "Xinès (tradicional)",

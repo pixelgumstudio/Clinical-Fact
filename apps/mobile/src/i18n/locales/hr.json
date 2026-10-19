@@ -14,11 +14,11 @@
     "next": "Sljedeći",
     "done": "Gotovo",
     "search": "Pretraživanje",
-    "filter": "Filter",
+    "filter": "Filtar",
     "ok": "U REDU"
   },
   "home": {
-    "title": "Bilješka",
+    "title": "Clinical Fact",
     "createNotes": "Izradi bilješke",
     "createNotesDesc": "Izradite bilješke, kvizove, kartice i još mnogo toga što će vam pomoći da brže učite",
     "chatWithPDF": "Razgovarajte s bilo kojim PDF-om",
@@ -26,7 +26,7 @@
     "recentNotes": "Nedavne bilješke",
     "seeAll": "Prikaži sve",
     "noNotes": "Nema bilješki za prikaz",
-    "noNotesDesc": "Molimo kliknite na gornji gumb za početak generiranja bilješke za clinicalfact.",
+    "noNotesDesc": "Dodirnite gumb iznad za početak\nstvaranja bilješke za Clinical Fact.",
     "loadingNotes": "Učitavanje bilješki..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Plan nadogradnje",
     "everyWeek": "Svaki tjedan",
     "everyMonth": "Svaki mjesec",
-    "everyYear": "Svake godine"
+    "everyYear": "Svake godine",
+    "reportBug": "Prijavi grešku"
   },
   "auth": {
     "welcome": "Dobrodošli u Clinical Fact",
@@ -94,7 +95,8 @@
       "skip": "Preskočiti",
       "verify": "Potvrđeno!",
       "next": "Sljedeći",
-      "tryNow": "Isprobajte Clinical Fact sada besplatno"
+      "tryNow": "Isprobajte Clinical Fact sada besplatno",
+      "continueWithApple": "Nastavi s Appleom"
     },
     "labels": {
       "firstName": "Ime",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Nije uspjelo pokretanje prijave na Google. Pokušajte ponovno.",
       "setupRequired": "Potrebno postavljanje",
       "googleOAuthMissing": "Prijava putem Googlea zahtijeva OAuth klijentske ID-ove.\\n\\nDodajte vjerodajnice u svoju .env datoteku.",
-      "youCanStillUseEmail": "I dalje možete koristiti opciju \"Nastavi s e-poštom\"."
+      "youCanStillUseEmail": "I dalje možete koristiti opciju \"Nastavi s e-poštom\".",
+      "appleSignInFailed": "Prijava putem Applea nije uspjela",
+      "appleTokenFailed": "Obrada Apple tokena nije uspjela",
+      "appleIosOnly": "Prijava putem Applea dostupna je samo na iOS-u."
     },
     "messages": {
       "signingIn": "Prijava...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nPametnije bilješke Počnite ovdje",
       "tagline": "Pretvorite bilo koji tekst u savršene bilješke",
-      "description": "Pretvorite audiozapise, dokumente ili videozapise u jasne, pretražive bilješke i odmah stvarajte kvizove, kartice i sažetke."
+      "description": "Pretvorite audiozapise, dokumente ili videozapise u jasne, pretražive bilješke i odmah stvarajte kvizove, kartice i sažetke.",
+      "createAccountTitle": "Izradi račun",
+      "orSignUpWith": "ILI SE REGISTRIRAJ PUTEM",
+      "signUpWithEmail": "Registriraj se e-poštom",
+      "signInWithEmail": "Prijavi se e-poštom",
+      "alreadyHaveAccount": "Već imaš račun? ",
+      "dontHaveAccount": "Nemaš račun? "
     },
     "otp": {
       "title": "Potvrdite svoju adresu e-pošte",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Učite brže uz kviz i kartice za učenje",
         "description": "Pretvorite bilješke u kvizove i kartice za učenje. Učite brže i pamtite više."
+      },
+      "feature1": {
+        "title": "Pravi medicinski odgovori i potitanja",
+        "description": "Postavi bilo koje medicinsko pitanje i dobit ćeš jasno objašnjenje uz pametna potitanja kako tijekom učenja nikada ne bi zapeo/la."
+      },
+      "feature2": {
+        "title": "Svaki medicinski odgovor,\npotkrijepljen stvarnim izvorom",
+        "description": "Citati iz baza PubMed, Semantic Scholar i Europe PMC – provjerljivi, a ne izmišljeni."
+      },
+      "feature3": {
+        "title": "Prenesi bilješke i dobij medicinske sažetke",
+        "description": "Pretvori bilo koji slajd s predavanja, PDF ili bilješku u jasno objašnjenje potkrijepljeno pouzdanim medicinskim izvorima."
+      },
+      "feature4": {
+        "title": "Pretvori bilo koji razgovor u kviz ili kartice za vježbu",
+        "description": "Nema potrebe za zasebnom aplikacijom za učenje – generiraj pitanja za vježbu izravno iz svojih razgovora i prenesenih materijala."
+      },
+      "feature5": {
+        "title": "Pretvori razgovore ili dokumente u kartice za učenje",
+        "description": "Nema potrebe za zasebnom aplikacijom za učenje – generiraj pitanja za vježbu izravno iz svojih razgovora i prenesenih materijala."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Odaberite jezik koji želite koristiti u aplikaciji. Možete ga promijeniti kasnije na svom profilu.",
       "searchPlaceholder": "Pretraži jezike",
       "noResults": "Nema pronađenih jezika"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Pitaj bilo što iz medicine. Saznaj kliničke činjenice",
+        "description": "Postavi bilo koje medicinsko pitanje i dobit ćeš odgovor potkrijepljen stvarnim, citiranim izvorima iz baze PubMed, kliničkih smjernica i pouzdane medicinske literature"
+      },
+      "slide2": {
+        "headline": "Svaki odgovor potkrijepljen je izvorom",
+        "description": "Bez nagađanja i izmišljenih činjenica – svaki odgovor vodi do stvarnih i provjerljivih medicinskih istraživanja."
+      },
+      "slide3": {
+        "headline": "Uči pametnije, položi medicinske ispite",
+        "description": "Pretvori bilo koje pitanje ili preneseno gradivo u kviz ili kartice u nekoliko sekundi – vježbaj izravno iz onoga što učiš."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Stručna izjava",
+      "subtitle": "Clinical Fact je edukativni alat za pretraživanje literature",
+      "disclaimerIntro": "Clinical Fact je informativni alat temeljen na umjetnoj inteligenciji namijenjen podršci studentima sestrinstva, medicine i drugih zdravstvenih znanosti pri pristupu medicinskom znanju, istraživačkoj literaturi i materijalima za učenje. Aplikacija ne pruža medicinske dijagnoze, preporuke za liječenje, kliničke upute niti specifične medicinske savjete za pacijente te se ne smije koristiti kao osnova za izravnu skrb o pacijentima ili donošenje kliničkih odluka.",
+      "disclaimerHeading": "Kako Clinical Fact generira odgovore:",
+      "disclaimerBody": "Clinical Fact dohvaća informacije izravno iz utvrđenih medicinskih i znanstvenih izvora, uključujući PubMed, Semantic Scholar i službena FDA odobrenja lijekova, te koristi AI za sažimanje i objašnjavanje tog sadržaja na jednostavan način. Svaki se odgovor generira isključivo iz izvora pronađenih za to specifično pitanje, a citati vode do izvornog materijala kako biste ga sami mogli provjeriti. Clinical Fact ne generira medicinske činjenice iz sjećanja niti izmišlja izvore.\n\nClinical Fact nije dijagnostički alat, platforma za liječenje, medicinski proizvod niti zamjena za profesionalnu medicinsku prosudbu, ovlaštenu nastavu ili kurikulum vaše ustanove. Sve informacije koje aplikacija generira, uključujući odgovore, citate, kvizove i kartice za učenje, služe isključivo u opće obrazovne svrhe i za učenje te ih korisnik mora samostalno provjeriti prije nego što se na njih osloni u bilo kojem akademskom, kliničkom ili profesionalnom kontekstu.\nClinical Fact ne jamči potpunost, točnost ili trenutnu kliničku relevantnost pruženih informacija. Medicinsko znanje neprestano se razvija — ključne informacije uvijek provjerite sa svojim nastavnicima, kliničkim mentorima i ažurnim primarnim izvorima.\nKada prenesete vlastite dokumente, bilješke ili snimke, Clinical Fact generira odgovore, sažetke, kvizove i kartice za učenje isključivo na temelju tog prenesenog sadržaja, a ne vanjskih izvora, osim ako vanjski izvori nisu izričito prikazani uz njega.\n\nClinical Fact ne verificira, ne provjerava autentičnost niti potvrđuje identitet, status upisa ili kvalifikacije svojih korisnika. Aplikacija nije namijenjena za korištenje u hitnim situacijama niti za donošenje kliničkih odluka u stvarnom vremenu.\nNastavkom potvrđujete da razumijete ove uvjete i pristajete koristiti Clinical Fact isključivo kao pomoć pri učenju i literaturu.",
+      "checkboxLabel": "Razumijem da je ova aplikacija namijenjena isključivo u edukativne svrhe i ne pruža medicinske savjete",
+      "acceptButton": "Prihvati i nastavi"
+    },
+    "survey": {
+      "role": "Što te najbolje opisuje, {{firstName}}?",
+      "currentMethod": "Kako trenutno obično pronalaziš odgovore na medicinska pitanja?",
+      "timeDrain": "Što ti oduzima najviše vremena?",
+      "appExpectation": "Što očekuješ od aplikacije Clinical Fact?",
+      "aiToolsUsed": "Koje si AI alate dosad koristio/la za medicinsko istraživanje?",
+      "aiToolIssue": "Što je bio problem s tim alatima?",
+      "aiTrustLevel": "Koliko se često brineš da bi AI odgovor mogao biti netočan?",
+      "biggestNeed": "Što ti je trenutno najpotrebnije?",
+      "studyTimePerWeek": "Koliko vremena tjedno imaš za učenje?",
+      "comingUp": "Koji ti ispiti ili obveze uskoro slijede?",
+      "referralSource": "Gdje si saznao/la za Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Skoro gotovo...",
     "quizReady": "Kviz spreman!",
     "startQuiz": "Započni kviz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} od {{total}}",
     "exitTitle": "Izlaz iz kviza?",
     "exitMessage": "Vaš napredak će biti izgubljen.",
     "exit": "Izlaz ",
@@ -318,7 +385,9 @@
     "correctAnswer": "Točan odgovor",
     "yourAnswer": "Vaš odgovor",
     "explanation": "Obrazloženje",
-    "questionProgress": "Pitanje {{current}} od {{total}}"
+    "questionProgress": "Pitanje {{current}} od {{total}}",
+    "generatingQuizWait": "Pripremamo tvoj kviz, pričekaj trenutak...",
+    "goToChats": "Idi na razgovore"
   },
   "flashcards": {
     "title": "Kartice za učenje",
@@ -397,11 +466,11 @@
     "hebrew": "Hebrejski",
     "hindi": "Ne",
     "bengali": "bengalski",
-    "tamil": "Tamil",
-    "telugu": "Telugu",
+    "tamil": "Tamilski",
+    "telugu": "Teluški",
     "kannada": "Kannadski",
     "malayalam": "Malajalamski",
-    "marathi": "Marathi",
+    "marathi": "Maratski",
     "gujarati": "gudžaratski",
     "punjabi": "Pandžapski",
     "urdu": "urdu",

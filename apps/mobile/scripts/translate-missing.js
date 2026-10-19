@@ -6,8 +6,9 @@
  *   node scripts/translate-missing.js --only-prefix auth.languageSelect
  *   node scripts/translate-missing.js --locales fr,es,hi      only these locales
  *   node scripts/translate-missing.js --dry-run               report what would be translated
+ *   node scripts/translate-missing.js --fix-existing          also redo existing translations that are broken
  *
- * Only keys that are absent from a locale are translated — existing translations are never
+ * By default only keys that are absent from a locale are translated — existing translations are never
  * overwritten. English variants (en-GB, en-AU, en-CA) just copy the English text. Every
  * result is checked before it is written: same keys back, no empty values, and exactly the
  * same {{placeholders}} as the English. Anything that fails twice is reported and skipped.
@@ -32,6 +33,7 @@ const option = (name, fallback) => {
 const ONLY_PREFIX = option('only-prefix', '');
 const ONLY_LOCALES = option('locales', '') ? option('locales', '').split(',') : null;
 const DRY_RUN = flag('dry-run');
+const FIX_EXISTING = flag('fix-existing');
 const CONCURRENCY = Number(option('concurrency', '4'));
 const BATCH_SIZE = Number(option('batch', '60'));
 
@@ -85,6 +87,22 @@ const addMissing = (locale, filled) => {
   return out;
 };
 
+// Brand name must stay exactly as written in every language (older machine translations
+// translated it, lower-cased it, or swapped in another app's name).
+const BRAND = 'Clinical Fact';
+// A string identical to the English one that still has real words in it (outside placeholders,
+// the brand name and PRO/AI) was never translated — e.g. "{{current}} of {{total}}".
+const LANGUAGE_NEUTRAL = new Set(['PRO', 'AI', 'OK']);
+const isUntranslated = (english, translated) => {
+  if (translated !== english) return false;
+  const words = english.replace(/\{\{[^}]+\}\}/g, '').replace(BRAND, '').replace(/[^A-Za-z]/g, '');
+  return words.length >= 2 && !LANGUAGE_NEUTRAL.has(words);
+};
+const isBroken = (english, translated, code) =>
+  placeholders(english) !== placeholders(translated) ||
+  (english.includes(BRAND) && !String(translated).includes(BRAND)) ||
+  (!code.startsWith('en-') && isUntranslated(english, translated));
+
 const placeholders = (text) => [...String(text).matchAll(/\{\{\s*[\w.]+\s*\}\}/g)].map((m) => m[0].replace(/\s+/g, '')).sort().join('|');
 
 // ── language names (English names come from the app's own language list) ─────────────────
@@ -130,6 +148,7 @@ async function translateBatch(ai, languageName, entries) {
         const t = parsed[key];
         if (typeof t !== 'string' || !t.trim()) bad.push(`${key}: missing/empty`);
         else if (placeholders(t) !== placeholders(english)) bad.push(`${key}: placeholders differ`);
+        else if (english.includes(BRAND) && !t.includes(BRAND)) bad.push(`${key}: brand name changed`);
         else good[key] = t;
       }
       if (bad.length === 0) return { good, failed: [] };
@@ -170,7 +189,9 @@ async function main() {
       const file = path.join(LOCALES_DIR, `${code}.json`);
       const loaded = readLocale(file);
       const have = flatten(loaded.json);
-      const missing = Object.keys(enFlat).filter((k) => !(k in have) && k.startsWith(ONLY_PREFIX));
+      const missing = Object.keys(enFlat).filter(
+        (k) => k.startsWith(ONLY_PREFIX) && (!(k in have) || (FIX_EXISTING && isBroken(enFlat[k], have[k], code)))
+      );
       if (missing.length === 0) {
         summary.push({ code, missing: 0, filled: 0, failed: 0 });
         continue;

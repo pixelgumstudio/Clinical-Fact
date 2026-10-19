@@ -14,7 +14,8 @@
     "next": "Nästa",
     "done": "Klar",
     "search": "Sök",
-    "filter": "Filtrera"
+    "filter": "Filtrera",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "Uppgradera plan",
     "everyWeek": "Varje vecka",
     "everyMonth": "Varje månad",
-    "everyYear": "Varje år"
+    "everyYear": "Varje år",
+    "expired": "Utgången",
+    "reportBug": "Rapportera en bugg",
+    "active": "AKTIV",
+    "trial": "PROVPERIOD"
   },
   "auth": {
     "welcome": "Välkommen till Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "Välj det språk du vill använda i appen. Du kan ändra det senare i din profil.",
       "searchPlaceholder": "Sök språk",
       "noResults": "Inga språk hittades"
+    },
+    "buttons": {
+      "continue": "Fortsätt",
+      "continueWithEmail": "Fortsätt med e-post",
+      "continueWithGoogle": "Fortsätt med Google",
+      "continueWithApple": "Fortsätt med Apple",
+      "skip": "Hoppa över",
+      "verify": "Verifierad!",
+      "next": "Nästa",
+      "tryNow": "Prova Clinical Fact gratis nu"
+    },
+    "labels": {
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "username": "@användarnamn",
+      "referralCode": "Värvningskod",
+      "nameScreenTitle": "Ditt för- och efternamn",
+      "byAgree": "Genom att fortsätta godkänner du våra",
+      "termsAndConditions": "användarvillkor",
+      "privacyPolicy": "integritetspolicy",
+      "and": "och"
+    },
+    "placeholders": {
+      "enterEmail": "Ange din e-postadress",
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "username": "@användarnamn",
+      "referralCode": "t.ex. JOHN eller TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Ange en giltig e-postadress",
+      "emailRequired": "Ange din e-postadress",
+      "firstLastNameRequired": "Ange både för- och efternamn",
+      "usernameRequired": "Ange ett användarnamn",
+      "usernameLength": "Användarnamnet måste innehålla 3–20 tecken (endast bokstäver, siffror och understreck)",
+      "usernameTaken": "Användarnamnet är redan upptaget. Välj ett annat.",
+      "usernameCheckFailed": "Det gick inte att kontrollera användarnamnet",
+      "usernameError": "Ett fel uppstod när användarnamnet kontrollerades. Kontrollera din anslutning.",
+      "invalidOTP": "Ogiltig kod. Kontrollera och försök igen.",
+      "otpExpired": "Koden har gått ut. Begär en ny kod.",
+      "otpRequired": "Ange hela verifieringskoden",
+      "referralNotFound": "Värvningskoden hittades inte. Kontrollera stavningen och försök igen.",
+      "referralValidateFailed": "Det gick inte att verifiera koden. Försök igen.",
+      "referralApplyFailed": "Det gick inte att tillämpa värvningskoden. Försök igen.",
+      "codeSendFailed": "Det gick inte att skicka verifieringskoden. Försök igen.",
+      "resendCodeFailed": "Det gick inte att skicka koden igen. Försök igen.",
+      "signInFailed": "Inloggningen misslyckades",
+      "googleSignInFailed": "Inloggning med Google misslyckades",
+      "googleTokenFailed": "Det gick inte att bearbeta Google-token",
+      "googleAccessTokenFailed": "Det gick inte att hämta åtkomsttoken. Försök igen.",
+      "authTokenFailed": "Det gick inte att hämta autentiseringstoken. Försök igen.",
+      "googleStartFailed": "Det gick inte att starta Google-inloggning. Försök igen.",
+      "setupRequired": "Konfiguration krävs",
+      "googleOAuthMissing": "Google-inloggning kräver OAuth Client ID:n.\\n\\nLägg till autentiseringsuppgifterna i din .env-fil.",
+      "youCanStillUseEmail": "Du kan fortfarande använda \"Fortsätt med e-post\".",
+      "appleSignInFailed": "Inloggning med Apple misslyckades",
+      "appleTokenFailed": "Det gick inte att bearbeta Apple-token",
+      "appleIosOnly": "Inloggning med Apple är endast tillgängligt på iOS."
+    },
+    "messages": {
+      "signingIn": "Loggar in...",
+      "codeValid": "✓ Koden är giltig",
+      "signupFailed": "Det gick inte att slutföra registreringen",
+      "setupFailed": "Det gick inte att slutföra konfigurationen. Försök igen."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Smartare anteckningar börjar här",
+      "tagline": "Förvandla all text till perfekta anteckningar",
+      "description": "Förvandla ljud, dokument eller videor till tydliga, sökbara anteckningar och skapa quiz, flashcards och sammanfattningar direkt.",
+      "createAccountTitle": "Skapa ett konto",
+      "orSignUpWith": "ELLER REGISTRERA DIG MED",
+      "signUpWithEmail": "Registrera dig med e-post",
+      "signInWithEmail": "Logga in med e-post",
+      "alreadyHaveAccount": "Har du redan ett konto? ",
+      "dontHaveAccount": "Har du inget konto? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Fråga vad som helst inom medicin. Få kliniska fakta",
+        "description": "Ställ medicinska frågor och få svar med källhänvisningar från PubMed, kliniska riktlinjer och pålitlig medicinsk litteratur"
+      },
+      "slide2": {
+        "headline": "Varje svar har en källa",
+        "description": "Inga gissningar, inga påhittade fakta – varje svar länkar direkt till verklig, granskningsbar medicinsk forskning."
+      },
+      "slide3": {
+        "headline": "Plugga smartare, klara dina medicinska tentor",
+        "description": "Förvandla frågor eller uppladdat material till quiz eller flashcards på några sekunder – öva direkt på det du lär dig."
+      }
+    },
+    "otp": {
+      "title": "Bekräfta din e-postadress",
+      "subtitle": "Ange OTP-koden som vi skickade till din e-postadress"
+    },
+    "professionalDeclaration": {
+      "title": "Professionell försäkran",
+      "subtitle": "Clinical Fact är ett pedagogiskt verktyg för litteratursökning",
+      "disclaimerIntro": "Clinical Fact är ett informationsverktyg baserat på artificiell intelligens, utformat för att hjälpa sjuksköterske-, läkar- och andra vårdstudenter att få tillgång till medicinsk kunskap, forskningslitteratur och studiematerial. Appen tillhandahåller inte medicinska diagnoser, behandlingsrekommendationer, kliniska instruktioner eller patientspecifik medicinsk rådgivning, och får inte användas som grund för direkt patientvård eller kliniskt beslutsfattande.",
+      "disclaimerHeading": "Hur Clinical Fact genererar svar:",
+      "disclaimerBody": "Clinical Fact hämtar information direkt från etablerade medicinska och vetenskapliga källor, inklusive PubMed, Semantic Scholar och officiell FDA-läkemedelsinformation, och använder AI för att sammanfatta och förklara det hämtade innehållet på ett begripligt sätt. Varje svar genereras enbart utifrån de källor som hämtats för den specifika frågan, och källhänvisningar länkar tillbaka till originalmaterialet så att du själv kan verifiera det. Clinical Fact genererar inte medicinska fakta ur minnet eller hittar på källor.\n\nClinical Fact är inte ett diagnostiskt verktyg, en behandlingsplattform, medicinteknisk produkt eller en ersättning för professionell medicinsk bedömning, behörig handledning eller ditt lärosätes kursplan. All information som genereras av appen, inklusive svar, källhänvisningar, quiz och flashcards, tillhandahålls endast i allmänt utbildnings- och studiesyfte och måste verifieras självständigt av användaren innan den tillämpas i akademiska, kliniska eller professionella sammanhang.\nClinical Fact garanterar inte fullständigheten, korrektheten eller den aktuella kliniska relevansen hos informationen som tillhandahålls. Medicinsk kunskap utvecklas ständigt – stäm alltid av kritisk information med dina lärare, kliniska handledare och aktuella primärkällor.\nNär du laddar upp egna dokument, anteckningar eller inspelningar genererar Clinical Fact svar, sammanfattningar, quiz och flashcards enbart utifrån det uppladdade materialet, inte externa källor såvida inte externa källor uttryckligen visas jämte detta.\n\nClinical Fact verifierar, autentiserar eller bekräftar inte sina användares identitet, studiestatus eller behörigheter. Appen är inte avsedd att användas i akuta situationer eller för att fatta kliniska beslut i realtid.\nGenom att fortsätta bekräftar du att du förstår dessa villkor och samtycker till att endast använda Clinical Fact som ett studie- och referensstöd.",
+      "checkboxLabel": "Jag förstår att den här appen endast är ett utbildningsstöd och inte ger medicinsk rådgivning",
+      "acceptButton": "Godkänn och fortsätt"
+    },
+    "survey": {
+      "role": "Vad beskriver dig bäst, {{firstName}}?",
+      "currentMethod": "Hur brukar du hitta svar på medicinska frågor just nu?",
+      "timeDrain": "Vad är din största tidstjuv?",
+      "appExpectation": "Vad förväntar du dig av Clinical Fact?",
+      "aiToolsUsed": "Vilka AI-verktyg har du använt hittills i dina medicinska studier?",
+      "aiToolIssue": "Vad fungerade inte bra med de verktygen?",
+      "aiTrustLevel": "Hur ofta oroar du dig för att ett AI-svar kan vara felaktigt?",
+      "biggestNeed": "Vad behöver du mest just nu?",
+      "studyTimePerWeek": "Hur mycket tid har du för studier varje vecka?",
+      "comingUp": "Vad väntar härnäst för dig?",
+      "referralSource": "Var hörde du talas om Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Välj ditt användarnamn",
+      "usernameSubtitle": "Det gör ditt konto mer personligt",
+      "goals": "Vad vill du ha hjälp med\\ni Clinical Fact?",
+      "goalsSubtitle": "Välj alla som stämmer. Vi anpassar upplevelsen för dig.",
+      "contentType": "Vilken typ av innehåll\\nanvänder du mest?",
+      "contentTypeSubtitle": "Välj alla som stämmer. Det hjälper oss att anpassa din upplevelse.",
+      "reviewStyle": "Hur repeterar du helst\\ndet du har lärt dig?",
+      "reviewStyleSubtitle": "Välj ditt favoritsätt att repetera.",
+      "frustration": "{{firstName}}, vad tycker du är mest frustrerande med att föra anteckningar?",
+      "frustrationSubtitle": "Välj alla som stämmer. Det hjälper oss att underlätta för dig.",
+      "referral": "Vi är bara nyfikna,\\n{{firstName}},\\nhur hörde du talas om Clinical Fact?",
+      "referralSubtitle": "Välj ett alternativ."
+    },
+    "referralScreen": {
+      "title": "Blev du tipsad\\nav någon?",
+      "subtitle": "Ange deras värvningskod om du har en"
+    },
+    "setup": {
+      "preparingNotes": "Förbereder anteckningar",
+      "preparingFlashcards": "Förbereder flashcards",
+      "preparingQuiz": "Förbereder quizmallar",
+      "preparingChat": "Förbereder chattassistenter",
+      "title": "Skapar din personliga\\narbetsyta, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Tack för att du litar på Clinical Fact",
+      "subtitle": "Du gör sällskap med tusentals sjuksköterske- och läkarstudenter",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Allt du behöver för att\\nlära dig vad som helst",
+      "subtitle": "Spela in. Fördjupa dig. Quiza. Bemästra."
+    },
+    "features": {
+      "feature1": {
+        "title": "Få verifierade medicinska svar och följdfrågor",
+        "description": "Ställ medicinska frågor och få en tydlig förklaring samt smarta följdfrågor, så att du aldrig fastnar mitt i studierna."
+      },
+      "feature2": {
+        "title": "Varje medicinskt svar,\nunderbyggt av en riktig källa",
+        "description": "Källhänvisningar från PubMed, Semantic Scholar och Europe PMC – kontrollerbara, inte påhittade."
+      },
+      "feature3": {
+        "title": "Ladda upp dina anteckningar, få medicinska sammanfattningar av ditt material",
+        "description": "Förvandla föreläsningsbilder, PDF:er eller anteckningar till tydliga förklaringar med stöd i pålitliga medicinska källor."
+      },
+      "feature4": {
+        "title": "Gör om vilken chatt som helst till ett quiz eller flashcards att öva på",
+        "description": "Ingen separat studieapp behövs – skapa övningsfrågor direkt från dina chattar och uppladdningar."
+      },
+      "feature5": {
+        "title": "Gör om chattar eller dokument till flashcard-frågor att öva på",
+        "description": "Ingen separat studieapp behövs – skapa övningsfrågor direkt från dina chattar och uppladdningar."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "Nästan klar...",
     "quizReady": "Quiz redo!",
     "startQuiz": "Starta quiz",
-    "questionCount": "{{current}} av {{total}}"
+    "questionCount": "{{current}} av {{total}}",
+    "previous": "Föregående fråga",
+    "generatingQuiz": "Skapar quiz med AI...",
+    "exitTitle": "Avsluta quiz?",
+    "exitMessage": "Dina framsteg går förlorade.",
+    "exit": "Avsluta",
+    "errorTitle": "Hoppsan, något gick fel 🚧",
+    "errorMessage": "Det gick inte att skapa just nu. Vänta ett ögonblick och försök igen!",
+    "noQuestions": "Inga frågor tillgängliga.",
+    "reading": "Läser dina anteckningar...",
+    "identifying": "Identifierar nyckelbegrepp...",
+    "structuring": "Strukturerar frågor...",
+    "almostReady": "Nästan klart...",
+    "youScored": "DITT RESULTAT",
+    "timeInSeconds": "TID I SEKUNDER",
+    "accuracy": "TRÄFFSÄKERHET",
+    "grade": "BETYG",
+    "reportsCard": "Resultatkort",
+    "reviewAnswers": "Granska svar",
+    "correctAnswer": "Rätt svar",
+    "yourAnswer": "Ditt svar",
+    "explanation": "Förklaring",
+    "questionProgress": "Fråga {{current}} av {{total}}",
+    "generatingQuizWait": "Vi skapar ditt quiz åt dig, vänta ett ögonblick medan det blir klart..",
+    "goToChats": "Gå till chattar"
   },
   "flashcards": {
     "title": "Flashkort",
@@ -178,7 +378,29 @@
     "previous": "Föregående",
     "shuffle": "Blanda",
     "generating": "Genererar flashkort...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Skapa flashcards för att förbättra din minnesbehållning",
+    "howManyQuestions": "Hur många frågor?",
+    "generateButton": "Skapa flashcards",
+    "generatingEllipsis": "Skapar...",
+    "allDone": "Allt klart!",
+    "completedReview": "Du har gått igenom alla kort i denna kortlek",
+    "backToNotes": "Tillbaka till anteckningar",
+    "question": "Fråga",
+    "answer": "Svar",
+    "noQuestionText": "(Ingen frågetext)",
+    "noAnswerText": "(Ingen svarstext)",
+    "enterQuestion": "Skriv din fråga",
+    "enterAnswer": "Skriv svaret",
+    "clickToFlip": "klicka på kortet för att vända",
+    "reading": "Läser dina anteckningar...",
+    "identifying": "Identifierar nyckelbegrepp...",
+    "creating": "Skapar flashcards...",
+    "almostReady": "Nästan klart...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} av {{total}}",
+    "noteIdRequired": "Antecknings-ID krävs för att skapa flashcards",
+    "invalidCardCount": "Välj mellan 1 och 100 flashcards"
   },
   "chat": {
     "title": "Chatt",
@@ -211,6 +433,37 @@
     "turkish": "Turkiska",
     "vietnamese": "Vietnamesiska",
     "thai": "Thailändska",
-    "indonesian": "Indonesiska"
+    "indonesian": "Indonesiska",
+    "englishGB": "Engelska (Storbritannien)",
+    "englishAU": "Engelska (Australien)",
+    "englishCA": "Engelska (Kanada)",
+    "spanishMX": "Spanska (Mexiko)",
+    "frenchCA": "Franska (Kanada)",
+    "portuguesePT": "Portugisiska (Portugal)",
+    "norwegian": "Norska",
+    "danish": "Danska",
+    "finnish": "Finska",
+    "czech": "Tjeckiska",
+    "slovak": "Slovakiska",
+    "slovenian": "Slovenska",
+    "croatian": "Kroatiska",
+    "hungarian": "Ungerska",
+    "romanian": "Rumänska",
+    "greek": "Grekiska",
+    "ukrainian": "Ukrainska",
+    "arabicAE": "Arabiska (UAE)",
+    "arabicEG": "Arabiska (Egypten)",
+    "hebrew": "Hebreiska",
+    "bengali": "Bengali",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Malajiska",
+    "catalan": "Katalanska"
   }
 }

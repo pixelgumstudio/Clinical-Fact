@@ -26,7 +26,7 @@
     "recentNotes": "Recent Notes",
     "seeAll": "See all",
     "noNotes": "No notes to display",
-    "noNotesDesc": "Please click on the button above to start\ngenerating your note for clinicalfact.",
+    "noNotesDesc": "Please click on the button above to start\ngenerating your note for Clinical Fact.",
     "loadingNotes": "Loading notes..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Upgrade plan",
     "everyWeek": "Every week",
     "everyMonth": "Every month",
-    "everyYear": "Every year"
+    "everyYear": "Every year",
+    "reportBug": "Report a bug"
   },
   "auth": {
     "welcome": "Welcome to Clinical Fact",
@@ -92,6 +93,177 @@
       "subtitle": "Pick the language you'd like to use in the app. You can change it later in your profile.",
       "searchPlaceholder": "Search languages",
       "noResults": "No languages found"
+    },
+    "buttons": {
+      "continue": "Continue",
+      "continueWithEmail": "Continue with Email",
+      "continueWithGoogle": "Continue with Google",
+      "continueWithApple": "Continue with Apple",
+      "skip": "Skip",
+      "verify": "Verified!",
+      "next": "Next",
+      "tryNow": "Try Clinical Fact now for free"
+    },
+    "labels": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "username": "@username",
+      "referralCode": "Referral code",
+      "nameScreenTitle": "Your First and last name",
+      "byAgree": "By continuing, you agree to our",
+      "termsAndConditions": "Terms and conditions",
+      "privacyPolicy": "privacy policy",
+      "and": "and"
+    },
+    "placeholders": {
+      "enterEmail": "Enter your email address",
+      "firstName": "First name",
+      "lastName": "Lastname",
+      "username": "@username",
+      "referralCode": "e.g. JOHN or TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Please enter a valid email address",
+      "emailRequired": "Please enter your email address",
+      "firstLastNameRequired": "Please enter both your first and last name",
+      "usernameRequired": "Please enter a username",
+      "usernameLength": "Username must be 3-20 characters (letters, numbers, underscores only)",
+      "usernameTaken": "Username is already taken. Please try another one.",
+      "usernameCheckFailed": "Failed to check username availability",
+      "usernameError": "Error checking username. Please check your connection.",
+      "invalidOTP": "Invalid code. Please check and try again.",
+      "otpExpired": "Code expired. Please request a new code.",
+      "otpRequired": "Please enter the complete verification code",
+      "referralNotFound": "Referral code not found. Check the spelling and try again.",
+      "referralValidateFailed": "Failed to validate code. Please try again.",
+      "referralApplyFailed": "Failed to apply referral code. Please try again.",
+      "codeSendFailed": "Failed to send verification code. Please try again.",
+      "resendCodeFailed": "Failed to resend code. Please try again.",
+      "signInFailed": "Sign In Failed",
+      "googleSignInFailed": "Google Sign In Failed",
+      "googleTokenFailed": "Failed to process Google token",
+      "googleAccessTokenFailed": "Failed to get access token. Please try again.",
+      "authTokenFailed": "Failed to get authentication token. Please try again.",
+      "googleStartFailed": "Failed to start Google sign-in. Please try again.",
+      "setupRequired": "Setup Required",
+      "googleOAuthMissing": "Google Sign-In requires OAuth Client IDs.\\n\\nPlease add credentials to your .env file.",
+      "youCanStillUseEmail": "You can still use \"Continue with Email\".",
+      "appleSignInFailed": "Apple Sign In Failed",
+      "appleTokenFailed": "Failed to process Apple token",
+      "appleIosOnly": "Sign in with Apple is only available on iOS."
+    },
+    "messages": {
+      "signingIn": "Signing in...",
+      "codeValid": "✓ Code is valid",
+      "signupFailed": "Failed to complete signup",
+      "setupFailed": "Failed to complete setup. Please try again."
+    },
+    "welcomeScreen": {
+      "title": "Clinic Fact: Smarter notes Start here",
+      "tagline": "Turn any text into perfect notes",
+      "description": "Turn audio, docs, or videos into clear, searchable notes and instantly create quizzes, flashcards, and summaries.",
+      "createAccountTitle": "Create an account",
+      "orSignUpWith": "OR SIGN UP WITH",
+      "signUpWithEmail": "Sign up with Email Address",
+      "signInWithEmail": "Sign in with Email Address",
+      "alreadyHaveAccount": "Already have an account ? ",
+      "dontHaveAccount": "Don't have an account ? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Ask anything Medical. Get the clinical fact",
+        "description": "Ask any Medical question and get an answer backed by real, cited sources from PubMed, clinical guidelines, and trusted medical literature"
+      },
+      "slide2": {
+        "headline": "Every Answer, Backed by a Source",
+        "description": "No guessing, no invented facts, every answer links back to real, checkable medical research."
+      },
+      "slide3": {
+        "headline": "Study Smarter, Pass Your Medical Exams",
+        "description": "Turn any question or upload into a quiz or flashcard set in seconds,  practice built straight from what you're learning."
+      }
+    },
+    "otp": {
+      "title": "Confirm your Email address",
+      "subtitle": "Please enter the OTP code we sent to your email address"
+    },
+    "professionalDeclaration": {
+      "title": "Professional Declaration",
+      "subtitle": "Clinical Fact is an educational literature search tool",
+      "disclaimerIntro": "Clinical Fact is an artificial intelligence–based informational tool intended to support nursing, medical, and other health sciences students in accessing medical knowledge, research literature, and study materials. The app does not provide medical diagnoses, treatment recommendations, clinical instructions, or patient-specific medical advice, and must not be used as a basis for direct patient care or clinical decision-making.",
+      "disclaimerHeading": "How Clinical Fact generates answers:",
+      "disclaimerBody": "Clinical Fact retrieves information directly from established medical and scientific sources, including PubMed, Semantic Scholar, and official FDA drug labeling, and uses AI to summarize and explain that retrieved content in plain language. Every answer is generated only from the sources retrieved for that specific question, and citations link back to the original material so you can verify it yourself. Clinical Fact does not generate medical facts from memory or invent sources.\n\nClinical Fact is not a diagnostic tool, treatment platform, medical device, or a substitute for professional medical judgment, licensed instruction, or your institution's curriculum. Any information generated by the app, including answers, citations, quizzes, and flashcards, is provided for general educational and study purposes only and must be independently verified by the user before being relied upon in any academic, clinical, or professional context.\nClinical Fact does not guarantee the completeness, accuracy, or current clinical relevance of any information provided. Medical knowledge evolves continuously — always cross-reference critical information with your instructors, clinical supervisors, and up-to-date primary sources.\nWhen you upload your own documents, notes, or recordings, Clinical Fact generates answers, summaries, quizzes, and flashcards based only on that uploaded content, not external sources unless external sources are explicitly shown alongside it.\n\nClinical Fact does not verify, authenticate, or confirm the identity, enrollment status, or credentials of its users. The app is not intended for use in emergency situations or for making real-time clinical decisions.\nBy continuing, you acknowledge that you understand these terms and agree to use Clinical Fact solely as a study and reference aid.",
+      "checkboxLabel": "I understand this app is for educational reference only and does not provide medical advice",
+      "acceptButton": "Accept and continue"
+    },
+    "survey": {
+      "role": "What best describes you, {{firstName}}?",
+      "currentMethod": "How do you usually find answers to medical questions right now?",
+      "timeDrain": "What's your biggest time drain?",
+      "appExpectation": "What do you expect from our Clinical Fact medical app?",
+      "aiToolsUsed": "Which AI tools have you used so far for your medical research?",
+      "aiToolIssue": "What went wrong with those tools?",
+      "aiTrustLevel": "How often do you worry an AI answer might be wrong?",
+      "biggestNeed": "What do you need most right now?",
+      "studyTimePerWeek": "How much time do you have to study each week?",
+      "comingUp": "What's coming up for you?",
+      "referralSource": "Where did you hear about Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Let's get your username",
+      "usernameSubtitle": "It helps make your account more personal",
+      "goals": "What do you use Clinical Fact\\nto help you with",
+      "goalsSubtitle": "Select all that apply. We'll tailor the experience for you.",
+      "contentType": "Which type of content do\\nyou mostly use",
+      "contentTypeSubtitle": "Select all that apply. This helps us customise your experience.",
+      "reviewStyle": "How do you like to review\\nwhat you've learned",
+      "reviewStyleSubtitle": "Select your preferred review method.",
+      "frustration": "{{firstName}}, what frustrates you most about taking notes?",
+      "frustrationSubtitle": "Select all that apply. This helps us solve your problems.",
+      "referral": "Just curious\\n{{firstName}},\\nhow did you hear about Clinical Fact?",
+      "referralSubtitle": "Select one option."
+    },
+    "referralScreen": {
+      "title": "Were you referred \\nby someone?",
+      "subtitle": "Enter their referral code if you have one"
+    },
+    "setup": {
+      "preparingNotes": "Preparing notes",
+      "preparingFlashcards": "Preparing Flashcards",
+      "preparingQuiz": "Preparing Quiz templates",
+      "preparingChat": "Preparing Chat assistants",
+      "title": "Setting up your personalised\\nworkspace, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Thanks for trusting Clinical Fact",
+      "subtitle": "You're joining thousands of nursing and medical students",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Everything you need to\\nlearn anything",
+      "subtitle": "Record it. Research it. Quiz it. Master it."
+    },
+    "features": {
+      "feature1": {
+        "title": "Get Real medical answers and Follow-up questions",
+        "description": "Ask any medical question and get a clear explanation plus smart follow-up questions, so you never hit a dead end mid-study."
+      },
+      "feature2": {
+        "title": "Every Medical answer,\nbacked by a real source",
+        "description": "Citations pulled from PubMed, Semantic Scholar, and Europe PMC checkable, not invented."
+      },
+      "feature3": {
+        "title": "Upload your notes, Get Medical summaries on your materials",
+        "description": "Turn any lecture slide, PDF, or note into a clear explanation backed by trusted medical sources."
+      },
+      "feature4": {
+        "title": "Turn any chat into a Quiz or flashcards for practice",
+        "description": "No separate app for studying, generate practice questions straight from your chats and uploads."
+      },
+      "feature5": {
+        "title": "Turn any chat or document into flashcard questions for practice",
+        "description": "No separate app for studying,  generate practice questions straight from your chats and uploads."
+      }
     }
   },
   "notes": {
@@ -193,7 +365,10 @@
     "reviewAnswers": "Review answers",
     "correctAnswer": "Correct answer",
     "yourAnswer": "Your answer",
-    "explanation": "Explanation"
+    "explanation": "Explanation",
+    "questionProgress": "Question {{current}} of {{total}}",
+    "generatingQuizWait": "We are generating your Quiz for you, pls wait while it finishes..",
+    "goToChats": "Go to chats"
   },
   "flashcards": {
     "title": "Flashcards",
@@ -222,7 +397,9 @@
     "creating": "Creating flashcards...",
     "almostReady": "Almost ready...",
     "headerTitle": "Flashcard",
-    "progressFormat": "Flashcard {{current}} of {{total}}"
+    "progressFormat": "Flashcard {{current}} of {{total}}",
+    "noteIdRequired": "Note ID is required to generate flashcards",
+    "invalidCardCount": "Please select between 1 and 100 flashcards"
   },
   "chat": {
     "title": "Chat",
@@ -255,6 +432,37 @@
     "turkish": "Turkish",
     "vietnamese": "Vietnamese",
     "thai": "Thai",
-    "indonesian": "Indonesian"
+    "indonesian": "Indonesian",
+    "englishGB": "English (UK)",
+    "englishAU": "English (Australia)",
+    "englishCA": "English (Canada)",
+    "spanishMX": "Spanish (Mexico)",
+    "frenchCA": "French (Canada)",
+    "portuguesePT": "Portuguese (Portugal)",
+    "norwegian": "Norwegian",
+    "danish": "Danish",
+    "finnish": "Finnish",
+    "czech": "Czech",
+    "slovak": "Slovak",
+    "slovenian": "Slovenian",
+    "croatian": "Croatian",
+    "hungarian": "Hungarian",
+    "romanian": "Romanian",
+    "greek": "Greek",
+    "ukrainian": "Ukrainian",
+    "arabicAE": "Arabic (UAE)",
+    "arabicEG": "Arabic (Egypt)",
+    "hebrew": "Hebrew",
+    "bengali": "Bengali",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Malay",
+    "catalan": "Catalan"
   }
 }

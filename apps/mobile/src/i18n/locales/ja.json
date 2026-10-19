@@ -14,7 +14,8 @@
     "next": "次へ",
     "done": "完了",
     "search": "検索",
-    "filter": "フィルター"
+    "filter": "フィルター",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "プランをアップグレード",
     "everyWeek": "毎週",
     "everyMonth": "毎月",
-    "everyYear": "毎年"
+    "everyYear": "毎年",
+    "expired": "期限切れ",
+    "reportBug": "不具合を報告",
+    "active": "有効",
+    "trial": "トライアル"
   },
   "auth": {
     "welcome": "Clinical Factへようこそ",
@@ -89,6 +94,177 @@
       "subtitle": "アプリで使用する言語を選択してください。後からプロフィールで変更できます。",
       "searchPlaceholder": "言語を検索",
       "noResults": "該当する言語が見つかりません"
+    },
+    "buttons": {
+      "continue": "続ける",
+      "continueWithEmail": "メールで続ける",
+      "continueWithGoogle": "Googleで続ける",
+      "continueWithApple": "Appleで続ける",
+      "skip": "スキップ",
+      "verify": "認証完了！",
+      "next": "次へ",
+      "tryNow": "Clinical Factを今すぐ無料でお試し"
+    },
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "username": "@ユーザー名",
+      "referralCode": "紹介コード",
+      "nameScreenTitle": "お名前を入力",
+      "byAgree": "続行することで、以下に同意したことになります：",
+      "termsAndConditions": "利用規約",
+      "privacyPolicy": "プライバシーポリシー",
+      "and": "および"
+    },
+    "placeholders": {
+      "enterEmail": "メールアドレスを入力",
+      "firstName": "名",
+      "lastName": "姓",
+      "username": "@ユーザー名",
+      "referralCode": "例：JOHN、TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "有効なメールアドレスを入力してください",
+      "emailRequired": "メールアドレスを入力してください",
+      "firstLastNameRequired": "姓と名の両方を入力してください",
+      "usernameRequired": "ユーザー名を入力してください",
+      "usernameLength": "ユーザー名は3〜20文字で入力してください（半角英数字、アンダースコアのみ）",
+      "usernameTaken": "このユーザー名は既に使用されています。別のユーザー名をお試しください。",
+      "usernameCheckFailed": "ユーザー名の空き状況を確認できませんでした",
+      "usernameError": "ユーザー名の確認中にエラーが発生しました。接続状況を確認してください。",
+      "invalidOTP": "認証コードが無効です。確認してもう一度お試しください。",
+      "otpExpired": "認証コードの有効期限が切れています。新しいコードをリクエストしてください。",
+      "otpRequired": "認証コードをすべて入力してください",
+      "referralNotFound": "紹介コードが見つかりません。入力内容を確認してもう一度お試しください。",
+      "referralValidateFailed": "コードの確認に失敗しました。もう一度お試しください。",
+      "referralApplyFailed": "紹介コードの適用に失敗しました。もう一度お試しください。",
+      "codeSendFailed": "認証コードの送信に失敗しました。もう一度お試しください。",
+      "resendCodeFailed": "コードの再送信に失敗しました。もう一度お試しください。",
+      "signInFailed": "サインインに失敗しました",
+      "googleSignInFailed": "Googleサインインに失敗しました",
+      "googleTokenFailed": "Googleトークンの処理に失敗しました",
+      "googleAccessTokenFailed": "アクセストークンの取得に失敗しました。もう一度お試しください。",
+      "authTokenFailed": "認証トークンの取得に失敗しました。もう一度お試しください。",
+      "googleStartFailed": "Googleサインインを開始できませんでした。もう一度お試しください。",
+      "setupRequired": "初期設定が必要です",
+      "googleOAuthMissing": "GoogleサインインにはOAuthクライアントIDが必要です。\\n\\n.envファイルに認証情報を追加してください。",
+      "youCanStillUseEmail": "「メールで続ける」は引き続きご利用いただけます。",
+      "appleSignInFailed": "Appleサインインに失敗しました",
+      "appleTokenFailed": "Appleトークンの処理に失敗しました",
+      "appleIosOnly": "AppleサインインはiOSでのみご利用いただけます。"
+    },
+    "messages": {
+      "signingIn": "サインイン中...",
+      "codeValid": "✓ 有効なコードです",
+      "signupFailed": "登録を完了できませんでした",
+      "setupFailed": "設定を完了できませんでした。もう一度お試しください。"
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: スマートな学習ノートはここから",
+      "tagline": "あらゆるテキストを完璧なノートに",
+      "description": "音声、資料、動画を検索しやすいノートに変換。クイズ、暗記カード、要約も瞬時に作成できます。",
+      "createAccountTitle": "アカウントを作成",
+      "orSignUpWith": "または以下で登録",
+      "signUpWithEmail": "メールアドレスで登録",
+      "signInWithEmail": "メールアドレスでログイン",
+      "alreadyHaveAccount": "すでにアカウントをお持ちですか？ ",
+      "dontHaveAccount": "アカウントをお持ちでないですか？ "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "医療の疑問を質問。確かなエビデンスを。",
+        "description": "医学的な疑問を質問すると、PubMed、診療ガイドライン、信頼性の高い医学文献などの出典に裏付けられた回答が得られます。"
+      },
+      "slide2": {
+        "headline": "すべての回答に確かな出典を",
+        "description": "推測や捏造はなく、すべての回答が検証可能な実際の医学研究・文献にリンクしています。"
+      },
+      "slide3": {
+        "headline": "スマートに学習し、試験に合格しよう",
+        "description": "疑問点やアップロードした資料から数秒でクイズや暗記カードを作成。学んでいる内容に直結した実践演習が可能です。"
+      }
+    },
+    "otp": {
+      "title": "メールアドレスの確認",
+      "subtitle": "メールアドレスに送信された認証コードを入力してください"
+    },
+    "professionalDeclaration": {
+      "title": "専門的利用に関する宣誓事項",
+      "subtitle": "Clinical Fact は教育・文献検索支援ツールです",
+      "disclaimerIntro": "Clinical Fact は、看護学生、医学生、その他の医療系学生が医学的知識、研究文献、学習教材にアクセスすることを支援するために設計されたAIベースの情報提供ツールです。本アプリは、医学的診断、治療方針の推奨、臨床指示、または個別の患者に対する医療アドバイスを提供するものではなく、直接的な患者ケアや臨床的判断の根拠として使用することはできません。",
+      "disclaimerHeading": "Clinical Fact による回答生成の仕組み：",
+      "disclaimerBody": "Clinical Fact は、PubMed、Semantic Scholar、FDA公式添付文書などの信頼できる医学・科学情報源から直接情報を取得し、AIを活用してその内容をわかりやすい言葉で要約・解説します。すべての回答はその質問に対して取得された情報源のみに基づいて生成され、引用元リンクから原文を直接確認できます。Clinical Fact が記憶から医療事実を生成したり、出典を捏造したりすることはありません。\n\nClinical Fact は診断ツール、治療プラットフォーム、医療機器ではなく、専門的な医学的判断、資格を有する指導者の指示、または所属機関のカリキュラムに代わるものではありません。回答、引用、クイズ、暗記カードなど、アプリによって生成されたすべての情報は一般的な教育および学習のみを目的として提供されており、学術的、臨床的、または専門的な場面で依拠する前に、ユーザー自身が独自に検証する必要があります。\nClinical Fact は、提供される情報の完全性、正確性、または最新の臨床的妥当性を保証しません。医学知識は絶えず進化しています。重要な情報は必ず指導教員、臨床指導者、および最新の原典と照合してください。\nご自身の文書、ノート、または録音をアップロードした場合、Clinical Fact はそのアップロードされた内容のみに基づいて回答、要約、クイズ、暗記カードを生成します（外部ソースが明示的に併記されている場合を除く）。\n\nClinical Fact は、ユーザーの身元、在学状況、または資格の検証や確認を行いません。本アプリは緊急時やリアルタイムの臨床判断での使用を想定していません。\n続行することにより、お客様はこれらの条項を理解し、Clinical Fact を学習および参考の補助としてのみ使用することに同意したことになります。",
+      "checkboxLabel": "本アプリが教育・参考用のみを目的とし、医療アドバイスを提供するものではないことを理解しました",
+      "acceptButton": "同意して続ける"
+    },
+    "survey": {
+      "role": "{{firstName}}さん、あなたの立場に最も近いものはどれですか？",
+      "currentMethod": "普段、医学的な疑問はどのように調べていますか？",
+      "timeDrain": "勉強で最も時間を取られていることは何ですか？",
+      "appExpectation": "医療学習アプリ「Clinical Fact」に期待することは何ですか？",
+      "aiToolsUsed": "これまでに医療学習で使ったことがあるAIツールはどれですか？",
+      "aiToolIssue": "それらのツールを使って困った点は何でしたか？",
+      "aiTrustLevel": "AIの回答が間違っているかもしれないと不安になることはありますか？",
+      "biggestNeed": "今、最も必要としているものは何ですか？",
+      "studyTimePerWeek": "1週間に確保できる勉強時間はどのくらいですか？",
+      "comingUp": "直近で控えている予定は何ですか？",
+      "referralSource": "Clinical Fact をどこで知りましたか？"
+    },
+    "onboarding": {
+      "username": "ユーザー名を設定しましょう",
+      "usernameSubtitle": "アカウントのパーソナライズに使用されます",
+      "goals": "Clinical Fact をどのような目的で\\n活用したいですか？",
+      "goalsSubtitle": "当てはまるものをすべて選択してください。あなたに合わせた体験をお届けします。",
+      "contentType": "普段どのような形式のコンテンツを\\n主に使用していますか？",
+      "contentTypeSubtitle": "当てはまるものをすべて選択してください。体験の最適化に役立ちます。",
+      "reviewStyle": "学んだ内容はどのように\\n復習したいですか？",
+      "reviewStyleSubtitle": "希望する復習方法を選択してください。",
+      "frustration": "{{firstName}}さん、ノート作成で一番ストレスを感じることは何ですか？",
+      "frustrationSubtitle": "当てはまるものをすべて選択してください。問題解決に役立てます。",
+      "referral": "{{firstName}}さん、\\nClinical Fact を\\nどこで知りましたか？",
+      "referralSubtitle": "1つ選択してください。"
+    },
+    "referralScreen": {
+      "title": "誰かからの紹介ですか？",
+      "subtitle": "紹介コードをお持ちの場合は入力してください"
+    },
+    "setup": {
+      "preparingNotes": "ノートを準備中",
+      "preparingFlashcards": "暗記カードを準備中",
+      "preparingQuiz": "クイズのテンプレートを準備中",
+      "preparingChat": "チャットアシスタントを準備中",
+      "title": "{{firstName}}さんのワークスペースを\\n設定しています..."
+    },
+    "thanks": {
+      "title": "Clinical Fact を選んでいただきありがとうございます",
+      "subtitle": "多くの看護学生や医学生が活用しています",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "あらゆる学びを\\n加速させるすべてがここに",
+      "subtitle": "録音する。調べる。解く。身につける。"
+    },
+    "features": {
+      "feature1": {
+        "title": "確かな医学的回答と深掘り用の質問",
+        "description": "医学的な質問に対してわかりやすい解説とスマートな関連質問を提供。学習の途中で行き詰まることはもうありません。"
+      },
+      "feature2": {
+        "title": "すべての医学的回答に、\n確かなエビデンスを",
+        "description": "PubMed、Semantic Scholar、Europe PMCから引用。AIの創作ではなく、いつでも確認できます。"
+      },
+      "feature3": {
+        "title": "ノートをアップロードして、医学教材の要約を作成",
+        "description": "講義スライドやPDF、ノートから、信頼できる医学的根拠に基づいたわかりやすい解説を作成します。"
+      },
+      "feature4": {
+        "title": "チャットから演習用のクイズや暗記カードを作成",
+        "description": "別の学習アプリは不要。チャットやアップロードした資料から直接演習問題を作成できます。"
+      },
+      "feature5": {
+        "title": "チャットや資料から演習用のフラッシュカードを作成",
+        "description": "別の学習アプリは不要。チャットやアップロードした資料から直接演習問題を作成できます。"
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "もうすぐ完了...",
     "quizReady": "クイズの準備完了！",
     "startQuiz": "クイズを開始",
-    "questionCount": "{{total}}問中{{current}}問目"
+    "questionCount": "{{total}}問中{{current}}問目",
+    "previous": "前の問題",
+    "generatingQuiz": "AIでクイズを生成中...",
+    "exitTitle": "クイズを終了しますか？",
+    "exitMessage": "進行状況は保存されません。",
+    "exit": "終了する",
+    "errorTitle": "問題が発生しました 🚧",
+    "errorMessage": "現在クイズを生成できませんでした。しばらく待ってからもう一度お試しください。",
+    "noQuestions": "利用可能な問題がありません。",
+    "reading": "ノートを読み込み中...",
+    "identifying": "重要概念を特定中...",
+    "structuring": "問題を構成中...",
+    "almostReady": "まもなく完了します...",
+    "youScored": "スコア",
+    "timeInSeconds": "所要時間（秒）",
+    "accuracy": "正答率",
+    "grade": "成績",
+    "reportsCard": "成績表",
+    "reviewAnswers": "解答を確認",
+    "correctAnswer": "正解",
+    "yourAnswer": "あなたの回答",
+    "explanation": "解説",
+    "questionProgress": "問題 {{current}} / {{total}}",
+    "generatingQuizWait": "クイズを生成しています。完了まで少々お待ちください...",
+    "goToChats": "チャットへ移動"
   },
   "flashcards": {
     "title": "フラッシュカード",
@@ -178,7 +378,29 @@
     "previous": "前へ",
     "shuffle": "シャッフル",
     "generating": "フラッシュカードを生成中...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "フラッシュカードを作成して記憶定着率をアップ",
+    "howManyQuestions": "問題数を選択",
+    "generateButton": "フラッシュカードを生成",
+    "generatingEllipsis": "生成中...",
+    "allDone": "すべて完了！",
+    "completedReview": "このデッキのすべてのカードを復習しました",
+    "backToNotes": "ノートに戻る",
+    "question": "問題",
+    "answer": "解答",
+    "noQuestionText": "（問題がありません）",
+    "noAnswerText": "（解答がありません）",
+    "enterQuestion": "問題を入力してください",
+    "enterAnswer": "解答を入力してください",
+    "clickToFlip": "クリックして裏返す",
+    "reading": "ノートを読み込み中...",
+    "identifying": "重要概念を特定中...",
+    "creating": "フラッシュカードを作成中...",
+    "almostReady": "まもなく完了します...",
+    "headerTitle": "フラッシュカード",
+    "progressFormat": "フラッシュカード {{current}} / {{total}}",
+    "noteIdRequired": "フラッシュカードの生成にはノートIDが必要です",
+    "invalidCardCount": "フラッシュカードの枚数は1〜100枚の間で選択してください"
   },
   "chat": {
     "title": "チャット",
@@ -211,6 +433,37 @@
     "turkish": "トルコ語",
     "vietnamese": "ベトナム語",
     "thai": "タイ語",
-    "indonesian": "インドネシア語"
+    "indonesian": "インドネシア語",
+    "englishGB": "英語（イギリス）",
+    "englishAU": "英語（オーストラリア）",
+    "englishCA": "英語（カナダ）",
+    "spanishMX": "スペイン語（メキシコ）",
+    "frenchCA": "フランス語（カナダ）",
+    "portuguesePT": "ポルトガル語（ポルトガル）",
+    "norwegian": "ノルウェー語",
+    "danish": "デンマーク語",
+    "finnish": "フィンランド語",
+    "czech": "チェコ語",
+    "slovak": "スロバキア語",
+    "slovenian": "スロベニア語",
+    "croatian": "クロアチア語",
+    "hungarian": "ハンガリー語",
+    "romanian": "ルーマニア語",
+    "greek": "ギリシャ語",
+    "ukrainian": "ウクライナ語",
+    "arabicAE": "アラビア語 (UAE)",
+    "arabicEG": "アラビア語 (エジプト)",
+    "hebrew": "ヘブライ語",
+    "bengali": "ベンガル語",
+    "tamil": "タミル語",
+    "telugu": "テルグ語",
+    "kannada": "カンナダ語",
+    "malayalam": "マラヤーラム語",
+    "marathi": "マラーティー語",
+    "gujarati": "グジャラート語",
+    "punjabi": "パンジャブ語",
+    "urdu": "ウルドゥー語",
+    "malay": "マレー語",
+    "catalan": "カタルーニャ語"
   }
 }

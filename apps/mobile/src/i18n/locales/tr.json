@@ -14,7 +14,8 @@
     "next": "İleri",
     "done": "Tamam",
     "search": "Ara",
-    "filter": "Filtrele"
+    "filter": "Filtrele",
+    "ok": "Tamam"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "Planı yükselt",
     "everyWeek": "Her hafta",
     "everyMonth": "Her ay",
-    "everyYear": "Her yıl"
+    "everyYear": "Her yıl",
+    "expired": "Süresi Doldu",
+    "reportBug": "Hata bildir",
+    "active": "AKTİF",
+    "trial": "DENEME"
   },
   "auth": {
     "welcome": "Clinical Fact'e hoş geldiniz",
@@ -89,6 +94,177 @@
       "subtitle": "Uygulamada kullanmak istediğiniz dili seçin. Daha sonra profilinizden değiştirebilirsiniz.",
       "searchPlaceholder": "Dil ara",
       "noResults": "Dil bulunamadı"
+    },
+    "buttons": {
+      "continue": "Devam Et",
+      "continueWithEmail": "E-posta ile Devam Et",
+      "continueWithGoogle": "Google ile Devam Et",
+      "continueWithApple": "Apple ile Devam Et",
+      "skip": "Atla",
+      "verify": "Doğrulandı!",
+      "next": "İleri",
+      "tryNow": "Clinical Fact'i şimdi ücretsiz deneyin"
+    },
+    "labels": {
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "username": "@kullaniciadi",
+      "referralCode": "Referans kodu",
+      "nameScreenTitle": "Adınız ve soyadınız",
+      "byAgree": "Devam ederek şunları kabul etmiş olursunuz:",
+      "termsAndConditions": "Kullanım koşulları",
+      "privacyPolicy": "gizlilik politikası",
+      "and": "ve"
+    },
+    "placeholders": {
+      "enterEmail": "E-posta adresinizi girin",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "username": "@kullaniciadi",
+      "referralCode": "ör. AHMET veya DOKTOR"
+    },
+    "errors": {
+      "invalidEmail": "Lütfen geçerli bir e-posta adresi girin",
+      "emailRequired": "Lütfen e-posta adresinizi girin",
+      "firstLastNameRequired": "Lütfen hem adınızı hem de soyadınızı girin",
+      "usernameRequired": "Lütfen bir kullanıcı adı girin",
+      "usernameLength": "Kullanıcı adı 3-20 karakter olmalıdır (yalnızca harf, rakam ve alt çizgi)",
+      "usernameTaken": "Bu kullanıcı adı zaten alınmış. Lütfen başka bir tane deneyin.",
+      "usernameCheckFailed": "Kullanıcı adı kontrol edilemedi",
+      "usernameError": "Kullanıcı adı kontrol edilirken hata oluştu. Lütfen bağlantınızı kontrol edin.",
+      "invalidOTP": "Geçersiz kod. Lütfen kontrol edip tekrar deneyin.",
+      "otpExpired": "Kodun süresi doldu. Lütfen yeni bir kod isteyin.",
+      "otpRequired": "Lütfen doğrulama kodunun tamamını girin",
+      "referralNotFound": "Referans kodu bulunamadı. Yazımı kontrol edip tekrar deneyin.",
+      "referralValidateFailed": "Kod doğrulanamadı. Lütfen tekrar deneyin.",
+      "referralApplyFailed": "Referans kodu uygulanamadı. Lütfen tekrar deneyin.",
+      "codeSendFailed": "Doğrulama kodu gönderilemedi. Lütfen tekrar deneyin.",
+      "resendCodeFailed": "Kod yeniden gönderilemedi. Lütfen tekrar deneyin.",
+      "signInFailed": "Giriş Başarısız",
+      "googleSignInFailed": "Google ile Giriş Başarısız",
+      "googleTokenFailed": "Google belirteci işlenemedi",
+      "googleAccessTokenFailed": "Erişim belirteci alınamadı. Lütfen tekrar deneyin.",
+      "authTokenFailed": "Kimlik doğrulama belirteci alınamadı. Lütfen tekrar deneyin.",
+      "googleStartFailed": "Google ile giriş başlatılamadı. Lütfen tekrar deneyin.",
+      "setupRequired": "Kurulum Gerekli",
+      "googleOAuthMissing": "Google ile Giriş için OAuth İstemci Kimlikleri gereklidir.\\n\\nLütfen kimlik bilgilerini .env dosyanıza ekleyin.",
+      "youCanStillUseEmail": "Yine de \"E-posta ile Devam Et\" seçeneğini kullanabilirsiniz.",
+      "appleSignInFailed": "Apple ile Giriş Başarısız",
+      "appleTokenFailed": "Apple belirteci işlenemedi",
+      "appleIosOnly": "Apple ile Giriş yalnızca iOS cihazlarda kullanılabilir."
+    },
+    "messages": {
+      "signingIn": "Giriş yapılıyor...",
+      "codeValid": "✓ Kod geçerli",
+      "signupFailed": "Kayıt işlemi tamamlanamadı",
+      "setupFailed": "Kurulum tamamlanamadı. Lütfen tekrar deneyin."
+    },
+    "welcomeScreen": {
+      "title": "Clinic Fact: Daha akıllı notlar burada başlar",
+      "tagline": "Her metni kusursuz notlara dönüştürün",
+      "description": "Ses kayıtlarını, belgeleri veya videoları net, aranabilir notlara dönüştürün; anında testler, bilgi kartları ve özetler oluşturun.",
+      "createAccountTitle": "Hesap oluştur",
+      "orSignUpWith": "VEYA ŞUNUNLA KAYDOL",
+      "signUpWithEmail": "E-posta ile Kaydol",
+      "signInWithEmail": "E-posta ile Giriş Yap",
+      "alreadyHaveAccount": "Zaten hesabın var mı? ",
+      "dontHaveAccount": "Hesabın yok mu? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Tıpla ilgili her şeyi sor. Klinik gerçeklere ulaş",
+        "description": "Tıbbi bir soru sor; PubMed, klinik kılavuzlar ve güvenilir tıp literatüründen doğrulanmış ve kaynaklı yanıtlar al."
+      },
+      "slide2": {
+        "headline": "Her Yanıt Bir Kaynağa Dayanır",
+        "description": "Tahmin yok, uydurma bilgi yok. Her yanıt doğrulanabilir, gerçek tıbbi araştırmalara bağlanır."
+      },
+      "slide3": {
+        "headline": "Daha Akıllıca Çalış, Tıp Sınavlarını Geç",
+        "description": "Herhangi bir soruyu veya yüklediğin içeriği saniyeler içinde teste veya bilgi kartı setine dönüştür; doğrudan öğrendiklerinle pratik yap."
+      }
+    },
+    "otp": {
+      "title": "E-posta adresini doğrula",
+      "subtitle": "Lütfen e-posta adresine gönderdiğimiz doğrulama kodunu gir"
+    },
+    "professionalDeclaration": {
+      "title": "Mesleki Beyan",
+      "subtitle": "Clinical Fact, eğitsel bir literatür tarama aracıdır",
+      "disclaimerIntro": "Clinical Fact; hemşirelik, tıp ve diğer sağlık bilimleri öğrencilerinin tıbbi bilgiye, araştırma literatürüne ve ders çalışma materyallerine erişimini desteklemek amacıyla tasarlanmış AI tabanlı bir bilgilendirme aracıdır. Uygulama tıbbi teşhis, tedavi önerisi, klinik talimat veya hastaya özel tıbbi tavsiye sunmaz; doğrudan hasta bakımı veya klinik karar verme süreçlerinde dayanak olarak kullanılmamalıdır.",
+      "disclaimerHeading": "Clinical Fact yanıtları nasıl üretir:",
+      "disclaimerBody": "Clinical Fact; PubMed, Semantic Scholar ve resmi FDA ilaç prospektüsleri de dahil olmak üzere köklü tıbbi ve bilimsel kaynaklardan doğrudan bilgi alır ve bu içeriği yalın bir dille özetleyip açıklamak için AI kullanır. Her yanıt, yalnızca söz konusu soruya özel olarak taranan kaynaklardan üretilir ve alıntılar, kendiniz doğrulayabilmeniz için orijinal materyale yönlendirir. Clinical Fact ezberden tıbbi bilgiler üretmez veya kaynak uydurmaz.\n\nClinical Fact; bir tanı aracı, tedavi platformu, tıbbi cihaz veya profesyonel tıbbi muhakemenin, yetkili eğitimin ya da kurumunuzun müfredatının alternatifi değildir. Uygulama tarafından üretilen yanıtlar, alıntılar, testler ve bilgi kartları dahil her türlü bilgi yalnızca genel eğitim ve çalışma amaçlıdır; herhangi bir akademik, klinik veya profesyonel bağlamda güvenilmeden önce kullanıcı tarafından bağımsız olarak doğrulanmalıdır.\nClinical Fact, sağlanan hiçbir bilginin eksiksizliğini, doğruluğunu veya güncel klinik geçerliliğini garanti etmez. Tıbbi bilgiler sürekli gelişmektedir; kritik bilgileri her zaman eğitmenleriniz, klinik danışmanlarınız ve güncel birincil kaynaklarla karşılaştırın.\nKendi belgelerinizi, notlarınızı veya kayıtlarınızı yüklediğinizde Clinical Fact, harici kaynaklar yanında açıkça belirtilmediği sürece yanıtları, özetleri, testleri ve bilgi kartlarını yalnızca yüklenen içeriğe dayalı olarak üretir.\n\nClinical Fact, kullanıcılarının kimliğini, öğrenim durumunu veya uzmanlık belgelerini doğrulamaz, onaylamaz veya teyit etmez. Uygulama acil durumlarda veya gerçek zamanlı klinik kararlar almak için tasarlanmamıştır.\nDevam ederek bu şartları anladığınızı ve Clinical Fact'i yalnızca bir çalışma ve başvuru kaynağı olarak kullanmayı kabul ettiğinizi beyan edersiniz.",
+      "checkboxLabel": "Bu uygulamanın yalnızca eğitsel referans amaçlı olduğunu ve tıbbi tavsiye sunmadığını anlıyorum",
+      "acceptButton": "Kabul et ve devam et"
+    },
+    "survey": {
+      "role": "Seni en iyi ne tanımlıyor, {{firstName}}?",
+      "currentMethod": "Şu anda tıbbi sorularına genellikle nasıl yanıt buluyorsun?",
+      "timeDrain": "En çok ne zamanını alıyor?",
+      "appExpectation": "Clinical Fact tıp uygulamasından beklentin nedir?",
+      "aiToolsUsed": "Tıbbi araştırmaların için şimdiye kadar hangi AI araçlarını kullandın?",
+      "aiToolIssue": "Bu araçlarda yaşadığın sorun neydi?",
+      "aiTrustLevel": "Bir AI yanıtının yanlış olabileceğinden ne sıklıkla endişeleniyorsun?",
+      "biggestNeed": "Şu anda en çok neye ihtiyacın var?",
+      "studyTimePerWeek": "Her hafta ders çalışmaya ne kadar vakit ayırabiliyorsun?",
+      "comingUp": "Yakın zamanda seni ne bekliyor?",
+      "referralSource": "Clinical Fact'i nereden duydun?"
+    },
+    "onboarding": {
+      "username": "Kullanıcı adını belirleyelim",
+      "usernameSubtitle": "Hesabını daha kişisel hale getirmene yardımcı olur",
+      "goals": "Clinical Fact'in sana hangi konuda\\nyardımcı olmasını istersin",
+      "goalsSubtitle": "Uygun olanların tümünü seç. Deneyimi sana göre özelleştireceğiz.",
+      "contentType": "Ağırlıklı olarak hangi tür\\niçerikleri kullanıyorsun",
+      "contentTypeSubtitle": "Uygun olanların tümünü seç. Bu, deneyimini kişiselleştirmemize yardımcı olur.",
+      "reviewStyle": "Öğrendiklerini nasıl tekrar\\netmeyi tercih edersin",
+      "reviewStyleSubtitle": "Tercih ettiğin tekrar yöntemini seç.",
+      "frustration": "{{firstName}}, not alırken seni en çok zorlayan şey nedir?",
+      "frustrationSubtitle": "Uygun olanların tümünü seç. Bu, sorunlarını çözmemize yardımcı olur.",
+      "referral": "Merak ettik de {{firstName}},\\nClinical Fact'i nereden duydun?",
+      "referralSubtitle": "Bir seçenek belirle."
+    },
+    "referralScreen": {
+      "title": "Seni biri mi\\nönerdi?",
+      "subtitle": "Varsa davet kodunu gir"
+    },
+    "setup": {
+      "preparingNotes": "Notlar hazırlanıyor",
+      "preparingFlashcards": "Bilgi kartları hazırlanıyor",
+      "preparingQuiz": "Test şablonları hazırlanıyor",
+      "preparingChat": "Sohbet asistanları hazırlanıyor",
+      "title": "Kişiselleştirilmiş çalışma alanın\\nhazırlanıyor, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Clinical Fact'e güvendiğin için teşekkürler",
+      "subtitle": "Binlerce hemşirelik ve tıp öğrencisinin arasına katılıyorsun",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "İstediğin konuyu öğrenmek için\\nihtiyacın olan her şey",
+      "subtitle": "Kaydet. Araştır. Test et. Uzmanlaş."
+    },
+    "features": {
+      "feature1": {
+        "title": "Gerçek tıbbi yanıtlar ve takip soruları al",
+        "description": "Herhangi bir tıbbi soru sor; net bir açıklamanın yanı sıra akıllı takip soruları al, böylece çalışırken asla tıkanıp kalma."
+      },
+      "feature2": {
+        "title": "Her tıbbi yanıt,\ngerçek bir kaynağa dayalı",
+        "description": "PubMed, Semantic Scholar ve Europe PMC kaynaklı atıflar; uydurma değil, doğrulanabilir."
+      },
+      "feature3": {
+        "title": "Notlarını yükle, materyallerinin tıbbi özetlerini al",
+        "description": "Ders slaytlarını, PDF'leri veya notları güvenilir tıbbi kaynaklarla desteklenen net açıklamalara dönüştür."
+      },
+      "feature4": {
+        "title": "Sohbetleri pratik yapmak için Quiz'e veya bilgi kartlarına dönüştür",
+        "description": "Çalışmak için ayrı bir uygulamaya gerek yok; doğrudan sohbetlerinden ve yüklemelerinden pratik soruları oluştur."
+      },
+      "feature5": {
+        "title": "Sohbetleri veya belgeleri pratik için bilgi kartı sorularına dönüştür",
+        "description": "Çalışmak için ayrı bir uygulamaya gerek yok; doğrudan sohbetlerinden ve yüklemelerinden pratik soruları oluştur."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "Neredeyse bitti...",
     "quizReady": "Sınav hazır!",
     "startQuiz": "Sınavı başlat",
-    "questionCount": "{{total}} sorunun {{current}}. sorusu"
+    "questionCount": "{{total}} sorunun {{current}}. sorusu",
+    "previous": "Önceki soru",
+    "generatingQuiz": "AI ile quiz oluşturuluyor...",
+    "exitTitle": "Quiz'den Çıkılsın mı?",
+    "exitMessage": "İlerlemen kaybolacak.",
+    "exit": "Çık",
+    "errorTitle": "Hay aksi, bir sorun çıktı 🚧",
+    "errorMessage": "Şu anda oluşturulamadı. Lütfen birazdan tekrar dene!",
+    "noQuestions": "Soru bulunamadı.",
+    "reading": "Notların okunuyor...",
+    "identifying": "Temel kavramlar belirleniyor...",
+    "structuring": "Sorular yapılandırılıyor...",
+    "almostReady": "Neredeyse hazır...",
+    "youScored": "PUANIN",
+    "timeInSeconds": "SÜRE (SANİYE)",
+    "accuracy": "DOĞRULUK",
+    "grade": "DERECE",
+    "reportsCard": "Sonuç karnesi",
+    "reviewAnswers": "Cevapları incele",
+    "correctAnswer": "Doğru cevap",
+    "yourAnswer": "Senin cevabın",
+    "explanation": "Açıklama",
+    "questionProgress": "Soru {{current}} / {{total}}",
+    "generatingQuizWait": "Quiz'in hazırlanıyor, lütfen tamamlanana kadar bekle...",
+    "goToChats": "Sohbetlere git"
   },
   "flashcards": {
     "title": "Flash kartlar",
@@ -178,7 +378,29 @@
     "previous": "Önceki",
     "shuffle": "Karıştır",
     "generating": "Flash kartlar oluşturuluyor...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Akılda kalıcılığı artırmak için bilgi kartları oluştur",
+    "howManyQuestions": "Kaç soru olsun?",
+    "generateButton": "Bilgi kartları oluştur",
+    "generatingEllipsis": "Oluşturuluyor...",
+    "allDone": "Tümü Tamamlandı!",
+    "completedReview": "Bu destedeki tüm kartları gözden geçirdin",
+    "backToNotes": "Notlara dön",
+    "question": "Soru",
+    "answer": "Cevap",
+    "noQuestionText": "(Soru metni yok)",
+    "noAnswerText": "(Cevap metni yok)",
+    "enterQuestion": "Sorunu gir",
+    "enterAnswer": "Cevabı gir",
+    "clickToFlip": "çevirmek için karta dokun",
+    "reading": "Notların okunuyor...",
+    "identifying": "Temel kavramlar belirleniyor...",
+    "creating": "Bilgi kartları oluşturuluyor...",
+    "almostReady": "Neredeyse hazır...",
+    "headerTitle": "Bilgi Kartı",
+    "progressFormat": "Bilgi Kartı {{current}} / {{total}}",
+    "noteIdRequired": "Bilgi kartı oluşturmak için not kimliği gereklidir",
+    "invalidCardCount": "Lütfen 1 ile 100 arasında bilgi kartı seç"
   },
   "chat": {
     "title": "Sohbet",
@@ -211,6 +433,37 @@
     "turkish": "Türkçe",
     "vietnamese": "Vietnamca",
     "thai": "Tayca",
-    "indonesian": "Endonezce"
+    "indonesian": "Endonezce",
+    "englishGB": "İngilizce (Birleşik Krallık)",
+    "englishAU": "İngilizce (Avustralya)",
+    "englishCA": "İngilizce (Kanada)",
+    "spanishMX": "İspanyolca (Meksika)",
+    "frenchCA": "Fransızca (Kanada)",
+    "portuguesePT": "Portekizce (Portekiz)",
+    "norwegian": "Norveççe",
+    "danish": "Danca",
+    "finnish": "Fince",
+    "czech": "Çekçe",
+    "slovak": "Slovakça",
+    "slovenian": "Slovence",
+    "croatian": "Hırvatça",
+    "hungarian": "Macarca",
+    "romanian": "Rumence",
+    "greek": "Yunanca",
+    "ukrainian": "Ukraynaca",
+    "arabicAE": "Arapça (BAE)",
+    "arabicEG": "Arapça (Mısır)",
+    "hebrew": "İbranice",
+    "bengali": "Bengalce",
+    "tamil": "Tamilce",
+    "telugu": "Teluguca",
+    "kannada": "Kannadaca",
+    "malayalam": "Malayalamca",
+    "marathi": "Marathice",
+    "gujarati": "Güceratça",
+    "punjabi": "Pencapça",
+    "urdu": "Urduca",
+    "malay": "Malayca",
+    "catalan": "Katalanca"
   }
 }

@@ -14,7 +14,8 @@
     "next": "下一步",
     "done": "完成",
     "search": "搜尋",
-    "filter": "篩選"
+    "filter": "篩選",
+    "ok": "確定"
   },
   "home": {
     "title": "Clinical Fact",
@@ -25,7 +26,7 @@
     "recentNotes": "最近的筆記",
     "seeAll": "檢視全部",
     "noNotes": "沒有筆記可顯示",
-    "noNotesDesc": "請點擊上方按鈕開始\n為clinicalfact生成您的筆記。",
+    "noNotesDesc": "請點擊上方按鈕，開始\n在 Clinical Fact 中建立您的筆記。",
     "loadingNotes": "正在載入筆記..."
   },
   "profile": {
@@ -68,7 +69,11 @@
     "upgradePlan": "升級計劃",
     "everyWeek": "每週",
     "everyMonth": "每月",
-    "everyYear": "每年"
+    "everyYear": "每年",
+    "expired": "已過期",
+    "reportBug": "回報問題",
+    "active": "有效",
+    "trial": "試用"
   },
   "auth": {
     "welcome": "歡迎使用Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "請選擇你想在 App 中使用的語言。稍後隨時可在個人檔案中變更。",
       "searchPlaceholder": "搜尋語言",
       "noResults": "找不到相符的語言"
+    },
+    "buttons": {
+      "continue": "繼續",
+      "continueWithEmail": "透過電子郵件繼續",
+      "continueWithGoogle": "透過 Google 繼續",
+      "continueWithApple": "透過 Apple 繼續",
+      "skip": "略過",
+      "verify": "已驗證！",
+      "next": "下一步",
+      "tryNow": "立即免費體驗 Clinical Fact"
+    },
+    "labels": {
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@使用者名稱",
+      "referralCode": "推薦碼",
+      "nameScreenTitle": "您的姓名",
+      "byAgree": "繼續即代表您同意我們的",
+      "termsAndConditions": "服務條款",
+      "privacyPolicy": "隱私權政策",
+      "and": "與"
+    },
+    "placeholders": {
+      "enterEmail": "請輸入您的電子郵件地址",
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@使用者名稱",
+      "referralCode": "例如：JOHN 或 TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "請輸入有效的電子郵件地址",
+      "emailRequired": "請輸入您的電子郵件地址",
+      "firstLastNameRequired": "請輸入您的姓氏與名字",
+      "usernameRequired": "請輸入使用者名稱",
+      "usernameLength": "使用者名稱須為 3 至 20 個字元（僅限英文字母、數字與底線）",
+      "usernameTaken": "此使用者名稱已被使用，請嘗試其他名稱。",
+      "usernameCheckFailed": "無法檢查使用者名稱是否可用",
+      "usernameError": "檢查使用者名稱時發生錯誤，請確認網路連線。",
+      "invalidOTP": "驗證碼無效，請確認後再試一次。",
+      "otpExpired": "驗證碼已過期，請重新索取驗證碼。",
+      "otpRequired": "請輸入完整的驗證碼",
+      "referralNotFound": "找不到此推薦碼，請檢查拼字後再試一次。",
+      "referralValidateFailed": "無法驗證代碼，請再試一次。",
+      "referralApplyFailed": "無法套用推薦碼，請再試一次。",
+      "codeSendFailed": "無法傳送驗證碼，請再試一次。",
+      "resendCodeFailed": "無法重新傳送驗證碼，請再試一次。",
+      "signInFailed": "登入失敗",
+      "googleSignInFailed": "Google 登入失敗",
+      "googleTokenFailed": "無法處理 Google 權杖",
+      "googleAccessTokenFailed": "無法取得存取權杖，請再試一次。",
+      "authTokenFailed": "無法取得驗證權杖，請再試一次。",
+      "googleStartFailed": "無法啟動 Google 登入，請再試一次。",
+      "setupRequired": "需要進行設定",
+      "googleOAuthMissing": "Google 登入需要 OAuth Client ID。\\n\\n請將憑證新增至您的 .env 檔案中。",
+      "youCanStillUseEmail": "您仍可使用「透過電子郵件繼續」。",
+      "appleSignInFailed": "Apple 登入失敗",
+      "appleTokenFailed": "無法處理 Apple 權杖",
+      "appleIosOnly": "Apple 登入僅適用於 iOS 裝置。"
+    },
+    "messages": {
+      "signingIn": "正在登入...",
+      "codeValid": "✓ 驗證碼有效",
+      "signupFailed": "無法完成註冊",
+      "setupFailed": "設定失敗，請再試一次。"
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact：更聰明的筆記體驗，從這裡開始",
+      "tagline": "將任何文字轉為完美筆記",
+      "description": "將音訊、文件或影片轉化為清晰且易於搜尋的筆記，並即時生成測驗、字卡與重點摘要。",
+      "createAccountTitle": "建立帳號",
+      "orSignUpWith": "或使用以下方式註冊",
+      "signUpWithEmail": "使用電子郵件註冊",
+      "signInWithEmail": "使用電子郵件登入",
+      "alreadyHaveAccount": "已經有帳號？ ",
+      "dontHaveAccount": "還沒有帳號？ "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "詢問任何醫學問題，獲取臨床實證",
+        "description": "提出任何醫學問題，獲得來自 PubMed、臨床指引及權威醫學文獻的實證與引用解答"
+      },
+      "slide2": {
+        "headline": "每個回答，皆有據可循",
+        "description": "拒絕憑空臆測與捏造事實，每個回答皆可回溯至真實、可查證的醫學研究。"
+      },
+      "slide3": {
+        "headline": "更聰明地學習，順利通過醫學考試",
+        "description": "數秒內將任何問題或上傳內容轉為測驗或字卡集，完全根據你的學習進度精準練習。"
+      }
+    },
+    "otp": {
+      "title": "驗證你的電子郵件地址",
+      "subtitle": "請輸入發送至你電子郵件的驗證碼"
+    },
+    "professionalDeclaration": {
+      "title": "專業聲明",
+      "subtitle": "Clinical Fact 是一項教育文獻檢索工具",
+      "disclaimerIntro": "Clinical Fact 為一款基於人工智慧的資訊工具，旨在協助護理、醫學及其他健康科學領域的學生獲取醫學知識、研究文獻與學習資源。本應用程式不提供醫療診斷、治療建議、臨床指導或針對特定病患的醫療諮詢，且絕不可作為直接病患照護或臨床決策之依據。",
+      "disclaimerHeading": "Clinical Fact 如何生成解答：",
+      "disclaimerBody": "Clinical Fact 直接從 PubMed、Semantic Scholar 和美國 FDA 官方藥品標籤等權威醫學與科學來源檢索資訊，並運用 AI 以通俗易懂的語言總結與解釋該檢索內容。每個回答均嚴格根據該特定問題所檢索到的文獻生成，並附有原始文獻的引用連結供您親自核對。Clinical Fact 不會憑記憶生成醫學事實，也不會捏造來源。\n\nClinical Fact 並非診斷工具、治療平台、醫療器材，亦不可替代專業醫療判斷、執業教學指導或您所屬機構的課程規劃。本應用程式生成的任何資訊（包括回答、文獻引用、測驗與字卡）僅供一般教育與學習參考之用，在應用於任何學術、臨床或專業情境之前，使用者必須親自獨立核實。\nClinical Fact 不保證所提供任何資訊的完整性、準確性或當前臨床適用性。醫學知識持續更新發展——請務必向您的指導教師、臨床督導及最新原始文獻交叉比對重要資訊。\n當您上傳自己的文件、筆記或錄音時，Clinical Fact 僅會根據該上傳內容生成回答、摘要、測驗與字卡，除非並列明確標示，否則不會採用外部來源。\n\nClinical Fact 不會驗證、認證或確認使用者的身分、學籍狀態或專業資格。本應用程式不適用於緊急情況，亦不得用於進行即時臨床決策。\n繼續使用即表示您瞭解並同意這些條款，且僅將 Clinical Fact 作為學習與參考輔助工具。",
+      "checkboxLabel": "我瞭解此應用程式僅供教育參考，不提供醫療建議",
+      "acceptButton": "接受並繼續"
+    },
+    "survey": {
+      "role": "{{firstName}}，哪項描述最符合你的身分？",
+      "currentMethod": "你目前通常如何尋找醫學問題的答案？",
+      "timeDrain": "什麼事情最耗費你的時間？",
+      "appExpectation": "你對 Clinical Fact 醫學應用程式有什麼期待？",
+      "aiToolsUsed": "你目前曾使用過哪些 AI 工具進行醫學研究？",
+      "aiToolIssue": "這些工具在使用時遇到了什麼問題？",
+      "aiTrustLevel": "你多常擔心 AI 給出的答案可能出錯？",
+      "biggestNeed": "你現在最需要什麼？",
+      "studyTimePerWeek": "你每週大約有多少時間可以讀書？",
+      "comingUp": "你近期有什麼重要的安排或考試？",
+      "referralSource": "你是從哪裡得知 Clinical Fact 的？"
+    },
+    "onboarding": {
+      "username": "設定你的使用者名稱",
+      "usernameSubtitle": "這有助於打造專屬於你的個人化體驗",
+      "goals": "你希望 Clinical Fact\\n在哪些方面為你提供協助？",
+      "goalsSubtitle": "可複選。我們將為你量身打造專屬體驗。",
+      "contentType": "你最常使用\\n哪種類型的內容？",
+      "contentTypeSubtitle": "可複選。這有助於我們為你自訂專屬體驗。",
+      "reviewStyle": "你習慣如何複習\\n所學內容？",
+      "reviewStyleSubtitle": "選擇你偏好的複習方式。",
+      "frustration": "{{firstName}}，做筆記時最讓你感到困擾的是什麼？",
+      "frustrationSubtitle": "可複選。這有助於我們為你解決問題。",
+      "referral": "有點好奇\\n{{firstName}}，\\n你是如何得知 Clinical Fact 的？",
+      "referralSubtitle": "請選擇一項。"
+    },
+    "referralScreen": {
+      "title": "你是由他人\\n推薦加入的嗎？",
+      "subtitle": "若有推薦碼，請於此處輸入"
+    },
+    "setup": {
+      "preparingNotes": "正在準備筆記",
+      "preparingFlashcards": "正在準備字卡",
+      "preparingQuiz": "正在準備測驗範本",
+      "preparingChat": "正在準備對話助理",
+      "title": "正在為你設定個人化\\n工作空間，{{firstName}}…"
+    },
+    "thanks": {
+      "title": "感謝你信任 Clinical Fact",
+      "subtitle": "你正與數千名護理與醫學生一同學習",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "掌握任何知識\\n所需的一切工具",
+      "subtitle": "隨時記錄、深入查證、自我測驗、全面掌握。"
+    },
+    "features": {
+      "feature1": {
+        "title": "獲取真實醫學解答與後續引導問題",
+        "description": "提出任何醫學問題，即可獲得清晰解釋與智慧延伸問題，讓你的學習進程永不卡關。"
+      },
+      "feature2": {
+        "title": "每個醫學解答，\n均有真實文獻佐證",
+        "description": "引用自 PubMed、Semantic Scholar 與 Europe PMC，有據可查，絕不捏造。"
+      },
+      "feature3": {
+        "title": "上傳你的筆記，獲取教材的醫學重點摘要",
+        "description": "將任何上課簡報、PDF 或筆記轉化為條理分明的解析，並附權威醫學文獻支持。"
+      },
+      "feature4": {
+        "title": "將任何對話轉為測驗或字卡以供練習",
+        "description": "無需使用其他學習 App，直接從對話與上傳內容生成練習題。"
+      },
+      "feature5": {
+        "title": "將任何對話或文件轉為字卡題目以供練習",
+        "description": "無需使用其他學習 App，直接從對話與上傳內容生成練習題。"
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "即將完成...",
     "quizReady": "測驗已準備好！",
     "startQuiz": "開始測驗",
-    "questionCount": "第{{current}}題，共{{total}}題"
+    "questionCount": "第{{current}}題，共{{total}}題",
+    "previous": "上一題",
+    "generatingQuiz": "正在使用 AI 生成測驗...",
+    "exitTitle": "退出測驗？",
+    "exitMessage": "你的進度將會遺失。",
+    "exit": "退出",
+    "errorTitle": "糟糕，發生了一點問題 🚧",
+    "errorMessage": "目前無法生成內容，請稍候再試一次！",
+    "noQuestions": "目前沒有題目。",
+    "reading": "正在讀取你的筆記...",
+    "identifying": "正在辨識關鍵概念...",
+    "structuring": "正在構建測驗題目...",
+    "almostReady": "即將準備完成...",
+    "youScored": "你的得分",
+    "timeInSeconds": "耗時（秒）",
+    "accuracy": "正確率",
+    "grade": "評級",
+    "reportsCard": "成績單",
+    "reviewAnswers": "檢視答案",
+    "correctAnswer": "正確答案",
+    "yourAnswer": "你的答案",
+    "explanation": "解析",
+    "questionProgress": "第 {{current}} 題，共 {{total}} 題",
+    "generatingQuizWait": "我們正在為你生成測驗，請稍候片刻...",
+    "goToChats": "前往對話"
   },
   "flashcards": {
     "title": "閃卡",
@@ -178,7 +378,29 @@
     "previous": "上一張",
     "shuffle": "隨機播放",
     "generating": "正在產生閃卡...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "建立字卡以提升記憶留存率",
+    "howManyQuestions": "需要幾道題目？",
+    "generateButton": "生成字卡",
+    "generatingEllipsis": "生成中...",
+    "allDone": "全部完成！",
+    "completedReview": "你已複習完此卡組中的所有字卡",
+    "backToNotes": "返回筆記",
+    "question": "問題",
+    "answer": "答案",
+    "noQuestionText": "（無問題內容）",
+    "noAnswerText": "（無答案內容）",
+    "enterQuestion": "輸入你的問題",
+    "enterAnswer": "輸入答案",
+    "clickToFlip": "點擊卡片翻面",
+    "reading": "正在讀取你的筆記...",
+    "identifying": "正在辨識關鍵概念...",
+    "creating": "正在建立字卡...",
+    "almostReady": "即將準備完成...",
+    "headerTitle": "字卡",
+    "progressFormat": "第 {{current}} 張，共 {{total}} 張",
+    "noteIdRequired": "生成字卡需要筆記 ID",
+    "invalidCardCount": "請選擇 1 到 100 張字卡"
   },
   "chat": {
     "title": "聊天",
@@ -211,6 +433,37 @@
     "turkish": "土耳其語",
     "vietnamese": "越南語",
     "thai": "泰語",
-    "indonesian": "印尼語"
+    "indonesian": "印尼語",
+    "englishGB": "英文（英國）",
+    "englishAU": "英文（澳洲）",
+    "englishCA": "英文（加拿大）",
+    "spanishMX": "西班牙文（墨西哥）",
+    "frenchCA": "法文（加拿大）",
+    "portuguesePT": "葡萄牙文（葡萄牙）",
+    "norwegian": "挪威語",
+    "danish": "丹麥語",
+    "finnish": "芬蘭語",
+    "czech": "捷克語",
+    "slovak": "斯洛伐克語",
+    "slovenian": "斯洛維尼亞語",
+    "croatian": "克羅埃西亞語",
+    "hungarian": "匈牙利語",
+    "romanian": "羅馬尼亞語",
+    "greek": "希臘語",
+    "ukrainian": "烏克蘭語",
+    "arabicAE": "阿拉伯語（阿聯）",
+    "arabicEG": "阿拉伯語（埃及）",
+    "hebrew": "希伯來語",
+    "bengali": "孟加拉語",
+    "tamil": "坦米爾語",
+    "telugu": "泰盧固語",
+    "kannada": "坎那達語",
+    "malayalam": "馬拉雅拉姆語",
+    "marathi": "馬拉地語",
+    "gujarati": "古吉拉特語",
+    "punjabi": "旁遮普語",
+    "urdu": "烏爾都語",
+    "malay": "馬來語",
+    "catalan": "加泰隆尼亞語"
   }
 }

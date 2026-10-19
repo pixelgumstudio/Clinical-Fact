@@ -26,7 +26,7 @@
     "recentNotes": "Nylige notater",
     "seeAll": "Se alle",
     "noNotes": "Ingen notater å vise",
-    "noNotesDesc": "Klikk på knappen ovenfor for å begynne å generere notatet ditt for notatdrill.",
+    "noNotesDesc": "Trykk på knappen over for å begynne\nå generere notatet ditt for Clinical Fact.",
     "loadingNotes": "Laster inn notater ..."
   },
   "profile": {
@@ -71,7 +71,8 @@
     "upgradePlan": "Oppgraderingsplan",
     "everyWeek": "Hver uke",
     "everyMonth": "Hver måned",
-    "everyYear": "Hvert år"
+    "everyYear": "Hvert år",
+    "reportBug": "Meld fra om en feil"
   },
   "auth": {
     "welcome": "Velkommen til Clinical Fact",
@@ -94,7 +95,8 @@
       "skip": "Hopp over",
       "verify": "Verifisert!",
       "next": "Neste",
-      "tryNow": "Prøv Clinical Fact gratis nå"
+      "tryNow": "Prøv Clinical Fact gratis nå",
+      "continueWithApple": "Fortsett med Apple"
     },
     "labels": {
       "firstName": "Fornavn",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Kunne ikke starte Google-pålogging. Prøv på nytt.",
       "setupRequired": "Oppsett kreves",
       "googleOAuthMissing": "Google-pålogging krever OAuth-klient-ID-er.\\n\\nLegg til påloggingsinformasjon i .env-filen din.",
-      "youCanStillUseEmail": "Du kan fortsatt bruke «Fortsett med e-post»."
+      "youCanStillUseEmail": "Du kan fortsatt bruke «Fortsett med e-post».",
+      "appleSignInFailed": "Apple-pålogging mislyktes",
+      "appleTokenFailed": "Kunne ikke behandle Apple-token",
+      "appleIosOnly": "Innlogging med Apple er kun tilgjengelig på iOS."
     },
     "messages": {
       "signingIn": "Logger inn...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact: Smartere notater Start her",
       "tagline": "Gjør hvilken som helst tekst om til perfekte notater",
-      "description": "Gjør lyd, dokumenter eller videoer om til tydelige, søkbare notater, og lag umiddelbart spørrekonkurranser, flashcards og sammendrag."
+      "description": "Gjør lyd, dokumenter eller videoer om til tydelige, søkbare notater, og lag umiddelbart spørrekonkurranser, flashcards og sammendrag.",
+      "createAccountTitle": "Opprett en konto",
+      "orSignUpWith": "ELLER REGISTRER DEG MED",
+      "signUpWithEmail": "Registrer deg med e-post",
+      "signInWithEmail": "Logg inn med e-post",
+      "alreadyHaveAccount": "Har du allerede en konto? ",
+      "dontHaveAccount": "Har du ingen konto? "
     },
     "otp": {
       "title": "Bekreft e-postadressen din",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Lær raskere med quiz og flashcards",
         "description": "Gjør notater om til spørrekonkurranser og flashcards.\\nLær raskere og husk mer."
+      },
+      "feature1": {
+        "title": "Få ekte medisinske svar og oppfølgingsspørsmål",
+        "description": "Still et hvilket som helst medisinsk spørsmål og få en tydelig forklaring pluss smarte oppfølgingsspørsmål, så du aldri står fast under lesingen."
+      },
+      "feature2": {
+        "title": "Hvert medisinske svar,\nbasert på en ekte kilde",
+        "description": "Kildehenvisninger hentet fra PubMed, Semantic Scholar og Europe PMC – etterprøvbare, ikke oppdiktede."
+      },
+      "feature3": {
+        "title": "Last opp notatene dine, få medisinske sammendrag av eget pensum",
+        "description": "Gjør om lysbilder, PDF-er eller notater til klare forklaringer støttet av pålitelige medisinske kilder."
+      },
+      "feature4": {
+        "title": "Gjør om chatter til quiz eller flashcards for øving",
+        "description": "Ingen separat studie-app nødvendig – generer øvingsspørsmål direkte fra samtalene og opplastingene dine."
+      },
+      "feature5": {
+        "title": "Gjør om chatter eller dokumenter til flashcards for øving",
+        "description": "Ingen separat studie-app nødvendig – generer øvingsspørsmål direkte fra samtalene og opplastingene dine."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Velg språket du vil bruke i appen. Du kan endre det senere i profilen din.",
       "searchPlaceholder": "Søk etter språk",
       "noResults": "Ingen språk funnet"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Spør om alt innen medisin. Få kliniske fakta",
+        "description": "Still ethvert medisinsk spørsmål og få svar støttet av reelle, siterte kilder fra PubMed, kliniske retningslinjer og anerkjent medisinsk faglitteratur"
+      },
+      "slide2": {
+        "headline": "Hvert svar er basert på en kilde",
+        "description": "Ingen gjetting, ingen oppdiktede fakta – hvert svar lenker direkte til etterprøvbar medisinsk forskning."
+      },
+      "slide3": {
+        "headline": "Studer smartere, bestå medisinske eksamener",
+        "description": "Gjør om ethvert spørsmål eller opplastet fil til en quiz eller flashcards på sekunder – øv direkte på pensumet ditt."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Faglig erklæring",
+      "subtitle": "Clinical Fact er et pedagogisk verktøy for litteratursøk",
+      "disclaimerIntro": "Clinical Fact er et informasjonsverktøy basert på kunstig intelligens, utviklet for å støtte studenter innen sykepleie, medisin og andre helsefag med å hente inn medisinsk kunnskap, forskningslitteratur og studiemateriell. Appen gir ikke medisinske diagnoser, behandlingsanbefalinger, kliniske instruksjoner eller pasientspesifikke helseråd, og må ikke brukes som grunnlag for direkte pasientbehandling eller kliniske beslutninger.",
+      "disclaimerHeading": "Hvordan Clinical Fact genererer svar:",
+      "disclaimerBody": "Clinical Fact henter informasjon direkte fra etablerte medisinske og vitenskapelige kilder, inkludert PubMed, Semantic Scholar og offisiell FDA-legemiddelinformasjon, og bruker AI til å oppsummere og forklare innholdet på et forståelig språk. Hvert svar genereres utelukkende fra kildene som hentes inn for det spesifikke spørsmålet, og siteringer lenker tilbake til originalkilden slik at du selv kan etterprøve det. Clinical Fact genererer ikke medisinske fakta etter hukommelsen eller dikter opp kilder.\n\nClinical Fact er ikke et diagnostisk verktøy, en behandlingsplattform, medisinsk utstyr eller en erstatning for profesjonell medisinsk vurdering, autorisert veiledning eller studiestedets pensum. All informasjon generert av appen, inkludert svar, siteringer, quizer og flashcards, leveres utelukkende for generelle utdannings- og studieformål, og må verifiseres uavhengig av brukeren før den legges til grunn i en akademisk, klinisk eller faglig sammenheng.\nClinical Fact garanterer ikke at informasjonen er fullstendig, nøyaktig eller klinisk oppdatert. Medisinsk kunnskap utvikler seg kontinuerlig – krysssjekk alltid kritisk informasjon med undervisere, veiledere i praksis og oppdaterte primærkilder.\nNår du laster opp egne dokumenter, notater eller opptak, genererer Clinical Fact svar, sammendrag, quizer og flashcards basert utelukkende på det opplastede innholdet, ikke eksterne kilder med mindre disse vises eksplisitt ved siden av.\n\nClinical Fact verifiserer, godkjenner eller bekrefter ikke brukernes identitet, studentstatus eller autorisasjon. Appen er ikke ment for bruk i akutte situasjoner eller for kliniske beslutninger i sanntid.\nVed å fortsette bekrefter du at du forstår disse vilkårene og godtar å bruke Clinical Fact utelukkende som et studie- og oppslagsverk.",
+      "checkboxLabel": "Jeg forstår at denne appen kun er til opplæringsformål og ikke gir medisinske råd",
+      "acceptButton": "Godta og fortsett"
+    },
+    "survey": {
+      "role": "Hva beskriver deg best, {{firstName}}?",
+      "currentMethod": "Hvordan finner du vanligvis svar på medisinske spørsmål nå?",
+      "timeDrain": "Hva stjeler mesteparten av tiden din?",
+      "appExpectation": "Hva forventer du av Clinical Fact?",
+      "aiToolsUsed": "Hvilke AI-verktøy har du brukt til medisinsk research så langt?",
+      "aiToolIssue": "Hva fungerte dårlig med disse verktøyene?",
+      "aiTrustLevel": "Hvor ofte bekymrer du deg for at et AI-svar kan være feil?",
+      "biggestNeed": "Hva trenger du mest akkurat nå?",
+      "studyTimePerWeek": "Hvor mye tid har du til studier hver uke?",
+      "comingUp": "Hva venter deg i nærmeste fremtid?",
+      "referralSource": "Hvor hørte du om Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Nesten ferdig...",
     "quizReady": "Quiz klar!",
     "startQuiz": "Start quiz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} av {{total}}",
     "exitTitle": "Avslutte quizen?",
     "exitMessage": "Fremgangen din vil gå tapt.",
     "exit": "Gå",
@@ -318,7 +385,9 @@
     "correctAnswer": "Riktig svar",
     "yourAnswer": "Ditt svar",
     "explanation": "Forklaring",
-    "questionProgress": "Spørsmål {{current}} av {{total}}"
+    "questionProgress": "Spørsmål {{current}} av {{total}}",
+    "generatingQuizWait": "Vi lager quizen din, vennligst vent litt...",
+    "goToChats": "Gå til chatter"
   },
   "flashcards": {
     "title": "Flashcards",
@@ -403,7 +472,7 @@
     "malayalam": "Malayalam",
     "marathi": "Marathisk",
     "gujarati": "Gujarati",
-    "punjabi": "Punjabi",
+    "punjabi": "Panjabi",
     "urdu": "Urdu",
     "chineseSimplified": "Kinesisk (forenklet)",
     "chineseTraditional": "Kinesisk (tradisjonell)",

@@ -71,7 +71,8 @@
     "upgradePlan": "Plan de upgrade",
     "everyWeek": "În fiecare săptămână",
     "everyMonth": "În fiecare lună",
-    "everyYear": "În fiecare an"
+    "everyYear": "În fiecare an",
+    "reportBug": "Raportează o problemă"
   },
   "auth": {
     "welcome": "Bun venit la Clinical Fact",
@@ -94,7 +95,8 @@
       "skip": "Sari peste",
       "verify": "Verificat!",
       "next": "Următorul",
-      "tryNow": "Încearcă Clinical Fact acum gratuit"
+      "tryNow": "Încearcă Clinical Fact acum gratuit",
+      "continueWithApple": "Continuă cu Apple"
     },
     "labels": {
       "firstName": "Prenume",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Nu s-a putut porni conectarea la Google. Vă rugăm să încercați din nou.",
       "setupRequired": "Configurare necesară",
       "googleOAuthMissing": "Conectarea cu Google necesită ID-uri de client OAuth.\\n\\nVă rugăm să adăugați acreditări în fișierul .env.",
-      "youCanStillUseEmail": "Puteți folosi în continuare „Continuați cu e-mailul”."
+      "youCanStillUseEmail": "Puteți folosi în continuare „Continuați cu e-mailul”.",
+      "appleSignInFailed": "Autentificarea cu Apple a eșuat",
+      "appleTokenFailed": "Procesarea tokenului Apple a eșuat",
+      "appleIosOnly": "Autentificarea cu Apple este disponibilă doar pe iOS."
     },
     "messages": {
       "signingIn": "Conectare...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nNote mai inteligente Începeți aici",
       "tagline": "Transformă orice text în notițe perfecte",
-      "description": "Transformă fișiere audio, documente sau videoclipuri în note clare, ușor de căutat, și creează instantaneu teste, fișe și rezumate."
+      "description": "Transformă fișiere audio, documente sau videoclipuri în note clare, ușor de căutat, și creează instantaneu teste, fișe și rezumate.",
+      "createAccountTitle": "Creează un cont",
+      "orSignUpWith": "SAU ÎNREGISTREAZĂ-TE CU",
+      "signUpWithEmail": "Înregistrează-te cu adresa de email",
+      "signInWithEmail": "Conectează-te cu adresa de email",
+      "alreadyHaveAccount": "Ai deja un cont? ",
+      "dontHaveAccount": "Nu ai un cont? "
     },
     "otp": {
       "title": "Confirmați adresa dvs. de e-mail",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Învață mai repede cu chestionare și fișe de învățare",
         "description": "Transformă notițele în teste și fișe.\\nÎnvață mai repede și reține mai multe."
+      },
+      "feature1": {
+        "title": "Primește răspunsuri medicale reale și întrebări de aprofundare",
+        "description": "Pune orice întrebare medicală și primește o explicație clară, plus întrebări inteligente de aprofundare, ca să nu te blochezi niciodată în timp ce înveți."
+      },
+      "feature2": {
+        "title": "Fiecare răspuns medical,\nsusținut de o sursă reală",
+        "description": "Citații extrase din PubMed, Semantic Scholar și Europe PMC — verificabile, nu inventate."
+      },
+      "feature3": {
+        "title": "Încarcă notițele tale, primește rezumate medicale din materialele tale",
+        "description": "Transformă orice slide de curs, PDF sau notiță într-o explicație clară, susținută de surse medicale de încredere."
+      },
+      "feature4": {
+        "title": "Transformă orice conversație într-un quiz sau flashcarduri de exersat",
+        "description": "Fără o aplicație separată pentru învățat: generează întrebări de exersat direct din conversații și fișierele încărcate."
+      },
+      "feature5": {
+        "title": "Transformă orice conversație sau document în flashcarduri pentru exersat",
+        "description": "Fără o aplicație separată pentru învățat: generează întrebări de exersat direct din conversații și fișierele încărcate."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Selectează limba pe care vrei să o folosești în aplicație. O poți schimba ulterior din profil.",
       "searchPlaceholder": "Caută o limbă",
       "noResults": "Nicio limbă găsită"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Întreabă orice din medicină. Află date clinice reale",
+        "description": "Pune orice întrebare medicală și primește un răspuns susținut de surse reale, citate din PubMed, ghiduri clinice și literatură medicală de încredere."
+      },
+      "slide2": {
+        "headline": "Fiecare răspuns, susținut de o sursă",
+        "description": "Fără presupuneri, fără date inventate. Fiecare răspuns trimite direct la cercetări medicale reale și verificabile."
+      },
+      "slide3": {
+        "headline": "Învață mai eficient, promovează examenele medicale",
+        "description": "Transformă orice întrebare sau fișier încărcat într-un quiz sau set de flashcarduri în câteva secunde — exerciții create direct din ceea ce înveți."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Declarație profesională",
+      "subtitle": "Clinical Fact este un instrument educațional de căutare a literaturii medicale",
+      "disclaimerIntro": "Clinical Fact este un instrument informativ bazat pe inteligență artificială, conceput pentru a sprijini studenții la asistență medicală, medicină și alte științe ale sănătății în accesarea cunoștințelor medicale, a literaturii de cercetare și a materialelor de studiu. Aplicația nu oferă diagnostice medicale, recomandări de tratament, instrucțiuni clinice sau sfaturi medicale specifice pacienților și nu trebuie utilizată ca bază pentru îngrijirea directă a pacienților sau luarea deciziilor clinice.",
+      "disclaimerHeading": "Cum generează Clinical Fact răspunsurile:",
+      "disclaimerBody": "Clinical Fact preia informații direct din surse medicale și științifice recunoscute, inclusiv PubMed, Semantic Scholar și etichetarea oficială a medicamentelor de la FDA, și utilizează AI pentru a rezuma și explica acel conținut într-un limbaj accesibil. Fiecare răspuns este generat exclusiv pe baza surselor identificate pentru acea întrebare specifică, iar citările trimit la materialul original pentru a-l putea verifica personal. Clinical Fact nu generează date medicale din memorie și nu inventează surse.\n\nClinical Fact nu este un instrument de diagnostic, o platformă de tratament, un dispozitiv medical și nici un substitut pentru raționamentul medical profesional, instruirea autorizată sau programa instituției tale de învățământ. Orice informație generată de aplicație, inclusiv răspunsuri, citări, quizuri și flashcarduri, este furnizată exclusiv în scopuri educaționale și de studiu general și trebuie verificată independent de utilizator înainte de a fi utilizată în orice context academic, clinic sau profesional.\nClinical Fact nu garantează caracterul complet, acuratețea sau relevanța clinică actuală a informațiilor furnizate. Cunoștințele medicale evoluează continuu — verifică întotdeauna informațiile critice cu profesorii tăi, coordonatorii de stagiu clinic și sursele primare actualizate.\nCând încarci propriile documente, notițe sau înregistrări, Clinical Fact generează răspunsuri, rezumate, quizuri și flashcarduri exclusiv pe baza conținutului încărcat, nu din surse externe, cu excepția cazului în care sursele externe sunt afișate explicit alături de acesta.\n\nClinical Fact nu verifică, nu autentifică și nu confirmă identitatea, statutul de înscriere sau calificările utilizatorilor săi. Aplicația nu este destinată utilizării în situații de urgență sau pentru luarea deciziilor clinice în timp real.\nContinuând, confirmi că înțelegi acești termeni și ești de acord să utilizezi Clinical Fact exclusiv ca instrument ajutător de studiu și consultare.",
+      "checkboxLabel": "Înțeleg că această aplicație este exclusiv pentru consultare educațională și nu oferă sfaturi medicale",
+      "acceptButton": "Acceptă și continuă"
+    },
+    "survey": {
+      "role": "Ce descriere ți se potrivește cel mai bine, {{firstName}}?",
+      "currentMethod": "Cum găsești de obicei răspunsuri la întrebările medicale în prezent?",
+      "timeDrain": "Ce îți consumă cel mai mult timp?",
+      "appExpectation": "Ce așteptări ai de la aplicația medicală Clinical Fact?",
+      "aiToolsUsed": "Ce instrumente de AI ai folosit până acum pentru documentarea medicală?",
+      "aiToolIssue": "Ce probleme ai întâmpinat la acele instrumente?",
+      "aiTrustLevel": "Cât de des îți faci griji că un răspuns dat de AI ar putea fi greșit?",
+      "biggestNeed": "De ce ai cea mai mare nevoie în acest moment?",
+      "studyTimePerWeek": "Cât timp ai la dispoziție pentru studiu în fiecare săptămână?",
+      "comingUp": "Ce urmează pentru tine în perioada următoare?",
+      "referralSource": "De unde ai aflat despre Clinical Fact?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Aproape gata...",
     "quizReady": "Chestionar gata!",
     "startQuiz": "Începeți testul",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} din {{total}}",
     "exitTitle": "Ieșire din test?",
     "exitMessage": "Progresul tău va fi pierdut.",
     "exit": "Ieșire",
@@ -318,7 +385,9 @@
     "correctAnswer": "Răspuns corect",
     "yourAnswer": "Răspunsul dvs",
     "explanation": "Explicaţie",
-    "questionProgress": "Întrebarea {{current}} din {{total}}"
+    "questionProgress": "Întrebarea {{current}} din {{total}}",
+    "generatingQuizWait": "Îți generăm quizul, te rugăm să aștepți până la finalizare...",
+    "goToChats": "Mergi la conversații"
   },
   "flashcards": {
     "title": "Fișe de lucru",
