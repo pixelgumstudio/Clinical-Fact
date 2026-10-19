@@ -9,6 +9,7 @@ import {
   NoteFilePreviewIcon,
 } from '@clinicalfact/design-system';
 import { ChatWelcomeHero } from './ChatWelcomeHero';
+import { useTranslation } from 'react-i18next';
 
 type ChatSourceType = 'note' | 'image' | 'document' | 'pdf' | 'audio' | 'medical_qa' | undefined;
 
@@ -39,11 +40,12 @@ export const ChatEmptyState: React.FC<ChatEmptyStateProps> = ({
   onSelectTopic,
   onGoBack,
 }) => {
+  const { t } = useTranslation();
   if (isLoadingSession) {
     return (
       <View style={styles.emptyChat}>
         <ActivityIndicator size="large" color={colors.neutral[900]} />
-        <Text style={styles.emptyText}>Initializing chat...</Text>
+        <Text style={styles.emptyText}>{t('chat.chatEmptyState.initializingChat')}</Text>
       </View>
     );
   }
@@ -76,15 +78,15 @@ export const ChatEmptyState: React.FC<ChatEmptyStateProps> = ({
               <Text style={styles.progressText}>{embeddingProgress}%</Text>
             </View>
             <Text style={styles.embeddingStatusText}>
-              {type === 'image' ? 'Extracting text from image...' :
-               type === 'document' ? 'Processing PDF document...' :
-               'Analyzing your note...'}
+              {type === 'image' ? t('chat.chatEmptyState.extractingTextFromImage') :
+               type === 'document' ? t('chat.chatEmptyState.processingPDFDocument') :
+               t('chat.chatEmptyState.analyzingYourNote')}
             </Text>
           </View>
         </View>
         <View style={styles.processingInfo}>
           <Text style={styles.processingInfoText}>
-            ⏱️ This usually takes just a few seconds. You'll be able to chat once processing is complete.
+           {t('chat.chatEmptyState.thisUsuallyTakesJustAFew')}
           </Text>
         </View>
       </View>
@@ -96,18 +98,21 @@ export const ChatEmptyState: React.FC<ChatEmptyStateProps> = ({
       <View style={styles.emptyChat}>
         <View style={styles.errorContainer}>
           <Text style={styles.errorIcon}>⚠️</Text>
-          <Text style={styles.errorText}>Processing Failed</Text>
+          <Text style={styles.errorText}>{t('chat.chatEmptyState.processingFailed')}</Text>
           <Text style={styles.errorSubtext}>
-            We couldn't process this {type === 'note' ? 'note' : type === 'image' ? 'image' : 'document'}.
-            This might be due to:
+            {type === 'note'
+              ? t('chat.chatEmptyState.couldntProcessNote')
+              : type === 'image'
+                ? t('chat.chatEmptyState.couldntProcessImage')
+                : t('chat.chatEmptyState.couldntProcessDocument')}
           </Text>
           <View style={styles.errorReasons}>
-            <Text style={styles.errorReason}>• File might be corrupted or unreadable</Text>
-            <Text style={styles.errorReason}>• {type === 'image' ? 'Image quality too low' : type === 'document' ? 'PDF is password-protected' : 'Content format not supported'}</Text>
-            <Text style={styles.errorReason}>• Network connection issue</Text>
+            <Text style={styles.errorReason}>{t('chat.chatEmptyState.fileMightBeCorruptedOrUnreadable')}</Text>
+            <Text style={styles.errorReason}>• {type === 'image' ? t('chat.chatEmptyState.imageQualityTooLow') : type === 'document' ? t('chat.chatEmptyState.pdfIsPasswordProtected') : t('chat.chatEmptyState.contentFormatNotSupported')}</Text>
+            <Text style={styles.errorReason}>{t('chat.chatEmptyState.networkConnectionIssue')}</Text>
           </View>
           <TouchableOpacity style={styles.errorButton} onPress={onGoBack}>
-            <Text style={styles.errorButtonText}>Try a Different File</Text>
+            <Text style={styles.errorButtonText}>{t('chat.chatEmptyState.tryADifferentFile')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -119,7 +124,7 @@ export const ChatEmptyState: React.FC<ChatEmptyStateProps> = ({
       <View style={styles.emptyChat}>
         <View style={styles.hintContainer}>
           <Text style={styles.hintText}>
-            💡 Ask any clinical question — no upload needed. I'll answer using cited medical literature, with relevant images where available.
+           {t('chat.chatEmptyState.askAnyClinicalQuestionNoUpload')}
           </Text>
         </View>
       </View>
@@ -139,13 +144,17 @@ export const ChatEmptyState: React.FC<ChatEmptyStateProps> = ({
             {fileName || title}
           </Text>
           <View style={styles.readyBadge}>
-            <Text style={styles.readyBadgeText}>✓ Ready to chat</Text>
+            <Text style={styles.readyBadgeText}>{t('chat.chatEmptyState.readyToChat')}</Text>
           </View>
         </View>
       </View>
       <View style={styles.hintContainer}>
         <Text style={styles.hintText}>
-          💡 Ask me anything about this {type === 'note' ? 'note' : type === 'image' ? 'image' : 'document'}. I can summarize, explain concepts, or answer specific questions.
+          {type === 'note'
+            ? t('chat.chatEmptyState.askMeAboutNote')
+            : type === 'image'
+              ? t('chat.chatEmptyState.askMeAboutImage')
+              : t('chat.chatEmptyState.askMeAboutDocument')}
         </Text>
       </View>
     </View>

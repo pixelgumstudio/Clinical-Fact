@@ -15,7 +15,8 @@
     "done": "ചെയ്തുകഴിഞ്ഞു",
     "search": "തിരയുക",
     "filter": "ഫിൽട്ടർ",
-    "ok": "ശരി"
+    "ok": "ശരി",
+    "info": "വിവരം"
   },
   "home": {
     "title": "Clinical Fact",
@@ -75,7 +76,12 @@
     "reportBug": "തകരാർ റിപ്പോർട്ട് ചെയ്യുക"
   },
   "auth": {
-    "welcome": "Clinical Fact-ലേക്ക് സ്വാഗതം",
+    "welcome": {
+      "googleSignInFailed": "Google സൈൻ-ഇൻ പരാജയപ്പെട്ടു",
+      "failedToAuthenticateWithServer": "സെർവറുമായി ബന്ധപ്പെടാൻ കഴിഞ്ഞില്ല",
+      "googleSignInIsOnlyAvailable": "Google സൈൻ-ഇൻ നേറ്റീവ് ആപ്പിൽ മാത്രമേ ലഭ്യമാകൂ. ഇമെയിൽ ഉപയോഗിക്കുക അല്ലെങ്കിൽ നേറ്റീവ് ആപ്പ് ഡൗൺലോഡ് ചെയ്യുക.",
+      "code": "{{message}} (കോഡ്: {{code}})"
+    },
     "getStarted": "ആരംഭിക്കുക",
     "signIn": "സൈൻ ഇൻ",
     "signUp": "സൈൻ അപ്പ് ചെയ്യുക",
@@ -199,7 +205,10 @@
     },
     "demoVideo": {
       "title": "എന്തെങ്കിലും പഠിക്കാൻ\\nആവശ്യമായതെല്ലാം",
-      "subtitle": "അത് റെക്കോർഡുചെയ്യുക. ഗവേഷണം നടത്തുക. ക്വിസ് ചെയ്യുക. അതിൽ പ്രാവീണ്യം നേടുക."
+      "subtitle": "അത് റെക്കോർഡുചെയ്യുക. ഗവേഷണം നടത്തുക. ക്വിസ് ചെയ്യുക. അതിൽ പ്രാവീണ്യം നേടുക.",
+      "everythingYouNeedToLearnAnything": "പഠിക്കാൻ ആവശ്യമുള്ളതെല്ലാം ഒരിടത്ത്",
+      "recordItResearchItQuizIt": "റെക്കോർഡ് ചെയ്യാം. പഠിക്കാം. ക്വിസ് ചെയ്യാം. പ്രാവീണ്യം നേടാം.",
+      "tryClinicalFactNowForFree": "Clinical Fact ഇപ്പോൾ സൗജന്യമായി ഉപയോഗിക്കൂ"
     },
     "features": {
       "transcribe": {
@@ -283,12 +292,136 @@
       "studyTimePerWeek": "ഓരോ ആഴ്ചയും പഠനത്തിനായി നിങ്ങൾക്ക് എത്ര സമയം ലഭിക്കാറുണ്ട്?",
       "comingUp": "അടുത്തതായി നിങ്ങൾ തയ്യാറെടുക്കുന്ന പ്രധാന ലക്ഷ്യം/പരീക്ഷ എന്താണ്?",
       "referralSource": "Clinical Fact-നെ കുറിച്ച് എവിടെ നിന്നാണ് അറിഞ്ഞത്?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "നോട്ടിഫിക്കേഷനുകൾ ഓൺ ചെയ്യുക",
+      "thisHelpsUsStayOnTrack": "നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരിക്കാനും ശരിയായ മെഡിക്കൽ ഉത്തരങ്ങൾ വേഗത്തിൽ കണ്ടെത്താനും ഇത് സഹായിക്കുന്നു"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "തെറ്റായ കോഡ്. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "failedToResendCodePleaseTry": "കോഡ് വീണ്ടും അയക്കാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "confirmYourEmailAddress": "ഇമെയിൽ വിലാസം സ്ഥിരീകരിക്കുക",
+      "enterCodeSentTo": "{{email}} എന്ന ഇമെയിലിലേക്ക് അയച്ച OTP കോഡ് നൽകുക",
+      "resendCodeIn": "{{seconds}} സെക്കൻഡിൽ കോഡ് വീണ്ടും അയക്കാം"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "ആരെങ്കിലും റെഫർ ചെയ്തതാണോ?",
+      "enterTheirReferralCodeIfYou": "റെഫറൽ കോഡ് ഉണ്ടെങ്കിൽ നൽകുക",
+      "eGJOHNOrTECHBRO": "ഉദാ: JOHN അല്ലെങ്കിൽ TECHBRO",
+      "codeIsValid": "✓ കോഡ് സാധുവാണ്"
+    },
+    "resultsChart": {
+      "getBetterResults": "മികച്ച ഫലങ്ങൾ നേടൂ",
+      "over95OfClinicalfactUsersScore": "Clinical Fact ഉപയോഗിക്കുന്ന 95%-ലധികം പേരും പരീക്ഷകളിൽ 95%-ഓ അതിൽ കൂടുതലോ സ്കോർ ചെയ്യുന്നു"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "നഴ്സിംഗ് വിദ്യാർത്ഥി",
+        "medicalStudent": "മെഡിക്കൽ വിദ്യാർത്ഥി",
+        "paPharmacyStudent": "PA അല്ലെങ്കിൽ ഫാർമസി വിദ്യാർത്ഥി",
+        "practicingNurse": "പ്രാക്ടീസ് ചെയ്യുന്ന നഴ്സ്",
+        "practicingPhysician": "പ്രാക്ടീസ് ചെയ്യുന്ന ഡോക്ടർ",
+        "otherHealthcareProfessional": "മറ്റ് ആരോഗ്യ പ്രവർത്തകർ"
+      },
+      "currentMethod": {
+        "textbooksNotes": "പാഠപുസ്തകങ്ങൾ അല്ലെങ്കിൽ ക്ലാസ് നോട്ടുകൾ",
+        "flashcardQuizApps": "ഫ്ലാഷ്കാർഡ് അല്ലെങ്കിൽ ക്വിസ് ആപ്പുകൾ",
+        "youtube": "YouTube",
+        "aiChatbots": "AI ചാറ്റ്ബോട്ടുകൾ",
+        "colleagueClassmate": "സഹപ്രവർത്തകരോടോ സഹപാഠികളോടോ ചോദിക്കുന്നു",
+        "practiceQuestionBanks": "പ്രാക്ടീസ് ചോദ്യ ശേഖരങ്ങൾ"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "ഫ്ലാഷ്കാർഡുകളും ക്വിസ്സുകളും സ്വയം തയ്യാറാക്കുന്നത്",
+        "findingTrustworthyAnswer": "വിശ്വസനീയമായ ഉത്തരങ്ങൾ വേഗത്തിൽ കണ്ടെത്തുന്നത്",
+        "reReadingNotes": "ഓർമ്മയില്ലാത്ത നോട്ടുകൾ വീണ്ടും വായിക്കുന്നത്",
+        "switchingApps": "നിരവധി ആപ്പുകൾ മാറിമാറി ഉപയോഗിക്കുന്നത്",
+        "chartingDocumentation": "ചാർട്ടിംഗും ഡോക്യുമെന്റേഷനും"
+      },
+      "appExpectation": {
+        "noHallucination": "തെറ്റായ വിവരങ്ങൾ നൽകാത്ത AI",
+        "realCitations": "ആധികാരിക സ്രോതസ്സുകളിൽ നിന്നുള്ള വിവരങ്ങൾ",
+        "oneApp": "പല ആപ്പുകൾക്ക് പകരം ഒരൊറ്റ ആപ്പ്",
+        "explainsWhy": "ഉത്തരം മാത്രമല്ല, അതിന്റെ കാരണവും വിശദീകരിക്കുന്നു"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google സെർച്ച്",
+        "otherApps": "മറ്റ് ആപ്പുകൾ"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "തെറ്റായ വിവരങ്ങൾ നൽകി",
+        "notMedicalContent": "മെഡിക്കൽ പഠനത്തിന് അനുയോജ്യമല്ല",
+        "noSources": "പരിശോധിക്കാൻ സ്രോതസ്സുകളില്ല",
+        "tooGeneric": "പരീക്ഷാ കേന്ദ്രീകൃതമല്ല, വളരെ ലളിതമാണ്"
+      },
+      "aiTrustLevel": {
+        "everyTime": "എല്ലാ തവണയും",
+        "sometimes": "ചിലപ്പോൾ",
+        "rarely": "വളരെ അപൂർവ്വമായി",
+        "dontUseAi": "ഞാൻ ഇതുവരെ AI ഉപയോഗിച്ചിട്ടില്ല"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "വിശ്വസനീയമായ വേഗത്തിലുള്ള ഉത്തരങ്ങൾ",
+        "quizzesFlashcardsWithoutWork": "തയ്യാറാക്കാൻ ബുദ്ധിമുട്ടേറാത്ത ക്വിസ്സുകളും ഫ്ലാഷ്കാർഡുകളും",
+        "rememberingStudied": "പഠിച്ച കാര്യങ്ങൾ ഓർമ്മയിൽ സൂക്ഷിക്കാൻ സഹായം",
+        "medicalCitations": "മെഡിക്കൽ സൈറ്റേഷൻ റഫറൻസുകൾ",
+        "allOfTheAbove": "മുകളിൽ പറഞ്ഞവയെല്ലാം"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "ന്യൂസ്‌ലെറ്റർ",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "മറ്റുള്ളവ"
+      },
+      "studyTime": {
+        "under5Hours": "5 മണിക്കൂറിൽ താഴെ",
+        "510Hours": "5–10 മണിക്കൂർ",
+        "1020Hours": "10–20 മണിക്കൂർ",
+        "20PlusHours": "20+ മണിക്കൂർ"
+      },
+      "comingUp": {
+        "medicalExams": "മെഡിക്കൽ പരീക്ഷകൾ",
+        "clinicalRotations": "ക്ലിനിക്കൽ റൊട്ടേഷനുകൾ",
+        "nursingExams": "നഴ്സിംഗ് പരീക്ഷകൾ",
+        "otherExams": "മറ്റ് പരീക്ഷകൾ",
+        "staySharp": "അറിവ് പുതുക്കിവെക്കാൻ മാത്രം"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "കുറിപ്പ് ട്രാൻസ്ക്രിപ്റ്റ്",
+    "noteTranscript": {
+      "noteTranscript": "നോട്ട് ട്രാൻസ്ക്രിപ്റ്റ്",
+      "noNoteIDProvided": "നോട്ട് ID ലഭ്യമല്ല",
+      "noTranscriptAvailableForThisNote": "ഈ നോട്ടിന് ട്രാൻസ്ക്രിപ്റ്റ് ലഭ്യമല്ല.",
+      "thisNoteWasNotCreatedFrom": "ഈ നോട്ട് ഓഡിയോ/വീഡിയോയിൽ നിന്ന് ഉണ്ടാക്കിയതല്ലാത്തതിനാൽ ട്രാൻസ്ക്രിപ്റ്റ് ലഭ്യമല്ല.",
+      "failedToLoadNote": "നോട്ട് ലോഡ് ചെയ്യാനായില്ല",
+      "noteTranscript2": "നോട്ട് ട്രാൻസ്ക്രിപ്റ്റ്",
+      "loadingTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് ലോഡ് ചെയ്യുന്നു...",
+      "goToNote": "നോട്ടിലേക്ക് പോകുക"
+    },
     "noteOptions": "കുറിപ്പ് ഓപ്ഷനുകൾ",
-    "editNote": "കുറിപ്പ് എഡിറ്റ് ചെയ്യുക",
+    "editNote": {
+      "pleaseEnterANoteTitle": "ദയവായി നോട്ടിന്റെ തലക്കെട്ട് നൽകുക",
+      "failedToUpdateNote": "നോട്ട് അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല",
+      "noteUpdatedSuccessfully": "നോട്ട് വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു",
+      "editNote": "നോട്ട് എഡിറ്റ് ചെയ്യുക",
+      "noteTitle": "നോട്ടിന്റെ തലക്കെട്ട്",
+      "enterNoteTitle": "നോട്ടിന്റെ തലക്കെട്ട് നൽകുക",
+      "noteContent": "നോട്ടിന്റെ ഉള്ളടക്കം",
+      "enterNoteContent": "നോട്ടിന്റെ ഉള്ളടക്കം നൽകുക",
+      "saveThisNote": "ഈ നോട്ട് സേവ് ചെയ്യുക",
+      "aiIsGeneratingYourNote": "AI നിങ്ങളുടെ നോട്ട് തയ്യാറാക്കുകയാണ്",
+      "largeAudioAndVideoFilesMay": "വലിയ ഓഡിയോ, വീഡിയോ ഫയലുകൾ പ്രോസസ്സ് ചെയ്യാൻ കുറച്ച് മിനിറ്റുകൾ എടുത്തേക്കാം. ദയവായി ആപ്പ് തുറന്നുതന്നെ വെയ്ക്കുക."
+    },
     "retranscribe": "വീണ്ടും ട്രാൻസ്‌ക്രൈബ് ചെയ്യുക",
     "exportNote": "കുറിപ്പ് എക്സ്പോർട്ട് ചെയ്യുക",
     "shareNoteLink": "കുറിപ്പ് ലിങ്ക് പങ്കിടുക",
@@ -310,12 +443,89 @@
     "translate": "വിവർത്തനം ചെയ്യുക",
     "addToFolder": "ഫോൾഡറിലേക്ക് ചേർക്കുക",
     "loadingNote": "കുറിപ്പ് ലോഡ് ചെയ്യുന്നു...",
-    "noteNotFound": "കുറിപ്പ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
+    "noteNotFound": "കുറിപ്പ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ഉണ്ടാക്കാനായില്ല",
+      "anUnexpectedErrorOccurred": "അപ്രതീക്ഷിതമായ ഒരു തകരാറുണ്ടായി",
+      "history": "ചരിത്രം",
+      "export": "എക്സ്പോർട്ട് ചെയ്യുക"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "ഫോൾഡറിലേക്ക് നോട്ട് ചേർക്കാനായില്ല",
+      "folderNotFound": "ഫോൾഡർ കണ്ടെത്താനായില്ല",
+      "addNote": "+ നോട്ട് ചേർക്കുക",
+      "noNotesInThisFolder": "ഈ ഫോൾഡറിൽ നോട്ടുകളൊന്നുമില്ല",
+      "moveNotesToThisFolderTo": "നോട്ടുകൾ ഇവിടെ കാണാൻ ഈ ഫോൾഡറിലേക്ക് മാറ്റുക",
+      "addNoteToFolder": "ഫോൾഡറിലേക്ക് നോട്ട് ചേർക്കുക",
+      "noNotesAvailableToAdd": "ചേർക്കാൻ നോട്ടുകളൊന്നും ലഭ്യമല്ല",
+      "allYourNotesAreAlreadyIn": "നിങ്ങളുടെ എല്ലാ നോട്ടുകളും ഇതിനകം ഈ ഫോൾഡറിലുണ്ട്",
+      "created": "{{value}}-ൽ നിർമ്മിച്ചത്"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "നോട്ട് ലോഡ് ചെയ്യാനായില്ല",
+      "reTranscribeNote": "നോട്ട് വീണ്ടും ട്രാൻസ്ക്രൈബ് ചെയ്യുക",
+      "thisWillReTranscribeTheAudio": "ഇത് ഓഡിയോ വീണ്ടും ട്രാൻസ്ക്രൈബ് ചെയ്യുകയും നോട്ട് അപ്‌ഡേറ്റ് ചെയ്യുകയും ചെയ്യും. തുടരണോ?",
+      "reTranscribe": "വീണ്ടും ട്രാൻസ്ക്രൈബ് ചെയ്യുക",
+      "noteReTranscribedSuccessfully": "നോട്ട് വിജയകരമായി വീണ്ടും ട്രാൻസ്ക്രൈബ് ചെയ്തു",
+      "info": "വിവരം",
+      "reTranscriptionFeatureIsComingSoon": "വീണ്ടും ട്രാൻസ്ക്രൈബ് ചെയ്യാനുള്ള ഫീച്ചർ ഉടൻ ലഭ്യമാകും",
+      "youAreCurrentlyOfflinePleaseConnect": "നിങ്ങൾ ഇപ്പോൾ ഓഫ്‌ലൈനിലാണ്. ഈ പ്രവൃത്തി ചെയ്യാനായി ഇന്റർനെറ്റിലേക്ക് കണക്റ്റ് ചെയ്യുക.",
+      "failedToDeleteNote": "നോട്ട് ഡിലീറ്റ് ചെയ്യാനായില്ല",
+      "failedToExportNote": "കുറിപ്പ് എക്‌സ്‌പോർട്ട് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "noteTranslatedSuccessfully": "കുറിപ്പ് വിജയകരമായി വിവർത്തനം ചെയ്‌തു",
+      "failedToTranslateNote": "കുറിപ്പ് വിവർത്തനം ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "noteMovedTo": "കുറിപ്പ് {{name}}-ലേക്ക് മാറ്റി",
+      "failedToMoveNoteToFolder": "കുറിപ്പ് ഫോൾഡറിലേക്ക് മാറ്റാൻ കഴിഞ്ഞില്ല",
+      "summaryNotes": "സംഗ്രഹ കുറിപ്പുകൾ",
+      "loadingNote": "കുറിപ്പ് ലഭ്യമാക്കുന്നു...",
+      "imageNote": "ഇമേജ് നോട്ട്",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
+      "translate": "വിവർത്തനം ചെയ്യുക",
+      "transcribe": "ട്രാൻസ്‌ക്രൈബ് ചെയ്യുക",
+      "editThisNote": "ഈ കുറിപ്പ് എഡിറ്റ് ചെയ്യുക",
+      "createFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ഉണ്ടാക്കുക",
+      "createFlashcardsToImproveYourRetention": "ഓർമ്മശക്തി മെച്ചപ്പെടുത്താൻ ഫ്ലാഷ്കാർഡുകൾ ഉണ്ടാക്കുക",
+      "createQuizQuestions": "ക്വിസ് ചോദ്യങ്ങൾ ഉണ്ടാക്കുക",
+      "practiceYourNotesByCreatingQuestions": "വിഷയം കൂടുതൽ വ്യക്തമായി പഠിക്കാൻ ചോദ്യങ്ങൾ തയ്യാറാക്കി പരിശീലിക്കുക"
+    },
+    "sharedNote": {
+      "notFound": "കണ്ടെത്താനായില്ല",
+      "thisSharedNoteLinkIsInvalid": "പങ്കിട്ട ഈ നോട്ട് ലിങ്ക് അസാധുവാണ് അല്ലെങ്കിൽ കാലാവധി കഴിഞ്ഞതാണ്.",
+      "failedToLoadSharedNote": "പങ്കിട്ട കുറിപ്പ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.",
+      "saved": "സേവ് ചെയ്‌തു!",
+      "noteHasBeenAddedToYour": "കുറിപ്പ് നിങ്ങളുടെ ലൈബ്രറിയിലേക്ക് ചേർത്തു.",
+      "viewInLibrary": "ലൈബ്രറിയിൽ കാണുക",
+      "stayHere": "ഇവിടെത്തന്നെ തുടരുക",
+      "failedToSaveNote": "കുറിപ്പ് സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.",
+      "loadingSharedNote": "പങ്കിട്ട കുറിപ്പ് ലഭ്യമാക്കുന്നു...",
+      "sharedNote": "പങ്കിട്ട കുറിപ്പ്",
+      "sharedWithYou": "നിങ്ങളുമായി പങ്കിട്ടത്",
+      "savedToLibrary": "ലൈബ്രറിയിലേക്ക് സേവ് ചെയ്‌തു",
+      "saveToMyLibrary": "എന്റെ ലൈബ്രറിയിലേക്ക് സേവ് ചെയ്യുക"
+    }
   },
   "create": {
     "selectOption": "നിങ്ങളുടെ കുറിപ്പ് എങ്ങനെ സൃഷ്ടിക്കാനാണ് നിങ്ങൾ ആഗ്രഹിക്കുന്നത്?",
-    "recordAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുക",
-    "uploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+    "recordAudio": {
+      "permissionRequired": "അനുമതി ആവശ്യമാണ്",
+      "pleaseGrantMicrophonePermissionToRecord": "ഓഡിയോ റെക്കോർഡ് ചെയ്യാൻ മൈക്രോഫോൺ അനുമതി നൽകുക.",
+      "failedToRequestMicrophonePermission": "മൈക്രോഫോൺ അനുമതി അഭ്യർത്ഥിക്കാൻ കഴിഞ്ഞില്ല",
+      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുന്നു",
+      "recordAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുക",
+      "createANoteFromAnyRecorded": "റെക്കോർഡ് ചെയ്ത ഏത് ഓഡിയോയിൽ നിന്നും കുറിപ്പ് തയ്യാറാക്കുക",
+      "recording": "റെക്കോർഡിംഗ് ({{time}})",
+      "recordAgain": "വീണ്ടും റെക്കോർഡ് ചെയ്യുക"
+    },
+    "uploadAudio": {
+      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "ഓഡിയോ ഫയൽ തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
+      "uploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത ഏത് ഓഡിയോയിൽ നിന്നും കുറിപ്പ് തയ്യാറാക്കുക",
+      "dragDropFilesOrBrowse": "ഫയലുകൾ ഡ്രാഗ് & ഡ്രോപ്പ് ചെയ്യുക അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യുക",
+      "supportedFormatMp4WavMp3": "പിന്തുണയ്ക്കുന്ന ഫോർമാറ്റുകൾ: mp4, wav, mp3",
+      "changeFile": "ഫയൽ മാറ്റുക"
+    },
     "youtube": "YouTube വീഡിയോ",
     "pdfDocument": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റ്",
     "customText": "ഇഷ്ടാനുസൃത വാചകം",
@@ -323,7 +533,56 @@
     "uploadingFile": "സെർവറിലേക്ക് ഫയൽ അപ്‌ലോഡ് ചെയ്യുന്നു...",
     "transcribing": "സംഭാഷണം വാചകത്തിലേക്ക് പരിവർത്തനം ചെയ്യുന്നു...",
     "extractingText": "ടെക്‌സ്റ്റ് എക്‌സ്‌ട്രാക്റ്റുചെയ്യുന്നു...",
-    "generatingNote": "AI- പവർഡ് പഠന കുറിപ്പുകൾ സൃഷ്ടിക്കുന്നു...",
+    "generatingNote": {
+      "uploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadingAudioFileToServer": "ഓഡിയോ ഫയൽ സെർവറിലേക്ക് അപ്‌ലോഡ് ചെയ്യുന്നു...",
+      "transcribeAudio": "ഓഡിയോ ട്രാൻസ്‌ക്രൈബ് ചെയ്യുക",
+      "convertingSpeechToText": "ശബ്‌ദം ടെക്‌സ്‌റ്റാക്കി മാറ്റുന്നു...",
+      "generateYourNote": "കുറിപ്പ് തയ്യാറാക്കുക",
+      "creatingStudyNotes": "പഠന കുറിപ്പുകൾ തയ്യാറാക്കുന്നു...",
+      "uploadPDF": "PDF അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadingPDFDocumentToServer": "PDF ഡോക്യുമെന്റ് സെർവറിലേക്ക് അപ്‌ലോഡ് ചെയ്യുന്നു...",
+      "extractText": "ടെക്‌സ്‌റ്റ് വേർതിരിച്ചെടുക്കുക",
+      "readingAndExtractingTextFromPDF": "PDF വായിച്ച് ടെക്സ്റ്റ് വേർതിരിച്ചെടുക്കുന്നു...",
+      "uploadImage": "ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadingImageToServer": "ചിത്രം സെർവറിലേക്ക് അപ്‌ലോഡ് ചെയ്യുന്നു...",
+      "extractTextOCR": "ടെക്‌സ്‌റ്റ് വേർതിരിച്ചെടുക്കുക (OCR)",
+      "recognizingAndExtractingTextFromImage": "ചിത്രത്തിൽ നിന്ന് ടെക്സ്റ്റ് തിരിച്ചറിഞ്ഞ് വേർതിരിച്ചെടുക്കുന്നു...",
+      "fetchVideo": "വീഡിയോ ലഭ്യമാക്കുക",
+      "connectingToYouTube": "YouTube-ലേക്ക് കണക്റ്റ് ചെയ്യുന്നു...",
+      "extractTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് എക്‌സ്‌ട്രാക്റ്റ് ചെയ്യുക",
+      "downloadingVideoTranscript": "വീഡിയോ ട്രാൻസ്ക്രിപ്റ്റ് ഡൗൺലോഡ് ചെയ്യുന്നു...",
+      "processText": "ടെക്‌സ്റ്റ് പ്രോസസ് ചെയ്യുക",
+      "analyzingYourContent": "കണ്ടന്റ് വിശകലനം ചെയ്യുന്നു...",
+      "uploadFile": "ഫയൽ അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadingToServer": "സെർവറിലേക്ക് അപ്‌ലോഡ് ചെയ്യുന്നു...",
+      "processContent": "കണ്ടന്റ് പ്രോസസ് ചെയ്യുക",
+      "extractingContent": "കണ്ടന്റ് ശേഖരിക്കുന്നു...",
+      "noteReady": "നോട്ട് തയ്യാറാണ്!",
+      "noteGenerationFailedOnTheServer": "സെർവറിൽ നോട്ട് തയ്യാറാക്കാൻ സാധിച്ചില്ല.",
+      "failedToUploadImage": "ചിത്രം അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "weCouldNotReadAnythingFrom": "ഈ ചിത്രത്തിൽ നിന്ന് ഒന്നും വായിക്കാൻ സാധിച്ചില്ല. മെഡിക്കൽ നോട്ടുകളുടെ കൂടുതൽ വ്യക്തതയുള്ള ചിത്രം നൽകുക.",
+      "preparingFile": "ഫയൽ തയ്യാറാക്കുന്നു...",
+      "almostDone": "ഏതാണ്ട് പൂർത്തിയായി...",
+      "untitledNote": "തലക്കെട്ടില്ലാത്ത നോട്ട്",
+      "failedToGenerateNote": "നോട്ട് തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല",
+      "whoaSpeedy": "വളരെ വേഗത്തിലാണല്ലോ! 🏃💨",
+      "youReGeneratingContentABit": "നിങ്ങൾ വളരെ വേഗത്തിലാണ് കണ്ടന്റ് തയ്യാറാക്കുന്നത്. AI-ക്ക് ഒപ്പമെത്താൻ വീണ്ടും ശ്രമിക്കുന്നതിന് മുൻപ് 60 സെക്കൻഡ് കാത്തിരിക്കൂ.",
+      "gotIt": "മനസ്സിലായി",
+      "fileTooLarge": "ഫയലിന്റെ വലുപ്പം കൂടുതലാണ്",
+      "yourFileExceedsThe15MBLimit": "ഫയൽ സൗജന്യ ഉപയോക്താക്കൾക്കുള്ള 15MB പരിധി കവിയുന്നു. 100MB വരെയുള്ള ലെക്ചറുകൾ അപ്‌ലോഡ് ചെയ്യാൻ PRO-യിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക.",
+      "upgradeToPRO": "PRO-യിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക",
+      "oopsWeHitASnag": "ക്ഷമിക്കണം, ഒരു തടസ്സം നേരിട്ടു 🚧",
+      "weCouldnTGenerateThatRight": "ഇപ്പോൾ ഇത് തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക!",
+      "processingContent": "കണ്ടന്റ് പ്രോസസ് ചെയ്യുന്നു...",
+      "generatingYourNote": "നിങ്ങളുടെ നോട്ട് തയ്യാറാക്കുന്നു...",
+      "audioNote": "ഓഡിയോ നോട്ട്",
+      "failedToGenerateFlashcards": "ഫ്ലാഷ്കാർഡുകൾ തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല",
+      "generatingNote": "നോട്ട് തയ്യാറാക്കുന്നു",
+      "pleaseKeepThisScreenOpenWhile": "നോട്ട് തയ്യാറാക്കുന്നതുവരെ ദയവായി ഈ സ്ക്രീനിൽ തന്നെ തുടരുക. വലിയ ഫയലുകൾ ട്രാൻസ്ക്രൈബ് ചെയ്യാൻ ഏതാനും മിനിറ്റുകൾ എടുത്തേക്കാം.",
+      "goToNote": "നോട്ടിലേക്ക് പോകുക",
+      "generateNoteTranscript": "നോട്ട് ട്രാൻസ്ക്രിപ്റ്റ് തയ്യാറാക്കുക"
+    },
     "fetchingVideo": "YouTube-ലേക്ക് കണക്റ്റ് ചെയ്യുന്നു...",
     "processingText": "നിങ്ങളുടെ ഉള്ളടക്കം വിശകലനം ചെയ്യുന്നു...",
     "uploadAudioTitle": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
@@ -333,7 +592,63 @@
     "fetchVideo": "വീഡിയോ ലഭ്യമാക്കുക",
     "extractTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് എക്‌സ്‌ട്രാക്റ്റ് ചെയ്യുക",
     "processText": "ടെക്സ്റ്റ് പ്രോസസ്സ് ചെയ്യുക",
-    "generateNote": "നിങ്ങളുടെ കുറിപ്പ് സൃഷ്ടിക്കുക"
+    "generateNote": "നിങ്ങളുടെ കുറിപ്പ് സൃഷ്ടിക്കുക",
+    "customTextInput": {
+      "customText": "കസ്റ്റം ടെക്സ്റ്റ്",
+      "createANoteFromAnyCustom": "ഏതൊരു കസ്റ്റം ടെക്സ്റ്റിൽ നിന്നും നോട്ട് തയ്യാറാക്കുക",
+      "enterText": "ടെക്സ്റ്റ് നൽകുക",
+      "enterYourTextHere": "ടെക്സ്റ്റ് ഇവിടെ നൽകുക..."
+    },
+    "uploadImage": {
+      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "അനുമതി ആവശ്യമാണ്",
+      "pleaseAllowAccessToYourPhoto": "ഫോട്ടോ ലൈബ്രറി ഉപയോഗിക്കാൻ അനുമതി നൽകുക",
+      "failedToPickImage": "ചിത്രം തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
+      "uploadImage": "ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത ചിത്രത്തിൽ നിന്ന് നോട്ട് തയ്യാറാക്കുക",
+      "dragDropFilesOrBrowse": "ഫയലുകൾ ഡ്രാഗ് & ഡ്രോപ്പ് ചെയ്യുക അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യുക",
+      "supportedFormatPngJpegHeicWebp": "പിന്തുണയ്ക്കുന്ന ഫോർമാറ്റുകൾ: png, jpeg, heic, webp",
+      "changeFile": "ഫയൽ മാറ്റുക"
+    },
+    "uploadPDF": {
+      "created": "തയ്യാറാക്കിയത് {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "ഡോക്യുമെന്റ് തിരഞ്ഞെടുക്കാൻ കഴിഞ്ഞില്ല",
+      "uploadPdf": "PDF അപ്‌ലോഡ് ചെയ്യുക",
+      "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത PDF-ൽ നിന്ന് നോട്ട് തയ്യാറാക്കുക",
+      "dragDropFilesOrBrowse": "ഫയലുകൾ ഡ്രാഗ് & ഡ്രോപ്പ് ചെയ്യുക അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യുക",
+      "supportedFormatPdf": "പിന്തുണയ്ക്കുന്ന ഫോർമാറ്റ്: pdf",
+      "changeFile": "ഫയൽ മാറ്റുക"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "വീഡിയോ എടുക്കുന്നു",
+      "gettingVideoDetails": "വീഡിയോ വിവരങ്ങൾ ശേഖരിക്കുന്നു",
+      "extractingTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് ശേഖരിക്കുന്നു",
+      "convertingAudioToText": "ഓഡിയോ ടെക്സ്റ്റാക്കി മാറ്റുന്നു",
+      "generatingYourNote": "നോട്ട് തയ്യാറാക്കുന്നു",
+      "aiIsSummarisingTheContent": "AI വിവരങ്ങൾ സംഗ്രഹിക്കുന്നു",
+      "noteGenerationFailedPleaseTryAgain": "നോട്ട് തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.",
+      "processingFailed": "പ്രോസസ്സിംഗ് പരാജയപ്പെട്ടു",
+      "goBack": "തിരികെ പോകുക",
+      "retry": "വീണ്ടും ശ്രമിക്കുക",
+      "failedToStartNoteGeneration": "നോട്ട് നിർമ്മാണം ആരംഭിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToProcessYouTubeVideoPlease": "YouTube വീഡിയോ പ്രോസസ്സ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "cancelProcessing": "പ്രോസസ്സിംഗ് റദ്ദാക്കുക",
+      "areYouSureYouWantTo": "റദ്ദാക്കണമെന്ന് ഉറപ്പാണോ? നിങ്ങളുടെ പുരോഗതി നഷ്ടപ്പെടും.",
+      "continueProcessing": "പ്രോസസ്സിംഗ് തുടരുക",
+      "youTubeNote": "YouTube നോട്ട്",
+      "noteGenerated": "നോട്ട് തയ്യാറായി",
+      "generatingNote": "നോട്ട് തയ്യാറാക്കുന്നു",
+      "goToNote": "നോട്ടിലേക്ക് പോകുക"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "വീഡിയോ വിവരങ്ങൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToFetchVideoInformation": "വീഡിയോ വിവരങ്ങൾ ലഭ്യമാക്കുന്നതിൽ പരാജയപ്പെട്ടു",
+      "youtubeVideo": "YouTube വീഡിയോ",
+      "createANoteFromAnyYoutube": "ഏതൊരു YouTube വീഡിയോയിൽ നിന്നും നോട്ട് തയ്യാറാക്കുക",
+      "enterYoutubeURL": "YouTube URL നൽകുക",
+      "pasteYoutubeURL": "YouTube URL പേസ്റ്റ് ചെയ്യുക",
+      "fetchingVideoInfo": "വീഡിയോ വിവരങ്ങൾ ശേഖരിക്കുന്നു..."
+    }
   },
   "library": {
     "title": "ലൈബ്രറി",
@@ -387,7 +702,42 @@
     "explanation": "വിശദീകരണം",
     "questionProgress": "ചോദ്യം {{current}} / {{total}}",
     "generatingQuizWait": "നിങ്ങൾക്കായി ക്വിസ് തയ്യാറാക്കുകയാണ്, ദയവായി അല്പം കാത്തിരിക്കൂ...",
-    "goToChats": "ചാറ്റുകളിലേക്ക് പോകുക"
+    "goToChats": "ചാറ്റുകളിലേക്ക് പോകുക",
+    "quizGroupDetail": {
+      "inProgress": "നടന്നുകൊണ്ടിരിക്കുന്നു",
+      "notStarted": "ആരംഭിച്ചിട്ടില്ല",
+      "failedToLoadQuizHistory": "ക്വിസ് ഹിസ്റ്ററി ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToLoadChatContent": "ചാറ്റ് വിവരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "deleteQuiz": "ക്വിസ് ഡിലീറ്റ് ചെയ്യുക",
+      "failedToDeleteQuiz": "ക്വിസ് ഡിലീറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
+      "lastscore": "അവസാന സ്കോർ",
+      "bestscore": "മികച്ച സ്കോർ",
+      "attempts": "ശ്രമങ്ങൾ",
+      "retakeQuiz": "ക്വിസ് വീണ്ടുമെഴുതുക",
+      "translate": "വിവർത്തനം ചെയ്യുക",
+      "newQuiz": "പുതിയ ക്വിസ്",
+      "quizHistory": "ക്വിസ് ഹിസ്റ്ററി",
+      "flashcardHistory": "ഫ്ലാഷ്കാർഡ് ഹിസ്റ്ററി",
+      "score": "സ്കോർ {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "ഇതിൽ നിന്നും ഫ്ലാഷ്കാർഡ് സെറ്റുകളൊന്നും ഇതുവരെ ലഭ്യമല്ല.",
+      "cards": "{{totalCards}} കാർഡുകൾ · {{flashcardStatus}}",
+      "quizOptions": "ക്വിസ് ഓപ്ഷനുകൾ",
+      "exportLatestAttempt": "അവസാന ശ്രമം എക്സ്പോർട്ട് ചെയ്യുക",
+      "questions": "{{totalQuestions}} ചോദ്യങ്ങൾ · {{value}}",
+      "deleteAllAttemptsOne": "\"{{title}}\"-ന്റെ 1 ക്വിസ് ശ്രമം ഡിലീറ്റ് ചെയ്യണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
+      "deleteAllAttemptsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ക്വിസ് ശ്രമങ്ങളും ഡിലീറ്റ് ചെയ്യണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "ക്വിസ് വിവരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല - തെറ്റായ പ്രതികരണ ഫോർമാറ്റ്",
+      "failedToLoadQuizData": "ക്വിസ് വിവരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "noContentAvailable": "വിവരങ്ങളൊന്നും ലഭ്യമല്ല",
+      "goBack": "തിരികെ പോകുക",
+      "previous": "മുമ്പത്തേത്"
+    },
+    "quiz": {
+      "generationFailed": "തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല"
+    }
   },
   "flashcards": {
     "title": "ഫ്ലാഷ് കാർഡുകൾ",
@@ -418,7 +768,44 @@
     "headerTitle": "ഫ്ലാഷ്കാർഡ്",
     "progressFormat": "ഫ്ലാഷ്കാർഡ് {{current}} / {{total}}",
     "noteIdRequired": "ഫ്ലാഷ് കാർഡുകൾ സൃഷ്ടിക്കാൻ നോട്ട് ഐഡി ആവശ്യമാണ്.",
-    "invalidCardCount": "1 നും 100 നും ഇടയിൽ ഫ്ലാഷ് കാർഡുകൾ തിരഞ്ഞെടുക്കുക"
+    "invalidCardCount": "1 നും 100 നും ഇടയിൽ ഫ്ലാഷ് കാർഡുകൾ തിരഞ്ഞെടുക്കുക",
+    "flashcardGroupDetail": {
+      "inProgress": "നടന്നുകൊണ്ടിരിക്കുന്നു",
+      "notStarted": "ആരംഭിച്ചിട്ടില്ല",
+      "failedToLoadFlashcardHistory": "ഫ്ലാഷ്കാർഡ് ഹിസ്റ്ററി ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "limitReached": "പരിധി കഴിഞ്ഞു",
+      "flashcardGenerationLimitReached": "ഫ്ലാഷ്കാർഡ് നിർമ്മാണ പരിധി പൂർത്തിയായി.",
+      "failedToGenerateFlashcards": "ഫ്ലാഷ്കാർഡുകൾ നിർമ്മിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToTranslateFlashcards": "ഫ്ലാഷ്കാർഡുകൾ വിവർത്തനം ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "deleteFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ഡിലീറ്റ് ചെയ്യുക",
+      "failedToDeleteFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ഡിലീറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "created": "തയ്യാറാക്കിയത് {{dateTime}}",
+      "lastprogress": "അവസാന പുരോഗതി",
+      "bestprogress": "മികച്ച പുരോഗതി",
+      "sets": "സെറ്റുകൾ",
+      "studyNow": "ഇപ്പോൾ പഠിക്കുക",
+      "translate": "തർജ്ജമ ചെയ്യുക",
+      "newFlashcards": "പുതിയ ഫ്ലാഷ് കാർഡുകൾ",
+      "flashcardHistory": "ഫ്ലാഷ് കാർഡ് ഹിസ്റ്ററി",
+      "quizHistory": "ക്വിസ് ഹിസ്റ്ററി",
+      "cards": "{{totalCards}} കാർഡുകൾ · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "ഈ സോഴ്സിൽ നിന്ന് ഇതുവരെ ക്വിസ്സുകൾ ലഭ്യമല്ല.",
+      "score": "സ്കോർ {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "ഫ്ലാഷ് കാർഡ് ഓപ്ഷനുകൾ",
+      "exportLatestSet": "ഏറ്റവും പുതിയ സെറ്റ് എക്സ്പോർട്ട് ചെയ്യുക",
+      "questions": "{{totalQuestions}} ചോദ്യങ്ങൾ · {{value}}",
+      "deleteAllSetsOne": "\"{{title}}\"-ന്റെ 1 ഫ്ലാഷ് കാർഡ് സെറ്റും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
+      "deleteAllSetsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ഫ്ലാഷ് കാർഡ് സെറ്റുകളും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല."
+    },
+    "flashcardReview": {
+      "unknownError": "അജ്ഞാതമായ പിശക്",
+      "noFlashcardsInThisSet": "ഈ സെറ്റിൽ ഫ്ലാഷ് കാർഡുകൾ ഇല്ല",
+      "goBack": "തിരികെ പോകുക",
+      "allDone": "എല്ലാം പൂർത്തിയായി",
+      "youHaveReviewedAllTheCards": "ഈ ഡെക്കിലെ എല്ലാ കാർഡുകളും നിങ്ങൾ പഠിച്ചുകഴിഞ്ഞു",
+      "question": "ചോദ്യം {{value}}",
+      "questionOf": "ചോദ്യം {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "ചാറ്റ്",
@@ -429,7 +816,186 @@
     "chatWithDocument": "ഡോക്യുമെന്റുമായി ചാറ്റ് ചെയ്യുക",
     "selectFile": "ചാറ്റ് ചെയ്യാൻ ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക",
     "uploadFile": "ഫയൽ അപ്‌ലോഡ് ചെയ്യുക",
-    "startChatting": "ചാറ്റിംഗ് ആരംഭിക്കുക"
+    "startChatting": "ചാറ്റിംഗ് ആരംഭിക്കുക",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "കൂടുതൽ വ്യക്തതയ്ക്കായി ഒരു മെഡിക്കൽ ചോദ്യം ചോദിക്കൂ",
+      "askAnythingAboutThisDocument": "ഈ ഡോക്യുമെന്റിനെക്കുറിച്ച് എന്തും ചോദിക്കൂ...",
+      "askAQuestionAttachmentProcessingFailed": "ഒരു ചോദ്യം ചോദിക്കൂ — അറ്റാച്ച്മെന്റ് പ്രോസസ്സിംഗ് പരാജയപ്പെട്ടു",
+      "extractingText": "ടെക്സ്റ്റ് എടുക്കുന്നു...",
+      "processingPDF": "PDF പ്രോസസ്സ് ചെയ്യുന്നു...",
+      "upgradeToProToContinueChatting": "ചാറ്റിംഗ് തുടരാൻ PRO-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക",
+      "queryremaining": "{{queriesRemaining}} ചോദ്യം ബാക്കിയുണ്ട്"
+    },
+    "chatEmptyState": {
+      "initializingChat": "ചാറ്റ് ആരംഭിക്കുന്നു...",
+      "extractingTextFromImage": "ചിത്രത്തിൽ നിന്ന് ടെക്സ്റ്റ് എടുക്കുന്നു...",
+      "processingPDFDocument": "PDF ഡോക്യുമെന്റ് പ്രോസസ്സ് ചെയ്യുന്നു...",
+      "analyzingYourNote": "നിങ്ങളുടെ നോട്ട് വിശകലനം ചെയ്യുന്നു...",
+      "thisUsuallyTakesJustAFew": "⏱️ ഇതിന് ഏതാനും നിമിഷങ്ങൾ മാത്രമേ എടുക്കൂ. പ്രോസസ്സിംഗ് പൂർത്തിയായ ഉടൻ നിങ്ങൾക്ക് ചാറ്റ് ചെയ്യാം.",
+      "processingFailed": "പ്രോസസ്സിംഗ് പരാജയപ്പെട്ടു",
+      "fileMightBeCorruptedOrUnreadable": "• ഫയൽ കേടായതോ വായിക്കാൻ കഴിയാത്തതോ ആകാം",
+      "imageQualityTooLow": "ചിത്രത്തിന്റെ ക്വാളിറ്റി വളരെ കുറവാണ്",
+      "pdfIsPasswordProtected": "PDF പാസ്‌വേഡ് പ്രൊട്ടക്റ്റഡ് ആണ്",
+      "contentFormatNotSupported": "കണ്ടന്റ് ഫോർമാറ്റ് സപ്പോർട്ട് ചെയ്യുന്നില്ല",
+      "networkConnectionIssue": "• നെറ്റ്‌വർക്ക് കണക്ഷൻ പ്രശ്നം",
+      "tryADifferentFile": "മറ്റൊരു ഫയൽ ഉപയോഗിച്ചു നോക്കുക",
+      "askAnyClinicalQuestionNoUpload": "💡 എന്തെങ്കിലും ക്ലിനിക്കൽ സംശയങ്ങൾ ചോദിക്കൂ — ഫയൽ അപ്‌ലോഡ് ആവശ്യമില്ല. ആധികാരിക മെഡിക്കൽ വിവരങ്ങളുടെയും ആവശ്യാനുസരണം ചിത്രങ്ങളുടെയും സഹായത്തോടെ ഞാൻ ഉത്തരം നൽകാം.",
+      "readyToChat": "✓ ചാറ്റ് ചെയ്യാൻ തയ്യാറാണ്",
+      "couldntProcessNote": "ഈ നോട്ട് പ്രോസസ്സ് ചെയ്യാൻ കഴിഞ്ഞില്ല. കാരണങ്ങൾ ഇവയാകാം:",
+      "couldntProcessImage": "ഈ ചിത്രം പ്രോസസ്സ് ചെയ്യാൻ കഴിഞ്ഞില്ല. കാരണങ്ങൾ ഇവയാകാം:",
+      "couldntProcessDocument": "ഈ ഡോക്യുമെന്റ് പ്രോസസ്സ് ചെയ്യാൻ കഴിഞ്ഞില്ല. കാരണങ്ങൾ ഇവയാകാം:",
+      "askMeAboutNote": "💡 ഈ നോട്ടിനെക്കുറിച്ച് എന്തും ചോദിക്കാം. എനിക്ക് ചുരുക്കി വിവരിക്കാനും ആശയങ്ങൾ വിശദീകരിക്കാനും ചോദ്യങ്ങൾക്ക് മറുപടി നൽകാനും കഴിയും.",
+      "askMeAboutImage": "💡 ഈ ചിത്രത്തെക്കുറിച്ച് എന്തും ചോദിക്കാം. എനിക്ക് ചുരുക്കി വിവരിക്കാനും ആശയങ്ങൾ വിശദീകരിക്കാനും ചോദ്യങ്ങൾക്ക് മറുപടി നൽകാനും കഴിയും.",
+      "askMeAboutDocument": "💡 ഈ ഡോക്യുമെന്റിനെക്കുറിച്ച് എന്തും ചോദിക്കാം. എനിക്ക് ചുരുക്കി വിവരിക്കാനും ആശയങ്ങൾ വിശദീകരിക്കാനും ചോദ്യങ്ങൾക്ക് മറുപടി നൽകാനും കഴിയും."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} എണ്ണം പഠിച്ചു",
+      "notStarted": "ആരംഭിച്ചിട്ടില്ല",
+      "quizGeneration": "ക്വിസ് തയ്യാറാക്കൽ",
+      "score": "സ്കോർ {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "ഫ്ലാഷ് കാർഡുകൾ തയ്യാറാക്കൽ",
+      "questions": "{{totalCards}} ചോദ്യങ്ങൾ · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} ചോദ്യങ്ങൾ · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "ചിന്തിക്കുകയും വിവരങ്ങൾ കണ്ടെത്തുകയും ചെയ്യുന്നു...",
+      "couldnTGenerateAResponse": "മറുപടി നൽകാൻ സാധിച്ചില്ല.",
+      "retry": "വീണ്ടും ശ്രമിക്കുക",
+      "alsoReferencedFromTheWeb": "വെബിൽ നിന്നും റഫർ ചെയ്തവ",
+      "followUpQuestions": "തുടർ ചോദ്യങ്ങൾ"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "വൈദ്യശാസ്ത്രപരമായ എന്തും ചോദിക്കൂ, വിശ്വസനീയമായ സ്രോതസ്സുകൾ സഹിതം ഉത്തരം നേടൂ",
+      "evidenceBasedPubMedSourcesPeerReviewed": "തെളിവ് അധിഷ്ഠിതം · PubMed സ്രോതസ്സുകൾ · പിയർ-റിവ്യൂ ചെയ്തത്",
+      "tryOutAnyOfThisTopics": "ആരംഭിക്കാൻ ഈ വിഷയങ്ങളിൽ ഒന്ന് തിരഞ്ഞെടുക്കൂ",
+      "topics": {
+        "electrolytes": {
+          "label": "ഇലക്ട്രോലൈറ്റ് അസന്തുലിതാവസ്ഥ - വിവരണം",
+          "question": "ഇലക്ട്രോലൈറ്റ് അസന്തുലിതാവസ്ഥയുടെ കാരണങ്ങൾ, ലക്ഷണങ്ങൾ, ചികിത്സ എന്നിവ വിശദീകരിക്കുക"
+        },
+        "ecg": {
+          "label": "ECG വ്യാഖ്യാനത്തിന്റെ അടിസ്ഥാനങ്ങൾ",
+          "question": "ECG വ്യാഖ്യാനത്തിന്റെ അടിസ്ഥാന തത്വങ്ങൾ എന്തൊക്കെയാണ്?"
+        },
+        "drugInteractions": {
+          "label": "സാധാരണ ഡ്രഗ് ഇന്ററാക്ഷനുകൾ",
+          "question": "അറിഞ്ഞിരിക്കേണ്ട പ്രധാന ഡ്രഗ് ഇന്ററാക്ഷനുകൾ (മരുന്നുകളുടെ പ്രതിപ്രവർത്തനങ്ങൾ) ഏതെല്ലാമാണ്?"
+        },
+        "nclex": {
+          "label": "NCLEX മോഡൽ പരിശീലന ചോദ്യങ്ങൾ",
+          "question": "എനിക്ക് ഒരു NCLEX മോഡൽ പ്രാക്ടീസ് ചോദ്യം തരൂ"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA ഡ്രഗ് ലേബൽ",
+      "fromYourAttachedMaterial": "നിങ്ങൾ ചേർത്ത മെറ്റീരിയലിൽ നിന്ന്"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "ചാറ്റ് സെഷൻ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToInitializeChatSession": "ചാറ്റ് സെഷൻ ആരംഭിക്കുന്നതിൽ പരാജയപ്പെട്ടു",
+      "failedToUpdateLanguage": "ഭാഷ മാറ്റാൻ കഴിഞ്ഞില്ല",
+      "youVeReachedYour3Pin": "നിങ്ങൾക്ക് പരമാവധി 3 പിൻ മാത്രമേ നൽകാനാകൂ",
+      "failedToUpdatePin": "പിൻ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "permissionRequired": "അനുമതി ആവശ്യമാണ്",
+      "pleaseGrantCameraPermissionToTake": "ഫോട്ടോ എടുക്കാൻ ക്യാമറ അനുമതി നൽകുക.",
+      "pleaseGrantPhotoLibraryPermissionTo": "ചിത്രങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ ഫോട്ടോ ലൈബ്രറി അനുമതി നൽകുക.",
+      "failedToUploadImage": "ചിത്രം അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "uploadFailed": "അപ്‌ലോഡ് പരാജയപ്പെട്ടു",
+      "failedToUploadDocument": "ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToStartChatFromThis": "ഈ ഫയലിൽ നിന്ന് ചാറ്റ് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.",
+      "chatFromImage": "ചിത്രത്തിൽ നിന്നുള്ള ചാറ്റ്",
+      "failedToStartANewQuestion": "പുതിയ ചോദ്യം തുടങ്ങാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "failedToAttachFile": "ഫയൽ അറ്റാച്ച് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToSendMessage": "സന്ദേശം അയക്കാൻ കഴിഞ്ഞില്ല",
+      "copiedToClipboard": "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി",
+      "notEnoughContentYet": "ആവശ്യത്തിന് ഉള്ളടക്കം ആയിട്ടില്ല",
+      "chatABitMoreBeforeGenerating": "ക്വിസ് തയ്യാറാക്കുന്നതിന് മുമ്പ് അല്പം കൂടി ചാറ്റ് ചെയ്യുക (കുറഞ്ഞത് 100 അക്ഷരങ്ങൾ).",
+      "chatABitMoreBeforeGenerating2": "ഫ്ലാഷ്കാർഡുകൾ തയ്യാറാക്കുന്നതിന് മുമ്പ് അല്പം കൂടി ചാറ്റ് ചെയ്യുക (കുറഞ്ഞത് 100 അക്ഷരങ്ങൾ).",
+      "failedToGenerateFlashcards": "ഫ്ലാഷ്കാർഡുകൾ തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToRegenerateResponse": "മറുപടി വീണ്ടും ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToRetryResponse": "വീണ്ടും ശ്രമിക്കാൻ കഴിഞ്ഞില്ല"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "നോട്ട് അറ്റാച്ച് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "folderCreatedSuccessfully": "\"{{name}}\" ഫോൾഡർ വിജയകരമായി ഉണ്ടാക്കി!",
+      "failedToCreateFolder": "ഫോൾഡർ ഉണ്ടാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToAttachDocument": "ഡോക്യുമെന്റ് അറ്റാച്ച് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToCreateChatSession": "ചാറ്റ് സെഷൻ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToUploadDocument": "ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "openingCamera": "📷 ക്യാമറ തുറക്കുന്നു...",
+      "openingImagePicker": "🖼️ ഇമേജ് പിക്കർ തുറക്കുന്നു...",
+      "permissionRequired": "അനുമതി ആവശ്യമാണ്",
+      "pleaseGrantCameraPermissionToTake": "ഫോട്ടോ എടുക്കാൻ ക്യാമറ അനുമതി നൽകുക.",
+      "pleaseGrantPhotoLibraryPermissionTo": "ചിത്രങ്ങൾ അപ്‌ലോഡ് ചെയ്യാൻ ഫോട്ടോ ലൈബ്രറി അനുമതി നൽകുക.",
+      "failedToAttachImage": "ചിത്രം അറ്റാച്ച് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToUploadImage": "ചിത്രം അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToAttachAudio": "ഓഡിയോ അറ്റാച്ച് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToUploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "items": "{{itemCount}} ഇനങ്ങൾ",
+      "thisFolderIsEmptyGoBack": "ഈ ഫോൾഡർ ശൂന്യമാണ്. മറ്റൊരു ഫോൾഡർ തിരഞ്ഞെടുക്കാൻ തിരികെ പോകുക.",
+      "addFolder": "ഫോൾഡർ ചേർക്കുക",
+      "uploadNewDocument": "പുതിയ ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadAPDFAndStartChatting": "ഒരു PDF അപ്‌ലോഡ് ചെയ്ത് ഉടൻ തന്നെ ചാറ്റ് ചെയ്യാം",
+      "uploadNewImage": "പുതിയ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadAnImageAndExtractText": "ചിത്രം അപ്‌ലോഡ് ചെയ്ത് അതിലെ വിവരങ്ങൾ വായിച്ചെടുക്കാം",
+      "uploadNewAudio": "പുതിയ ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "uploadAnAudioFileAndTranscribe": "ഒരു ഓഡിയോ ഫയൽ അപ്‌ലോഡ് ചെയ്‌ത് തൽക്ഷണം ട്രാൻസ്‌ക്രൈബ് ചെയ്യുക",
+      "orselectfromlibrary": "അല്ലെങ്കിൽ ലൈബ്രറിയിൽ നിന്ന് തിരഞ്ഞെടുക്കുക",
+      "folders": "ഫോൾഡറുകൾ",
+      "allNotes": "എല്ലാ നോട്ടുകളും",
+      "noFilesToDisplay": "ഫയലുകളൊന്നും ലഭ്യമല്ല",
+      "noNotesToDisplay": "നോട്ടുകളൊന്നും ലഭ്യമല്ല",
+      "noDocumentsYet": "നിങ്ങളുടെ പക്കൽ ഇതുവരെ PDF ഡോക്യുമെന്റുകളൊന്നുമില്ല.\nആദ്യം കുറച്ച് നോട്ടുകൾ ഉണ്ടാക്കുക, തുടർന്ന് അവയുമായി ചാറ്റ് ചെയ്യാൻ മടങ്ങിവരിക.",
+      "noImagesYet": "നിങ്ങളുടെ പക്കൽ ഇതുവരെ ചിത്രങ്ങളൊന്നുമില്ല.\nആദ്യം കുറച്ച് നോട്ടുകൾ ഉണ്ടാക്കുക, തുടർന്ന് അവയുമായി ചാറ്റ് ചെയ്യാൻ മടങ്ങിവരിക.",
+      "noAudioNotesYet": "നിങ്ങളുടെ പക്കൽ ഇതുവരെ ഓഡിയോ നോട്ടുകളൊന്നുമില്ല.\nആദ്യം കുറച്ച് നോട്ടുകൾ ഉണ്ടാക്കുക, തുടർന്ന് അവയുമായി ചാറ്റ് ചെയ്യാൻ മടങ്ങിവരിക.",
+      "noNotesYet": "നിങ്ങളുടെ പക്കൽ ഇതുവരെ നോട്ടുകളൊന്നുമില്ല.\nആദ്യം കുറച്ച് നോട്ടുകൾ ഉണ്ടാക്കുക, തുടർന്ന് അവയുമായി ചാറ്റ് ചെയ്യാൻ മടങ്ങിവരിക.",
+      "attachNote": "നോട്ട് അറ്റാച്ച് ചെയ്യുക",
+      "selectNote": "നോട്ട് തിരഞ്ഞെടുക്കുക",
+      "attachImage": "ചിത്രം അറ്റാച്ച് ചെയ്യുക",
+      "selectImage": "ചിത്രം തിരഞ്ഞെടുക്കുക",
+      "attachDocument": "ഡോക്യുമെന്റ് അറ്റാച്ച് ചെയ്യുക",
+      "selectDocument": "ഡോക്യുമെന്റ് തിരഞ്ഞെടുക്കുക",
+      "attachAudio": "ഓഡിയോ അറ്റാച്ച് ചെയ്യുക",
+      "selectAudio": "ഓഡിയോ തിരഞ്ഞെടുക്കുക",
+      "attachFile": "ഫയൽ അറ്റാച്ച് ചെയ്യുക",
+      "selectFile": "ഫയൽ തിരഞ്ഞെടുക്കുക",
+      "aNote": "ഒരു കുറിപ്പ് {{verb}}",
+      "anImage": "ഒരു ചിത്രം {{verb}}",
+      "aDocument": "ഒരു ഡോക്യുമെന്റ് {{verb}}",
+      "audio": "ഓഡിയോ {{verb}}",
+      "aFile": "ഒരു ഫയൽ {{verb}}"
+    },
+    "chatAttachSheet": {
+      "addToChat": "ചാറ്റിലേക്ക് ചേർക്കുക",
+      "camera": "ക്യാമറ",
+      "photos": "ഫോട്ടോകൾ",
+      "files": "ഫയലുകൾ",
+      "generateQuiz": "ക്വിസ് തയ്യാറാക്കുക",
+      "generateFlashcards": "ഫ്ലാഷ്‌കാർഡുകൾ തയ്യാറാക്കുക",
+      "searchMedicalLiterature": "മെഡിക്കൽ ലിറ്ററേച്ചർ തിരയുക",
+      "filterByDateSourceAndType": "തിയതി, സോഴ്സ്, തരം എന്നിവ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക",
+      "pullsRealCitedSourcesIntoYour": "നിങ്ങളുടെ ഉത്തരങ്ങളിലേക്ക് യഥാർത്ഥ റഫറൻസുകൾ ഉൾപ്പെടുത്തുന്നു",
+      "trustedmedicalsourcedatabase": "വിശ്വസനീയമായ മെഡിക്കൽ സോഴ്സ് ഡാറ്റാബേസ്",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA ഡ്രഗ് & ട്രീറ്റ്‌മെന്റ് ഡാറ്റ"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "സൈറ്റേഷനുകൾ പരിശോധിക്കുക"
+    },
+    "chatHeader": {
+      "readyTapToRename": "തയ്യാറാണ് · പേര് മാറ്റാൻ ടാപ്പ് ചെയ്യുക",
+      "processing": "പ്രോസസ്സ് ചെയ്യുന്നു {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "ഉറവിടം കാണുക ↗"
+    },
+    "chatRename": {
+      "renameChat": "ചാറ്റിന്റെ പേര് മാറ്റുക"
+    }
   },
   "languages": {
     "english": "ഇംഗ്ലീഷ്",
@@ -483,5 +1049,455 @@
     "malay": "മലായ്",
     "indonesian": "ഇന്തോനേഷ്യൻ",
     "catalan": "കറ്റാലൻ"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "ഫോൾഡർ ചേർക്കുക",
+      "folderName": "ഫോൾഡറിന്റെ പേര്",
+      "enterFolderName": "ഫോൾഡറിന്റെ പേര് നൽകുക",
+      "chooseColor": "നിറം തിരഞ്ഞെടുക്കുക",
+      "createFolder": "ഫോൾഡർ ഉണ്ടാക്കുക"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "നിങ്ങളുടെ ഉള്ളടക്കം പ്രോസസ്സ് ചെയ്യുന്നതിന് മുൻപ്",
+      "clinicalFactUsesAIToAnswer": "നിങ്ങളുടെ ചോദ്യങ്ങൾക്ക് മറുപടി നൽകാനും നിങ്ങളുടെ ഉള്ളടക്കം നോട്ടുകൾ, ക്വിസുകൾ, ഫ്ലാഷ്‌കാർഡുകൾ എന്നിവയാക്കി മാറ്റാനും Clinical Fact AI ഉപയോഗിക്കുന്നു. നിങ്ങൾ അറിഞ്ഞിരിക്കേണ്ട കാര്യങ്ങൾ ഇതാ:",
+      "whatDataIsSent": "ഏതൊക്കെ വിവരങ്ങളാണ് കൈമാറുന്നത്",
+      "questionsAndMessagesYouTypeIn": "ചാറ്റിൽ നിങ്ങൾ ടൈപ്പ് ചെയ്യുന്ന ചോദ്യങ്ങളും സന്ദേശങ്ങളും",
+      "audioRecordingsOrUploadedAudioFiles": "ഓഡിയോ റെക്കോർഡിംഗുകൾ അല്ലെങ്കിൽ അപ്‌ലോഡ് ചെയ്ത ഓഡിയോ ഫയലുകൾ",
+      "pdfAndTextDocumentsYouUpload": "നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന PDF, ടെക്സ്റ്റ് ഡോക്യുമെന്റുകൾ",
+      "imagesYouUpload": "നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന ചിത്രങ്ങൾ",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube വീഡിയോ URL-കളും അവയുടെ ട്രാൻസ്ക്രിപ്റ്റുകളും",
+      "customTextYouEnter": "നിങ്ങൾ നൽകുന്ന മറ്റ് എഴുത്തുകൾ",
+      "whoReceivesYourData": "നിങ്ങളുടെ വിവരങ്ങൾ ആർക്കൊക്കെ ലഭിക്കും",
+      "howItSUsed": "ഇത് എങ്ങനെ ഉപയോഗിക്കുന്നു",
+      "yourContentIsUsedSolelyTo": "നിങ്ങൾ ആവശ്യപ്പെട്ട ഉത്തരങ്ങൾ, നോട്ടുകൾ, ക്വിസ്, അല്ലെങ്കിൽ ഫ്ലാഷ്‌കാർഡുകൾ എന്നിവ തയ്യാറാക്കാൻ മാത്രമാണ് നിങ്ങളുടെ ഉള്ളടക്കം ഉപയോഗിക്കുന്നത്. അവരുടെ API വഴി പ്രോസസ്സ് ചെയ്യുന്ന ഉള്ളടക്കത്തിന് ഓരോ ദാതാവിന്റെയും ഡാറ്റാ ഉപയോഗ നയങ്ങൾ ബാധകമാണ്. കൂടുതൽ വിവരങ്ങൾക്ക്, ഞങ്ങളുടെ പ്രൈവസി പോളിസി കാണുക.",
+      "iAgreeContinue": "ഞാൻ സമ്മതിക്കുന്നു — തുടരുക",
+      "noThanks": "വേണ്ട",
+      "whoReceivesBody": "ഞങ്ങളുടെ സുരക്ഷിത ബാക്കെൻഡ് സെർവറുകൾ വഴി നിങ്ങളുടെ വിവരങ്ങൾ <bold>Google (Gemini)</bold>-ലേക്കും (നോട്ട്, ക്വിസ്, ഫ്ലാഷ് കാർഡ് നിർമ്മാണം; ചാറ്റ് മറുപടികൾ; ഡോക്യുമെന്റ്, ഇമേജ് പ്രോസസ്സിംഗ് എന്നിവയ്ക്കായി) <bold>OpenAI</bold>-ലേക്കും (ഓഡിയോ ട്രാൻസ്ക്രിപ്ഷനായി) അയയ്ക്കുന്നു. ചാറ്റിൽ പ്രസക്തമായ ഭാഗങ്ങൾ വേഗത്തിൽ കണ്ടെത്താനായി നിങ്ങളുടെ ഡോക്യുമെന്റുകളിൽ നിന്നുള്ള വിവരങ്ങൾ <bold>Google Vertex AI</bold> ഉപയോഗിച്ച് ഇൻഡക്‌സ് ചെയ്യുന്നുമുണ്ട്. ലൈവ് മെഡിക്കൽ സെർച്ച് ഉപയോഗിക്കുമ്പോൾ, NIH, CDC, MedlinePlus, WHO, Mayo Clinic തുടങ്ങിയ വിശ്വസനീയമായ സ്രോതസ്സുകളിൽ നിന്നുള്ള അവലംബങ്ങൾ കണ്ടെത്താൻ നിങ്ങളുടെ ചോദ്യം <bold>Tavily</bold>-ലേക്കും പബ്ലിക് മെഡിക്കൽ ലിറ്ററേച്ചർ ഡാറ്റാബേസുകളിലേക്കും (PubMed, Europe PMC, Semantic Scholar എന്നിവ പോലുള്ളവ) അയയ്ക്കുന്നു. ഈ പ്രൊവൈഡർമാർ നിങ്ങളുടെ വിവരങ്ങൾ ഉപയോഗിക്കുന്നത് മറുപടികൾ നൽകാൻ മാത്രമാണ് — അല്ലാതെ അവരുടെ സ്വന്തം ജനറൽ പർപ്പസ് AI മോഡലുകളെ പരിശീലിപ്പിക്കാനല്ല. ഞങ്ങൾ നിങ്ങളുടെ വിവരങ്ങൾ ഒരു മൂന്നാം കക്ഷിക്കും വിൽക്കുകയുമില്ല."
+    },
+    "chatActionSheet": {
+      "unpinChat": "ചാറ്റ് അൺപിൻ ചെയ്യുക",
+      "pinChat": "ചാറ്റ് പിൻ ചെയ്യുക",
+      "deleteChat": "ചാറ്റ് ഇല്ലാതാക്കുക"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "ഫ്ലാഷ് കാർഡുകൾ തയ്യാറാക്കുക",
+      "createFlashcards": "ഫ്ലാഷ് കാർഡുകൾ നിർമ്മിക്കുക",
+      "createFlashcardsFromToImproveYour": "ഓർമ്മശക്തി മെച്ചപ്പെടുത്താൻ \"{{noteTitle}}\"-ൽ നിന്ന് ഫ്ലാഷ് കാർഡുകൾ നിർമ്മിക്കുക",
+      "createFlashcardsToImproveYourRetention": "ഓർമ്മശക്തി മെച്ചപ്പെടുത്താൻ ഫ്ലാഷ് കാർഡുകൾ നിർമ്മിക്കുക",
+      "howManyQuestions": "എത്ര ചോദ്യങ്ങൾ വേണം",
+      "generateFlashcards2": "ഫ്ലാഷ് കാർഡുകൾ തയ്യാറാക്കുക"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "ചാറ്റിൽ നിന്ന് നിർമ്മിക്കുക",
+      "selectFromOneOfYourRecent": "സമീപകാല ചാറ്റുകളിൽ നിന്ന് തിരഞ്ഞെടുക്കുക",
+      "pdfOrDocument": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റ്",
+      "createFromAudio": "ഓഡിയോയിൽ നിന്ന് നിർമ്മിക്കുക",
+      "image": "ചിത്രം",
+      "createFromCustomText": "ടെക്സ്റ്റിൽ നിന്ന് നിർമ്മിക്കുക",
+      "created": "{{day}}, {{time}}-ൽ നിർമ്മിച്ചത്",
+      "createQuizFrom": "ക്വിസ് നിർമ്മിക്കുക ഇതിൽ നിന്ന്:",
+      "createFlashcardsFrom": "ഫ്ലാഷ് കാർഡുകൾ നിർമ്മിക്കുക ഇതിൽ നിന്ന്:",
+      "selectFromChat": "ചാറ്റിൽ നിന്ന് തിരഞ്ഞെടുക്കുക",
+      "noRecentChatsYet": "സമീപകാല ചാറ്റുകൾ ലഭ്യമല്ല",
+      "quizFromPdf": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റിൽ നിന്ന് ക്വിസ് നിർമ്മിക്കുക",
+      "flashcardsFromPdf": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റിൽ നിന്ന് ഫ്ലാഷ് കാർഡ് സെറ്റ് നിർമ്മിക്കുക",
+      "quizFromAudio": "അപ്‌ലോഡ് ചെയ്ത ഓഡിയോയിൽ നിന്ന് ക്വിസ് നിർമ്മിക്കുക",
+      "flashcardsFromAudio": "അപ്‌ലോഡ് ചെയ്ത ഓഡിയോയിൽ നിന്ന് ഫ്ലാഷ് കാർഡ് സെറ്റ് നിർമ്മിക്കുക",
+      "quizFromImage": "ചിത്രത്തിൽ നിന്ന് ക്വിസ് നിർമ്മിക്കുക",
+      "flashcardsFromImage": "ചിത്രത്തിൽ നിന്ന് ഫ്ലാഷ് കാർഡ് സെറ്റ് നിർമ്മിക്കുക",
+      "quizFromText": "ടെക്സ്റ്റിൽ നിന്ന് ക്വിസ് നിർമ്മിക്കുക",
+      "flashcardsFromText": "ടെക്സ്റ്റിൽ നിന്ന് ഫ്ലാഷ് കാർഡ് സെറ്റ് നിർമ്മിക്കുക"
+    },
+    "createNote": {
+      "recordAudio": "ഓഡിയോ റെക്കോർഡ് ചെയ്യുക",
+      "generateANoteFromAnyRecorded": "റെക്കോർഡ് ചെയ്ത ഓഡിയോയിൽ നിന്ന് നോട്ട് തയ്യാറാക്കുക",
+      "uploadAudio": "ഓഡിയോ അപ്‌ലോഡ് ചെയ്യുക",
+      "createANoteFromAnyUploaded": "അപ്‌ലോഡ് ചെയ്ത ഓഡിയോയിൽ നിന്ന് നോട്ട് നിർമ്മിക്കുക",
+      "youtubeVideo": "YouTube വീഡിയോ",
+      "createANoteFromAnyYoutube": "YouTube വീഡിയോയിൽ നിന്ന് നോട്ട് നിർമ്മിക്കുക",
+      "pdfOrDocument": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റ്",
+      "createANoteFromPDFOr": "PDF അല്ലെങ്കിൽ ഡോക്യുമെന്റിൽ നിന്ന് നോട്ട് നിർമ്മിക്കുക",
+      "customText": "സ്വന്തം ടെക്സ്റ്റ് നൽകുക",
+      "createANoteFromCapturedText": "നൽകിയ ടെക്സ്റ്റിൽ നിന്ന് നോട്ട് നിർമ്മിക്കുക",
+      "image": "ചിത്രം",
+      "createANoteFromAnyImage": "ഏതൊരു ചിത്രത്തിൽ നിന്നും നോട്ട് നിർമ്മിക്കുക",
+      "createNote": "നോട്ട് നിർമ്മിക്കുക"
+    },
+    "createQuiz": {
+      "generateQuiz": "ക്വിസ് തയ്യാറാക്കുക",
+      "createQuiz": "ക്വിസ് നിർമ്മിക്കുക",
+      "practiceByCreatingQuestionsThatHelp": "\"{{noteTitle}}\" നന്നായി മനസ്സിലാക്കാൻ ചോദ്യങ്ങൾ നിർമ്മിച്ച് പരിശീലിക്കുക",
+      "practiceYourNotesByCreatingQuestions": "വിഷയങ്ങൾ നന്നായി മനസ്സിലാക്കാൻ ചോദ്യങ്ങൾ നിർമ്മിച്ച് പരിശീലിക്കുക",
+      "howManyQuestions": "എത്ര ചോദ്യങ്ങൾ വേണം",
+      "timeInMinutes": "സമയം (മിനിറ്റിൽ)"
+    },
+    "deleteNote": {
+      "deleteNote": "നോട്ട് ഇല്ലാതാക്കുക",
+      "areYouSureYouWantTo": "ഈ നോട്ട് ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "സംഗ്രഹം ഇതായി എക്‌സ്‌പോർട്ട് ചെയ്യുക:",
+      "exportTranscriptAs": "ട്രാൻസ്ക്രിപ്റ്റ് ഇതായി എക്‌സ്‌പോർട്ട് ചെയ്യുക:",
+      "exportAs": "ഇതായി എക്‌സ്‌പോർട്ട് ചെയ്യുക:",
+      "exportSummary": "സംഗ്രഹം എക്‌സ്‌പോർട്ട് ചെയ്യുക",
+      "exportTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് എക്‌സ്‌പോർട്ട് ചെയ്യുക"
+    },
+    "exportTypeStep": {
+      "exportNote": "നോട്ട് എക്സ്പോർട്ട് ചെയ്യുക",
+      "exportSummary": "സംഗ്രഹം എക്സ്പോർട്ട് ചെയ്യുക",
+      "exportTranscript": "ട്രാൻസ്ക്രിപ്റ്റ് എക്സ്പോർട്ട് ചെയ്യുക"
+    },
+    "exportSettings": {
+      "export": "{{title}} എക്‌സ്‌പോർട്ട് ചെയ്യുക",
+      "selectFormat": "ഫോർമാറ്റ് തിരഞ്ഞെടുക്കുക",
+      "includeAnswers": "ഉത്തരങ്ങൾ ഉൾപ്പെടുത്തുക",
+      "answersExplanationsIncluded": "ഉത്തരങ്ങളും വിശദീകരണങ്ങളും ഉൾപ്പെടുത്തിയിട്ടുണ്ട്",
+      "questionsOnly": "ചോദ്യങ്ങൾ മാത്രം",
+      "export2": "എക്‌സ്‌പോർട്ട് ചെയ്യുക"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "നിങ്ങളുടെ നോട്ട് തയ്യാറാണ്!",
+      "howDidWeDo": "ഞങ്ങളുടെ സേവനം എങ്ങനെ ഉണ്ടായിരുന്നു?",
+      "happy": "തൃപ്തികരം",
+      "sad": "തൃപ്തികരമല്ല",
+      "maybeLater": "പിന്നീടാകാം",
+      "whatWentWrong": "എന്താണ് സംഭവിച്ചത്?",
+      "yourFeedbackHelpsUsImprove": "നിങ്ങളുടെ അഭിപ്രായങ്ങൾ കൂടുതൽ മെച്ചപ്പെടാൻ ഞങ്ങളെ സഹായിക്കും.",
+      "tellUsWhatCouldBeBetter": "എന്തൊക്കെയാണ് മെച്ചപ്പെടുത്തേണ്ടതെന്ന് വ്യക്തമാക്കൂ...",
+      "submit": "സമർപ്പിക്കുക"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "ഉള്ളടക്കമൊന്നും ലഭ്യമല്ല",
+      "clickCardToFlip": "മറിച്ചുനോക്കാൻ കാർഡിൽ ക്ലിക്ക് ചെയ്യുക"
+    },
+    "flashcardExport": {
+      "exportFailed": "എക്സ്പോർട്ട് പരാജയപ്പെട്ടു",
+      "unknownError": "അപരിചിതമായ പിശക്",
+      "export": "{{setTitle}} എക്‌സ്‌പോർട്ട് ചെയ്യുക",
+      "chooseWhatToExport": "എക്‌സ്‌പോർട്ട് ചെയ്യേണ്ടവ തിരഞ്ഞെടുക്കുക",
+      "exportQuestions": "ചോദ്യങ്ങൾ എക്‌സ്‌പോർട്ട് ചെയ്യുക",
+      "exportAnswers": "ഉത്തരങ്ങൾ എക്‌സ്‌പോർട്ട് ചെയ്യുക"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "ഫ്ലാഷ്കാർഡ് സെറ്റ് നീക്കം ചെയ്യുക",
+      "areYouSureYouWantTo": "\"{{setTitle}}\" നീക്കം ചെയ്യണമെന്ന് ഉറപ്പാണോ?",
+      "failedToDeleteFlashcardSet": "ഫ്ലാഷ്കാർഡ് സെറ്റ് നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "flashcardHistory": "ഫ്ലാഷ്കാർഡ് ഹിസ്റ്ററി",
+      "cards": "കാർഡുകൾ",
+      "reviewedMastered": "{{cardsReviewedCount}} എണ്ണം പഠിച്ചു • {{percentage}}% പൂർത്തിയാക്കി"
+    },
+    "folders": {
+      "items": "{{itemCount}} ഇനങ്ങൾ",
+      "enterYourFolderName": "ഫോൾഡറിന്റെ പേര് നൽകുക",
+      "yourFolderName": "ഫോൾഡറിന്റെ പേര്",
+      "createFolder": "ഫോൾഡർ ഉണ്ടാക്കുക",
+      "folders": "ഫോൾഡറുകൾ",
+      "addFolder": "ഫോൾഡർ ചേർക്കുക",
+      "noFoldersToDisplay": "ഫോൾഡറുകളൊന്നും ലഭ്യമല്ല",
+      "clickTheButtonAboveToCreate": "നോട്ടുകൾക്കായി ഒരു ഫോൾഡർ ഉണ്ടാക്കാൻ മുകളിലുള്ള ബട്ടൺ ക്ലിക്ക് ചെയ്യുക",
+      "allFolders": "എല്ലാ ഫോൾഡറുകളും",
+      "items2": "{{totalItems}} ഇനങ്ങൾ"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "മെഡിക്കൽ റിസർച്ച് ഫിൽട്ടറുകൾ",
+      "howrecentdoyouwantthe": "വിവരങ്ങളുടെ സ്രോതസ്സ് എത്രത്തോളം പുതിയതായിരിക്കണം?",
+      "from": "തുടക്കം",
+      "whatkindofsourcedoyou": "ഏതുതരം സ്രോതസ്സാണ് ആവശ്യം?",
+      "textbooks": "പാഠപുസ്തകങ്ങൾ",
+      "clinicalGuidelines": "ക്ലിനിക്കൽ മാർഗ്ഗനിർദ്ദേശങ്ങൾ",
+      "scientificJournalArticles": "സയന്റിഫിക് ജേണൽ ലേഖനങ്ങൾ",
+      "onlywiththisjournalarticles": "ഈ ജേണൽ ലേഖനങ്ങളിൽ മാത്രം",
+      "metaAnalyses": "മെറ്റാ-അനാലിസിസ്",
+      "reviewArticles": "റിവ്യൂ ലേഖനങ്ങൾ",
+      "clinicalTrials": "ക്ലിനിക്കൽ ട്രയലുകൾ",
+      "fromYear": "ആരംഭ വർഷം",
+      "toYear": "അവസാന വർഷം"
+    },
+    "noteOptions": {
+      "noteOptions": "നോട്ട് ഓപ്ഷനുകൾ",
+      "editNote": "നോട്ട് എഡിറ്റ് ചെയ്യുക",
+      "reTranscribe": "വീണ്ടും ട്രാൻസ്‌ക്രൈബ് ചെയ്യുക",
+      "chatWithNote": "നോട്ടുമായി ചാറ്റ് ചെയ്യുക",
+      "exportNote": "നോട്ട് എക്‌സ്‌പോർട്ട് ചെയ്യുക",
+      "moveToFolder": "ഫോൾഡറിലേക്ക് മാറ്റുക",
+      "deleteNote": "നോട്ട് നീക്കം ചെയ്യുക"
+    },
+    "onboardingTooltip": {
+      "skip": "ഒഴിവാക്കുക"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "ക്വിസ് നീക്കം ചെയ്യുക",
+      "areYouSureYouWantTo": "\"{{quizTitle}}\" നീക്കം ചെയ്യണമെന്ന് ഉറപ്പാണോ?",
+      "failedToDeleteQuiz": "ക്വിസ് നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "quizHistory": "ക്വിസ് ഹിസ്റ്ററി",
+      "questions": "ചോദ്യങ്ങൾ",
+      "correct": "{{correctAnswers}} എണ്ണം ശരിയായി"
+    },
+    "referral": {
+      "copied": "കോപ്പി ചെയ്തു!",
+      "yourReferralCodeHasBeenCopied": "നിങ്ങളുടെ റഫറൽ കോഡ് ക്ലിപ്പ്ബോർഡിലേക്ക് കോപ്പി ചെയ്തു.",
+      "joinMeOnClinicalFactUse": "Clinical Fact-ൽ എന്നോടൊപ്പം ചേരൂ! എന്റെ കോഡ് ഉപയോഗിക്കൂ: {{referralCode}} – {{appUrl}}",
+      "joined": "ചേർന്ന തീയതി: {{joinedDate}}",
+      "referralCode": "റഫറൽ കോഡ്",
+      "yourReferralCode": "നിങ്ങളുടെ റഫറൽ കോഡ്",
+      "shareWithFriendsToEarnRewards": "റിവാർഡുകൾ നേടാൻ സുഹൃത്തുക്കളുമായി പങ്കിടൂ",
+      "share": "പങ്കിടുക",
+      "copyCode": "കോഡ് കോപ്പി ചെയ്യുക",
+      "referredFriends": "റഫർ ചെയ്ത സുഹൃത്തുക്കൾ",
+      "noReferralsYetShareYourCode": "ഇതുവരെ റഫറലുകൾ ഒന്നുമില്ല. ആരംഭിക്കാൻ നിങ്ങളുടെ കോഡ് പങ്കിടൂ!",
+      "loadMore": "കൂടുതൽ കാണിക്കുക",
+      "howItWorks": "ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു",
+      "friendsUseYourCodeDuringSignup": "• സൈൻ അപ്പ് ചെയ്യുമ്പോൾ സുഹൃത്തുക്കൾ നിങ്ങളുടെ കോഡ് ഉപയോഗിക്കുന്നു",
+      "youBothEarnRewardsWhenThey": "• അവർ ചേരുമ്പോൾ രണ്ടുപേർക്കും റിവാർഡുകൾ ലഭിക്കുന്നു",
+      "friendsReferredCount": "റഫർ ചെയ്ത സുഹൃത്തുക്കൾ: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "ടെക്‌സ്റ്റ് വേർതിരിച്ചെടുക്കുന്നു...",
+      "transcribingAudio": "ഓഡിയോ ട്രാൻസ്ക്രൈബ് ചെയ്യുന്നു...",
+      "processingPDF": "PDF പ്രോസസ്സ് ചെയ്യുന്നു...",
+      "settingUpChat": "ചാറ്റ് സജ്ജീകരിക്കുന്നു...",
+      "uploadFailed": "അപ്‌ലോഡ് പരാജയപ്പെട്ടു",
+      "failedToUploadFilePleaseTry": "ഫയൽ അപ്‌ലോഡ് ചെയ്യാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "yourFileIsReadyForChatting": "നിങ്ങളുടെ ഫയൽ ചാറ്റ് ചെയ്യാൻ തയ്യാറാണ്!",
+      "uploadingYourFileToTheServer": "നിങ്ങളുടെ ഫയൽ സെർവറിലേക്ക് അപ്‌ലോഡ് ചെയ്യുന്നു...",
+      "extractingTextFromYourImage": "ചിത്രത്തിൽ നിന്ന് ടെക്സ്റ്റ് വേർതിരിച്ചെടുക്കുന്നു...",
+      "transcribingYourAudio": "നിങ്ങളുടെ ഓഡിയോ ട്രാൻസ്ക്രൈബ് ചെയ്യുന്നു...",
+      "extractingTextFromYourPDF": "PDF-ൽ നിന്ന് ടെക്സ്റ്റ് വേർതിരിച്ചെടുക്കുന്നു...",
+      "creatingYourChatSession": "ചാറ്റ് സെഷൻ തയ്യാറാക്കുന്നു...",
+      "pleaseWait": "ദയവായി കാത്തിരിക്കുക...",
+      "uploadFile": "ഫയൽ അപ്‌ലോഡ് ചെയ്യുക",
+      "processContent": "ഉള്ളടക്കം പ്രോസസ്സ് ചെയ്യുക",
+      "createChat": "ചാറ്റ് തുടങ്ങുക"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ കാണുക",
+      "export": "📤 എക്സ്പോർട്ട് ചെയ്യുക",
+      "delete": "🗑️ ഇല്ലാതാക്കുക"
+    },
+    "poweredByFooter": {
+      "poweredBy": "പവർ ചെയ്തത്"
+    },
+    "exportFormat": {
+      "txtFile": "TXT ഫയൽ",
+      "pdfFile": "PDF ഫയൽ",
+      "docFile": "DOC ഫയൽ"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "കുറിപ്പുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToFetchFolders": "ഫോൾഡറുകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToFetchNote": "കുറിപ്പ് ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToDeleteNote": "കുറിപ്പ് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToCreateFolder": "ഫോൾഡർ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToDeleteFolder": "ഫോൾഡർ ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "ചാറ്റ് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "ഫ്ലാഷ്കാർഡ് സെറ്റ് വിജയകരമായി എക്സ്പോർട്ട് ചെയ്തു!",
+      "failedToExportFlashcardSet": "ഫ്ലാഷ്കാർഡ് സെറ്റ് എക്സ്പോർട്ട് ചെയ്യാൻ കഴിഞ്ഞില്ല."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "ക്വിസ് വിജയകരമായി എക്സ്പോർട്ട് ചെയ്തു!",
+      "failedToExportQuiz": "ക്വിസ് എക്സ്പോർട്ട് ചെയ്യാൻ കഴിഞ്ഞില്ല."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "തലക്കെട്ടില്ലാത്ത ഫ്ലാഷ്കാർഡുകൾ",
+      "failedToLoadFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "failedToSyncFlashcardSet": "ഫ്ലാഷ്കാർഡ് സെറ്റ് സമന്വയിപ്പിക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToSyncCardUpdate": "കാർഡ് അപ്‌ഡേറ്റ് സമന്വയിപ്പിക്കാൻ കഴിഞ്ഞില്ല"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "ക്വിസ്"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "സൃഷ്ടിച്ചത് {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "3 പിൻ പരിധി പൂർത്തിയായി",
+      "failedToUpdatePin": "പിൻ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല",
+      "noChatsYet": "ചാറ്റുകളൊന്നുമില്ല",
+      "startAChatToGetAnswers": "യഥാർത്ഥ ഉറവിടങ്ങളുടെ പിന്തുണയുള്ള ഉത്തരങ്ങൾക്കായി ഒരു ചാറ്റ് ആരംഭിക്കൂ.",
+      "createChat": "+ പുതിയ ചാറ്റ്"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Flashcards ഒഴിവാക്കുക",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\" ഒഴിവാക്കണമെന്ന് തീർച്ചയാണോ?",
+      "failedToDeleteFlashcards": "Flashcards ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല",
+      "sets": "{{setCount}} സെറ്റുകൾ",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Flashcards ഉണ്ടാക്കുക",
+      "searchFlashcards": "Flashcards തിരയുക...",
+      "noFlashcardsYet": "Flashcards ലഭ്യമല്ല",
+      "createAFlashcardSetFromA": "ആരംഭിക്കാൻ ഒരു നോട്ടിൽ നിന്ന് flashcard സെറ്റ് നിർമ്മിക്കുക",
+      "createSet": "+ സെറ്റ് ഉണ്ടാക്കുക",
+      "flashcardOptions": "Flashcard ഓപ്ഷനുകൾ",
+      "view": "കാണുക"
+    },
+    "folder": {
+      "deleteFolder": "ഫോൾഡർ ഒഴിവാക്കുക",
+      "areYouSureYouWantTo": "\"{{name}}\" ഒഴിവാക്കണമെന്ന് തീർച്ചയാണോ? ഇതിലെ നോട്ടുകൾ റൂട്ടിലേക്ക് മാറ്റപ്പെടും.",
+      "failedToDeleteFolder": "ഫോൾഡർ ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല",
+      "error": "പിശക്: {{message}}",
+      "noFoldersYetCreateOne": "ഫോൾഡറുകളൊന്നുമില്ല. ഒരെണ്ണം നിർമ്മിക്കൂ!",
+      "folders": "ഫോൾഡറുകൾ"
+    },
+    "home": {
+      "created": "{{day}}, {{time}}-ൽ നിർമ്മിച്ചത്",
+      "failedToUpdateLanguage": "ഭാഷ മാറ്റാൻ സാധിച്ചില്ല",
+      "notEnoughContentYet": "ആവശ്യത്തിന് ഉള്ളടക്കമില്ല",
+      "chatABitMoreBeforeGenerating": "ക്വിസ് തയ്യാറാക്കുന്നതിന് മുമ്പ് കുറച്ചുകൂടി ചാറ്റ് ചെയ്യുക (കുറഞ്ഞത് 100 അക്ഷരങ്ങൾ).",
+      "chatABitMoreBeforeGenerating2": "Flashcards തയ്യാറാക്കുന്നതിന് മുമ്പ് കുറച്ചുകൂടി ചാറ്റ് ചെയ്യുക (കുറഞ്ഞത് 100 അക്ഷരങ്ങൾ).",
+      "failedToGenerateFlashcards": "Flashcards തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല",
+      "upgradeToPro": "PRO-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക",
+      "get80DiscountWhenYouUpgrade": "അക്കൗണ്ട് അപ്‌ഗ്രേഡ് ചെയ്യുമ്പോൾ 80% കിഴിവ് നേടൂ",
+      "unlockPRO": "PRO അൺലോക്ക് ചെയ്യുക",
+      "noMedicalChats": "മെഡിക്കൽ ചാറ്റുകളൊന്നുമില്ല",
+      "youHaveNotCreatedAnyMedical": "നിങ്ങൾ മെഡിക്കൽ ചാറ്റുകളൊന്നും തുടങ്ങിയിട്ടില്ല, പുതിയൊരു ചാറ്റ് ആരംഭിച്ച് ഉറവിടങ്ങൾ സഹിതമുള്ള വിവരങ്ങൾ നേടൂ",
+      "talkToClinicalfactAI": "Clinical Fact AI-യോട് സംസാരിക്കുക",
+      "jumpInWhereYouStopped": "നിർത്തിയ ഇടത്തുനിന്ന് തുടരുക",
+      "practiceQuiz": "ക്വിസ് പരിശീലിക്കാം",
+      "makeFlashcards": "Flashcards ഉണ്ടാക്കുക",
+      "continueChatWithNote": "നോട്ട് ഉപയോഗിച്ച് ചാറ്റ് തുടരുക",
+      "continueChat": "ചാറ്റ് തുടരുക",
+      "recentChats": "സമീപകാല ചാറ്റുകൾ",
+      "chatOptions": "ചാറ്റ് ഓപ്ഷനുകൾ"
+    },
+    "library": {
+      "text": "{{year}} {{month}} {{day}}, {{hours}}:{{minutes}} {{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "നിങ്ങൾ ഇപ്പോൾ ഓഫ്‌ലൈനിലാണ്. ഈ പ്രവർത്തനം നടത്താൻ ഇന്റർനെറ്റ് കണക്റ്റ് ചെയ്യുക.",
+      "failedToDeleteNote": "നോട്ട് ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToMoveNote": "നോട്ട് മാറ്റാൻ കഴിഞ്ഞില്ല",
+      "deleteFolder": "ഫോൾഡർ ഒഴിവാക്കണോ?",
+      "areYouSureNotesInsideWill": "തീർച്ചയാണോ? ഇതിലെ നോട്ടുകൾ നീക്കം ചെയ്യില്ല, അവ 'എല്ലാ നോട്ടുകളും' എന്നതിലേക്ക് മാറ്റപ്പെടും.",
+      "failedToDeleteFolder": "ഫോൾഡർ ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല",
+      "library": "ലൈബ്രറി",
+      "addFolder": "ഫോൾഡർ ചേർക്കുക",
+      "searchForANoteFolder": "നോട്ട് / ഫോൾഡർ തിരയുക",
+      "yourFolders": "നിങ്ങളുടെ ഫോൾഡറുകൾ",
+      "noFoldersToDisplay": "ഫോൾഡറുകളൊന്നും ലഭ്യമല്ല",
+      "tapAddFolderToCreateA": "നോട്ടുകൾ സൂക്ഷിക്കാൻ ഫോൾഡർ ഉണ്ടാക്കാൻ \"+ ഫോൾഡർ ചേർക്കുക\" ടാപ്പ് ചെയ്യുക",
+      "allNotes": "എല്ലാ നോട്ടുകളും",
+      "items": "{{allNotesTotal}} എണ്ണം",
+      "items2": "{{itemCount}} എണ്ണം",
+      "yourNotes": "നിങ്ങളുടെ നോട്ടുകൾ",
+      "untitledNote": "തലക്കെട്ടില്ലാത്ത നോട്ട്",
+      "noResultsFor": "\"{{searchQuery}}\" എന്നതിന് ഫലങ്ങളൊന്നും ലഭ്യമല്ല",
+      "noNotesInThisFolder": "ഈ ഫോൾഡറിൽ നോട്ടുകളൊന്നുമില്ല",
+      "noNotesToDisplay": "നോട്ടുകൾ ഒന്നും ലഭ്യമല്ല",
+      "tryADifferentSearchTerm": "മറ്റൊരു വാക്ക് നൽകി തിരയുക",
+      "moveNotesToThisFolderTo": "ഇവിടെ കാണുന്നതിനായി നോട്ടുകൾ ഈ ഫോൾഡറിലേക്ക് മാറ്റുക",
+      "clickBelowToGenerateYourNote": "Clinical Fact ഉപയോഗിച്ച് നോട്ട് തയ്യാറാക്കാൻ താഴെ ക്ലിക്ക് ചെയ്യുക",
+      "filterByType": "ടൈപ്പ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക",
+      "audio": "ഓഡിയോ",
+      "text2": "ടെക്സ്റ്റ്",
+      "image": "ഇമേജ്",
+      "clearFilter": "ഫിൽട്ടർ മാറ്റുക"
+    },
+    "profile": {
+      "permissionRequired": "അനുമതി ആവശ്യമാണ്",
+      "pleaseAllowAccessToYourPhoto": "പ്രൊഫൈൽ ചിത്രം സെറ്റ് ചെയ്യാൻ ഫോട്ടോ ലൈബ്രറി ആക്സസ് അനുവദിക്കുക.",
+      "uploadFailed": "അപ്‌ലോഡ് പരാജയപ്പെട്ടു",
+      "couldNotUpdateProfilePicture": "പ്രൊഫൈൽ ചിത്രം അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല.",
+      "failedToUploadProfilePicture": "പ്രൊഫൈൽ ചിത്രം അപ്‌ലോഡ് ചെയ്യുന്നത് പരാജയപ്പെട്ടു.",
+      "checkOutClinicalFactAIPowered": "Clinical Fact കാണൂ – AI-പവേർഡ് സ്റ്റഡി നോട്ടുകൾ! {{url}}",
+      "proSubscriber": "PRO വരിക്കാരൻ",
+      "subscriptionExpired": "സബ്‌സ്‌ക്രിപ്ഷൻ കാലാവധി കഴിഞ്ഞു",
+      "freeSubscriber": "സൗജന്യ വരിക്കാരൻ",
+      "tapToManageIPhoneSettingsApple": "മാനേജ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക · iPhone Settings → Apple ID → Subscriptions",
+      "tapToManagePlayStoreSubscriptions": "മാനേജ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക · Play Store → Subscriptions",
+      "tapToRenewYourSubscription": "സബ്‌സ്‌ക്രിപ്ഷൻ പുതുക്കാൻ ടാപ്പ് ചെയ്യുക",
+      "tapToUpgradeToPro": "PRO-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക",
+      "referralCode": "റഫറൽ കോഡ്",
+      "areYouSureYouWantTo": "അക്കൗണ്ടിൽ നിന്ന് സൈൻ ഔട്ട് ചെയ്യണമെന്ന് ഉറപ്പാണോ?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "ക്വിസ് ഇല്ലാതാക്കുക",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\" ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ?",
+      "failedToDeleteQuiz": "ക്വിസ് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല",
+      "correct": "{{correct}}/{{total}} ശരി",
+      "attempts": "{{attempts}} തവണ പരിശീലിച്ചു",
+      "quiz": "ക്വിസ്",
+      "createQuiz": "ക്വിസ് നിർമ്മിക്കുക",
+      "searchQuizzes": "ക്വിസുകൾ തിരയുക...",
+      "noQuizzesYet": "ക്വിസുകൾ ഒന്നും ലഭ്യമല്ല",
+      "createAQuizFromANote": "ആരംഭിക്കാൻ നോട്ടിൽ നിന്ന് ഒരു ക്വിസ് ഉണ്ടാക്കുക",
+      "createQuiz2": "+ ക്വിസ് നിർമ്മിക്കുക",
+      "quizOptions": "ക്വിസ് ഓപ്ഷനുകൾ",
+      "view": "കാണുക"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "അപ്‌ഗ്രേഡ് ലഭ്യമല്ല",
+      "weCouldnTOpenTheUpgrade": "ഇപ്പോൾ അപ്‌ഗ്രേഡ് സ്ക്രീൻ തുറക്കാൻ കഴിഞ്ഞില്ല. ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "സെർവർ non-JSON റെസ്‌പോൺസ് നൽകി ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "നെറ്റ്‌വർക്ക് തകരാർ. ദയവായി ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക.",
+      "connectionErrorPleaseTryAgain": "കണക്ഷൻ തകരാർ. വീണ്ടും ശ്രമിക്കുക."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "ഫയൽ എക്സ്പോർട്ട് ചെയ്തു: {{filename}}",
+      "exportFailed": "എക്സ്പോർട്ട് പരാജയപ്പെട്ടു",
+      "exportFormat": "എക്സ്പോർട്ട് ഫോർമാറ്റ്",
+      "chooseFormat": "ഫോർമാറ്റ് തിരഞ്ഞെടുക്കുക",
+      "text": "ടെക്സ്റ്റ്"
+    },
+    "formatDate": {
+      "justNow": "ഇപ്പോൾ",
+      "minAgo": "{{diffMin}} മിനിറ്റ് മുൻപ്",
+      "hrAgo": "{{diffHr}} മണിക്കൂർ മുൻപ്",
+      "dAgo": "{{diffDay}} ദിവസം മുൻപ്",
+      "created": "{{day}}, {{time}}-ൽ തയ്യാറാക്കിയത്"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "OTP അയക്കാൻ കഴിഞ്ഞില്ല",
+      "invalidOTP": "അസാധുവായ OTP",
+      "failedToVerifyOTP": "OTP സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല",
+      "googleAuthenticationFailed": "Google പ്രാമാണീകരണം പരാജയപ്പെട്ടു",
+      "appleAuthenticationFailed": "Apple പ്രാമാണീകരണം പരാജയപ്പെട്ടു",
+      "failedToCompleteSignup": "സൈൻ അപ്പ് പൂർത്തിയാക്കാൻ കഴിഞ്ഞില്ല",
+      "failedToSkipSignup": "സൈൻ അപ്പ് ഒഴിവാക്കാൻ കഴിഞ്ഞില്ല"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "ചാറ്റുകൾ",
+      "description": "ഏത് നോട്ട്സ്, ഡോക്യുമെന്റുകൾ അല്ലെങ്കിൽ PDF എന്നിവയുമായും ഒരിടത്ത് നിന്ന് ചാറ്റ് ചെയ്യുക"
+    },
+    "profileWelcome": {
+      "heading": "നിങ്ങളുടെ പ്രൊഫൈലിലേക്ക് സ്വാഗതം",
+      "description": "ഇതാണ് നിങ്ങളുടെ പ്രൊഫൈൽ, പ്രൊഫൈലിലും സബ്‌സ്‌ക്രിപ്‌ഷൻ സ്റ്റാറ്റസിലും മാറ്റങ്ങൾ വരുത്താൻ ഇവിടെ ടാപ്പ് ചെയ്യുക"
+    },
+    "createNotes": {
+      "heading": "നോട്ട് ഉണ്ടാക്കുക",
+      "description": "റെക്കോർഡിംഗ്, ഓഡിയോ, വീഡിയോ, ഇമേജ്, ടെക്സ്റ്റ്, youtube ലിങ്കുകൾ എന്നിവയിൽ നിന്ന് ഏത് തരം നോട്ടും നിർമ്മിക്കുക"
+    },
+    "changeLanguage": {
+      "heading": "ഭാഷ മാറ്റുക",
+      "description": "നിങ്ങളുടെ ആപ്പിലെ ഭാഷ ഇവിടെ നിന്ന് ആവശ്യമുള്ള ഭാഷയിലേക്ക് മാറ്റുക"
+    },
+    "manageHome": {
+      "heading": "ഹോം മാനേജ് ചെയ്യുക",
+      "description": "തയ്യാറാക്കിയ എല്ലാ നോട്ടുകളും പ്രവർത്തനങ്ങളും ഒരിടത്ത് തന്നെ കാണുക"
+    },
+    "yourLibrary": {
+      "heading": "നിങ്ങളുടെ ലൈബ്രറി",
+      "description": "തയ്യാറാക്കിയ എല്ലാ നോട്ടുകളും കൈകാര്യം ചെയ്യുക, ഫോൾഡറുകൾ നിർമ്മിക്കുക, കൂടാതെ മറ്റു പലതും"
+    },
+    "yourProfile": {
+      "heading": "നിങ്ങളുടെ പ്രൊഫൈൽ",
+      "description": "നിങ്ങളുടെ പ്രൊഫൈൽ വിവരങ്ങൾ കാണാനും ക്രമീകരണങ്ങളിൽ മാറ്റം വരുത്താനും ഇവിടെ ക്ലിക്ക് ചെയ്യുക"
+    }
   }
 }

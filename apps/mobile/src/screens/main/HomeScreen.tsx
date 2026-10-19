@@ -29,6 +29,7 @@ import { showInAppPaywall } from '../../services/revenuecat';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
 import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
+import i18n from '../../i18n';
 
 type HomeNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -62,7 +63,7 @@ const formatCreatedAt = (dateString: string) => {
     ? 'Today'
     : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-  return `Created ${day}, ${time}`;
+  return i18n.t('main.home.created', { day, time });
 };
 
 // Note summaries come back as rich text — strip tags for the one-line preview here.
@@ -121,10 +122,10 @@ export const HomeScreen = () => {
           preferredLanguage: response.data.user.preferredLanguage || languageCode,
         });
       } else {
-        Alert.alert('Error', response.message || 'Failed to update language');
+        Alert.alert(t('common.error'), response.message || t('main.home.failedToUpdateLanguage'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to update language');
+      Alert.alert(t('common.error'), error.message || t('main.home.failedToUpdateLanguage'));
     }
   };
 
@@ -144,7 +145,7 @@ export const HomeScreen = () => {
 
   const handleOpenQuizModal = () => {
     if (topSession && !topLinkedNote && buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
-      Alert.alert('Not enough content yet', 'Chat a bit more before generating a quiz (minimum 100 characters).');
+      Alert.alert(t('main.home.notEnoughContentYet'), t('main.home.chatABitMoreBeforeGenerating'));
       return;
     }
     withAccess(() => setQuizModalVisible(true));
@@ -178,7 +179,7 @@ export const HomeScreen = () => {
     // other chat generates from its transcript. (This used to open the note's CreateFlashcards
     // screen, which only lists existing sets.)
     if (!topLinkedNote && buildSessionTranscript(topSession).length < MIN_TRANSCRIPT_CHARS) {
-      Alert.alert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
+      Alert.alert(t('main.home.notEnoughContentYet'), t('main.home.chatABitMoreBeforeGenerating2'));
       return;
     }
     withAccess(() => setFlashcardsModalVisible(true));
@@ -212,10 +213,10 @@ export const HomeScreen = () => {
         setFlashcardsModalVisible(false);
         await showInAppPaywall();
       } else {
-        Alert.alert('Error', response.message || 'Failed to generate flashcards');
+        Alert.alert(t('common.error'), response.message || t('main.home.failedToGenerateFlashcards'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to generate flashcards');
+      Alert.alert(t('common.error'), error.message || t('main.home.failedToGenerateFlashcards'));
     } finally {
       setGeneratingFlashcards(false);
     }
@@ -258,11 +259,11 @@ export const HomeScreen = () => {
         {!hasAccess && (
           <View style={styles.upgradeCard}>
             <View style={styles.upgradeCardText}>
-              <Text style={styles.upgradeTitle}>Upgrade to pro</Text>
-              <Text style={styles.upgradeDescription}>Get 80% discount when you upgrade your account</Text>
+              <Text style={styles.upgradeTitle}>{t('main.home.upgradeToPro')}</Text>
+              <Text style={styles.upgradeDescription}>{t('main.home.get80DiscountWhenYouUpgrade')}</Text>
             </View>
             <TouchableOpacity style={styles.unlockButton} onPress={() => showInAppPaywall()} activeOpacity={0.85}>
-              <Text style={styles.unlockButtonText}>Unlock PRO</Text>
+              <Text style={styles.unlockButtonText}>{t('main.home.unlockPRO')}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -277,19 +278,19 @@ export const HomeScreen = () => {
             <View style={styles.emptyIconCircle}>
               <SparkleIcon size={32} color={theme.colors.white} />
             </View>
-            <Text style={styles.emptyTitle}>No medical chats</Text>
+            <Text style={styles.emptyTitle}>{t('main.home.noMedicalChats')}</Text>
             <Text style={styles.emptyDescription}>
-              You have not created any medical chats , please start a new chat and get cited sources
+             {t('main.home.youHaveNotCreatedAnyMedical')}
             </Text>
             <TouchableOpacity style={styles.primaryButton} onPress={handleTalkToAI} activeOpacity={0.85}>
-              <Text style={styles.primaryButtonText}>Talk to Clinicalfact AI</Text>
+              <Text style={styles.primaryButtonText}>{t('main.home.talkToClinicalfactAI')}</Text>
             </TouchableOpacity>
           </View>
         ) : (
           <>
             {!!topSession && (
               <>
-                <Text style={styles.sectionLabel}>Jump in where you stopped</Text>
+                <Text style={styles.sectionLabel}>{t('main.home.jumpInWhereYouStopped')}</Text>
                 <View style={styles.jumpCard}>
                   <Text style={styles.jumpTitle} numberOfLines={2}>{topSession.title}</Text>
                   {!!jumpDescription && (
@@ -302,14 +303,14 @@ export const HomeScreen = () => {
                         <Icon name="quizFill" size={32} color={theme.colors.green[700]} />
                       <Icon name="foward" size={32} color={theme.colors.grey[300]} />
                       </View>
-                      <Text style={styles.jumpChipText}>Practice Quiz</Text>
+                      <Text style={styles.jumpChipText}>{t('main.home.practiceQuiz')}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.jumpChip} onPress={handleOpenFlashcardsModal} activeOpacity={0.7}>
                        <View style={styles.jumpChipFlex}>
                         <Icon name="flashcardsFill" size={32} color={theme.colors.orange[700]} />
                       <Icon name="foward" size={32} color={theme.colors.grey[300]} />
                       </View>
-                      <Text style={styles.jumpChipText}>Make flashcards</Text>
+                      <Text style={styles.jumpChipText}>{t('main.home.makeFlashcards')}</Text>
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity
@@ -318,7 +319,7 @@ export const HomeScreen = () => {
                     activeOpacity={0.85}
                   >
                     <Text style={styles.primaryButtonText}>
-                      {topLinkedNote ? 'Continue chat with Note' : 'Continue chat'}
+                      {topLinkedNote ? t('main.home.continueChatWithNote') : t('main.home.continueChat')}
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -327,7 +328,7 @@ export const HomeScreen = () => {
 
             {recentSessions.length > 0 && (
               <>
-                <Text style={styles.sectionLabel}>Recent chats</Text>
+                <Text style={styles.sectionLabel}>{t('main.home.recentChats')}</Text>
                 <View style={styles.chatList}>
                   {recentSessions.map((session, index) => (
                     <TouchableOpacity
@@ -347,7 +348,7 @@ export const HomeScreen = () => {
                       <TouchableOpacity
                         onPress={() => setSessionForActionSheet(session)}
                         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                        accessibilityLabel="Chat options"
+                        accessibilityLabel={t('main.home.chatOptions')}
                       >
                         <MoreVerticalIcon size={20} color={theme.colors.grey[300]} />
                       </TouchableOpacity>

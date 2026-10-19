@@ -15,6 +15,7 @@ import {
   ImageIcon,
   AudioFileIcon,
 } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface UploadProgressModalProps {
   visible: boolean;
@@ -32,6 +33,7 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
   status,
   errorMessage,
 }) => {
+  const { t } = useTranslation();
   const getIcon = () => {
     if (status === 'error') {
       return <Text style={styles.errorIcon}>⚠️</Text>;
@@ -53,13 +55,13 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
       case 'uploading':
         return 'Uploading...';
       case 'processing':
-        return type === 'image' ? 'Extracting text...' : type === 'audio' ? 'Transcribing audio...' : 'Processing PDF...';
+        return type === 'image' ? t('components.uploadProgress.extractingText') : type === 'audio' ? t('components.uploadProgress.transcribingAudio') : t('components.uploadProgress.processingPDF');
       case 'creating-chat':
-        return 'Setting up chat...';
+        return t('components.uploadProgress.settingUpChat');
       case 'success':
         return 'Ready!';
       case 'error':
-        return 'Upload Failed';
+        return t('components.uploadProgress.uploadFailed');
       default:
         return 'Processing...';
     }
@@ -67,25 +69,25 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
 
   const getDescription = () => {
     if (status === 'error') {
-      return errorMessage || 'Failed to upload file. Please try again.';
+      return errorMessage || t('components.uploadProgress.failedToUploadFilePleaseTry');
     }
     if (status === 'success') {
-      return 'Your file is ready for chatting!';
+      return t('components.uploadProgress.yourFileIsReadyForChatting');
     }
     if (status === 'uploading') {
-      return 'Uploading your file to the server...';
+      return t('components.uploadProgress.uploadingYourFileToTheServer');
     }
     if (status === 'processing') {
       return type === 'image'
-        ? 'Extracting text from your image...'
+        ? t('components.uploadProgress.extractingTextFromYourImage')
         : type === 'audio'
-          ? 'Transcribing your audio...'
-          : 'Extracting text from your PDF...';
+          ? t('components.uploadProgress.transcribingYourAudio')
+          : t('components.uploadProgress.extractingTextFromYourPDF');
     }
     if (status === 'creating-chat') {
-      return 'Creating your chat session...';
+      return t('components.uploadProgress.creatingYourChatSession');
     }
-    return 'Please wait...';
+    return t('components.uploadProgress.pleaseWait');
   };
 
   const getStatusColor = () => {
@@ -147,7 +149,7 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
                     styles.stepText,
                     status === 'uploading' ? styles.stepTextActive : undefined,
                   ]}>
-                    Upload file
+                   {t('components.uploadProgress.uploadFile')}
                   </Text>
                 </View>
                 <View style={styles.stepRow}>
@@ -160,7 +162,7 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
                     styles.stepText,
                     status === 'processing' ? styles.stepTextActive : undefined,
                   ]}>
-                    Process content
+                   {t('components.uploadProgress.processContent')}
                   </Text>
                 </View>
                 <View style={styles.stepRow}>
@@ -173,7 +175,7 @@ export const UploadProgressModal: React.FC<UploadProgressModalProps> = ({
                     styles.stepText,
                     status === 'creating-chat' ? styles.stepTextActive : undefined,
                   ]}>
-                    Create chat
+                   {t('components.uploadProgress.createChat')}
                   </Text>
                 </View>
               </View>

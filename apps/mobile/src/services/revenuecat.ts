@@ -1,6 +1,7 @@
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 import { Alert, Platform } from 'react-native';
+import i18n from '../i18n';
 
 const RC_API_KEY_IOS     = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS     ?? '';
 const RC_API_KEY_ANDROID = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID ?? '';
@@ -138,8 +139,8 @@ export function listenForSubscriptionChanges(
 function notifyPaywallUnavailable(offeringId: PaywallOffering): void {
   if (offeringId === 'exit offer' || offeringId === 'Onboarding') return;
   Alert.alert(
-    'Upgrade unavailable',
-    "We couldn't open the upgrade screen right now. Please check your connection and try again."
+    i18n.t('services.revenuecat.upgradeUnavailable'),
+    i18n.t('services.revenuecat.weCouldnTOpenTheUpgrade')
   );
 }
 

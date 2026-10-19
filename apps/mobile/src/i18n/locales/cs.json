@@ -15,7 +15,8 @@
     "done": "Hotovo",
     "search": "Vyhledávání",
     "filter": "Filtr",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Informace"
   },
   "home": {
     "title": "Clinical Fact",
@@ -75,7 +76,12 @@
     "reportBug": "Nahlásit chybu"
   },
   "auth": {
-    "welcome": "Vítejte v Clinical Factu",
+    "welcome": {
+      "googleSignInFailed": "Přihlášení přes Google se nezdařilo",
+      "failedToAuthenticateWithServer": "Ověření na serveru se nezdařilo",
+      "googleSignInIsOnlyAvailable": "Přihlášení přes Google je k dispozici pouze v nativní aplikaci. Použijte prosím přihlášení e-mailem nebo si stáhněte aplikaci.",
+      "code": "{{message}} (kód: {{code}})"
+    },
     "getStarted": "Začít",
     "signIn": "Přihlásit se",
     "signUp": "Registrovat se",
@@ -199,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Vše, co potřebujete k naučení čehokoli",
-      "subtitle": "Zaznamenejte si to. Prozkoumejte to. Otestujte to. Ovládněte to."
+      "subtitle": "Zaznamenejte si to. Prozkoumejte to. Otestujte to. Ovládněte to.",
+      "everythingYouNeedToLearnAnything": "Vše, co potřebuješ k učení",
+      "recordItResearchItQuizIt": "Zaznamenej. Vyhledej. Otestuj se. Ovládni to.",
+      "tryClinicalFactNowForFree": "Vyzkoušej Clinical Fact zdarma"
     },
     "features": {
       "transcribe": {
@@ -283,12 +292,136 @@
       "studyTimePerWeek": "Kolik času máš každý týden na studium?",
       "comingUp": "Co tě v nejbližší době čeká?",
       "referralSource": "Kde ses o Clinical Fact dozvěděl/a?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Zapnout oznámení",
+      "thisHelpsUsStayOnTrack": "Pomůže nám to přizpůsobit aplikaci tvým potřebám a rychleji ti najít lékařské odpovědi"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Neplatný ověřovací kód. Zkus to prosím znovu.",
+      "failedToResendCodePleaseTry": "Kód se nepodařilo znovu odeslat. Zkus to prosím znovu.",
+      "confirmYourEmailAddress": "Ověř svou e-mailovou adresu",
+      "enterCodeSentTo": "Zadej prosím jednorázový kód, který jsme poslali na {{email}}",
+      "resendCodeIn": "Znovu odeslat kód za {{seconds}} s"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Doporučil ti aplikaci někdo?",
+      "enterTheirReferralCodeIfYou": "Zadej kód doporučení, pokud ho máš",
+      "eGJOHNOrTECHBRO": "např. JAN nebo MEDIK",
+      "codeIsValid": "✓ Kód je platný"
+    },
+    "resultsChart": {
+      "getBetterResults": "Dosáhni lepších výsledků",
+      "over95OfClinicalfactUsersScore": "Více než 95 % uživatelů Clinical Fact dosahuje u testů a zkoušek skóre 95 % a více"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Student/ka ošetřovatelství",
+        "medicalStudent": "Student/ka medicíny",
+        "paPharmacyStudent": "Student/ka farmacie nebo záchranářství",
+        "practicingNurse": "Všeobecná sestra / Ošetřovatel/ka",
+        "practicingPhysician": "Lékař/ka v praxi",
+        "otherHealthcareProfessional": "Jiný zdravotnický pracovník"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Učebnice nebo výpisky",
+        "flashcardQuizApps": "Kartičkové a testové aplikace",
+        "youtube": "YouTube",
+        "aiChatbots": "AI chatboti",
+        "colleagueClassmate": "Dotazy na kolegy či spolužáky",
+        "practiceQuestionBanks": "Databáze zkušebních otázek"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Tvorba kartiček a kvízů od nuly",
+        "findingTrustworthyAnswer": "Rychlé hledání spolehlivé odpovědi",
+        "reReadingNotes": "Opakované čtení poznámek, které si nepamatuji",
+        "switchingApps": "Neustálé přepínání mezi aplikacemi",
+        "chartingDocumentation": "Zápisy a dokumentace"
+      },
+      "appExpectation": {
+        "noHallucination": "AI, která si nevymýšlí",
+        "realCitations": "Ověřené citace zdrojů",
+        "oneApp": "Jedna aplikace místo pěti předplatných",
+        "explainsWhy": "Vysvětlení „proč“, ne jen holá odpověď"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "UWorld",
+        "googleSearch": "Vyhledávání Google",
+        "otherApps": "Jiné aplikace"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Vymýšlí si fakta",
+        "notMedicalContent": "Není stavěná na medicínský obsah",
+        "noSources": "Neuvádí zdroje k ověření",
+        "tooGeneric": "Příliš obecné, nezaměřené na zkoušky a praxi"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Pokaždé",
+        "sometimes": "Někdy",
+        "rarely": "Zřídka",
+        "dontUseAi": "AI zatím nepoužívám"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Rychlé a spolehlivé odpovědi",
+        "quizzesFlashcardsWithoutWork": "Kvízy a kartičky bez zdlouhavé přípravy",
+        "rememberingStudied": "Lépe si pamatovat probranou látku",
+        "medicalCitations": "Lékařské citace a reference",
+        "allOfTheAbove": "Vše výše uvedené"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Jiné"
+      },
+      "studyTime": {
+        "under5Hours": "Méně než 5 hodin",
+        "510Hours": "5–10 hodin",
+        "1020Hours": "10–20 hodin",
+        "20PlusHours": "20+ hodin"
+      },
+      "comingUp": {
+        "medicalExams": "Lékařské zkoušky",
+        "clinicalRotations": "Klinické stáže",
+        "nursingExams": "Ošetřovatelské zkoušky",
+        "otherExams": "Jiné zkoušky",
+        "staySharp": "Chci si jen udržet přehled"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Přepis poznámky",
+    "noteTranscript": {
+      "noteTranscript": "Přepis poznámky",
+      "noNoteIDProvided": "Nebylo zadáno ID poznámky",
+      "noTranscriptAvailableForThisNote": "Pro tuto poznámku není k dispozici žádný přepis.",
+      "thisNoteWasNotCreatedFrom": "Tato poznámka nebyla vytvořena ze zvuku ani videa a nemá přepis.",
+      "failedToLoadNote": "Poznámku se nepodařilo načíst",
+      "noteTranscript2": "Přepis poznámky",
+      "loadingTranscript": "Načítání přepisu...",
+      "goToNote": "Přejít na poznámku"
+    },
     "noteOptions": "Možnosti poznámky",
-    "editNote": "Upravit poznámku",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Zadejte název poznámky",
+      "failedToUpdateNote": "Poznámku se nepodařilo aktualizovat",
+      "noteUpdatedSuccessfully": "Poznámka byla úspěšně aktualizována",
+      "editNote": "Upravit poznámku",
+      "noteTitle": "Název poznámky",
+      "enterNoteTitle": "Zadejte název poznámky",
+      "noteContent": "Obsah poznámky",
+      "enterNoteContent": "Zadejte obsah poznámky",
+      "saveThisNote": "Uložit tuto poznámku",
+      "aiIsGeneratingYourNote": "AI generuje vaši poznámku",
+      "largeAudioAndVideoFilesMay": "Zpracování velkých audio a video souborů může trvat několik minut. Nechte prosím aplikaci otevřenou."
+    },
     "retranscribe": "Znovu přepsat",
     "exportNote": "Exportovat poznámku",
     "shareNoteLink": "Sdílet odkaz na poznámku",
@@ -310,12 +443,89 @@
     "translate": "Přeložit",
     "addToFolder": "Přidat do složky",
     "loadingNote": "Načítání poznámky...",
-    "noteNotFound": "Poznámku se nepodařilo načíst"
+    "noteNotFound": "Poznámku se nepodařilo načíst",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Kartičky se nepodařilo vygenerovat",
+      "anUnexpectedErrorOccurred": "Došlo k neočekávané chybě",
+      "history": "Historie",
+      "export": "Exportovat"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Poznámku se nepodařilo přidat do složky",
+      "folderNotFound": "Složka nebyla nalezena",
+      "addNote": "+ Přidat poznámku",
+      "noNotesInThisFolder": "V této složce nejsou žádné poznámky",
+      "moveNotesToThisFolderTo": "Přesuňte sem poznámky, abyste je zde viděli",
+      "addNoteToFolder": "Přidat poznámku do složky",
+      "noNotesAvailableToAdd": "Žádné poznámky k přidání",
+      "allYourNotesAreAlreadyIn": "Všechny vaše poznámky již v této složce jsou",
+      "created": "Vytvořeno {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Poznámku se nepodařilo načíst",
+      "reTranscribeNote": "Znovu přepsat poznámku",
+      "thisWillReTranscribeTheAudio": "Tímto se zvuk přepíše znovu a poznámka se aktualizuje. Pokračovat?",
+      "reTranscribe": "Znovu přepsat",
+      "noteReTranscribedSuccessfully": "Poznámka byla úspěšně znovu přepsána",
+      "info": "Informace",
+      "reTranscriptionFeatureIsComingSoon": "Funkce opětovného přepisu bude brzy k dispozici",
+      "youAreCurrentlyOfflinePleaseConnect": "Jste v režimu offline. Pro provedení této akce se prosím připojte k internetu.",
+      "failedToDeleteNote": "Poznámku se nepodařilo smazat",
+      "failedToExportNote": "Poznámku se nepodařilo exportovat",
+      "noteTranslatedSuccessfully": "Poznámka byla úspěšně přeložena",
+      "failedToTranslateNote": "Poznámku se nepodařilo přeložit",
+      "noteMovedTo": "Poznámka přesunuta do {{name}}",
+      "failedToMoveNoteToFolder": "Poznámku se nepodařilo přesunout do složky",
+      "summaryNotes": "Souhrnné poznámky",
+      "loadingNote": "Načítání poznámky...",
+      "imageNote": "Obrázková poznámka",
+      "created": "Vytvořeno {{dateTime}}",
+      "translate": "Přeložit",
+      "transcribe": "Přepsat",
+      "editThisNote": "Upravit tuto poznámku",
+      "createFlashcards": "Vytvořit kartičky",
+      "createFlashcardsToImproveYourRetention": "Vytvořte si kartičky pro lepší zapamatování učiva",
+      "createQuizQuestions": "Vytvořit kvízové otázky",
+      "practiceYourNotesByCreatingQuestions": "Procvičujte látku vytvářením otázek, které vám pomohou téma ovládnout"
+    },
+    "sharedNote": {
+      "notFound": "Nenalezeno",
+      "thisSharedNoteLinkIsInvalid": "Tento odkaz na sdílenou poznámku je neplatný nebo vypršel.",
+      "failedToLoadSharedNote": "Sdílenou poznámku se nepodařilo načíst.",
+      "saved": "Uloženo!",
+      "noteHasBeenAddedToYour": "Poznámka byla přidána do vaší knihovny.",
+      "viewInLibrary": "Zobrazit v knihovně",
+      "stayHere": "Zůstat zde",
+      "failedToSaveNote": "Poznámku se nepodařilo uložit.",
+      "loadingSharedNote": "Načítání sdílené poznámky...",
+      "sharedNote": "Sdílená poznámka",
+      "sharedWithYou": "Sdíleno s vámi",
+      "savedToLibrary": "Uloženo do knihovny",
+      "saveToMyLibrary": "Uložit do mé knihovny"
+    }
   },
   "create": {
     "selectOption": "Jak chcete vytvořit svou poznámku?",
-    "recordAudio": "Nahrávání zvuku",
-    "uploadAudio": "Nahrát zvuk",
+    "recordAudio": {
+      "permissionRequired": "Vyžadováno oprávnění",
+      "pleaseGrantMicrophonePermissionToRecord": "Pro nahrávání zvuku udělte aplikaci přístup k mikrofonu.",
+      "failedToRequestMicrophonePermission": "Nepodařilo se požádat o přístup k mikrofonu",
+      "created": "Vytvořeno {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Záznam zvuku",
+      "recordAudio": "Nahrát zvuk",
+      "createANoteFromAnyRecorded": "Vytvořte poznámku z jakéhokoli nahraného zvuku",
+      "recording": "Nahrávání ({{time}})",
+      "recordAgain": "Nahrát znovu"
+    },
+    "uploadAudio": {
+      "created": "Vytvořeno {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Nepodařilo se vybrat zvukový soubor",
+      "uploadAudio": "Nahrát audio",
+      "createANoteFromAnyUploaded": "Vytvořte poznámku z nahraného audiosouboru",
+      "dragDropFilesOrBrowse": "Přetáhněte soubory sem nebo procházejte",
+      "supportedFormatMp4WavMp3": "Podporované formáty: mp4, wav, mp3",
+      "changeFile": "Změnit soubor"
+    },
     "youtube": "Video na YouTube",
     "pdfDocument": "PDF nebo dokument",
     "customText": "Vlastní text",
@@ -323,7 +533,56 @@
     "uploadingFile": "Nahrávání souboru na server...",
     "transcribing": "Převod řeči na text...",
     "extractingText": "Extrahování textu...",
-    "generatingNote": "Vytváření studijních poznámek s využitím umělé inteligence...",
+    "generatingNote": {
+      "uploadAudio": "Nahrát audio",
+      "uploadingAudioFileToServer": "Nahrávání audiosouboru na server...",
+      "transcribeAudio": "Přepsat audio",
+      "convertingSpeechToText": "Převod řeči na text...",
+      "generateYourNote": "Vygenerovat poznámku",
+      "creatingStudyNotes": "Vytváření studijních poznámek...",
+      "uploadPDF": "Nahrát PDF",
+      "uploadingPDFDocumentToServer": "Nahrávání dokumentu PDF na server...",
+      "extractText": "Extrahovat text",
+      "readingAndExtractingTextFromPDF": "Čtení a extrakce textu z PDF...",
+      "uploadImage": "Nahrát obrázek",
+      "uploadingImageToServer": "Nahrávání obrázku na server...",
+      "extractTextOCR": "Extrahovat text (OCR)",
+      "recognizingAndExtractingTextFromImage": "Rozpoznávání a extrakce textu z obrázku...",
+      "fetchVideo": "Načíst video",
+      "connectingToYouTube": "Připojování k YouTube...",
+      "extractTranscript": "Extrahovat přepis",
+      "downloadingVideoTranscript": "Stahování přepisu videa...",
+      "processText": "Zpracovat text",
+      "analyzingYourContent": "Analyzování obsahu...",
+      "uploadFile": "Nahrát soubor",
+      "uploadingToServer": "Nahrávání na server...",
+      "processContent": "Zpracovat obsah",
+      "extractingContent": "Extrahování obsahu...",
+      "noteReady": "Poznámka je připravena!",
+      "noteGenerationFailedOnTheServer": "Vytváření poznámky na serveru selhalo.",
+      "failedToUploadImage": "Nahrání obrázku selhalo",
+      "weCouldNotReadAnythingFrom": "Z tohoto obrázku se nepodařilo nic přečíst. Zkuste prosím nahrát čitelnější snímek svých lékařských poznámek.",
+      "preparingFile": "Příprava souboru...",
+      "almostDone": "Téměř hotovo...",
+      "untitledNote": "Poznámka bez názvu",
+      "failedToGenerateNote": "Nepodařilo se vytvořit poznámku",
+      "whoaSpeedy": "Páni, to je rychlost! 🏃💨",
+      "youReGeneratingContentABit": "Generujete obsah příliš rychle. Dejte si 60 sekund pauzu, než to zkusíte znovu, ať to naše AI stihne dohnat.",
+      "gotIt": "Rozumím",
+      "fileTooLarge": "Soubor je příliš velký",
+      "yourFileExceedsThe15MBLimit": "Váš soubor překračuje limit 15 MB pro bezplatnou verzi. Upgradujte na PRO a nahrávejte přednášky až do 100 MB.",
+      "upgradeToPRO": "Upgradovat na PRO",
+      "oopsWeHitASnag": "Jejda, narazili jsme na zádrhel 🚧",
+      "weCouldnTGenerateThatRight": "Právě teď se to nepodařilo vytvořit. Počkejte chvilku a zkuste to znovu!",
+      "processingContent": "Zpracovávání obsahu...",
+      "generatingYourNote": "Vytváření poznámky...",
+      "audioNote": "Audio poznámka",
+      "failedToGenerateFlashcards": "Nepodařilo se vytvořit kartičky",
+      "generatingNote": "Vytváření poznámky",
+      "pleaseKeepThisScreenOpenWhile": "Ponechte prosím tuto obrazovku otevřenou, dokud se poznámka nevytvoří. Přepis velkých souborů může trvat několik minut.",
+      "goToNote": "Přejít na poznámku",
+      "generateNoteTranscript": "Generovat přepis poznámky"
+    },
     "fetchingVideo": "Připojování k YouTube...",
     "processingText": "Analýza vašeho obsahu...",
     "uploadAudioTitle": "Nahrát zvuk",
@@ -333,7 +592,63 @@
     "fetchVideo": "Načíst video",
     "extractTranscript": "Výňatek přepisu",
     "processText": "Zpracovat text",
-    "generateNote": "Vygenerujte si poznámku"
+    "generateNote": "Vygenerujte si poznámku",
+    "customTextInput": {
+      "customText": "Vlastní text",
+      "createANoteFromAnyCustom": "Vytvořit poznámku z libovolného textu",
+      "enterText": "Zadat text",
+      "enterYourTextHere": "Sem zadejte svůj text..."
+    },
+    "uploadImage": {
+      "created": "Vytvořeno {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Vyžadováno oprávnění",
+      "pleaseAllowAccessToYourPhoto": "Povolte prosím přístup ke své knihovně fotek",
+      "failedToPickImage": "Nepodařilo se vybrat obrázek",
+      "uploadImage": "Nahrát obrázek",
+      "createANoteFromAnyUploaded": "Vytvořit poznámku z nahraného obrázku",
+      "dragDropFilesOrBrowse": "Přetáhněte soubory sem nebo Procházet",
+      "supportedFormatPngJpegHeicWebp": "Podporované formáty: png, jpeg, heic, webp",
+      "changeFile": "Změnit soubor"
+    },
+    "uploadPDF": {
+      "created": "Vytvořeno {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Nepodařilo se vybrat dokument",
+      "uploadPdf": "Nahrát PDF",
+      "createANoteFromAnyUploaded": "Vytvořit poznámku z nahraného PDF",
+      "dragDropFilesOrBrowse": "Přetáhněte soubory sem nebo Procházet",
+      "supportedFormatPdf": "Podporovaný formát: pdf",
+      "changeFile": "Změnit soubor"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Načítání videa",
+      "gettingVideoDetails": "Získávání podrobností o videu",
+      "extractingTranscript": "Extrahování přepisu",
+      "convertingAudioToText": "Převod zvuku na text",
+      "generatingYourNote": "Vytváření poznámky",
+      "aiIsSummarisingTheContent": "AI shrnuje obsah",
+      "noteGenerationFailedPleaseTryAgain": "Vytváření poznámky selhalo. Zkuste to prosím znovu.",
+      "processingFailed": "Zpracování se nezdařilo",
+      "goBack": "Zpět",
+      "retry": "Zkusit znovu",
+      "failedToStartNoteGeneration": "Generování poznámky se nepodařilo spustit",
+      "failedToProcessYouTubeVideoPlease": "Zpracování videa z YouTube se nezdařilo. Zkuste to prosím znovu.",
+      "cancelProcessing": "Zrušit zpracování",
+      "areYouSureYouWantTo": "Opravdu chcete akci zrušit? Váš postup bude ztracen.",
+      "continueProcessing": "Pokračovat ve zpracování",
+      "youTubeNote": "Poznámka z YouTube",
+      "noteGenerated": "Poznámka vygenerována",
+      "generatingNote": "Generování poznámky",
+      "goToNote": "Přejít na poznámku"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Nepodařilo se načíst informace o videu",
+      "failedToFetchVideoInformation": "Načtení informací o videu selhalo",
+      "youtubeVideo": "Video z YouTube",
+      "createANoteFromAnyYoutube": "Vytvořte si poznámku z libovolného videa na YouTube",
+      "enterYoutubeURL": "Zadejte URL adresu z YouTube",
+      "pasteYoutubeURL": "Vložit URL adresu z YouTube",
+      "fetchingVideoInfo": "Načítání informací o videu..."
+    }
   },
   "library": {
     "title": "Knihovna",
@@ -387,7 +702,42 @@
     "explanation": "Vysvětlení",
     "questionProgress": "Otázka {{current}} z {{total}}",
     "generatingQuizWait": "Vytváříme pro tebe kvíz, chvilku strpení...",
-    "goToChats": "Přejít do chatů"
+    "goToChats": "Přejít do chatů",
+    "quizGroupDetail": {
+      "inProgress": "Probíhá",
+      "notStarted": "Nezahájeno",
+      "failedToLoadQuizHistory": "Historii kvízu se nepodařilo načíst",
+      "failedToLoadChatContent": "Obsah chatu se nepodařilo načíst",
+      "deleteQuiz": "Smazat kvíz",
+      "failedToDeleteQuiz": "Kvíz se nepodařilo smazat",
+      "created": "Vytvořeno {{dateTime}}",
+      "lastscore": "POSLEDNÍ SKÓRE",
+      "bestscore": "NEJLEPŠÍ SKÓRE",
+      "attempts": "POKUSY",
+      "retakeQuiz": "Opakovat kvíz",
+      "translate": "Přeložit",
+      "newQuiz": "Nový kvíz",
+      "quizHistory": "Historie kvízů",
+      "flashcardHistory": "Historie kartiček",
+      "score": "Skóre {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Z tohoto zdroje zatím nejsou žádné sady kartiček.",
+      "cards": "{{totalCards}} kartiček · {{flashcardStatus}}",
+      "quizOptions": "Možnosti kvízu",
+      "exportLatestAttempt": "Exportovat poslední pokus",
+      "questions": "{{totalQuestions}} otázek · {{value}}",
+      "deleteAllAttemptsOne": "Smazat 1 pokus kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět.",
+      "deleteAllAttemptsMany": "Smazat všech {{total}} pokusů kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Nepodařilo se načíst data kvízu – neplatný formát odpovědi",
+      "failedToLoadQuizData": "Nepodařilo se načíst data kvízu",
+      "noContentAvailable": "Není k dispozici žádný obsah",
+      "goBack": "Zpět",
+      "previous": "Předchozí"
+    },
+    "quiz": {
+      "generationFailed": "Generování se nezdařilo"
+    }
   },
   "flashcards": {
     "title": "Kartičky",
@@ -418,7 +768,44 @@
     "headerTitle": "Kartička",
     "progressFormat": "Kartička {{current}} z {{total}}",
     "noteIdRequired": "Pro generování kartiček je vyžadováno ID poznámky",
-    "invalidCardCount": "Vyberte prosím mezi 1 a 100 kartičkami"
+    "invalidCardCount": "Vyberte prosím mezi 1 a 100 kartičkami",
+    "flashcardGroupDetail": {
+      "inProgress": "Probíhá",
+      "notStarted": "Nezahájeno",
+      "failedToLoadFlashcardHistory": "Nepodařilo se načíst historii kartiček",
+      "limitReached": "Limit byl dosažen",
+      "flashcardGenerationLimitReached": "Byl dosažen limit pro generování kartiček.",
+      "failedToGenerateFlashcards": "Nepodařilo se vygenerovat kartičky",
+      "failedToTranslateFlashcards": "Nepodařilo se přeložit kartičky",
+      "deleteFlashcards": "Smazat kartičky",
+      "failedToDeleteFlashcards": "Kartičky se nepodařilo smazat",
+      "created": "Vytvořeno {{dateTime}}",
+      "lastprogress": "POSLEDNÍ POKROK",
+      "bestprogress": "NEJLEPŠÍ POKROK",
+      "sets": "SADY",
+      "studyNow": "Studovat hned",
+      "translate": "Přeložit",
+      "newFlashcards": "Nové kartičky",
+      "flashcardHistory": "Historie kartiček",
+      "quizHistory": "Historie kvízů",
+      "cards": "{{totalCards}} kartiček · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Z tohoto zdroje zatím nejsou žádné kvízy.",
+      "score": "Skóre {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Možnosti kartiček",
+      "exportLatestSet": "Exportovat nejnovější sadu",
+      "questions": "{{totalQuestions}} otázek · {{value}}",
+      "deleteAllSetsOne": "Smazat 1 sadu kartiček pro „{{title}}“? Tuto akci nelze vrátit zpět.",
+      "deleteAllSetsMany": "Smazat všech {{total}} sad kartiček pro „{{title}}“? Tuto akci nelze vrátit zpět."
+    },
+    "flashcardReview": {
+      "unknownError": "Neznámá chyba",
+      "noFlashcardsInThisSet": "V této sadě nejsou žádné kartičky",
+      "goBack": "Zpět",
+      "allDone": "Vše hotovo",
+      "youHaveReviewedAllTheCards": "Prošli jste všechny kartičky v tomto balíčku",
+      "question": "Otázka {{value}}",
+      "questionOf": "Otázka {{value}} z {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Povídání",
@@ -429,7 +816,186 @@
     "chatWithDocument": "Chat s dokumentem",
     "selectFile": "Vyberte soubor, se kterým chcete chatovat",
     "uploadFile": "Nahrát soubor",
-    "startChatting": "Začít chatovat"
+    "startChatting": "Začít chatovat",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Položte medicínský dotaz a získejte podrobnější vysvětlení",
+      "askAnythingAboutThisDocument": "Zeptejte se na cokoliv k tomuto dokumentu...",
+      "askAQuestionAttachmentProcessingFailed": "Položte dotaz – zpracování přílohy se nezdařilo",
+      "extractingText": "Extrahování textu...",
+      "processingPDF": "Zpracování PDF...",
+      "upgradeToProToContinueChatting": "Přejděte na PRO a pokračujte v chatu",
+      "queryremaining": "ZBÝVÁ {{queriesRemaining}} DOTAZŮ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Inicializace chatu...",
+      "extractingTextFromImage": "Extrahování textu z obrázku...",
+      "processingPDFDocument": "Zpracování PDF dokumentu...",
+      "analyzingYourNote": "Analyzování poznámky...",
+      "thisUsuallyTakesJustAFew": "⏱️ Obvykle to trvá jen několik sekund. Jakmile zpracování skončí, budete moci chatovat.",
+      "processingFailed": "Zpracování se nezdařilo",
+      "fileMightBeCorruptedOrUnreadable": "• Soubor může být poškozený nebo nečitelný",
+      "imageQualityTooLow": "Kvalita obrázku je příliš nízká",
+      "pdfIsPasswordProtected": "PDF je chráněno heslem",
+      "contentFormatNotSupported": "Formát obsahu není podporován",
+      "networkConnectionIssue": "• Problém s připojením k síti",
+      "tryADifferentFile": "Zkusit jiný soubor",
+      "askAnyClinicalQuestionNoUpload": "💡 Položte jakýkoliv klinický dotaz – není třeba nic nahrávat. Odpovím na základě citované lékařské literatury, případně i s relevantními obrázky.",
+      "readyToChat": "✓ Připraveno k chatu",
+      "couldntProcessNote": "Tuto poznámku se nepodařilo zpracovat. Důvodem může být:",
+      "couldntProcessImage": "Tento obrázek se nepodařilo zpracovat. Důvodem může být:",
+      "couldntProcessDocument": "Tento dokument se nepodařilo zpracovat. Důvodem může být:",
+      "askMeAboutNote": "💡 Zeptejte se mě na cokoliv k této poznámce. Mohu ji shrnout, vysvětlit pojmy nebo zodpovědět konkrétní dotazy.",
+      "askMeAboutImage": "💡 Zeptejte se mě na cokoliv k tomuto obrázku. Mohu jej shrnout, vysvětlit pojmy nebo zodpovědět konkrétní dotazy.",
+      "askMeAboutDocument": "💡 Zeptejte se mě na cokoliv k tomuto dokumentu. Mohu jej shrnout, vysvětlit pojmy nebo zodpovědět konkrétní dotazy."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} zvládnuto",
+      "notStarted": "Nezahájeno",
+      "quizGeneration": "Generování kvízu",
+      "score": "Skóre {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Generování kartiček",
+      "questions": "{{totalCards}} otázek · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} otázek · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Přemýšlím a hledám pro vás zdroje...",
+      "couldnTGenerateAResponse": "Odpověď se nepodařilo vygenerovat.",
+      "retry": "Zkusit znovu",
+      "alsoReferencedFromTheWeb": "Odkazováno také z webu",
+      "followUpQuestions": "Doplňující otázky"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Zeptej se na cokoliv z medicíny a získej fakta podložená reálnými zdroji",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Evidence-based · Zdroje z PubMed · Recenzováno",
+      "tryOutAnyOfThisTopics": "Začni vyzkoušením některého z těchto témat",
+      "topics": {
+        "electrolytes": {
+          "label": "Poruchy elektrolytů v kostce",
+          "question": "Vysvětli poruchy elektrolytů – příčiny, příznaky a léčbu"
+        },
+        "ecg": {
+          "label": "Základy interpretace EKG",
+          "question": "Jaké jsou základy interpretace EKG?"
+        },
+        "drugInteractions": {
+          "label": "Důležité lékové interakce z praxe",
+          "question": "Jaké jsou nejčastější a nejdůležitější lékové interakce, které je třeba znát?"
+        },
+        "nclex": {
+          "label": "Procvičování ve stylu NCLEX",
+          "question": "Dej mi cvičnou otázku ve stylu testu NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Příbalová informace FDA",
+      "fromYourAttachedMaterial": "Z přiloženého materiálu"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Nepodařilo se vytvořit chat",
+      "failedToInitializeChatSession": "Nepodařilo se inicializovat chat",
+      "failedToUpdateLanguage": "Nepodařilo se aktualizovat jazyk",
+      "youVeReachedYour3Pin": "Byl dosažen limit 3 připnutí",
+      "failedToUpdatePin": "Nepodařilo se aktualizovat připnutí",
+      "permissionRequired": "Vyžadováno oprávnění",
+      "pleaseGrantCameraPermissionToTake": "Pro pořízení fotografie povol přístup k fotoaparátu.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Pro nahrání obrázků povol přístup ke knihovně fotografií.",
+      "failedToUploadImage": "Nepodařilo se nahrát obrázek",
+      "uploadFailed": "Nahrávání se nezdařilo",
+      "failedToUploadDocument": "Nepodařilo se nahrát dokument",
+      "failedToStartChatFromThis": "Z tohoto souboru se nepodařilo zahájit chat.",
+      "chatFromImage": "Chat z obrázku",
+      "failedToStartANewQuestion": "Nepodařilo se položit novou otázku. Zkus to prosím znovu.",
+      "failedToAttachFile": "Nepodařilo se přiložit soubor",
+      "failedToSendMessage": "Nepodařilo se odeslat zprávu",
+      "copiedToClipboard": "Zkopírováno do schránky",
+      "notEnoughContentYet": "Zatím není dostatek obsahu",
+      "chatABitMoreBeforeGenerating": "Před vygenerováním kvízu ještě chvíli chatuj (alespoň 100 znaků).",
+      "chatABitMoreBeforeGenerating2": "Před vygenerováním kartiček ještě chvíli chatuj (alespoň 100 znaků).",
+      "failedToGenerateFlashcards": "Nepodařilo se vygenerovat kartičky",
+      "failedToRegenerateResponse": "Nepodařilo se znovu vygenerovat odpověď",
+      "failedToRetryResponse": "Nepodařilo se zopakovat odpověď"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Nepodařilo se přiložit poznámku",
+      "folderCreatedSuccessfully": "Složka „{{name}}“ byla úspěšně vytvořena!",
+      "failedToCreateFolder": "Nepodařilo se vytvořit složku",
+      "failedToAttachDocument": "Nepodařilo se přiložit dokument",
+      "failedToCreateChatSession": "Nepodařilo se vytvořit chat",
+      "failedToUploadDocument": "Nepodařilo se nahrát dokument",
+      "openingCamera": "📷 Otevírání fotoaparátu...",
+      "openingImagePicker": "🖼️ Otevírání výběru obrázků...",
+      "permissionRequired": "Vyžadováno oprávnění",
+      "pleaseGrantCameraPermissionToTake": "Pro pořízení fotografie povol přístup k fotoaparátu.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Pro nahrání obrázků povol přístup ke knihovně fotografií.",
+      "failedToAttachImage": "Nepodařilo se přiložit obrázek",
+      "failedToUploadImage": "Nepodařilo se nahrát obrázek",
+      "failedToAttachAudio": "Nepodařilo se přiložit audio",
+      "failedToUploadAudio": "Nepodařilo se nahrát audio",
+      "aNote": "{{verb}} poznámku",
+      "anImage": "{{verb}} obrázek",
+      "aDocument": "{{verb}} dokument",
+      "audio": "{{verb}} audio",
+      "aFile": "{{verb}} soubor",
+      "items": "{{itemCount}} položek",
+      "thisFolderIsEmptyGoBack": "Tato složka je prázdná. Vrať se zpět a vyber jinou složku.",
+      "addFolder": "Přidat složku",
+      "uploadNewDocument": "Nahrát nový dokument",
+      "uploadAPDFAndStartChatting": "Nahrajte PDF a začněte ihned chatovat",
+      "uploadNewImage": "Nahrát nový obrázek",
+      "uploadAnImageAndExtractText": "Nahrajte obrázek a okamžitě z něj extrahujte text",
+      "uploadNewAudio": "Nahrát nové audio",
+      "uploadAnAudioFileAndTranscribe": "Nahrajte zvukový soubor a ihned jej přepište",
+      "orselectfromlibrary": "NEBO VYBERTE Z KNIHOVNY",
+      "folders": "Složky",
+      "allNotes": "Všechny poznámky",
+      "noFilesToDisplay": "Žádné soubory k zobrazení",
+      "noNotesToDisplay": "Žádné poznámky k zobrazení",
+      "noDocumentsYet": "Zatím nemáte žádné PDF dokumenty.\nNejprve vytvořte nějaké poznámky a pak se vraťte k chatu.",
+      "noImagesYet": "Zatím nemáte žádné obrázky.\nNejprve vytvořte nějaké poznámky a pak se vraťte k chatu.",
+      "noAudioNotesYet": "Zatím nemáte žádné hlasové poznámky.\nNejprve vytvořte nějaké poznámky a pak se vraťte k chatu.",
+      "noNotesYet": "Zatím nemáte žádné poznámky.\nNejprve vytvořte nějaké poznámky a pak se vraťte k chatu.",
+      "attachNote": "Připojit poznámku",
+      "selectNote": "Vybrat poznámku",
+      "attachImage": "Připojit obrázek",
+      "selectImage": "Vybrat obrázek",
+      "attachDocument": "Připojit dokument",
+      "selectDocument": "Vybrat dokument",
+      "attachAudio": "Připojit audio",
+      "selectAudio": "Vybrat audio",
+      "attachFile": "Připojit soubor",
+      "selectFile": "Vybrat soubor"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Přidat do chatu",
+      "camera": "Fotoaparát",
+      "photos": "Fotky",
+      "files": "Soubory",
+      "generateQuiz": "Vygenerovat kvíz",
+      "generateFlashcards": "Vygenerovat kartičky",
+      "searchMedicalLiterature": "Prohledat lékařskou literaturu",
+      "filterByDateSourceAndType": "Filtrovat podle data, zdroje a typu",
+      "pullsRealCitedSourcesIntoYour": "Doplní do odpovědí reálné, citované zdroje",
+      "trustedmedicalsourcedatabase": "DATABÁZE DŮVĚRYHODNÝCH LÉKAŘSKÝCH ZDROJŮ",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Data FDA o lécích a léčbě"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Zkontrolovat citace"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Připraveno · klepnutím přejmenujte",
+      "processing": "Zpracování {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Zobrazit zdroj ↗"
+    },
+    "chatRename": {
+      "renameChat": "Přejmenovat chat"
+    }
   },
   "languages": {
     "english": "angličtina",
@@ -483,5 +1049,455 @@
     "malay": "Malajština",
     "indonesian": "indonéština",
     "catalan": "Katalánština"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Přidat složku",
+      "folderName": "Název složky",
+      "enterFolderName": "Zadejte název složky",
+      "chooseColor": "Vybrat barvu",
+      "createFolder": "Vytvořit složku"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Než zpracujeme váš obsah",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact využívá AI k odpovídání na vaše otázky a k převodu vašeho obsahu na poznámky, kvízy a kartičky. Zde je přehled toho nejdůležitějšího:",
+      "whatDataIsSent": "Jaká data se odesílají",
+      "questionsAndMessagesYouTypeIn": "Dotazy a zprávy, které napíšete do chatu",
+      "audioRecordingsOrUploadedAudioFiles": "Hlasové nahrávky nebo nahrané zvukové soubory",
+      "pdfAndTextDocumentsYouUpload": "PDF a textové dokumenty, které nahrajete",
+      "imagesYouUpload": "Obrázky, které nahrajete",
+      "youTubeVideoURLsAndTheirTranscripts": "Odkazy na videa z YouTube a jejich přepisy",
+      "customTextYouEnter": "Vlastní text, který zadáte",
+      "whoReceivesYourData": "Kdo vaše data přijímá",
+      "howItSUsed": "Jak se data využívají",
+      "yourContentIsUsedSolelyTo": "Váš obsah je využíván výhradně k vygenerování požadované odpovědi, poznámky, kvízu nebo kartiček. Na obsah zpracovaný prostřednictvím rozhraní API se vztahují zásady nakládání s daty jednotlivých poskytovatelů. Podrobnosti najdete v našich Zásadách ochrany osobních údajů.",
+      "iAgreeContinue": "Souhlasím – Pokračovat",
+      "noThanks": "Ne, děkuji",
+      "whoReceivesBody": "Váš obsah je odesílán prostřednictvím našich zabezpečených serverů do služeb <bold>Google (Gemini)</bold> (generování poznámek, kvízů a kartiček; odpovědi v chatu; zpracování dokumentů a obrázků) a <bold>OpenAI</bold> (přepis zvuku). Části vašich dokumentů jsou také indexovány pomocí <bold>Google Vertex AI</bold>, aby mohl chat vyhledávat relevantní pasáže. Při použití živého vyhledávání v medicínských zdrojích je váš dotaz odeslán také do služby <bold>Tavily</bold> a veřejných databází lékařské literatury (jako PubMed, Europe PMC a Semantic Scholar), které vyhledají citace z důvěryhodných zdrojů, jako jsou NIH, CDC, MedlinePlus, WHO a Mayo Clinic. Tito poskytovatelé zpracovávají vaše data pouze za účelem vygenerování odpovědi – nepoužívají je k trénování vlastních univerzálních AI modelů a my vaše data neprodáváme žádným třetím stranám."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Odepnout chat",
+      "pinChat": "Připnout chat",
+      "deleteChat": "Smazat chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Vygenerovat kartičky",
+      "createFlashcards": "Vytvořit kartičky",
+      "createFlashcardsFromToImproveYour": "Vytvořte si z poznámky „{{noteTitle}}“ kartičky a lépe si zapamatujte učivo",
+      "createFlashcardsToImproveYourRetention": "Vytvoř si kartičky pro lepší zapamatování učiva",
+      "howManyQuestions": "Počet otázek",
+      "generateFlashcards2": "Vygenerovat kartičky"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Vytvořit z chatu",
+      "selectFromOneOfYourRecent": "Vyber z nedávných chatů",
+      "pdfOrDocument": "PDF nebo dokument",
+      "createFromAudio": "Vytvořit ze zvuku",
+      "image": "Obrázek",
+      "createFromCustomText": "Vytvořit z vlastního textu",
+      "created": "Vytvořeno {{day}}, {{time}}",
+      "createQuizFrom": "Vytvořit kvíz z",
+      "createFlashcardsFrom": "Vytvořit kartičky z",
+      "selectFromChat": "Vybrat z chatu",
+      "noRecentChatsYet": "Zatím žádné nedávné chaty",
+      "quizFromPdf": "Vytvořit kvíz z PDF nebo dokumentu",
+      "flashcardsFromPdf": "Vytvořit sadu kartiček z PDF nebo dokumentu",
+      "quizFromAudio": "Vytvořit kvíz z nahraného audia",
+      "flashcardsFromAudio": "Vytvořit sadu kartiček z nahraného audia",
+      "quizFromImage": "Vytvořit kvíz z libovolného obrázku",
+      "flashcardsFromImage": "Vytvořit sadu kartiček z libovolného obrázku",
+      "quizFromText": "Vytvořit kvíz ze zadaného textu",
+      "flashcardsFromText": "Vytvořit sadu kartiček ze zadaného textu"
+    },
+    "createNote": {
+      "recordAudio": "Nahrát zvuk",
+      "generateANoteFromAnyRecorded": "Vygenerovat poznámku ze zvukového záznamu",
+      "uploadAudio": "Nahrát audio soubor",
+      "createANoteFromAnyUploaded": "Vytvořit poznámku z nahraného audia",
+      "youtubeVideo": "Video z YouTube",
+      "createANoteFromAnyYoutube": "Vytvořit poznámku z videa na YouTube",
+      "pdfOrDocument": "PDF nebo dokument",
+      "createANoteFromPDFOr": "Vytvořit poznámku z PDF nebo dokumentu",
+      "customText": "Vlastní text",
+      "createANoteFromCapturedText": "Vytvořit poznámku ze zadaného textu",
+      "image": "Obrázek",
+      "createANoteFromAnyImage": "Vytvořit poznámku z libovolného obrázku",
+      "createNote": "Vytvořit poznámku"
+    },
+    "createQuiz": {
+      "generateQuiz": "Vygenerovat kvíz",
+      "createQuiz": "Vytvořit kvíz",
+      "practiceByCreatingQuestionsThatHelp": "Procvič si „{{noteTitle}}“ pomocí otázek, které ti pomohou téma zvládnout",
+      "practiceYourNotesByCreatingQuestions": "Procvič si své poznámky pomocí otázek, které ti pomohou téma zvládnout",
+      "howManyQuestions": "Počet otázek",
+      "timeInMinutes": "Čas (v minutách)"
+    },
+    "deleteNote": {
+      "deleteNote": "Smazat poznámku",
+      "areYouSureYouWantTo": "Opravdu chceš tuto poznámku smazat?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Exportovat shrnutí jako",
+      "exportTranscriptAs": "Exportovat přepis jako",
+      "exportAs": "Exportovat jako",
+      "exportSummary": "Exportovat shrnutí",
+      "exportTranscript": "Exportovat přepis"
+    },
+    "exportTypeStep": {
+      "exportNote": "Exportovat poznámku",
+      "exportSummary": "Exportovat shrnutí",
+      "exportTranscript": "Exportovat přepis"
+    },
+    "exportSettings": {
+      "export": "Exportovat {{title}}",
+      "selectFormat": "Vybrat formát",
+      "includeAnswers": "Zahrnout odpovědi",
+      "answersExplanationsIncluded": "Včetně odpovědí a vysvětlení",
+      "questionsOnly": "Pouze otázky",
+      "export2": "Exportovat"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Poznámka je připravena!",
+      "howDidWeDo": "Jak se nám to povedlo?",
+      "happy": "Spokojenost",
+      "sad": "Zklamaný",
+      "maybeLater": "Možná později",
+      "whatWentWrong": "Co se pokazilo?",
+      "yourFeedbackHelpsUsImprove": "Vaše zpětná vazba nám pomáhá se zlepšovat.",
+      "tellUsWhatCouldBeBetter": "Napište nám, co můžeme zlepšit...",
+      "submit": "Odeslat"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Žádný obsah není k dispozici",
+      "clickCardToFlip": "klepnutím kartu otočíte"
+    },
+    "flashcardExport": {
+      "exportFailed": "Export se nezdařil",
+      "unknownError": "Neznámá chyba",
+      "export": "Exportovat {{setTitle}}",
+      "chooseWhatToExport": "Vyberte, co chcete exportovat",
+      "exportQuestions": "Exportovat otázky",
+      "exportAnswers": "Exportovat odpovědi"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Smazat sadu kartiček",
+      "areYouSureYouWantTo": "Opravdu chcete smazat \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Sadu kartiček se nepodařilo smazat",
+      "flashcardHistory": "Historie kartiček",
+      "cards": "Kartičky",
+      "reviewedMastered": "{{cardsReviewedCount}} zopakováno • {{percentage}} % zvládnuto"
+    },
+    "folders": {
+      "items": "{{itemCount}} položek",
+      "enterYourFolderName": "Zadejte název složky",
+      "yourFolderName": "Název složky",
+      "createFolder": "Vytvořit složku",
+      "folders": "Složky",
+      "addFolder": "Přidat složku",
+      "noFoldersToDisplay": "Žádné složky k zobrazení",
+      "clickTheButtonAboveToCreate": "Klepnutím na tlačítko výše vytvoříte složku pro své poznámky",
+      "allFolders": "Všechny složky",
+      "items2": "{{totalItems}} položek"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtry lékařského výzkumu",
+      "howrecentdoyouwantthe": "JAK AKTUÁLNÍ MÁ BÝT ZDROJ",
+      "from": "Od",
+      "whatkindofsourcedoyou": "JAKÝ TYP ZDROJE HLEDÁTE",
+      "textbooks": "Učebnice",
+      "clinicalGuidelines": "Klinické doporučené postupy",
+      "scientificJournalArticles": "Články z vědeckých časopisů",
+      "onlywiththisjournalarticles": "POUZE TYTO TYPY ČLÁNKŮ",
+      "metaAnalyses": "Metaanalýzy",
+      "reviewArticles": "Přehledové články",
+      "clinicalTrials": "Klinické studie",
+      "fromYear": "Od roku",
+      "toYear": "Do roku"
+    },
+    "noteOptions": {
+      "noteOptions": "Možnosti poznámky",
+      "editNote": "Upravit poznámku",
+      "reTranscribe": "Znovu přepsat",
+      "chatWithNote": "Chatovat s poznámkou",
+      "exportNote": "Exportovat poznámku",
+      "moveToFolder": "Přesunout do složky",
+      "deleteNote": "Smazat poznámku"
+    },
+    "onboardingTooltip": {
+      "skip": "Přeskočit"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Smazat kvíz",
+      "areYouSureYouWantTo": "Opravdu chcete smazat \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Kvíz se nepodařilo smazat",
+      "quizHistory": "Historie kvízů",
+      "questions": "Otázky",
+      "correct": "{{correctAnswers}} správně"
+    },
+    "referral": {
+      "copied": "Zkopírováno!",
+      "yourReferralCodeHasBeenCopied": "Váš doporučující kód byl zkopírován do schránky.",
+      "joinMeOnClinicalFactUse": "Přidej se ke mně na Clinical Fact! Použij můj kód {{referralCode}} – {{appUrl}}",
+      "joined": "Členem od {{joinedDate}}",
+      "referralCode": "Doporučující kód",
+      "yourReferralCode": "Tvůj doporučující kód",
+      "shareWithFriendsToEarnRewards": "Sdílej s přáteli a získej odměny",
+      "share": "Sdílet",
+      "copyCode": "Zkopírovat kód",
+      "referredFriends": "Doporučení přátelé",
+      "noReferralsYetShareYourCode": "Zatím žádná doporučení. Sdílej svůj kód a začni!",
+      "loadMore": "Načíst další",
+      "howItWorks": "Jak to funguje",
+      "friendsUseYourCodeDuringSignup": "• Přátelé použijí tvůj kód při registraci",
+      "youBothEarnRewardsWhenThey": "• Jakmile se připojí, oba získáte odměny",
+      "friendsReferredCount": "Doporučení přátelé: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Extrahování textu...",
+      "transcribingAudio": "Přepisování zvuku...",
+      "processingPDF": "Zpracování PDF...",
+      "settingUpChat": "Příprava chatu...",
+      "uploadFailed": "Nahrávání se nezdařilo",
+      "failedToUploadFilePleaseTry": "Soubor se nepodařilo nahrát. Zkus to prosím znovu.",
+      "yourFileIsReadyForChatting": "Tvůj soubor je připraven k chatu!",
+      "uploadingYourFileToTheServer": "Nahrávání souboru na server...",
+      "extractingTextFromYourImage": "Extrahování textu z obrázku...",
+      "transcribingYourAudio": "Přepisování tvého audia...",
+      "extractingTextFromYourPDF": "Extrahování textu z tvého PDF...",
+      "creatingYourChatSession": "Vytváření chatu...",
+      "pleaseWait": "Počkej prosím...",
+      "uploadFile": "Nahrát soubor",
+      "processContent": "Zpracovat obsah",
+      "createChat": "Vytvořit chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Zobrazit",
+      "export": "📤 Exportovat",
+      "delete": "🗑️ Smazat"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Běží na"
+    },
+    "exportFormat": {
+      "txtFile": "Soubor TXT",
+      "pdfFile": "Soubor PDF",
+      "docFile": "Soubor DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Poznámky se nepodařilo načíst",
+      "failedToFetchFolders": "Složky se nepodařilo načíst",
+      "failedToFetchNote": "Poznámku se nepodařilo načíst",
+      "failedToDeleteNote": "Poznámku se nepodařilo smazat",
+      "failedToCreateFolder": "Složku se nepodařilo vytvořit",
+      "failedToDeleteFolder": "Složku se nepodařilo smazat"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Chat se nepodařilo smazat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Sada kartiček byla úspěšně exportována!",
+      "failedToExportFlashcardSet": "Sadu kartiček se nepodařilo exportovat."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Kvíz byl úspěšně exportován!",
+      "failedToExportQuiz": "Kvíz se nepodařilo exportovat."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Kartičky bez názvu",
+      "failedToLoadFlashcards": "Kartičky se nepodařilo načíst",
+      "failedToSyncFlashcardSet": "Sadu kartiček se nepodařilo synchronizovat",
+      "failedToSyncCardUpdate": "Aktualizaci kartičky se nepodařilo synchronizovat"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Kvíz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Vytvořeno {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Dosáhl(a) jsi limitu 3 připnutí",
+      "failedToUpdatePin": "Připnutí se nepodařilo aktualizovat",
+      "noChatsYet": "Zatím žádné chaty",
+      "startAChatToGetAnswers": "Začni chat a získej odpovědi podložené skutečnými zdroji.",
+      "createChat": "+ Vytvořit chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Smazat kartičky",
+      "areYouSureYouWantTo": "Opravdu chceš smazat „{{sourceTitle}}“?",
+      "failedToDeleteFlashcards": "Kartičky se nepodařilo smazat",
+      "sets": "{{setCount}} sad",
+      "flashcards": "Kartičky",
+      "createFlashcards": "Vytvořit kartičky",
+      "searchFlashcards": "Hledat kartičky...",
+      "noFlashcardsYet": "Zatím žádné kartičky",
+      "createAFlashcardSetFromA": "Začněte vytvořením sady kartiček z poznámky",
+      "createSet": "+ Vytvořit sadu",
+      "flashcardOptions": "Možnosti kartiček",
+      "view": "Zobrazit"
+    },
+    "folder": {
+      "deleteFolder": "Smazat složku",
+      "areYouSureYouWantTo": "Opravdu chcete smazat složku „{{name}}“? Poznámky uvnitř budou přesunuty do kořenové složky.",
+      "failedToDeleteFolder": "Složku se nepodařilo smazat",
+      "error": "Chyba: {{message}}",
+      "noFoldersYetCreateOne": "Zatím žádné složky. Vytvořte si první!",
+      "folders": "Složky"
+    },
+    "home": {
+      "created": "Vytvořeno {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Nepodařilo se aktualizovat jazyk",
+      "notEnoughContentYet": "Zatím není dostatek obsahu",
+      "chatABitMoreBeforeGenerating": "Před vygenerováním kvízu ještě chvíli chatujte (minimálně 100 znaků).",
+      "chatABitMoreBeforeGenerating2": "Před vygenerováním kartiček ještě chvíli chatujte (minimálně 100 znaků).",
+      "failedToGenerateFlashcards": "Kartičky se nepodařilo vygenerovat",
+      "upgradeToPro": "Přejít na PRO",
+      "get80DiscountWhenYouUpgrade": "Získejte 80% slevu při přechodu na vyšší verzi účtu",
+      "unlockPRO": "Odemknout PRO",
+      "noMedicalChats": "Žádné klinické chaty",
+      "youHaveNotCreatedAnyMedical": "Zatím nemáte žádné klinické chaty. Zahajte nový chat a získejte citované zdroje",
+      "talkToClinicalfactAI": "Chatujte s Clinical Fact AI",
+      "jumpInWhereYouStopped": "Pokračujte tam, kde jste skončili",
+      "practiceQuiz": "Procvičovací kvíz",
+      "makeFlashcards": "Vytvořit kartičky",
+      "continueChatWithNote": "Pokračovat v chatu s poznámkou",
+      "continueChat": "Pokračovat v chatu",
+      "recentChats": "Nedávné chaty",
+      "chatOptions": "Možnosti chatu"
+    },
+    "library": {
+      "text": "{{day}}. {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Jste offline. Pro provedení této akce se prosím připojte k internetu.",
+      "failedToDeleteNote": "Poznámku se nepodařilo smazat",
+      "failedToMoveNote": "Poznámku se nepodařilo přesunout",
+      "deleteFolder": "Smazat složku?",
+      "areYouSureNotesInsideWill": "Opravdu? Poznámky uvnitř nebudou smazány, pouze se přesunou do Všechny poznámky.",
+      "failedToDeleteFolder": "Složku se nepodařilo smazat",
+      "library": "Knihovna",
+      "addFolder": "Přidat složku",
+      "searchForANoteFolder": "Hledat poznámku / složku",
+      "yourFolders": "Vaše složky",
+      "noFoldersToDisplay": "Žádné složky k zobrazení",
+      "tapAddFolderToCreateA": "Klepnutím na „+ Přidat složku“ vytvoříte složku pro své poznámky",
+      "allNotes": "Všechny poznámky",
+      "items": "{{allNotesTotal}} položek",
+      "items2": "{{itemCount}} položek",
+      "yourNotes": "Vaše poznámky",
+      "untitledNote": "Poznámka bez názvu",
+      "noResultsFor": "Žádné výsledky pro „{{searchQuery}}“",
+      "noNotesInThisFolder": "V této složce nejsou žádné poznámky",
+      "noNotesToDisplay": "Žádné poznámky k zobrazení",
+      "tryADifferentSearchTerm": "Zkuste zadat jiný hledaný výraz",
+      "moveNotesToThisFolderTo": "Přesuňte poznámky do této složky, abyste je zde viděli",
+      "clickBelowToGenerateYourNote": "Kliknutím níže vygenerujete poznámku pomocí Clinical Fact",
+      "filterByType": "Filtrovat podle typu",
+      "audio": "Audio",
+      "text2": "Text",
+      "image": "Obrázek",
+      "clearFilter": "Vymazat filtr"
+    },
+    "profile": {
+      "permissionRequired": "Vyžadováno oprávnění",
+      "pleaseAllowAccessToYourPhoto": "Povolte prosím přístup ke knihovně fotek pro nastavení profilového obrázku.",
+      "uploadFailed": "Nahrávání selhalo",
+      "couldNotUpdateProfilePicture": "Profilový obrázek se nepodařilo aktualizovat.",
+      "failedToUploadProfilePicture": "Nepodařilo se nahrát profilový obrázek.",
+      "checkOutClinicalFactAIPowered": "Vyzkoušej Clinical Fact – studijní poznámky s AI! {{url}}",
+      "proSubscriber": "Předplatitel PRO",
+      "subscriptionExpired": "Předplatné vypršelo",
+      "freeSubscriber": "Bezplatný účet",
+      "tapToManageIPhoneSettingsApple": "Klepnutím spravovat · Nastavení iPhonu → Apple ID → Předplatná",
+      "tapToManagePlayStoreSubscriptions": "Klepnutím spravovat · Play Store → Předplatná",
+      "tapToRenewYourSubscription": "Klepnutím obnovit předplatné",
+      "tapToUpgradeToPro": "Klepnutím přejít na PRO",
+      "referralCode": "Doporučující kód",
+      "areYouSureYouWantTo": "Opravdu se chcete odhlásit ze svého účtu?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Smazat kvíz",
+      "areYouSureYouWantTo": "Opravdu chcete smazat \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Kvíz se nepodařilo smazat",
+      "correct": "{{correct}}/{{total}} správně",
+      "attempts": "{{attempts}} pokusů",
+      "quiz": "Kvíz",
+      "createQuiz": "Vytvořit kvíz",
+      "searchQuizzes": "Hledat kvízy...",
+      "noQuizzesYet": "Zatím žádné kvízy",
+      "createAQuizFromANote": "Začněte vytvořením kvízu z poznámky",
+      "createQuiz2": "+ Vytvořit kvíz",
+      "quizOptions": "Možnosti kvízu",
+      "view": "Zobrazit"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Upgrade není k dispozici",
+      "weCouldnTOpenTheUpgrade": "Obrazovku s předplatným se nepodařilo otevřít. Zkontrolujte prosím připojení a zkuste to znovu."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Server vrátil odpověď mimo formát JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Chyba sítě. Zkontrolujte prosím své připojení.",
+      "connectionErrorPleaseTryAgain": "Chyba připojení. Zkuste to prosím znovu."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Soubor exportován: {{filename}}",
+      "exportFailed": "Export se nezdařil",
+      "exportFormat": "Formát exportu",
+      "chooseFormat": "Vyberte formát",
+      "text": "Text"
+    },
+    "formatDate": {
+      "justNow": "Právě teď",
+      "minAgo": "Před {{diffMin}} min",
+      "hrAgo": "Před {{diffHr}} h",
+      "dAgo": "Před {{diffDay}} d",
+      "created": "Vytvořeno {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Nepodařilo se odeslat ověřovací kód",
+      "invalidOTP": "Neplatný ověřovací kód",
+      "failedToVerifyOTP": "Nepodařilo se ověřit kód",
+      "googleAuthenticationFailed": "Přihlášení přes Google selhalo",
+      "appleAuthenticationFailed": "Přihlášení přes Apple selhalo",
+      "failedToCompleteSignup": "Registraci se nepodařilo dokončit",
+      "failedToSkipSignup": "Přeskočení registrace se nezdařilo"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Chaty",
+      "description": "Chatujte se svými poznámkami, dokumenty i PDF na jednom místě"
+    },
+    "profileWelcome": {
+      "heading": "Vítejte ve svém profilu",
+      "description": "Zde je váš profil. Klepnutím můžete upravit své údaje a zkontrolovat stav předplatného"
+    },
+    "createNotes": {
+      "heading": "Vytvořit poznámku",
+      "description": "Vytvářejte poznámky z čehokoli: nahrávek, audia, videa, obrázků, textu i odkazů na YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Změna jazyka",
+      "description": "Zde si můžeš změnit jazyk aplikace na ten, který ti vyhovuje."
+    },
+    "manageHome": {
+      "heading": "Správa domovské obrazovky",
+      "description": "Prohlížej si vytvořené poznámky a měj všechny své aktivity na jednom místě."
+    },
+    "yourLibrary": {
+      "heading": "Tvoje knihovna",
+      "description": "Spravuj všechny své poznámky, organizuj je do složek a mnoho dalšího."
+    },
+    "yourProfile": {
+      "heading": "Tvůj profil",
+      "description": "Zde najdeš veškeré informace o svém účtu a můžeš upravit nastavení profilu."
+    }
   }
 }

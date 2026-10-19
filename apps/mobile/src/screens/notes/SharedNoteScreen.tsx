@@ -16,11 +16,13 @@ import { RichText } from '../../components/RichText';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useInvalidateNotes } from '../../hooks/queries';
+import { useTranslation } from 'react-i18next';
 
 type SharedNoteRouteProp = RouteProp<MainStackParamList, 'SharedNote'>;
 type SharedNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'SharedNote'>;
 
 export const SharedNoteScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<SharedNoteNavigationProp>();
   const route = useRoute<SharedNoteRouteProp>();
   const { shareableLink } = route.params;
@@ -38,12 +40,12 @@ export const SharedNoteScreen = () => {
         if (response.success && response.data) {
           setNote(response.data);
         } else {
-          Alert.alert('Not Found', 'This shared note link is invalid or has expired.', [
+          Alert.alert(t('notes.sharedNote.notFound'), t('notes.sharedNote.thisSharedNoteLinkIsInvalid'), [
             { text: 'OK', onPress: () => navigation.goBack() },
           ]);
         }
       } catch {
-        Alert.alert('Error', 'Failed to load shared note.', [
+        Alert.alert(t('common.error'), t('notes.sharedNote.failedToLoadSharedNote'), [
           { text: 'OK', onPress: () => navigation.goBack() },
         ]);
       } finally {
@@ -61,18 +63,18 @@ export const SharedNoteScreen = () => {
       if (response.success) {
         setIsSaved(true);
         invalidateNotes();
-        Alert.alert('Saved!', 'Note has been added to your library.', [
+        Alert.alert(t('notes.sharedNote.saved'), t('notes.sharedNote.noteHasBeenAddedToYour'), [
           {
-            text: 'View in Library',
+            text: t('notes.sharedNote.viewInLibrary'),
             onPress: () => navigation.navigate('Library' as any),
           },
-          { text: 'Stay here' },
+          { text: t('notes.sharedNote.stayHere') },
         ]);
       } else {
-        Alert.alert('Error', response.message || 'Failed to save note.');
+        Alert.alert(t('common.error'), response.message || t('notes.sharedNote.failedToSaveNote'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to save note.');
+      Alert.alert(t('common.error'), error.message || t('notes.sharedNote.failedToSaveNote'));
     } finally {
       setIsSaving(false);
     }
@@ -83,7 +85,7 @@ export const SharedNoteScreen = () => {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.neutral[900]} />
-          <Text style={styles.loadingText}>Loading shared note...</Text>
+          <Text style={styles.loadingText}>{t('notes.sharedNote.loadingSharedNote')}</Text>
         </View>
       </SafeAreaView>
     );
@@ -97,14 +99,14 @@ export const SharedNoteScreen = () => {
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle} numberOfLines={1}>Shared Note</Text>
+        <Text style={styles.headerTitle} numberOfLines={1}>{t('notes.sharedNote.sharedNote')}</Text>
         <View style={styles.headerRight} />
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.titleSection}>
           <View style={styles.sharedBadge}>
-            <Text style={styles.sharedBadgeText}>Shared with you</Text>
+            <Text style={styles.sharedBadgeText}>{t('notes.sharedNote.sharedWithYou')}</Text>
           </View>
           <Text style={styles.noteTitle}>{note.title}</Text>
           <Text style={styles.noteDate}>
@@ -132,7 +134,7 @@ export const SharedNoteScreen = () => {
             <ActivityIndicator size="small" color={colors.white} />
           ) : (
             <Text style={styles.saveButtonText}>
-              {isSaved ? 'Saved to library' : 'Save to my library'}
+              {isSaved ? t('notes.sharedNote.savedToLibrary') : t('notes.sharedNote.saveToMyLibrary')}
             </Text>
           )}
         </TouchableOpacity>

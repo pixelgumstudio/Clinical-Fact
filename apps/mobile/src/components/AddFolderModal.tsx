@@ -17,6 +17,7 @@ import {
   FolderColorIcon,
 } from '@clinicalfact/design-system';
 import { FOLDER_COLORS } from './FoldersModal';
+import { useTranslation } from 'react-i18next';
 
 interface AddFolderModalProps {
   visible: boolean;
@@ -34,6 +35,7 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
   onClose,
   onCreateFolder,
 }) => {
+  const { t } = useTranslation();
   const [folderName, setFolderName] = useState('');
   const [selectedColor, setSelectedColor] = useState(FOLDER_COLORS.green);
 
@@ -77,7 +79,7 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
                 >
                   <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
-                <Text style={styles.headerTitle}>Add folder</Text>
+                <Text style={styles.headerTitle}>{t('components.addFolder.addFolder')}</Text>
                 <View style={styles.headerSpacer} />
               </View>
 
@@ -92,10 +94,10 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
 
                 {/* Folder Name Input */}
                 <View style={styles.inputSection}>
-                  <Text style={styles.inputLabel}>Folder name</Text>
+                  <Text style={styles.inputLabel}>{t('components.addFolder.folderName')}</Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="Enter folder name"
+                    placeholder={t('components.addFolder.enterFolderName')}
                     placeholderTextColor={colors.text.tertiary}
                     value={folderName}
                     onChangeText={setFolderName}
@@ -105,7 +107,7 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
 
                 {/* Color Selection */}
                 <View style={styles.colorSection}>
-                  <Text style={styles.inputLabel}>Choose color</Text>
+                  <Text style={styles.inputLabel}>{t('components.addFolder.chooseColor')}</Text>
                   <View style={styles.colorGrid}>
                     {colorOptions.map((color) => (
                       <TouchableOpacity
@@ -144,7 +146,7 @@ export const AddFolderModal: React.FC<AddFolderModalProps> = ({
                       isCreateDisabled && styles.createButtonTextDisabled,
                     ]}
                   >
-                    Create folder
+                   {t('components.addFolder.createFolder')}
                   </Text>
                 </TouchableOpacity>
               </ScrollView>

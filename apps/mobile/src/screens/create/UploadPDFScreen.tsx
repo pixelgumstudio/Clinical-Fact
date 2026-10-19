@@ -15,6 +15,7 @@ import { colors, Icon, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
+import { useTranslation } from 'react-i18next';
 
 type UploadPDFNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadPDF'>;
 type UploadPDFRouteProp = RouteProp<MainStackParamList, 'UploadPDF'>;
@@ -28,6 +29,7 @@ interface UploadedFile {
 }
 
 export const UploadPDFScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<UploadPDFNavigationProp>();
   const route = useRoute<UploadPDFRouteProp>();
   const { withAccess } = useGatedFeature();
@@ -47,7 +49,7 @@ export const UploadPDFScreen = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes.toString().padStart(2, '0');
-    return `Created ${month} ${day}, ${year}, ${formattedHours}:${formattedMinutes}${ampm}`;
+    return t('create.uploadPDF.created', { month, day, year, formattedHours, formattedMinutes, ampm });
   };
 
   const handlePickFile = async () => {
@@ -68,7 +70,7 @@ export const UploadPDFScreen = () => {
         });
       }
     } catch (error) {
-      Alert.alert('Error', 'Failed to pick document');
+      Alert.alert(t('common.error'), t('create.uploadPDF.failedToPickDocument'));
     }
   };
 
@@ -115,8 +117,8 @@ export const UploadPDFScreen = () => {
         </View>
 
         {/* Title */}
-        <Text style={styles.title}>Upload Pdf</Text>
-        <Text style={styles.subtitle}>Create a note from any uploaded pdf</Text>
+        <Text style={styles.title}>{t('create.uploadPDF.uploadPdf')}</Text>
+        <Text style={styles.subtitle}>{t('create.uploadPDF.createANoteFromAnyUploaded')}</Text>
 
         {!uploadedFile ? (
           /* Upload Area */
@@ -124,8 +126,8 @@ export const UploadPDFScreen = () => {
             <View style={styles.uploadAreaIcon}>
               <Icon name="note" size={24} color={theme.colors.yale[900]} />
             </View>
-            <Text style={styles.uploadTitle}>Drag & drop files or Browse</Text>
-            <Text style={styles.uploadSubtitle}>Supported format : pdf</Text>
+            <Text style={styles.uploadTitle}>{t('create.uploadPDF.dragDropFilesOrBrowse')}</Text>
+            <Text style={styles.uploadSubtitle}>{t('create.uploadPDF.supportedFormatPdf')}</Text>
           </TouchableOpacity>
         ) : (
           /* Uploaded File Display */
@@ -145,7 +147,7 @@ export const UploadPDFScreen = () => {
 
         {uploadedFile && (
           <TouchableOpacity style={styles.changeFileButton} onPress={handleChangeFile} activeOpacity={0.7}>
-            <Text style={styles.changeFileText}>Change file</Text>
+            <Text style={styles.changeFileText}>{t('create.uploadPDF.changeFile')}</Text>
           </TouchableOpacity>
         )}
       </ScrollView>
@@ -159,7 +161,7 @@ export const UploadPDFScreen = () => {
           disabled={!uploadedFile}
           activeOpacity={0.8}
         >
-          <Text style={styles.continueButtonText}>Continue</Text>
+          <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

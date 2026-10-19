@@ -21,6 +21,7 @@ import { useExportFlashcard } from '../hooks/useExportFlashcard';
 import { ExportSettingsModal } from './ExportSettingsModal';
 import { HistoryItemActionSheet } from './HistoryItemActionSheet';
 import { formatDateTime } from '../utils/formatDate';
+import { useTranslation } from 'react-i18next';
 
 interface FlashcardSet {
   id: string;
@@ -44,6 +45,7 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
   noteId,
   onFlashcardDeleted,
 }) => {
+  const { t } = useTranslation();
   const [flashcardSets, setFlashcardSets] = useState<FlashcardSet[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState<FlashcardSet | null>(null);
@@ -77,23 +79,23 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
 
   const handleDeleteFlashcardSet = async (setId: string, setTitle: string) => {
     Alert.alert(
-      'Delete Flashcard Set',
-      `Are you sure you want to delete "${setTitle}"?`,
+      t('components.flashcardHistoryList.deleteFlashcardSet'),
+      t('components.flashcardHistoryList.areYouSureYouWantTo', { setTitle }),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           onPress: () => {},
           style: 'cancel',
         },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           onPress: async () => {
             try {
               await api.deleteFlashcardSet(setId);
               setFlashcardSets(flashcardSets.filter((set) => (set.id || set._id) !== setId));
               onFlashcardDeleted?.();
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete flashcard set');
+              Alert.alert(t('common.error'), t('components.flashcardHistoryList.failedToDeleteFlashcardSet'));
             }
           },
           style: 'destructive',
@@ -146,7 +148,7 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Flashcard History</Text>
+      <Text style={styles.heading}>{t('components.flashcardHistoryList.flashcardHistory')}</Text>
       <FlatList
         data={flashcardSets}
         keyExtractor={(item) => item.id || item._id || Math.random().toString()}
@@ -161,7 +163,7 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
               <View style={styles.flashcardContent}>
                 <View style={styles.statsContainer}>
                   <Text style={styles.totalCardsText}>{item.totalCards}</Text>
-                  <Text style={styles.statsLabel}>Cards</Text>
+                  <Text style={styles.statsLabel}>{t('components.flashcardHistoryList.cards')}</Text>
                 </View>
                 <View style={styles.flashcardInfo}>
                   <Text style={styles.flashcardTitle} numberOfLines={1}>
@@ -172,7 +174,7 @@ export const FlashcardHistoryList: React.FC<FlashcardHistoryListProps> = ({
                   </Text>
                   {item.cardsReviewedCount !== undefined && (
                     <Text style={styles.flashcardStats}>
-                      {item.cardsReviewedCount} reviewed • {calculatePercentage(item)}% mastered
+                      {t('components.flashcardHistoryList.reviewedMastered', { cardsReviewedCount: item.cardsReviewedCount, percentage: calculatePercentage(item) })}
                     </Text>
                   )}
                 </View>

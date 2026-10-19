@@ -38,6 +38,7 @@ import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useAuthStore } from '../../store/authStore';
 import { showInAppPaywall } from '../../services/revenuecat';
+import { useTranslation } from 'react-i18next';
 
 
 type ChatFileSelectRouteProp = RouteProp<MainStackParamList, 'ChatFileSelect'>;
@@ -58,6 +59,7 @@ interface FileItem {
 }
 
 export const ChatFileSelectScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<ChatFileSelectNavigationProp>();
   const route = useRoute<ChatFileSelectRouteProp>();
   const type = route.params?.type || 'note';
@@ -186,10 +188,10 @@ const checkChatLimit = async () => {
         if (response.success) {
           navigation.goBack();
         } else {
-          Alert.alert('Error', response.message || 'Failed to attach note');
+          Alert.alert(t('common.error'), response.message || t('chat.chatFileSelect.failedToAttachNote'));
         }
       } catch (error: any) {
-        Alert.alert('Error', error.message || 'Failed to attach note');
+        Alert.alert(t('common.error'), error.message || t('chat.chatFileSelect.failedToAttachNote'));
       }
       return;
     }
@@ -218,15 +220,15 @@ const checkChatLimit = async () => {
 
       if (response.success && response.data) {
         console.log('✅ Folder created:', response.data);
-        Alert.alert('Success', `Folder "${name}" created successfully!`);
+        Alert.alert(t('common.success'), t('chat.chatFileSelect.folderCreatedSuccessfully', { name }));
         // Reload folders
         loadData();
       } else {
-        throw new Error(response.message || 'Failed to create folder');
+        throw new Error(response.message || t('chat.chatFileSelect.failedToCreateFolder'));
       }
     } catch (error: any) {
       console.error('Failed to create folder:', error);
-      Alert.alert('Error', error.message || 'Failed to create folder');
+      Alert.alert(t('common.error'), error.message || t('chat.chatFileSelect.failedToCreateFolder'));
     }
   };
 
@@ -296,7 +298,7 @@ const checkChatLimit = async () => {
             setUploadModalVisible(false);
             navigation.goBack();
           } else {
-            throw new Error(attachResponse.message || 'Failed to attach document');
+            throw new Error(attachResponse.message || t('chat.chatFileSelect.failedToAttachDocument'));
           }
           return;
         }
@@ -321,15 +323,15 @@ const checkChatLimit = async () => {
             fileName: file.name,
           });
         } else {
-          throw new Error(chatResponse.message || 'Failed to create chat session');
+          throw new Error(chatResponse.message || t('chat.chatFileSelect.failedToCreateChatSession'));
         }
       } else {
-        throw new Error(uploadResponse.message || 'Failed to upload document');
+        throw new Error(uploadResponse.message || t('chat.chatFileSelect.failedToUploadDocument'));
       }
     } catch (error: any) {
       console.error('Failed to upload document:', error);
       setUploadStatus('error');
-      setUploadError(error.message || 'Failed to upload document');
+      setUploadError(error.message || t('chat.chatFileSelect.failedToUploadDocument'));
       // Auto-close error modal after 3 seconds
       setTimeout(() => {
         setUploadModalVisible(false);
@@ -354,17 +356,17 @@ const checkChatLimit = async () => {
     if (!consented) return;
     try {
       const useCamera = route.params?.imageSource === 'camera';
-      console.log(useCamera ? '📷 Opening camera...' : '🖼️ Opening image picker...');
+      console.log(useCamera ? t('chat.chatFileSelect.openingCamera') : t('chat.chatFileSelect.openingImagePicker'));
 
       const { status } = useCamera
         ? await ImagePicker.requestCameraPermissionsAsync()
         : await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert(
-          'Permission Required',
+          t('chat.chatFileSelect.permissionRequired'),
           useCamera
-            ? 'Please grant camera permission to take a photo.'
-            : 'Please grant photo library permission to upload images.'
+            ? t('chat.chatFileSelect.pleaseGrantCameraPermissionToTake')
+            : t('chat.chatFileSelect.pleaseGrantPhotoLibraryPermissionTo')
         );
         return;
       }
@@ -422,7 +424,7 @@ const checkChatLimit = async () => {
             setUploadModalVisible(false);
             navigation.goBack();
           } else {
-            throw new Error(attachResponse.message || 'Failed to attach image');
+            throw new Error(attachResponse.message || t('chat.chatFileSelect.failedToAttachImage'));
           }
           return;
         }
@@ -447,15 +449,15 @@ const checkChatLimit = async () => {
             fileName: fileName,
           });
         } else {
-          throw new Error(chatResponse.message || 'Failed to create chat session');
+          throw new Error(chatResponse.message || t('chat.chatFileSelect.failedToCreateChatSession'));
         }
       } else {
-        throw new Error(uploadResponse.message || 'Failed to upload image');
+        throw new Error(uploadResponse.message || t('chat.chatFileSelect.failedToUploadImage'));
       }
     } catch (error: any) {
       console.error('Failed to upload image:', error);
       setUploadStatus('error');
-      setUploadError(error.message || 'Failed to upload image');
+      setUploadError(error.message || t('chat.chatFileSelect.failedToUploadImage'));
       // Auto-close error modal after 3 seconds
       setTimeout(() => {
         setUploadModalVisible(false);
@@ -522,7 +524,7 @@ const checkChatLimit = async () => {
             setUploadModalVisible(false);
             navigation.goBack();
           } else {
-            throw new Error(attachResponse.message || 'Failed to attach audio');
+            throw new Error(attachResponse.message || t('chat.chatFileSelect.failedToAttachAudio'));
           }
           return;
         }
@@ -544,34 +546,36 @@ const checkChatLimit = async () => {
             fileName: file.name,
           });
         } else {
-          throw new Error(chatResponse.message || 'Failed to create chat session');
+          throw new Error(chatResponse.message || t('chat.chatFileSelect.failedToCreateChatSession'));
         }
       } else {
-        throw new Error(uploadResponse.message || 'Failed to upload audio');
+        throw new Error(uploadResponse.message || t('chat.chatFileSelect.failedToUploadAudio'));
       }
     } catch (error: any) {
       console.error('Failed to upload audio:', error);
       setUploadStatus('error');
-      setUploadError(error.message || 'Failed to upload audio');
+      setUploadError(error.message || t('chat.chatFileSelect.failedToUploadAudio'));
       setTimeout(() => {
         setUploadModalVisible(false);
       }, 3000);
     }
   };
 
+  // One complete message per case: the verb can't be a variable, because word order and
+  // agreement change with it in other languages.
   const getTypeTitle = () => {
-    const verb = isAttachMode ? 'Attach' : 'Select';
+    const mode = isAttachMode ? 'attach' : 'select';
     switch (type) {
       case 'note':
-        return `${verb} a note`;
+        return t(`chat.chatFileSelect.${mode}Note`);
       case 'image':
-        return `${verb} an image`;
+        return t(`chat.chatFileSelect.${mode}Image`);
       case 'document':
-        return `${verb} a document`;
+        return t(`chat.chatFileSelect.${mode}Document`);
       case 'audio':
-        return `${verb} audio`;
+        return t(`chat.chatFileSelect.${mode}Audio`);
       default:
-        return `${verb} a file`;
+        return t(`chat.chatFileSelect.${mode}File`);
     }
   };
 
@@ -589,7 +593,7 @@ const checkChatLimit = async () => {
       <FolderSelectIcon size={24} folderColor={item.color} />
       <View style={styles.folderInfo}>
         <Text style={styles.folderName}>{item.name}</Text>
-        <Text style={styles.folderCount}>{item.itemCount} items</Text>
+        <Text style={styles.folderCount}>{t('chat.chatFileSelect.items', { itemCount: item.itemCount })}</Text>
       </View>
       <ChevronRightIcon size={20} color={colors.text.tertiary} />
     </TouchableOpacity>
@@ -630,11 +634,17 @@ const checkChatLimit = async () => {
   const renderEmptyState = () => (
     <View style={styles.emptyContainer}>
       <EmptyFolderLargeIcon size={80} />
-      <Text style={styles.emptyTitle}>No {selectedFolder ? 'files' : 'notes'} to display</Text>
+      <Text style={styles.emptyTitle}>{selectedFolder ? t('chat.chatFileSelect.noFilesToDisplay') : t('chat.chatFileSelect.noNotesToDisplay')}</Text>
       <Text style={styles.emptySubtitle}>
         {selectedFolder
-          ? 'This folder is empty. Go back to select a different folder.'
-          : `You don't have any ${type === 'document' ? 'PDF documents' : type === 'image' ? 'images' : type === 'audio' ? 'audio notes' : 'notes'} yet.\nCreate some notes first, then come back to chat with them.`
+          ? t('chat.chatFileSelect.thisFolderIsEmptyGoBack')
+          : type === 'document'
+            ? t('chat.chatFileSelect.noDocumentsYet')
+            : type === 'image'
+              ? t('chat.chatFileSelect.noImagesYet')
+              : type === 'audio'
+                ? t('chat.chatFileSelect.noAudioNotesYet')
+                : t('chat.chatFileSelect.noNotesYet')
         }
       </Text>
     </View>
@@ -653,7 +663,7 @@ const checkChatLimit = async () => {
         {folders.length > 0 && !selectedFolder && (
           <TouchableOpacity style={styles.addButton} onPress={handleAddFolder}>
             <PlusIcon size={14} color={colors.white} />
-            <Text style={styles.addButtonText}>Add folder</Text>
+            <Text style={styles.addButtonText}>{t('chat.chatFileSelect.addFolder')}</Text>
           </TouchableOpacity>
         )}
         {folders.length === 0 && !selectedFolder && <View style={styles.addButton} />}
@@ -662,7 +672,7 @@ const checkChatLimit = async () => {
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.neutral[900]} />
-          <Text style={styles.loadingText}>Loading...</Text>
+          <Text style={styles.loadingText}>{t('common.loading')}</Text>
         </View>
       ) : (
         <>
@@ -679,8 +689,8 @@ const checkChatLimit = async () => {
                     <PDFDocumentIcon size={28} color={colors.vivid.accent[500]} />
                   </View>
                   <View style={styles.uploadTextContainer}>
-                    <Text style={styles.uploadTitle}>Upload new document</Text>
-                    <Text style={styles.uploadSubtitle}>Upload a PDF and start chatting instantly</Text>
+                    <Text style={styles.uploadTitle}>{t('chat.chatFileSelect.uploadNewDocument')}</Text>
+                    <Text style={styles.uploadSubtitle}>{t('chat.chatFileSelect.uploadAPDFAndStartChatting')}</Text>
                   </View>
                   <ChevronRightIcon size={20} color={colors.text.tertiary} />
                 </TouchableOpacity>
@@ -695,8 +705,8 @@ const checkChatLimit = async () => {
                     <ImageIcon size={28} color={colors.vivid.accent[500]} />
                   </View>
                   <View style={styles.uploadTextContainer}>
-                    <Text style={styles.uploadTitle}>Upload new image</Text>
-                    <Text style={styles.uploadSubtitle}>Upload an image and extract text instantly</Text>
+                    <Text style={styles.uploadTitle}>{t('chat.chatFileSelect.uploadNewImage')}</Text>
+                    <Text style={styles.uploadSubtitle}>{t('chat.chatFileSelect.uploadAnImageAndExtractText')}</Text>
                   </View>
                   <ChevronRightIcon size={20} color={colors.text.tertiary} />
                 </TouchableOpacity>
@@ -711,21 +721,21 @@ const checkChatLimit = async () => {
                     <AudioFileIcon size={28} />
                   </View>
                   <View style={styles.uploadTextContainer}>
-                    <Text style={styles.uploadTitle}>Upload new audio</Text>
-                    <Text style={styles.uploadSubtitle}>Upload an audio file and transcribe it instantly</Text>
+                    <Text style={styles.uploadTitle}>{t('chat.chatFileSelect.uploadNewAudio')}</Text>
+                    <Text style={styles.uploadSubtitle}>{t('chat.chatFileSelect.uploadAnAudioFileAndTranscribe')}</Text>
                   </View>
                   <ChevronRightIcon size={20} color={colors.text.tertiary} />
                 </TouchableOpacity>
               )}
               <View style={styles.divider} />
-              <Text style={styles.sectionTitle}>OR SELECT FROM LIBRARY</Text>
+              <Text style={styles.sectionTitle}>{t('chat.chatFileSelect.orselectfromlibrary')}</Text>
             </View>
           )}
 
           {/* Show folders section if there are any */}
           {!selectedFolder && filteredFolders.length > 0 && (
             <View style={styles.foldersSection}>
-              <Text style={styles.sectionTitle}>Folders</Text>
+              <Text style={styles.sectionTitle}>{t('chat.chatFileSelect.folders')}</Text>
               <FlatList
                 data={filteredFolders}
                 renderItem={renderFolderItem}
@@ -739,7 +749,7 @@ const checkChatLimit = async () => {
           {/* Show files/notes section */}
           <View style={styles.filesSection}>
             {!selectedFolder && filteredFolders.length > 0 && (
-              <Text style={styles.sectionTitle}>All Notes</Text>
+              <Text style={styles.sectionTitle}>{t('chat.chatFileSelect.allNotes')}</Text>
             )}
             <FlatList
               data={filteredFiles}

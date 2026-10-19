@@ -28,6 +28,7 @@ import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
+import i18n from '../../i18n';
 
 type ChatsNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -49,7 +50,7 @@ const formatCreatedAt = (dateString: string) => {
     ? 'Today'
     : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-  return `Created ${day}, ${time}`;
+  return i18n.t('main.chats.created', { day, time });
 };
 
 export const ChatsScreen = () => {
@@ -122,9 +123,9 @@ export const ChatsScreen = () => {
       // Revert on failure (e.g. hit the 3-pin cap).
       setSessions((prev) => prev.map((s) => (s._id === session._id ? { ...s, pinnedAt: session.pinnedAt } : s)));
       if (!wasPinned) {
-        setToastMessage("You've reached your 3-pin limit");
+        setToastMessage(t('main.chats.youVeReachedYour3Pin'));
       } else {
-        Alert.alert('Error', response.message || 'Failed to update pin');
+        Alert.alert(t('common.error'), response.message || t('main.chats.failedToUpdatePin'));
       }
     }
   };
@@ -176,8 +177,8 @@ export const ChatsScreen = () => {
         </View>
       ) : sessions.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyTitle}>No chats yet</Text>
-          <Text style={styles.emptyDescription}>Start a chat to get answers backed by real sources.</Text>
+          <Text style={styles.emptyTitle}>{t('main.chats.noChatsYet')}</Text>
+          <Text style={styles.emptyDescription}>{t('main.chats.startAChatToGetAnswers')}</Text>
         </View>
       ) : (
         <FlatList
@@ -223,7 +224,7 @@ export const ChatsScreen = () => {
         onPress={handleCreateChat}
         activeOpacity={0.85}
       >
-        <Text style={styles.createButtonText}>+ Create chat</Text>
+        <Text style={styles.createButtonText}>{t('main.chats.createChat')}</Text>
       </TouchableOpacity>
 
       <LanguageSupportModal

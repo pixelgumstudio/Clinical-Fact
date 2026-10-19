@@ -7,6 +7,7 @@ import {
   Modal,
 } from 'react-native';
 import { colors } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 type TooltipPosition = 'top' | 'bottom';
 
@@ -33,6 +34,7 @@ export const OnboardingTooltip: React.FC<OnboardingTooltipProps> = ({
   position = 'top',
   tooltipOffset,
 }) => {
+  const { t } = useTranslation();
   const positionStyle = position === 'top'
     ? { justifyContent: 'flex-start' as const, paddingTop: tooltipOffset ?? 115 }
     : { justifyContent: 'flex-end' as const, paddingBottom: tooltipOffset ?? 110 };
@@ -72,7 +74,7 @@ export const OnboardingTooltip: React.FC<OnboardingTooltipProps> = ({
               onPress={onSkip}
               hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
             >
-              <Text style={styles.skipText}>Skip</Text>
+              <Text style={styles.skipText}>{t('components.onboardingTooltip.skip')}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

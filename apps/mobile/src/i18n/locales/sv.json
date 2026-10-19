@@ -15,7 +15,8 @@
     "done": "Klar",
     "search": "Sök",
     "filter": "Filtrera",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Info"
   },
   "home": {
     "title": "Clinical Fact",
@@ -76,7 +77,12 @@
     "trial": "PROVPERIOD"
   },
   "auth": {
-    "welcome": "Välkommen till Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Google-inloggningen misslyckades",
+      "failedToAuthenticateWithServer": "Kunde inte autentisera mot servern",
+      "googleSignInIsOnlyAvailable": "Google-inloggning är endast tillgänglig i den installerade appen. Vänligen logga in med e-post eller ladda ner appen.",
+      "code": "{{message}} (kod: {{code}})"
+    },
     "getStarted": "Kom igång",
     "signIn": "Logga in",
     "signUp": "Registrera dig",
@@ -242,7 +248,10 @@
     },
     "demoVideo": {
       "title": "Allt du behöver för att\\nlära dig vad som helst",
-      "subtitle": "Spela in. Fördjupa dig. Quiza. Bemästra."
+      "subtitle": "Spela in. Fördjupa dig. Quiza. Bemästra.",
+      "everythingYouNeedToLearnAnything": "Allt du behöver för att lära dig vad som helst",
+      "recordItResearchItQuizIt": "Spela in. Fördjupa dig. Testa dig. Bemästra det.",
+      "tryClinicalFactNowForFree": "Prova Clinical Fact gratis nu"
     },
     "features": {
       "feature1": {
@@ -265,12 +274,136 @@
         "title": "Gör om chattar eller dokument till flashcard-frågor att öva på",
         "description": "Ingen separat studieapp behövs – skapa övningsfrågor direkt från dina chattar och uppladdningar."
       }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Aktivera aviseringar",
+      "thisHelpsUsStayOnTrack": "Detta hjälper oss att anpassa ditt konto och göra det lättare för dig att hitta medicinska svar"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Ogiltig verifieringskod. Försök igen.",
+      "failedToResendCodePleaseTry": "Kunde inte skicka koden igen. Försök igen.",
+      "confirmYourEmailAddress": "Bekräfta din e-postadress",
+      "enterCodeSentTo": "Ange engångskoden vi skickade till {{email}}",
+      "resendCodeIn": "Skicka ny kod om {{seconds}} sek"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Blev du värvad av någon?",
+      "enterTheirReferralCodeIfYou": "Ange deras värvningskod om du har en",
+      "eGJOHNOrTECHBRO": "t.ex. JOHN eller TECHBRO",
+      "codeIsValid": "✓ Koden är giltig"
+    },
+    "resultsChart": {
+      "getBetterResults": "Få bättre resultat",
+      "over95OfClinicalfactUsersScore": "Över 95 % av användarna på Clinical Fact får 95 % eller mer på sina tentor och prov"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Sjuksköterskestudent",
+        "medicalStudent": "Läkarstudent",
+        "paPharmacyStudent": "Farmaci- eller PA-student",
+        "practicingNurse": "Yrkesverksam sjuksköterska",
+        "practicingPhysician": "Yrkesverksam läkare",
+        "otherHealthcareProfessional": "Annan vårdpersonal"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Kurslitteratur eller föreläsningsanteckningar",
+        "flashcardQuizApps": "Flashcard- eller frågesportsappar",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chattbotar",
+        "colleagueClassmate": "Fråga en kollega eller kursare",
+        "practiceQuestionBanks": "Frågebanker för övning"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Skapa egna flashcards och quiz från grunden",
+        "findingTrustworthyAnswer": "Hitta pålitliga svar snabbt",
+        "reReadingNotes": "Läsa om anteckningar jag inte minns",
+        "switchingApps": "Växla mellan för många olika appar",
+        "chartingDocumentation": "Journalföring och dokumentation"
+      },
+      "appExpectation": {
+        "noHallucination": "En AI som inte hallucinerar",
+        "realCitations": "Riktiga källhänvisningar",
+        "oneApp": "En app i stället för fem prenumerationer",
+        "explainsWhy": "Förklarar varför, inte bara svaret"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google-sökning",
+        "otherApps": "Andra appar"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Hittade på saker",
+        "notMedicalContent": "Inte anpassat för medicinskt innehåll",
+        "noSources": "Inga källor att kontrollera",
+        "tooGeneric": "För generellt, inte anpassat för tenta eller klinisk vardag"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Varje gång",
+        "sometimes": "Ibland",
+        "rarely": "Sällan",
+        "dontUseAi": "Använder inte AI än"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Snabba svar jag kan lita på",
+        "quizzesFlashcardsWithoutWork": "Quiz och flashcards utan extra arbete",
+        "rememberingStudied": "Hjälp att komma ihåg det jag pluggat",
+        "medicalCitations": "Medicinska källhänvisningar",
+        "allOfTheAbove": "Allt ovanstående"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Nyhetsbrev",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Annat"
+      },
+      "studyTime": {
+        "under5Hours": "Mindre än 5 timmar",
+        "510Hours": "5–10 timmar",
+        "1020Hours": "10–20 timmar",
+        "20PlusHours": "20+ timmar"
+      },
+      "comingUp": {
+        "medicalExams": "Läkar- eller tentamensprov",
+        "clinicalRotations": "Klinisk praktik (VFU)",
+        "nursingExams": "Sjukskötersketentor",
+        "otherExams": "Andra tentor/prov",
+        "staySharp": "Vill bara hålla kunskapen färsk"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Anteckningstranskription",
+    "noteTranscript": {
+      "noteTranscript": "Anteckningstranskript",
+      "noNoteIDProvided": "Inget antecknings-ID angivet",
+      "noTranscriptAvailableForThisNote": "Ingen transkription tillgänglig för denna anteckning.",
+      "thisNoteWasNotCreatedFrom": "Denna anteckning skapades inte från ljud/video och saknar transkription.",
+      "failedToLoadNote": "Kunde inte läsa in anteckningen",
+      "noteTranscript2": "Anteckningstranskript",
+      "loadingTranscript": "Läser in transkription...",
+      "goToNote": "Gå till anteckning"
+    },
     "noteOptions": "Anteckningsalternativ",
-    "editNote": "Redigera anteckning",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Ange en rubrik för anteckningen",
+      "failedToUpdateNote": "Kunde inte uppdatera anteckningen",
+      "noteUpdatedSuccessfully": "Anteckningen har uppdaterats",
+      "editNote": "Redigera anteckning",
+      "noteTitle": "Anteckningsrubrik",
+      "enterNoteTitle": "Ange rubrik",
+      "noteContent": "Anteckningsinnehåll",
+      "enterNoteContent": "Ange innehåll",
+      "saveThisNote": "Spara anteckning",
+      "aiIsGeneratingYourNote": "AI genererar din anteckning",
+      "largeAudioAndVideoFilesMay": "Stora ljud- och videofiler kan ta några minuter att bearbeta. Låt appen vara öppen."
+    },
     "retranscribe": "Transkribera om",
     "exportNote": "Exportera anteckning",
     "shareNoteLink": "Dela anteckningslänk",
@@ -292,12 +425,89 @@
     "translate": "Översätt",
     "addToFolder": "Lägg till i mapp",
     "loadingNote": "Laddar anteckning...",
-    "noteNotFound": "Misslyckades ladda anteckning"
+    "noteNotFound": "Misslyckades ladda anteckning",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Kunde inte skapa flashcards",
+      "anUnexpectedErrorOccurred": "Ett oväntat fel inträffade",
+      "history": "Historik",
+      "export": "Exportera"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Kunde inte lägga till anteckningen i mappen",
+      "folderNotFound": "Mappen hittades inte",
+      "addNote": "+ Lägg till anteckning",
+      "noNotesInThisFolder": "Inga anteckningar i denna mapp",
+      "moveNotesToThisFolderTo": "Flytta anteckningar hit för att se dem här",
+      "addNoteToFolder": "Lägg till anteckning i mapp",
+      "noNotesAvailableToAdd": "Inga anteckningar tillgängliga att lägga till",
+      "allYourNotesAreAlreadyIn": "Alla dina anteckningar finns redan i denna mapp",
+      "created": "Skapad {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Kunde inte läsa in anteckningen",
+      "reTranscribeNote": "Transkribera om anteckning",
+      "thisWillReTranscribeTheAudio": "Detta transkriberar om ljudet och uppdaterar anteckningen. Vill du fortsätta?",
+      "reTranscribe": "Transkribera om",
+      "noteReTranscribedSuccessfully": "Anteckningen har transkriberats om",
+      "info": "Information",
+      "reTranscriptionFeatureIsComingSoon": "Funktionen för att transkribera om kommer snart",
+      "youAreCurrentlyOfflinePleaseConnect": "Du är offline. Anslut till internet för att utföra detta.",
+      "failedToDeleteNote": "Kunde inte radera anteckningen",
+      "failedToExportNote": "Det gick inte att exportera anteckningen",
+      "noteTranslatedSuccessfully": "Anteckningen har översatts",
+      "failedToTranslateNote": "Det gick inte att översätta anteckningen",
+      "noteMovedTo": "Anteckningen flyttades till {{name}}",
+      "failedToMoveNoteToFolder": "Det gick inte att flytta anteckningen till mappen",
+      "summaryNotes": "Sammanfattningar",
+      "loadingNote": "Laddar anteckning...",
+      "imageNote": "Bildanteckning",
+      "created": "Skapad {{dateTime}}",
+      "translate": "Översätt",
+      "transcribe": "Transkribera",
+      "editThisNote": "Redigera anteckning",
+      "createFlashcards": "Skapa flashcards",
+      "createFlashcardsToImproveYourRetention": "Skapa flashcards för att förbättra minnet och repetitionen",
+      "createQuizQuestions": "Skapa quizfrågor",
+      "practiceYourNotesByCreatingQuestions": "Öva på dina anteckningar genom att skapa frågor för att bemästra ämnet"
+    },
+    "sharedNote": {
+      "notFound": "Hittades inte",
+      "thisSharedNoteLinkIsInvalid": "Länken till den delade anteckningen är ogiltig eller har gått ut.",
+      "failedToLoadSharedNote": "Kunde inte ladda den delade anteckningen.",
+      "saved": "Sparad!",
+      "noteHasBeenAddedToYour": "Anteckningen har lagts till i ditt bibliotek.",
+      "viewInLibrary": "Visa i biblioteket",
+      "stayHere": "Stanna kvar",
+      "failedToSaveNote": "Kunde inte spara anteckningen.",
+      "loadingSharedNote": "Laddar delad anteckning...",
+      "sharedNote": "Delad anteckning",
+      "sharedWithYou": "Delad med dig",
+      "savedToLibrary": "Sparad i biblioteket",
+      "saveToMyLibrary": "Spara i mitt bibliotek"
+    }
   },
   "create": {
     "selectOption": "Hur vill du skapa din anteckning?",
-    "recordAudio": "Spela in ljud",
-    "uploadAudio": "Ladda upp ljud",
+    "recordAudio": {
+      "permissionRequired": "Behörighet krävs",
+      "pleaseGrantMicrophonePermissionToRecord": "Ge tillgång till mikrofonen för att spela in ljud.",
+      "failedToRequestMicrophonePermission": "Kunde inte begära mikrofonbehörighet",
+      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Spelar in ljud",
+      "recordAudio": "Spela in ljud",
+      "createANoteFromAnyRecorded": "Skapa en anteckning från valfri ljudinspelning",
+      "recording": "Inspelning pågår ({{time}})",
+      "recordAgain": "Spela in igen"
+    },
+    "uploadAudio": {
+      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Kunde inte välja ljudfil",
+      "uploadAudio": "Ladda upp ljud",
+      "createANoteFromAnyUploaded": "Skapa en anteckning från valfri uppladdad ljudfil",
+      "dragDropFilesOrBrowse": "Dra och släpp filer eller bläddra",
+      "supportedFormatMp4WavMp3": "Format som stöds: mp4, wav, mp3",
+      "changeFile": "Byt fil"
+    },
     "youtube": "YouTube-video",
     "pdfDocument": "PDF eller dokument",
     "customText": "Anpassad text",
@@ -305,7 +515,56 @@
     "uploadingFile": "Laddar upp fil till server...",
     "transcribing": "Konverterar tal till text...",
     "extractingText": "Extraherar text...",
-    "generatingNote": "Skapar AI-drivna studieanteckningar...",
+    "generatingNote": {
+      "uploadAudio": "Ladda upp ljud",
+      "uploadingAudioFileToServer": "Laddar upp ljudfil till servern...",
+      "transcribeAudio": "Transkribera ljud",
+      "convertingSpeechToText": "Omvandlar tal till text...",
+      "generateYourNote": "Generera din anteckning",
+      "creatingStudyNotes": "Skapar studieanteckningar...",
+      "uploadPDF": "Ladda upp PDF",
+      "uploadingPDFDocumentToServer": "Laddar upp PDF-dokument till servern...",
+      "extractText": "Extrahera text",
+      "readingAndExtractingTextFromPDF": "Läser och extraherar text från PDF...",
+      "uploadImage": "Ladda upp bild",
+      "uploadingImageToServer": "Laddar upp bild till servern...",
+      "extractTextOCR": "Extrahera text (OCR)",
+      "recognizingAndExtractingTextFromImage": "Identifierar och extraherar text från bilden...",
+      "fetchVideo": "Hämta video",
+      "connectingToYouTube": "Ansluter till YouTube...",
+      "extractTranscript": "Extrahera transkription",
+      "downloadingVideoTranscript": "Laddar ner videotranskription...",
+      "processText": "Bearbeta text",
+      "analyzingYourContent": "Analyserar ditt innehåll...",
+      "uploadFile": "Ladda upp fil",
+      "uploadingToServer": "Laddar upp till servern...",
+      "processContent": "Bearbeta innehåll",
+      "extractingContent": "Extraherar innehåll...",
+      "noteReady": "Anteckningen är klar!",
+      "noteGenerationFailedOnTheServer": "Kunde inte skapa anteckning på servern.",
+      "failedToUploadImage": "Det gick inte att ladda upp bilden",
+      "weCouldNotReadAnythingFrom": "Vi kunde inte läsa av något från den bilden. Försök igen med en tydligare bild av dina medicinska anteckningar.",
+      "preparingFile": "Förbereder fil...",
+      "almostDone": "Nästan klar...",
+      "untitledNote": "Namnlös anteckning",
+      "failedToGenerateNote": "Kunde inte skapa anteckning",
+      "whoaSpeedy": "Oj, vad snabbt! 🏃💨",
+      "youReGeneratingContentABit": "Du skapar innehåll lite för snabbt. Ta en paus på 60 sekunder innan du försöker igen så att vår AI hinner med.",
+      "gotIt": "Uppfattat",
+      "fileTooLarge": "Filen är för stor",
+      "yourFileExceedsThe15MBLimit": "Din fil överskrider gränsen på 15 MB för gratisanvändare. Uppgradera till PRO för att ladda upp föreläsningar på upp till 100 MB.",
+      "upgradeToPRO": "Uppgradera till PRO",
+      "oopsWeHitASnag": "Hoppsan, något gick fel 🚧",
+      "weCouldnTGenerateThatRight": "Vi kunde inte skapa det just nu. Vänta ett ögonblick och försök igen!",
+      "processingContent": "Bearbetar innehåll...",
+      "generatingYourNote": "Skapar din anteckning...",
+      "audioNote": "Ljudanteckning",
+      "failedToGenerateFlashcards": "Kunde inte skapa flashcards",
+      "generatingNote": "Skapar anteckning",
+      "pleaseKeepThisScreenOpenWhile": "Lämna skärmen öppen medan din anteckning skapas. Stora filer kan ta några minuter att transkribera.",
+      "goToNote": "Gå till anteckning",
+      "generateNoteTranscript": "Skapa transkription av anteckning"
+    },
     "fetchingVideo": "Ansluter till YouTube...",
     "processingText": "Analyserar ditt innehåll...",
     "uploadAudioTitle": "Ladda upp ljud",
@@ -315,7 +574,63 @@
     "fetchVideo": "Hämta video",
     "extractTranscript": "Extrahera transkription",
     "processText": "Bearbeta text",
-    "generateNote": "Generera din anteckning"
+    "generateNote": "Generera din anteckning",
+    "customTextInput": {
+      "customText": "Valfri text",
+      "createANoteFromAnyCustom": "Skapa en anteckning från valfri text",
+      "enterText": "Ange text",
+      "enterYourTextHere": "Skriv din text här..."
+    },
+    "uploadImage": {
+      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Behörighet krävs",
+      "pleaseAllowAccessToYourPhoto": "Tillåt åtkomst till ditt bildbibliotek",
+      "failedToPickImage": "Kunde inte välja bild",
+      "uploadImage": "Ladda upp bild",
+      "createANoteFromAnyUploaded": "Skapa en anteckning från en uppladdad bild",
+      "dragDropFilesOrBrowse": "Dra och släpp filer eller Bläddra",
+      "supportedFormatPngJpegHeicWebp": "Format som stöds: png, jpeg, heic, webp",
+      "changeFile": "Byt fil"
+    },
+    "uploadPDF": {
+      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Kunde inte välja dokument",
+      "uploadPdf": "Ladda upp PDF",
+      "createANoteFromAnyUploaded": "Skapa en anteckning från en uppladdad PDF",
+      "dragDropFilesOrBrowse": "Dra och släpp filer eller Bläddra",
+      "supportedFormatPdf": "Format som stöds: pdf",
+      "changeFile": "Byt fil"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Hämtar video",
+      "gettingVideoDetails": "Hämtar videodetaljer",
+      "extractingTranscript": "Extraherar transkription",
+      "convertingAudioToText": "Omvandlar ljud till text",
+      "generatingYourNote": "Skapar din anteckning",
+      "aiIsSummarisingTheContent": "AI sammanfattar innehållet",
+      "noteGenerationFailedPleaseTryAgain": "Kunde inte skapa anteckning. Försök igen.",
+      "processingFailed": "Bearbetningen misslyckades",
+      "goBack": "Gå tillbaka",
+      "retry": "Försök igen",
+      "failedToStartNoteGeneration": "Kunde inte starta anteckningsgenerering",
+      "failedToProcessYouTubeVideoPlease": "Kunde inte bearbeta YouTube-videon. Försök igen.",
+      "cancelProcessing": "Avbryt bearbetning",
+      "areYouSureYouWantTo": "Är du säker på att du vill avbryta? Dina framsteg går förlorade.",
+      "continueProcessing": "Fortsätt bearbetning",
+      "youTubeNote": "YouTube-anteckning",
+      "noteGenerated": "Anteckning skapad",
+      "generatingNote": "Skapar anteckning",
+      "goToNote": "Gå till anteckning"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Kunde inte hämta videoinformation",
+      "failedToFetchVideoInformation": "Kunde inte hämta videoinformation",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Skapa en anteckning från valfri YouTube-video",
+      "enterYoutubeURL": "Ange YouTube-länk",
+      "pasteYoutubeURL": "Klistra in YouTube-länk",
+      "fetchingVideoInfo": "Hämtar videoinfo..."
+    }
   },
   "library": {
     "title": "Bibliotek",
@@ -369,7 +684,42 @@
     "explanation": "Förklaring",
     "questionProgress": "Fråga {{current}} av {{total}}",
     "generatingQuizWait": "Vi skapar ditt quiz åt dig, vänta ett ögonblick medan det blir klart..",
-    "goToChats": "Gå till chattar"
+    "goToChats": "Gå till chattar",
+    "quizGroupDetail": {
+      "inProgress": "Pågående",
+      "notStarted": "Inte påbörjad",
+      "failedToLoadQuizHistory": "Kunde inte läsa in quizhistorik",
+      "failedToLoadChatContent": "Kunde inte läsa in chattinnehåll",
+      "deleteQuiz": "Radera quiz",
+      "failedToDeleteQuiz": "Kunde inte radera quiz",
+      "created": "Skapad {{dateTime}}",
+      "lastscore": "SENASTE RESULTAT",
+      "bestscore": "BÄSTA RESULTAT",
+      "attempts": "FÖRSÖK",
+      "retakeQuiz": "Gör om quiz",
+      "translate": "Översätt",
+      "newQuiz": "Nytt quiz",
+      "quizHistory": "Quizhistorik",
+      "flashcardHistory": "Flashcard-historik",
+      "score": "Resultat {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Inga flashcard-set från denna källa än.",
+      "cards": "{{totalCards}} kort · {{flashcardStatus}}",
+      "quizOptions": "Quizalternativ",
+      "exportLatestAttempt": "Exportera senaste försöket",
+      "questions": "{{totalQuestions}} frågor · {{value}}",
+      "deleteAllAttemptsOne": "Vill du radera 1 quizförsök för \"{{title}}\"? Detta kan inte ångras.",
+      "deleteAllAttemptsMany": "Vill du radera alla {{total}} quizförsök för \"{{title}}\"? Detta kan inte ångras."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Kunde inte läsa in quizdata – ogiltigt svarsformat",
+      "failedToLoadQuizData": "Kunde inte läsa in quizdata",
+      "noContentAvailable": "Inget innehåll tillgängligt",
+      "goBack": "Gå tillbaka",
+      "previous": "Föregående"
+    },
+    "quiz": {
+      "generationFailed": "Genereringen misslyckades"
+    }
   },
   "flashcards": {
     "title": "Flashkort",
@@ -400,7 +750,44 @@
     "headerTitle": "Flashcard",
     "progressFormat": "Flashcard {{current}} av {{total}}",
     "noteIdRequired": "Antecknings-ID krävs för att skapa flashcards",
-    "invalidCardCount": "Välj mellan 1 och 100 flashcards"
+    "invalidCardCount": "Välj mellan 1 och 100 flashcards",
+    "flashcardGroupDetail": {
+      "inProgress": "Pågående",
+      "notStarted": "Inte påbörjad",
+      "failedToLoadFlashcardHistory": "Kunde inte läsa in flashcard-historik",
+      "limitReached": "Gränsen har nåtts",
+      "flashcardGenerationLimitReached": "Gränsen för att skapa flashcards har nåtts.",
+      "failedToGenerateFlashcards": "Kunde inte skapa flashcards",
+      "failedToTranslateFlashcards": "Kunde inte översätta flashcards",
+      "deleteFlashcards": "Radera flashcards",
+      "failedToDeleteFlashcards": "Kunde inte radera flashcards",
+      "created": "Skapad {{dateTime}}",
+      "lastprogress": "SENASTE FRAMSTEG",
+      "bestprogress": "BÄSTA FRAMSTEG",
+      "sets": "UPPSÄTTNINGAR",
+      "studyNow": "Plugga nu",
+      "translate": "Översätt",
+      "newFlashcards": "Nya flashcards",
+      "flashcardHistory": "Flashcard-historik",
+      "quizHistory": "Quizhistorik",
+      "cards": "{{totalCards}} kort · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Inga quiz från den här källan ännu.",
+      "score": "Resultat: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Alternativ för flashcards",
+      "exportLatestSet": "Exportera senaste uppsättningen",
+      "questions": "{{totalQuestions}} frågor · {{value}}",
+      "deleteAllSetsOne": "Radera 1 uppsättning flashcards för \"{{title}}\"? Detta kan inte ångras.",
+      "deleteAllSetsMany": "Radera alla {{total}} uppsättningar flashcards för \"{{title}}\"? Detta kan inte ångras."
+    },
+    "flashcardReview": {
+      "unknownError": "Okänt fel",
+      "noFlashcardsInThisSet": "Inga flashcards i den här uppsättningen",
+      "goBack": "Gå tillbaka",
+      "allDone": "Allt klart",
+      "youHaveReviewedAllTheCards": "Du har gått igenom alla kort i den här leken",
+      "question": "Fråga {{value}}",
+      "questionOf": "Fråga {{value}} av {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Chatt",
@@ -411,7 +798,186 @@
     "chatWithDocument": "Chatta med dokument",
     "selectFile": "Välj en fil att chatta med",
     "uploadFile": "Ladda upp fil",
-    "startChatting": "Börja chatta"
+    "startChatting": "Börja chatta",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Ställ en medicinsk fråga för att få förtydliganden",
+      "askAnythingAboutThisDocument": "Fråga vad som helst om detta dokument...",
+      "askAQuestionAttachmentProcessingFailed": "Ställ en fråga – bearbetning av bilaga misslyckades",
+      "extractingText": "Extraherar text...",
+      "processingPDF": "Bearbetar PDF...",
+      "upgradeToProToContinueChatting": "Uppgradera till PRO för att fortsätta chatta",
+      "queryremaining": "{{queriesRemaining}} SÖKNING KVAR"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Initierar chatt...",
+      "extractingTextFromImage": "Extraherar text från bild...",
+      "processingPDFDocument": "Bearbetar PDF-dokument...",
+      "analyzingYourNote": "Analyserar din anteckning...",
+      "thisUsuallyTakesJustAFew": "⏱️ Detta tar oftast bara några sekunder. Du kan chatta så snart bearbetningen är klar.",
+      "processingFailed": "Bearbetningen misslyckades",
+      "fileMightBeCorruptedOrUnreadable": "• Filen kan vara skadad eller oläsbar",
+      "imageQualityTooLow": "Bildkvaliteten är för låg",
+      "pdfIsPasswordProtected": "PDF-filen är lösenordsskyddad",
+      "contentFormatNotSupported": "Innehållsformatet stöds inte",
+      "networkConnectionIssue": "• Problem med nätverksanslutningen",
+      "tryADifferentFile": "Testa en annan fil",
+      "askAnyClinicalQuestionNoUpload": "💡 Ställ en klinisk fråga – ingen uppladdning krävs. Jag svarar med stöd från medicinsk litteratur och relevanta bilder när det finns.",
+      "readyToChat": "✓ Redo att chatta",
+      "couldntProcessNote": "Vi kunde inte bearbeta denna anteckning. Det kan bero på:",
+      "couldntProcessImage": "Vi kunde inte bearbeta denna bild. Det kan bero på:",
+      "couldntProcessDocument": "Vi kunde inte bearbeta detta dokument. Det kan bero på:",
+      "askMeAboutNote": "💡 Fråga mig vad som helst om denna anteckning. Jag kan sammanfatta, förklara begrepp eller svara på specifika frågor.",
+      "askMeAboutImage": "💡 Fråga mig vad som helst om denna bild. Jag kan sammanfatta, förklara begrepp eller svara på specifika frågor.",
+      "askMeAboutDocument": "💡 Fråga mig vad som helst om detta dokument. Jag kan sammanfatta, förklara begrepp eller svara på specifika frågor."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} behärskade",
+      "notStarted": "Inte påbörjad",
+      "quizGeneration": "Generering av quiz",
+      "score": "Resultat: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Generering av flashcards",
+      "questions": "{{totalCards}} frågor · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} frågor · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Tänker och letar upp källor åt dig...",
+      "couldnTGenerateAResponse": "Kunde inte generera ett svar.",
+      "retry": "Försök igen",
+      "alsoReferencedFromTheWeb": "Hänvisar även till webbkällor",
+      "followUpQuestions": "Följdfrågor"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Fråga vad som helst om medicin – få källhänvisade fakta",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Evidensbaserat · PubMed-källor · Referentgranskat",
+      "tryOutAnyOfThisTopics": "Välj ett ämne för att komma igång",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolytrubbningar förklarade",
+          "question": "Förklara elektrolytrubbningar – orsaker, symtom och behandling"
+        },
+        "ecg": {
+          "label": "Grundläggande EKG-tolkning",
+          "question": "Vad är grunderna i EKG-tolkning?"
+        },
+        "drugInteractions": {
+          "label": "Viktiga läkemedelsinteraktioner",
+          "question": "Vilka är några vanliga och viktiga läkemedelsinteraktioner jag bör känna till?"
+        },
+        "nclex": {
+          "label": "Övningsfrågor (NCLEX-stil)",
+          "question": "Ge mig en övningsfråga i NCLEX-stil"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA-bipacksedel",
+      "fromYourAttachedMaterial": "Från ditt bifogade material"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Kunde inte skapa chattsession",
+      "failedToInitializeChatSession": "Kunde inte initiera chattsession",
+      "failedToUpdateLanguage": "Kunde inte uppdatera språk",
+      "youVeReachedYour3Pin": "Du har nått gränsen på 3 fästa objekt",
+      "failedToUpdatePin": "Kunde inte uppdatera fästning",
+      "permissionRequired": "Behörighet krävs",
+      "pleaseGrantCameraPermissionToTake": "Ge tillgång till kameran för att ta ett foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Ge tillgång till bildbiblioteket för att ladda upp bilder.",
+      "failedToUploadImage": "Kunde inte ladda upp bilden",
+      "uploadFailed": "Uppladdningen misslyckades",
+      "failedToUploadDocument": "Kunde inte ladda upp dokumentet",
+      "failedToStartChatFromThis": "Kunde inte starta en chatt från den här filen.",
+      "chatFromImage": "Chatta från bild",
+      "failedToStartANewQuestion": "Kunde inte starta en ny fråga. Försök igen.",
+      "failedToAttachFile": "Kunde inte bifoga filen",
+      "failedToSendMessage": "Kunde inte skicka meddelandet",
+      "copiedToClipboard": "Kopierat till urklipp",
+      "notEnoughContentYet": "Inte tillräckligt med innehåll ännu",
+      "chatABitMoreBeforeGenerating": "Chatta lite mer innan du skapar ett quiz (minst 100 tecken).",
+      "chatABitMoreBeforeGenerating2": "Chatta lite mer innan du skapar flashcards (minst 100 tecken).",
+      "failedToGenerateFlashcards": "Kunde inte skapa flashcards",
+      "failedToRegenerateResponse": "Kunde inte återskapa svaret",
+      "failedToRetryResponse": "Kunde inte försöka svara igen"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Kunde inte bifoga anteckningen",
+      "folderCreatedSuccessfully": "Mappen \"{{name}}\" har skapats!",
+      "failedToCreateFolder": "Kunde inte skapa mappen",
+      "failedToAttachDocument": "Kunde inte bifoga dokumentet",
+      "failedToCreateChatSession": "Kunde inte skapa chattsession",
+      "failedToUploadDocument": "Kunde inte ladda upp dokumentet",
+      "openingCamera": "📷 Öppnar kameran...",
+      "openingImagePicker": "🖼️ Öppnar bildväljaren...",
+      "permissionRequired": "Behörighet krävs",
+      "pleaseGrantCameraPermissionToTake": "Ge tillgång till kameran för att ta ett foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Ge tillgång till bildbiblioteket för att ladda upp bilder.",
+      "failedToAttachImage": "Kunde inte bifoga bilden",
+      "failedToUploadImage": "Kunde inte ladda upp bilden",
+      "failedToAttachAudio": "Kunde inte bifoga ljudfilen",
+      "failedToUploadAudio": "Kunde inte ladda upp ljudfilen",
+      "items": "{{itemCount}} objekt",
+      "thisFolderIsEmptyGoBack": "Den här mappen är tom. Gå tillbaka för att välja en annan mapp.",
+      "addFolder": "Skapa mapp",
+      "uploadNewDocument": "Ladda upp nytt dokument",
+      "uploadAPDFAndStartChatting": "Ladda upp en PDF och börja chatta direkt",
+      "uploadNewImage": "Ladda upp ny bild",
+      "uploadAnImageAndExtractText": "Ladda upp en bild och extrahera text direkt",
+      "uploadNewAudio": "Ladda upp ny ljudfil",
+      "uploadAnAudioFileAndTranscribe": "Ladda upp en ljudfil och transkribera den direkt",
+      "orselectfromlibrary": "ELLER VÄLJ FRÅN BIBLIOTEK",
+      "folders": "Mappar",
+      "allNotes": "Alla anteckningar",
+      "noFilesToDisplay": "Inga filer att visa",
+      "noNotesToDisplay": "Inga anteckningar att visa",
+      "noDocumentsYet": "Du har inga PDF-dokument än.\nSkapa några anteckningar först och kom sedan tillbaka för att chatta med dem.",
+      "noImagesYet": "Du har inga bilder än.\nSkapa några anteckningar först och kom sedan tillbaka för att chatta med dem.",
+      "noAudioNotesYet": "Du har inga ljudanteckningar än.\nSkapa några anteckningar först och kom sedan tillbaka för att chatta med dem.",
+      "noNotesYet": "Du har inga anteckningar än.\nSkapa några anteckningar först och kom sedan tillbaka för att chatta med dem.",
+      "attachNote": "Bifoga anteckning",
+      "selectNote": "Välj anteckning",
+      "attachImage": "Bifoga bild",
+      "selectImage": "Välj bild",
+      "attachDocument": "Bifoga dokument",
+      "selectDocument": "Välj dokument",
+      "attachAudio": "Bifoga ljudfil",
+      "selectAudio": "Välj ljudfil",
+      "attachFile": "Bifoga fil",
+      "selectFile": "Välj fil",
+      "aNote": "{{verb}} en anteckning",
+      "anImage": "{{verb}} en bild",
+      "aDocument": "{{verb}} ett dokument",
+      "audio": "{{verb}} ljud",
+      "aFile": "{{verb}} en fil"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Lägg till i chatt",
+      "camera": "Kamera",
+      "photos": "Bilder",
+      "files": "Filer",
+      "generateQuiz": "Skapa quiz",
+      "generateFlashcards": "Skapa flashcards",
+      "searchMedicalLiterature": "Sök medicinsk litteratur",
+      "filterByDateSourceAndType": "Filtrera efter datum, källa och typ",
+      "pullsRealCitedSourcesIntoYour": "Hämtar riktiga, källhänvisade källor till dina svar",
+      "trustedmedicalsourcedatabase": "PÅLITLIG MEDICINSK KÄLLDATABAS",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA Läkemedels- & behandlingsdata"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Kontrollera källor"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Klar · tryck för att byta namn",
+      "processing": "Bearbetar {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Visa källa ↗"
+    },
+    "chatRename": {
+      "renameChat": "Byt namn på chatt"
+    }
   },
   "languages": {
     "english": "Engelska",
@@ -465,5 +1031,455 @@
     "urdu": "Urdu",
     "malay": "Malajiska",
     "catalan": "Katalanska"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Lägg till mapp",
+      "folderName": "Mappnamn",
+      "enterFolderName": "Ange mappnamn",
+      "chooseColor": "Välj färg",
+      "createFolder": "Skapa mapp"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Innan vi behandlar ditt innehåll",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact använder AI för att svara på dina frågor och omvandla ditt innehåll till anteckningar, quiz och flashcards. Här är vad du behöver veta:",
+      "whatDataIsSent": "Vilka data som skickas",
+      "questionsAndMessagesYouTypeIn": "Frågor och meddelanden du skriver i chatten",
+      "audioRecordingsOrUploadedAudioFiles": "Ljudinspelningar eller uppladdade ljudfiler",
+      "pdfAndTextDocumentsYouUpload": "PDF- och textdokument som du laddar upp",
+      "imagesYouUpload": "Bilder du laddar upp",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube-videolänkar och deras transkriberingar",
+      "customTextYouEnter": "Anpassad text som du anger",
+      "whoReceivesYourData": "Vem som tar emot dina data",
+      "howItSUsed": "Hur det används",
+      "yourContentIsUsedSolelyTo": "Ditt innehåll används uteslutande för att generera svaret, anteckningen, quizet eller de flashcards du bett om. Varje leverantörs egna policyer för dataanvändning gäller för innehåll som behandlas via deras API. För mer information, se vår integritetspolicy.",
+      "iAgreeContinue": "Jag godkänner – Fortsätt",
+      "noThanks": "Nej tack",
+      "whoReceivesBody": "Ditt innehåll skickas till <bold>Google (Gemini)</bold> (generering av anteckningar, quiz och flashcards, chattsvar samt dokument- och bildbehandling) och till <bold>OpenAI</bold> (ljudtranskribering) via våra säkra backend-servrar. Textavsnitt från dina dokument indexeras också med <bold>Google Vertex AI</bold> så att chatten kan hitta relevanta delar. När medicinsk sökning i realtid används skickas din fråga även till <bold>Tavily</bold> och till öppna medicinska litteraturdatabaser (som PubMed, Europe PMC och Semantic Scholar) för att hitta källhänvisningar från pålitliga källor som NIH, CDC, MedlinePlus, WHO och Mayo Clinic. Dessa leverantörer behandlar endast dina data för att generera ditt svar – de använder dem inte för att träna sina egna allmänna AI-modeller, och vi säljer aldrig dina data till tredje part."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Sluta fästa chatt",
+      "pinChat": "Fäst chatt",
+      "deleteChat": "Ta bort chatt"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Generera flashcards",
+      "createFlashcards": "Skapa flashcards",
+      "createFlashcardsFromToImproveYour": "Skapa flashcards från \"{{noteTitle}}\" för att förbättra minnet",
+      "createFlashcardsToImproveYourRetention": "Skapa flashcards för att förbättra minnet",
+      "howManyQuestions": "Hur många frågor",
+      "generateFlashcards2": "Generera flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Skapa från chatt",
+      "selectFromOneOfYourRecent": "Välj från en av dina senaste chattar",
+      "pdfOrDocument": "PDF eller dokument",
+      "createFromAudio": "Skapa från ljud",
+      "image": "Bild",
+      "createFromCustomText": "Skapa från egen text",
+      "created": "Skapad {{day}}, {{time}}",
+      "createQuizFrom": "Skapa quiz från",
+      "createFlashcardsFrom": "Skapa flashcards från",
+      "selectFromChat": "Välj från chatt",
+      "noRecentChatsYet": "Inga tidigare chattar ännu",
+      "quizFromPdf": "Skapa ett quiz från PDF eller dokument",
+      "flashcardsFromPdf": "Skapa en flashcard-kortlek från PDF eller dokument",
+      "quizFromAudio": "Skapa ett quiz från uppladdat ljud",
+      "flashcardsFromAudio": "Skapa en flashcard-kortlek från uppladdat ljud",
+      "quizFromImage": "Skapa ett quiz från valfri bild",
+      "flashcardsFromImage": "Skapa en flashcard-kortlek från valfri bild",
+      "quizFromText": "Skapa ett quiz från inskannad text",
+      "flashcardsFromText": "Skapa en flashcard-kortlek från inskannad text"
+    },
+    "createNote": {
+      "recordAudio": "Spela in ljud",
+      "generateANoteFromAnyRecorded": "Skapa en anteckning från inspelat ljud",
+      "uploadAudio": "Ladda upp ljud",
+      "createANoteFromAnyUploaded": "Skapa en anteckning från uppladdat ljud",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Skapa en anteckning från en YouTube-video",
+      "pdfOrDocument": "PDF eller dokument",
+      "createANoteFromPDFOr": "Skapa en anteckning från PDF eller dokument",
+      "customText": "Egen text",
+      "createANoteFromCapturedText": "Skapa en anteckning från inskannad text",
+      "image": "Bild",
+      "createANoteFromAnyImage": "Skapa en anteckning från valfri bild",
+      "createNote": "Skapa anteckning"
+    },
+    "createQuiz": {
+      "generateQuiz": "Generera quiz",
+      "createQuiz": "Skapa quiz",
+      "practiceByCreatingQuestionsThatHelp": "Öva på \"{{noteTitle}}\" genom att skapa frågor som hjälper dig bemästra ämnet",
+      "practiceYourNotesByCreatingQuestions": "Öva på dina anteckningar genom att skapa frågor som hjälper dig bemästra ämnet",
+      "howManyQuestions": "Hur många frågor",
+      "timeInMinutes": "Tid (i minuter)"
+    },
+    "deleteNote": {
+      "deleteNote": "Ta bort anteckning",
+      "areYouSureYouWantTo": "Är du säker på att du vill ta bort denna anteckning?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Exportera sammanfattning som",
+      "exportTranscriptAs": "Exportera transkript som",
+      "exportAs": "Exportera som",
+      "exportSummary": "Exportera sammanfattning",
+      "exportTranscript": "Exportera transkript"
+    },
+    "exportTypeStep": {
+      "exportNote": "Exportera anteckning",
+      "exportSummary": "Exportera sammanfattning",
+      "exportTranscript": "Exportera transkript"
+    },
+    "exportSettings": {
+      "export": "Exportera {{title}}",
+      "selectFormat": "Välj format",
+      "includeAnswers": "Inkludera svar",
+      "answersExplanationsIncluded": "Svar och förklaringar ingår",
+      "questionsOnly": "Endast frågor",
+      "export2": "Exportera"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Din anteckning är klar!",
+      "howDidWeDo": "Vad tyckte du?",
+      "happy": "Nöjd",
+      "sad": "Missnöjd",
+      "maybeLater": "Kanske senare",
+      "whatWentWrong": "Vad blev fel?",
+      "yourFeedbackHelpsUsImprove": "Din feedback hjälper oss att bli bättre.",
+      "tellUsWhatCouldBeBetter": "Berätta vad som kan förbättras...",
+      "submit": "Skicka"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Inget innehåll tillgängligt",
+      "clickCardToFlip": "tryck på kortet för att vända"
+    },
+    "flashcardExport": {
+      "exportFailed": "Exporten misslyckades",
+      "unknownError": "Okänt fel",
+      "export": "Exportera {{setTitle}}",
+      "chooseWhatToExport": "Välj vad som ska exporteras",
+      "exportQuestions": "Exportera frågor",
+      "exportAnswers": "Exportera svar"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Radera kortlek",
+      "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Kunde inte radera kortleken",
+      "flashcardHistory": "Flashcard-historik",
+      "cards": "Kort",
+      "reviewedMastered": "{{cardsReviewedCount}} repeterade • {{percentage}}% behärskade"
+    },
+    "folders": {
+      "items": "{{itemCount}} objekt",
+      "enterYourFolderName": "Ange mappnamn",
+      "yourFolderName": "Ditt mappnamn",
+      "createFolder": "Skapa mapp",
+      "folders": "Mappar",
+      "addFolder": "Lägg till mapp",
+      "noFoldersToDisplay": "Inga mappar att visa",
+      "clickTheButtonAboveToCreate": "Tryck på knappen ovan för att skapa en mapp för dina anteckningar",
+      "allFolders": "Alla mappar",
+      "items2": "{{totalItems}} objekt"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filter för medicinsk forskning",
+      "howrecentdoyouwantthe": "HUR AKTUELL SKA KÄLLAN VARA",
+      "from": "Från",
+      "whatkindofsourcedoyou": "VILKEN TYP AV KÄLLA BEHÖVER DU",
+      "textbooks": "Kurslitteratur",
+      "clinicalGuidelines": "Kliniska riktlinjer",
+      "scientificJournalArticles": "Vetenskapliga tidskriftsartiklar",
+      "onlywiththisjournalarticles": "ENDAST MED DESSA TIDSKRIFTSARTIKLAR",
+      "metaAnalyses": "Metaanalyser",
+      "reviewArticles": "Översiktsartiklar",
+      "clinicalTrials": "Kliniska prövningar",
+      "fromYear": "Från år",
+      "toYear": "Till år"
+    },
+    "noteOptions": {
+      "noteOptions": "Alternativ för anteckning",
+      "editNote": "Redigera anteckning",
+      "reTranscribe": "Transkribera igen",
+      "chatWithNote": "Chatta med anteckning",
+      "exportNote": "Exportera anteckning",
+      "moveToFolder": "Flytta till mapp",
+      "deleteNote": "Radera anteckning"
+    },
+    "onboardingTooltip": {
+      "skip": "Hoppa över"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Radera quiz",
+      "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Kunde inte radera quizet",
+      "quizHistory": "Quizhistorik",
+      "questions": "Frågor",
+      "correct": "{{correctAnswers}} rätt"
+    },
+    "referral": {
+      "copied": "Kopierat!",
+      "yourReferralCodeHasBeenCopied": "Din värvningskod har kopierats till urklipp.",
+      "joinMeOnClinicalFactUse": "Gå med i Clinical Fact med mig! Använd min kod {{referralCode}} – {{appUrl}}",
+      "joined": "Gick med {{joinedDate}}",
+      "referralCode": "Värvningskod",
+      "yourReferralCode": "Din värvningskod",
+      "shareWithFriendsToEarnRewards": "Dela med vänner för att få belöningar",
+      "share": "Dela",
+      "copyCode": "Kopiera kod",
+      "referredFriends": "Värvade vänner",
+      "noReferralsYetShareYourCode": "Inga värvningar än. Dela din kod för att komma igång!",
+      "loadMore": "Ladda fler",
+      "howItWorks": "Så här fungerar det",
+      "friendsUseYourCodeDuringSignup": "• Vänner använder din kod vid registrering",
+      "youBothEarnRewardsWhenThey": "• Båda får belöningar när de går med",
+      "friendsReferredCount": "Värvade vänner: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Extraherar text...",
+      "transcribingAudio": "Transkriberar ljud...",
+      "processingPDF": "Bearbetar PDF...",
+      "settingUpChat": "Förbereder chatt...",
+      "uploadFailed": "Uppladdningen misslyckades",
+      "failedToUploadFilePleaseTry": "Kunde inte ladda upp filen. Försök igen.",
+      "yourFileIsReadyForChatting": "Din fil är redo för chatten!",
+      "uploadingYourFileToTheServer": "Laddar upp din fil till servern...",
+      "extractingTextFromYourImage": "Extraherar text från din bild...",
+      "transcribingYourAudio": "Transkriberar ditt ljud...",
+      "extractingTextFromYourPDF": "Extraherar text från din PDF...",
+      "creatingYourChatSession": "Skapar din chattsession...",
+      "pleaseWait": "Vänligen vänta...",
+      "uploadFile": "Ladda upp fil",
+      "processContent": "Bearbeta innehåll",
+      "createChat": "Skapa chatt"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Visa",
+      "export": "📤 Exportera",
+      "delete": "🗑️ Ta bort"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Drivs av"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-fil",
+      "pdfFile": "PDF-fil",
+      "docFile": "Word-fil"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Kunde inte hämta anteckningar",
+      "failedToFetchFolders": "Kunde inte hämta mappar",
+      "failedToFetchNote": "Kunde inte hämta anteckningen",
+      "failedToDeleteNote": "Kunde inte ta bort anteckningen",
+      "failedToCreateFolder": "Kunde inte skapa mappen",
+      "failedToDeleteFolder": "Kunde inte ta bort mappen"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Kunde inte ta bort chatten"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Flashcards exporterades!",
+      "failedToExportFlashcardSet": "Kunde inte exportera flashcards."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quizzet exporterades!",
+      "failedToExportQuiz": "Kunde inte exportera quizzet."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Namnlösa flashcards",
+      "failedToLoadFlashcards": "Kunde inte läsa in flashcards",
+      "failedToSyncFlashcardSet": "Kunde inte synkronisera flashcards",
+      "failedToSyncCardUpdate": "Kunde inte synkronisera kortuppdatering"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Skapad {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Du har nått gränsen på 3 fästa chattar",
+      "failedToUpdatePin": "Kunde inte uppdatera fäst chatt",
+      "noChatsYet": "Inga chattar än",
+      "startAChatToGetAnswers": "Starta en chatt för att få svar med pålitliga källor.",
+      "createChat": "+ Skapa chatt"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Radera flashcards",
+      "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Kunde inte radera flashcards",
+      "sets": "{{setCount}} uppsättningar",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Skapa flashcards",
+      "searchFlashcards": "Sök bland flashcards...",
+      "noFlashcardsYet": "Inga flashcards än",
+      "createAFlashcardSetFromA": "Skapa en uppsättning flashcards från en anteckning för att komma igång",
+      "createSet": "+ Skapa uppsättning",
+      "flashcardOptions": "Alternativ för flashcards",
+      "view": "Visa"
+    },
+    "folder": {
+      "deleteFolder": "Radera mapp",
+      "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{name}}\"? Anteckningarna flyttas till rotmappen.",
+      "failedToDeleteFolder": "Kunde inte radera mappen",
+      "error": "Fel: {{message}}",
+      "noFoldersYetCreateOne": "Inga mappar än. Skapa en!",
+      "folders": "Mappar"
+    },
+    "home": {
+      "created": "Skapad {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Kunde inte uppdatera språk",
+      "notEnoughContentYet": "Inte tillräckligt med innehåll än",
+      "chatABitMoreBeforeGenerating": "Chatta lite mer innan du genererar ett quiz (minst 100 tecken).",
+      "chatABitMoreBeforeGenerating2": "Chatta lite mer innan du genererar flashcards (minst 100 tecken).",
+      "failedToGenerateFlashcards": "Kunde inte generera flashcards",
+      "upgradeToPro": "Uppgradera till PRO",
+      "get80DiscountWhenYouUpgrade": "Få 80 % rabatt när du uppgraderar ditt konto",
+      "unlockPRO": "Lås upp PRO",
+      "noMedicalChats": "Inga medicinska chattar",
+      "youHaveNotCreatedAnyMedical": "Du har inte skapat några medicinska chattar än. Starta en ny chatt för att få källhänvisade svar",
+      "talkToClinicalfactAI": "Prata med Clinical Fact AI",
+      "jumpInWhereYouStopped": "Fortsätt där du slutade",
+      "practiceQuiz": "Öva med quiz",
+      "makeFlashcards": "Skapa flashcards",
+      "continueChatWithNote": "Fortsätt chatta med anteckning",
+      "continueChat": "Fortsätt chatta",
+      "recentChats": "Senaste chattar",
+      "chatOptions": "Chattalternativ"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Du är offline. Anslut till internet för att utföra detta.",
+      "failedToDeleteNote": "Kunde inte radera anteckningen",
+      "failedToMoveNote": "Kunde inte flytta anteckningen",
+      "deleteFolder": "Radera mapp?",
+      "areYouSureNotesInsideWill": "Är du säker? Anteckningarna raderas inte, utan flyttas till Alla anteckningar.",
+      "failedToDeleteFolder": "Kunde inte radera mappen",
+      "library": "Bibliotek",
+      "addFolder": "Lägg till mapp",
+      "searchForANoteFolder": "Sök efter anteckning/mapp",
+      "yourFolders": "Dina mappar",
+      "noFoldersToDisplay": "Inga mappar att visa",
+      "tapAddFolderToCreateA": "Tryck på \"+ Lägg till mapp\" för att skapa en mapp för dina anteckningar",
+      "allNotes": "Alla anteckningar",
+      "items": "{{allNotesTotal}} objekt",
+      "items2": "{{itemCount}} objekt",
+      "yourNotes": "Dina anteckningar",
+      "untitledNote": "Namnlös anteckning",
+      "noResultsFor": "Inga resultat för \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Inga anteckningar i denna mapp",
+      "noNotesToDisplay": "Inga anteckningar att visa",
+      "tryADifferentSearchTerm": "Prova med ett annat sökord",
+      "moveNotesToThisFolderTo": "Flytta anteckningar till den här mappen för att se dem här",
+      "clickBelowToGenerateYourNote": "Tryck nedan för att skapa din anteckning med Clinical Fact",
+      "filterByType": "Filtrera efter typ",
+      "audio": "Ljud",
+      "text2": "Text",
+      "image": "Bild",
+      "clearFilter": "Rensa filter"
+    },
+    "profile": {
+      "permissionRequired": "Tillstånd krävs",
+      "pleaseAllowAccessToYourPhoto": "Tillåt åtkomst till ditt bildbibliotek för att välja en profilbild.",
+      "uploadFailed": "Uppladdningen misslyckades",
+      "couldNotUpdateProfilePicture": "Kunde inte uppdatera profilbilden.",
+      "failedToUploadProfilePicture": "Det gick inte att ladda upp profilbilden.",
+      "checkOutClinicalFactAIPowered": "Kolla in Clinical Fact – AI-drivna studieanteckningar! {{url}}",
+      "proSubscriber": "PRO-prenumerant",
+      "subscriptionExpired": "Prenumerationen har löpt ut",
+      "freeSubscriber": "Gratisanvändare",
+      "tapToManageIPhoneSettingsApple": "Tryck för att hantera · iPhone-inställningar → Apple-ID → Prenumerationer",
+      "tapToManagePlayStoreSubscriptions": "Tryck för att hantera · Play Butik → Prenumerationer",
+      "tapToRenewYourSubscription": "Tryck för att förnya din prenumeration",
+      "tapToUpgradeToPro": "Tryck för att uppgradera till PRO",
+      "referralCode": "Värvningskod",
+      "areYouSureYouWantTo": "Är du säker på att du vill logga ut från ditt konto?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Radera quiz",
+      "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Kunde inte radera quizet",
+      "correct": "{{correct}}/{{total}} rätt",
+      "attempts": "{{attempts}} försök",
+      "quiz": "Quiz",
+      "createQuiz": "Skapa quiz",
+      "searchQuizzes": "Sök quiz...",
+      "noQuizzesYet": "Inga quiz ännu",
+      "createAQuizFromANote": "Skapa ett quiz från en anteckning för att komma igång",
+      "createQuiz2": "+ Skapa quiz",
+      "quizOptions": "Quizalternativ",
+      "view": "Visa"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Uppgradering inte tillgänglig",
+      "weCouldnTOpenTheUpgrade": "Det gick inte att öppna uppgraderingsvyn just nu. Kontrollera din anslutning och försök igen."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Servern returnerade ett icke-JSON-svar ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Nätverksfel. Kontrollera din internetanslutning.",
+      "connectionErrorPleaseTryAgain": "Anslutningsfel. Försök igen."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fil exporterad: {{filename}}",
+      "exportFailed": "Exporten misslyckades",
+      "exportFormat": "Exportformat",
+      "chooseFormat": "Välj format",
+      "text": "Text"
+    },
+    "formatDate": {
+      "justNow": "Just nu",
+      "minAgo": "För {{diffMin}} min sedan",
+      "hrAgo": "För {{diffHr}} tim sedan",
+      "dAgo": "För {{diffDay}} d sedan",
+      "created": "Skapad {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Kunde inte skicka engångskod",
+      "invalidOTP": "Ogiltig engångskod",
+      "failedToVerifyOTP": "Kunde inte verifiera engångskod",
+      "googleAuthenticationFailed": "Google-autentiseringen misslyckades",
+      "appleAuthenticationFailed": "Apple-autentiseringen misslyckades",
+      "failedToCompleteSignup": "Kunde inte slutföra registreringen",
+      "failedToSkipSignup": "Kunde inte hoppa över registreringen"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Chattar",
+      "description": "Chatta med alla anteckningar, dokument eller PDF:er på ett och samma ställe"
+    },
+    "profileWelcome": {
+      "heading": "Välkommen till din profil",
+      "description": "Det här är din profil. Tryck här för att ändra dina uppgifter och se din prenumerationsstatus"
+    },
+    "createNotes": {
+      "heading": "Skapa anteckning",
+      "description": "Skapa valfri typ av anteckning från vad som helst: inspelningar, ljud, video, bild, text och YouTube-länkar"
+    },
+    "changeLanguage": {
+      "heading": "Ändra språk",
+      "description": "Ändra appens språk härifrån till önskat språk"
+    },
+    "manageHome": {
+      "heading": "Hantera Hem",
+      "description": "Visa alla dina skapade anteckningar och se alla dina aktiviteter på ett ställe"
+    },
+    "yourLibrary": {
+      "heading": "Ditt bibliotek",
+      "description": "Hantera alla dina skapade anteckningar, skapa mappar och mycket mer"
+    },
+    "yourProfile": {
+      "heading": "Din profil",
+      "description": "Se allt om din profil och ändra dina profilinställningar härifrån"
+    }
   }
 }

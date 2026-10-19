@@ -15,7 +15,8 @@
     "done": "完成",
     "search": "搜尋",
     "filter": "篩選",
-    "ok": "確定"
+    "ok": "確定",
+    "info": "資訊"
   },
   "home": {
     "title": "Clinical Fact",
@@ -76,7 +77,12 @@
     "trial": "試用"
   },
   "auth": {
-    "welcome": "歡迎使用Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Google 登入失敗",
+      "failedToAuthenticateWithServer": "無法與伺服器進行驗證",
+      "googleSignInIsOnlyAvailable": "Google 登入僅適用於原生應用程式。請使用電子郵件驗證，或下載原生 App。",
+      "code": "{{message}}（代碼：{{code}}）"
+    },
     "getStarted": "開始使用",
     "signIn": "登入",
     "signUp": "註冊",
@@ -242,7 +248,10 @@
     },
     "demoVideo": {
       "title": "掌握任何知識\\n所需的一切工具",
-      "subtitle": "隨時記錄、深入查證、自我測驗、全面掌握。"
+      "subtitle": "隨時記錄、深入查證、自我測驗、全面掌握。",
+      "everythingYouNeedToLearnAnything": "掌握任何知識所需的一切",
+      "recordItResearchItQuizIt": "記錄、研究、測驗、精通。",
+      "tryClinicalFactNowForFree": "立即免費試用 Clinical Fact"
     },
     "features": {
       "feature1": {
@@ -265,12 +274,136 @@
         "title": "將任何對話或文件轉為字卡題目以供練習",
         "description": "無需使用其他學習 App，直接從對話與上傳內容生成練習題。"
       }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "開啟推播通知",
+      "thisHelpsUsStayOnTrack": "這有助於我們為您提供個人化帳戶體驗，並更有效率地尋找醫學解答"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "驗證碼無效，請重試。",
+      "failedToResendCodePleaseTry": "重新發送驗證碼失敗，請重試。",
+      "confirmYourEmailAddress": "確認您的電子郵件地址",
+      "enterCodeSentTo": "請輸入已發送至 {{email}} 的動態驗證碼 (OTP)",
+      "resendCodeIn": "{{seconds}} 秒後可重新發送驗證碼"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "有人推薦您使用嗎？",
+      "enterTheirReferralCodeIfYou": "若有推薦碼，請在此輸入",
+      "eGJOHNOrTECHBRO": "例如：JOHN 或 TECHBRO",
+      "codeIsValid": "✓ 推薦碼有效"
+    },
+    "resultsChart": {
+      "getBetterResults": "獲得更好的成績",
+      "over95OfClinicalfactUsersScore": "超過 95% 的 Clinical Fact 用戶在測驗和考試中取得 95 分以上的佳績"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "護理系學生",
+        "medicalStudent": "醫學系學生",
+        "paPharmacyStudent": "助理醫師 (PA) 或藥學系學生",
+        "practicingNurse": "執業護理師",
+        "practicingPhysician": "執業醫師",
+        "otherHealthcareProfessional": "其他醫療專業人員"
+      },
+      "currentMethod": {
+        "textbooksNotes": "教科書或課堂筆記",
+        "flashcardQuizApps": "字卡或測驗 App",
+        "youtube": "YouTube",
+        "aiChatbots": "AI 聊天機器人",
+        "colleagueClassmate": "詢問同事或同學",
+        "practiceQuestionBanks": "模擬試題庫"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "從零開始製作字卡與測驗",
+        "findingTrustworthyAnswer": "快速找到可信的解答",
+        "reReadingNotes": "重讀記不住的筆記",
+        "switchingApps": "在太多 App 之間來回切換",
+        "chartingDocumentation": "病歷書寫與文書記錄"
+      },
+      "appExpectation": {
+        "noHallucination": "不會胡言亂語（幻覺）的 AI",
+        "realCitations": "來自文獻來源的真實引用",
+        "oneApp": "一款 App 取代五種訂閱服務",
+        "explainsWhy": "解釋「原因」，而不僅僅給出答案"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google 搜尋",
+        "otherApps": "其他 App"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "捏造內容 / 出現幻覺",
+        "notMedicalContent": "非針對醫學內容設計",
+        "noSources": "沒有可查證的參考來源",
+        "tooGeneric": "內容太過籠統，未針對考試或臨床實務"
+      },
+      "aiTrustLevel": {
+        "everyTime": "每次都相信",
+        "sometimes": "有時相信",
+        "rarely": "很少相信",
+        "dontUseAi": "我目前尚未使用 AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "快速且值得信賴的解答",
+        "quizzesFlashcardsWithoutWork": "省時省力、自動生成的測驗與字卡",
+        "rememberingStudied": "幫助加深學習記憶",
+        "medicalCitations": "醫學文獻引用參考",
+        "allOfTheAbove": "以上皆是"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "電子報",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play 商店",
+        "other": "其他"
+      },
+      "studyTime": {
+        "under5Hours": "5 小時以下",
+        "510Hours": "5–10 小時",
+        "1020Hours": "10–20 小時",
+        "20PlusHours": "20 小時以上"
+      },
+      "comingUp": {
+        "medicalExams": "醫學考試 / 國考",
+        "clinicalRotations": "臨床實習 / 見習",
+        "nursingExams": "護理考試 / 國考",
+        "otherExams": "其他考試",
+        "staySharp": "保持臨床敏銳度"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "筆記轉錄",
+    "noteTranscript": {
+      "noteTranscript": "筆記逐字稿",
+      "noNoteIDProvided": "未提供筆記 ID",
+      "noTranscriptAvailableForThisNote": "此筆記無可用的逐字稿。",
+      "thisNoteWasNotCreatedFrom": "此筆記並非由音訊/影片生成，因此沒有逐字稿。",
+      "failedToLoadNote": "無法載入筆記",
+      "noteTranscript2": "筆記逐字稿",
+      "loadingTranscript": "正在載入逐字稿...",
+      "goToNote": "前往筆記"
+    },
     "noteOptions": "筆記選項",
-    "editNote": "編輯筆記",
+    "editNote": {
+      "pleaseEnterANoteTitle": "請輸入筆記標題",
+      "failedToUpdateNote": "更新筆記失敗",
+      "noteUpdatedSuccessfully": "筆記已成功更新",
+      "editNote": "編輯筆記",
+      "noteTitle": "筆記標題",
+      "enterNoteTitle": "輸入筆記標題",
+      "noteContent": "筆記內容",
+      "enterNoteContent": "輸入筆記內容",
+      "saveThisNote": "儲存此筆記",
+      "aiIsGeneratingYourNote": "AI 正在生成您的筆記",
+      "largeAudioAndVideoFilesMay": "較大的影音檔案可能需要幾分鐘處理。請保持應用程式開啟。"
+    },
     "retranscribe": "重新轉錄",
     "exportNote": "匯出筆記",
     "shareNoteLink": "分享筆記連結",
@@ -292,12 +425,89 @@
     "translate": "翻譯",
     "addToFolder": "新增到資料夾",
     "loadingNote": "正在載入筆記...",
-    "noteNotFound": "載入筆記失敗"
+    "noteNotFound": "載入筆記失敗",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "生成單字卡失敗",
+      "anUnexpectedErrorOccurred": "發生非預期的錯誤",
+      "history": "歷史記錄",
+      "export": "匯出"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "無法將筆記加入資料夾",
+      "folderNotFound": "找不到資料夾",
+      "addNote": "+ 新增筆記",
+      "noNotesInThisFolder": "此資料夾中沒有筆記",
+      "moveNotesToThisFolderTo": "將筆記移至此資料夾即可在此查看",
+      "addNoteToFolder": "新增筆記至資料夾",
+      "noNotesAvailableToAdd": "沒有可新增的筆記",
+      "allYourNotesAreAlreadyIn": "您的所有筆記皆已在此資料夾中",
+      "created": "建立於 {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "無法載入筆記",
+      "reTranscribeNote": "重新轉錄筆記",
+      "thisWillReTranscribeTheAudio": "這將會重新轉錄音訊並更新筆記。是否要繼續？",
+      "reTranscribe": "重新轉錄",
+      "noteReTranscribedSuccessfully": "筆記已成功重新轉錄",
+      "info": "詳細資訊",
+      "reTranscriptionFeatureIsComingSoon": "重新轉錄功能即將推出",
+      "youAreCurrentlyOfflinePleaseConnect": "您目前處於離線狀態。請連線至網際網路以執行此操作。",
+      "failedToDeleteNote": "刪除筆記失敗",
+      "failedToExportNote": "匯出筆記失敗",
+      "noteTranslatedSuccessfully": "筆記翻譯成功",
+      "failedToTranslateNote": "翻譯筆記失敗",
+      "noteMovedTo": "筆記已移至 {{name}}",
+      "failedToMoveNoteToFolder": "移動筆記至資料夾失敗",
+      "summaryNotes": "重點摘要",
+      "loadingNote": "正在載入筆記...",
+      "imageNote": "圖片筆記",
+      "created": "建立於 {{dateTime}}",
+      "translate": "翻譯",
+      "transcribe": "逐字稿轉錄",
+      "editThisNote": "編輯此筆記",
+      "createFlashcards": "製作字卡",
+      "createFlashcardsToImproveYourRetention": "製作字卡以增強記憶效果",
+      "createQuizQuestions": "建立測驗題目",
+      "practiceYourNotesByCreatingQuestions": "透過出題練習筆記內容，熟練掌握核心主題"
+    },
+    "sharedNote": {
+      "notFound": "找不到筆記",
+      "thisSharedNoteLinkIsInvalid": "此分享連結無效或已過期。",
+      "failedToLoadSharedNote": "載入分享的筆記失敗。",
+      "saved": "已儲存！",
+      "noteHasBeenAddedToYour": "筆記已新增至您的資料庫。",
+      "viewInLibrary": "在資料庫中查看",
+      "stayHere": "留在本頁",
+      "failedToSaveNote": "儲存筆記失敗。",
+      "loadingSharedNote": "正在載入分享的筆記...",
+      "sharedNote": "分享的筆記",
+      "sharedWithYou": "與您分享",
+      "savedToLibrary": "已儲存至資料庫",
+      "saveToMyLibrary": "儲存至我的資料庫"
+    }
   },
   "create": {
     "selectOption": "您想如何建立筆記？",
-    "recordAudio": "錄製音訊",
-    "uploadAudio": "上傳音訊",
+    "recordAudio": {
+      "permissionRequired": "需要權限",
+      "pleaseGrantMicrophonePermissionToRecord": "請授予麥克風權限以進行錄音。",
+      "failedToRequestMicrophonePermission": "請求麥克風權限失敗",
+      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "錄音中",
+      "recordAudio": "錄製音訊",
+      "createANoteFromAnyRecorded": "利用任何錄音建立筆記",
+      "recording": "錄音中 ({{time}})",
+      "recordAgain": "重新錄音"
+    },
+    "uploadAudio": {
+      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "選取音訊檔案失敗",
+      "uploadAudio": "上傳音訊",
+      "createANoteFromAnyUploaded": "利用任何上傳的音訊建立筆記",
+      "dragDropFilesOrBrowse": "拖放檔案或瀏覽",
+      "supportedFormatMp4WavMp3": "支援格式：mp4、wav、mp3",
+      "changeFile": "更換檔案"
+    },
     "youtube": "YouTube影片",
     "pdfDocument": "PDF或文件",
     "customText": "自訂文字",
@@ -305,7 +515,56 @@
     "uploadingFile": "正在上傳檔案到伺服器...",
     "transcribing": "正在將語音轉換為文字...",
     "extractingText": "正在提取文字...",
-    "generatingNote": "正在建立AI學習筆記...",
+    "generatingNote": {
+      "uploadAudio": "上傳音訊",
+      "uploadingAudioFileToServer": "正在上傳音訊檔案至伺服器...",
+      "transcribeAudio": "轉錄音訊",
+      "convertingSpeechToText": "正在將語音轉為文字...",
+      "generateYourNote": "生成您的筆記",
+      "creatingStudyNotes": "正在生成學習筆記...",
+      "uploadPDF": "上傳 PDF",
+      "uploadingPDFDocumentToServer": "正在上傳 PDF 文件至伺服器...",
+      "extractText": "擷取文字",
+      "readingAndExtractingTextFromPDF": "正在讀取並擷取 PDF 中的文字...",
+      "uploadImage": "上傳圖片",
+      "uploadingImageToServer": "正在上傳圖片至伺服器...",
+      "extractTextOCR": "擷取文字 (OCR)",
+      "recognizingAndExtractingTextFromImage": "正在辨識並擷取圖片中的文字...",
+      "fetchVideo": "獲取影片",
+      "connectingToYouTube": "正在連線至 YouTube...",
+      "extractTranscript": "擷取逐字稿",
+      "downloadingVideoTranscript": "正在下載影片逐字稿...",
+      "processText": "處理文字",
+      "analyzingYourContent": "正在分析您的內容...",
+      "uploadFile": "上傳檔案",
+      "uploadingToServer": "正在上傳至伺服器...",
+      "processContent": "處理內容",
+      "extractingContent": "正在擷取內容...",
+      "noteReady": "筆記已準備就緒！",
+      "noteGenerationFailedOnTheServer": "伺服器生成筆記失敗。",
+      "failedToUploadImage": "圖片上傳失敗",
+      "weCouldNotReadAnythingFrom": "無法讀取該圖片中的任何內容。請嘗試上傳更清晰的醫學筆記圖片。",
+      "preparingFile": "正在準備檔案...",
+      "almostDone": "即將完成...",
+      "untitledNote": "未命名筆記",
+      "failedToGenerateNote": "筆記生成失敗",
+      "whoaSpeedy": "哇，動作真快！🏃💨",
+      "youReGeneratingContentABit": "您生成內容的速度有點太快了。請稍候 60 秒再試，讓我們的 AI 跟上您的腳步。",
+      "gotIt": "我知道了",
+      "fileTooLarge": "檔案過大",
+      "yourFileExceedsThe15MBLimit": "您的檔案超過免費使用者的 15MB 限制。升級至 PRO 即可上傳高達 100MB 的課程影音。",
+      "upgradeToPRO": "升級至 PRO",
+      "oopsWeHitASnag": "糟糕，出了點問題 🚧",
+      "weCouldnTGenerateThatRight": "目前無法生成內容。請稍候再試一次！",
+      "processingContent": "正在處理內容...",
+      "generatingYourNote": "正在生成您的筆記...",
+      "audioNote": "語音筆記",
+      "failedToGenerateFlashcards": "字卡生成失敗",
+      "generatingNote": "正在生成筆記",
+      "pleaseKeepThisScreenOpenWhile": "生成筆記時請保持此畫面開啟。較大的檔案可能需要幾分鐘進行轉錄。",
+      "goToNote": "前往筆記",
+      "generateNoteTranscript": "生成筆記逐字稿"
+    },
     "fetchingVideo": "正在連接YouTube...",
     "processingText": "正在分析您的內容...",
     "uploadAudioTitle": "上傳音訊",
@@ -315,7 +574,63 @@
     "fetchVideo": "擷取影片",
     "extractTranscript": "提取轉錄",
     "processText": "處理文字",
-    "generateNote": "產生您的筆記"
+    "generateNote": "產生您的筆記",
+    "customTextInput": {
+      "customText": "自訂文字",
+      "createANoteFromAnyCustom": "從任何自訂文字建立筆記",
+      "enterText": "輸入文字",
+      "enterYourTextHere": "在此輸入您的文字..."
+    },
+    "uploadImage": {
+      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "需要權限",
+      "pleaseAllowAccessToYourPhoto": "請允許存取您的相片圖庫",
+      "failedToPickImage": "選取圖片失敗",
+      "uploadImage": "上傳圖片",
+      "createANoteFromAnyUploaded": "從上傳的圖片建立筆記",
+      "dragDropFilesOrBrowse": "拖曳檔案至此或瀏覽選取",
+      "supportedFormatPngJpegHeicWebp": "支援格式：png、jpeg、heic、webp",
+      "changeFile": "更換檔案"
+    },
+    "uploadPDF": {
+      "created": "建立於 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "選取文件失敗",
+      "uploadPdf": "上傳 PDF",
+      "createANoteFromAnyUploaded": "從上傳的 PDF 建立筆記",
+      "dragDropFilesOrBrowse": "拖曳檔案至此或瀏覽選取",
+      "supportedFormatPdf": "支援格式：pdf",
+      "changeFile": "更換檔案"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "正在擷取影片",
+      "gettingVideoDetails": "正在取得影片詳細資訊",
+      "extractingTranscript": "正在擷取逐字稿",
+      "convertingAudioToText": "正在將語音轉為文字",
+      "generatingYourNote": "正在生成您的筆記",
+      "aiIsSummarisingTheContent": "AI 正在摘要內容",
+      "noteGenerationFailedPleaseTryAgain": "筆記生成失敗，請再試一次。",
+      "processingFailed": "處理失敗",
+      "goBack": "返回",
+      "retry": "重試",
+      "failedToStartNoteGeneration": "無法開始產生筆記",
+      "failedToProcessYouTubeVideoPlease": "處理 YouTube 影片失敗，請再試一次。",
+      "cancelProcessing": "取消處理",
+      "areYouSureYouWantTo": "確定要取消嗎？目前的進度將會遺失。",
+      "continueProcessing": "繼續處理",
+      "youTubeNote": "YouTube 筆記",
+      "noteGenerated": "筆記已產生",
+      "generatingNote": "正在產生筆記",
+      "goToNote": "查看筆記"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "無法獲取影片資訊",
+      "failedToFetchVideoInformation": "獲取影片資訊失敗",
+      "youtubeVideo": "YouTube 影片",
+      "createANoteFromAnyYoutube": "從任何 YouTube 影片建立筆記",
+      "enterYoutubeURL": "輸入 YouTube 網址",
+      "pasteYoutubeURL": "貼上 YouTube 網址",
+      "fetchingVideoInfo": "正在獲取影片資訊..."
+    }
   },
   "library": {
     "title": "資料庫",
@@ -369,7 +684,42 @@
     "explanation": "解析",
     "questionProgress": "第 {{current}} 題，共 {{total}} 題",
     "generatingQuizWait": "我們正在為你生成測驗，請稍候片刻...",
-    "goToChats": "前往對話"
+    "goToChats": "前往對話",
+    "quizGroupDetail": {
+      "inProgress": "進行中",
+      "notStarted": "未開始",
+      "failedToLoadQuizHistory": "無法載入測驗記錄",
+      "failedToLoadChatContent": "無法載入對話內容",
+      "deleteQuiz": "刪除測驗",
+      "failedToDeleteQuiz": "無法刪除測驗",
+      "created": "建立於 {{dateTime}}",
+      "lastscore": "上次得分",
+      "bestscore": "最高得分",
+      "attempts": "作答次數",
+      "retakeQuiz": "重新測驗",
+      "translate": "翻譯",
+      "newQuiz": "新增測驗",
+      "quizHistory": "測驗記錄",
+      "flashcardHistory": "單字卡記錄",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "此來源尚無單字卡組。",
+      "cards": "{{totalCards}} 張卡片 · {{flashcardStatus}}",
+      "quizOptions": "測驗選項",
+      "exportLatestAttempt": "匯出最新作答記錄",
+      "questions": "{{totalQuestions}} 道題目 · {{value}}",
+      "deleteAllAttemptsOne": "確定要刪除「{{title}}」的 1 次測驗記錄嗎？此操作無法復原。",
+      "deleteAllAttemptsMany": "確定要刪除「{{title}}」的全部 {{total}} 次測驗記錄嗎？此操作無法復原。"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "無法載入測驗資料 — 回應格式無效",
+      "failedToLoadQuizData": "無法載入測驗資料",
+      "noContentAvailable": "無可用內容",
+      "goBack": "返回",
+      "previous": "上一題"
+    },
+    "quiz": {
+      "generationFailed": "產生失敗"
+    }
   },
   "flashcards": {
     "title": "閃卡",
@@ -400,7 +750,44 @@
     "headerTitle": "字卡",
     "progressFormat": "第 {{current}} 張，共 {{total}} 張",
     "noteIdRequired": "生成字卡需要筆記 ID",
-    "invalidCardCount": "請選擇 1 到 100 張字卡"
+    "invalidCardCount": "請選擇 1 到 100 張字卡",
+    "flashcardGroupDetail": {
+      "inProgress": "進行中",
+      "notStarted": "未開始",
+      "failedToLoadFlashcardHistory": "無法載入單字卡記錄",
+      "limitReached": "已達上限",
+      "flashcardGenerationLimitReached": "已達到單字卡產生上限。",
+      "failedToGenerateFlashcards": "無法產生單字卡",
+      "failedToTranslateFlashcards": "無法翻譯單字卡",
+      "deleteFlashcards": "刪除單字卡",
+      "failedToDeleteFlashcards": "無法刪除單字卡",
+      "created": "建立於 {{dateTime}}",
+      "lastprogress": "上次進度",
+      "bestprogress": "最佳進度",
+      "sets": "卡片組",
+      "studyNow": "立即複習",
+      "translate": "翻譯",
+      "newFlashcards": "新增字卡",
+      "flashcardHistory": "字卡歷史紀錄",
+      "quizHistory": "測驗歷史紀錄",
+      "cards": "{{totalCards}} 張卡片 · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "此來源目前尚無測驗。",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "字卡選項",
+      "exportLatestSet": "匯出最新卡片組",
+      "questions": "{{totalQuestions}} 道題目 · {{value}}",
+      "deleteAllSetsOne": "確定要刪除「{{title}}」的 1 個字卡組嗎？此操作無法復原。",
+      "deleteAllSetsMany": "確定要刪除「{{title}}」的全部 {{total}} 個字卡組嗎？此操作無法復原。"
+    },
+    "flashcardReview": {
+      "unknownError": "發生未知錯誤",
+      "noFlashcardsInThisSet": "此組內無字卡",
+      "goBack": "返回",
+      "allDone": "全部完成",
+      "youHaveReviewedAllTheCards": "你已複習完此卡組中的所有卡片",
+      "question": "問題 {{value}}",
+      "questionOf": "問題 {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "聊天",
@@ -411,7 +798,186 @@
     "chatWithDocument": "與文件聊天",
     "selectFile": "選擇要聊天的檔案",
     "uploadFile": "上傳檔案",
-    "startChatting": "開始聊天"
+    "startChatting": "開始聊天",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "提出醫學問題以取得詳細解答",
+      "askAnythingAboutThisDocument": "詢問關於此文件的任何問題...",
+      "askAQuestionAttachmentProcessingFailed": "提問 — 附件處理失敗",
+      "extractingText": "正在擷取文字...",
+      "processingPDF": "正在處理 PDF...",
+      "upgradeToProToContinueChatting": "升級至 PRO 繼續對話",
+      "queryremaining": "剩餘 {{queriesRemaining}} 次提問機會"
+    },
+    "chatEmptyState": {
+      "initializingChat": "正在初始化對話...",
+      "extractingTextFromImage": "正在擷取圖片中的文字...",
+      "processingPDFDocument": "正在處理 PDF 文件...",
+      "analyzingYourNote": "正在分析您的筆記...",
+      "thisUsuallyTakesJustAFew": "⏱️ 通常只需數秒。處理完成後即可開始對話。",
+      "processingFailed": "處理失敗",
+      "fileMightBeCorruptedOrUnreadable": "• 檔案可能已損壞或無法讀取",
+      "imageQualityTooLow": "圖片畫質過低",
+      "pdfIsPasswordProtected": "PDF 已受密碼保護",
+      "contentFormatNotSupported": "不支援此內容格式",
+      "networkConnectionIssue": "• 網路連線問題",
+      "tryADifferentFile": "嘗試其他檔案",
+      "askAnyClinicalQuestionNoUpload": "💡 提出任何臨床問題 — 無須上傳檔案。我將引用醫學文獻為您解答，並視情況提供相關圖片。",
+      "readyToChat": "✓ 已準備就緒，可開始對話",
+      "couldntProcessNote": "無法處理此筆記。可能原因：",
+      "couldntProcessImage": "無法處理此圖片。可能原因：",
+      "couldntProcessDocument": "無法處理此文件。可能原因：",
+      "askMeAboutNote": "💡 詢問關於此筆記的任何問題。我可以為您總結重點、解釋概念或回答具體問題。",
+      "askMeAboutImage": "💡 詢問關於此圖片的任何問題。我可以為您總結重點、解釋概念或回答具體問題。",
+      "askMeAboutDocument": "💡 詢問關於此文件的任何問題。我可以為您總結重點、解釋概念或回答具體問題。"
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "已掌握 {{masteredCards}}/{{totalCards}}",
+      "notStarted": "尚未開始",
+      "quizGeneration": "測驗生成",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "字卡生成",
+      "questions": "{{totalCards}} 道題目 · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} 道題目 · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "正在思考並為您尋找相關資源...",
+      "couldnTGenerateAResponse": "無法生成回覆。",
+      "retry": "重試",
+      "alsoReferencedFromTheWeb": "同時參考網路資料",
+      "followUpQuestions": "延伸問題"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "隨時詢問任何醫學問題，獲取有真實文獻佐證的解答",
+      "evidenceBasedPubMedSourcesPeerReviewed": "實證醫學 · PubMed 文獻來源 · 同儕審查",
+      "tryOutAnyOfThisTopics": "試試以下主題開始學習",
+      "topics": {
+        "electrolytes": {
+          "label": "電解質不平衡詳解",
+          "question": "請說明電解質不平衡的成因、症狀與治療方式"
+        },
+        "ecg": {
+          "label": "心電圖判讀基礎",
+          "question": "心電圖（ECG）判讀的基本要點有哪些？"
+        },
+        "drugInteractions": {
+          "label": "常見重要藥物交互作用",
+          "question": "有哪些常見且重要的藥物交互作用是我應該知道的？"
+        },
+        "nclex": {
+          "label": "NCLEX 題型練習主題",
+          "question": "請給我一道 NCLEX 風格的練習題"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA 藥品仿單",
+      "fromYourAttachedMaterial": "來自您附加的資料"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "無法建立對話",
+      "failedToInitializeChatSession": "對話初始化失敗",
+      "failedToUpdateLanguage": "無法更新語言設定",
+      "youVeReachedYour3Pin": "已達 3 個置頂上限",
+      "failedToUpdatePin": "無法更新置頂狀態",
+      "permissionRequired": "需要權限",
+      "pleaseGrantCameraPermissionToTake": "請允許相機權限以拍照。",
+      "pleaseGrantPhotoLibraryPermissionTo": "請允許照片圖庫權限以上傳圖片。",
+      "failedToUploadImage": "圖片上傳失敗",
+      "uploadFailed": "上傳失敗",
+      "failedToUploadDocument": "文件上傳失敗",
+      "failedToStartChatFromThis": "無法透過此檔案開始對話。",
+      "chatFromImage": "以圖片開始對話",
+      "failedToStartANewQuestion": "無法開始新提問，請稍後再試。",
+      "failedToAttachFile": "無法附加檔案",
+      "failedToSendMessage": "訊息發送失敗",
+      "copiedToClipboard": "已複製到剪貼簿",
+      "notEnoughContentYet": "內容尚不足夠",
+      "chatABitMoreBeforeGenerating": "請再多聊幾句以生成測驗（至少需要 100 字）。",
+      "chatABitMoreBeforeGenerating2": "請再多聊幾句以生成單字卡（至少需要 100 字）。",
+      "failedToGenerateFlashcards": "無法生成單字卡",
+      "failedToRegenerateResponse": "無法重新生成回覆",
+      "failedToRetryResponse": "無法重試回覆"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "無法附加筆記",
+      "folderCreatedSuccessfully": "已成功建立資料夾「{{name}}」！",
+      "failedToCreateFolder": "無法建立資料夾",
+      "failedToAttachDocument": "無法附加文件",
+      "failedToCreateChatSession": "無法建立對話",
+      "failedToUploadDocument": "文件上傳失敗",
+      "openingCamera": "📷 正在開啟相機...",
+      "openingImagePicker": "🖼️ 正在開啟相片選擇器...",
+      "permissionRequired": "需要權限",
+      "pleaseGrantCameraPermissionToTake": "請允許相機權限以拍照。",
+      "pleaseGrantPhotoLibraryPermissionTo": "請允許照片圖庫權限以上傳圖片。",
+      "failedToAttachImage": "無法附加圖片",
+      "failedToUploadImage": "圖片上傳失敗",
+      "failedToAttachAudio": "無法附加音訊",
+      "failedToUploadAudio": "音訊上傳失敗",
+      "items": "{{itemCount}} 個項目",
+      "thisFolderIsEmptyGoBack": "此資料夾為空。請返回選擇其他資料夾。",
+      "addFolder": "新增資料夾",
+      "uploadNewDocument": "上傳新文件",
+      "uploadAPDFAndStartChatting": "上傳 PDF 即可立即開始對話",
+      "uploadNewImage": "上傳新圖片",
+      "uploadAnImageAndExtractText": "上傳圖片並立即擷取文字",
+      "uploadNewAudio": "上傳新音訊",
+      "uploadAnAudioFileAndTranscribe": "上傳音訊檔案並立即轉錄",
+      "orselectfromlibrary": "或從資料庫中選取",
+      "folders": "資料夾",
+      "allNotes": "所有筆記",
+      "noFilesToDisplay": "沒有可顯示的檔案",
+      "noNotesToDisplay": "沒有可顯示的筆記",
+      "noDocumentsYet": "目前沒有任何 PDF 文件。\n請先建立一些筆記，再來與它們對話。",
+      "noImagesYet": "目前沒有任何圖片。\n請先建立一些筆記，再來與它們對話。",
+      "noAudioNotesYet": "目前沒有任何語音筆記。\n請先建立一些筆記，再來與它們對話。",
+      "noNotesYet": "目前沒有任何筆記。\n請先建立一些筆記，再來與它們對話。",
+      "attachNote": "附加筆記",
+      "selectNote": "選取筆記",
+      "attachImage": "附加圖片",
+      "selectImage": "選取圖片",
+      "attachDocument": "附加文件",
+      "selectDocument": "選取文件",
+      "attachAudio": "附加音訊",
+      "selectAudio": "選取音訊",
+      "attachFile": "附加檔案",
+      "selectFile": "選取檔案",
+      "aNote": "{{verb}}筆記",
+      "anImage": "{{verb}}圖片",
+      "aDocument": "{{verb}}文件",
+      "audio": "{{verb}}音訊",
+      "aFile": "{{verb}}檔案"
+    },
+    "chatAttachSheet": {
+      "addToChat": "加入對話",
+      "camera": "相機",
+      "photos": "照片",
+      "files": "檔案",
+      "generateQuiz": "產生測驗",
+      "generateFlashcards": "產生記憶卡",
+      "searchMedicalLiterature": "搜尋醫學文獻",
+      "filterByDateSourceAndType": "依日期、來源與類型篩選",
+      "pullsRealCitedSourcesIntoYour": "在回答中引用真實可靠的來源文獻",
+      "trustedmedicalsourcedatabase": "受信任的醫學文獻資料庫",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "美國國家醫學圖書館 (NLM)",
+      "fdaDrugTreatmentData": "FDA 藥物與治療數據"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "查看引用來源"
+    },
+    "chatHeader": {
+      "readyTapToRename": "就緒 · 點選以重新命名",
+      "processing": "處理中 {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "查看來源 ↗"
+    },
+    "chatRename": {
+      "renameChat": "重新命名對話"
+    }
   },
   "languages": {
     "english": "英語",
@@ -465,5 +1031,455 @@
     "urdu": "烏爾都語",
     "malay": "馬來語",
     "catalan": "加泰隆尼亞語"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "新增資料夾",
+      "folderName": "資料夾名稱",
+      "enterFolderName": "輸入資料夾名稱",
+      "chooseColor": "選擇顏色",
+      "createFolder": "建立資料夾"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "在我們處理您的內容之前",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact 使用 AI 回答您的問題，並將您的內容轉換為筆記、測驗與記憶卡。以下為您需要瞭解的事項：",
+      "whatDataIsSent": "傳送的資料內容",
+      "questionsAndMessagesYouTypeIn": "您在對話中輸入的問題與訊息",
+      "audioRecordingsOrUploadedAudioFiles": "錄音檔或上傳的音訊檔案",
+      "pdfAndTextDocumentsYouUpload": "您上傳的 PDF 與文字文件",
+      "imagesYouUpload": "您上傳的圖片",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube 影片連結及其逐字稿",
+      "customTextYouEnter": "您輸入的自訂文字",
+      "whoReceivesYourData": "誰會收到您的資料",
+      "howItSUsed": "資料的使用方式",
+      "yourContentIsUsedSolelyTo": "您的內容僅用於生成您要求的回答、筆記、測驗或記憶卡。透過 API 處理的內容均適用各服務提供商本身的資料使用政策。詳情請參閱我們的隱私權政策。",
+      "iAgreeContinue": "我同意 — 繼續",
+      "noThanks": "先不要",
+      "whoReceivesBody": "您的內容會透過我們安全的後端伺服器傳送至 <bold>Google (Gemini)</bold>（用於筆記、測驗和字卡生成；對話回覆；文件與圖片處理）以及 <bold>OpenAI</bold>（用於語音轉錄）。您文件中的段落也會由 <bold>Google Vertex AI</bold> 建立索引，以便在對話中檢索相關內容。啟用即時醫學搜尋時，您的問題也會傳送至 <bold>Tavily</bold> 及公開醫學文獻資料庫（如 PubMed、Europe PMC 和 Semantic Scholar），以檢索來自 NIH、CDC、MedlinePlus、WHO 和 Mayo Clinic 等權威來源的文獻引用。這些服務供應商僅會出於生成回覆之目的處理您的資料，絕不會用於訓練其通用 AI 模型，我們也絕不會將您的資料販售給任何第三方。"
+    },
+    "chatActionSheet": {
+      "unpinChat": "取消置頂對話",
+      "pinChat": "置頂對話",
+      "deleteChat": "刪除對話"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "生成單字卡",
+      "createFlashcards": "建立單字卡",
+      "createFlashcardsFromToImproveYour": "從「{{noteTitle}}」建立單字卡，提升記憶效果",
+      "createFlashcardsToImproveYourRetention": "建立單字卡以提升記憶效果",
+      "howManyQuestions": "題目數量",
+      "generateFlashcards2": "生成單字卡"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "從對話建立",
+      "selectFromOneOfYourRecent": "從最近的對話中選取",
+      "pdfOrDocument": "PDF 或文件",
+      "createFromAudio": "從音訊建立",
+      "image": "圖片",
+      "createFromCustomText": "從自訂文字建立",
+      "created": "建立於 {{day}} {{time}}",
+      "createQuizFrom": "建立測驗來源：",
+      "createFlashcardsFrom": "建立單字卡來源：",
+      "selectFromChat": "從對話中選取",
+      "noRecentChatsYet": "尚無最近的對話",
+      "quizFromPdf": "從 PDF 或文件建立測驗",
+      "flashcardsFromPdf": "從 PDF 或文件建立單字卡組",
+      "quizFromAudio": "從上傳的音訊建立測驗",
+      "flashcardsFromAudio": "從上傳的音訊建立單字卡組",
+      "quizFromImage": "從任何圖片建立測驗",
+      "flashcardsFromImage": "從任何圖片建立單字卡組",
+      "quizFromText": "從擷取的文字建立測驗",
+      "flashcardsFromText": "從擷取的文字建立單字卡組"
+    },
+    "createNote": {
+      "recordAudio": "錄製音訊",
+      "generateANoteFromAnyRecorded": "從任何錄製的音訊生成筆記",
+      "uploadAudio": "上傳音訊",
+      "createANoteFromAnyUploaded": "從任何上傳的音訊建立筆記",
+      "youtubeVideo": "YouTube 影片",
+      "createANoteFromAnyYoutube": "從任何 YouTube 影片建立筆記",
+      "pdfOrDocument": "PDF 或文件",
+      "createANoteFromPDFOr": "從 PDF 或文件建立筆記",
+      "customText": "自訂文字",
+      "createANoteFromCapturedText": "從擷取的文字建立筆記",
+      "image": "圖片",
+      "createANoteFromAnyImage": "從任何圖片建立筆記",
+      "createNote": "建立筆記"
+    },
+    "createQuiz": {
+      "generateQuiz": "生成測驗",
+      "createQuiz": "建立測驗",
+      "practiceByCreatingQuestionsThatHelp": "透過出題練習「{{noteTitle}}」，助你熟練掌握主題",
+      "practiceYourNotesByCreatingQuestions": "根據筆記內容出題練習，助你熟練掌握主題",
+      "howManyQuestions": "題目數量",
+      "timeInMinutes": "時間（分鐘）"
+    },
+    "deleteNote": {
+      "deleteNote": "刪除筆記",
+      "areYouSureYouWantTo": "確定要刪除此筆記嗎？"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "匯出摘要為",
+      "exportTranscriptAs": "匯出逐字稿為",
+      "exportAs": "匯出為",
+      "exportSummary": "匯出摘要",
+      "exportTranscript": "匯出逐字稿"
+    },
+    "exportTypeStep": {
+      "exportNote": "匯出筆記",
+      "exportSummary": "匯出摘要",
+      "exportTranscript": "匯出逐字稿"
+    },
+    "exportSettings": {
+      "export": "匯出 {{title}}",
+      "selectFormat": "選擇格式",
+      "includeAnswers": "包含答案",
+      "answersExplanationsIncluded": "包含答案與解析",
+      "questionsOnly": "僅題目",
+      "export2": "匯出"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "您的筆記已準備就緒！",
+      "howDidWeDo": "您對結果滿意嗎？",
+      "happy": "滿意",
+      "sad": "不滿意",
+      "maybeLater": "稍後再說",
+      "whatWentWrong": "遇到什麼問題了嗎？",
+      "yourFeedbackHelpsUsImprove": "您的回饋能協助我們持續改進。",
+      "tellUsWhatCouldBeBetter": "告訴我們哪裡可以做得更好...",
+      "submit": "提交"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "無可用內容",
+      "clickCardToFlip": "點擊卡片翻面"
+    },
+    "flashcardExport": {
+      "exportFailed": "匯出失敗",
+      "unknownError": "未知錯誤",
+      "export": "匯出 {{setTitle}}",
+      "chooseWhatToExport": "選擇要匯出的內容",
+      "exportQuestions": "匯出題目",
+      "exportAnswers": "匯出答案"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "刪除字卡集",
+      "areYouSureYouWantTo": "確定要刪除「{{setTitle}}」嗎？",
+      "failedToDeleteFlashcardSet": "刪除字卡集失敗",
+      "flashcardHistory": "字卡歷史紀錄",
+      "cards": "張卡片",
+      "reviewedMastered": "已複習 {{cardsReviewedCount}} 張 • 精通度 {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} 個項目",
+      "enterYourFolderName": "輸入資料夾名稱",
+      "yourFolderName": "資料夾名稱",
+      "createFolder": "建立資料夾",
+      "folders": "資料夾",
+      "addFolder": "新增資料夾",
+      "noFoldersToDisplay": "目前沒有資料夾",
+      "clickTheButtonAboveToCreate": "點擊上方按鈕為筆記建立資料夾",
+      "allFolders": "所有資料夾",
+      "items2": "{{totalItems}} 個項目"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "醫學文獻篩選",
+      "howrecentdoyouwantthe": "文獻發表年份範圍",
+      "from": "從",
+      "whatkindofsourcedoyou": "文獻資料類型",
+      "textbooks": "教科書",
+      "clinicalGuidelines": "臨床指引",
+      "scientificJournalArticles": "科學期刊文獻",
+      "onlywiththisjournalarticles": "僅限以下期刊文章類型",
+      "metaAnalyses": "統合分析",
+      "reviewArticles": "綜述文獻",
+      "clinicalTrials": "臨床試驗",
+      "fromYear": "起始年份",
+      "toYear": "結束年份"
+    },
+    "noteOptions": {
+      "noteOptions": "筆記選項",
+      "editNote": "編輯筆記",
+      "reTranscribe": "重新轉錄",
+      "chatWithNote": "與筆記內容對話",
+      "exportNote": "匯出筆記",
+      "moveToFolder": "移至資料夾",
+      "deleteNote": "刪除筆記"
+    },
+    "onboardingTooltip": {
+      "skip": "略過"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "刪除測驗",
+      "areYouSureYouWantTo": "確定要刪除「{{quizTitle}}」嗎？",
+      "failedToDeleteQuiz": "刪除測驗失敗",
+      "quizHistory": "測驗歷史紀錄",
+      "questions": "題目",
+      "correct": "答對 {{correctAnswers}} 題"
+    },
+    "referral": {
+      "copied": "已複製！",
+      "yourReferralCodeHasBeenCopied": "您的推薦碼已複製到剪貼簿。",
+      "joinMeOnClinicalFactUse": "快來 Clinical Fact 一起學習！使用我的推薦碼 {{referralCode}} – {{appUrl}}",
+      "joined": "加入於 {{joinedDate}}",
+      "referralCode": "推薦碼",
+      "yourReferralCode": "您的推薦碼",
+      "shareWithFriendsToEarnRewards": "與好友分享以獲取獎勵",
+      "share": "分享",
+      "copyCode": "複製代碼",
+      "referredFriends": "已推薦好友",
+      "noReferralsYetShareYourCode": "尚無推薦記錄。立即分享您的代碼吧！",
+      "loadMore": "載入更多",
+      "howItWorks": "運作方式",
+      "friendsUseYourCodeDuringSignup": "• 好友在註冊時輸入您的推薦碼",
+      "youBothEarnRewardsWhenThey": "• 好友成功加入後，雙方皆可獲得獎勵",
+      "friendsReferredCount": "已推薦好友數：{{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "正在擷取文字...",
+      "transcribingAudio": "正在轉錄音訊...",
+      "processingPDF": "正在處理 PDF...",
+      "settingUpChat": "正在設定對話...",
+      "uploadFailed": "上傳失敗",
+      "failedToUploadFilePleaseTry": "檔案上傳失敗，請稍後再試。",
+      "yourFileIsReadyForChatting": "檔案已就緒，可以開始對話了！",
+      "uploadingYourFileToTheServer": "正在將檔案上傳至伺服器...",
+      "extractingTextFromYourImage": "正在從圖片中擷取文字...",
+      "transcribingYourAudio": "正在轉錄您的音訊...",
+      "extractingTextFromYourPDF": "正在從 PDF 中擷取文字...",
+      "creatingYourChatSession": "正在建立您的對話...",
+      "pleaseWait": "請稍候...",
+      "uploadFile": "上傳檔案",
+      "processContent": "處理內容",
+      "createChat": "建立對話"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ 檢視",
+      "export": "📤 匯出",
+      "delete": "🗑️ 刪除"
+    },
+    "poweredByFooter": {
+      "poweredBy": "技術支援："
+    },
+    "exportFormat": {
+      "txtFile": "TXT 檔",
+      "pdfFile": "PDF 檔",
+      "docFile": "Doc 檔"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "無法取得筆記",
+      "failedToFetchFolders": "無法取得資料夾",
+      "failedToFetchNote": "無法取得筆記",
+      "failedToDeleteNote": "刪除筆記失敗",
+      "failedToCreateFolder": "建立資料夾失敗",
+      "failedToDeleteFolder": "刪除資料夾失敗"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "刪除對話失敗"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "字卡集匯出成功！",
+      "failedToExportFlashcardSet": "匯出字卡集失敗。"
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "測驗匯出成功！",
+      "failedToExportQuiz": "匯出測驗失敗。"
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "無標題字卡",
+      "failedToLoadFlashcards": "無法載入字卡",
+      "failedToSyncFlashcardSet": "同步字卡集失敗",
+      "failedToSyncCardUpdate": "同步字卡更新失敗"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "測驗"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "建立於 {{day}} {{time}}",
+      "youVeReachedYour3Pin": "已達到 3 個置頂上限",
+      "failedToUpdatePin": "更新置頂狀態失敗",
+      "noChatsYet": "尚無對話",
+      "startAChatToGetAnswers": "開始對話，獲取有文獻佐證的解答。",
+      "createChat": "+ 新增對話"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "刪除字卡",
+      "areYouSureYouWantTo": "確定要刪除「{{sourceTitle}}」嗎？",
+      "failedToDeleteFlashcards": "無法刪除字卡",
+      "sets": "{{setCount}} 組",
+      "flashcards": "字卡",
+      "createFlashcards": "建立字卡",
+      "searchFlashcards": "搜尋字卡...",
+      "noFlashcardsYet": "尚無字卡",
+      "createAFlashcardSetFromA": "從筆記建立字卡組以開始學習",
+      "createSet": "+ 建立字卡組",
+      "flashcardOptions": "字卡選項",
+      "view": "查看"
+    },
+    "folder": {
+      "deleteFolder": "刪除資料夾",
+      "areYouSureYouWantTo": "確定要刪除「{{name}}」嗎？裡面的筆記將移至根目錄。",
+      "failedToDeleteFolder": "無法刪除資料夾",
+      "error": "錯誤：{{message}}",
+      "noFoldersYetCreateOne": "尚無資料夾。立即建立！",
+      "folders": "資料夾"
+    },
+    "home": {
+      "created": "建立於 {{day}} {{time}}",
+      "failedToUpdateLanguage": "無法更新語言",
+      "notEnoughContentYet": "內容尚不足",
+      "chatABitMoreBeforeGenerating": "請再多聊一些內容以產生測驗（至少 100 個字元）。",
+      "chatABitMoreBeforeGenerating2": "請再多聊一些內容以產生字卡（至少 100 個字元）。",
+      "failedToGenerateFlashcards": "無法產生字卡",
+      "upgradeToPro": "升級至 PRO",
+      "get80DiscountWhenYouUpgrade": "升級帳戶即可享 2 折優惠",
+      "unlockPRO": "解鎖 PRO",
+      "noMedicalChats": "尚無臨床對話",
+      "youHaveNotCreatedAnyMedical": "您尚未建立任何臨床對話，請開啟新對話以獲取文獻佐證",
+      "talkToClinicalfactAI": "向 Clinical Fact AI 諮詢",
+      "jumpInWhereYouStopped": "繼續上次的進度",
+      "practiceQuiz": "測驗練習",
+      "makeFlashcards": "製作字卡",
+      "continueChatWithNote": "使用筆記繼續對話",
+      "continueChat": "繼續對話",
+      "recentChats": "近期對話",
+      "chatOptions": "對話選項"
+    },
+    "library": {
+      "text": "{{year}}年{{month}}{{day}}日 {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "目前處於離線狀態。請連線至網際網路以執行此操作。",
+      "failedToDeleteNote": "無法刪除筆記",
+      "failedToMoveNote": "無法移動筆記",
+      "deleteFolder": "刪除資料夾？",
+      "areYouSureNotesInsideWill": "確定要刪除嗎？裡面的筆記不會被刪除，將移至「所有筆記」。",
+      "failedToDeleteFolder": "無法刪除資料夾",
+      "library": "資料庫",
+      "addFolder": "新增資料夾",
+      "searchForANoteFolder": "搜尋筆記 / 資料夾",
+      "yourFolders": "您的資料夾",
+      "noFoldersToDisplay": "沒有可顯示的資料夾",
+      "tapAddFolderToCreateA": "點擊「+ 新增資料夾」為您的筆記建立分類資料夾",
+      "allNotes": "所有筆記",
+      "items": "{{allNotesTotal}} 個項目",
+      "items2": "{{itemCount}} 個項目",
+      "yourNotes": "您的筆記",
+      "untitledNote": "無標題筆記",
+      "noResultsFor": "找不到「{{searchQuery}}」的相關結果",
+      "noNotesInThisFolder": "此資料夾中尚無筆記",
+      "noNotesToDisplay": "沒有可顯示的筆記",
+      "tryADifferentSearchTerm": "請嘗試其他搜尋關鍵字",
+      "moveNotesToThisFolderTo": "將筆記移至此資料夾即可在此查看",
+      "clickBelowToGenerateYourNote": "點擊下方，透過 Clinical Fact 生成筆記",
+      "filterByType": "依類型篩選",
+      "audio": "語音",
+      "text2": "文字",
+      "image": "圖片",
+      "clearFilter": "清除篩選"
+    },
+    "profile": {
+      "permissionRequired": "需要權限",
+      "pleaseAllowAccessToYourPhoto": "請允許存取相片圖庫以設定個人頭像。",
+      "uploadFailed": "上傳失敗",
+      "couldNotUpdateProfilePicture": "無法更新個人頭像。",
+      "failedToUploadProfilePicture": "上傳個人頭像失敗。",
+      "checkOutClinicalFactAIPowered": "來看看 Clinical Fact —— AI 智能臨床學習筆記！{{url}}",
+      "proSubscriber": "PRO 訂閱會員",
+      "subscriptionExpired": "訂閱已過期",
+      "freeSubscriber": "免費會員",
+      "tapToManageIPhoneSettingsApple": "點擊以管理 · iPhone 設定 → Apple ID → 訂閱項目",
+      "tapToManagePlayStoreSubscriptions": "點擊以管理 · Play 商店 → 訂閱",
+      "tapToRenewYourSubscription": "點擊以續訂",
+      "tapToUpgradeToPro": "點擊以升級至 PRO",
+      "referralCode": "推薦碼",
+      "areYouSureYouWantTo": "確定要登出帳號嗎？"
+    },
+    "quizHistory": {
+      "deleteQuiz": "刪除測驗",
+      "areYouSureYouWantTo": "確定要刪除「{{sourceTitle}}」嗎？",
+      "failedToDeleteQuiz": "無法刪除測驗",
+      "correct": "答對 {{correct}}/{{total}} 題",
+      "attempts": "已測驗 {{attempts}} 次",
+      "quiz": "測驗",
+      "createQuiz": "建立測驗",
+      "searchQuizzes": "搜尋測驗...",
+      "noQuizzesYet": "尚無測驗",
+      "createAQuizFromANote": "從筆記建立測驗以開始練習",
+      "createQuiz2": "+ 建立測驗",
+      "quizOptions": "測驗選項",
+      "view": "檢視"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "目前無法升級",
+      "weCouldnTOpenTheUpgrade": "目前無法開啟升級頁面。請檢查網路連線後再試一次。"
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "伺服器回傳非 JSON 回應（{{status}}）",
+      "networkErrorPleaseCheckYourConnection": "網路錯誤，請檢查網路連線。",
+      "connectionErrorPleaseTryAgain": "連線錯誤，請稍後再試。"
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "檔案已匯出：{{filename}}",
+      "exportFailed": "匯出失敗",
+      "exportFormat": "匯出格式",
+      "chooseFormat": "選擇格式",
+      "text": "文字"
+    },
+    "formatDate": {
+      "justNow": "剛剛",
+      "minAgo": "{{diffMin}} 分鐘前",
+      "hrAgo": "{{diffHr}} 小時前",
+      "dAgo": "{{diffDay}} 天前",
+      "created": "建立於 {{day}} {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "傳送驗證碼失敗",
+      "invalidOTP": "驗證碼無效",
+      "failedToVerifyOTP": "驗證碼確認失敗",
+      "googleAuthenticationFailed": "Google 驗證失敗",
+      "appleAuthenticationFailed": "Apple 驗證失敗",
+      "failedToCompleteSignup": "無法完成註冊",
+      "failedToSkipSignup": "無法略過註冊"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "問答",
+      "description": "一站式與任何筆記、文件或 PDF 進行對話"
+    },
+    "profileWelcome": {
+      "heading": "歡迎來到個人檔案",
+      "description": "這是您的個人檔案，點擊此處可修改個人資料與訂閱狀態"
+    },
+    "createNotes": {
+      "heading": "建立筆記",
+      "description": "支援多種形式建立筆記：錄音、音訊、影片、圖片、文字與 YouTube 連結"
+    },
+    "changeLanguage": {
+      "heading": "切換語言",
+      "description": "在此將應用程式語言切換為您偏好的語言"
+    },
+    "manageHome": {
+      "heading": "管理首頁",
+      "description": "一站式查看所有已建立的筆記與最近動態"
+    },
+    "yourLibrary": {
+      "heading": "您的資料庫",
+      "description": "管理所有已建立的筆記、建立筆記資料夾等功能"
+    },
+    "yourProfile": {
+      "heading": "個人檔案",
+      "description": "在此查看完整的個人資訊並調整個人檔案設定"
+    }
   }
 }

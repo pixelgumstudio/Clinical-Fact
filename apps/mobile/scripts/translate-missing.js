@@ -7,6 +7,7 @@
  *   node scripts/translate-missing.js --locales fr,es,hi      only these locales
  *   node scripts/translate-missing.js --dry-run               report what would be translated
  *   node scripts/translate-missing.js --fix-existing          also redo existing translations that are broken
+ *   node scripts/translate-missing.js --force --only-prefix a.b   redo these keys even if translated (after changing the English)
  *
  * By default only keys that are absent from a locale are translated — existing translations are never
  * overwritten. English variants (en-GB, en-AU, en-CA) just copy the English text. Every
@@ -34,6 +35,10 @@ const ONLY_PREFIX = option('only-prefix', '');
 const ONLY_LOCALES = option('locales', '') ? option('locales', '').split(',') : null;
 const DRY_RUN = flag('dry-run');
 const FIX_EXISTING = flag('fix-existing');
+const FORCE = flag('force');
+const REVERSE = flag('reverse'); // start from the last language, so two runs can meet in the middle
+// Translation needs little reasoning; capping it makes each batch several times faster.
+const THINKING = option('thinking', 'low');
 const CONCURRENCY = Number(option('concurrency', '4'));
 const BATCH_SIZE = Number(option('batch', '60'));
 
@@ -139,7 +144,11 @@ async function translateBatch(ai, languageName, entries) {
       const result = await ai.models.generateContent({
         model: MODEL,
         contents: buildPrompt(languageName, entries),
-        config: { responseMimeType: 'application/json', maxOutputTokens: 65536 },
+        config: {
+          responseMimeType: 'application/json',
+          maxOutputTokens: 65536,
+          ...(/^gemini-3/.test(MODEL) && THINKING !== 'default' ? { thinkingConfig: { thinkingLevel: THINKING.toUpperCase() } } : {}),
+        },
       });
       const parsed = JSON.parse(String(result.text || '{}'));
       const bad = [];
@@ -179,6 +188,7 @@ async function main() {
     .map((f) => f.replace('.json', ''))
     .filter((code) => code !== 'en' && (!ONLY_LOCALES || ONLY_LOCALES.includes(code)))
     .sort();
+  if (REVERSE) locales.reverse();
 
   const summary = [];
   const queue = [...locales];
@@ -190,7 +200,7 @@ async function main() {
       const loaded = readLocale(file);
       const have = flatten(loaded.json);
       const missing = Object.keys(enFlat).filter(
-        (k) => k.startsWith(ONLY_PREFIX) && (!(k in have) || (FIX_EXISTING && isBroken(enFlat[k], have[k], code)))
+        (k) => k.startsWith(ONLY_PREFIX) && (!(k in have) || (FORCE && ONLY_PREFIX) || (FIX_EXISTING && isBroken(enFlat[k], have[k], code)))
       );
       if (missing.length === 0) {
         summary.push({ code, missing: 0, filled: 0, failed: 0 });

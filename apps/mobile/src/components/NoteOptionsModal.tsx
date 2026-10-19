@@ -25,6 +25,7 @@ import {
 import { showInAppPaywall } from '../services/revenuecat';
 import { useAuthStore } from '../store/authStore';
 import { useSubscriptionStore } from '../store/subscriptionStore';
+import { useTranslation } from 'react-i18next';
 
 interface NoteOptionsModalProps {
   visible: boolean;
@@ -66,6 +67,7 @@ export const NoteOptionsModal: React.FC<NoteOptionsModalProps> = ({
   hasAudioSource = false,
 }) => {
   // 1. Grab the stores
+  const { t } = useTranslation();
   const hasAccess = useSubscriptionStore((s) => s.hasAccess);
   const user = useAuthStore((s) => s.user);
 
@@ -115,7 +117,7 @@ export const NoteOptionsModal: React.FC<NoteOptionsModalProps> = ({
 
               {/* Header */}
               <View style={styles.header}>
-                <Text style={styles.headerTitle}>Note options</Text>
+                <Text style={styles.headerTitle}>{t('components.noteOptions.noteOptions')}</Text>
                 <TouchableOpacity
                   onPress={onClose}
                   style={styles.closeButton}
@@ -130,41 +132,41 @@ export const NoteOptionsModal: React.FC<NoteOptionsModalProps> = ({
                 {onEditNote && (
                   <OptionItem
                     icon={<EditNoteIcon size={40} />}
-                    label="Edit note"
+                    label={t('components.noteOptions.editNote')}
                     onPress={onEditNote}
                   />
                 )}
                 {hasAudioSource && onReTranscribe && (
                   <OptionItem
                     icon={<TranscribeIcon size={40} />}
-                    label="Re-transcribe"
+                    label={t('components.noteOptions.reTranscribe')}
                     onPress={onReTranscribe}
                   />
                 )}
                 {onChatWithNote && (
                   <OptionItem
                     icon={<ChatWithNoteIcon size={40} />}
-                    label="Chat with note"
+                    label={t('components.noteOptions.chatWithNote')}
                     onPress={handleChatPress}
                   />
                 )}
                 {onExportNote && (
                   <OptionItem
                     icon={<ExportIcon size={40} />}
-                    label="Export note"
+                    label={t('components.noteOptions.exportNote')}
                     onPress={onExportNote}
                   />
                 )}
                 {onMoveToFolder && (
                   <OptionItem
                     icon={<FolderIcon size={40} color={colors.slate[500]} />}
-                    label="Move to folder"
+                    label={t('components.noteOptions.moveToFolder')}
                     onPress={onMoveToFolder}
                   />
                 )}
                 <OptionItem
                   icon={<DeleteIcon size={40} />}
-                  label="Delete note"
+                  label={t('components.noteOptions.deleteNote')}
                   onPress={onDeleteNote}
                   isDestructive
                 />

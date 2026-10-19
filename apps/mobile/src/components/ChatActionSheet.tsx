@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { colors, spacing, typography } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface ChatActionSheetProps {
   visible: boolean;
@@ -24,6 +25,7 @@ export const ChatActionSheet: React.FC<ChatActionSheetProps> = ({
   onDelete,
   onTogglePin,
 }) => {
+  const { t } = useTranslation();
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <TouchableWithoutFeedback onPress={onClose}>
@@ -35,17 +37,17 @@ export const ChatActionSheet: React.FC<ChatActionSheetProps> = ({
               {onTogglePin && (
                 <>
                   <TouchableOpacity style={styles.row} onPress={onTogglePin} activeOpacity={0.6}>
-                    <Text style={styles.pinText}>{isPinned ? 'Unpin chat' : 'Pin chat'}</Text>
+                    <Text style={styles.pinText}>{isPinned ? t('components.chatActionSheet.unpinChat') : t('components.chatActionSheet.pinChat')}</Text>
                   </TouchableOpacity>
                   <View style={styles.divider} />
                 </>
               )}
               <TouchableOpacity style={styles.row} onPress={onDelete} activeOpacity={0.6}>
-                <Text style={styles.deleteText}>Delete chat</Text>
+                <Text style={styles.deleteText}>{t('components.chatActionSheet.deleteChat')}</Text>
               </TouchableOpacity>
               <View style={styles.divider} />
               <TouchableOpacity style={styles.row} onPress={onClose} activeOpacity={0.6}>
-                <Text style={styles.cancelText}>Cancel</Text>
+                <Text style={styles.cancelText}>{t('common.cancel')}</Text>
               </TouchableOpacity>
             </View>
           </TouchableWithoutFeedback>

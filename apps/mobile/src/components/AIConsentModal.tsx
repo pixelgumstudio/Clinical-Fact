@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { colors, spacing, typography } from '@clinicalfact/design-system';
+import { Trans, useTranslation } from 'react-i18next';
 
 interface AIConsentModalProps {
   visible: boolean;
@@ -16,6 +17,7 @@ interface AIConsentModalProps {
 }
 
 export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalProps) => {
+  const { t } = useTranslation();
   return (
     <Modal
       visible={visible}
@@ -27,38 +29,38 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
         <View style={styles.sheet}>
           {/* Header */}
           <View style={styles.handle} />
-          <Text style={styles.title}>Before we process your content</Text>
+          <Text style={styles.title}>{t('components.aiConsent.beforeWeProcessYourContent')}</Text>
           <Text style={styles.subtitle}>
-            Clinical Fact uses AI to answer your questions and turn your content into notes, quizzes, and flashcards. Here's what you need to know:
+           {t('components.aiConsent.clinicalFactUsesAIToAnswer')}
           </Text>
 
           <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
             {/* Data sent */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>What data is sent</Text>
+              <Text style={styles.sectionTitle}>{t('components.aiConsent.whatDataIsSent')}</Text>
               <View style={styles.bulletList}>
-                <BulletItem text="Questions and messages you type in chat" />
-                <BulletItem text="Audio recordings or uploaded audio files" />
-                <BulletItem text="PDF and text documents you upload" />
-                <BulletItem text="Images you upload" />
-                <BulletItem text="YouTube video URLs and their transcripts" />
-                <BulletItem text="Custom text you enter" />
+                <BulletItem text={t('components.aiConsent.questionsAndMessagesYouTypeIn')} />
+                <BulletItem text={t('components.aiConsent.audioRecordingsOrUploadedAudioFiles')} />
+                <BulletItem text={t('components.aiConsent.pdfAndTextDocumentsYouUpload')} />
+                <BulletItem text={t('components.aiConsent.imagesYouUpload')} />
+                <BulletItem text={t('components.aiConsent.youTubeVideoURLsAndTheirTranscripts')} />
+                <BulletItem text={t('components.aiConsent.customTextYouEnter')} />
               </View>
             </View>
 
             {/* Who receives it */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Who receives your data</Text>
+              <Text style={styles.sectionTitle}>{t('components.aiConsent.whoReceivesYourData')}</Text>
               <Text style={styles.sectionBody}>
-                Your content is sent to <Text style={styles.bold}>OpenAI</Text> (note, quiz, and flashcard generation; transcription; document and image processing) and <Text style={styles.bold}>Groq</Text> (chat responses) via our secure backend servers. When live medical search is used, your question is also sent to <Text style={styles.bold}>Tavily</Text> to find citations from trusted sources like NIH, CDC, MedlinePlus, WHO, and Mayo Clinic. These providers process your data only to generate your answer — they do not use it to train their own general-purpose AI models, and we do not sell your data to any third party.
+                <Trans i18nKey="components.aiConsent.whoReceivesBody" components={{ bold: <Text style={styles.bold} /> }} />
               </Text>
             </View>
 
             {/* How it's used */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>How it's used</Text>
+              <Text style={styles.sectionTitle}>{t('components.aiConsent.howItSUsed')}</Text>
               <Text style={styles.sectionBody}>
-                Your content is used solely to generate the answer, note, quiz, or flashcards you requested. Each provider's own data usage policies apply to content processed through their API. For more details, see our Privacy Policy.
+               {t('components.aiConsent.yourContentIsUsedSolelyTo')}
               </Text>
             </View>
           </ScrollView>
@@ -66,10 +68,10 @@ export const AIConsentModal = ({ visible, onAccept, onDecline }: AIConsentModalP
           {/* Actions */}
           <View style={styles.actions}>
             <TouchableOpacity style={styles.agreeButton} onPress={onAccept} activeOpacity={0.85}>
-              <Text style={styles.agreeText}>I Agree — Continue</Text>
+              <Text style={styles.agreeText}>{t('components.aiConsent.iAgreeContinue')}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.declineButton} onPress={onDecline} activeOpacity={0.85}>
-              <Text style={styles.declineText}>No Thanks</Text>
+              <Text style={styles.declineText}>{t('components.aiConsent.noThanks')}</Text>
             </TouchableOpacity>
           </View>
         </View>

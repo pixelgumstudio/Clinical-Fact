@@ -16,6 +16,7 @@ import { colors, Icon, theme } from "@clinicalfact/design-system";
 import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
 import { PoweredByFooter } from "../../components/PoweredByFooter";
+import { useTranslation } from 'react-i18next';
 
 type CustomTextNavigationProp = NativeStackNavigationProp<
   MainStackParamList,
@@ -24,6 +25,7 @@ type CustomTextNavigationProp = NativeStackNavigationProp<
 type CustomTextRouteProp = RouteProp<MainStackParamList, "CustomTextInput">;
 
 export const CustomTextInputScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<CustomTextNavigationProp>();
   const route = useRoute<CustomTextRouteProp>();
   const { withAccess } = useGatedFeature();
@@ -75,18 +77,18 @@ export const CustomTextInputScreen = () => {
           </View>
 
           {/* Title */}
-          <Text style={styles.title}>Custom text</Text>
+          <Text style={styles.title}>{t('create.customTextInput.customText')}</Text>
           <Text style={styles.subtitle}>
-            Create a note from any custom text
+           {t('create.customTextInput.createANoteFromAnyCustom')}
           </Text>
 
           {/* Text Input Area */}
           <View style={styles.inputSection}>
-            <Text style={styles.inputLabel}>Enter Text</Text>
+            <Text style={styles.inputLabel}>{t('create.customTextInput.enterText')}</Text>
             <View style={styles.textInputContainer}>
               <TextInput
                 style={styles.textInput}
-                placeholder="Enter your text here..."
+                placeholder={t('create.customTextInput.enterYourTextHere')}
                 placeholderTextColor={theme.colors.grey[300]}
                 value={text}
                 onChangeText={setText}
@@ -109,7 +111,7 @@ export const CustomTextInputScreen = () => {
             disabled={!hasContent}
             activeOpacity={0.8}
           >
-            <Text style={styles.continueButtonText}>Continue</Text>
+            <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

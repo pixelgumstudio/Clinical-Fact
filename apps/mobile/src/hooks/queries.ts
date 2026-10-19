@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import api from '../services/api';
 import { useAuthStore } from '../store/authStore';
+import { useTranslation } from 'react-i18next';
 
 // ── Query Keys ──────────────────────────────────────────────────────────────
 // userId is always the second segment so cached data is never shared across accounts.
@@ -20,12 +21,13 @@ export const useNotes = (params?: {
   limit?: number;
   page?: number;
 }) => {
+  const { t } = useTranslation();
   const userId = useAuthStore(state => state.user?.id ?? '');
   return useQuery({
     queryKey: queryKeys.notes(userId, params),
     queryFn: async () => {
       const res = await api.getNotes({ limit: params?.limit, page: 1, ...params });
-      if (!res.success) throw new Error(res.message || 'Failed to fetch notes');
+      if (!res.success) throw new Error(res.message || t('hooks.queries.failedToFetchNotes'));
       return (res.data?.notes as any[]) ?? [];
     },
     staleTime: 5 * 60 * 1000,
@@ -39,12 +41,13 @@ export const useNotes = (params?: {
 };
 
 export const useFolders = (folderType: 'note' | 'chat' = 'note') => {
+  const { t } = useTranslation();
   const userId = useAuthStore(state => state.user?.id ?? '');
   return useQuery({
     queryKey: queryKeys.folders(userId, folderType),
     queryFn: async () => {
       const res = await api.getFolders({ folderType });
-      if (!res.success) throw new Error(res.message || 'Failed to fetch folders');
+      if (!res.success) throw new Error(res.message || t('hooks.queries.failedToFetchFolders'));
       return Array.isArray(res.data) ? (res.data as any[]) : [];
     },
     staleTime: 5 * 60 * 1000,
@@ -58,12 +61,13 @@ export const useFolders = (folderType: 'note' | 'chat' = 'note') => {
 };
 
 export const useNote = (noteId: string) => {
+  const { t } = useTranslation();
   const userId = useAuthStore(state => state.user?.id ?? '');
   return useQuery({
     queryKey: queryKeys.note(userId, noteId),
     queryFn: async () => {
       const res = await api.getNoteById(noteId);
-      if (!res.success) throw new Error(res.message || 'Failed to fetch note');
+      if (!res.success) throw new Error(res.message || t('hooks.queries.failedToFetchNote'));
       return res.data;
     },
     staleTime: 5 * 60 * 1000,
@@ -100,13 +104,14 @@ export const useInvalidateNotes = () => {
  * folder's itemCount in the folders cache. Rolls back on server error.
  */
 export const useDeleteNote = () => {
+  const { t } = useTranslation();
   const qc = useQueryClient();
   const userId = useAuthStore(state => state.user?.id ?? '');
 
   return useMutation({
     mutationFn: (noteId: string) =>
       api.deleteNote(noteId).then((res) => {
-        if (!res.success) throw new Error(res.message || 'Failed to delete note');
+        if (!res.success) throw new Error(res.message || t('hooks.queries.failedToDeleteNote'));
         return res;
       }),
 
@@ -185,6 +190,7 @@ export const useDeleteNote = () => {
  * Uses a fetchId ref to discard stale responses when params change mid-flight.
  */
 export const useNotesPaginated = (params?: { folderId?: string; limit?: number }) => {
+  const { t } = useTranslation();
   const userId = useAuthStore(state => state.user?.id ?? '');
   const limit = params?.limit ?? 15;
   const folderId = params?.folderId;
@@ -210,7 +216,7 @@ export const useNotesPaginated = (params?: { folderId?: string; limit?: number }
           ...(folderId ? { folderId } : {}),
         });
         if (fetchId !== fetchIdRef.current) return; // stale — a newer request won
-        if (!res.success) throw new Error(res.message ?? 'Failed to fetch notes');
+        if (!res.success) throw new Error(res.message ?? t('hooks.queries.failedToFetchNotes'));
 
         const newNotes = (res.data?.notes ?? []) as any[];
         const pagination = res.data?.pagination;
@@ -266,6 +272,7 @@ export const useNotesPaginated = (params?: { folderId?: string; limit?: number }
 // ── Folder Mutations ─────────────────────────────────────────────────────────
 
 export const useAddFolder = () => {
+  const { t } = useTranslation();
   const qc = useQueryClient();
   const userId = useAuthStore(state => state.user?.id ?? '');
   return useMutation({
@@ -275,7 +282,7 @@ export const useAddFolder = () => {
       folderType?: 'note' | 'chat';
     }) =>
       api.createFolder({ name, color, folderType }).then(res => {
-        if (!res.success) throw new Error(res.message || 'Failed to create folder');
+        if (!res.success) throw new Error(res.message || t('hooks.queries.failedToCreateFolder'));
         return res;
       }),
     onSuccess: () => {
@@ -286,12 +293,13 @@ export const useAddFolder = () => {
 };
 
 export const useDeleteFolder = () => {
+  const { t } = useTranslation();
   const qc = useQueryClient();
   const userId = useAuthStore(state => state.user?.id ?? '');
   return useMutation({
     mutationFn: (id: string) =>
       api.deleteFolder(id).then(res => {
-        if (!res.success) throw new Error(res.message || 'Failed to delete folder');
+        if (!res.success) throw new Error(res.message || t('hooks.queries.failedToDeleteFolder'));
         return res;
       }),
     onSuccess: () => {

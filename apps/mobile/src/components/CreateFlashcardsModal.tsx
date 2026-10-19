@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { Icon, theme, colors } from "@clinicalfact/design-system";
 import { CounterInput } from "./CounterInput";
+import { useTranslation } from 'react-i18next';
 
 interface CreateFlashcardsModalProps {
   visible: boolean;
@@ -29,6 +30,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
   isGenerating = false,
   noteTitle,
 }) => {
+  const { t } = useTranslation();
   const [questionCount, setQuestionCount] = useState(3);
 
   const handleGenerate = () => {
@@ -57,7 +59,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                   <Icon name="close" size={20} color={theme.colors.grey[900]} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle} numberOfLines={1}>
-                  Generate flashcards
+                 {t('components.createFlashcards.generateFlashcards')}
                 </Text>
                 <View style={styles.closeButton} />
               </View>
@@ -70,16 +72,16 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                 </View>
 
                 {/* Title */}
-                <Text style={styles.title}>Create Flashcards</Text>
+                <Text style={styles.title}>{t('components.createFlashcards.createFlashcards')}</Text>
                 <Text style={styles.subtitle}>
                   {noteTitle
-                    ? `Create flashcards from "${noteTitle}" to improve your retention skills`
-                    : 'Create flashcards to improve your retention skills'}
+                    ? t('components.createFlashcards.createFlashcardsFromToImproveYour', { noteTitle })
+                    : t('components.createFlashcards.createFlashcardsToImproveYourRetention')}
                 </Text>
 
                 {/* Question Count Selector */}
                 <View style={styles.selectorContainer}>
-                  <Text style={styles.selectorLabel}>How many questions</Text>
+                  <Text style={styles.selectorLabel}>{t('components.createFlashcards.howManyQuestions')}</Text>
                   <CounterInput
                     value={questionCount}
                     onChange={setQuestionCount}
@@ -99,7 +101,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                   {isGenerating ? (
                     <ActivityIndicator size="small" color={colors.white} />
                   ) : (
-                    <Text style={styles.generateButtonText}>Generate Flashcards</Text>
+                    <Text style={styles.generateButtonText}>{t('components.createFlashcards.generateFlashcards2')}</Text>
                   )}
                 </TouchableOpacity>
               </View>

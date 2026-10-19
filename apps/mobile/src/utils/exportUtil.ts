@@ -1,6 +1,7 @@
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { Alert } from 'react-native';
+import i18n from '../i18n';
 
 export interface ExportOptions {
   title: string;
@@ -57,12 +58,12 @@ export async function handleExportFile(
         dialogTitle: `Export ${title}`,
       });
     } else {
-      Alert.alert('Success', `File exported: ${filename}`);
+      Alert.alert(i18n.t('common.success'), i18n.t('utils.exportUtil.fileExported', { filename }));
     }
   } catch (error) {
     console.error('Export error:', error);
     const errorMessage = error instanceof Error ? error.message : String(error);
-    Alert.alert('Export Failed', errorMessage);
+    Alert.alert(i18n.t('utils.exportUtil.exportFailed'), errorMessage);
   }
 }
 
@@ -74,19 +75,19 @@ export async function handleExportFile(
 export async function selectExportFormat(): Promise<'pdf' | 'txt'> {
   return new Promise((resolve) => {
     Alert.alert(
-      'Export Format',
-      'Choose format',
+      i18n.t('utils.exportUtil.exportFormat'),
+      i18n.t('utils.exportUtil.chooseFormat'),
       [
         {
           text: 'PDF',
           onPress: () => resolve('pdf'),
         },
         {
-          text: 'Text',
+          text: i18n.t('utils.exportUtil.text'),
           onPress: () => resolve('txt'),
         },
         {
-          text: 'Cancel',
+          text: i18n.t('common.cancel'),
           onPress: () => resolve('pdf'), // Default to PDF
           style: 'cancel',
         },

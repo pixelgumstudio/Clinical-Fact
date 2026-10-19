@@ -3,8 +3,10 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { Alert } from 'react-native';
 import api from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 export const useExportQuiz = () => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -50,7 +52,7 @@ export const useExportQuiz = () => {
       });
 
       // Show success alert
-      Alert.alert('Success', 'Quiz exported successfully!');
+      Alert.alert(t('common.success'), t('hooks.useExportQuiz.quizExportedSuccessfully'));
 
       // Open share dialog if requested
       if (openShareDialog) {
@@ -68,7 +70,7 @@ export const useExportQuiz = () => {
       setIsLoading(false);
     } catch (err: any) {
       console.error('Export error:', err);
-      let errorMessage = 'Failed to export quiz.';
+      let errorMessage = t('hooks.useExportQuiz.failedToExportQuiz');
 
       if (err.message?.includes('network') || err.message?.includes('timeout')) {
         errorMessage = 'Failed to export. Check your connection.';

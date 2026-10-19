@@ -4,6 +4,7 @@ import { onboardingSteps } from '../config/onboardingConfig';
 import { OnboardingTooltip } from './OnboardingTooltip';
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { useTranslation } from 'react-i18next';
 
 type TabParamList = {
   Home: undefined;
@@ -14,6 +15,7 @@ type TabParamList = {
 };
 
 export const OnboardingOverlay: React.FC = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<BottomTabNavigationProp<TabParamList>>();
   const {
     isOnboardingActive,
@@ -69,8 +71,8 @@ export const OnboardingOverlay: React.FC = () => {
   return (
     <OnboardingTooltip
       visible={isOnboardingActive}
-      heading={currentStepConfig.heading}
-      description={currentStepConfig.description}
+      heading={t(currentStepConfig.headingKey)}
+      description={t(currentStepConfig.descriptionKey)}
       isLastStep={isLastStep}
       onNext={handleNext}
       onSkip={handleSkip}
