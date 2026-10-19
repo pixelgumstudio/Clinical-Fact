@@ -1,7 +1,9 @@
-import Purchases, { LOG_LEVEL } from 'react-native-purchases';
+import Purchases, { LOG_LEVEL, PurchasesOffering } from 'react-native-purchases';
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 import { Alert, Platform } from 'react-native';
 import i18n from '../i18n';
+import { navigationRef } from '../navigation/navigationRef';
+import { PaywallOutcome, startPaywallSession } from './paywallSession';
 
 const RC_API_KEY_IOS     = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS     ?? '';
 const RC_API_KEY_ANDROID = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID ?? '';
@@ -144,51 +146,75 @@ function notifyPaywallUnavailable(offeringId: PaywallOffering): void {
   );
 }
 
+/** The RevenueCat offering to show for a paywall name, or null (after logging, and telling the user
+ *  for a paywall they asked for) when none with purchasable packages exists. */
+export async function getPaywallOffering(offeringId: PaywallOffering): Promise<PurchasesOffering | null> {
+  const offerings = await Purchases.getOfferings();
+  const offeringKey = OFFERING_IDS[offeringId];
+  let offering: PurchasesOffering | undefined = offerings.all[offeringKey];
+
+  // An offering that exists but has no purchasable packages for this store (e.g. the Google
+  // Play products were never attached to it) can't render a paywall — use the current offering
+  // so the user still sees one, and log which dashboard entry needs fixing.
+  if (!offering || offering.availablePackages.length === 0) {
+    console.warn(
+      `[RC] Offering "${offeringKey}" ${offering ? 'has no packages for this store' : 'was not in Purchases.getOfferings()'}. ` +
+      `Available offerings: ${Object.keys(offerings.all).join(', ') || '(none)'}`
+    );
+    const current = offerings.current;
+    offering = current && current.availablePackages.length > 0 ? current : undefined;
+  }
+
+  if (!offering) {
+    console.error(`[RC] No offering with packages is available for "${offeringId}" — cannot show a paywall.`);
+    notifyPaywallUnavailable(offeringId);
+    return null;
+  }
+  return offering;
+}
+
+/** True when the user already has the Pro entitlement (so no paywall is needed). */
+export async function hasProEntitlement(): Promise<boolean> {
+  const info = await Purchases.getCustomerInfo();
+  return !!info.entitlements.active[ENTITLEMENT_ID];
+}
+
 export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'): Promise<boolean> {
   try {
-    const offerings = await Purchases.getOfferings();
-    const offeringKey = OFFERING_IDS[offeringId];
-    let offering = offerings.all[offeringKey];
+    const offering = await getPaywallOffering(offeringId);
+    if (!offering) return false;
 
-    // An offering that exists but has no purchasable packages for this store (e.g. the Google
-    // Play products were never attached to it) can't render a paywall — use the current offering
-    // so the user still sees one, and log which dashboard entry needs fixing.
-    if (!offering || offering.availablePackages.length === 0) {
-      console.warn(
-        `[RC] Offering "${offeringKey}" ${offering ? 'has no packages for this store' : 'was not in Purchases.getOfferings()'}. ` +
-        `Available offerings: ${Object.keys(offerings.all).join(', ') || '(none)'}`
-      );
-      const current = offerings.current;
-      offering = current && current.availablePackages.length > 0 ? current : (undefined as any);
+    // Already has access — nothing to show. Not an error.
+    if (await hasProEntitlement()) return true;
+
+    // The paywall is a full-page screen in the main stack. Before the navigator exists (or outside
+    // the signed-in app) fall back to RevenueCat's own presentation so a gate is never a dead end.
+    let outcome: PaywallOutcome;
+    if (navigationRef.isReady()) {
+      const finished = startPaywallSession(offering);
+      navigationRef.navigate('Paywall');
+      outcome = await finished;
+    } else {
+      const result = await RevenueCatUI.presentPaywallIfNeeded({
+        requiredEntitlementIdentifier: ENTITLEMENT_ID,
+        offering,
+      });
+      outcome =
+        result === PAYWALL_RESULT.PURCHASED ? 'purchased'
+        : result === PAYWALL_RESULT.RESTORED || result === PAYWALL_RESULT.NOT_PRESENTED ? 'restored'
+        : result === PAYWALL_RESULT.ERROR ? 'error'
+        : 'cancelled';
     }
 
-    if (!offering) {
-      console.error(`[RC] No offering with packages is available for "${offeringId}" — cannot show a paywall.`);
+    if (outcome === 'purchased' || outcome === 'restored') return true;
+
+    if (outcome === 'error') {
+      console.error(`[RC] Paywall for "${OFFERING_IDS[offeringId]}" failed (outcome: error).`);
       notifyPaywallUnavailable(offeringId);
       return false;
     }
 
-    const result = await RevenueCatUI.presentPaywallIfNeeded({
-      requiredEntitlementIdentifier: ENTITLEMENT_ID,
-      offering,
-    });
-
-    if (result === PAYWALL_RESULT.NOT_PRESENTED) {
-      // Already has access — RevenueCat skipped showing anything. Not an error.
-      return true;
-    }
-
-    if (result === PAYWALL_RESULT.PURCHASED || result === PAYWALL_RESULT.RESTORED) {
-      return true;
-    }
-
-    if (result === PAYWALL_RESULT.ERROR) {
-      console.error(`[RC] Paywall for "${offeringKey}" failed to present (PAYWALL_RESULT.ERROR).`);
-      notifyPaywallUnavailable(offeringId);
-      return false;
-    }
-
-    // CANCELLED. For an offering that's eligible for a follow-up, give the user
+    // Closed without buying. For an offering that's eligible for a follow-up, give the user
     // a short beat before re-approaching with the cheaper one-time "exit offer" — showing
     // it instantly, right on the heels of a dismissal, reads as pushy.
     if (EXIT_OFFER_ELIGIBLE.has(offeringId)) {
