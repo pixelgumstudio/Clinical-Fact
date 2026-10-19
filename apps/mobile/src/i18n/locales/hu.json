@@ -196,7 +196,13 @@
       "preparingFlashcards": "Kártyák előkészítése",
       "preparingQuiz": "Kvíz sablonok előkészítése",
       "preparingChat": "Chat asszisztensek felkészítése",
-      "title": "Személyre szabott munkaterület beállítása, {{firstName}}..."
+      "title": "Személyre szabott munkaterület beállítása, {{firstName}}...",
+      "itemResearch": "Orvosi kutatások előkészítése",
+      "itemQuizFlashcards": "Kvízek és tanulókártyák előkészítése a tanuláshoz",
+      "itemEvidence": "Bizonyítékokon alapuló válaszok előkészítése valódi hivatkozásokkal",
+      "itemExams": "Orvosi szakvizsga-keresések előkészítése",
+      "failedSignup": "A regisztráció nem sikerült",
+      "failedSetup": "A beállítás nem sikerült. Kérjük, próbáld újra."
     },
     "thanks": {
       "title": "Köszönjük, hogy megbízol a Clinical Factben 🎧",

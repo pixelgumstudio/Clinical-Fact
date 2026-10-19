@@ -196,7 +196,13 @@
       "preparingFlashcards": "הכנת כרטיסיות",
       "preparingQuiz": "הכנת תבניות חידון",
       "preparingChat": "הכנת עוזרי צ'אט",
-      "title": "הגדרת סביבת עבודה מותאמת אישית, {{firstName}}..."
+      "title": "הגדרת סביבת עבודה מותאמת אישית, {{firstName}}...",
+      "itemResearch": "מגדיר מחקר רפואי",
+      "itemQuizFlashcards": "מגדיר בחנים וכרטיסיות ללמידה",
+      "itemEvidence": "מגדיר תשובות מבוססות-ראיות עם ציטוטים אמיתיים",
+      "itemExams": "מגדיר חיפושים למבחני רישוי רפואיים",
+      "failedSignup": "ההרשמה נכשלה",
+      "failedSetup": "ההגדרה נכשלה. יש לנסות שוב."
     },
     "thanks": {
       "title": "תודה על האמון ב-Clinical Fact 🎧",

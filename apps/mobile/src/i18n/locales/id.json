@@ -239,7 +239,13 @@
       "preparingFlashcards": "Menyiapkan Flashcard",
       "preparingQuiz": "Menyiapkan templat kuis",
       "preparingChat": "Menyiapkan asisten Chat",
-      "title": "Menyiapkan ruang belajar personalmu,\\n{{firstName}}..."
+      "title": "Menyiapkan ruang belajar personalmu,\\n{{firstName}}...",
+      "itemResearch": "Menyiapkan riset medis",
+      "itemQuizFlashcards": "Menyiapkan kuis & flashcard belajar",
+      "itemEvidence": "Menyiapkan jawaban berbasis bukti dengan sitasi nyata",
+      "itemExams": "Menyiapkan pencarian ujian lisensi medis",
+      "failedSignup": "Gagal menyelesaikan pendaftaran",
+      "failedSetup": "Gagal menyelesaikan penyiapan. Silakan coba lagi."
     },
     "thanks": {
       "title": "Terima kasih telah memercayai Clinical Fact",

@@ -196,7 +196,13 @@
       "preparingFlashcards": "Preparació de targetes didàctiques",
       "preparingQuiz": "Preparació de plantilles de qüestionaris",
       "preparingChat": "Preparació dels assistents de xat",
-      "title": "Configurant el teu espai de treball personalitzat, {{firstName}}..."
+      "title": "Configurant el teu espai de treball personalitzat, {{firstName}}...",
+      "itemResearch": "Configurant la recerca mèdica",
+      "itemQuizFlashcards": "Preparant qüestionaris i flashcards d'estudi",
+      "itemEvidence": "Configurant respostes basades en l'evidència amb cites reals",
+      "itemExams": "Configurant les cerques per a exàmens oficials de medicina",
+      "failedSignup": "No s'ha pogut completar el registre",
+      "failedSetup": "No s'ha pogut completar la configuració. Torna-ho a provar."
     },
     "thanks": {
       "title": "Gràcies per confiar en Clinical Fact 🎧",

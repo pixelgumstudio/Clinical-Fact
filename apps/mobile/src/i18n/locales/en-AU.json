@@ -238,7 +238,13 @@
       "preparingFlashcards": "Preparing Flashcards",
       "preparingQuiz": "Preparing Quiz templates",
       "preparingChat": "Preparing Chat assistants",
-      "title": "Setting up your personalised\\nworkspace, {{firstName}}..."
+      "title": "Setting up your personalised\\nworkspace, {{firstName}}...",
+      "itemResearch": "Setting up medical research",
+      "itemQuizFlashcards": "Setting up quizzes & flashcards for study",
+      "itemEvidence": "Setting up evidence-based answers with real citations",
+      "itemExams": "Setting up medical licensing exam searches",
+      "failedSignup": "Failed to complete signup",
+      "failedSetup": "Failed to complete setup. Please try again."
     },
     "thanks": {
       "title": "Thanks for trusting Clinical Fact",

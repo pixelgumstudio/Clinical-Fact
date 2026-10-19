@@ -239,7 +239,13 @@
       "preparingFlashcards": "Förbereder flashcards",
       "preparingQuiz": "Förbereder quizmallar",
       "preparingChat": "Förbereder chattassistenter",
-      "title": "Skapar din personliga\\narbetsyta, {{firstName}}..."
+      "title": "Skapar din personliga\\narbetsyta, {{firstName}}...",
+      "itemResearch": "Förbereder medicinsk forskning",
+      "itemQuizFlashcards": "Förbereder quiz och flashcards för studier",
+      "itemEvidence": "Förbereder evidensbaserade svar med riktiga källhänvisningar",
+      "itemExams": "Förbereder sökningar för legitimationsprov",
+      "failedSignup": "Det gick inte att slutföra registreringen",
+      "failedSetup": "Det gick inte att slutföra konfigurationen. Försök igen."
     },
     "thanks": {
       "title": "Tack för att du litar på Clinical Fact",

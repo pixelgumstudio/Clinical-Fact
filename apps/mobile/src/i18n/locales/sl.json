@@ -196,7 +196,13 @@
       "preparingFlashcards": "Priprava kartic",
       "preparingQuiz": "Priprava predlog za kviz",
       "preparingChat": "Priprava pomočnikov za klepet",
-      "title": "Nastavitev vašega prilagojenega delovnega prostora, {{firstName}} ..."
+      "title": "Nastavitev vašega prilagojenega delovnega prostora, {{firstName}} ...",
+      "itemResearch": "Priprava medicinskih raziskav",
+      "itemQuizFlashcards": "Priprava kvizov in kartic za učenje",
+      "itemEvidence": "Priprava na dokazih temelječih odgovorov z navedbami virov",
+      "itemExams": "Priprava iskanja za strokovne izpite",
+      "failedSignup": "Registracije ni bilo mogoče dokončati",
+      "failedSetup": "Nastavitve ni bilo mogoče dokončati. Poskusite znova."
     },
     "thanks": {
       "title": "Hvala, ker zaupate Clinical Factu 🎧",

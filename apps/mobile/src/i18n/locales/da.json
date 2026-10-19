@@ -196,7 +196,13 @@
       "preparingFlashcards": "Forberedelse af flashcards",
       "preparingQuiz": "Forberedelse af quizskabeloner",
       "preparingChat": "Forbereder chatassistenter",
-      "title": "Opsætning af dit personlige arbejdsområde, {{firstName}}..."
+      "title": "Opsætning af dit personlige arbejdsområde, {{firstName}}...",
+      "itemResearch": "Klargør medicinsk forskning",
+      "itemQuizFlashcards": "Klargør quizzer og flashcards til læring",
+      "itemEvidence": "Klargør evidensbaserede svar med kildehenvisninger",
+      "itemExams": "Klargør søgninger til medicinske autorisationseksamener",
+      "failedSignup": "Kunne ikke fuldføre oprettelsen",
+      "failedSetup": "Kunne ikke fuldføre opsætningen. Prøv venligst igen."
     },
     "thanks": {
       "title": "Tak for din tillid til Clinical Fact 🎧",

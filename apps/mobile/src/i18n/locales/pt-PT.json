@@ -239,7 +239,13 @@
       "preparingFlashcards": "A preparar Flashcards",
       "preparingQuiz": "A preparar modelos de questionário",
       "preparingChat": "A preparar assistentes de Chat",
-      "title": "A configurar a tua área\\nde trabalho, {{firstName}}..."
+      "title": "A configurar a tua área\\nde trabalho, {{firstName}}...",
+      "itemResearch": "A configurar a investigação médica",
+      "itemQuizFlashcards": "A preparar quizzes e flashcards de estudo",
+      "itemEvidence": "A preparar respostas baseadas em evidência com citações reais",
+      "itemExams": "A configurar a pesquisa de exames médicos",
+      "failedSignup": "Não foi possível concluir o registo",
+      "failedSetup": "Não foi possível concluir a configuração. Tenta novamente."
     },
     "thanks": {
       "title": "Obrigado por confiares no Clinical Fact",

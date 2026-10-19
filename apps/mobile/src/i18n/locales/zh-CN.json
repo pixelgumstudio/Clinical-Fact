@@ -239,7 +239,13 @@
       "preparingFlashcards": "正在准备抽认卡",
       "preparingQuiz": "正在准备测验模板",
       "preparingChat": "正在准备对话助手",
-      "title": "正在为你配置个性化\\n工作空间，{{firstName}}..."
+      "title": "正在为你配置个性化\\n工作空间，{{firstName}}...",
+      "itemResearch": "正在配置医学文献与研究",
+      "itemQuizFlashcards": "正在准备测验与记忆卡片",
+      "itemEvidence": "正在配置含真实引用的循证解答",
+      "itemExams": "正在配置执业资格考试题库搜索",
+      "failedSignup": "注册未完成",
+      "failedSetup": "配置未完成，请重试。"
     },
     "thanks": {
       "title": "感谢你对 Clinical Fact 的信任",

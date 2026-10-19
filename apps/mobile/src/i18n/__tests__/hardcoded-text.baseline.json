@@ -1,13 +1,1 @@
-[
-  "screens/auth/SetupScreen.tsx|alert|Error",
-  "screens/auth/SetupScreen.tsx|alert|Error",
-  "screens/auth/SetupScreen.tsx|alert|Failed to complete setup. Please try again.",
-  "screens/auth/SetupScreen.tsx|cond|Failed to complete signup",
-  "screens/auth/SetupScreen.tsx|jsx|Continue",
-  "screens/auth/SetupScreen.tsx|jsx|Setting up your personalised",
-  "screens/auth/SetupScreen.tsx|jsx|workspace,",
-  "screens/auth/SetupScreen.tsx|obj:label|Setting up Evidence based answers with real citations",
-  "screens/auth/SetupScreen.tsx|obj:label|Setting up Medical research or research",
-  "screens/auth/SetupScreen.tsx|obj:label|Setting up Quiz & Flashcards for study operations",
-  "screens/auth/SetupScreen.tsx|obj:label|Setting up medical license exam searches for research"
-]
+[]

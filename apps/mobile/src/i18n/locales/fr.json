@@ -239,7 +239,13 @@
       "preparingFlashcards": "Préparation des flashcards",
       "preparingQuiz": "Préparation des modèles de quiz",
       "preparingChat": "Préparation des assistants de discussion",
-      "title": "Configuration de votre espace\\npersonnalisé, {{firstName}}..."
+      "title": "Configuration de votre espace\\npersonnalisé, {{firstName}}...",
+      "itemResearch": "Configuration de la recherche médicale",
+      "itemQuizFlashcards": "Préparation des quiz et flashcards pour vos révisions",
+      "itemEvidence": "Préparation des réponses fondées sur des preuves avec sources réelles",
+      "itemExams": "Configuration de la recherche pour les examens médicaux",
+      "failedSignup": "Impossible de finaliser l'inscription",
+      "failedSetup": "Échec de la configuration. Veuillez réessayer."
     },
     "thanks": {
       "title": "Merci de faire confiance à Clinical Fact",

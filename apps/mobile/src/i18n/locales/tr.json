@@ -239,7 +239,13 @@
       "preparingFlashcards": "Bilgi kartları hazırlanıyor",
       "preparingQuiz": "Test şablonları hazırlanıyor",
       "preparingChat": "Sohbet asistanları hazırlanıyor",
-      "title": "Kişiselleştirilmiş çalışma alanın\\nhazırlanıyor, {{firstName}}..."
+      "title": "Kişiselleştirilmiş çalışma alanın\\nhazırlanıyor, {{firstName}}...",
+      "itemResearch": "Tıbbi araştırmalar hazırlanıyor",
+      "itemQuizFlashcards": "Çalışma testleri ve bilgi kartları hazırlanıyor",
+      "itemEvidence": "Kaynaklı, kanıta dayalı yanıtlar hazırlanıyor",
+      "itemExams": "Tıbbi yeterlilik sınavı aramaları hazırlanıyor",
+      "failedSignup": "Kayıt tamamlanamadı",
+      "failedSetup": "Kurulum tamamlanamadı. Lütfen tekrar deneyin."
     },
     "thanks": {
       "title": "Clinical Fact'e güvendiğin için teşekkürler",

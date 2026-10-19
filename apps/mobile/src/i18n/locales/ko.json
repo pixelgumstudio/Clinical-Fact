@@ -239,7 +239,13 @@
       "preparingFlashcards": "플래시카드 준비 중",
       "preparingQuiz": "퀴즈 템플릿 준비 중",
       "preparingChat": "채팅 어시스턴트 준비 중",
-      "title": "{{firstName}} 님을 위한 맞춤형\\n워크스페이스를 설정하고 있습니다..."
+      "title": "{{firstName}} 님을 위한 맞춤형\\n워크스페이스를 설정하고 있습니다...",
+      "itemResearch": "의학 연구 데이터 설정 중",
+      "itemQuizFlashcards": "학습용 퀴즈 및 플래시카드 설정 중",
+      "itemEvidence": "실제 인용 기반의 근거 중심 답변 설정 중",
+      "itemExams": "의료 면허 시험 검색 설정 중",
+      "failedSignup": "회원가입을 완료하지 못했습니다",
+      "failedSetup": "설정을 완료하지 못했습니다. 다시 시도해 주세요."
     },
     "thanks": {
       "title": "Clinical Fact를 신뢰해 주셔서 감사합니다",
