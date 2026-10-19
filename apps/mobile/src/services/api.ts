@@ -167,6 +167,19 @@ export interface CompleteSignupData {
 
 // --- API Client ---
 
+/** True when a JWT is expired or will be within `marginSeconds`. An unreadable token counts as fine
+ *  (the server decides) so a decoding quirk can never block a request. */
+const isTokenExpiring = (token: string, marginSeconds = 60): boolean => {
+  try {
+    const payload = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    const padded = payload + '='.repeat((4 - (payload.length % 4)) % 4);
+    const { exp } = JSON.parse(atob(padded));
+    return typeof exp === 'number' && exp * 1000 - Date.now() < marginSeconds * 1000;
+  } catch {
+    return false;
+  }
+};
+
 /** Swaps the API's English message for the user's language when it's a known one. */
 const localizeBody = <B,>(body: B): B => {
   if (body && typeof (body as any).message === 'string') {
@@ -225,6 +238,36 @@ class ApiClient {
 
   private async getAuthToken(): Promise<string | null> {
     return getAccessToken();
+  }
+
+  /**
+   * The access token for a streaming connection (chat, job updates). Ordinary requests recover from
+   * an expired token by refreshing and retrying (see request()), but an EventSource connection
+   * can't: it just fails with 401. So a chat message sent after the 1-hour token had expired
+   * failed — and so did every Retry — until some other request happened to refresh it. This
+   * refreshes first when the token is expired or about to be, sharing the one refresh with any
+   * request()-triggered refresh so two never race on the same refresh token.
+   */
+  private async getFreshAuthToken(): Promise<string | null> {
+    const token = await this.getAuthToken();
+    if (!token || !isTokenExpiring(token)) return token;
+    return (await this.refreshTokenShared()) ?? token;
+  }
+
+  private refreshTokenShared(): Promise<string | null> {
+    if (this.isRefreshing) {
+      return new Promise((resolve) => this.refreshQueue.push(resolve));
+    }
+    this.isRefreshing = true;
+    return this.attemptTokenRefresh()
+      .catch(() => null)
+      .then((newToken) => {
+        const waiters = [...this.refreshQueue];
+        this.refreshQueue = [];
+        this.isRefreshing = false;
+        waiters.forEach((cb) => cb(newToken));
+        return newToken;
+      });
   }
 
   private async attemptTokenRefresh(): Promise<string | null> {
@@ -1098,7 +1141,7 @@ class ApiClient {
     };
 
     (async () => {
-      const token = await this.getAuthToken();
+      const token = await this.getFreshAuthToken();
       if (closed) return;
 
       es = new EventSource(`${this.baseUrl}/chat/${sessionId}/message`, {
@@ -1232,7 +1275,7 @@ class ApiClient {
     };
 
     (async () => {
-      const token = await this.getAuthToken();
+      const token = await this.getFreshAuthToken();
       if (closed) return;
 
       const url = token
