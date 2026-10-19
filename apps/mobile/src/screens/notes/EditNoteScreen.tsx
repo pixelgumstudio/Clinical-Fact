@@ -24,6 +24,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useInvalidateNotes } from '../../hooks/queries';
 import { useTranslation } from 'react-i18next';
+import { decodeHtmlEntities } from '../../utils/htmlText';
 
 type EditNoteRouteProp = RouteProp<MainStackParamList, 'EditNote'>;
 type EditNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'EditNote'>;
@@ -31,18 +32,13 @@ type EditNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'Edi
 /** Strip HTML tags and decode common entities to plain text for editing. */
 function htmlToPlainText(html: string): string {
   if (!html) return '';
-  return html
+  const withoutTags = html
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
+    .replace(/<[^>]+>/g, '');
+  return decodeHtmlEntities(withoutTags)
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }

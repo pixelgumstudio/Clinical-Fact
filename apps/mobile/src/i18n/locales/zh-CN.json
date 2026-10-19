@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA 药品与治疗数据"
     },
     "chatCitationsSheet": {
-      "checkCitations": "查看引用来源"
+      "checkCitations": "查看引用来源",
+      "citations": "引文",
+      "fromTheWeb": "网络来源"
     },
     "chatHeader": {
       "readyTapToRename": "就绪 · 点击重命名",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "重命名对话"
+    },
+    "sourcesRow": {
+      "viewSources": "查看来源 ({{total}})"
     }
   },
   "languages": {

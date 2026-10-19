@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "بيانات الأدوية والعلاجات من FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "فحص المراجع"
+      "checkCitations": "فحص المراجع",
+      "citations": "المصادر والمراجع",
+      "fromTheWeb": "من الويب"
     },
     "chatHeader": {
       "readyTapToRename": "جاهز · اضغط لإعادة التسمية",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "إعادة تسمية المحادثة"
+    },
+    "sourcesRow": {
+      "viewSources": "عرض المصادر ({{total}})"
     }
   },
   "languages": {

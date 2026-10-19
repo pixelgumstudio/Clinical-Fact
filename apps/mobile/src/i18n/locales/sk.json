@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Údaje FDA o liekoch a liečbe"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Skontrolovať citácie"
+      "checkCitations": "Skontrolovať citácie",
+      "citations": "Citácie",
+      "fromTheWeb": "Z webu"
     },
     "chatHeader": {
       "readyTapToRename": "Pripravené · klepnutím premenujte",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Premenovať chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Zobraziť zdroje ({{total}})"
     }
   },
   "languages": {

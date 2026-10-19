@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "Dati FDA su farmaci e trattamenti"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Controlla le citazioni"
+      "checkCitations": "Controlla le citazioni",
+      "citations": "Citazioni",
+      "fromTheWeb": "Dal web"
     },
     "chatHeader": {
       "readyTapToRename": "Pronto · tocca per rinominare",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Rinomina chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Vedi fonti ({{total}})"
     }
   },
   "languages": {

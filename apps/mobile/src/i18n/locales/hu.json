@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA gyógyszer- és kezelési adatok"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Hivatkozások ellenőrzése"
+      "checkCitations": "Hivatkozások ellenőrzése",
+      "citations": "Hivatkozások",
+      "fromTheWeb": "Internetes források"
     },
     "chatHeader": {
       "readyTapToRename": "Kész · koppints az átnevezéshez",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Csevegés átnevezése"
+    },
+    "sourcesRow": {
+      "viewSources": "Források megtekintése ({{total}})"
     }
   },
   "languages": {

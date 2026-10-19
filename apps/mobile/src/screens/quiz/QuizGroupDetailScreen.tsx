@@ -23,6 +23,7 @@ import { ExportSettingsModal } from '../../components/ExportSettingsModal';
 import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
+import { stripHtml } from '../../utils/htmlText';
 
 type QuizGroupDetailRouteProp = RouteProp<MainStackParamList, 'QuizGroupDetail'>;
 type QuizGroupDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'QuizGroupDetail'>;
@@ -62,15 +63,6 @@ const getFlashcardStatus = (set: FlashcardSetRow) => {
   if (set.masteredCards > 0) return i18n.t('quiz.quizGroupDetail.inProgress');
   return i18n.t('quiz.quizGroupDetail.notStarted');
 };
-
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .trim();
 
 export const QuizGroupDetailScreen = () => {
   const { t } = useTranslation();

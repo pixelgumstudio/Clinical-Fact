@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "Dữ liệu thuốc & điều trị của FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Kiểm tra nguồn trích dẫn"
+      "checkCitations": "Kiểm tra nguồn trích dẫn",
+      "citations": "Trích dẫn",
+      "fromTheWeb": "Từ web"
     },
     "chatHeader": {
       "readyTapToRename": "Sẵn sàng · chạm để đổi tên",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Đổi tên đoạn chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Xem nguồn ({{total}})"
     }
   },
   "languages": {

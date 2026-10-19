@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA 医薬品・治療データ"
     },
     "chatCitationsSheet": {
-      "checkCitations": "引用文献を確認"
+      "checkCitations": "引用文献を確認",
+      "citations": "引用文献",
+      "fromTheWeb": "ウェブから"
     },
     "chatHeader": {
       "readyTapToRename": "準備完了 · タップして名前を変更",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "チャット名を変更"
+    },
+    "sourcesRow": {
+      "viewSources": "情報元を見る ({{total}})"
     }
   },
   "languages": {

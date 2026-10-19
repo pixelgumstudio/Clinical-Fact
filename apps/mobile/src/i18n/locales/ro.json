@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Date despre medicamente și tratamente de la FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Verifică citările"
+      "checkCitations": "Verifică citările",
+      "citations": "Citări",
+      "fromTheWeb": "De pe web"
     },
     "chatHeader": {
       "readyTapToRename": "Gata · atinge pentru a redenumi",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Redenumire chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Vezi sursele ({{total}})"
     }
   },
   "languages": {

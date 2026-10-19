@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Podatki FDA o zdravilih in zdravljenju"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Preveri navedbe virov"
+      "checkCitations": "Preveri navedbe virov",
+      "citations": "Viri",
+      "fromTheWeb": "S spleta"
     },
     "chatHeader": {
       "readyTapToRename": "Pripravljeno · tapni za preimenovanje",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Preimenuj klepet"
+    },
+    "sourcesRow": {
+      "viewSources": "Prikaži vire ({{total}})"
     }
   },
   "languages": {

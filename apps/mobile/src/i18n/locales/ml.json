@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA ഡ്രഗ് & ട്രീറ്റ്‌മെന്റ് ഡാറ്റ"
     },
     "chatCitationsSheet": {
-      "checkCitations": "സൈറ്റേഷനുകൾ പരിശോധിക്കുക"
+      "checkCitations": "സൈറ്റേഷനുകൾ പരിശോധിക്കുക",
+      "citations": "സൈറ്റേഷനുകൾ",
+      "fromTheWeb": "വെബിൽ നിന്ന്"
     },
     "chatHeader": {
       "readyTapToRename": "തയ്യാറാണ് · പേര് മാറ്റാൻ ടാപ്പ് ചെയ്യുക",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "ചാറ്റിന്റെ പേര് മാറ്റുക"
+    },
+    "sourcesRow": {
+      "viewSources": "ഉറവിടങ്ങൾ കാണുക ({{total}})"
     }
   },
   "languages": {

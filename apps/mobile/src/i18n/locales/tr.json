@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA İlaç ve Tedavi Verileri"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Kaynakları kontrol et"
+      "checkCitations": "Kaynakları kontrol et",
+      "citations": "Kaynaklar",
+      "fromTheWeb": "Web'den"
     },
     "chatHeader": {
       "readyTapToRename": "Hazır · yeniden adlandırmak için dokun",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Sohbeti Yeniden Adlandır"
+    },
+    "sourcesRow": {
+      "viewSources": "Kaynakları gör ({{total}})"
     }
   },
   "languages": {

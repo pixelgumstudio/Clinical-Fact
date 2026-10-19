@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Дані FDA щодо препаратів і лікування"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Перевірити джерела"
+      "checkCitations": "Перевірити джерела",
+      "citations": "Джерела",
+      "fromTheWeb": "З інтернету"
     },
     "chatHeader": {
       "readyTapToRename": "Готово · натисніть, щоб перейменувати",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Перейменувати чат"
+    },
+    "sourcesRow": {
+      "viewSources": "Переглянути джерела ({{total}})"
     }
   },
   "languages": {

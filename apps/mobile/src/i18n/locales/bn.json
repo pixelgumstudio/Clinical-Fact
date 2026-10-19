@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA ওষুধ ও চিকিৎসা তথ্য"
     },
     "chatCitationsSheet": {
-      "checkCitations": "সাইটেশন চেক করুন"
+      "checkCitations": "সাইটেশন চেক করুন",
+      "citations": "উদ্ধৃতিসমূহ",
+      "fromTheWeb": "ওয়েব থেকে"
     },
     "chatHeader": {
       "readyTapToRename": "প্রস্তুত · নাম পরিবর্তন করতে ট্যাপ করুন",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "চ্যাটের নাম পরিবর্তন করুন"
+    },
+    "sourcesRow": {
+      "viewSources": "উৎস দেখুন ({{total}})"
     }
   },
   "languages": {

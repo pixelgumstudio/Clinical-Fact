@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA Läkemedels- & behandlingsdata"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Kontrollera källor"
+      "checkCitations": "Kontrollera källor",
+      "citations": "Källhänvisningar",
+      "fromTheWeb": "Från webben"
     },
     "chatHeader": {
       "readyTapToRename": "Klar · tryck för att byta namn",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Byt namn på chatt"
+    },
+    "sourcesRow": {
+      "viewSources": "Visa källor ({{total}})"
     }
   },
   "languages": {

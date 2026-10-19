@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA-gegevens over geneesmiddelen en behandelingen"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Bronnen controleren"
+      "checkCitations": "Bronnen controleren",
+      "citations": "Bronnen",
+      "fromTheWeb": "Van het web"
     },
     "chatHeader": {
       "readyTapToRename": "Gereed · tik om te hernoemen",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Chat hernoemen"
+    },
+    "sourcesRow": {
+      "viewSources": "Bekijk bronnen ({{total}})"
     }
   },
   "languages": {

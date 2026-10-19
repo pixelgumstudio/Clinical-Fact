@@ -978,7 +978,9 @@
       "fdaDrugTreatmentData": "FDA દવા અને સારવાર ડેટા"
     },
     "chatCitationsSheet": {
-      "checkCitations": "સંદર્ભો (Citations) તપાસો"
+      "checkCitations": "સંદર્ભો (Citations) તપાસો",
+      "citations": "સંદર્ભો",
+      "fromTheWeb": "વેબ પરથી"
     },
     "chatHeader": {
       "readyTapToRename": "તૈયાર છે · નામ બદલવા માટે ટૅપ કરો",
@@ -990,6 +992,9 @@
     },
     "chatRename": {
       "renameChat": "ચેટનું નામ બદલો"
+    },
+    "sourcesRow": {
+      "viewSources": "સ્ત્રોત જુઓ ({{total}})"
     }
   },
   "languages": {

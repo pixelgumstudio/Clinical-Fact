@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Δεδομένα φαρμάκων & θεραπειών FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Έλεγχος παραπομπών"
+      "checkCitations": "Έλεγχος παραπομπών",
+      "citations": "Παραπομπές",
+      "fromTheWeb": "Από τον ιστό"
     },
     "chatHeader": {
       "readyTapToRename": "Έτοιμο · πατήστε για μετονομασία",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Μετονομασία συνομιλίας"
+    },
+    "sourcesRow": {
+      "viewSources": "Προβολή πηγών ({{total}})"
     }
   },
   "languages": {

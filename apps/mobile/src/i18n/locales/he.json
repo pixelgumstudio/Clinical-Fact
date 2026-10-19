@@ -978,7 +978,9 @@
       "fdaDrugTreatmentData": "נתוני תרופות וטיפולים של ה-FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "בדיקת ציטוטים"
+      "checkCitations": "בדיקת ציטוטים",
+      "citations": "ציטוטים ומקורות",
+      "fromTheWeb": "מהאינטרנט"
     },
     "chatHeader": {
       "readyTapToRename": "מוכן · הקשה לשינוי השם",
@@ -990,6 +992,9 @@
     },
     "chatRename": {
       "renameChat": "שינוי שם הצ'אט"
+    },
+    "sourcesRow": {
+      "viewSources": "הצגת מקורות ({{total}})"
     }
   },
   "languages": {
