@@ -516,7 +516,7 @@
       "permissionRequired": "Engedély szükséges",
       "pleaseGrantMicrophonePermissionToRecord": "Kérjük, engedélyezd a mikrofon használatát a hangfelvételhez.",
       "failedToRequestMicrophonePermission": "Nem sikerült kérni a mikrofonhozzáférést",
-      "created": "Létrehozva: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Létrehozva: {{dateTime}}",
       "recordingAudio": "Hangfelvétel",
       "recordAudio": "Hang felvétele",
       "createANoteFromAnyRecorded": "Készíts jegyzetet bármilyen rögzített hanganyagból",
@@ -524,7 +524,7 @@
       "recordAgain": "Újrafelvétel"
     },
     "uploadAudio": {
-      "created": "Létrehozva: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Létrehozva: {{dateTime}}",
       "failedToPickAudioFile": "Nem sikerült kiválasztani a hangfájlt",
       "uploadAudio": "Hang feltöltése",
       "createANoteFromAnyUploaded": "Készíts jegyzetet bármilyen feltöltött hangfájlból",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Írd ide a szöveget..."
     },
     "uploadImage": {
-      "created": "Létrehozva: {{year}}. {{month}} {{day}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Létrehozva: {{dateTime}}",
       "permissionRequired": "Engedély szükséges",
       "pleaseAllowAccessToYourPhoto": "Kérlek, engedélyezd a hozzáférést a fotókönyvtáradhoz",
       "failedToPickImage": "Nem sikerült kiválasztani a képet",
@@ -617,7 +617,7 @@
       "changeFile": "Fájl cseréje"
     },
     "uploadPDF": {
-      "created": "Létrehozva: {{year}}. {{month}} {{day}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Létrehozva: {{dateTime}}",
       "failedToPickDocument": "Nem sikerült kiválasztani a dokumentumot",
       "uploadPdf": "PDF feltöltése",
       "createANoteFromAnyUploaded": "Jegyzet létrehozása feltöltött PDF-ből",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Beszélgetés beállításai"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Jelenleg offline módban vagy. Kérjük, csatlakozz az internethez a művelet elvégzéséhez.",
       "failedToDeleteNote": "Nem sikerült törölni a jegyzetet",
       "failedToMoveNote": "Nem sikerült áthelyezni a jegyzetet",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} perce",
       "hrAgo": "{{diffHr}} órája",
       "dAgo": "{{diffDay}} napja",
-      "created": "Létrehozva: {{day}}, {{time}}"
+      "created": "Létrehozva: {{day}}, {{time}}",
+      "today": "Ma"
     }
   },
   "store": {

@@ -498,7 +498,7 @@
       "permissionRequired": "Toestemming vereist",
       "pleaseGrantMicrophonePermissionToRecord": "Geef toegang tot de microfoon om audio op te nemen.",
       "failedToRequestMicrophonePermission": "Toestemming vragen voor microfoon mislukt",
-      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Aangemaakt op {{dateTime}}",
       "recordingAudio": "Audio opnemen",
       "recordAudio": "Audio opnemen",
       "createANoteFromAnyRecorded": "Maak een notitie van elke audio-opname",
@@ -506,7 +506,7 @@
       "recordAgain": "Opnieuw opnemen"
     },
     "uploadAudio": {
-      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Aangemaakt op {{dateTime}}",
       "failedToPickAudioFile": "Selecteren van audiobestand mislukt",
       "uploadAudio": "Audio uploaden",
       "createANoteFromAnyUploaded": "Maak een notitie van elk geüpload audiobestand",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Voer hier je tekst in..."
     },
     "uploadImage": {
-      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Aangemaakt op {{dateTime}}",
       "permissionRequired": "Toestemming vereist",
       "pleaseAllowAccessToYourPhoto": "Geef toegang tot je fotobibliotheek",
       "failedToPickImage": "Afbeelding selecteren mislukt",
@@ -599,7 +599,7 @@
       "changeFile": "Bestand wijzigen"
     },
     "uploadPDF": {
-      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Aangemaakt op {{dateTime}}",
       "failedToPickDocument": "Document selecteren mislukt",
       "uploadPdf": "Pdf uploaden",
       "createANoteFromAnyUploaded": "Maak een notitie van elke geüploade pdf",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Chatopties"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Je bent momenteel offline. Maak verbinding met internet om deze actie uit te voeren.",
       "failedToDeleteNote": "Notitie verwijderen mislukt",
       "failedToMoveNote": "Notitie verplaatsen mislukt",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} min. geleden",
       "hrAgo": "{{diffHr}} uur geleden",
       "dAgo": "{{diffDay}} d geleden",
-      "created": "Aangemaakt op {{day}}, {{time}}"
+      "created": "Aangemaakt op {{day}}, {{time}}",
+      "today": "Vandaag"
     }
   },
   "store": {

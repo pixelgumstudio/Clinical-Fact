@@ -516,7 +516,7 @@
       "permissionRequired": "Απαιτείται άδεια",
       "pleaseGrantMicrophonePermissionToRecord": "Παρακαλούμε δώσε άδεια πρόσβασης στο μικρόφωνο για την εγγραφή ήχου.",
       "failedToRequestMicrophonePermission": "Αποτυχία αιτήματος άδειας μικροφώνου",
-      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Δημιουργήθηκε {{dateTime}}",
       "recordingAudio": "Εγγραφή ήχου",
       "recordAudio": "Εγγραφή ήχου",
       "createANoteFromAnyRecorded": "Δημιούργησε σημείωση από οποιοδήποτε ηχογραφημένο αρχείο",
@@ -524,7 +524,7 @@
       "recordAgain": "Επανεγγραφή"
     },
     "uploadAudio": {
-      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Δημιουργήθηκε {{dateTime}}",
       "failedToPickAudioFile": "Αποτυχία επιλογής αρχείου ήχου",
       "uploadAudio": "Μεταφόρτωση ήχου",
       "createANoteFromAnyUploaded": "Δημιούργησε σημείωση από οποιοδήποτε αρχείο ήχου",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Εισαγάγετε το κείμενό σας εδώ..."
     },
     "uploadImage": {
-      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Δημιουργήθηκε {{dateTime}}",
       "permissionRequired": "Απαιτείται άδεια",
       "pleaseAllowAccessToYourPhoto": "Επιτρέψτε την πρόσβαση στη βιβλιοθήκη φωτογραφιών σας",
       "failedToPickImage": "Αποτυχία επιλογής εικόνας",
@@ -617,7 +617,7 @@
       "changeFile": "Αλλαγή αρχείου"
     },
     "uploadPDF": {
-      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Δημιουργήθηκε {{dateTime}}",
       "failedToPickDocument": "Αποτυχία επιλογής εγγράφου",
       "uploadPdf": "Μεταφόρτωση PDF",
       "createANoteFromAnyUploaded": "Δημιουργήστε σημείωση από οποιοδήποτε μεταφορτωμένο PDF",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Επιλογές συνομιλίας"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Είστε εκτός σύνδεσης. Συνδεθείτε στο διαδίκτυο για να συνεχίσετε.",
       "failedToDeleteNote": "Αποτυχία διαγραφής σημείωσης",
       "failedToMoveNote": "Αποτυχία μετακίνησης σημείωσης",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} λ. πριν",
       "hrAgo": "{{diffHr}} ώρ. πριν",
       "dAgo": "{{diffDay}}ημ. πριν",
-      "created": "Δημιουργήθηκε {{day}}, {{time}}"
+      "created": "Δημιουργήθηκε {{day}}, {{time}}",
+      "today": "Σήμερα"
     }
   },
   "store": {

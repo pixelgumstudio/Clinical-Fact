@@ -516,7 +516,7 @@
       "permissionRequired": "Potrebno je dopuštenje",
       "pleaseGrantMicrophonePermissionToRecord": "Dozvoli pristup mikrofonu za snimanje zvuka.",
       "failedToRequestMicrophonePermission": "Traženje dopuštenja za mikrofon nije uspjelo",
-      "created": "Stvoreno {{day}}. {{month}} {{year}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Stvoreno {{dateTime}}",
       "recordingAudio": "Snimanje zvuka",
       "recordAudio": "Snimi zvuk",
       "createANoteFromAnyRecorded": "Izradi bilješku iz snimljenog zvuka",
@@ -524,7 +524,7 @@
       "recordAgain": "Snimi ponovno"
     },
     "uploadAudio": {
-      "created": "Stvoreno {{day}}. {{month}} {{year}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Stvoreno {{dateTime}}",
       "failedToPickAudioFile": "Odabir audio datoteke nije uspio",
       "uploadAudio": "Učitaj audio",
       "createANoteFromAnyUploaded": "Izradi bilješku iz učitane audio datoteke",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Ovdje unesi tekst..."
     },
     "uploadImage": {
-      "created": "Stvoreno {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Stvoreno {{dateTime}}",
       "permissionRequired": "Potrebno je dopuštenje",
       "pleaseAllowAccessToYourPhoto": "Dozvoli pristup zbirci fotografija",
       "failedToPickImage": "Odabir slike nije uspio",
@@ -617,7 +617,7 @@
       "changeFile": "Promijeni datoteku"
     },
     "uploadPDF": {
-      "created": "Stvoreno {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Stvoreno {{dateTime}}",
       "failedToPickDocument": "Odabir dokumenta nije uspio",
       "uploadPdf": "Učitaj PDF",
       "createANoteFromAnyUploaded": "Stvori bilješku iz bilo kojeg učitanog PDF-a",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Opcije razgovora"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Trenutačno nemaš vezu s internetom. Poveži se s internetom za ovu radnju.",
       "failedToDeleteNote": "Brisanje bilješke nije uspjelo",
       "failedToMoveNote": "Premještanje bilješke nije uspjelo",
@@ -1471,7 +1471,8 @@
       "minAgo": "prije {{diffMin}} min",
       "hrAgo": "prije {{diffHr}} h",
       "dAgo": "prije {{diffDay}} d",
-      "created": "Izrađeno {{day}}, {{time}}"
+      "created": "Izrađeno {{day}}, {{time}}",
+      "today": "Danas"
     }
   },
   "store": {

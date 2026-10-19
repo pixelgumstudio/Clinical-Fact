@@ -516,7 +516,7 @@
       "permissionRequired": "اجازت درکار ہے",
       "pleaseGrantMicrophonePermissionToRecord": "آڈیو ریکارڈ کرنے کے لیے براہ کرم مائیکروفون کی اجازت دیں۔",
       "failedToRequestMicrophonePermission": "مائیکروفون کی اجازت طلب کرنے میں ناکامی",
-      "created": "تخلیق شدہ {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تخلیق شدہ {{dateTime}}",
       "recordingAudio": "آڈیو ریکارڈ ہو رہی ہے",
       "recordAudio": "آڈیو ریکارڈ کریں",
       "createANoteFromAnyRecorded": "کسی بھی ریکارڈ شدہ آڈیو سے نوٹ بنائیں",
@@ -524,7 +524,7 @@
       "recordAgain": "دوبارہ ریکارڈ کریں"
     },
     "uploadAudio": {
-      "created": "تخلیق شدہ {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تخلیق شدہ {{dateTime}}",
       "failedToPickAudioFile": "آڈیو فائل منتخب کرنے میں ناکامی",
       "uploadAudio": "آڈیو اپ لوڈ کریں",
       "createANoteFromAnyUploaded": "کسی بھی اپ لوڈ کردہ آڈیو سے نوٹ بنائیں",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "یہاں اپنا متن درج کریں..."
     },
     "uploadImage": {
-      "created": "تخلیق شدہ {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تخلیق شدہ {{dateTime}}",
       "permissionRequired": "اجازت درکار ہے",
       "pleaseAllowAccessToYourPhoto": "براہ کرم اپنی فوٹو لائبریری تک رسائی کی اجازت دیں",
       "failedToPickImage": "تصویر منتخب کرنے میں ناکامی",
@@ -617,7 +617,7 @@
       "changeFile": "فائل تبدیل کریں"
     },
     "uploadPDF": {
-      "created": "تخلیق شدہ {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تخلیق شدہ {{dateTime}}",
       "failedToPickDocument": "دستاویز منتخب کرنے میں ناکامی",
       "uploadPdf": "PDF اپ لوڈ کریں",
       "createANoteFromAnyUploaded": "کسی بھی اپ لوڈ کردہ PDF سے نوٹ بنائیں",
@@ -1384,7 +1384,7 @@
       "chatOptions": "چیٹ کے اختیارات"
     },
     "library": {
-      "text": "{{day}} {{month}}، {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "آپ فی الوقت آف لائن ہیں۔ اس عمل کے لیے براہ کرم انٹرنیٹ سے رابطہ قائم کریں۔",
       "failedToDeleteNote": "نوٹ حذف کرنے میں ناکامی",
       "failedToMoveNote": "نوٹ منتقل کرنے میں ناکامی",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} منٹ پہلے",
       "hrAgo": "{{diffHr}} گھنٹے پہلے",
       "dAgo": "{{diffDay}} دن پہلے",
-      "created": "تخلیق شدہ {{day}}، {{time}}"
+      "created": "تخلیق شدہ {{day}}، {{time}}",
+      "today": "آج"
     }
   },
   "store": {

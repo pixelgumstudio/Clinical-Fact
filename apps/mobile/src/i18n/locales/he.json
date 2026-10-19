@@ -516,7 +516,7 @@
       "permissionRequired": "נדרשת הרשאה",
       "pleaseGrantMicrophonePermissionToRecord": "יש להעניק הרשאת גישה למיקרופון כדי להקליט אודיו.",
       "failedToRequestMicrophonePermission": "בקשת ההרשאה למיקרופון נכשלה",
-      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "נוצר ב-{{dateTime}}",
       "recordingAudio": "מקליט אודיו",
       "recordAudio": "הקלטת אודיו",
       "createANoteFromAnyRecorded": "יצירת הערה מכל הקלטת אודיו",
@@ -524,7 +524,7 @@
       "recordAgain": "הקלט שוב"
     },
     "uploadAudio": {
-      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "נוצר ב-{{dateTime}}",
       "failedToPickAudioFile": "בחירת קובץ האודיו נכשלה",
       "uploadAudio": "העלאת אודיו",
       "createANoteFromAnyUploaded": "יצירת הערה מכל קובץ אודיו שמועלה",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "הזן את הטקסט כאן..."
     },
     "uploadImage": {
-      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "נוצר ב-{{dateTime}}",
       "permissionRequired": "נדרשת הרשאה",
       "pleaseAllowAccessToYourPhoto": "נא לאפשר גישה לספריית התמונות שלך",
       "failedToPickImage": "בחירת התמונה נכשלה",
@@ -617,7 +617,7 @@
       "changeFile": "החלפת קובץ"
     },
     "uploadPDF": {
-      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "נוצר ב-{{dateTime}}",
       "failedToPickDocument": "בחירת המסמך נכשלה",
       "uploadPdf": "העלאת PDF",
       "createANoteFromAnyUploaded": "יצירת סיכום מכל קובץ PDF שהועלה",
@@ -1379,7 +1379,7 @@
       "chatOptions": "אפשרויות צ'אט"
     },
     "library": {
-      "text": "{{day}} ב{{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "אין כרגע חיבור לרשת. יש להתחבר לאינטרנט כדי לבצע פעולה זו.",
       "failedToDeleteNote": "מחיקת הסיכום נכשלה",
       "failedToMoveNote": "העברת הסיכום נכשלה",
@@ -1466,7 +1466,8 @@
       "minAgo": "לפני {{diffMin}} דק׳",
       "hrAgo": "לפני {{diffHr}} שע׳",
       "dAgo": "לפני {{diffDay}} ימים",
-      "created": "נוצר ב-{{day}}, {{time}}"
+      "created": "נוצר ב-{{day}}, {{time}}",
+      "today": "היום"
     }
   },
   "store": {

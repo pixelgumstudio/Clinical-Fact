@@ -498,7 +498,7 @@
       "permissionRequired": "Wymagane uprawnienia",
       "pleaseGrantMicrophonePermissionToRecord": "Zezwól na dostęp do mikrofonu, aby nagrywać dźwięk.",
       "failedToRequestMicrophonePermission": "Nie udało się poprosić o dostęp do mikrofonu",
-      "created": "Utworzono {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Utworzono {{dateTime}}",
       "recordingAudio": "Nagrywanie dźwięku",
       "recordAudio": "Nagraj dźwięk",
       "createANoteFromAnyRecorded": "Utwórz notatkę z nagranego dźwięku",
@@ -506,7 +506,7 @@
       "recordAgain": "Nagraj ponownie"
     },
     "uploadAudio": {
-      "created": "Utworzono {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Utworzono {{dateTime}}",
       "failedToPickAudioFile": "Nie udało się wybrać pliku audio",
       "uploadAudio": "Prześlij dźwięk",
       "createANoteFromAnyUploaded": "Utwórz notatkę z przesłanego pliku audio",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Wpisz swój tekst tutaj..."
     },
     "uploadImage": {
-      "created": "Utworzono {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Utworzono {{dateTime}}",
       "permissionRequired": "Wymagane uprawnienia",
       "pleaseAllowAccessToYourPhoto": "Zezwól na dostęp do biblioteki zdjęć",
       "failedToPickImage": "Nie udało się wybrać obrazu",
@@ -599,7 +599,7 @@
       "changeFile": "Zmień plik"
     },
     "uploadPDF": {
-      "created": "Utworzono {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Utworzono {{dateTime}}",
       "failedToPickDocument": "Nie udało się wybrać dokumentu",
       "uploadPdf": "Prześlij PDF",
       "createANoteFromAnyUploaded": "Utwórz notatkę z przesłanego pliku PDF",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Opcje czatu"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}} {{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Jesteś offline. Połącz się z internetem, aby wykonać tę czynność.",
       "failedToDeleteNote": "Nie udało się usunąć notatki",
       "failedToMoveNote": "Nie udało się przenieść notatki",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} min temu",
       "hrAgo": "{{diffHr}} godz. temu",
       "dAgo": "{{diffDay}} dni temu",
-      "created": "Utworzono: {{day}}, {{time}}"
+      "created": "Utworzono: {{day}}, {{time}}",
+      "today": "Dzisiaj"
     }
   },
   "store": {

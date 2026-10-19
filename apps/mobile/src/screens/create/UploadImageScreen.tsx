@@ -17,7 +17,8 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { formatDateTime } from '../../utils/formatDate';
 
 type UploadImageNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadImage'>;
 type UploadImageRouteProp = RouteProp<MainStackParamList, 'UploadImage'>;
@@ -43,16 +44,7 @@ export const UploadImageScreen = () => {
   };
 
   const formatDate = (date: Date) => {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    const formattedHours = hours % 12 || 12;
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-    return t('create.uploadImage.created', { month, day, year, formattedHours, formattedMinutes, ampm });
+    return t('create.uploadImage.created', { dateTime: formatDateTime(date) });
   };
 
   const handlePickImage = async () => {

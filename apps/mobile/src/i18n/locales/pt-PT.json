@@ -498,7 +498,7 @@
       "permissionRequired": "Permissão necessária",
       "pleaseGrantMicrophonePermissionToRecord": "Concede permissão de microfone para gravar áudio.",
       "failedToRequestMicrophonePermission": "Falha ao pedir permissão de microfone",
-      "created": "Criado a {{day}} de {{month}} de {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Criada a {{dateTime}}",
       "recordingAudio": "A gravar áudio",
       "recordAudio": "Gravar áudio",
       "createANoteFromAnyRecorded": "Cria uma nota a partir de qualquer gravação de áudio",
@@ -506,7 +506,7 @@
       "recordAgain": "Gravar novamente"
     },
     "uploadAudio": {
-      "created": "Criado a {{day}} de {{month}} de {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Criada a {{dateTime}}",
       "failedToPickAudioFile": "Falha ao selecionar ficheiro de áudio",
       "uploadAudio": "Carregar áudio",
       "createANoteFromAnyUploaded": "Cria uma nota a partir de qualquer áudio carregado",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Introduz o teu texto aqui..."
     },
     "uploadImage": {
-      "created": "Criado a {{day}} de {{month}} de {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Criada a {{dateTime}}",
       "permissionRequired": "Permissão necessária",
       "pleaseAllowAccessToYourPhoto": "Permite o acesso à tua biblioteca de fotografias",
       "failedToPickImage": "Falha ao selecionar imagem",
@@ -599,7 +599,7 @@
       "changeFile": "Alterar ficheiro"
     },
     "uploadPDF": {
-      "created": "Criado a {{day}} de {{month}} de {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Criada a {{dateTime}}",
       "failedToPickDocument": "Falha ao selecionar documento",
       "uploadPdf": "Carregar PDF",
       "createANoteFromAnyUploaded": "Cria um apontamento a partir de qualquer PDF carregado",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Opções de conversa"
     },
     "library": {
-      "text": "{{day}} de {{month}} de {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Estás offline. Liga-te à internet para realizar esta ação.",
       "failedToDeleteNote": "Erro ao eliminar apontamento",
       "failedToMoveNote": "Erro ao mover apontamento",
@@ -1453,7 +1453,8 @@
       "minAgo": "há {{diffMin}} min",
       "hrAgo": "há {{diffHr}} h",
       "dAgo": "há {{diffDay}} d",
-      "created": "Criado a {{day}}, às {{time}}"
+      "created": "Criado a {{day}}, às {{time}}",
+      "today": "Hoje"
     }
   },
   "store": {

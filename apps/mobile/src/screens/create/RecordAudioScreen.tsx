@@ -24,6 +24,7 @@ import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
 import { PoweredByFooter } from "../../components/PoweredByFooter";
 import { useTranslation } from 'react-i18next';
+import { formatDateTime } from '../../utils/formatDate';
 
 type RecordAudioNavigationProp = NativeStackNavigationProp<
   MainStackParamList,
@@ -149,29 +150,7 @@ export const RecordAudioScreen = () => {
 
   const formatDate = () => {
     const now = new Date();
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const day = now.getDate();
-    const month = months[now.getMonth()];
-    const year = now.getFullYear();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const ampm = hours >= 12 ? "pm" : "am";
-    const formattedHours = hours % 12 || 12;
-    const formattedMinutes = minutes.toString().padStart(2, "0");
-    return t('create.recordAudio.created', { month, day, year, formattedHours, formattedMinutes, ampm });
+    return t('create.recordAudio.created', { dateTime: formatDateTime(now) });
   };
 
   const startRecording = async () => {

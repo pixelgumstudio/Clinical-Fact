@@ -516,7 +516,7 @@
       "permissionRequired": "ಅನುಮತಿಯ ಅಗತ್ಯವಿದೆ",
       "pleaseGrantMicrophonePermissionToRecord": "ಆಡಿಯೋ ರೆಕಾರ್ಡ್ ಮಾಡಲು ದಯವಿಟ್ಟು ಮೈಕ್ರೊಫೋನ್ ಅನುಮತಿ ನೀಡಿ.",
       "failedToRequestMicrophonePermission": "ಮೈಕ್ರೊಫೋನ್ ಅನುಮತಿಯನ್ನು ವಿನಂತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
-      "created": "ರಚಿಸಲಾಗಿದೆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "ರಚಿಸಲಾಗಿದೆ {{dateTime}}",
       "recordingAudio": "ಆಡಿಯೋ ರೆಕಾರ್ಡ್ ಆಗುತ್ತಿದೆ",
       "recordAudio": "ಆಡಿಯೋ ರೆಕಾರ್ಡ್ ಮಾಡಿ",
       "createANoteFromAnyRecorded": "ರೆಕಾರ್ಡ್ ಮಾಡಿದ ಯಾವುದೇ ಆಡಿಯೋದಿಂದ ಟಿಪ್ಪಣಿ ರಚಿಸಿ",
@@ -524,7 +524,7 @@
       "recordAgain": "ಮತ್ತೆ ರೆಕಾರ್ಡ್ ಮಾಡಿ"
     },
     "uploadAudio": {
-      "created": "ರಚಿಸಲಾಗಿದೆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "ರಚಿಸಲಾಗಿದೆ {{dateTime}}",
       "failedToPickAudioFile": "ಆಡಿಯೋ ಫೈಲ್ ಆಯ್ಕೆ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
       "uploadAudio": "ಆಡಿಯೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
       "createANoteFromAnyUploaded": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಯಾವುದೇ ಆಡಿಯೋದಿಂದ ಟಿಪ್ಪಣಿ ರಚಿಸಿ",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "ನಿಮ್ಮ ಪಠ್ಯವನ್ನು ಇಲ್ಲಿ ನಮೂದಿಸಿ..."
     },
     "uploadImage": {
-      "created": "ರಚಿಸಲಾಗಿದೆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "ರಚಿಸಲಾಗಿದೆ {{dateTime}}",
       "permissionRequired": "ಅನುಮತಿಯ ಅಗತ್ಯವಿದೆ",
       "pleaseAllowAccessToYourPhoto": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಫೋಟೋ ಲೈಬ್ರರಿಗೆ ಪ್ರವೇಶವನ್ನು ನೀಡಿ",
       "failedToPickImage": "ಚಿತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ",
@@ -617,7 +617,7 @@
       "changeFile": "ಫೈಲ್ ಬದಲಾಯಿಸಿ"
     },
     "uploadPDF": {
-      "created": "ರಚಿಸಲಾಗಿದೆ {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "ರಚಿಸಲಾಗಿದೆ {{dateTime}}",
       "failedToPickDocument": "ದಾಖಲೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ",
       "uploadPdf": "Pdf ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
       "createANoteFromAnyUploaded": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಯಾವುದೇ pdf ನಿಂದ ಟಿಪ್ಪಣಿಯನ್ನು ರಚಿಸಿ",
@@ -1384,7 +1384,7 @@
       "chatOptions": "ಚಾಟ್ ಆಯ್ಕೆಗಳು"
     },
     "library": {
-      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "ನೀವು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ. ಈ ಕ್ರಿಯೆಯನ್ನು ನಿರ್ವಹಿಸಲು ಇಂಟರ್ನೆಟ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡಿ.",
       "failedToDeleteNote": "ನೋಟ್ ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
       "failedToMoveNote": "ನೋಟ್ ಸರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} ನಿಮಿಷದ ಹಿಂದೆ",
       "hrAgo": "{{diffHr}} ಗಂಟೆಯ ಹಿಂದೆ",
       "dAgo": "{{diffDay}} ದಿನದ ಹಿಂದೆ",
-      "created": "{{day}}, {{time}} ರಂದು ರಚಿಸಲಾಗಿದೆ"
+      "created": "{{day}}, {{time}} ರಂದು ರಚಿಸಲಾಗಿದೆ",
+      "today": "ಇಂದು"
     }
   },
   "store": {

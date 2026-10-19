@@ -39,7 +39,8 @@ import { DeleteNoteModal } from '../../components/DeleteNoteModal';
 import { FoldersModal } from '../../components/FoldersModal';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../i18n';
+import i18n from '../../i18n';
+import { formatDateTime } from '../../utils/formatDate';
 
 type LibraryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -67,15 +68,7 @@ const mapSourceType = (sourceType: string): NoteCardType => {
 };
 
 const formatNoteDate = (date: Date): string => {
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
-  let hours = date.getHours();
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  const ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12 || 12;
-  return i18n.t('main.library.text', { month, day, year, hours, minutes, ampm });
+  return formatDateTime(date);
 };
 
 const NoteTypeIcon = ({ type, size = 18 }: { type: NoteCardType; size?: number }) => {

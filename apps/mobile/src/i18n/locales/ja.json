@@ -498,7 +498,7 @@
       "permissionRequired": "権限が必要です",
       "pleaseGrantMicrophonePermissionToRecord": "録音を行うにはマイクへのアクセスを許可してください。",
       "failedToRequestMicrophonePermission": "マイク権限の取得に失敗しました",
-      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "作成日時: {{dateTime}}",
       "recordingAudio": "音声を録音中",
       "recordAudio": "音声を録音",
       "createANoteFromAnyRecorded": "録音した音声からノートを作成",
@@ -506,7 +506,7 @@
       "recordAgain": "再録音"
     },
     "uploadAudio": {
-      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "作成日時: {{dateTime}}",
       "failedToPickAudioFile": "音声ファイルの選択に失敗しました",
       "uploadAudio": "音声をアップロード",
       "createANoteFromAnyUploaded": "アップロードした音声からノートを作成",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "ここにテキストを入力..."
     },
     "uploadImage": {
-      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "作成日時: {{dateTime}}",
       "permissionRequired": "アクセス権限が必要です",
       "pleaseAllowAccessToYourPhoto": "写真ライブラリへのアクセスを許可してください",
       "failedToPickImage": "画像を選択できませんでした",
@@ -599,7 +599,7 @@
       "changeFile": "ファイルを変更"
     },
     "uploadPDF": {
-      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "作成日時: {{dateTime}}",
       "failedToPickDocument": "ドキュメントを選択できませんでした",
       "uploadPdf": "PDFをアップロード",
       "createANoteFromAnyUploaded": "アップロードしたPDFからノートを作成",
@@ -1366,7 +1366,7 @@
       "chatOptions": "チャットのオプション"
     },
     "library": {
-      "text": "{{year}}年{{month}}{{day}}日 {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "現在オフラインです。この操作を行うにはインターネットに接続してください。",
       "failedToDeleteNote": "ノートの削除に失敗しました",
       "failedToMoveNote": "ノートの移動に失敗しました",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}}分前",
       "hrAgo": "{{diffHr}}時間前",
       "dAgo": "{{diffDay}}日前",
-      "created": "作成日時: {{day}} {{time}}"
+      "created": "作成日時: {{day}} {{time}}",
+      "today": "今日"
     }
   },
   "store": {

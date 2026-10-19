@@ -516,7 +516,7 @@
       "permissionRequired": "Потрібен дозвіл",
       "pleaseGrantMicrophonePermissionToRecord": "Будь ласка, надайте доступ до мікрофона для запису аудіо.",
       "failedToRequestMicrophonePermission": "Не вдалося отримати дозвіл на використання мікрофона",
-      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Створено {{dateTime}}",
       "recordingAudio": "Запис аудіо",
       "recordAudio": "Записати аудіо",
       "createANoteFromAnyRecorded": "Створюйте нотатки з будь-якого записаного аудіо",
@@ -524,7 +524,7 @@
       "recordAgain": "Записати знову"
     },
     "uploadAudio": {
-      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Створено {{dateTime}}",
       "failedToPickAudioFile": "Не вдалося вибрати аудіофайл",
       "uploadAudio": "Завантажити аудіо",
       "createANoteFromAnyUploaded": "Створюйте нотатки з будь-якого завантаженого аудіо",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Введіть текст тут..."
     },
     "uploadImage": {
-      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Створено {{dateTime}}",
       "permissionRequired": "Потрібен дозвіл",
       "pleaseAllowAccessToYourPhoto": "Будь ласка, надайте доступ до вашої фотогалереї",
       "failedToPickImage": "Не вдалося вибрати зображення",
@@ -617,7 +617,7 @@
       "changeFile": "Змінити файл"
     },
     "uploadPDF": {
-      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Створено {{dateTime}}",
       "failedToPickDocument": "Не вдалося вибрати документ",
       "uploadPdf": "Завантажити PDF",
       "createANoteFromAnyUploaded": "Створіть нотатку з будь-якого завантаженого PDF",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Опції чату"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Ви офлайн. Підключіться до інтернету, щоб виконати цю дію.",
       "failedToDeleteNote": "Не вдалося видалити нотатку",
       "failedToMoveNote": "Не вдалося перемістити нотатку",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} хв тому",
       "hrAgo": "{{diffHr}} год тому",
       "dAgo": "{{diffDay}} дн. тому",
-      "created": "Створено: {{day}}, {{time}}"
+      "created": "Створено: {{day}}, {{time}}",
+      "today": "Сьогодні"
     }
   },
   "store": {

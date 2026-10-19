@@ -498,7 +498,7 @@
       "permissionRequired": "Behörighet krävs",
       "pleaseGrantMicrophonePermissionToRecord": "Ge tillgång till mikrofonen för att spela in ljud.",
       "failedToRequestMicrophonePermission": "Kunde inte begära mikrofonbehörighet",
-      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Skapad {{dateTime}}",
       "recordingAudio": "Spelar in ljud",
       "recordAudio": "Spela in ljud",
       "createANoteFromAnyRecorded": "Skapa en anteckning från valfri ljudinspelning",
@@ -506,7 +506,7 @@
       "recordAgain": "Spela in igen"
     },
     "uploadAudio": {
-      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Skapad {{dateTime}}",
       "failedToPickAudioFile": "Kunde inte välja ljudfil",
       "uploadAudio": "Ladda upp ljud",
       "createANoteFromAnyUploaded": "Skapa en anteckning från valfri uppladdad ljudfil",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Skriv din text här..."
     },
     "uploadImage": {
-      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Skapad {{dateTime}}",
       "permissionRequired": "Behörighet krävs",
       "pleaseAllowAccessToYourPhoto": "Tillåt åtkomst till ditt bildbibliotek",
       "failedToPickImage": "Kunde inte välja bild",
@@ -599,7 +599,7 @@
       "changeFile": "Byt fil"
     },
     "uploadPDF": {
-      "created": "Skapad {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Skapad {{dateTime}}",
       "failedToPickDocument": "Kunde inte välja dokument",
       "uploadPdf": "Ladda upp PDF",
       "createANoteFromAnyUploaded": "Skapa en anteckning från en uppladdad PDF",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Chattalternativ"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Du är offline. Anslut till internet för att utföra detta.",
       "failedToDeleteNote": "Kunde inte radera anteckningen",
       "failedToMoveNote": "Kunde inte flytta anteckningen",
@@ -1453,7 +1453,8 @@
       "minAgo": "För {{diffMin}} min sedan",
       "hrAgo": "För {{diffHr}} tim sedan",
       "dAgo": "För {{diffDay}} d sedan",
-      "created": "Skapad {{day}}, {{time}}"
+      "created": "Skapad {{day}}, {{time}}",
+      "today": "Idag"
     }
   },
   "store": {

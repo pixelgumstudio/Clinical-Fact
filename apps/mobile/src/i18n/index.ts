@@ -8,6 +8,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { syncLayoutDirection } from './rtl';
 
 // Import translation files
 import en from './locales/en.json';
@@ -38,7 +39,8 @@ i18n
 /**
  * Load and set user's preferred language
  */
-export const loadUserLanguage = async (preferredLanguage?: string) => {
+export const loadUserLanguage = async (preferredLanguage?: string, options: { applyDirection?: boolean } = {}) => {
+  const { applyDirection = true } = options;
   try {
     let language = preferredLanguage;
 
@@ -64,6 +66,9 @@ export const loadUserLanguage = async (preferredLanguage?: string) => {
     await AsyncStorage.setItem(LANGUAGE_STORAGE_KEY, language);
 
     console.log('✅ Language loaded:', language);
+
+    // Arabic/Hebrew/Urdu flip the whole layout; that needs one restart, so it happens last.
+    if (applyDirection) await syncLayoutDirection(language);
   } catch (error) {
     console.error('❌ Error loading language:', error);
     await i18n.changeLanguage('en'); // Fallback to English

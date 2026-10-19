@@ -516,7 +516,7 @@
       "permissionRequired": "Permís necessari",
       "pleaseGrantMicrophonePermissionToRecord": "Concedeix permís d'accés al micròfon per gravar àudio.",
       "failedToRequestMicrophonePermission": "No s'ha pogut sol·licitar el permís del micròfon",
-      "created": "Creat el {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creat el {{dateTime}}",
       "recordingAudio": "Enregistrant àudio",
       "recordAudio": "Grava àudio",
       "createANoteFromAnyRecorded": "Crea una nota a partir de qualsevol àudio gravat",
@@ -524,7 +524,7 @@
       "recordAgain": "Torna a gravar"
     },
     "uploadAudio": {
-      "created": "Creat el {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creat el {{dateTime}}",
       "failedToPickAudioFile": "No s'ha pogut seleccionar el fitxer d'àudio",
       "uploadAudio": "Puja un àudio",
       "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol àudio pujat",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Escriu el teu text aquí..."
     },
     "uploadImage": {
-      "created": "Creat: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creat el {{dateTime}}",
       "permissionRequired": "Permís necessari",
       "pleaseAllowAccessToYourPhoto": "Permet l'accés a la teva fototeca",
       "failedToPickImage": "No s'ha pogut seleccionar la imatge",
@@ -617,7 +617,7 @@
       "changeFile": "Canvia el fitxer"
     },
     "uploadPDF": {
-      "created": "Creat: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creat el {{dateTime}}",
       "failedToPickDocument": "No s'ha pogut seleccionar el document",
       "uploadPdf": "Puja un PDF",
       "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol PDF pujat",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Opcions del xat"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Actualment no tens connexió. Connecta't a internet per dur a terme aquesta acció.",
       "failedToDeleteNote": "No s'ha pogut eliminar la nota",
       "failedToMoveNote": "No s'ha pogut moure la nota",
@@ -1471,7 +1471,8 @@
       "minAgo": "fa {{diffMin}} min",
       "hrAgo": "fa {{diffHr}} h",
       "dAgo": "fa {{diffDay}} d",
-      "created": "Creat el {{day}} a les {{time}}"
+      "created": "Creat el {{day}} a les {{time}}",
+      "today": "Avui"
     }
   },
   "store": {

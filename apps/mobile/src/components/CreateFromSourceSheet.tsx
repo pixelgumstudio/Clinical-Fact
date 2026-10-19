@@ -22,6 +22,7 @@ import { CreateQuizModal } from './CreateQuizModal';
 import { CreateFlashcardsModal } from './CreateFlashcardsModal';
 import { useTranslation } from 'react-i18next';
 import { stripHtml } from '../utils/htmlText';
+import { formatDayAndTime } from '../utils/formatDate';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -201,12 +202,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
 
   const formatDate = (dateString: string) => {
     try {
-      const date = new Date(dateString);
-      const isToday = date.toDateString() === new Date().toDateString();
-      const day = isToday
-        ? 'Today'
-        : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      const { day, time } = formatDayAndTime(dateString);
       return t('components.createFromSourceSheet.created', { day, time });
     } catch {
       return dateString;

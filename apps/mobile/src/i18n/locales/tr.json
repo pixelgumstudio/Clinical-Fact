@@ -498,7 +498,7 @@
       "permissionRequired": "İzin Gerekli",
       "pleaseGrantMicrophonePermissionToRecord": "Ses kaydetmek için lütfen mikrofon izni ver.",
       "failedToRequestMicrophonePermission": "Mikrofon izni istenemedi",
-      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oluşturulma: {{dateTime}}",
       "recordingAudio": "Ses Kaydediliyor",
       "recordAudio": "Ses kaydet",
       "createANoteFromAnyRecorded": "Kaydedilen herhangi bir sesten not oluştur",
@@ -506,7 +506,7 @@
       "recordAgain": "Yeniden kaydet"
     },
     "uploadAudio": {
-      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oluşturulma: {{dateTime}}",
       "failedToPickAudioFile": "Ses dosyası seçilemedi",
       "uploadAudio": "Ses yükle",
       "createANoteFromAnyUploaded": "Yüklenen herhangi bir ses dosyasından not oluştur",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Metnini buraya gir..."
     },
     "uploadImage": {
-      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oluşturulma: {{dateTime}}",
       "permissionRequired": "İzin Gerekli",
       "pleaseAllowAccessToYourPhoto": "Lütfen fotoğraf kitaplığına erişim izni ver",
       "failedToPickImage": "Görsel seçilemedi",
@@ -599,7 +599,7 @@
       "changeFile": "Dosyayı değiştir"
     },
     "uploadPDF": {
-      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Oluşturulma: {{dateTime}}",
       "failedToPickDocument": "Belge seçilemedi",
       "uploadPdf": "PDF yükle",
       "createANoteFromAnyUploaded": "Yüklenen herhangi bir PDF'ten not oluştur",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Sohbet seçenekleri"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Şu anda çevrimdışısın. Bu işlemi gerçekleştirmek için lütfen internete bağlan.",
       "failedToDeleteNote": "Not silinemedi",
       "failedToMoveNote": "Not taşınamadı",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} dk önce",
       "hrAgo": "{{diffHr}} sa önce",
       "dAgo": "{{diffDay}} gün önce",
-      "created": "Oluşturulma: {{day}}, {{time}}"
+      "created": "Oluşturulma: {{day}}, {{time}}",
+      "today": "Bugün"
     }
   },
   "store": {

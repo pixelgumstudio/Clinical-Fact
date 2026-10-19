@@ -26,7 +26,8 @@ import { LanguageSupportModal } from "../../components/LanguageSupportModal";
 import { ReferralModal } from "../../components/ReferralModal";
 import { api } from "../../services/api";
 import { changeLanguage } from "../../i18n";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { formatDateShort } from '../../utils/formatDate';
 
 
 export const ProfileScreen = () => {
@@ -272,11 +273,7 @@ export const ProfileScreen = () => {
           <Text style={styles.joinDate}>
             {t("profile.joined")}{" "}
             {user?.createdAt
-              ? new Date(user.createdAt).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })
+              ? formatDateShort(user.createdAt)
               : "—"}
           </Text>
         </View>

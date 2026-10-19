@@ -498,7 +498,7 @@
       "permissionRequired": "Требуется разрешение",
       "pleaseGrantMicrophonePermissionToRecord": "Пожалуйста, предоставьте доступ к микрофону для записи аудио.",
       "failedToRequestMicrophonePermission": "Не удалось запросить доступ к микрофону",
-      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Создано: {{dateTime}}",
       "recordingAudio": "Запись аудио",
       "recordAudio": "Записать аудио",
       "createANoteFromAnyRecorded": "Создать заметку из аудиозаписи",
@@ -506,7 +506,7 @@
       "recordAgain": "Записать заново"
     },
     "uploadAudio": {
-      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Создано: {{dateTime}}",
       "failedToPickAudioFile": "Не удалось выбрать аудиофайл",
       "uploadAudio": "Загрузить аудио",
       "createANoteFromAnyUploaded": "Создать заметку из загруженного аудио",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Введите ваш текст здесь..."
     },
     "uploadImage": {
-      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Создано: {{dateTime}}",
       "permissionRequired": "Требуется разрешение",
       "pleaseAllowAccessToYourPhoto": "Пожалуйста, разрешите доступ к вашей медиатеке",
       "failedToPickImage": "Не удалось выбрать изображение",
@@ -599,7 +599,7 @@
       "changeFile": "Выбрать другой файл"
     },
     "uploadPDF": {
-      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Создано: {{dateTime}}",
       "failedToPickDocument": "Не удалось выбрать документ",
       "uploadPdf": "Загрузить PDF",
       "createANoteFromAnyUploaded": "Создать конспект из загруженного PDF",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Опции чата"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Вы не в сети. Подключитесь к интернету для выполнения действия.",
       "failedToDeleteNote": "Не удалось удалить заметку",
       "failedToMoveNote": "Не удалось переместить заметку",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} мин назад",
       "hrAgo": "{{diffHr}} ч назад",
       "dAgo": "{{diffDay}} дн назад",
-      "created": "Создано: {{day}}, {{time}}"
+      "created": "Создано: {{day}}, {{time}}",
+      "today": "Сегодня"
     }
   },
   "store": {

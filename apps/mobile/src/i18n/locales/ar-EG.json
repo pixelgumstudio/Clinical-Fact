@@ -498,7 +498,7 @@
       "permissionRequired": "مطلوب إذن الوصول",
       "pleaseGrantMicrophonePermissionToRecord": "يرجى منح إذن استخدام الميكروفون لتسجيل الصوت.",
       "failedToRequestMicrophonePermission": "تعذّر طلب إذن الميكروفون",
-      "created": "تاريخ الإنشاء: {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تاريخ الإنشاء: {{dateTime}}",
       "recordingAudio": "تسجيل صوتي",
       "recordAudio": "تسجيل صوت",
       "createANoteFromAnyRecorded": "أنشئ ملاحظة من أي تسجيل صوتي",
@@ -506,7 +506,7 @@
       "recordAgain": "تسجيل من جديد"
     },
     "uploadAudio": {
-      "created": "تاريخ الإنشاء: {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تاريخ الإنشاء: {{dateTime}}",
       "failedToPickAudioFile": "تعذّر اختيار الملف الصوتي",
       "uploadAudio": "رفع ملف صوتي",
       "createANoteFromAnyUploaded": "أنشئ ملاحظة من أي ملف صوتي مرفوع",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "اكتب النص هنا..."
     },
     "uploadImage": {
-      "created": "تم الإنشاء {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تاريخ الإنشاء: {{dateTime}}",
       "permissionRequired": "مطلوب إذن الوصول",
       "pleaseAllowAccessToYourPhoto": "يرجى السماح بالوصول لمكتبة الصور",
       "failedToPickImage": "فشل اختيار الصورة",
@@ -599,7 +599,7 @@
       "changeFile": "تغيير الملف"
     },
     "uploadPDF": {
-      "created": "تم الإنشاء {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "تاريخ الإنشاء: {{dateTime}}",
       "failedToPickDocument": "فشل اختيار المستند",
       "uploadPdf": "رفع PDF",
       "createANoteFromAnyUploaded": "أنشئ ملاحظة من أي ملف PDF ترفعه",
@@ -1366,7 +1366,7 @@
       "chatOptions": "خيارات المحادثة"
     },
     "library": {
-      "text": "{{month}} {{day}}، {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "أنت غير متصل بالإنترنت حالياً. يرجى الاتصال بالإنترنت لإتمام هذا الإجراء.",
       "failedToDeleteNote": "فشل حذف الملاحظة",
       "failedToMoveNote": "فشل نقل الملاحظة",
@@ -1453,7 +1453,8 @@
       "minAgo": "منذ {{diffMin}} د",
       "hrAgo": "منذ {{diffHr}} س",
       "dAgo": "منذ {{diffDay}} ي",
-      "created": "تم الإنشاء {{day}}، {{time}}"
+      "created": "تم الإنشاء {{day}}، {{time}}",
+      "today": "اليوم"
     }
   },
   "store": {

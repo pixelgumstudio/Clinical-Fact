@@ -516,7 +516,7 @@
       "permissionRequired": "Kebenaran Diperlukan",
       "pleaseGrantMicrophonePermissionToRecord": "Sila berikan kebenaran mikrofon untuk merakam audio.",
       "failedToRequestMicrophonePermission": "Gagal meminta kebenaran mikrofon",
-      "created": "Dicipta {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dicipta {{dateTime}}",
       "recordingAudio": "Merakam Audio",
       "recordAudio": "Rakam audio",
       "createANoteFromAnyRecorded": "Cipta nota daripada sebarang audio yang dirakam",
@@ -524,7 +524,7 @@
       "recordAgain": "Rakam semula"
     },
     "uploadAudio": {
-      "created": "Dicipta {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dicipta {{dateTime}}",
       "failedToPickAudioFile": "Gagal memilih fail audio",
       "uploadAudio": "Muat naik audio",
       "createANoteFromAnyUploaded": "Cipta nota daripada sebarang audio yang dimuat naik",
@@ -606,7 +606,7 @@
       "enterYourTextHere": "Masukkan teks anda di sini..."
     },
     "uploadImage": {
-      "created": "Dicipta pada {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dicipta {{dateTime}}",
       "permissionRequired": "Kebenaran Diperlukan",
       "pleaseAllowAccessToYourPhoto": "Sila benarkan akses ke pustaka foto anda",
       "failedToPickImage": "Gagal memilih gambar",
@@ -617,7 +617,7 @@
       "changeFile": "Tukar fail"
     },
     "uploadPDF": {
-      "created": "Dicipta pada {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Dicipta {{dateTime}}",
       "failedToPickDocument": "Gagal memilih dokumen",
       "uploadPdf": "Muat naik PDF",
       "createANoteFromAnyUploaded": "Cipta nota daripada sebarang PDF yang dimuat naik",
@@ -1384,7 +1384,7 @@
       "chatOptions": "Pilihan sembang"
     },
     "library": {
-      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Anda sedang luar talian. Sila sambung ke internet untuk meneruskan.",
       "failedToDeleteNote": "Gagal memadam nota",
       "failedToMoveNote": "Gagal memindahkan nota",
@@ -1471,7 +1471,8 @@
       "minAgo": "{{diffMin}} min lepas",
       "hrAgo": "{{diffHr}} jam lepas",
       "dAgo": "{{diffDay}}h lepas",
-      "created": "Dicipta {{day}}, {{time}}"
+      "created": "Dicipta {{day}}, {{time}}",
+      "today": "Hari Ini"
     }
   },
   "store": {

@@ -498,7 +498,7 @@
       "permissionRequired": "Autorizzazione richiesta",
       "pleaseGrantMicrophonePermissionToRecord": "Concedi l'autorizzazione per il microfono per registrare l'audio.",
       "failedToRequestMicrophonePermission": "Impossibile richiedere l'autorizzazione per il microfono",
-      "created": "Creata il {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creata il {{dateTime}}",
       "recordingAudio": "Registrazione audio",
       "recordAudio": "Registra audio",
       "createANoteFromAnyRecorded": "Crea una nota da qualsiasi registrazione audio",
@@ -506,7 +506,7 @@
       "recordAgain": "Registra di nuovo"
     },
     "uploadAudio": {
-      "created": "Creata il {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creata il {{dateTime}}",
       "failedToPickAudioFile": "Impossibile selezionare il file audio",
       "uploadAudio": "Carica audio",
       "createANoteFromAnyUploaded": "Crea una nota da qualsiasi file audio caricato",
@@ -588,7 +588,7 @@
       "enterYourTextHere": "Inserisci qui il tuo testo..."
     },
     "uploadImage": {
-      "created": "Data creazione: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creata il {{dateTime}}",
       "permissionRequired": "Autorizzazione richiesta",
       "pleaseAllowAccessToYourPhoto": "Consenti l'accesso alla tua libreria foto",
       "failedToPickImage": "Impossibile selezionare l'immagine",
@@ -599,7 +599,7 @@
       "changeFile": "Cambia file"
     },
     "uploadPDF": {
-      "created": "Data creazione: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "created": "Creata il {{dateTime}}",
       "failedToPickDocument": "Impossibile selezionare il documento",
       "uploadPdf": "Carica PDF",
       "createANoteFromAnyUploaded": "Crea una nota da un PDF caricato",
@@ -1366,7 +1366,7 @@
       "chatOptions": "Opzioni chat"
     },
     "library": {
-      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "text": "{{dateTime}}",
       "youAreCurrentlyOfflinePleaseConnect": "Sei offline. Connettiti a Internet per eseguire questa azione.",
       "failedToDeleteNote": "Impossibile eliminare la nota",
       "failedToMoveNote": "Impossibile spostare la nota",
@@ -1453,7 +1453,8 @@
       "minAgo": "{{diffMin}} min fa",
       "hrAgo": "{{diffHr}} h fa",
       "dAgo": "{{diffDay}} g fa",
-      "created": "Creato il {{day}}, alle {{time}}"
+      "created": "Creato il {{day}}, alle {{time}}",
+      "today": "Oggi"
     }
   },
   "store": {

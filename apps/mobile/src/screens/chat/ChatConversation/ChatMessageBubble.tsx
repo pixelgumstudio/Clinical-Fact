@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, I18nManager } from 'react-native';
 import { colors, spacing, typography, RegenerateIcon, Icon, theme } from '@clinicalfact/design-system';
 import { MedicalChatGroundingSource, MedicalChatImage, MedicalChatSource } from '../../../services/api';
 import { RichText } from '../../../components/RichText';
@@ -72,7 +72,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
               >
                 <Icon name="ai" size={24} color={theme.colors.grey[400]} />
                 <Text style={styles.thinkingText}>{t('chat.chatMessageBubble.thinkingAndFindingResourcesForYou')}</Text>
-                <Icon name="foward" size={16} color={theme.colors.grey[400]} style={{ transform: [{ rotate: '90deg' }] }} />
+                <Icon name="foward" size={16} color={theme.colors.grey[400]} style={{ transform: [{ rotate: I18nManager.isRTL ? '-90deg' : '90deg' }] }} />
               </TouchableOpacity>
             )}
 
