@@ -708,7 +708,8 @@
       "exportLatestAttempt": "匯出最新作答記錄",
       "questions": "{{totalQuestions}} 道題目 · {{value}}",
       "deleteAllAttemptsOne": "確定要刪除「{{title}}」的 1 次測驗記錄嗎？此操作無法復原。",
-      "deleteAllAttemptsMany": "確定要刪除「{{title}}」的全部 {{total}} 次測驗記錄嗎？此操作無法復原。"
+      "deleteAllAttemptsMany": "確定要刪除「{{title}}」的全部 {{total}} 次測驗記錄嗎？此操作無法復原。",
+      "makeFlashcards": "製作字卡"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "無法載入測驗資料 — 回應格式無效",
@@ -777,7 +778,9 @@
       "exportLatestSet": "匯出最新卡片組",
       "questions": "{{totalQuestions}} 道題目 · {{value}}",
       "deleteAllSetsOne": "確定要刪除「{{title}}」的 1 個字卡組嗎？此操作無法復原。",
-      "deleteAllSetsMany": "確定要刪除「{{title}}」的全部 {{total}} 個字卡組嗎？此操作無法復原。"
+      "deleteAllSetsMany": "確定要刪除「{{title}}」的全部 {{total}} 個字卡組嗎？此操作無法復原。",
+      "makeQuiz": "製作測驗",
+      "failedToLoadChatContent": "無法載入對話內容"
     },
     "flashcardReview": {
       "unknownError": "發生未知錯誤",

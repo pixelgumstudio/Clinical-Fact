@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Експортувати останню спробу",
       "questions": "Питань: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Видалити 1 спробу тесту «{{title}}»? Цю дію не можна скасувати.",
-      "deleteAllAttemptsMany": "Видалити всі спроби ({{total}}) тесту «{{title}}»? Цю дію не можна скасувати."
+      "deleteAllAttemptsMany": "Видалити всі спроби ({{total}}) тесту «{{title}}»? Цю дію не можна скасувати.",
+      "makeFlashcards": "Створити картки"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Не вдалося завантажити дані тесту: неправильний формат відповіді",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Експортувати останній набір",
       "questions": "Питань: {{totalQuestions}} · {{value}}",
       "deleteAllSetsOne": "Видалити 1 набір карток для «{{title}}»? Цю дію не можна скасувати.",
-      "deleteAllSetsMany": "Видалити всі набори карток ({{total}}) для «{{title}}»? Цю дію не можна скасувати."
+      "deleteAllSetsMany": "Видалити всі набори карток ({{total}}) для «{{title}}»? Цю дію не можна скасувати.",
+      "makeQuiz": "Створити тест",
+      "failedToLoadChatContent": "Не вдалося завантажити вміст чату"
     },
     "flashcardReview": {
       "unknownError": "Невідома помилка",

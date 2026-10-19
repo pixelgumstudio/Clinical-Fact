@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Son denemeyi dışa aktar",
       "questions": "{{totalQuestions}} soru · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" için yapılan 1 test denemesi silinsin mi? Bu işlem geri alınamaz.",
-      "deleteAllAttemptsMany": "\"{{title}}\" için yapılan toplam {{total}} test denemesi silinsin mi? Bu işlem geri alınamaz."
+      "deleteAllAttemptsMany": "\"{{title}}\" için yapılan toplam {{total}} test denemesi silinsin mi? Bu işlem geri alınamaz.",
+      "makeFlashcards": "Bilgi kartları oluştur"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Test verileri yüklenemedi - geçersiz yanıt biçimi",
@@ -777,7 +778,9 @@
       "exportLatestSet": "En son seti dışa aktar",
       "questions": "{{totalQuestions}} soru · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" için 1 bilgi kartı seti silinsin mi? Bu işlem geri alınamaz.",
-      "deleteAllSetsMany": "\"{{title}}\" için {{total}} bilgi kartı seti silinsin mi? Bu işlem geri alınamaz."
+      "deleteAllSetsMany": "\"{{title}}\" için {{total}} bilgi kartı seti silinsin mi? Bu işlem geri alınamaz.",
+      "makeQuiz": "Quiz oluştur",
+      "failedToLoadChatContent": "Sohbet içeriği yüklenemedi"
     },
     "flashcardReview": {
       "unknownError": "Bilinmeyen hata",

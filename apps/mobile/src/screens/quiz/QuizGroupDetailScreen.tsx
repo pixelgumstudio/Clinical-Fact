@@ -17,6 +17,8 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
+import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportQuiz } from '../../hooks/useExportQuiz';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
@@ -75,9 +77,10 @@ export const QuizGroupDetailScreen = () => {
   const [activeTab, setActiveTab] = useState<TabType>('history');
   const [flashcardSets, setFlashcardSets] = useState<FlashcardSetRow[]>([]);
   const [isLoadingFlashcards, setIsLoadingFlashcards] = useState(true);
-  const [isPreparingAction, setIsPreparingAction] = useState<'retake' | 'new' | 'translate' | null>(null);
+  const [isPreparingAction, setIsPreparingAction] = useState<'retake' | 'new' | 'translate' | 'flashcards' | null>(null);
   const [isCreateQuizModalVisible, setCreateQuizModalVisible] = useState(false);
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
+  const [createFlashcardsVisible, setCreateFlashcardsVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [exportModalVisible, setExportModalVisible] = useState(false);
   const { exportQuiz, isLoading: isExporting, error: exportError } = useExportQuiz();
@@ -179,6 +182,39 @@ export const QuizGroupDetailScreen = () => {
         timeInMinutes,
         chatSessionId,
       });
+    } finally {
+      setIsPreparingAction(null);
+    }
+  };
+
+  // Flashcards from the same note or chat this quiz came from.
+  const handleGenerateFlashcards = async (cardCount: number) => {
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
+    setIsPreparingAction('flashcards');
+    try {
+      let response;
+      if (noteId) {
+        response = await api.generateFlashcards(noteId, cardCount, 'medium', []);
+      } else {
+        const transcript = await getChatTranscript();
+        if (!transcript) {
+          Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadChatContent'));
+          return;
+        }
+        response = await api.generateFlashcardsFromText(transcript, title, cardCount, 'medium', [], undefined, chatSessionId);
+      }
+      if (response.success && response.data) {
+        setCreateFlashcardsVisible(false);
+        navigation.navigate('FlashcardReview', { setId: response.data._id, title: response.data.title || title });
+      } else if ((response as any).quotaExceeded) {
+        setCreateFlashcardsVisible(false);
+        Alert.alert(t('flashcards.flashcardGroupDetail.limitReached'), response.message || t('flashcards.flashcardGroupDetail.flashcardGenerationLimitReached'));
+      } else {
+        Alert.alert(t('common.error'), response.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
+      }
+    } catch (error: any) {
+      Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
     } finally {
       setIsPreparingAction(null);
     }
@@ -376,6 +412,19 @@ export const QuizGroupDetailScreen = () => {
           </TouchableOpacity>
         </View>
 
+        <TouchableOpacity
+          style={[styles.secondaryButton, styles.fullWidthButton]}
+          onPress={() => setCreateFlashcardsVisible(true)}
+          disabled={isPreparingAction !== null}
+          activeOpacity={0.7}
+        >
+          {isPreparingAction === 'flashcards' ? (
+            <ActivityIndicator size="small" color={theme.colors.grey[900]} />
+          ) : (
+            <Text style={styles.secondaryButtonText}>{t('quiz.quizGroupDetail.makeFlashcards')}</Text>
+          )}
+        </TouchableOpacity>
+
         {/* Tabs */}
         <View style={styles.tabsRow}>
           {/* <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('overview')} activeOpacity={0.7}>
@@ -462,6 +511,14 @@ export const QuizGroupDetailScreen = () => {
         visible={isCreateQuizModalVisible}
         onClose={() => setCreateQuizModalVisible(false)}
         onGenerateQuiz={handleGenerateNewQuiz}
+        noteTitle={displayTitle}
+      />
+
+      <CreateFlashcardsModal
+        visible={createFlashcardsVisible}
+        onClose={() => setCreateFlashcardsVisible(false)}
+        onGenerateFlashcards={handleGenerateFlashcards}
+        isGenerating={isPreparingAction === 'flashcards'}
         noteTitle={displayTitle}
       />
 
@@ -647,6 +704,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
+  },
+  fullWidthButton: {
+    width: '100%',
+    marginBottom: theme.spacing[6],
   },
   secondaryButtonText: {
     ...theme.typography.textStyles.subtitle1,

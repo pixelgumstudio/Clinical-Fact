@@ -726,7 +726,8 @@
       "exportLatestAttempt": "ייצוא ניסיון אחרון",
       "questions": "{{totalQuestions}} שאלות · {{value}}",
       "deleteAllAttemptsOne": "למחוק את הניסיון היחיד עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
-      "deleteAllAttemptsMany": "למחוק את כל {{total}} הניסיונות עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו."
+      "deleteAllAttemptsMany": "למחוק את כל {{total}} הניסיונות עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
+      "makeFlashcards": "צור כרטיסיות"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "טעינת נתוני המבחן נכשלה - פורמט תשובה לא תקין",
@@ -795,7 +796,9 @@
       "exportLatestSet": "ייצוא הערכה האחרונה",
       "questions": "{{totalQuestions}} שאלות · {{value}}",
       "deleteAllSetsOne": "למחוק את ערכת הכרטיסיות עבור \"{{title}}\"? לא ניתן לבטל פעולה זו.",
-      "deleteAllSetsMany": "למחוק את כל {{total}} ערכות הכרטיסיות עבור \"{{title}}\"? לא ניתן לבטל פעולה זו."
+      "deleteAllSetsMany": "למחוק את כל {{total}} ערכות הכרטיסיות עבור \"{{title}}\"? לא ניתן לבטל פעולה זו.",
+      "makeQuiz": "צור חידון",
+      "failedToLoadChatContent": "טעינת תוכן הצ׳אט נכשלה"
     },
     "flashcardReview": {
       "unknownError": "שגיאה לא ידועה",

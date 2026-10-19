@@ -708,7 +708,8 @@
       "exportLatestAttempt": "최근 응시 기록 내보내기",
       "questions": "문제 {{totalQuestions}}개 · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"의 퀴즈 응시 기록 1개를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
-      "deleteAllAttemptsMany": "\"{{title}}\"의 퀴즈 응시 기록 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+      "deleteAllAttemptsMany": "\"{{title}}\"의 퀴즈 응시 기록 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "makeFlashcards": "플래시카드 만들기"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "퀴즈 데이터를 불러오지 못했습니다. 잘못된 응답 형식입니다.",
@@ -777,7 +778,9 @@
       "exportLatestSet": "최신 세트 내보내기",
       "questions": "문제 {{totalQuestions}}개 · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\"의 플래시카드 세트 1개를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
-      "deleteAllSetsMany": "\"{{title}}\"의 플래시카드 세트 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+      "deleteAllSetsMany": "\"{{title}}\"의 플래시카드 세트 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "makeQuiz": "퀴즈 만들기",
+      "failedToLoadChatContent": "채팅 내용을 불러오지 못했습니다"
     },
     "flashcardReview": {
       "unknownError": "알 수 없는 오류",

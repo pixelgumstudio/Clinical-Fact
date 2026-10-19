@@ -726,7 +726,8 @@
       "exportLatestAttempt": "ಇತ್ತೀಚಿನ ಪ್ರಯತ್ನವನ್ನು ರಫ್ತು ಮಾಡಿ",
       "questions": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" ನ ಎಲ್ಲಾ 1 ಕ್ವಿಜ್ ಪ್ರಯತ್ನವನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
-      "deleteAllAttemptsMany": "\"{{title}}\" ನ ಎಲ್ಲಾ {{total}} ಕ್ವಿಜ್ ಪ್ರಯತ್ನಗಳನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+      "deleteAllAttemptsMany": "\"{{title}}\" ನ ಎಲ್ಲಾ {{total}} ಕ್ವಿಜ್ ಪ್ರಯತ್ನಗಳನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
+      "makeFlashcards": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳನ್ನು ರಚಿಸಿ"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ಕ್ವಿಜ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ - ಅಮಾನ್ಯ ಪ್ರತಿಕ್ರಿಯೆ ಸ್ವರೂಪ",
@@ -795,7 +796,9 @@
       "exportLatestSet": "ಇತ್ತೀಚಿನ ಸೆಟ್ ರಫ್ತು ಮಾಡಿ",
       "questions": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" ನ ಎಲ್ಲಾ 1 ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ಸೆಟ್ ಅನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
-      "deleteAllSetsMany": "\"{{title}}\" ನ ಎಲ್ಲಾ {{total}} ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ಸೆಟ್‌ಗಳನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+      "deleteAllSetsMany": "\"{{title}}\" ನ ಎಲ್ಲಾ {{total}} ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ಸೆಟ್‌ಗಳನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
+      "makeQuiz": "ಕ್ವಿಜ್ ರಚಿಸಿ",
+      "failedToLoadChatContent": "ಚಾಟ್ ವಿಷಯವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
     },
     "flashcardReview": {
       "unknownError": "ಅಪರಿಚಿತ ದೋಷ",

@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Экспорт последней попытки",
       "questions": "Вопросов: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Удалить 1 попытку прохождения теста «{{title}}»? Это действие нельзя отменить.",
-      "deleteAllAttemptsMany": "Удалить все попытки ({{total}}) прохождения теста «{{title}}»? Это действие нельзя отменить."
+      "deleteAllAttemptsMany": "Удалить все попытки ({{total}}) прохождения теста «{{title}}»? Это действие нельзя отменить.",
+      "makeFlashcards": "Создать карточки"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Не удалось загрузить тест: неверный формат данных",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Экспортировать последний набор",
       "questions": "Вопросов: {{totalQuestions}} · {{value}}",
       "deleteAllSetsOne": "Удалить 1 набор карточек для «{{title}}»? Это действие нельзя отменить.",
-      "deleteAllSetsMany": "Удалить все наборы карточек ({{total}}) для «{{title}}»? Это действие нельзя отменить."
+      "deleteAllSetsMany": "Удалить все наборы карточек ({{total}}) для «{{title}}»? Это действие нельзя отменить.",
+      "makeQuiz": "Создать тест",
+      "failedToLoadChatContent": "Не удалось загрузить содержимое чата"
     },
     "flashcardReview": {
       "unknownError": "Неизвестная ошибка",

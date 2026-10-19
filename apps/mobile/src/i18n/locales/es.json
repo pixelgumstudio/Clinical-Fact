@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Exportar último intento",
       "questions": "{{totalQuestions}} preguntas · {{value}}",
       "deleteAllAttemptsOne": "¿Eliminar el único intento del cuestionario de \"{{title}}\"? Esta acción no se puede deshacer.",
-      "deleteAllAttemptsMany": "¿Eliminar los {{total}} intentos del cuestionario de \"{{title}}\"? Esta acción no se puede deshacer."
+      "deleteAllAttemptsMany": "¿Eliminar los {{total}} intentos del cuestionario de \"{{title}}\"? Esta acción no se puede deshacer.",
+      "makeFlashcards": "Crear fichas"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Error al cargar los datos del cuestionario: formato de respuesta no válido",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Exportar último set",
       "questions": "{{totalQuestions}} preguntas · {{value}}",
       "deleteAllSetsOne": "¿Eliminar el set de fichas de \"{{title}}\"? Esta acción no se puede deshacer.",
-      "deleteAllSetsMany": "¿Eliminar los {{total}} sets de fichas de \"{{title}}\"? Esta acción no se puede deshacer."
+      "deleteAllSetsMany": "¿Eliminar los {{total}} sets de fichas de \"{{title}}\"? Esta acción no se puede deshacer.",
+      "makeQuiz": "Crear cuestionario",
+      "failedToLoadChatContent": "Error al cargar el contenido del chat"
     },
     "flashcardReview": {
       "unknownError": "Error desconocido",

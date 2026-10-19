@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Letzten Versuch exportieren",
       "questions": "{{totalQuestions}} Fragen · {{value}}",
       "deleteAllAttemptsOne": "Den 1 Quiz-Versuch für \"{{title}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
-      "deleteAllAttemptsMany": "Alle {{total}} Quiz-Versuche für \"{{title}}\" löschen? Dies kann nicht rückgängig gemacht werden."
+      "deleteAllAttemptsMany": "Alle {{total}} Quiz-Versuche für \"{{title}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
+      "makeFlashcards": "Karteikarten erstellen"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Quiz-Daten konnten nicht geladen werden – ungültiges Antwortformat",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Neuestes Set exportieren",
       "questions": "{{totalQuestions}} Fragen · {{value}}",
       "deleteAllSetsOne": "Dieses 1 Karteikarten-Set für „{{title}}“ wirklich löschen? Dies kann nicht rückgängig gemacht werden.",
-      "deleteAllSetsMany": "Alle {{total}} Karteikarten-Sets für „{{title}}“ wirklich löschen? Dies kann nicht rückgängig gemacht werden."
+      "deleteAllSetsMany": "Alle {{total}} Karteikarten-Sets für „{{title}}“ wirklich löschen? Dies kann nicht rückgängig gemacht werden.",
+      "makeQuiz": "Quiz erstellen",
+      "failedToLoadChatContent": "Chat-Inhalt konnte nicht geladen werden"
     },
     "flashcardReview": {
       "unknownError": "Unbekannter Fehler",

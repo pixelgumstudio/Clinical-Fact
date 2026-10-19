@@ -726,7 +726,8 @@
       "exportLatestAttempt": "ਆਖਰੀ ਯਤਨ ਐਕਸਪੋਰਟ ਕਰੋ",
       "questions": "{{totalQuestions}} ਸਵਾਲ · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" ਲਈ 1 ਕਵਿਜ਼ ਯਤਨ ਮਿਟਾਉਣਾ ਹੈ? ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।",
-      "deleteAllAttemptsMany": "\"{{title}}\" ਲਈ ਸਾਰੇ {{total}} ਕਵਿਜ਼ ਯਤਨ ਮਿਟਾਉਣੇ ਹਨ? ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।"
+      "deleteAllAttemptsMany": "\"{{title}}\" ਲਈ ਸਾਰੇ {{total}} ਕਵਿਜ਼ ਯਤਨ ਮਿਟਾਉਣੇ ਹਨ? ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।",
+      "makeFlashcards": "ਫਲੈਸ਼ਕਾਰਡ ਬਣਾਓ"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ਕਵਿਜ਼ ਡਾਟਾ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ - ਅਵੈਧ ਜਵਾਬ ਫਾਰਮੈਟ",
@@ -795,7 +796,9 @@
       "exportLatestSet": "ਨਵੀਨਤਮ ਸੈੱਟ ਐਕਸਪੋਰਟ ਕਰੋ",
       "questions": "{{totalQuestions}} ਸਵਾਲ · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" ਲਈ ਸਾਰੇ 1 ਫਲੈਸ਼ਕਾਰਡ ਸੈੱਟ ਮਿਟਾਉਣੇ ਹਨ? ਇਹ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ।",
-      "deleteAllSetsMany": "\"{{title}}\" ਲਈ ਸਾਰੇ {{total}} ਫਲੈਸ਼ਕਾਰਡ ਸੈੱਟ ਮਿਟਾਉਣੇ ਹਨ? ਇਹ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ।"
+      "deleteAllSetsMany": "\"{{title}}\" ਲਈ ਸਾਰੇ {{total}} ਫਲੈਸ਼ਕਾਰਡ ਸੈੱਟ ਮਿਟਾਉਣੇ ਹਨ? ਇਹ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ।",
+      "makeQuiz": "ਕੁਇਜ਼ ਬਣਾਓ",
+      "failedToLoadChatContent": "ਚੈਟ ਸਮੱਗਰੀ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
     },
     "flashcardReview": {
       "unknownError": "ਅਣਪਛਾਤੀ ਗੜਬੜ",

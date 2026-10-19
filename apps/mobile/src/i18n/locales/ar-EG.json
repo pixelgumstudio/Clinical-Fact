@@ -708,7 +708,8 @@
       "exportLatestAttempt": "تصدير آخر محاولة",
       "questions": "{{totalQuestions}} سؤال · {{value}}",
       "deleteAllAttemptsOne": "هل تريد حذف محاولة الاختبار الوحيدة لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
-      "deleteAllAttemptsMany": "هل تريد حذف جميع محاولات الاختبار الـ {{total}} لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء."
+      "deleteAllAttemptsMany": "هل تريد حذف جميع محاولات الاختبار الـ {{total}} لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "makeFlashcards": "إنشاء بطاقات استذكار"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "فشل تحميل بيانات الاختبار - تنسيق الاستجابة غير صالح",
@@ -777,7 +778,9 @@
       "exportLatestSet": "تصدير أحدث مجموعة",
       "questions": "{{totalQuestions}} أسئلة · {{value}}",
       "deleteAllSetsOne": "حذف مجموعة الكروت لـ \"{{title}}\"؟ مش هتقدر تتراجع عن الخطوة دي.",
-      "deleteAllSetsMany": "حذف كل مجموعات الكروت الـ {{total}} لـ \"{{title}}\"؟ مش هتقدر تتراجع عن الخطوة دي."
+      "deleteAllSetsMany": "حذف كل مجموعات الكروت الـ {{total}} لـ \"{{title}}\"؟ مش هتقدر تتراجع عن الخطوة دي.",
+      "makeQuiz": "إنشاء اختبار",
+      "failedToLoadChatContent": "فشل تحميل محتوى الدردشة"
     },
     "flashcardReview": {
       "unknownError": "خطأ غير معروف",

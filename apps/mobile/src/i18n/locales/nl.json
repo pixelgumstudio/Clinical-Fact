@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Laatste poging exporteren",
       "questions": "{{totalQuestions}} vragen · {{value}}",
       "deleteAllAttemptsOne": "De enige quizpoging voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
-      "deleteAllAttemptsMany": "Alle {{total}} quizpogingen voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt."
+      "deleteAllAttemptsMany": "Alle {{total}} quizpogingen voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "makeFlashcards": "Maak flashcards"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Laden van quizgegevens mislukt - ongeldige reactie",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Laatste set exporteren",
       "questions": "{{totalQuestions}} vragen · {{value}}",
       "deleteAllSetsOne": "De flashcardset voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
-      "deleteAllSetsMany": "Alle {{total}} flashcardsets voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt."
+      "deleteAllSetsMany": "Alle {{total}} flashcardsets voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "makeQuiz": "Maak een quiz",
+      "failedToLoadChatContent": "Chatinhoud laden mislukt"
     },
     "flashcardReview": {
       "unknownError": "Onbekende fout",

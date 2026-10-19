@@ -726,7 +726,8 @@
       "exportLatestAttempt": "تازہ ترین کوشش ایکسپورٹ کریں",
       "questions": "{{totalQuestions}} سوالات · {{value}}",
       "deleteAllAttemptsOne": "کیا آپ \"{{title}}\" کی 1 کوئز کوشش کو ڈیلیٹ کرنا چاہتے ہیں؟ اسے واپس نہیں لایا جا سکے گا۔",
-      "deleteAllAttemptsMany": "کیا آپ \"{{title}}\" کی تمام {{total}} کوئز کوششیں ڈیلیٹ کرنا چاہتے ہیں؟ اسے واپس نہیں لایا جا سکے گا۔"
+      "deleteAllAttemptsMany": "کیا آپ \"{{title}}\" کی تمام {{total}} کوئز کوششیں ڈیلیٹ کرنا چاہتے ہیں؟ اسے واپس نہیں لایا جا سکے گا۔",
+      "makeFlashcards": "فلیش کارڈز بنائیں"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "کوئز ڈیٹا لوڈ کرنے میں ناکامی - جوابی فارمیٹ غلط ہے",
@@ -795,7 +796,9 @@
       "exportLatestSet": "تازہ ترین سیٹ ایکسپورٹ کریں",
       "questions": "{{totalQuestions}} سوالات · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" کا 1 فلیش کارڈ سیٹ ڈیلیٹ کریں؟ یہ عمل واپس نہیں ہو سکتا۔",
-      "deleteAllSetsMany": "\"{{title}}\" کے تمام {{total}} فلیش کارڈ سیٹس ڈیلیٹ کریں؟ یہ عمل واپس نہیں ہو سکتا۔"
+      "deleteAllSetsMany": "\"{{title}}\" کے تمام {{total}} فلیش کارڈ سیٹس ڈیلیٹ کریں؟ یہ عمل واپس نہیں ہو سکتا۔",
+      "makeQuiz": "کوئز بنائیں",
+      "failedToLoadChatContent": "چیٹ کا مواد لوڈ نہیں ہو سکا"
     },
     "flashcardReview": {
       "unknownError": "نامعلوم خرابی",

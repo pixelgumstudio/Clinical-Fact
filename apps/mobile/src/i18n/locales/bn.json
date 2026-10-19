@@ -726,7 +726,8 @@
       "exportLatestAttempt": "সর্বশেষ প্রচেষ্টা এক্সপোর্ট করুন",
       "questions": "{{totalQuestions}}টি প্রশ্ন · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"-এর ১টি কুইজ প্রচেষ্টা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
-      "deleteAllAttemptsMany": "\"{{title}}\"-এর সকল {{total}}টি কুইজ প্রচেষ্টা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।"
+      "deleteAllAttemptsMany": "\"{{title}}\"-এর সকল {{total}}টি কুইজ প্রচেষ্টা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
+      "makeFlashcards": "ফ্ল্যাশকার্ড তৈরি করুন"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "কুইজের ডেটা লোড করা যায়নি - অবৈধ রেসপন্স ফরম্যাট",
@@ -795,7 +796,9 @@
       "exportLatestSet": "সর্বশেষ সেট এক্সপোর্ট করুন",
       "questions": "{{totalQuestions}}টি প্রশ্ন · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\"-এর 1টি ফ্ল্যাশকার্ড সেট কি মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
-      "deleteAllSetsMany": "\"{{title}}\"-এর সবকটি ({{total}}টি) ফ্ল্যাশকার্ড সেট কি মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।"
+      "deleteAllSetsMany": "\"{{title}}\"-এর সবকটি ({{total}}টি) ফ্ল্যাশকার্ড সেট কি মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
+      "makeQuiz": "কুইজ তৈরি করুন",
+      "failedToLoadChatContent": "চ্যাট কন্টেন্ট লোড করা যায়নি"
     },
     "flashcardReview": {
       "unknownError": "অজানা ত্রুটি",

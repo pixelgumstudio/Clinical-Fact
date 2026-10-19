@@ -726,7 +726,8 @@
       "exportLatestAttempt": "അവസാന ശ്രമം എക്സ്പോർട്ട് ചെയ്യുക",
       "questions": "{{totalQuestions}} ചോദ്യങ്ങൾ · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"-ന്റെ 1 ക്വിസ് ശ്രമം ഡിലീറ്റ് ചെയ്യണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
-      "deleteAllAttemptsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ക്വിസ് ശ്രമങ്ങളും ഡിലീറ്റ് ചെയ്യണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല."
+      "deleteAllAttemptsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ക്വിസ് ശ്രമങ്ങളും ഡിലീറ്റ് ചെയ്യണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
+      "makeFlashcards": "ഫ്ലാഷ്കാർഡുകൾ ഉണ്ടാക്കുക"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ക്വിസ് വിവരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല - തെറ്റായ പ്രതികരണ ഫോർമാറ്റ്",
@@ -795,7 +796,9 @@
       "exportLatestSet": "ഏറ്റവും പുതിയ സെറ്റ് എക്സ്പോർട്ട് ചെയ്യുക",
       "questions": "{{totalQuestions}} ചോദ്യങ്ങൾ · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\"-ന്റെ 1 ഫ്ലാഷ് കാർഡ് സെറ്റും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
-      "deleteAllSetsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ഫ്ലാഷ് കാർഡ് സെറ്റുകളും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല."
+      "deleteAllSetsMany": "\"{{title}}\"-ന്റെ എല്ലാ {{total}} ഫ്ലാഷ് കാർഡ് സെറ്റുകളും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.",
+      "makeQuiz": "ക്വിസ് ഉണ്ടാക്കുക",
+      "failedToLoadChatContent": "ചാറ്റ് ഉള്ളടക്കം ലോഡ് ചെയ്യാനായില്ല"
     },
     "flashcardReview": {
       "unknownError": "അജ്ഞാതമായ പിശക്",

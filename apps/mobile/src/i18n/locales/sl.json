@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Izvozi zadnji poskus",
       "questions": "{{totalQuestions}} vprašanj · {{value}}",
       "deleteAllAttemptsOne": "Želiš izbrisati 1 poskus kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
-      "deleteAllAttemptsMany": "Želiš izbrisati vseh {{total}} poskusov kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti."
+      "deleteAllAttemptsMany": "Želiš izbrisati vseh {{total}} poskusov kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "makeFlashcards": "Ustvari kartice"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Podatkov o kvizu ni bilo mogoče naložiti – neveljavna oblika odgovora",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Izvozi zadnji komplet",
       "questions": "{{totalQuestions}} vprašanj · {{value}}",
       "deleteAllSetsOne": "Želiš izbrisati 1 komplet kartic za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
-      "deleteAllSetsMany": "Želiš izbrisati vseh {{total}} kompletov kartic za »{{title}}«? Tega dejanja ni mogoče razveljaviti."
+      "deleteAllSetsMany": "Želiš izbrisati vseh {{total}} kompletov kartic za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "makeQuiz": "Ustvari kviz",
+      "failedToLoadChatContent": "Nalaganje vsebine klepeta ni uspelo"
     },
     "flashcardReview": {
       "unknownError": "Neznana napaka",

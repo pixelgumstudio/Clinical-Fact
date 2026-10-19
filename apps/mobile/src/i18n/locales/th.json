@@ -708,7 +708,8 @@
       "exportLatestAttempt": "ส่งออกผลการทำครั้งล่าสุด",
       "questions": "{{totalQuestions}} ข้อ · {{value}}",
       "deleteAllAttemptsOne": "ลบประวัติการทำควิซ 1 ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
-      "deleteAllAttemptsMany": "ลบประวัติการทำควิซทั้งหมด {{total}} ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้"
+      "deleteAllAttemptsMany": "ลบประวัติการทำควิซทั้งหมด {{total}} ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
+      "makeFlashcards": "สร้างแฟลชการ์ด"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "โหลดข้อมูลควิซไม่สำเร็จ - รูปแบบการตอบกลับไม่ถูกต้อง",
@@ -777,7 +778,9 @@
       "exportLatestSet": "ส่งออกชุดล่าสุด",
       "questions": "{{totalQuestions}} ข้อ · {{value}}",
       "deleteAllSetsOne": "ต้องการลบแฟลชการ์ด 1 ชุดของ \"{{title}}\" หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้",
-      "deleteAllSetsMany": "ต้องการลบแฟลชการ์ดทั้งหมด {{total}} ชุดของ \"{{title}}\" หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้"
+      "deleteAllSetsMany": "ต้องการลบแฟลชการ์ดทั้งหมด {{total}} ชุดของ \"{{title}}\" หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+      "makeQuiz": "สร้างแบบทดสอบ",
+      "failedToLoadChatContent": "โหลดเนื้อหาแชตไม่สำเร็จ"
     },
     "flashcardReview": {
       "unknownError": "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ",

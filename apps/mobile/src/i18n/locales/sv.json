@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Exportera senaste försöket",
       "questions": "{{totalQuestions}} frågor · {{value}}",
       "deleteAllAttemptsOne": "Vill du radera 1 quizförsök för \"{{title}}\"? Detta kan inte ångras.",
-      "deleteAllAttemptsMany": "Vill du radera alla {{total}} quizförsök för \"{{title}}\"? Detta kan inte ångras."
+      "deleteAllAttemptsMany": "Vill du radera alla {{total}} quizförsök för \"{{title}}\"? Detta kan inte ångras.",
+      "makeFlashcards": "Skapa flashcards"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Kunde inte läsa in quizdata – ogiltigt svarsformat",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Exportera senaste uppsättningen",
       "questions": "{{totalQuestions}} frågor · {{value}}",
       "deleteAllSetsOne": "Radera 1 uppsättning flashcards för \"{{title}}\"? Detta kan inte ångras.",
-      "deleteAllSetsMany": "Radera alla {{total}} uppsättningar flashcards för \"{{title}}\"? Detta kan inte ångras."
+      "deleteAllSetsMany": "Radera alla {{total}} uppsättningar flashcards för \"{{title}}\"? Detta kan inte ångras.",
+      "makeQuiz": "Skapa ett quiz",
+      "failedToLoadChatContent": "Kunde inte läsa in chattinnehåll"
     },
     "flashcardReview": {
       "unknownError": "Okänt fel",

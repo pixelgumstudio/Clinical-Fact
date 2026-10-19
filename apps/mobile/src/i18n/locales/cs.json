@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Exportovat poslední pokus",
       "questions": "{{totalQuestions}} otázek · {{value}}",
       "deleteAllAttemptsOne": "Smazat 1 pokus kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět.",
-      "deleteAllAttemptsMany": "Smazat všech {{total}} pokusů kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět."
+      "deleteAllAttemptsMany": "Smazat všech {{total}} pokusů kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět.",
+      "makeFlashcards": "Vytvořit kartičky"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nepodařilo se načíst data kvízu – neplatný formát odpovědi",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Exportovat nejnovější sadu",
       "questions": "{{totalQuestions}} otázek · {{value}}",
       "deleteAllSetsOne": "Smazat 1 sadu kartiček pro „{{title}}“? Tuto akci nelze vrátit zpět.",
-      "deleteAllSetsMany": "Smazat všech {{total}} sad kartiček pro „{{title}}“? Tuto akci nelze vrátit zpět."
+      "deleteAllSetsMany": "Smazat všech {{total}} sad kartiček pro „{{title}}“? Tuto akci nelze vrátit zpět.",
+      "makeQuiz": "Vytvořit kvíz",
+      "failedToLoadChatContent": "Obsah chatu se nepodařilo načíst"
     },
     "flashcardReview": {
       "unknownError": "Neznámá chyba",

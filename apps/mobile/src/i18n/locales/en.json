@@ -709,7 +709,8 @@
       "exportLatestAttempt": "Export latest attempt",
       "questions": "{{totalQuestions}} questions · {{value}}",
       "deleteAllAttemptsOne": "Delete all 1 quiz attempt for \"{{title}}\"? This can't be undone.",
-      "deleteAllAttemptsMany": "Delete all {{total}} quiz attempts for \"{{title}}\"? This can't be undone."
+      "deleteAllAttemptsMany": "Delete all {{total}} quiz attempts for \"{{title}}\"? This can't be undone.",
+      "makeFlashcards": "Make flashcards"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Failed to load quiz data - invalid response format",
@@ -778,7 +779,9 @@
       "exportLatestSet": "Export latest set",
       "questions": "{{totalQuestions}} questions · {{value}}",
       "deleteAllSetsOne": "Delete all 1 flashcard set for \"{{title}}\"? This can't be undone.",
-      "deleteAllSetsMany": "Delete all {{total}} flashcard sets for \"{{title}}\"? This can't be undone."
+      "deleteAllSetsMany": "Delete all {{total}} flashcard sets for \"{{title}}\"? This can't be undone.",
+      "makeQuiz": "Make a quiz",
+      "failedToLoadChatContent": "Failed to load chat content"
     },
     "flashcardReview": {
       "unknownError": "Unknown error",

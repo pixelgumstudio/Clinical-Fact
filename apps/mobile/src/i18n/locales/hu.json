@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Legutóbbi próbálkozás exportálása",
       "questions": "{{totalQuestions}} kérdés · {{value}}",
       "deleteAllAttemptsOne": "Törlöd ezt az 1 kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
-      "deleteAllAttemptsMany": "Törlöd mind a(z) {{total}} kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza."
+      "deleteAllAttemptsMany": "Törlöd mind a(z) {{total}} kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "makeFlashcards": "Tanulókártyák készítése"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nem sikerült betölteni a kvízadatokat – érvénytelen válaszformátum",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Legújabb készlet exportálása",
       "questions": "{{totalQuestions}} kérdés · {{value}}",
       "deleteAllSetsOne": "Törlöd az 1 kártyakészletet a következőhöz: „{{title}}”? Ez a művelet nem vonható vissza.",
-      "deleteAllSetsMany": "Törlöd mind a(z) {{total}} kártyakészletet a következőhöz: „{{title}}”? Ez a művelet nem vonható vissza."
+      "deleteAllSetsMany": "Törlöd mind a(z) {{total}} kártyakészletet a következőhöz: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "makeQuiz": "Kvíz készítése",
+      "failedToLoadChatContent": "Nem sikerült betölteni a csevegés tartalmát"
     },
     "flashcardReview": {
       "unknownError": "Ismeretlen hiba",

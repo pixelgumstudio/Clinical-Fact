@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Eksportuj ostatnie podejście",
       "questions": "Pytania: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Usunąć 1 podejście do quizu „{{title}}”? Tej operacji nie można cofnąć.",
-      "deleteAllAttemptsMany": "Usunąć wszystkie podejścia ({{total}}) do quizu „{{title}}”? Tej operacji nie można cofnąć."
+      "deleteAllAttemptsMany": "Usunąć wszystkie podejścia ({{total}}) do quizu „{{title}}”? Tej operacji nie można cofnąć.",
+      "makeFlashcards": "Utwórz fiszki"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nie udało się załadować danych quizu – nieprawidłowy format odpowiedzi",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Eksportuj ostatni zestaw",
       "questions": "Pytania: {{totalQuestions}} · {{value}}",
       "deleteAllSetsOne": "Usunąć 1 zestaw fiszek dla „{{title}}”? Tej operacji nie można cofnąć.",
-      "deleteAllSetsMany": "Usunąć wszystkie {{total}} zestawy fiszek dla „{{title}}”? Tej operacji nie można cofnąć."
+      "deleteAllSetsMany": "Usunąć wszystkie {{total}} zestawy fiszek dla „{{title}}”? Tej operacji nie można cofnąć.",
+      "makeQuiz": "Utwórz quiz",
+      "failedToLoadChatContent": "Nie udało się załadować zawartości czatu"
     },
     "flashcardReview": {
       "unknownError": "Nieznany błąd",

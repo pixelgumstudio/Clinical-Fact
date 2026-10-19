@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Izvezi posljednji pokušaj",
       "questions": "{{totalQuestions}} pitanja · {{value}}",
       "deleteAllAttemptsOne": "Izbrisati 1 pokušaj kviza za \"{{title}}\"? Ova se radnja ne može poništiti.",
-      "deleteAllAttemptsMany": "Izbrisati svih {{total}} pokušaja kviza za \"{{title}}\"? Ova se radnja ne može poništiti."
+      "deleteAllAttemptsMany": "Izbrisati svih {{total}} pokušaja kviza za \"{{title}}\"? Ova se radnja ne može poništiti.",
+      "makeFlashcards": "Izradi kartice"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Učitavanje podataka kviza nije uspjelo – nevažeći format odgovora",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Izvezi najnoviji komplet",
       "questions": "{{totalQuestions}} pitanja · {{value}}",
       "deleteAllSetsOne": "Izbrisati 1 komplet kartica za \"{{title}}\"? Ova se radnja ne može poništiti.",
-      "deleteAllSetsMany": "Izbrisati svih {{total}} kompleta kartica za \"{{title}}\"? Ova se radnja ne može poništiti."
+      "deleteAllSetsMany": "Izbrisati svih {{total}} kompleta kartica za \"{{title}}\"? Ova se radnja ne može poništiti.",
+      "makeQuiz": "Izradi kviz",
+      "failedToLoadChatContent": "Učitavanje sadržaja razgovora nije uspjelo"
     },
     "flashcardReview": {
       "unknownError": "Nepoznata pogreška",

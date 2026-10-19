@@ -726,7 +726,8 @@
       "exportLatestAttempt": "கடைசி முயற்சியை ஏற்றுமதி செய்",
       "questions": "{{totalQuestions}} கேள்விகள் · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"-க்கான 1 வினாடி வினா முயற்சியை நீக்கவா? இதை மீட்டெடுக்க முடியாது.",
-      "deleteAllAttemptsMany": "\"{{title}}\"-க்கான அனைத்து {{total}} வினாடி வினா முயற்சிகளையும் நீக்கவா? இதை மீட்டெடுக்க முடியாது."
+      "deleteAllAttemptsMany": "\"{{title}}\"-க்கான அனைத்து {{total}} வினாடி வினா முயற்சிகளையும் நீக்கவா? இதை மீட்டெடுக்க முடியாது.",
+      "makeFlashcards": "ஃபிளாஷ்கார்டுகளை உருவாக்கவும்"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "வினாடி வினாத் தரவை ஏற்ற முடியவில்லை - தவறான பதில் வடிவம்",
@@ -795,7 +796,9 @@
       "exportLatestSet": "சமீபத்திய தொகுப்பை ஏற்றுமதி செய்",
       "questions": "{{totalQuestions}} கேள்விகள் · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\"-க்கான 1 ஃப்ளாஷ்கார்டு தொகுப்பையும் நீக்கவா? இதை செயல்தவிர்க்க முடியாது.",
-      "deleteAllSetsMany": "\"{{title}}\"-க்கான அனைத்து {{total}} ஃப்ளாஷ்கார்டு தொகுப்புகளையும் நீக்கவா? இதை செயல்தவிர்க்க முடியாது."
+      "deleteAllSetsMany": "\"{{title}}\"-க்கான அனைத்து {{total}} ஃப்ளாஷ்கார்டு தொகுப்புகளையும் நீக்கவா? இதை செயல்தவிர்க்க முடியாது.",
+      "makeQuiz": "குவிஸை உருவாக்கவும்",
+      "failedToLoadChatContent": "அரட்டை உள்ளடக்கத்தை ஏற்றுவதில் தோல்வி"
     },
     "flashcardReview": {
       "unknownError": "தெரியாத பிழை",

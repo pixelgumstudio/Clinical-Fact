@@ -726,7 +726,8 @@
       "exportLatestAttempt": "చివరి ప్రయత్నాన్ని ఎక్స్‌పోర్ట్ చేయండి",
       "questions": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" కోసం ఉన్న 1 క్విజ్ ప్రయత్నాన్ని తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
-      "deleteAllAttemptsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} క్విజ్ ప్రయత్నాలను తొలగించాలా? దీన్ని రద్దు చేయలేరు."
+      "deleteAllAttemptsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} క్విజ్ ప్రయత్నాలను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "makeFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "క్విజ్ డేటాను లోడ్ చేయడం విఫలమైంది - చెల్లని రెస్పాన్స్ ఫార్మాట్",
@@ -795,7 +796,9 @@
       "exportLatestSet": "తాజా సెట్‌ను ఎగుమతి చేయండి",
       "questions": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" కోసం ఉన్న 1 ఫ్లాష్‌కార్డ్ సెట్‌ను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
-      "deleteAllSetsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} ఫ్లాష్‌కార్డ్ సెట్‌లను తొలగించాలా? దీన్ని రద్దు చేయలేరు."
+      "deleteAllSetsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} ఫ్లాష్‌కార్డ్ సెట్‌లను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "makeQuiz": "క్విజ్‌ను రూపొందించండి",
+      "failedToLoadChatContent": "చాట్ కంటెంట్‌ను లోడ్ చేయడం విఫలమైంది"
     },
     "flashcardReview": {
       "unknownError": "తెలియని లోపం",

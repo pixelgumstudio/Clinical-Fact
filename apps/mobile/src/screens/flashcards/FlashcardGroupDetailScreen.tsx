@@ -18,6 +18,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
+import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportFlashcard } from '../../hooks/useExportFlashcard';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
@@ -77,9 +78,10 @@ export const FlashcardGroupDetailScreen = () => {
   const [quizAttempts, setQuizAttempts] = useState<QuizAttemptRow[]>([]);
   const [isLoadingQuizzes, setIsLoadingQuizzes] = useState(true);
   const [activeTab, setActiveTab] = useState<TabType>('sets');
-  const [isPreparingAction, setIsPreparingAction] = useState<'study' | 'new' | 'translate' | null>(null);
+  const [isPreparingAction, setIsPreparingAction] = useState<'study' | 'new' | 'translate' | 'quiz' | null>(null);
   const [isCreateModalVisible, setCreateModalVisible] = useState(false);
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
+  const [createQuizVisible, setCreateQuizVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [exportModalVisible, setExportModalVisible] = useState(false);
   const { exportFlashcard, isLoading: isExporting, error: exportError } = useExportFlashcard();
@@ -163,6 +165,26 @@ export const FlashcardGroupDetailScreen = () => {
       }
     } catch (error: any) {
       Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
+    } finally {
+      setIsPreparingAction(null);
+    }
+  };
+
+  // A quiz on the same note or chat these flashcards came from.
+  const handleGenerateQuiz = async (questionCount: number, timeInMinutes: number) => {
+    setCreateQuizVisible(false);
+    if (noteId) {
+      navigation.navigate('Quiz', { noteId, noteTitle: title, questionCount, timeInMinutes });
+      return;
+    }
+    setIsPreparingAction('quiz');
+    try {
+      const transcript = await getChatTranscript();
+      if (!transcript) {
+        Alert.alert(t('common.error'), t('flashcards.flashcardGroupDetail.failedToLoadChatContent'));
+        return;
+      }
+      navigation.navigate('Quiz', { chatTranscript: transcript, noteTitle: title, questionCount, timeInMinutes, chatSessionId });
     } finally {
       setIsPreparingAction(null);
     }
@@ -343,6 +365,19 @@ export const FlashcardGroupDetailScreen = () => {
           </TouchableOpacity>
         </View>
 
+        <TouchableOpacity
+          style={[styles.secondaryButton, styles.fullWidthButton]}
+          onPress={() => setCreateQuizVisible(true)}
+          disabled={isPreparingAction !== null}
+          activeOpacity={0.7}
+        >
+          {isPreparingAction === 'quiz' ? (
+            <ActivityIndicator size="small" color={theme.colors.grey[900]} />
+          ) : (
+            <Text style={styles.secondaryButtonText}>{t('flashcards.flashcardGroupDetail.makeQuiz')}</Text>
+          )}
+        </TouchableOpacity>
+
         {/* Tabs */}
         <View style={styles.tabsRow}>
           {/* <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('overview')} activeOpacity={0.7}>
@@ -424,6 +459,13 @@ export const FlashcardGroupDetailScreen = () => {
         onClose={() => setCreateModalVisible(false)}
         onGenerateFlashcards={handleGenerateNew}
         isGenerating={isPreparingAction === 'new'}
+        noteTitle={displayTitle}
+      />
+
+      <CreateQuizModal
+        visible={createQuizVisible}
+        onClose={() => setCreateQuizVisible(false)}
+        onGenerateQuiz={handleGenerateQuiz}
         noteTitle={displayTitle}
       />
 
@@ -609,6 +651,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
+  },
+  fullWidthButton: {
+    width: '100%',
+    marginBottom: theme.spacing[6],
   },
   secondaryButtonText: {
     ...theme.typography.textStyles.subtitle1,

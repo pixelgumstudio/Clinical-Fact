@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Vie viimeisin yritys",
       "questions": "{{totalQuestions}} kysymystä · {{value}}",
       "deleteAllAttemptsOne": "Poistetaanko visan ”{{title}}” suorituskerta? Tätä toimintoa ei voi kumota.",
-      "deleteAllAttemptsMany": "Poistetaanko kaikki {{total}} visan ”{{title}}” suorituskertaa? Tätä toimintoa ei voi kumota."
+      "deleteAllAttemptsMany": "Poistetaanko kaikki {{total}} visan ”{{title}}” suorituskertaa? Tätä toimintoa ei voi kumota.",
+      "makeFlashcards": "Luo muistikortteja"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Visan tietojen lataus epäonnistui – virheellinen vastausmuoto",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Vie uusin sarja",
       "questions": "{{totalQuestions}} kysymystä · {{value}}",
       "deleteAllSetsOne": "Poistetaanko sarja \"{{title}}\"? Tätä ei voi kumota.",
-      "deleteAllSetsMany": "Poistetaanko kaikki {{total}} muistikorttisarjaa kohteesta \"{{title}}\"? Tätä ei voi kumota."
+      "deleteAllSetsMany": "Poistetaanko kaikki {{total}} muistikorttisarjaa kohteesta \"{{title}}\"? Tätä ei voi kumota.",
+      "makeQuiz": "Luo tietovisa",
+      "failedToLoadChatContent": "Keskustelun sisällön lataaminen epäonnistui"
     },
     "flashcardReview": {
       "unknownError": "Tuntematon virhe",

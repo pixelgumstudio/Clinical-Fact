@@ -726,7 +726,8 @@
       "exportLatestAttempt": "शेवटचा प्रयत्न निर्यात करा",
       "questions": "{{totalQuestions}} प्रश्न · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" साठीचा 1 क्विझ प्रयत्न हटवायचा? हे पूर्ववत केले जाऊ शकत नाही.",
-      "deleteAllAttemptsMany": "\"{{title}}\" साठीचे सर्व {{total}} क्विझ प्रयत्न हटवायचे? हे पूर्ववत केले जाऊ शकत नाही."
+      "deleteAllAttemptsMany": "\"{{title}}\" साठीचे सर्व {{total}} क्विझ प्रयत्न हटवायचे? हे पूर्ववत केले जाऊ शकत नाही.",
+      "makeFlashcards": "फ्लॅशकार्ड्स बनवा"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "क्विझ डेटा लोड करण्यात अयशस्वी - प्रतिसाद स्वरूप अवैध आहे",
@@ -795,7 +796,9 @@
       "exportLatestSet": "नवीनतम संच एक्सपोर्ट करा",
       "questions": "{{totalQuestions}} प्रश्न · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" साठीचा 1 फ्लॅशकार्ड संच हटवायचा का? ही क्रिया पूर्ववत करता येणार नाही.",
-      "deleteAllSetsMany": "\"{{title}}\" साठीचे सर्व {{total}} फ्लॅशकार्ड संच हटवायचे का? ही क्रिया पूर्ववत करता येणार नाही."
+      "deleteAllSetsMany": "\"{{title}}\" साठीचे सर्व {{total}} फ्लॅशकार्ड संच हटवायचे का? ही क्रिया पूर्ववत करता येणार नाही.",
+      "makeQuiz": "क्विझ बनवा",
+      "failedToLoadChatContent": "चॅट माहिती लोड करण्यात अयशस्वी"
     },
     "flashcardReview": {
       "unknownError": "अनोळखी त्रुटी",

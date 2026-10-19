@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Eksport percubaan terkini",
       "questions": "{{totalQuestions}} soalan · {{value}}",
       "deleteAllAttemptsOne": "Padam 1 percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
-      "deleteAllAttemptsMany": "Padam semua {{total}} percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal."
+      "deleteAllAttemptsMany": "Padam semua {{total}} percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
+      "makeFlashcards": "Cipta kad imbasan"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Gagal memuatkan data kuiz - format respons tidak sah",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Eksport set terkini",
       "questions": "{{totalQuestions}} soalan · {{value}}",
       "deleteAllSetsOne": "Padamkan 1 set kad imbas untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
-      "deleteAllSetsMany": "Padamkan kesemua {{total}} set kad imbas untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal."
+      "deleteAllSetsMany": "Padamkan kesemua {{total}} set kad imbas untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
+      "makeQuiz": "Cipta kuiz",
+      "failedToLoadChatContent": "Gagal memuatkan kandungan sembang"
     },
     "flashcardReview": {
       "unknownError": "Ralat tidak diketahui",

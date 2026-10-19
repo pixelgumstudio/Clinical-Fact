@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Ekspor percobaan terakhir",
       "questions": "{{totalQuestions}} soal · {{value}}",
       "deleteAllAttemptsOne": "Hapus 1 riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
-      "deleteAllAttemptsMany": "Hapus semua {{total}} riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan."
+      "deleteAllAttemptsMany": "Hapus semua {{total}} riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "makeFlashcards": "Buat flashcard"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Gagal memuat data kuis - format respons tidak valid",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Ekspor set terbaru",
       "questions": "{{totalQuestions}} pertanyaan · {{value}}",
       "deleteAllSetsOne": "Hapus 1 set flashcard untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
-      "deleteAllSetsMany": "Hapus semua {{total}} set flashcard untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan."
+      "deleteAllSetsMany": "Hapus semua {{total}} set flashcard untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "makeQuiz": "Buat kuis",
+      "failedToLoadChatContent": "Gagal memuat konten chat"
     },
     "flashcardReview": {
       "unknownError": "Kesalahan tidak diketahui",

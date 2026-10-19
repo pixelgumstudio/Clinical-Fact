@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Exporter la dernière tentative",
       "questions": "{{totalQuestions}} questions · {{value}}",
       "deleteAllAttemptsOne": "Supprimer la tentative de quiz pour « {{title}} »? Cette action est irréversible.",
-      "deleteAllAttemptsMany": "Supprimer les {{total}} tentatives de quiz pour « {{title}} »? Cette action est irréversible."
+      "deleteAllAttemptsMany": "Supprimer les {{total}} tentatives de quiz pour « {{title}} »? Cette action est irréversible.",
+      "makeFlashcards": "Créer des cartes-éclair"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Échec du chargement des données du quiz - format de réponse non valide",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Exporter le dernier paquet",
       "questions": "{{totalQuestions}} questions · {{value}}",
       "deleteAllSetsOne": "Supprimer le paquet de cartes mémoire pour \"{{title}}\"? Cette action est irréversible.",
-      "deleteAllSetsMany": "Supprimer les {{total}} paquets de cartes mémoire pour \"{{title}}\"? Cette action est irréversible."
+      "deleteAllSetsMany": "Supprimer les {{total}} paquets de cartes mémoire pour \"{{title}}\"? Cette action est irréversible.",
+      "makeQuiz": "Créer un quiz",
+      "failedToLoadChatContent": "Échec du chargement du contenu du clavardage"
     },
     "flashcardReview": {
       "unknownError": "Erreur inconnue",

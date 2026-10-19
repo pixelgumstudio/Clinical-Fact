@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Xuất lần làm gần nhất",
       "questions": "{{totalQuestions}} câu hỏi · {{value}}",
       "deleteAllAttemptsOne": "Xóa 1 lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này.",
-      "deleteAllAttemptsMany": "Xóa toàn bộ {{total}} lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này."
+      "deleteAllAttemptsMany": "Xóa toàn bộ {{total}} lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này.",
+      "makeFlashcards": "Tạo flashcard"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Không thể tải dữ liệu bài trắc nghiệm - định dạng phản hồi không hợp lệ",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Xuất bộ thẻ mới nhất",
       "questions": "{{totalQuestions}} câu hỏi · {{value}}",
       "deleteAllSetsOne": "Xóa bộ 1 flashcard của \"{{title}}\"? Thao tác này không thể hoàn tác.",
-      "deleteAllSetsMany": "Xóa toàn bộ {{total}} bộ flashcard của \"{{title}}\"? Thao tác này không thể hoàn tác."
+      "deleteAllSetsMany": "Xóa toàn bộ {{total}} bộ flashcard của \"{{title}}\"? Thao tác này không thể hoàn tác.",
+      "makeQuiz": "Tạo bài trắc nghiệm",
+      "failedToLoadChatContent": "Không thể tải nội dung trò chuyện"
     },
     "flashcardReview": {
       "unknownError": "Lỗi không xác định",

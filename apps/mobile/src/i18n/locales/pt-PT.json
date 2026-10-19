@@ -708,7 +708,8 @@
       "exportLatestAttempt": "Exportar última tentativa",
       "questions": "{{totalQuestions}} perguntas · {{value}}",
       "deleteAllAttemptsOne": "Eliminar 1 tentativa de questionário de \"{{title}}\"? Esta ação não pode ser anulada.",
-      "deleteAllAttemptsMany": "Eliminar todas as {{total}} tentativas de questionário de \"{{title}}\"? Esta ação não pode ser anulada."
+      "deleteAllAttemptsMany": "Eliminar todas as {{total}} tentativas de questionário de \"{{title}}\"? Esta ação não pode ser anulada.",
+      "makeFlashcards": "Criar flashcards"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Falha ao carregar os dados do questionário — formato de resposta inválido",
@@ -777,7 +778,9 @@
       "exportLatestSet": "Exportar último conjunto",
       "questions": "{{totalQuestions}} perguntas · {{value}}",
       "deleteAllSetsOne": "Eliminar o conjunto de flashcards de \"{{title}}\"? Esta ação não pode ser anulada.",
-      "deleteAllSetsMany": "Eliminar todos os {{total}} conjuntos de flashcards de \"{{title}}\"? Esta ação não pode ser anulada."
+      "deleteAllSetsMany": "Eliminar todos os {{total}} conjuntos de flashcards de \"{{title}}\"? Esta ação não pode ser anulada.",
+      "makeQuiz": "Criar um quiz",
+      "failedToLoadChatContent": "Não foi possível carregar o conteúdo do chat"
     },
     "flashcardReview": {
       "unknownError": "Erro desconhecido",

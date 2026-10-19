@@ -708,7 +708,8 @@
       "exportLatestAttempt": "最新の結果をエクスポート",
       "questions": "{{totalQuestions}}問 · {{value}}",
       "deleteAllAttemptsOne": "「{{title}}」の回答履歴（1件）を削除しますか？この操作は元に戻せません。",
-      "deleteAllAttemptsMany": "「{{title}}」の全{{total}}件の回答履歴を削除しますか？この操作は元に戻せません。"
+      "deleteAllAttemptsMany": "「{{title}}」の全{{total}}件の回答履歴を削除しますか？この操作は元に戻せません。",
+      "makeFlashcards": "単語カードを作成"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "クイズデータを読み込めませんでした（不正な応答形式）",
@@ -777,7 +778,9 @@
       "exportLatestSet": "最新のセットをエクスポート",
       "questions": "{{totalQuestions}}問 · {{value}}",
       "deleteAllSetsOne": "「{{title}}」のフラッシュカードセット（1件）を削除しますか？この操作は取り消せません。",
-      "deleteAllSetsMany": "「{{title}}」のすべてのフラッシュカードセット（{{total}}件）を削除しますか？この操作は取り消せません。"
+      "deleteAllSetsMany": "「{{title}}」のすべてのフラッシュカードセット（{{total}}件）を削除しますか？この操作は取り消せません。",
+      "makeQuiz": "クイズを作成",
+      "failedToLoadChatContent": "チャット内容の読み込みに失敗しました"
     },
     "flashcardReview": {
       "unknownError": "不明なエラー",

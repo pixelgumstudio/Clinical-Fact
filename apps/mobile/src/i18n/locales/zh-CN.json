@@ -708,7 +708,8 @@
       "exportLatestAttempt": "导出最近作答记录",
       "questions": "{{totalQuestions}} 道题目 · {{value}}",
       "deleteAllAttemptsOne": "确定要删除“{{title}}”的这 1 次测验记录吗？此操作无法撤销。",
-      "deleteAllAttemptsMany": "确定要删除“{{title}}”的全部 {{total}} 次测验记录吗？此操作无法撤销。"
+      "deleteAllAttemptsMany": "确定要删除“{{title}}”的全部 {{total}} 次测验记录吗？此操作无法撤销。",
+      "makeFlashcards": "制作记忆卡"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "加载测验数据失败：响应格式无效",
@@ -777,7 +778,9 @@
       "exportLatestSet": "导出最新卡片集",
       "questions": "{{totalQuestions}} 道题目 · {{value}}",
       "deleteAllSetsOne": "确定要删除“{{title}}”的这 1 个抽认卡集吗？此操作无法撤销。",
-      "deleteAllSetsMany": "确定要删除“{{title}}”的全部 {{total}} 个抽认卡集吗？此操作无法撤销。"
+      "deleteAllSetsMany": "确定要删除“{{title}}”的全部 {{total}} 个抽认卡集吗？此操作无法撤销。",
+      "makeQuiz": "生成测验",
+      "failedToLoadChatContent": "无法加载聊天内容"
     },
     "flashcardReview": {
       "unknownError": "未知错误",

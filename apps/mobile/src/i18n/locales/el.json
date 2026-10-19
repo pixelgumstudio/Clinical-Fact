@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Εξαγωγή τελευταίας προσπάθειας",
       "questions": "{{totalQuestions}} ερωτήσεις · {{value}}",
       "deleteAllAttemptsOne": "Διαγραφή της 1 προσπάθειας κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
-      "deleteAllAttemptsMany": "Διαγραφή και των {{total}} προσπαθειών κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
+      "deleteAllAttemptsMany": "Διαγραφή και των {{total}} προσπαθειών κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+      "makeFlashcards": "Δημιουργία flashcards"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Αποτυχία φόρτωσης δεδομένων κουίζ - μη έγκυρη μορφή απόκρισης",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Εξαγωγή τελευταίου σετ",
       "questions": "{{totalQuestions}} ερωτήσεις · {{value}}",
       "deleteAllSetsOne": "Διαγραφή του 1 σετ flashcards για το «{{title}}»; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί.",
-      "deleteAllSetsMany": "Διαγραφή και των {{total}} σετ flashcards για το «{{title}}»; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί."
+      "deleteAllSetsMany": "Διαγραφή και των {{total}} σετ flashcards για το «{{title}}»; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί.",
+      "makeQuiz": "Δημιουργία κουίζ",
+      "failedToLoadChatContent": "Αποτυχία φόρτωσης περιεχομένου συνομιλίας"
     },
     "flashcardReview": {
       "unknownError": "Άγνωστο σφάλμα",

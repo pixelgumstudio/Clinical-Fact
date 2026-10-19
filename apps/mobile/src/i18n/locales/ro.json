@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Exportă ultima încercare",
       "questions": "{{totalQuestions}} întrebări · {{value}}",
       "deleteAllAttemptsOne": "Ștergi singura încercare de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată.",
-      "deleteAllAttemptsMany": "Ștergi toate cele {{total}} încercări de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată."
+      "deleteAllAttemptsMany": "Ștergi toate cele {{total}} încercări de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată.",
+      "makeFlashcards": "Creează flashcarduri"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nu s-au putut încărca datele quizului – format de răspuns nevalid",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Exportă ultimul set",
       "questions": "{{totalQuestions}} întrebări · {{value}}",
       "deleteAllSetsOne": "Ștergi unicul set de flashcarduri pentru „{{title}}”? Acțiunea nu poate fi anulată.",
-      "deleteAllSetsMany": "Ștergi toate cele {{total}} seturi de flashcarduri pentru „{{title}}”? Acțiunea nu poate fi anulată."
+      "deleteAllSetsMany": "Ștergi toate cele {{total}} seturi de flashcarduri pentru „{{title}}”? Acțiunea nu poate fi anulată.",
+      "makeQuiz": "Creează un quiz",
+      "failedToLoadChatContent": "Nu s-a putut încărca conținutul chatului"
     },
     "flashcardReview": {
       "unknownError": "Eroare necunoscută",

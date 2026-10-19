@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Eksportér seneste forsøg",
       "questions": "{{totalQuestions}} spørgsmål · {{value}}",
       "deleteAllAttemptsOne": "Vil du slette 1 quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
-      "deleteAllAttemptsMany": "Vil du slette alle {{total}} quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes."
+      "deleteAllAttemptsMany": "Vil du slette alle {{total}} quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "makeFlashcards": "Opret vendekort"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Kunne ikke indlæse quizdata – ugyldigt svarformat",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Eksportér seneste sæt",
       "questions": "{{totalQuestions}} spørgsmål · {{value}}",
       "deleteAllSetsOne": "Vil du slette 1 flashcardsæt for \"{{title}}\"? Dette kan ikke fortrydes.",
-      "deleteAllSetsMany": "Vil du slette alle {{total}} flashcardsæt for \"{{title}}\"? Dette kan ikke fortrydes."
+      "deleteAllSetsMany": "Vil du slette alle {{total}} flashcardsæt for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "makeQuiz": "Opret en quiz",
+      "failedToLoadChatContent": "Kunne ikke indlæse chatindhold"
     },
     "flashcardReview": {
       "unknownError": "Ukendt fejl",

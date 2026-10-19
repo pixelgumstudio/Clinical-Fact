@@ -726,7 +726,8 @@
       "exportLatestAttempt": "છેલ્લો પ્રયાસ એક્સપોર્ટ કરો",
       "questions": "{{totalQuestions}} પ્રશ્નો · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" માટેનો 1 ક્વિઝ પ્રયાસ કાઢી નાખવો છે? આ પાછું લાવી શકાશે નહીં.",
-      "deleteAllAttemptsMany": "\"{{title}}\" માટેના તમામ {{total}} ક્વિઝ પ્રયાસો કાઢી નાખવા છે? આ પાછું લાવી શકાશે નહીં."
+      "deleteAllAttemptsMany": "\"{{title}}\" માટેના તમામ {{total}} ક્વિઝ પ્રયાસો કાઢી નાખવા છે? આ પાછું લાવી શકાશે નહીં.",
+      "makeFlashcards": "ફ્લેશકાર્ડ્સ બનાવો"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ક્વિઝ ડેટા લોડ કરવામાં નિષ્ફળ - અમાન્ય પ્રતિસાદ ફોર્મેટ",
@@ -795,7 +796,9 @@
       "exportLatestSet": "નવીનતમ સેટ એક્સપોર્ટ કરો",
       "questions": "{{totalQuestions}} પ્રશ્નો · {{value}}",
       "deleteAllSetsOne": "\"{{title}}\" માટેનો 1 ફ્લેશકાર્ડ સેટ ડિલીટ કરવો છે? આ પાછું લાવી શકાશે નહીં.",
-      "deleteAllSetsMany": "\"{{title}}\" માટેના તમામ {{total}} ફ્લેશકાર્ડ સેટ્સ ડિલીટ કરવા છે? આ પાછું લાવી શકાશે નહીં."
+      "deleteAllSetsMany": "\"{{title}}\" માટેના તમામ {{total}} ફ્લેશકાર્ડ સેટ્સ ડિલીટ કરવા છે? આ પાછું લાવી શકાશે નહીં.",
+      "makeQuiz": "ક્વિઝ બનાવો",
+      "failedToLoadChatContent": "ચેટ સામગ્રી લોડ કરવામાં નિષ્ફળ"
     },
     "flashcardReview": {
       "unknownError": "અજ્ઞાત ભૂલ",

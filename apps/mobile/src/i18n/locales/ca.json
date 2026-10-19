@@ -726,7 +726,8 @@
       "exportLatestAttempt": "Exporta l'últim intent",
       "questions": "{{totalQuestions}} preguntes · {{value}}",
       "deleteAllAttemptsOne": "Vols eliminar l'únic intent del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
-      "deleteAllAttemptsMany": "Vols eliminar els {{total}} intents del qüestionari «{{title}}»? Aquesta acció no es pot desfer."
+      "deleteAllAttemptsMany": "Vols eliminar els {{total}} intents del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
+      "makeFlashcards": "Crea targetes"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Error en carregar les dades del qüestionari: format de resposta no vàlid",
@@ -795,7 +796,9 @@
       "exportLatestSet": "Exporta l'últim conjunt",
       "questions": "{{totalQuestions}} preguntes · {{value}}",
       "deleteAllSetsOne": "Vols eliminar l'únic conjunt de flashcards de «{{title}}»? Aquesta acció no es pot desfer.",
-      "deleteAllSetsMany": "Vols eliminar tots els {{total}} conjunts de flashcards de «{{title}}»? Aquesta acció no es pot desfer."
+      "deleteAllSetsMany": "Vols eliminar tots els {{total}} conjunts de flashcards de «{{title}}»? Aquesta acció no es pot desfer.",
+      "makeQuiz": "Crea un qüestionari",
+      "failedToLoadChatContent": "No s'ha pogut carregar el contingut del xat"
     },
     "flashcardReview": {
       "unknownError": "Error desconegut",
