@@ -103,20 +103,24 @@ class AiService {
   }
 
   /** Runs `fn` on the primary Gemini model, retrying once on the fallback model if it throws. */
-  private async withGeminiFallback<T>(label: string, fn: (model: string) => Promise<T>): Promise<T> {
+  private async withGeminiFallback<T>(label: string, fn: (model: string) => Promise<T>, fast = false): Promise<T> {
+    // `fast` runs the small utility model first (titles, suggestions, summaries) and falls back to the main one.
+    const first = fast ? this.geminiFallbackModel : this.geminiModel;
+    const second = fast ? this.geminiModel : this.geminiFallbackModel;
     try {
-      return await fn(this.geminiModel);
+      return await fn(first);
     } catch (error: any) {
-      if (this.geminiFallbackModel === this.geminiModel) throw error;
-      console.warn(`⏳ Gemini ${label} failed on ${this.geminiModel} (${error.message}) — retrying on ${this.geminiFallbackModel}`);
-      return await fn(this.geminiFallbackModel);
+      if (second === first) throw error;
+      console.warn(`⏳ Gemini ${label} failed on ${first} (${error.message}) — retrying on ${second}`);
+      return await fn(second);
     }
   }
 
   private async geminiGenerate(
     label: string,
     contents: Content[] | string,
-    config: GenerateContentConfig = {}
+    config: GenerateContentConfig = {},
+    fast = false
   ): Promise<string> {
     const ai = this.getGemini();
     return this.withGeminiFallback(label, async (model) => {
@@ -130,7 +134,7 @@ class AiService {
         throw new Error(`Empty response from Gemini (reason: ${finishReason})`);
       }
       return text;
-    });
+    }, fast);
   }
 
   /** One line per call so real token usage (and therefore cost) is visible in the logs. */
@@ -595,14 +599,16 @@ class AiService {
 
   async chat(
     messages: ChatMessage[],
-    systemInstruction?: string
+    systemInstruction?: string,
+    /** `fast`: small helper calls (titles, summaries) — runs on the light model with a small output cap. */
+    options: { fast?: boolean } = {}
   ): Promise<string> {
     if (this.useGemini) {
       try {
         const text = await this.geminiGenerate('chat', this.toGeminiContents(messages), {
           systemInstruction: systemInstruction || undefined,
-          maxOutputTokens: GEMINI_CHAT_MAX_OUTPUT_TOKENS,
-        });
+          maxOutputTokens: options.fast ? 1024 : GEMINI_CHAT_MAX_OUTPUT_TOKENS,
+        }, options.fast);
         console.log('✅ Generated chat response successfully, length:', text.length);
         return text;
       } catch (error: any) {
@@ -802,15 +808,16 @@ class AiService {
    */
   async chatJSON(
     messages: ChatMessage[],
-    systemInstruction?: string
+    systemInstruction?: string,
+    options: { fast?: boolean } = {}
   ): Promise<any> {
     if (this.useGemini) {
       try {
         const text = await this.geminiGenerate('chatJSON', this.toGeminiContents(messages), {
           systemInstruction: systemInstruction || undefined,
-          maxOutputTokens: GEMINI_CHAT_MAX_OUTPUT_TOKENS,
+          maxOutputTokens: options.fast ? 1024 : GEMINI_CHAT_MAX_OUTPUT_TOKENS,
           responseMimeType: 'application/json',
-        });
+        }, options.fast);
         return this.parseJsonFromText(text, 'Gemini');
       } catch (error: any) {
         console.error('❌ Gemini JSON Chat Error:', { message: error.message, status: error.status });
