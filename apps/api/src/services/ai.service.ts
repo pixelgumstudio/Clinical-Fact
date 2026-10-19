@@ -876,6 +876,15 @@ class AiService {
   }
 
   /**
+   * Web search with a time limit. Chat starts this at the same moment as literature retrieval and
+   * takes whatever has arrived by the deadline — a slow search must not hold up the answer.
+   */
+  async searchWebWithin(query: string, timeoutMs: number): Promise<{ uri: string; title: string; content: string }[]> {
+    const timeout = new Promise<never[]>((resolve) => setTimeout(() => resolve([]), timeoutMs));
+    return Promise.race([this.searchWeb(query), timeout]);
+  }
+
+  /**
    * Streaming counterpart of the old chatWithSearch — runs the Tavily search up front (it has
    * to resolve before the prompt can be built), then hands back a text-delta generator for the
    * actual generation. The search itself can't be streamed, only the LLM's answer.
@@ -906,10 +915,12 @@ class AiService {
   async chatWithGroundingStream(
     messages: ChatMessage[],
     systemInstruction?: string,
-    signal?: AbortSignal
+    signal?: AbortSignal,
+    /** Web results already fetched by the caller (so the search could run in parallel with other work). */
+    prefetchedWebResults?: { uri: string; title: string; content: string }[]
   ): Promise<{ stream: AsyncGenerator<string, void, unknown>; groundingSources: { uri: string; title: string }[] }> {
     const lastMessage = messages[messages.length - 1];
-    const webResults = await this.searchWeb(lastMessage.content);
+    const webResults = prefetchedWebResults ?? (await this.searchWeb(lastMessage.content));
 
     const webContext = webResults.length
       ? `\n\nLive web search results (weave naturally into your answer, no citation numbers — shown to the user separately):\n${webResults

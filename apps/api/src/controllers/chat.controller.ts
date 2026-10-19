@@ -623,7 +623,8 @@ class ChatController {
               sessionId,
               Array.isArray(excludeImageUrls) ? excludeImageUrls : [],
               language,
-              abortController.signal
+              abortController.signal,
+              { searchSession: chatSession.sourceType !== 'medical_qa' || hasAttachedSources }
             )
           : chatService.chatStream(
               sessionId,
