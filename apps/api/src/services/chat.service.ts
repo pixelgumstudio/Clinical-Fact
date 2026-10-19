@@ -74,6 +74,11 @@ export interface MedicalSearchFilters extends EuropePmcFilters {
  * Questions about the document as a whole ("summarize this note", "what is this about") need all of it,
  * not the few passages most similar to the question.
  */
+// How long a live medical answer waits for outside sources (literature APIs, drug labels, web search).
+// They run in parallel and the slowest used to set the pace; anything later than this is skipped.
+const SOURCES_BUDGET_MS = Number(process.env.CHAT_SOURCES_BUDGET_MS) || 2500;
+const ATTACHED_BUDGET_MS = 10000;
+
 export const WHOLE_DOCUMENT_INTENT =
   /\b(summari[sz]e|summary|overview|outline|key (points|takeaways|ideas|concepts)|main (points|ideas|topics)|tl;?dr|recap|what('?s| is) (this|the) (note|document|file|pdf|lecture|material|text) (about|covering)|explain (this|the) (whole |entire )?(note|document|file|pdf|lecture|material))\b/i;
 // ~25,000 tokens: a long lecture fits, and a message stays affordable.
@@ -343,13 +348,26 @@ ${context}${languageInstruction}`;
     sessionId?: string,
     excludeImageUrls: string[] = [],
     language = 'en',
-    signal?: AbortSignal
+    signal?: AbortSignal,
+    options: {
+      /** Look for this session's own indexed material (attached/uploaded documents). Skipped for a
+       *  plain medical chat with nothing attached, which saves an embedding call and a vector search. */
+      searchSession?: boolean;
+    } = {}
   ): AsyncGenerator<ChatStreamEvent, void, unknown> {
     console.log(`🩺 Streaming live medical chat for query: "${userQuery}"...`);
 
     const retrievalStartedAt = performance.now();
 
-    const attachedChunksPromise = sessionId
+    // The answer waits for the sources, but only so long: literature APIs and web search each take
+    // 1–6 seconds and used to be waited for one after another. They now all start together and
+    // whatever hasn't arrived within the budget is left out — the model answers from its own
+    // knowledge, which is the foundation anyway (see the prompt below).
+    const withinBudget = <T>(promise: Promise<T>, fallback: T, ms = SOURCES_BUDGET_MS): Promise<T> =>
+      Promise.race([promise, new Promise<T>((resolve) => setTimeout(() => resolve(fallback), ms))]);
+    const webPromise = aiService.searchWebWithin(userQuery, SOURCES_BUDGET_MS);
+
+    const attachedChunksPromise = sessionId && options.searchSession !== false
       ? (async () => {
           const queryEmbedding = await embeddingService.generateQueryEmbedding(userQuery);
           return vectorDbService.searchSimilar(queryEmbedding, sessionId, 5, 0.15);
@@ -369,12 +387,14 @@ ${context}${languageInstruction}`;
     const imagesPromise = chatImagesService.find(userQuery, excludeImageUrls);
 
     const [europePmcSettled, semanticScholarSettled, pubmedSettled, attachedSettled, drugLabelsSettled] = await Promise.allSettled([
-      europePmcService.search(userQuery, 5, filters),
-      includeSemanticScholar ? semanticScholarService.search(userQuery, 5) : Promise.resolve([]),
-      includePubMed ? pubmedService.search(userQuery, 5) : Promise.resolve([]),
-      attachedChunksPromise,
-      openFdaService.search(userQuery, 3),
+      withinBudget(europePmcService.search(userQuery, 5, filters), []),
+      withinBudget(includeSemanticScholar ? semanticScholarService.search(userQuery, 5) : Promise.resolve([]), []),
+      withinBudget(includePubMed ? pubmedService.search(userQuery, 5) : Promise.resolve([]), []),
+      // The user's own material is the point of attaching it, so it gets a much longer allowance.
+      withinBudget(attachedChunksPromise, [], ATTACHED_BUDGET_MS),
+      withinBudget(openFdaService.search(userQuery, 3), []),
     ]);
+    const webResults = await webPromise;
 
     console.log(`⏱️ Retrieval duration (literature + attached + drug labels): ${(performance.now() - retrievalStartedAt).toFixed(0)}ms`);
 
@@ -472,7 +492,13 @@ ${context}${languageInstruction}`;
       context = `${context.slice(0, MAX_CONTEXT_CHARS)}…`;
     }
 
-    const systemInstruction = `You are Clinical Fact, a medical reference AI built for nursing and medical students. Answer accurately using your own medical knowledge as the foundation, and be straightforward and concise — this is a study tool students read on their phone between classes, not an essay. Answer the actual question directly, then stop. Don't pad with restating the question, generic disclaimers, or covering angles the student didn't ask about.
+    const systemInstruction = `You are Clinical Fact, an expert clinical tutor for nursing and medical students — think of a sharp senior clinician who teaches well. Answer from your own medical knowledge, reason carefully, and be accurate: this is exam and practice preparation, so correctness matters more than anything else.
+
+HOW DEEP TO GO — match the question:
+- A simple fact, definition, normal value or yes/no question: answer directly in a few sentences.
+- Anything that asks to explain, why/how, compare, pathophysiology, mechanism, differentials, management, nursing care, interpretation or a case: give a complete, well-organised answer a student can learn from. Open with the direct answer in one sentence, then the reasoning step by step, then what matters in practice where it applies — key findings, investigations, treatment or nursing interventions WITH their rationale, complications and red flags, and the high-yield exam points or common mistakes.
+- Be thorough on substance, never on filler: no restating the question, no generic disclaimers, no padding, nothing the student didn't need.
+- Put exact figures in the answer when they exist (doses, ranges, thresholds, timings) and name the guideline or drug class they come from. If something is uncertain or varies by guideline or region, say so rather than guess.
 
 The sources below are supplementary, not a cap on what you're allowed to say:
 - Where a source directly supports a specific claim you make, cite it inline with the matching bracketed number (e.g. [1], [2]).
@@ -482,7 +508,9 @@ The sources below are supplementary, not a cap on what you're allowed to say:
 
 FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
-- Default to a short, direct answer — a couple of tight paragraphs or a short list is usually enough. Only reach for multiple <h3> sections when the question truly has several distinct parts (e.g. explicitly asks for causes AND symptoms AND treatment) — and even then keep each section brief, not a full writeup.
+- Make it easy to scan on a phone: short paragraphs, <h3> headings when there are two or more distinct parts, <ul>/<ol> for lists and steps, and <b> on key terms and numbers.
+- For a longer answer, finish with a one-line <p><b>Key takeaway:</b> ...</p>.
+- Use a mnemonic only when it is a well-known, standard one.
 
 IMAGES:
 - Any relevant images are found and shown by the app itself, in a separate row above your answer — you never receive image URLs and have no way to know what, if anything, was found for this specific message.
@@ -513,7 +541,7 @@ ${context || 'No sources found — answer from your own medical knowledge.'}${la
     // Note: EuropePmcFilters (date range/source categories) only ever apply to the Europe PMC
     // search above — Tavily web grounding has no equivalent filter API and always searches
     // the trusted-domain web unfiltered.
-    const { stream, groundingSources } = await aiService.chatWithGroundingStream(messages, systemInstruction, signal);
+    const { stream, groundingSources } = await aiService.chatWithGroundingStream(messages, systemInstruction, signal, webResults);
 
     // First metadata event goes out immediately, without images, so citations show right away.
     yield {
