@@ -13,6 +13,7 @@ import { colors, Icon, theme } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { FlashcardCard, IFlashcard } from '../../components/FlashcardCard';
 import api from '../../services/api';
+import { useTranslation } from 'react-i18next';
 
 type FlashcardReviewRouteProp = RouteProp<MainStackParamList, 'FlashcardReview'>;
 type FlashcardReviewNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FlashcardReview'>;
@@ -27,6 +28,7 @@ interface FlashcardSet {
 const CARD_COLORS = [theme.colors.green[600], theme.colors.red[600], theme.colors.orange[600]];
 
 export const FlashcardReviewScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<FlashcardReviewNavigationProp>();
   const route = useRoute<FlashcardReviewRouteProp>();
   const { setId, title } = route.params || {};
@@ -73,7 +75,7 @@ export const FlashcardReviewScreen = () => {
         }
       } catch (err) {
         console.error('Error fetching flashcard set:', err);
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        setError(err instanceof Error ? err.message : t('flashcards.flashcardReview.unknownError'));
       } finally {
         setIsLoading(false);
       }
@@ -114,13 +116,13 @@ export const FlashcardReviewScreen = () => {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.centerContainer}>
           <Text style={styles.errorText}>
-            {error || 'No flashcards in this set'}
+            {error || t('flashcards.flashcardReview.noFlashcardsInThisSet')}
           </Text>
           <TouchableOpacity
             style={styles.retryButton}
             onPress={() => navigation.goBack()}
           >
-            <Text style={styles.retryButtonText}>Go Back</Text>
+            <Text style={styles.retryButtonText}>{t('flashcards.flashcardReview.goBack')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -140,13 +142,13 @@ export const FlashcardReviewScreen = () => {
         </View>
         <View style={styles.doneContent}>
           <View style={styles.doneCard}>
-            <Text style={styles.doneTitle}>All done</Text>
-            <Text style={styles.doneSubtitle}>You have reviewed all the cards in this deck</Text>
+            <Text style={styles.doneTitle}>{t('flashcards.flashcardReview.allDone')}</Text>
+            <Text style={styles.doneSubtitle}>{t('flashcards.flashcardReview.youHaveReviewedAllTheCards')}</Text>
           </View>
         </View>
         <View style={styles.doneFooter}>
           <TouchableOpacity style={styles.continueButton} onPress={() => navigation.goBack()} activeOpacity={0.8}>
-            <Text style={styles.continueButtonText}>Continue</Text>
+            <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -164,7 +166,7 @@ export const FlashcardReviewScreen = () => {
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerBackButton}>
           <Icon name="backFill" size={24} color={theme.colors.grey[600]} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Question {currentCardIndex + 1}</Text>
+        <Text style={styles.headerTitle}>{t('flashcards.flashcardReview.question', { value: currentCardIndex + 1 })}</Text>
         <View style={styles.timerBadge}>
           <Icon name="time" size={16} color={theme.colors.yale[700]} />
           <Text style={styles.timerText}>{formatTime(elapsedSeconds)}</Text>
@@ -173,7 +175,7 @@ export const FlashcardReviewScreen = () => {
 
       {/* Progress Section */}
       <View style={styles.progressSection}>
-        <Text style={styles.progressText}>Question {currentCardIndex + 1} of {totalCards}</Text>
+        <Text style={styles.progressText}>{t('flashcards.flashcardReview.questionOf', { value: currentCardIndex + 1, totalCards })}</Text>
         <Text style={styles.progressPercentage}>{Math.round(progress)}%</Text>
       </View>
       <View style={styles.progressBarContainer}>

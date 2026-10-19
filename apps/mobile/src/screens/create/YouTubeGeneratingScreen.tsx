@@ -24,6 +24,7 @@ import appLifecycleService from '../../services/appLifecycleService';
 import { useInvalidateNotes } from '../../hooks/queries';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
+import { useTranslation } from 'react-i18next';
 
 type YouTubeGeneratingRouteProp = RouteProp<MainStackParamList, 'YouTubeGenerating'>;
 type YouTubeGeneratingNavigationProp = NativeStackNavigationProp<MainStackParamList, 'YouTubeGenerating'>;
@@ -40,14 +41,15 @@ const POLL_INTERVAL_MS = 4000;
 const MAX_POLL_ATTEMPTS = 60; // 4 min max
 
 export const YouTubeGeneratingScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<YouTubeGeneratingNavigationProp>();
   const route = useRoute<YouTubeGeneratingRouteProp>();
   const { youtubeUrl, videoTitle, channelTitle } = route.params;
 
   const [steps, setSteps] = useState<ProgressStep[]>([
-    { id: 'fetch',      title: 'Fetching video',       subtitle: 'Getting video details',         status: 'active',  progress: 0 },
-    { id: 'transcribe', title: 'Extracting transcript', subtitle: 'Converting audio to text',      status: 'pending', progress: 0 },
-    { id: 'generate',   title: 'Generating your note',  subtitle: 'AI is summarising the content', status: 'pending', progress: 0 },
+    { id: 'fetch',      title: t('create.youTubeGenerating.fetchingVideo'),       subtitle: t('create.youTubeGenerating.gettingVideoDetails'),         status: 'active',  progress: 0 },
+    { id: 'transcribe', title: t('create.youTubeGenerating.extractingTranscript'), subtitle: t('create.youTubeGenerating.convertingAudioToText'),      status: 'pending', progress: 0 },
+    { id: 'generate',   title: t('create.youTubeGenerating.generatingYourNote'),  subtitle: t('create.youTubeGenerating.aiIsSummarisingTheContent'), status: 'pending', progress: 0 },
   ]);
 
   const [isComplete, setIsComplete] = useState(false);
@@ -165,7 +167,7 @@ export const YouTubeGeneratingScreen = () => {
         }
 
         if (processingStatus === 'failed') {
-          handleError(res.data.error || 'Note generation failed. Please try again.');
+          handleError(res.data.error || t('create.youTubeGenerating.noteGenerationFailedPleaseTryAgain'));
           return;
         }
 
@@ -183,19 +185,19 @@ export const YouTubeGeneratingScreen = () => {
     setError(message);
     markCurrentStepError();
     Alert.alert(
-      'Processing Failed',
+      t('create.youTubeGenerating.processingFailed'),
       message,
       [
-        { text: 'Go Back', onPress: () => navigation.goBack() },
+        { text: t('create.youTubeGenerating.goBack'), onPress: () => navigation.goBack() },
         {
-          text: 'Retry',
+          text: t('create.youTubeGenerating.retry'),
           onPress: () => {
             setError(null);
             pollAttemptsRef.current = 0;
             setSteps([
-              { id: 'fetch',      title: 'Fetching video',       subtitle: 'Getting video details',         status: 'active',  progress: 0 },
-              { id: 'transcribe', title: 'Extracting transcript', subtitle: 'Converting audio to text',      status: 'pending', progress: 0 },
-              { id: 'generate',   title: 'Generating your note',  subtitle: 'AI is summarising the content', status: 'pending', progress: 0 },
+              { id: 'fetch',      title: t('create.youTubeGenerating.fetchingVideo'),       subtitle: t('create.youTubeGenerating.gettingVideoDetails'),         status: 'active',  progress: 0 },
+              { id: 'transcribe', title: t('create.youTubeGenerating.extractingTranscript'), subtitle: t('create.youTubeGenerating.convertingAudioToText'),      status: 'pending', progress: 0 },
+              { id: 'generate',   title: t('create.youTubeGenerating.generatingYourNote'),  subtitle: t('create.youTubeGenerating.aiIsSummarisingTheContent'), status: 'pending', progress: 0 },
             ]);
             processYouTubeVideo();
           },
@@ -218,7 +220,7 @@ export const YouTubeGeneratingScreen = () => {
       const response = await api.generateNoteFromYouTube(youtubeUrl);
 
       if (!response.success || !response.data) {
-        throw new Error(response.message || 'Failed to start note generation');
+        throw new Error(response.message || t('create.youTubeGenerating.failedToStartNoteGeneration'));
       }
 
       const { noteId, processingStatus } = response.data;
@@ -239,18 +241,18 @@ export const YouTubeGeneratingScreen = () => {
         pollNoteStatus(noteId);
       }
     } catch (err: any) {
-      handleError(err.message || 'Failed to process YouTube video. Please try again.');
+      handleError(err.message || t('create.youTubeGenerating.failedToProcessYouTubeVideoPlease'));
     }
   };
 
   const handleGoBack = () => {
     if (!isComplete) {
       Alert.alert(
-        'Cancel Processing',
-        'Are you sure you want to cancel? Your progress will be lost.',
+        t('create.youTubeGenerating.cancelProcessing'),
+        t('create.youTubeGenerating.areYouSureYouWantTo'),
         [
-          { text: 'Continue Processing', style: 'cancel' },
-          { text: 'Cancel', style: 'destructive', onPress: () => navigation.goBack() },
+          { text: t('create.youTubeGenerating.continueProcessing'), style: 'cancel' },
+          { text: t('common.cancel'), style: 'destructive', onPress: () => navigation.goBack() },
         ]
       );
     } else {
@@ -265,7 +267,7 @@ export const YouTubeGeneratingScreen = () => {
           index: 1,
           routes: [
             { name: 'MainTabs' },
-            { name: 'NoteDetail', params: { noteId: generatedNoteId, title: videoTitle || 'YouTube Note' } },
+            { name: 'NoteDetail', params: { noteId: generatedNoteId, title: videoTitle || t('create.youTubeGenerating.youTubeNote') } },
           ],
         })
       );
@@ -301,7 +303,7 @@ export const YouTubeGeneratingScreen = () => {
           <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
-          {isComplete ? 'Note Generated' : 'Generating note'}
+          {isComplete ? t('create.youTubeGenerating.noteGenerated') : t('create.youTubeGenerating.generatingNote')}
         </Text>
         <View style={styles.headerSpacer} />
       </View>
@@ -355,11 +357,11 @@ export const YouTubeGeneratingScreen = () => {
         <PoweredByFooter />
         {isComplete || generatedNoteId ? (
           <TouchableOpacity style={styles.primaryButton} onPress={handleGoToNote} activeOpacity={0.8}>
-            <Text style={styles.primaryButtonText}>Go to note</Text>
+            <Text style={styles.primaryButtonText}>{t('create.youTubeGenerating.goToNote')}</Text>
           </TouchableOpacity>
         ) : error ? (
           <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.goBack()} activeOpacity={0.8}>
-            <Text style={styles.secondaryButtonText}>Go Back</Text>
+            <Text style={styles.secondaryButtonText}>{t('create.youTubeGenerating.goBack')}</Text>
           </TouchableOpacity>
         ) : null}
       </View>

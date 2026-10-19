@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, ActivityIndicator, StyleSheet, AppState } from 'react-native';
 import { NavigationContainer, LinkingOptions } from '@react-navigation/native';
 import { AuthNavigator } from './AuthNavigator';
 import { MainStackNavigator } from './MainStackNavigator';
+import { getAuthStartRoute } from './authStartRoute';
+import { hasChosenLanguage, markLanguageChosen } from '../services/languagePreference';
 import { navigationRef } from './navigationRef';
 import { useAuthStore } from '../store/authStore';
 import { useOnboardingStore } from '../store/onboardingStore';
@@ -108,7 +110,21 @@ export const AppNavigator = () => {
     return unsubscribe;
   }, []);
 
-  if (onboardingLoading || !isInitialized) {
+  // ── Has the first-launch language screen been dealt with? ────────────────
+  // null until read, so the first frame never flashes the wrong start screen. Anyone who is
+  // signed in counts as done (a later sign-out must not show the screen to an existing user),
+  // and the flag is re-read on every auth change so finishing the screen then signing out in
+  // the same session doesn't bring it back.
+  const [languageChosen, setLanguageChosen] = useState<boolean | null>(null);
+  useEffect(() => {
+    if (isAuthenticated) {
+      markLanguageChosen().then(() => setLanguageChosen(true));
+    } else {
+      hasChosenLanguage().then(setLanguageChosen);
+    }
+  }, [isAuthenticated]);
+
+  if (onboardingLoading || !isInitialized || languageChosen === null) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color={colors.slate[900]} />
@@ -124,7 +140,7 @@ export const AppNavigator = () => {
   return (
     <NavigationContainer key={navKey} ref={navigationRef} linking={linking}>
       {!isAuthenticated ? (
-        <AuthNavigator />
+        <AuthNavigator initialRouteName={getAuthStartRoute({ languageChosen })} />
       ) : needsSignupCompletion ? (
         <AuthNavigator
           initialRouteName={

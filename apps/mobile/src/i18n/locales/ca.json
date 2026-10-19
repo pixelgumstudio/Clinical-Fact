@@ -15,10 +15,11 @@
     "done": "Fet",
     "search": "Cerca",
     "filter": "Filtre",
-    "ok": "D'acord"
+    "ok": "D'acord",
+    "info": "Info"
   },
   "home": {
-    "title": "Notadrill",
+    "title": "Clinical Fact",
     "createNotes": "Crea notes",
     "createNotesDesc": "Crea notes, qüestionaris,\ntargetes didàctiques i molt més per ajudar-te a\naprendre més ràpid",
     "chatWithPDF": "Xateja amb qualsevol PDF",
@@ -71,10 +72,16 @@
     "upgradePlan": "Pla d'actualització",
     "everyWeek": "Cada setmana",
     "everyMonth": "Cada mes",
-    "everyYear": "Cada any"
+    "everyYear": "Cada any",
+    "reportBug": "Informa d'un error"
   },
   "auth": {
-    "welcome": "Benvinguts a Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Ha fallat l'inici de sessió amb Google",
+      "failedToAuthenticateWithServer": "Error en autenticar amb el servidor",
+      "googleSignInIsOnlyAvailable": "L'inici de sessió amb Google només està disponible a les versions natives. Utilitza l'autenticació per correu electrònic o descarrega l'aplicació nativa.",
+      "code": "{{message}} (codi: {{code}})"
+    },
     "getStarted": "Començar",
     "signIn": "Inicia la sessió",
     "signUp": "Registra't",
@@ -94,7 +101,8 @@
       "skip": "Omet",
       "verify": "Verificat!",
       "next": "Següent",
-      "tryNow": "Prova Clinical Fact ara gratuïtament"
+      "tryNow": "Prova Clinical Fact ara gratuïtament",
+      "continueWithApple": "Continua amb Apple"
     },
     "labels": {
       "firstName": "Nom",
@@ -139,7 +147,10 @@
       "googleStartFailed": "No s'ha pogut iniciar l'inici de sessió de Google. Torna-ho a provar.",
       "setupRequired": "Configuració necessària",
       "googleOAuthMissing": "L'inici de sessió de Google requereix identificadors de client d'OAuth.\\n\\nAfegiu les credencials al fitxer .env.",
-      "youCanStillUseEmail": "Encara podeu utilitzar \"Continua amb el correu electrònic\"."
+      "youCanStillUseEmail": "Encara podeu utilitzar \"Continua amb el correu electrònic\".",
+      "appleSignInFailed": "Ha fallat l'inici de sessió amb Apple",
+      "appleTokenFailed": "No s'ha pogut processar el testimoni d'Apple",
+      "appleIosOnly": "L'inici de sessió amb Apple només està disponible a iOS."
     },
     "messages": {
       "signingIn": "Iniciant la sessió...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nNotes més intel·ligents Comença aquí",
       "tagline": "Converteix qualsevol text en notes perfectes",
-      "description": "Converteix àudio, documents o vídeos en notes clares i amb capacitat de cerca, i crea qüestionaris, targetes didàctiques i resums a l'instant."
+      "description": "Converteix àudio, documents o vídeos en notes clares i amb capacitat de cerca, i crea qüestionaris, targetes didàctiques i resums a l'instant.",
+      "createAccountTitle": "Crea un compte",
+      "orSignUpWith": "O REGISTRA'T AMB",
+      "signUpWithEmail": "Registra't amb el correu electrònic",
+      "signInWithEmail": "Inicia la sessió amb el correu electrònic",
+      "alreadyHaveAccount": "Ja tens un compte? ",
+      "dontHaveAccount": "No tens cap compte? "
     },
     "otp": {
       "title": "Confirma la teva adreça electrònica",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Tot el que necessites per aprendre qualsevol cosa",
-      "subtitle": "Enregistra-ho. Investiga-ho. Fes-hi proves. Domina-ho."
+      "subtitle": "Enregistra-ho. Investiga-ho. Fes-hi proves. Domina-ho.",
+      "everythingYouNeedToLearnAnything": "Tot el que necessites per aprendre el que vulguis",
+      "recordItResearchItQuizIt": "Enregistra-ho. Investiga-ho. Posa't a prova. Domina-ho.",
+      "tryClinicalFactNowForFree": "Prova Clinical Fact ara de franc"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Aprèn més ràpid amb qüestionaris i targetes didàctiques",
         "description": "Converteix els apunts en qüestionaris i targetes didàctiques.\\nAprèn més ràpid i recorda més."
+      },
+      "feature1": {
+        "title": "Obtén respostes mèdiques fiables i preguntes de seguiment",
+        "description": "Fes qualsevol pregunta mèdica i rep una explicació clara juntament amb preguntes de seguiment intel·ligents per no quedar-te mai encallat mentre estudies."
+      },
+      "feature2": {
+        "title": "Cada resposta mèdica,\navalada per una font real",
+        "description": "Citacions extretes de PubMed, Semantic Scholar i Europe PMC: verificables, no inventades."
+      },
+      "feature3": {
+        "title": "Puja els teus apunts i obtén resums mèdics del teu material",
+        "description": "Converteix qualsevol diapositiva, PDF o apunt en una explicació clara recolzada per fonts mèdiques contrastades."
+      },
+      "feature4": {
+        "title": "Converteix qualsevol xat en un qüestionari o targetes per practicar",
+        "description": "Sense necessitat d'altres aplicacions per estudiar: genera preguntes pràctiques directament dels teus xats i arxius."
+      },
+      "feature5": {
+        "title": "Converteix qualsevol xat o document en targetes per practicar",
+        "description": "Sense necessitat d'altres aplicacions per estudiar: genera preguntes pràctiques directament dels teus xats i arxius."
+      }
+    },
+    "languageSelect": {
+      "title": "Tria el teu idioma",
+      "subtitle": "Tria l'idioma que vols utilitzar a l'aplicació. Pots canviar-lo més endavant al teu perfil.",
+      "searchPlaceholder": "Cerca idiomes",
+      "noResults": "No s'ha trobat cap idioma"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Pregunta qualsevol dubte mèdic. Obtén la dada clínica contrastada",
+        "description": "Fes qualsevol consulta mèdica i rep respostes basades en fonts reals i citades de PubMed, guies clíniques i literatura mèdica de confiança"
+      },
+      "slide2": {
+        "headline": "Cada resposta, avalada per una font",
+        "description": "Sense conjectures ni dades inventades: cada resposta enllaça directament a recerques mèdiques reals i verificables."
+      },
+      "slide3": {
+        "headline": "Estudia millor, aprova els teus exàmens mèdics",
+        "description": "Converteix qualsevol dubte o document en un qüestionari o joc de targetes en segons; practica directament amb el temari que estàs aprenent."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Declaració professional",
+      "subtitle": "Clinical Fact és una eina educativa de cerca bibliogràfica",
+      "disclaimerIntro": "Clinical Fact és una eina informativa basada en intel·ligència artificial destinada a donar suport als estudiants d'infermeria, medicina i altres ciències de la salut en l'accés al coneixement mèdic, la literatura científica i els materials d'estudi. L'aplicació no proporciona diagnòstics mèdics, recomanacions de tractament, instruccions clíniques ni consell mèdic individualitzat per a pacients, i no s'ha d'utilitzar com a base per a l'atenció directa al pacient o la presa de decisions clíniques.",
+      "disclaimerHeading": "Com genera les respostes Clinical Fact:",
+      "disclaimerBody": "Clinical Fact recupera informació directament de fonts mèdiques i científiques de referència, com ara PubMed, Semantic Scholar i fitxes tècniques oficials de la FDA, i utilitza la AI per resumir i explicar aquest contingut de manera clara. Cada resposta es genera exclusivament a partir de les fonts obtingudes per a aquella consulta específica, i les citacions enllacen al material original perquè puguis verificar-lo tu mateix. Clinical Fact no genera informació mèdica de memòria ni inventa fonts.\n\nClinical Fact no és una eina de diagnòstic, ni una plataforma de tractament, ni un producte sanitari, ni un substitut del criteri mèdic professional, de la docència reglada o del pla d'estudis de la teva institució. Qualsevol informació generada per l'aplicació, incloses respostes, citacions, qüestionaris i targetes d'estudi, es proporciona únicament amb finalitats educatives i formatives generals, i l'usuari l'ha de verificar de manera independent abans d'utilitzar-la en qualsevol context acadèmic, clínic o professional.\nClinical Fact no garanteix l'exhaustivitat, l'exactitud ni la vigència clínica de la informació facilitada. El coneixement mèdic evoluciona contínuament; contrasta sempre les dades rellevants amb els teus professors, tutors clínics i fonts primàries actualitzades.\nQuan puges els teus propis documents, apunts o gravacions, Clinical Fact genera respostes, resums, qüestionaris i targetes d'estudi basant-se exclusivament en aquest contingut aportat, no en fonts externes, tret que aquestes es mostrin de manera explícita al costat.\n\nClinical Fact no verifica, autentica ni confirma la identitat, la matrícula ni les titulacions dels seus usuaris. L'aplicació no està dissenyada per ser utilitzada en situacions d'emergència ni per a la presa de decisions clíniques en temps real.\nEn continuar, declares que entens aquests termes i acceptes utilitzar Clinical Fact exclusivament com una ajuda d'estudi i consulta.",
+      "checkboxLabel": "Entenc que aquesta aplicació és només per a consulta educativa i no ofereix assessorament mèdic",
+      "acceptButton": "Accepta i continua"
+    },
+    "survey": {
+      "role": "Com et definiries millor, {{firstName}}?",
+      "currentMethod": "Com acostumes a resoldre els teus dubtes mèdics actualment?",
+      "timeDrain": "Què és el que et pren més temps?",
+      "appExpectation": "Què esperes de la nostra aplicació mèdica Clinical Fact?",
+      "aiToolsUsed": "Quines eines d'AI has utilitzat fins ara per a les teves consultes mèdiques?",
+      "aiToolIssue": "Quin problema has tingut amb aquestes eines?",
+      "aiTrustLevel": "Amb quina freqüència et preocupa que una resposta d'AI pugui ser incorrecta?",
+      "biggestNeed": "Què és el que més necessites ara mateix?",
+      "studyTimePerWeek": "De quant de temps disposes per estudiar cada setmana?",
+      "comingUp": "Quins reptes o exàmens tens a la vista?",
+      "referralSource": "Com has conegut Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Activa les notificacions",
+      "thisHelpsUsStayOnTrack": "Això ens ajuda a personalitzar el teu compte i a trobar millor respostes clíniques"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "El codi de verificació no és vàlid. Torna-ho a provar.",
+      "failedToResendCodePleaseTry": "No s'ha pogut reenviar el codi. Torna-ho a provar.",
+      "confirmYourEmailAddress": "Confirma la teva adreça electrònica",
+      "enterCodeSentTo": "Introdueix el codi OTP que hem enviat a la teva adreça electrònica {{email}}",
+      "resendCodeIn": "Reenvia el codi en {{seconds}} s"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "T'ha recomanat algú?",
+      "enterTheirReferralCodeIfYou": "Introdueix el seu codi de referència si en tens un",
+      "eGJOHNOrTECHBRO": "p. ex., JOAN o TECHBRO",
+      "codeIsValid": "✓ El codi és vàlid"
+    },
+    "resultsChart": {
+      "getBetterResults": "Aconsegueix millors resultats",
+      "over95OfClinicalfactUsersScore": "Més del 95% dels usuaris de Clinical Fact treuen un 95% o més als seus exàmens i proves"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Estudiant d'infermeria",
+        "medicalStudent": "Estudiant de medicina",
+        "paPharmacyStudent": "Estudiant de farmàcia o assistent mèdic (PA)",
+        "practicingNurse": "Infermer/a en exercici",
+        "practicingPhysician": "Metge/ssa en exercici",
+        "otherHealthcareProfessional": "Altre professional sanitari"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Llibres de text o apunts de classe",
+        "flashcardQuizApps": "Apps de targetes de memòria o qüestionaris",
+        "youtube": "YouTube",
+        "aiChatbots": "Xatbots d'AI",
+        "colleagueClassmate": "Preguntar a un company o companya",
+        "practiceQuestionBanks": "Bancs de preguntes d'examen"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Crear targetes i qüestionaris des de zero",
+        "findingTrustworthyAnswer": "Trobar una resposta fiable ràpidament",
+        "reReadingNotes": "Rellegir apunts que no recordo",
+        "switchingApps": "Canviar constantment d'app",
+        "chartingDocumentation": "Historials clínics i documentació"
+      },
+      "appExpectation": {
+        "noHallucination": "Una AI que no tingui al·lucinacions",
+        "realCitations": "Cites reals de les fonts",
+        "oneApp": "Una sola app en lloc de cinc subscripcions",
+        "explainsWhy": "Que expliqui el «per què», no només la resposta"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Cerca a Google",
+        "otherApps": "Altres aplicacions"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "S'inventava coses",
+        "notMedicalContent": "No està dissenyada per a contingut mèdic",
+        "noSources": "Sense fonts per contrastar",
+        "tooGeneric": "Massa genèrica, poc enfocada a la pràctica o als exàmens"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Sempre",
+        "sometimes": "A vegades",
+        "rarely": "Gairebé mai",
+        "dontUseAi": "Encara no faig servir l'AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Respostes ràpides i de confiança",
+        "quizzesFlashcardsWithoutWork": "Qüestionaris i targetes sense esforç",
+        "rememberingStudied": "Ajuda per recordar el que he estudiat",
+        "medicalCitations": "Referències bibliogràfiques mèdiques",
+        "allOfTheAbove": "Totes les anteriors"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Altres"
+      },
+      "studyTime": {
+        "under5Hours": "Menys de 5 hores",
+        "510Hours": "5–10 hores",
+        "1020Hours": "10–20 hores",
+        "20PlusHours": "Més de 20 hores"
+      },
+      "comingUp": {
+        "medicalExams": "Exàmens de medicina",
+        "clinicalRotations": "Rotacions clíniques",
+        "nursingExams": "Exàmens d'infermeria",
+        "otherExams": "Altres exàmens",
+        "staySharp": "Només vull mantenir-me al dia"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Transcripció de la nota",
+    "noteTranscript": {
+      "noteTranscript": "Transcripció de la nota",
+      "noNoteIDProvided": "No s'ha proporcionat cap ID de nota",
+      "noTranscriptAvailableForThisNote": "No hi ha cap transcripció disponible per a aquesta nota.",
+      "thisNoteWasNotCreatedFrom": "Aquesta nota no s'ha creat a partir d'àudio o vídeo i no té transcripció.",
+      "failedToLoadNote": "No s'ha pogut carregar la nota",
+      "noteTranscript2": "Transcripció de la nota",
+      "loadingTranscript": "S'està carregant la transcripció...",
+      "goToNote": "Ves a la nota"
+    },
     "noteOptions": "Opcions de notes",
-    "editNote": "Edita la nota",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Introdueix un títol per a la nota",
+      "failedToUpdateNote": "No s'ha pogut actualitzar la nota",
+      "noteUpdatedSuccessfully": "Nota actualitzada correctament",
+      "editNote": "Edita la nota",
+      "noteTitle": "Títol de la nota",
+      "enterNoteTitle": "Introdueix el títol de la nota",
+      "noteContent": "Contingut de la nota",
+      "enterNoteContent": "Introdueix el contingut de la nota",
+      "saveThisNote": "Desa aquesta nota",
+      "aiIsGeneratingYourNote": "L'AI està generant la teva nota",
+      "largeAudioAndVideoFilesMay": "Els fitxers grans d'àudio i vídeo poden trigar uns minuts a processar-se. Mantén l'aplicació oberta."
+    },
     "retranscribe": "Tornar a transcribir",
     "exportNote": "Exporta la nota",
     "shareNoteLink": "Enllaç de la nota per compartir",
@@ -237,12 +443,89 @@
     "translate": "Tradueix",
     "addToFolder": "Afegeix a la carpeta",
     "loadingNote": "S'està carregant la nota...",
-    "noteNotFound": "No s'ha pogut carregar la nota"
+    "noteNotFound": "No s'ha pogut carregar la nota",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "No s'han pogut generar les flashcards",
+      "anUnexpectedErrorOccurred": "S'ha produït un error inesperat",
+      "history": "Historial",
+      "export": "Exporta"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "No s'ha pogut afegir la nota a la carpeta",
+      "folderNotFound": "No s'ha trobat la carpeta",
+      "addNote": "+ Afegeix una nota",
+      "noNotesInThisFolder": "No hi ha cap nota en aquesta carpeta",
+      "moveNotesToThisFolderTo": "Mou notes a aquesta carpeta per veure-les aquí",
+      "addNoteToFolder": "Afegeix la nota a la carpeta",
+      "noNotesAvailableToAdd": "No hi ha cap nota disponible per afegir",
+      "allYourNotesAreAlreadyIn": "Totes les teves notes ja són en aquesta carpeta",
+      "created": "Creat {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "No s'ha pogut carregar la nota",
+      "reTranscribeNote": "Torna a transcriure la nota",
+      "thisWillReTranscribeTheAudio": "Això tornarà a transcriure l'àudio i actualitzarà la nota. Vols continuar?",
+      "reTranscribe": "Torna a transcriure",
+      "noteReTranscribedSuccessfully": "Nota retranscrita correctament",
+      "info": "Informació",
+      "reTranscriptionFeatureIsComingSoon": "La funció de retranscripció estarà disponible aviat",
+      "youAreCurrentlyOfflinePleaseConnect": "Actualment no tens connexió. Connecta't a internet per fer aquesta acció.",
+      "failedToDeleteNote": "No s'ha pogut eliminar la nota",
+      "failedToExportNote": "No s'ha pogut exportar la nota",
+      "noteTranslatedSuccessfully": "Nota traduïda correctament",
+      "failedToTranslateNote": "No s'ha pogut traduir la nota",
+      "noteMovedTo": "S'ha mogut la nota a {{name}}",
+      "failedToMoveNoteToFolder": "No s'ha pogut moure la nota a la carpeta",
+      "summaryNotes": "Notes de resum",
+      "loadingNote": "S'està carregant la nota...",
+      "imageNote": "Nota d'imatge",
+      "created": "Creat el {{dateTime}}",
+      "translate": "Tradueix",
+      "transcribe": "Transcriu",
+      "editThisNote": "Edita aquesta nota",
+      "createFlashcards": "Crea flashcards",
+      "createFlashcardsToImproveYourRetention": "Crea flashcards per millorar la teva capacitat de retenció",
+      "createQuizQuestions": "Crea preguntes de test",
+      "practiceYourNotesByCreatingQuestions": "Practica els teus apunts creant preguntes per dominar el tema"
+    },
+    "sharedNote": {
+      "notFound": "No s'ha trobat",
+      "thisSharedNoteLinkIsInvalid": "Aquest enllaç de nota compartida no és vàlid o ha caducat.",
+      "failedToLoadSharedNote": "No s'ha pogut carregar la nota compartida.",
+      "saved": "Desat!",
+      "noteHasBeenAddedToYour": "La nota s'ha afegit a la teva biblioteca.",
+      "viewInLibrary": "Mostra a la biblioteca",
+      "stayHere": "Queda't aquí",
+      "failedToSaveNote": "No s'ha pogut desar la nota.",
+      "loadingSharedNote": "S'està carregant la nota compartida...",
+      "sharedNote": "Nota compartida",
+      "sharedWithYou": "Compartit amb tu",
+      "savedToLibrary": "Desat a la biblioteca",
+      "saveToMyLibrary": "Desa a la meva biblioteca"
+    }
   },
   "create": {
     "selectOption": "Com vols crear la teva nota?",
-    "recordAudio": "Gravar àudio",
-    "uploadAudio": "Puja àudio",
+    "recordAudio": {
+      "permissionRequired": "Permís necessari",
+      "pleaseGrantMicrophonePermissionToRecord": "Concedeix permís d'accés al micròfon per gravar àudio.",
+      "failedToRequestMicrophonePermission": "No s'ha pogut sol·licitar el permís del micròfon",
+      "created": "Creat el {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Enregistrant àudio",
+      "recordAudio": "Grava àudio",
+      "createANoteFromAnyRecorded": "Crea una nota a partir de qualsevol àudio gravat",
+      "recording": "Gravant ({{time}})",
+      "recordAgain": "Torna a gravar"
+    },
+    "uploadAudio": {
+      "created": "Creat el {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "No s'ha pogut seleccionar el fitxer d'àudio",
+      "uploadAudio": "Puja un àudio",
+      "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol àudio pujat",
+      "dragDropFilesOrBrowse": "Arrossega i deixa anar fitxers o navega",
+      "supportedFormatMp4WavMp3": "Formats admesos: mp4, wav, mp3",
+      "changeFile": "Canvia el fitxer"
+    },
     "youtube": "Vídeo de YouTube",
     "pdfDocument": "PDF o document",
     "customText": "Text personalitzat",
@@ -250,7 +533,56 @@
     "uploadingFile": "Pujant el fitxer al servidor...",
     "transcribing": "Conversió de la veu a text...",
     "extractingText": "Extraient text...",
-    "generatingNote": "Creant apunts d'estudi amb intel·ligència artificial...",
+    "generatingNote": {
+      "uploadAudio": "Puja un àudio",
+      "uploadingAudioFileToServer": "S'està pujant el fitxer d'àudio al servidor...",
+      "transcribeAudio": "Transcriu l'àudio",
+      "convertingSpeechToText": "S'està convertint la veu a text...",
+      "generateYourNote": "Genera la teva nota",
+      "creatingStudyNotes": "S'estan creant les notes d'estudi...",
+      "uploadPDF": "Puja un PDF",
+      "uploadingPDFDocumentToServer": "S'està pujant el document PDF al servidor...",
+      "extractText": "Extreu el text",
+      "readingAndExtractingTextFromPDF": "S'està llegint i extreint el text del PDF...",
+      "uploadImage": "Puja una imatge",
+      "uploadingImageToServer": "S'està pujant la imatge al servidor...",
+      "extractTextOCR": "Extreu el text (OCR)",
+      "recognizingAndExtractingTextFromImage": "S'està reconeixent i extreint el text de la imatge...",
+      "fetchVideo": "Recupera el vídeo",
+      "connectingToYouTube": "Connectant amb YouTube...",
+      "extractTranscript": "Extreure la transcripció",
+      "downloadingVideoTranscript": "Baixant la transcripció del vídeo...",
+      "processText": "Processar el text",
+      "analyzingYourContent": "Analitzant el teu contingut...",
+      "uploadFile": "Pujar el fitxer",
+      "uploadingToServer": "Pujant al servidor...",
+      "processContent": "Processar el contingut",
+      "extractingContent": "Extraient el contingut...",
+      "noteReady": "Nota a punt!",
+      "noteGenerationFailedOnTheServer": "S'ha produït un error en generar la nota al servidor.",
+      "failedToUploadImage": "No s'ha pogut pujar la imatge",
+      "weCouldNotReadAnythingFrom": "No hem pogut llegir res d'aquesta imatge. Prova amb una imatge més clara dels teus apunts mèdics.",
+      "preparingFile": "Preparant el fitxer...",
+      "almostDone": "Gairebé a punt...",
+      "untitledNote": "Nota sense títol",
+      "failedToGenerateNote": "No s'ha pogut generar la nota",
+      "whoaSpeedy": "Caram, quina velocitat! 🏃💨",
+      "youReGeneratingContentABit": "Estàs generant contingut massa ràpidament. Fes una pausa de 60 segons abans de tornar-ho a provar perquè la nostra AI pugui seguir el ritme.",
+      "gotIt": "Entesos",
+      "fileTooLarge": "Fitxer massa gran",
+      "yourFileExceedsThe15MBLimit": "El fitxer supera el límit de 15 MB per a usuaris gratuïts. Passa't a PRO per pujar classes de fins a 100 MB.",
+      "upgradeToPRO": "Passa't a PRO",
+      "oopsWeHitASnag": "Ui, hi ha hagut un problema 🚧",
+      "weCouldnTGenerateThatRight": "No hem pogut generar-ho en aquests moments. Espera una mica i torna-ho a provar!",
+      "processingContent": "Processant el contingut...",
+      "generatingYourNote": "Generant la teva nota...",
+      "audioNote": "Nota d'àudio",
+      "failedToGenerateFlashcards": "No s'han pogut generar les targetes de memòria",
+      "generatingNote": "Generant la nota",
+      "pleaseKeepThisScreenOpenWhile": "Si us plau, mantén aquesta pantalla oberta mentre es genera la nota. Els fitxers grans poden trigar uns minuts a transcriure's.",
+      "goToNote": "Ves a la nota",
+      "generateNoteTranscript": "Genera la transcripció de la nota"
+    },
     "fetchingVideo": "Connectant a YouTube...",
     "processingText": "Analitzant el vostre contingut...",
     "uploadAudioTitle": "Puja àudio",
@@ -260,7 +592,63 @@
     "fetchVideo": "Obtén el vídeo",
     "extractTranscript": "Extreure la transcripció",
     "processText": "Text del procés",
-    "generateNote": "Genera la teva nota"
+    "generateNote": "Genera la teva nota",
+    "customTextInput": {
+      "customText": "Text personalitzat",
+      "createANoteFromAnyCustom": "Crea una nota a partir de qualsevol text personalitzat",
+      "enterText": "Introdueix el text",
+      "enterYourTextHere": "Escriu el teu text aquí..."
+    },
+    "uploadImage": {
+      "created": "Creat: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Permís necessari",
+      "pleaseAllowAccessToYourPhoto": "Permet l'accés a la teva fototeca",
+      "failedToPickImage": "No s'ha pogut seleccionar la imatge",
+      "uploadImage": "Puja una imatge",
+      "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol imatge pujada",
+      "dragDropFilesOrBrowse": "Arrossega i deixa anar fitxers o Explora",
+      "supportedFormatPngJpegHeicWebp": "Formats compatibles: png, jpeg, heic, webp",
+      "changeFile": "Canvia el fitxer"
+    },
+    "uploadPDF": {
+      "created": "Creat: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "No s'ha pogut seleccionar el document",
+      "uploadPdf": "Puja un PDF",
+      "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol PDF pujat",
+      "dragDropFilesOrBrowse": "Arrossega i deixa anar fitxers o Explora",
+      "supportedFormatPdf": "Format compatible: pdf",
+      "changeFile": "Canvia el fitxer"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Recuperant el vídeo",
+      "gettingVideoDetails": "Obtenint els detalls del vídeo",
+      "extractingTranscript": "Extraient la transcripció",
+      "convertingAudioToText": "Convertint l'àudio a text",
+      "generatingYourNote": "Generant la teva nota",
+      "aiIsSummarisingTheContent": "La AI està resumint el contingut",
+      "noteGenerationFailedPleaseTryAgain": "No s'ha pogut generar la nota. Torna-ho a provar.",
+      "processingFailed": "Error en el processament",
+      "goBack": "Enrere",
+      "retry": "Reintenta",
+      "failedToStartNoteGeneration": "Error en iniciar la generació de la nota",
+      "failedToProcessYouTubeVideoPlease": "Error en processar el vídeo de YouTube. Torna-ho a provar.",
+      "cancelProcessing": "Cancel·la el processament",
+      "areYouSureYouWantTo": "Segur que vols cancel·lar? Es perdrà el teu progrés.",
+      "continueProcessing": "Continua el processament",
+      "youTubeNote": "Nota de YouTube",
+      "noteGenerated": "Nota generada",
+      "generatingNote": "Generant la nota",
+      "goToNote": "Ves a la nota"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "No s'ha pogut obtenir la informació del vídeo",
+      "failedToFetchVideoInformation": "Error en obtenir la informació del vídeo",
+      "youtubeVideo": "Vídeo de YouTube",
+      "createANoteFromAnyYoutube": "Crea una nota a partir de qualsevol vídeo de YouTube",
+      "enterYoutubeURL": "Introdueix l'URL de YouTube",
+      "pasteYoutubeURL": "Enganxa l'URL de YouTube",
+      "fetchingVideoInfo": "Obtenint informació del vídeo..."
+    }
   },
   "library": {
     "title": "Biblioteca",
@@ -292,7 +680,7 @@
     "almostDone": "Gairebé acabat...",
     "quizReady": "Quiz a punt!",
     "startQuiz": "Inicia el qüestionari",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} de {{total}}",
     "exitTitle": "Sortida del qüestionari?",
     "exitMessage": "El teu progrés es perdrà.",
     "exit": "Sortida",
@@ -312,7 +700,45 @@
     "correctAnswer": "Resposta correcta",
     "yourAnswer": "La teva resposta",
     "explanation": "Explicació",
-    "questionProgress": "Pregunta {{current}} de {{total}}"
+    "questionProgress": "Pregunta {{current}} de {{total}}",
+    "generatingQuizWait": "Estem generant el teu qüestionari, un moment si us plau...",
+    "goToChats": "Ves als xats",
+    "quizGroupDetail": {
+      "inProgress": "En curs",
+      "notStarted": "No iniciat",
+      "failedToLoadQuizHistory": "Error en carregar l'historial de qüestionaris",
+      "failedToLoadChatContent": "Error en carregar el contingut del xat",
+      "deleteQuiz": "Elimina el qüestionari",
+      "failedToDeleteQuiz": "Error en eliminar el qüestionari",
+      "created": "Creat el {{dateTime}}",
+      "lastscore": "ÚLTIMA PUNTUACIÓ",
+      "bestscore": "MILLOR PUNTUACIÓ",
+      "attempts": "INTENTS",
+      "retakeQuiz": "Repeteix el qüestionari",
+      "translate": "Tradueix",
+      "newQuiz": "Nou qüestionari",
+      "quizHistory": "Historial de qüestionaris",
+      "flashcardHistory": "Historial de targetes",
+      "score": "Puntuació {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Encara no hi ha conjunts de targetes d'aquesta font.",
+      "cards": "{{totalCards}} targetes · {{flashcardStatus}}",
+      "quizOptions": "Opcions del qüestionari",
+      "exportLatestAttempt": "Exporta l'últim intent",
+      "questions": "{{totalQuestions}} preguntes · {{value}}",
+      "deleteAllAttemptsOne": "Vols eliminar l'únic intent del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
+      "deleteAllAttemptsMany": "Vols eliminar els {{total}} intents del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
+      "makeFlashcards": "Crea targetes"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Error en carregar les dades del qüestionari: format de resposta no vàlid",
+      "failedToLoadQuizData": "Error en carregar les dades del qüestionari",
+      "noContentAvailable": "No hi ha contingut disponible",
+      "goBack": "Enrere",
+      "previous": "Anterior"
+    },
+    "quiz": {
+      "generationFailed": "Error en la generació"
+    }
   },
   "flashcards": {
     "title": "Targetes didàctiques",
@@ -343,7 +769,46 @@
     "headerTitle": "Targeta de memòria",
     "progressFormat": "Targeta de memòria {{current}} de {{total}}",
     "noteIdRequired": "Cal l'ID de la nota per generar targetes didàctiques",
-    "invalidCardCount": "Si us plau, seleccioneu entre 1 i 100 targetes didàctiques"
+    "invalidCardCount": "Si us plau, seleccioneu entre 1 i 100 targetes didàctiques",
+    "flashcardGroupDetail": {
+      "inProgress": "En curs",
+      "notStarted": "No iniciat",
+      "failedToLoadFlashcardHistory": "Error en carregar l'historial de targetes",
+      "limitReached": "Límit assolit",
+      "flashcardGenerationLimitReached": "S'ha assolit el límit de generació de targetes.",
+      "failedToGenerateFlashcards": "Error en generar les targetes",
+      "failedToTranslateFlashcards": "Error en traduir les targetes",
+      "deleteFlashcards": "Elimina les targetes",
+      "failedToDeleteFlashcards": "Error en eliminar les targetes",
+      "created": "Creat el {{dateTime}}",
+      "lastprogress": "ÚLTIM PROGRÉS",
+      "bestprogress": "MILLOR PROGRÉS",
+      "sets": "CONJUNTS",
+      "studyNow": "Estudia ara",
+      "translate": "Tradueix",
+      "newFlashcards": "Noves flashcards",
+      "flashcardHistory": "Historial de flashcards",
+      "quizHistory": "Historial de qüestionaris",
+      "cards": "{{totalCards}} targetes · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Encara no hi ha qüestionaris d'aquesta font.",
+      "score": "Puntuació {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Opcions de les flashcards",
+      "exportLatestSet": "Exporta l'últim conjunt",
+      "questions": "{{totalQuestions}} preguntes · {{value}}",
+      "deleteAllSetsOne": "Vols eliminar l'únic conjunt de flashcards de «{{title}}»? Aquesta acció no es pot desfer.",
+      "deleteAllSetsMany": "Vols eliminar tots els {{total}} conjunts de flashcards de «{{title}}»? Aquesta acció no es pot desfer.",
+      "makeQuiz": "Crea un qüestionari",
+      "failedToLoadChatContent": "No s'ha pogut carregar el contingut del xat"
+    },
+    "flashcardReview": {
+      "unknownError": "Error desconegut",
+      "noFlashcardsInThisSet": "No hi ha flashcards en aquest conjunt",
+      "goBack": "Enrere",
+      "allDone": "Tot llest",
+      "youHaveReviewedAllTheCards": "Has revisat totes les targetes d'aquest paquet",
+      "question": "Pregunta {{value}}",
+      "questionOf": "Pregunta {{value}} de {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Xat",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Xateja amb el document",
     "selectFile": "Selecciona un fitxer amb què xatejar",
     "uploadFile": "Puja el fitxer",
-    "startChatting": "Comença a xatejar"
+    "startChatting": "Comença a xatejar",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Fes una pregunta mèdica per obtenir aclariments",
+      "askAnythingAboutThisDocument": "Pregunta el que vulguis sobre aquest document...",
+      "askAQuestionAttachmentProcessingFailed": "Fes una pregunta — ha fallat el processament del fitxer adjunt",
+      "extractingText": "S'està extraient el text...",
+      "processingPDF": "S'està processant el PDF...",
+      "upgradeToProToContinueChatting": "Actualitza a PRO per continuar xatejant",
+      "queryremaining": "{{queriesRemaining}} CONSULTA RESTANT"
+    },
+    "chatEmptyState": {
+      "initializingChat": "S'està iniciant el xat...",
+      "extractingTextFromImage": "S'està extraient el text de la imatge...",
+      "processingPDFDocument": "S'està processant el document PDF...",
+      "analyzingYourNote": "S'està analitzant la teva nota...",
+      "thisUsuallyTakesJustAFew": "⏱️ Normalment només triga uns segons. Podràs xatejar quan s'hagi completat el processament.",
+      "processingFailed": "Ha fallat el processament",
+      "fileMightBeCorruptedOrUnreadable": "• El fitxer podria estar malmès o ser il·legible",
+      "imageQualityTooLow": "Qualitat de la imatge massa baixa",
+      "pdfIsPasswordProtected": "El PDF està protegit amb contrasenya",
+      "contentFormatNotSupported": "Format de contingut no compatible",
+      "networkConnectionIssue": "• Problema de connexió de xarxa",
+      "tryADifferentFile": "Prova amb un altre fitxer",
+      "askAnyClinicalQuestionNoUpload": "💡 Fes qualsevol pregunta clínica sense necessitat de pujar res. Et respondré amb bibliografia mèdica citada i imatges rellevants quan estiguin disponibles.",
+      "readyToChat": "✓ A punt per xatejar",
+      "couldntProcessNote": "No s'ha pogut processar aquesta nota. Pot ser degut a:",
+      "couldntProcessImage": "No s'ha pogut processar aquesta imatge. Pot ser degut a:",
+      "couldntProcessDocument": "No s'ha pogut processar aquest document. Pot ser degut a:",
+      "askMeAboutNote": "💡 Pregunta'm el que vulguis sobre aquesta nota. Puc resumir, explicar conceptes o respondre preguntes específiques.",
+      "askMeAboutImage": "💡 Pregunta'm el que vulguis sobre aquesta imatge. Puc resumir, explicar conceptes o respondre preguntes específiques.",
+      "askMeAboutDocument": "💡 Pregunta'm el que vulguis sobre aquest document. Puc resumir, explicar conceptes o respondre preguntes específiques."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} apreses",
+      "notStarted": "No començat",
+      "quizGeneration": "Generació de qüestionaris",
+      "score": "Puntuació {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Generació de flashcards",
+      "questions": "{{totalCards}} preguntes · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} preguntes · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Pensant i cercant recursos per a tu...",
+      "couldnTGenerateAResponse": "No s'ha pogut generar una resposta.",
+      "retry": "Reintenta",
+      "alsoReferencedFromTheWeb": "També referenciat des de la web",
+      "followUpQuestions": "Preguntes de seguiment"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Fes qualsevol pregunta mèdica i obtén respostes contrastades amb fonts reals",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Basat en l'evidència · Fonts de PubMed · Revisat per experts",
+      "tryOutAnyOfThisTopics": "Tria un d'aquests temes per començar",
+      "topics": {
+        "electrolytes": {
+          "label": "Desequilibris electrolítics",
+          "question": "Explica el desequilibri electrolític: causes, símptomes i tractament"
+        },
+        "ecg": {
+          "label": "Bases de la interpretació de l'ECG",
+          "question": "Quins són els conceptes bàsics per interpretar un ECG?"
+        },
+        "drugInteractions": {
+          "label": "Interaccions farmacològiques habituals",
+          "question": "Quines són les interaccions farmacològiques més freqüents i importants que cal conèixer?"
+        },
+        "nclex": {
+          "label": "Preguntes tipus NCLEX",
+          "question": "Fes-me una pregunta de pràctica d'estil NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Fitxa tècnica de la FDA",
+      "fromYourAttachedMaterial": "Del teu material adjunt"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "No s'ha pogut crear la sessió de xat",
+      "failedToInitializeChatSession": "No s'ha pogut iniciar la sessió de xat",
+      "failedToUpdateLanguage": "No s'ha pogut actualitzar l'idioma",
+      "youVeReachedYour3Pin": "Has assolit el límit de 3 elements fixats",
+      "failedToUpdatePin": "No s'ha pogut actualitzar l'element fixat",
+      "permissionRequired": "Permís necessari",
+      "pleaseGrantCameraPermissionToTake": "Concedeix accés a la càmera per fer una foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Concedeix accés a la fototeca per pujar imatges.",
+      "failedToUploadImage": "No s'ha pogut pujar la imatge",
+      "uploadFailed": "Error en pujar l'arxiu",
+      "failedToUploadDocument": "No s'ha pogut pujar el document",
+      "failedToStartChatFromThis": "No s'ha pogut iniciar el xat a partir d'aquest fitxer.",
+      "chatFromImage": "Xat a partir d'una imatge",
+      "failedToStartANewQuestion": "No s'ha pogut iniciar una nova pregunta. Torna-ho a provar.",
+      "failedToAttachFile": "No s'ha pogut adjuntar el fitxer",
+      "failedToSendMessage": "No s'ha pogut enviar el missatge",
+      "copiedToClipboard": "S'ha copiat al porta-retalls",
+      "notEnoughContentYet": "Encara no hi ha prou contingut",
+      "chatABitMoreBeforeGenerating": "Xateja una mica més abans de generar un qüestionari (mínim 100 caràcters).",
+      "chatABitMoreBeforeGenerating2": "Xateja una mica més abans de generar flashcards (mínim 100 caràcters).",
+      "failedToGenerateFlashcards": "No s'han pogut generar les flashcards",
+      "failedToRegenerateResponse": "No s'ha pogut regenerar la resposta",
+      "failedToRetryResponse": "No s'ha pogut reintentar la resposta"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "No s'ha pogut adjuntar la nota",
+      "folderCreatedSuccessfully": "S'ha creat la carpeta «{{name}}» correctament!",
+      "failedToCreateFolder": "No s'ha pogut crear la carpeta",
+      "failedToAttachDocument": "No s'ha pogut adjuntar el document",
+      "failedToCreateChatSession": "No s'ha pogut crear la sessió de xat",
+      "failedToUploadDocument": "No s'ha pogut pujar el document",
+      "openingCamera": "📷 S'està obrint la càmera...",
+      "openingImagePicker": "🖼️ S'està obrint el selector d'imatges...",
+      "permissionRequired": "Permís necessari",
+      "pleaseGrantCameraPermissionToTake": "Concedeix accés a la càmera per fer una foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Concedeix accés a la fototeca per pujar imatges.",
+      "failedToAttachImage": "No s'ha pogut adjuntar la imatge",
+      "failedToUploadImage": "No s'ha pogut pujar la imatge",
+      "failedToAttachAudio": "No s'ha pogut adjuntar l'àudio",
+      "failedToUploadAudio": "No s'ha pogut pujar l'àudio",
+      "aNote": "{{verb}} una nota",
+      "anImage": "{{verb}} una imatge",
+      "aDocument": "{{verb}} un document",
+      "audio": "{{verb}} un àudio",
+      "aFile": "{{verb}} un fitxer",
+      "items": "{{itemCount}} elements",
+      "thisFolderIsEmptyGoBack": "Aquesta carpeta és buida. Torna enrere per seleccionar-ne una altra.",
+      "addFolder": "Afegeix una carpeta",
+      "uploadNewDocument": "Penja un document nou",
+      "uploadAPDFAndStartChatting": "Penja un PDF i comença a xatejar a l'instant",
+      "uploadNewImage": "Penja una imatge nova",
+      "uploadAnImageAndExtractText": "Penja una imatge i extreu-ne el text a l'instant",
+      "uploadNewAudio": "Penja un àudio nou",
+      "uploadAnAudioFileAndTranscribe": "Penja un fitxer d'àudio i transcriu-lo a l'instant",
+      "orselectfromlibrary": "O TRIA DE LA BIBLIOTECA",
+      "folders": "Carpetes",
+      "allNotes": "Tots els apunts",
+      "noFilesToDisplay": "No hi ha fitxers per mostrar",
+      "noNotesToDisplay": "No hi ha apunts per mostrar",
+      "noDocumentsYet": "Encara no tens cap document PDF.\nCrea primer alguns apunts i torna per xatejar amb ells.",
+      "noImagesYet": "Encara no tens cap imatge.\nCrea primer alguns apunts i torna per xatejar amb ells.",
+      "noAudioNotesYet": "Encara no tens cap nota d'àudio.\nCrea primer alguns apunts i torna per xatejar amb elles.",
+      "noNotesYet": "Encara no tens cap apunt.\nCrea primer alguns apunts i torna per xatejar amb ells.",
+      "attachNote": "Adjunta un apunt",
+      "selectNote": "Selecciona un apunt",
+      "attachImage": "Adjunta una imatge",
+      "selectImage": "Selecciona una imatge",
+      "attachDocument": "Adjunta un document",
+      "selectDocument": "Selecciona un document",
+      "attachAudio": "Adjunta un àudio",
+      "selectAudio": "Selecciona un àudio",
+      "attachFile": "Adjunta un fitxer",
+      "selectFile": "Selecciona un fitxer"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Afegeix al xat",
+      "camera": "Càmera",
+      "photos": "Fotos",
+      "files": "Fitxers",
+      "generateQuiz": "Genera un qüestionari",
+      "generateFlashcards": "Genera flashcards",
+      "searchMedicalLiterature": "Cerca bibliografia mèdica",
+      "filterByDateSourceAndType": "Filtra per data, font i tipus",
+      "pullsRealCitedSourcesIntoYour": "Afegeix fonts reals i citades a les teves respostes",
+      "trustedmedicalsourcedatabase": "BASE DE DADES DE FONTS MÈDIQUES FIABLES",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Dades de fàrmacs i tractaments de la FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Comprova les citacions",
+      "citations": "Citacions",
+      "fromTheWeb": "Del web"
+    },
+    "chatHeader": {
+      "readyTapToRename": "A punt · toca per canviar el nom",
+      "processing": "S'està processant {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Mostra la font ↗"
+    },
+    "chatRename": {
+      "renameChat": "Reanomena el xat"
+    },
+    "sourcesRow": {
+      "viewSources": "Mostra les fonts ({{total}})"
+    }
   },
   "languages": {
     "english": "Anglès",
@@ -394,10 +1043,10 @@
     "tamil": "Tàmil",
     "telugu": "Telugu",
     "kannada": "Kannada",
-    "malayalam": "Malayalam",
+    "malayalam": "Malaiàlam",
     "marathi": "Marathi",
     "gujarati": "Gujarati",
-    "punjabi": "Punjabi",
+    "punjabi": "Panjabi",
     "urdu": "Urdú",
     "chineseSimplified": "Xinès (simplificat)",
     "chineseTraditional": "Xinès (tradicional)",
@@ -408,5 +1057,455 @@
     "malay": "Malai",
     "indonesian": "Indonesi",
     "catalan": "Català"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Afegeix una carpeta",
+      "folderName": "Nom de la carpeta",
+      "enterFolderName": "Introdueix el nom de la carpeta",
+      "chooseColor": "Tria un color",
+      "createFolder": "Crea la carpeta"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Abans de processar el teu contingut",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact utilitza IA per respondre a les teves preguntes i convertir el teu contingut en apunts, qüestionaris i flashcards. Això és el que has de saber:",
+      "whatDataIsSent": "Quines dades s'envien",
+      "questionsAndMessagesYouTypeIn": "Preguntes i missatges que escrius al xat",
+      "audioRecordingsOrUploadedAudioFiles": "Gravacions d'àudio o fitxers d'àudio que puges",
+      "pdfAndTextDocumentsYouUpload": "Documents de text i PDF que puges",
+      "imagesYouUpload": "Imatges que puges",
+      "youTubeVideoURLsAndTheirTranscripts": "Enllaços de vídeos de YouTube i les seves transcripcions",
+      "customTextYouEnter": "Text personalitzat que introdueixes",
+      "whoReceivesYourData": "Qui rep les teves dades",
+      "howItSUsed": "Com s'utilitzen",
+      "yourContentIsUsedSolelyTo": "El teu contingut només s'utilitza per generar la resposta, l'apunt, el qüestionari o les flashcards que sol·licitis. S'apliquen les polítiques d'ús de dades de cada proveïdor al contingut processat mitjançant la seva API. Per a més detalls, consulta la nostra Política de privadesa.",
+      "iAgreeContinue": "Hi estic d'acord — Continua",
+      "noThanks": "No, gràcies",
+      "whoReceivesBody": "El teu contingut s'envia a <bold>Google (Gemini)</bold> (generació d'apunts, qüestionaris i targetes de memòria; respostes del xat; processament de documents i imatges) i a <bold>OpenAI</bold> (transcripció d'àudio) a través dels nostres servidors segurs. Els fragments dels teus documents també s'indexen amb <bold>Google Vertex AI</bold> perquè el xat pugui trobar les parts rellevants. Quan s'utilitza la cerca mèdica en temps real, la teva consulta també s'envia a <bold>Tavily</bold> i a bases de dades de literatura mèdica públiques (com ara PubMed, Europe PMC i Semantic Scholar) per trobar cites de fonts fiables com els NIH, el CDC, MedlinePlus, l'OMS i la Mayo Clinic. Aquests proveïdors processen les teves dades només per generar la resposta: no les utilitzen per entrenar els seus propis models d'AI d'ús general, i nosaltres no venem les teves dades a tercers."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Desancora el xat",
+      "pinChat": "Ancora el xat",
+      "deleteChat": "Elimina el xat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Genera flashcards",
+      "createFlashcards": "Crea flashcards",
+      "createFlashcardsFromToImproveYour": "Crea flashcards a partir de «{{noteTitle}}» per millorar la teva retenció",
+      "createFlashcardsToImproveYourRetention": "Crea flashcards per millorar la retenció de continguts",
+      "howManyQuestions": "Quantes preguntes",
+      "generateFlashcards2": "Genera flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Crea a partir del xat",
+      "selectFromOneOfYourRecent": "Tria un dels teus xats recents",
+      "pdfOrDocument": "PDF o document",
+      "createFromAudio": "Crea a partir d'àudio",
+      "image": "Imatge",
+      "createFromCustomText": "Crea a partir de text personalitzat",
+      "created": "Creat: {{day}}, {{time}}",
+      "createQuizFrom": "Crea un qüestionari a partir de",
+      "createFlashcardsFrom": "Crea flashcards a partir de",
+      "selectFromChat": "Selecciona des del xat",
+      "noRecentChatsYet": "Encara no hi ha xats recents",
+      "quizFromPdf": "Crea un qüestionari a partir d'un PDF o document",
+      "flashcardsFromPdf": "Crea un paquet de flashcards a partir d'un PDF o document",
+      "quizFromAudio": "Crea un qüestionari a partir d'un àudio penjat",
+      "flashcardsFromAudio": "Crea un paquet de flashcards a partir d'un àudio penjat",
+      "quizFromImage": "Crea un qüestionari a partir d'una imatge",
+      "flashcardsFromImage": "Crea un paquet de flashcards a partir d'una imatge",
+      "quizFromText": "Crea un qüestionari a partir de text capturat",
+      "flashcardsFromText": "Crea un paquet de flashcards a partir de text capturat"
+    },
+    "createNote": {
+      "recordAudio": "Grava un àudio",
+      "generateANoteFromAnyRecorded": "Genera una nota a partir de qualsevol àudio gravat",
+      "uploadAudio": "Penja un àudio",
+      "createANoteFromAnyUploaded": "Crea una nota a partir de qualsevol àudio penjat",
+      "youtubeVideo": "Vídeo de YouTube",
+      "createANoteFromAnyYoutube": "Crea una nota a partir de qualsevol vídeo de YouTube",
+      "pdfOrDocument": "PDF o document",
+      "createANoteFromPDFOr": "Crea una nota a partir d'un PDF o document",
+      "customText": "Text personalitzat",
+      "createANoteFromCapturedText": "Crea una nota a partir de text capturat",
+      "image": "Imatge",
+      "createANoteFromAnyImage": "Crea una nota a partir de qualsevol imatge",
+      "createNote": "Crea una nota"
+    },
+    "createQuiz": {
+      "generateQuiz": "Genera el qüestionari",
+      "createQuiz": "Crea un qüestionari",
+      "practiceByCreatingQuestionsThatHelp": "Practica «{{noteTitle}}» creant preguntes que t'ajudin a dominar el tema",
+      "practiceYourNotesByCreatingQuestions": "Practica amb les teves notes creant preguntes que t'ajudin a dominar el tema",
+      "howManyQuestions": "Quantes preguntes",
+      "timeInMinutes": "Temps (en minuts)"
+    },
+    "deleteNote": {
+      "deleteNote": "Elimina la nota",
+      "areYouSureYouWantTo": "Segur que vols eliminar aquesta nota?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Exporta el resum com a",
+      "exportTranscriptAs": "Exporta la transcripció com a",
+      "exportAs": "Exporta com a",
+      "exportSummary": "Exporta el resum",
+      "exportTranscript": "Exporta la transcripció"
+    },
+    "exportTypeStep": {
+      "exportNote": "Exporta la nota",
+      "exportSummary": "Exporta el resum",
+      "exportTranscript": "Exporta la transcripció"
+    },
+    "exportSettings": {
+      "export": "Exporta {{title}}",
+      "selectFormat": "Selecciona el format",
+      "includeAnswers": "Inclou les respostes",
+      "answersExplanationsIncluded": "Respostes i explicacions incloses",
+      "questionsOnly": "Només preguntes",
+      "export2": "Exporta"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "La teva nota està a punt!",
+      "howDidWeDo": "Com ho hem fet?",
+      "happy": "Satisfet",
+      "sad": "Trist",
+      "maybeLater": "Potser més tard",
+      "whatWentWrong": "Què ha anat malament?",
+      "yourFeedbackHelpsUsImprove": "Els teus comentaris ens ajuden a millorar.",
+      "tellUsWhatCouldBeBetter": "Digues-nos què podríem millorar...",
+      "submit": "Envia"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "No hi ha contingut disponible",
+      "clickCardToFlip": "fes clic a la targeta per girar-la"
+    },
+    "flashcardExport": {
+      "exportFailed": "Ha fallat l'exportació",
+      "unknownError": "Error desconegut",
+      "export": "Exporta {{setTitle}}",
+      "chooseWhatToExport": "Tria què vols exportar",
+      "exportQuestions": "Exporta les preguntes",
+      "exportAnswers": "Exporta les respostes"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Elimina el conjunt de targetes",
+      "areYouSureYouWantTo": "Segur que vols eliminar «{{setTitle}}»?",
+      "failedToDeleteFlashcardSet": "No s'ha pogut eliminar el conjunt de targetes",
+      "flashcardHistory": "Historial de targetes",
+      "cards": "Targetes",
+      "reviewedMastered": "{{cardsReviewedCount}} revisades • {{percentage}}% dominades"
+    },
+    "folders": {
+      "items": "{{itemCount}} elements",
+      "enterYourFolderName": "Introdueix el nom de la carpeta",
+      "yourFolderName": "Nom de la carpeta",
+      "createFolder": "Crea una carpeta",
+      "folders": "Carpetes",
+      "addFolder": "Afegeix una carpeta",
+      "noFoldersToDisplay": "No hi ha carpetes per mostrar",
+      "clickTheButtonAboveToCreate": "Fes clic al botó de dalt per crear una carpeta per als teus apunts",
+      "allFolders": "Totes les carpetes",
+      "items2": "{{totalItems}} elements"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtres de recerca mèdica",
+      "howrecentdoyouwantthe": "COM DE RECENTS VOLS LES FONTS",
+      "from": "Des de",
+      "whatkindofsourcedoyou": "QUIN TIPUS DE FONT NECESSITES",
+      "textbooks": "Llibres de text",
+      "clinicalGuidelines": "Guies de pràctica clínica",
+      "scientificJournalArticles": "Articles de revistes científiques",
+      "onlywiththisjournalarticles": "NOMÉS AMB AQUESTS ARTICLES DE REVISTES",
+      "metaAnalyses": "Metaanàlisis",
+      "reviewArticles": "Articles de revisió",
+      "clinicalTrials": "Assajos clínics",
+      "fromYear": "Des de l'any",
+      "toYear": "Fins a l'any"
+    },
+    "noteOptions": {
+      "noteOptions": "Opcions de la nota",
+      "editNote": "Edita la nota",
+      "reTranscribe": "Torna a transcriure",
+      "chatWithNote": "Xateja amb la nota",
+      "exportNote": "Exporta la nota",
+      "moveToFolder": "Mou a una carpeta",
+      "deleteNote": "Elimina la nota"
+    },
+    "onboardingTooltip": {
+      "skip": "Omet"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Elimina el qüestionari",
+      "areYouSureYouWantTo": "Segur que vols eliminar «{{quizTitle}}»?",
+      "failedToDeleteQuiz": "No s'ha pogut eliminar el qüestionari",
+      "quizHistory": "Historial de qüestionaris",
+      "questions": "Preguntes",
+      "correct": "{{correctAnswers}} correctes"
+    },
+    "referral": {
+      "copied": "Copiat!",
+      "yourReferralCodeHasBeenCopied": "El teu codi d'invitació s'ha copiat al porta-retalls.",
+      "joinMeOnClinicalFactUse": "Uneix-te a mi a Clinical Fact! Fes servir el meu codi {{referralCode}} – {{appUrl}}",
+      "joined": "S'ha unit el {{joinedDate}}",
+      "referralCode": "Codi d'invitació",
+      "yourReferralCode": "El teu codi d'invitació",
+      "shareWithFriendsToEarnRewards": "Comparteix-lo amb amics per guanyar recompenses",
+      "share": "Comparteix",
+      "copyCode": "Copia el codi",
+      "referredFriends": "Amics convidats",
+      "noReferralsYetShareYourCode": "Encara no hi ha cap invitació. Comparteix el teu codi per començar!",
+      "loadMore": "Carrega'n més",
+      "howItWorks": "Com funciona",
+      "friendsUseYourCodeDuringSignup": "• Els amics utilitzen el teu codi en registrar-se",
+      "youBothEarnRewardsWhenThey": "• Tots dos guanyeu recompenses quan s'uneixin",
+      "friendsReferredCount": "Amics convidats: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Extraient el text...",
+      "transcribingAudio": "Transcrivint l'àudio...",
+      "processingPDF": "Processant el PDF...",
+      "settingUpChat": "Configurant el xat...",
+      "uploadFailed": "Error en pujar",
+      "failedToUploadFilePleaseTry": "No s'ha pogut pujar el fitxer. Torna-ho a provar.",
+      "yourFileIsReadyForChatting": "El fitxer està a punt per al xat!",
+      "uploadingYourFileToTheServer": "Pujant el fitxer al servidor...",
+      "extractingTextFromYourImage": "Extraient el text de la imatge...",
+      "transcribingYourAudio": "Transcrivint el teu àudio...",
+      "extractingTextFromYourPDF": "Extraient el text del teu PDF...",
+      "creatingYourChatSession": "Creant la sessió de xat...",
+      "pleaseWait": "Espera, si us plau...",
+      "uploadFile": "Puja el fitxer",
+      "processContent": "Processa el contingut",
+      "createChat": "Crea un xat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Visualitza",
+      "export": "📤 Exporta",
+      "delete": "🗑️ Elimina"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Desenvolupat per"
+    },
+    "exportFormat": {
+      "txtFile": "Fitxer TXT",
+      "pdfFile": "Fitxer PDF",
+      "docFile": "Fitxer DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "No s'han pogut carregar les notes",
+      "failedToFetchFolders": "No s'han pogut carregar les carpetes",
+      "failedToFetchNote": "No s'ha pogut carregar la nota",
+      "failedToDeleteNote": "No s'ha pogut eliminar la nota",
+      "failedToCreateFolder": "No s'ha pogut crear la carpeta",
+      "failedToDeleteFolder": "No s'ha pogut eliminar la carpeta"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "No s'ha pogut eliminar el xat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "El conjunt de targetes s'ha exportat correctament!",
+      "failedToExportFlashcardSet": "No s'ha pogut exportar el conjunt de targetes."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "El qüestionari s'ha exportat correctament!",
+      "failedToExportQuiz": "No s'ha pogut exportar el qüestionari."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Targetes sense títol",
+      "failedToLoadFlashcards": "No s'han pogut carregar les targetes",
+      "failedToSyncFlashcardSet": "No s'ha pogut sincronitzar el conjunt de targetes",
+      "failedToSyncCardUpdate": "No s'ha pogut sincronitzar l'actualització de la targeta"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Qüestionaris"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Creat el {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Has assolit el límit de 3 xats fixats",
+      "failedToUpdatePin": "No s'ha pogut actualitzar l'element fixat",
+      "noChatsYet": "Encara no hi ha cap xat",
+      "startAChatToGetAnswers": "Inicia un xat per obtenir respostes basades en fonts reals.",
+      "createChat": "+ Crea un xat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Elimina les targetes",
+      "areYouSureYouWantTo": "Segur que vols eliminar \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "No s'han pogut eliminar les flashcards",
+      "sets": "{{setCount}} conjunts",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Crea flashcards",
+      "searchFlashcards": "Cerca flashcards...",
+      "noFlashcardsYet": "Encara no hi ha cap flashcard",
+      "createAFlashcardSetFromA": "Crea un conjunt de flashcards a partir d'una nota per començar",
+      "createSet": "+ Crea un conjunt",
+      "flashcardOptions": "Opcions de les flashcards",
+      "view": "Mostra"
+    },
+    "folder": {
+      "deleteFolder": "Elimina la carpeta",
+      "areYouSureYouWantTo": "Segur que vols eliminar «{{name}}»? Les notes que conté es mouran a l'arrel.",
+      "failedToDeleteFolder": "No s'ha pogut eliminar la carpeta",
+      "error": "Error: {{message}}",
+      "noFoldersYetCreateOne": "Encara no hi ha carpetes. Crea'n una!",
+      "folders": "Carpetes"
+    },
+    "home": {
+      "created": "Creat el {{day}}, {{time}}",
+      "failedToUpdateLanguage": "No s'ha pogut actualitzar l'idioma",
+      "notEnoughContentYet": "Encara no hi ha prou contingut",
+      "chatABitMoreBeforeGenerating": "Xateja una mica més abans de generar un qüestionari (mínim 100 caràcters).",
+      "chatABitMoreBeforeGenerating2": "Xateja una mica més abans de generar flashcards (mínim 100 caràcters).",
+      "failedToGenerateFlashcards": "No s'han pogut generar les flashcards",
+      "upgradeToPro": "Passa a PRO",
+      "get80DiscountWhenYouUpgrade": "Aconsegueix un 80% de descompte en actualitzar el teu compte",
+      "unlockPRO": "Desbloqueja PRO",
+      "noMedicalChats": "Sense xats mèdics",
+      "youHaveNotCreatedAnyMedical": "Encara no has creat cap xat mèdic. Comença'n un de nou i obtén fonts citades",
+      "talkToClinicalfactAI": "Parla amb Clinicalfact AI",
+      "jumpInWhereYouStopped": "Repprèn-ho on ho vas deixar",
+      "practiceQuiz": "Qüestionari de pràctica",
+      "makeFlashcards": "Crea flashcards",
+      "continueChatWithNote": "Continua el xat amb la nota",
+      "continueChat": "Continua el xat",
+      "recentChats": "Xats recents",
+      "chatOptions": "Opcions del xat"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Actualment no tens connexió. Connecta't a internet per dur a terme aquesta acció.",
+      "failedToDeleteNote": "No s'ha pogut eliminar la nota",
+      "failedToMoveNote": "No s'ha pogut moure la nota",
+      "deleteFolder": "Vols eliminar la carpeta?",
+      "areYouSureNotesInsideWill": "N'estàs segur? Les notes de dins no s'eliminaran, només es mouran a «Totes les notes».",
+      "failedToDeleteFolder": "No s'ha pogut eliminar la carpeta",
+      "library": "Biblioteca",
+      "addFolder": "Afegeix una carpeta",
+      "searchForANoteFolder": "Cerca una nota o carpeta",
+      "yourFolders": "Les teves carpetes",
+      "noFoldersToDisplay": "No hi ha cap carpeta per mostrar",
+      "tapAddFolderToCreateA": "Toca «+ Afegeix una carpeta» per crear una carpeta per a les teves notes",
+      "allNotes": "Totes les notes",
+      "items": "{{allNotesTotal}} elements",
+      "items2": "{{itemCount}} elements",
+      "yourNotes": "Les teves notes",
+      "untitledNote": "Nota sense títol",
+      "noResultsFor": "Sense resultats per a «{{searchQuery}}»",
+      "noNotesInThisFolder": "No hi ha cap nota en aquesta carpeta",
+      "noNotesToDisplay": "No hi ha cap nota per mostrar",
+      "tryADifferentSearchTerm": "Prova amb un terme de cerca diferent",
+      "moveNotesToThisFolderTo": "Mou notes a aquesta carpeta per veure-les aquí",
+      "clickBelowToGenerateYourNote": "Fes clic a sota per generar la teva nota amb Clinical Fact",
+      "filterByType": "Filtra per tipus",
+      "audio": "Àudio",
+      "text2": "Text",
+      "image": "Imatge",
+      "clearFilter": "Neteja el filtre"
+    },
+    "profile": {
+      "permissionRequired": "Permís requerit",
+      "pleaseAllowAccessToYourPhoto": "Permet l'accés a la biblioteca de fotos per definir una foto de perfil.",
+      "uploadFailed": "Error de càrrega",
+      "couldNotUpdateProfilePicture": "No s'ha pogut actualitzar la foto de perfil.",
+      "failedToUploadProfilePicture": "Error en carregar la foto de perfil.",
+      "checkOutClinicalFactAIPowered": "Descobreix Clinical Fact: apunts d'estudi amb tecnologia AI! {{url}}",
+      "proSubscriber": "Subscriptor PRO",
+      "subscriptionExpired": "Subscripció caducada",
+      "freeSubscriber": "Subscriptor gratuït",
+      "tapToManageIPhoneSettingsApple": "Toca per gestionar · Configuració de l'iPhone → ID d'Apple → Subscripcions",
+      "tapToManagePlayStoreSubscriptions": "Toca per gestionar · Play Store → Subscripcions",
+      "tapToRenewYourSubscription": "Toca per renovar la subscripció",
+      "tapToUpgradeToPro": "Toca per actualitzar a PRO",
+      "referralCode": "Codi de referència",
+      "areYouSureYouWantTo": "Segur que vols tancar la sessió?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Elimina el qüestionari",
+      "areYouSureYouWantTo": "Segur que vols eliminar «{{sourceTitle}}»?",
+      "failedToDeleteQuiz": "Error en eliminar el qüestionari",
+      "correct": "{{correct}}/{{total}} correctes",
+      "attempts": "{{attempts}} intents",
+      "quiz": "Qüestionari",
+      "createQuiz": "Crea un qüestionari",
+      "searchQuizzes": "Cerca qüestionaris...",
+      "noQuizzesYet": "Encara no hi ha qüestionaris",
+      "createAQuizFromANote": "Crea un qüestionari a partir d'un apunt per començar",
+      "createQuiz2": "+ Crea un qüestionari",
+      "quizOptions": "Opcions del qüestionari",
+      "view": "Veure"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Actualització no disponible",
+      "weCouldnTOpenTheUpgrade": "No s'ha pogut obrir la pantalla d'actualització ara mateix. Comprova la connexió i torna-ho a provar."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "El servidor ha retornat una resposta no vàlida ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Error de xarxa. Comprova la connexió.",
+      "connectionErrorPleaseTryAgain": "Error de connexió. Torna-ho a provar."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fitxer exportat: {{filename}}",
+      "exportFailed": "Error en exportar",
+      "exportFormat": "Format d'exportació",
+      "chooseFormat": "Tria un format",
+      "text": "Text"
+    },
+    "formatDate": {
+      "justNow": "Ara mateix",
+      "minAgo": "fa {{diffMin}} min",
+      "hrAgo": "fa {{diffHr}} h",
+      "dAgo": "fa {{diffDay}} d",
+      "created": "Creat el {{day}} a les {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Error en enviar el codi",
+      "invalidOTP": "Codi no vàlid",
+      "failedToVerifyOTP": "Error en verificar el codi",
+      "googleAuthenticationFailed": "Error d'autenticació amb Google",
+      "appleAuthenticationFailed": "Error d'autenticació amb Apple",
+      "failedToCompleteSignup": "Error en completar el registre",
+      "failedToSkipSignup": "Error en ometre el registre"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Xats",
+      "description": "Xateja amb qualsevol apunt, document o PDF en un sol lloc"
+    },
+    "profileWelcome": {
+      "heading": "Benvingut al teu perfil",
+      "description": "Aquest és el teu perfil. Toca aquí per fer-hi canvis i gestionar la subscripció"
+    },
+    "createNotes": {
+      "heading": "Crea una nota",
+      "description": "Crea apunts a partir de qualsevol material: gravacions, àudio, vídeo, imatges, text i enllaços de YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Canvia l'idioma",
+      "description": "Canvia l'idioma de l'aplicació des d'aquí pel que prefereixis"
+    },
+    "manageHome": {
+      "heading": "Gestiona l'inici",
+      "description": "Consulta tots els teus apunts creats i mira tota la teva activitat en un sol lloc"
+    },
+    "yourLibrary": {
+      "heading": "La teva biblioteca",
+      "description": "Gestiona tots els teus apunts creats, crea carpetes per organitzar-los i molt més"
+    },
+    "yourProfile": {
+      "heading": "El teu perfil",
+      "description": "Consulta tota la informació del teu perfil i modifica'n la configuració des d'aquí"
+    }
   }
 }

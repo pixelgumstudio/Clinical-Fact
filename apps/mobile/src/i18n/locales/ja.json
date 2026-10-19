@@ -14,7 +14,9 @@
     "next": "次へ",
     "done": "完了",
     "search": "検索",
-    "filter": "フィルター"
+    "filter": "フィルター",
+    "ok": "OK",
+    "info": "情報"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "プランをアップグレード",
     "everyWeek": "毎週",
     "everyMonth": "毎月",
-    "everyYear": "毎年"
+    "everyYear": "毎年",
+    "expired": "期限切れ",
+    "reportBug": "不具合を報告",
+    "active": "有効",
+    "trial": "トライアル"
   },
   "auth": {
-    "welcome": "Clinical Factへようこそ",
+    "welcome": {
+      "googleSignInFailed": "Googleサインインに失敗しました",
+      "failedToAuthenticateWithServer": "サーバー認証に失敗しました",
+      "googleSignInIsOnlyAvailable": "Googleサインインはネイティブアプリでのみ利用可能です。メール認証をご利用いただくか、アプリをダウンロードしてください。",
+      "code": "{{message}}（エラーコード: {{code}}）"
+    },
     "getStarted": "始める",
     "signIn": "サインイン",
     "signUp": "サインアップ",
@@ -83,12 +94,316 @@
     "didntGetCode": "コードが届きませんか？",
     "resendCode": "コードを再送信",
     "resendIn": "再送信まで",
-    "enterVerificationCode": "完全な確認コードを入力してください"
+    "enterVerificationCode": "完全な確認コードを入力してください",
+    "languageSelect": {
+      "title": "言語を選択",
+      "subtitle": "アプリで使用する言語を選択してください。後からプロフィールで変更できます。",
+      "searchPlaceholder": "言語を検索",
+      "noResults": "該当する言語が見つかりません"
+    },
+    "buttons": {
+      "continue": "続ける",
+      "continueWithEmail": "メールで続ける",
+      "continueWithGoogle": "Googleで続ける",
+      "continueWithApple": "Appleで続ける",
+      "skip": "スキップ",
+      "verify": "認証完了！",
+      "next": "次へ",
+      "tryNow": "Clinical Factを今すぐ無料でお試し"
+    },
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "username": "@ユーザー名",
+      "referralCode": "紹介コード",
+      "nameScreenTitle": "お名前を入力",
+      "byAgree": "続行することで、以下に同意したことになります：",
+      "termsAndConditions": "利用規約",
+      "privacyPolicy": "プライバシーポリシー",
+      "and": "および"
+    },
+    "placeholders": {
+      "enterEmail": "メールアドレスを入力",
+      "firstName": "名",
+      "lastName": "姓",
+      "username": "@ユーザー名",
+      "referralCode": "例：JOHN、TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "有効なメールアドレスを入力してください",
+      "emailRequired": "メールアドレスを入力してください",
+      "firstLastNameRequired": "姓と名の両方を入力してください",
+      "usernameRequired": "ユーザー名を入力してください",
+      "usernameLength": "ユーザー名は3〜20文字で入力してください（半角英数字、アンダースコアのみ）",
+      "usernameTaken": "このユーザー名は既に使用されています。別のユーザー名をお試しください。",
+      "usernameCheckFailed": "ユーザー名の空き状況を確認できませんでした",
+      "usernameError": "ユーザー名の確認中にエラーが発生しました。接続状況を確認してください。",
+      "invalidOTP": "認証コードが無効です。確認してもう一度お試しください。",
+      "otpExpired": "認証コードの有効期限が切れています。新しいコードをリクエストしてください。",
+      "otpRequired": "認証コードをすべて入力してください",
+      "referralNotFound": "紹介コードが見つかりません。入力内容を確認してもう一度お試しください。",
+      "referralValidateFailed": "コードの確認に失敗しました。もう一度お試しください。",
+      "referralApplyFailed": "紹介コードの適用に失敗しました。もう一度お試しください。",
+      "codeSendFailed": "認証コードの送信に失敗しました。もう一度お試しください。",
+      "resendCodeFailed": "コードの再送信に失敗しました。もう一度お試しください。",
+      "signInFailed": "サインインに失敗しました",
+      "googleSignInFailed": "Googleサインインに失敗しました",
+      "googleTokenFailed": "Googleトークンの処理に失敗しました",
+      "googleAccessTokenFailed": "アクセストークンの取得に失敗しました。もう一度お試しください。",
+      "authTokenFailed": "認証トークンの取得に失敗しました。もう一度お試しください。",
+      "googleStartFailed": "Googleサインインを開始できませんでした。もう一度お試しください。",
+      "setupRequired": "初期設定が必要です",
+      "googleOAuthMissing": "GoogleサインインにはOAuthクライアントIDが必要です。\\n\\n.envファイルに認証情報を追加してください。",
+      "youCanStillUseEmail": "「メールで続ける」は引き続きご利用いただけます。",
+      "appleSignInFailed": "Appleサインインに失敗しました",
+      "appleTokenFailed": "Appleトークンの処理に失敗しました",
+      "appleIosOnly": "AppleサインインはiOSでのみご利用いただけます。"
+    },
+    "messages": {
+      "signingIn": "サインイン中...",
+      "codeValid": "✓ 有効なコードです",
+      "signupFailed": "登録を完了できませんでした",
+      "setupFailed": "設定を完了できませんでした。もう一度お試しください。"
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: スマートな学習ノートはここから",
+      "tagline": "あらゆるテキストを完璧なノートに",
+      "description": "音声、資料、動画を検索しやすいノートに変換。クイズ、暗記カード、要約も瞬時に作成できます。",
+      "createAccountTitle": "アカウントを作成",
+      "orSignUpWith": "または以下で登録",
+      "signUpWithEmail": "メールアドレスで登録",
+      "signInWithEmail": "メールアドレスでログイン",
+      "alreadyHaveAccount": "すでにアカウントをお持ちですか？ ",
+      "dontHaveAccount": "アカウントをお持ちでないですか？ "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "医療の疑問を質問。確かなエビデンスを。",
+        "description": "医学的な疑問を質問すると、PubMed、診療ガイドライン、信頼性の高い医学文献などの出典に裏付けられた回答が得られます。"
+      },
+      "slide2": {
+        "headline": "すべての回答に確かな出典を",
+        "description": "推測や捏造はなく、すべての回答が検証可能な実際の医学研究・文献にリンクしています。"
+      },
+      "slide3": {
+        "headline": "スマートに学習し、試験に合格しよう",
+        "description": "疑問点やアップロードした資料から数秒でクイズや暗記カードを作成。学んでいる内容に直結した実践演習が可能です。"
+      }
+    },
+    "otp": {
+      "title": "メールアドレスの確認",
+      "subtitle": "メールアドレスに送信された認証コードを入力してください"
+    },
+    "professionalDeclaration": {
+      "title": "専門的利用に関する宣誓事項",
+      "subtitle": "Clinical Fact は教育・文献検索支援ツールです",
+      "disclaimerIntro": "Clinical Fact は、看護学生、医学生、その他の医療系学生が医学的知識、研究文献、学習教材にアクセスすることを支援するために設計されたAIベースの情報提供ツールです。本アプリは、医学的診断、治療方針の推奨、臨床指示、または個別の患者に対する医療アドバイスを提供するものではなく、直接的な患者ケアや臨床的判断の根拠として使用することはできません。",
+      "disclaimerHeading": "Clinical Fact による回答生成の仕組み：",
+      "disclaimerBody": "Clinical Fact は、PubMed、Semantic Scholar、FDA公式添付文書などの信頼できる医学・科学情報源から直接情報を取得し、AIを活用してその内容をわかりやすい言葉で要約・解説します。すべての回答はその質問に対して取得された情報源のみに基づいて生成され、引用元リンクから原文を直接確認できます。Clinical Fact が記憶から医療事実を生成したり、出典を捏造したりすることはありません。\n\nClinical Fact は診断ツール、治療プラットフォーム、医療機器ではなく、専門的な医学的判断、資格を有する指導者の指示、または所属機関のカリキュラムに代わるものではありません。回答、引用、クイズ、暗記カードなど、アプリによって生成されたすべての情報は一般的な教育および学習のみを目的として提供されており、学術的、臨床的、または専門的な場面で依拠する前に、ユーザー自身が独自に検証する必要があります。\nClinical Fact は、提供される情報の完全性、正確性、または最新の臨床的妥当性を保証しません。医学知識は絶えず進化しています。重要な情報は必ず指導教員、臨床指導者、および最新の原典と照合してください。\nご自身の文書、ノート、または録音をアップロードした場合、Clinical Fact はそのアップロードされた内容のみに基づいて回答、要約、クイズ、暗記カードを生成します（外部ソースが明示的に併記されている場合を除く）。\n\nClinical Fact は、ユーザーの身元、在学状況、または資格の検証や確認を行いません。本アプリは緊急時やリアルタイムの臨床判断での使用を想定していません。\n続行することにより、お客様はこれらの条項を理解し、Clinical Fact を学習および参考の補助としてのみ使用することに同意したことになります。",
+      "checkboxLabel": "本アプリが教育・参考用のみを目的とし、医療アドバイスを提供するものではないことを理解しました",
+      "acceptButton": "同意して続ける"
+    },
+    "survey": {
+      "role": "{{firstName}}さん、あなたの立場に最も近いものはどれですか？",
+      "currentMethod": "普段、医学的な疑問はどのように調べていますか？",
+      "timeDrain": "勉強で最も時間を取られていることは何ですか？",
+      "appExpectation": "医療学習アプリ「Clinical Fact」に期待することは何ですか？",
+      "aiToolsUsed": "これまでに医療学習で使ったことがあるAIツールはどれですか？",
+      "aiToolIssue": "それらのツールを使って困った点は何でしたか？",
+      "aiTrustLevel": "AIの回答が間違っているかもしれないと不安になることはありますか？",
+      "biggestNeed": "今、最も必要としているものは何ですか？",
+      "studyTimePerWeek": "1週間に確保できる勉強時間はどのくらいですか？",
+      "comingUp": "直近で控えている予定は何ですか？",
+      "referralSource": "Clinical Fact をどこで知りましたか？"
+    },
+    "onboarding": {
+      "username": "ユーザー名を設定しましょう",
+      "usernameSubtitle": "アカウントのパーソナライズに使用されます",
+      "goals": "Clinical Fact をどのような目的で\\n活用したいですか？",
+      "goalsSubtitle": "当てはまるものをすべて選択してください。あなたに合わせた体験をお届けします。",
+      "contentType": "普段どのような形式のコンテンツを\\n主に使用していますか？",
+      "contentTypeSubtitle": "当てはまるものをすべて選択してください。体験の最適化に役立ちます。",
+      "reviewStyle": "学んだ内容はどのように\\n復習したいですか？",
+      "reviewStyleSubtitle": "希望する復習方法を選択してください。",
+      "frustration": "{{firstName}}さん、ノート作成で一番ストレスを感じることは何ですか？",
+      "frustrationSubtitle": "当てはまるものをすべて選択してください。問題解決に役立てます。",
+      "referral": "{{firstName}}さん、\\nClinical Fact を\\nどこで知りましたか？",
+      "referralSubtitle": "1つ選択してください。"
+    },
+    "referralScreen": {
+      "title": "誰かからの紹介ですか？",
+      "subtitle": "紹介コードをお持ちの場合は入力してください"
+    },
+    "setup": {
+      "preparingNotes": "ノートを準備中",
+      "preparingFlashcards": "暗記カードを準備中",
+      "preparingQuiz": "クイズのテンプレートを準備中",
+      "preparingChat": "チャットアシスタントを準備中",
+      "title": "{{firstName}}さんのワークスペースを\\n設定しています..."
+    },
+    "thanks": {
+      "title": "Clinical Fact を選んでいただきありがとうございます",
+      "subtitle": "多くの看護学生や医学生が活用しています",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "あらゆる学びを\\n加速させるすべてがここに",
+      "subtitle": "録音する。調べる。解く。身につける。",
+      "everythingYouNeedToLearnAnything": "あらゆる学習に必要なすべてがここに",
+      "recordItResearchItQuizIt": "記録する。調べる。解く。身につく。",
+      "tryClinicalFactNowForFree": "Clinical Factを今すぐ無料でお試し"
+    },
+    "features": {
+      "feature1": {
+        "title": "確かな医学的回答と深掘り用の質問",
+        "description": "医学的な質問に対してわかりやすい解説とスマートな関連質問を提供。学習の途中で行き詰まることはもうありません。"
+      },
+      "feature2": {
+        "title": "すべての医学的回答に、\n確かなエビデンスを",
+        "description": "PubMed、Semantic Scholar、Europe PMCから引用。AIの創作ではなく、いつでも確認できます。"
+      },
+      "feature3": {
+        "title": "ノートをアップロードして、医学教材の要約を作成",
+        "description": "講義スライドやPDF、ノートから、信頼できる医学的根拠に基づいたわかりやすい解説を作成します。"
+      },
+      "feature4": {
+        "title": "チャットから演習用のクイズや暗記カードを作成",
+        "description": "別の学習アプリは不要。チャットやアップロードした資料から直接演習問題を作成できます。"
+      },
+      "feature5": {
+        "title": "チャットや資料から演習用のフラッシュカードを作成",
+        "description": "別の学習アプリは不要。チャットやアップロードした資料から直接演習問題を作成できます。"
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "通知をオンにする",
+      "thisHelpsUsStayOnTrack": "通知を有効にすると、アカウントを最適化し、必要な医学的知見をより素早く見つけられるようになります"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "認証コードが無効です。もう一度お試しください。",
+      "failedToResendCodePleaseTry": "コードの再送信に失敗しました。もう一度お試しください。",
+      "confirmYourEmailAddress": "メールアドレスの確認",
+      "enterCodeSentTo": "{{email}} 宛に送信された認証コード（OTP）を入力してください",
+      "resendCodeIn": "{{seconds}}秒後に再送信できます"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "紹介コードをお持ちですか？",
+      "enterTheirReferralCodeIfYou": "紹介コードをお持ちの場合は入力してください",
+      "eGJOHNOrTECHBRO": "例: JOHN または TECHBRO",
+      "codeIsValid": "✓ 有効なコードです"
+    },
+    "resultsChart": {
+      "getBetterResults": "さらなる高得点を目指す",
+      "over95OfClinicalfactUsersScore": "Clinical Factユーザーの95%以上が、テストや試験で95点以上を獲得しています"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "看護学生",
+        "medicalStudent": "医学生",
+        "paPharmacyStudent": "PA（診療放射線技師等）/ 薬学生",
+        "practicingNurse": "看護師",
+        "practicingPhysician": "医師",
+        "otherHealthcareProfessional": "その他の医療従事者"
+      },
+      "currentMethod": {
+        "textbooksNotes": "教科書・授業ノート",
+        "flashcardQuizApps": "暗記カード・クイズアプリ",
+        "youtube": "YouTube",
+        "aiChatbots": "AIチャットボット",
+        "colleagueClassmate": "同僚や同級生に質問",
+        "practiceQuestionBanks": "過去問・問題集（QBなど）"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "カードやクイズを一から自作すること",
+        "findingTrustworthyAnswer": "信頼できる答えをすばやく見つけること",
+        "reReadingNotes": "記憶に残っていないノートの読み直し",
+        "switchingApps": "複数のアプリを行き来すること",
+        "chartingDocumentation": "カルテ・記録の記入"
+      },
+      "appExpectation": {
+        "noHallucination": "ハルシネーション（嘘の回答）のないAI",
+        "realCitations": "信頼できる正確な文献・出典の提示",
+        "oneApp": "複数のサブスクを1つのアプリに集約",
+        "explainsWhy": "答えだけでなく「根拠（なぜ）」も解説"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "NotebookLM",
+        "claude": "Claude",
+        "uworld": "UWorld",
+        "googleSearch": "Google検索",
+        "otherApps": "その他のアプリ"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "嘘の情報を生成した（ハルシネーション）",
+        "notMedicalContent": "医療・臨床向けに作られていない",
+        "noSources": "確認できる出典・根拠がない",
+        "tooGeneric": "一般的すぎて試験や臨床現場に役立たない"
+      },
+      "aiTrustLevel": {
+        "everyTime": "常に信頼している",
+        "sometimes": "時々信頼している",
+        "rarely": "あまり信頼していない",
+        "dontUseAi": "まだAIを使っていない"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "信頼できる素早い回答",
+        "quizzesFlashcardsWithoutWork": "手間いらずのクイズ＆暗記カード作成",
+        "rememberingStudied": "学習した内容の記憶・定着のサポート",
+        "medicalCitations": "医学文献・引用の参照",
+        "allOfTheAbove": "上記すべて"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "ニュースレター",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play ストア",
+        "other": "その他"
+      },
+      "studyTime": {
+        "under5Hours": "5時間未満",
+        "510Hours": "5〜10時間",
+        "1020Hours": "10〜20時間",
+        "20PlusHours": "20時間以上"
+      },
+      "comingUp": {
+        "medicalExams": "医学試験・国家試験",
+        "clinicalRotations": "臨床実習・ポリクリ",
+        "nursingExams": "看護試験・国家試験",
+        "otherExams": "その他の試験",
+        "staySharp": "知識の維持・ブラッシュアップ"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "ノートの文字起こし",
+    "noteTranscript": {
+      "noteTranscript": "ノートの文字起こし",
+      "noNoteIDProvided": "ノートIDが指定されていません",
+      "noTranscriptAvailableForThisNote": "このノートの文字起こしデータはありません。",
+      "thisNoteWasNotCreatedFrom": "このノートは音声や動画から作成されていないため、文字起こしはありません。",
+      "failedToLoadNote": "ノートの読み込みに失敗しました",
+      "noteTranscript2": "文字起こし",
+      "loadingTranscript": "文字起こしを読み込み中...",
+      "goToNote": "ノートへ移動"
+    },
     "noteOptions": "ノートオプション",
-    "editNote": "ノートを編集",
+    "editNote": {
+      "pleaseEnterANoteTitle": "ノートのタイトルを入力してください",
+      "failedToUpdateNote": "ノートの更新に失敗しました",
+      "noteUpdatedSuccessfully": "ノートを更新しました",
+      "editNote": "ノートを編集",
+      "noteTitle": "ノートのタイトル",
+      "enterNoteTitle": "ノートのタイトルを入力",
+      "noteContent": "ノートの本文",
+      "enterNoteContent": "ノートの本文を入力",
+      "saveThisNote": "このノートを保存",
+      "aiIsGeneratingYourNote": "AIがノートを生成中...",
+      "largeAudioAndVideoFilesMay": "容量の大きい音声・動画ファイルは処理に数分かかる場合があります。アプリを開いたままお待ちください。"
+    },
     "retranscribe": "再文字起こし",
     "exportNote": "ノートをエクスポート",
     "shareNoteLink": "ノートリンクを共有",
@@ -110,12 +425,89 @@
     "translate": "翻訳",
     "addToFolder": "フォルダに追加",
     "loadingNote": "ノートを読み込み中...",
-    "noteNotFound": "ノートの読み込みに失敗しました"
+    "noteNotFound": "ノートの読み込みに失敗しました",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "単語カードの生成に失敗しました",
+      "anUnexpectedErrorOccurred": "予期せぬエラーが発生しました",
+      "history": "履歴",
+      "export": "エクスポート"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "フォルダへのノートの追加に失敗しました",
+      "folderNotFound": "フォルダが見つかりません",
+      "addNote": "+ ノートを追加",
+      "noNotesInThisFolder": "このフォルダにはノートがありません",
+      "moveNotesToThisFolderTo": "ここに表示するには、ノートをこのフォルダに移動してください",
+      "addNoteToFolder": "フォルダにノートを追加",
+      "noNotesAvailableToAdd": "追加可能なノートがありません",
+      "allYourNotesAreAlreadyIn": "すべてのノートがすでにこのフォルダに追加されています",
+      "created": "作成日: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "ノートの読み込みに失敗しました",
+      "reTranscribeNote": "ノートを再文字起こし",
+      "thisWillReTranscribeTheAudio": "音声を再文字起こししてノートを更新します。続行しますか？",
+      "reTranscribe": "再文字起こし",
+      "noteReTranscribedSuccessfully": "ノートの再文字起こしが完了しました",
+      "info": "情報",
+      "reTranscriptionFeatureIsComingSoon": "再文字起こし機能は近日公開予定です",
+      "youAreCurrentlyOfflinePleaseConnect": "現在オフラインです。この操作を行うにはインターネットに接続してください。",
+      "failedToDeleteNote": "ノートの削除に失敗しました",
+      "failedToExportNote": "ノートのエクスポートに失敗しました",
+      "noteTranslatedSuccessfully": "ノートの翻訳が完了しました",
+      "failedToTranslateNote": "ノートの翻訳に失敗しました",
+      "noteMovedTo": "{{name}} に移動しました",
+      "failedToMoveNoteToFolder": "フォルダへの移動に失敗しました",
+      "summaryNotes": "要約ノート",
+      "loadingNote": "ノートを読み込み中...",
+      "imageNote": "画像ノート",
+      "created": "作成日時: {{dateTime}}",
+      "translate": "翻訳",
+      "transcribe": "文字起こし",
+      "editThisNote": "このノートを編集",
+      "createFlashcards": "単語カードを作成",
+      "createFlashcardsToImproveYourRetention": "単語カードを作成して記憶の定着率をアップ",
+      "createQuizQuestions": "クイズを作成",
+      "practiceYourNotesByCreatingQuestions": "問題を作成してノート内容の理解を深めましょう"
+    },
+    "sharedNote": {
+      "notFound": "見つかりません",
+      "thisSharedNoteLinkIsInvalid": "共有ノートのリンクが無効であるか、期限切れです。",
+      "failedToLoadSharedNote": "共有ノートの読み込みに失敗しました。",
+      "saved": "保存しました！",
+      "noteHasBeenAddedToYour": "ライブラリにノートを追加しました。",
+      "viewInLibrary": "ライブラリで表示",
+      "stayHere": "このまま残る",
+      "failedToSaveNote": "ノートの保存に失敗しました。",
+      "loadingSharedNote": "共有ノートを読み込み中...",
+      "sharedNote": "共有ノート",
+      "sharedWithYou": "共有されたノート",
+      "savedToLibrary": "ライブラリに保存済み",
+      "saveToMyLibrary": "ライブラリに保存"
+    }
   },
   "create": {
     "selectOption": "ノートをどのように作成しますか？",
-    "recordAudio": "音声を録音",
-    "uploadAudio": "音声をアップロード",
+    "recordAudio": {
+      "permissionRequired": "権限が必要です",
+      "pleaseGrantMicrophonePermissionToRecord": "録音を行うにはマイクへのアクセスを許可してください。",
+      "failedToRequestMicrophonePermission": "マイク権限の取得に失敗しました",
+      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "音声を録音中",
+      "recordAudio": "音声を録音",
+      "createANoteFromAnyRecorded": "録音した音声からノートを作成",
+      "recording": "録音中 ({{time}})",
+      "recordAgain": "再録音"
+    },
+    "uploadAudio": {
+      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "音声ファイルの選択に失敗しました",
+      "uploadAudio": "音声をアップロード",
+      "createANoteFromAnyUploaded": "アップロードした音声からノートを作成",
+      "dragDropFilesOrBrowse": "ファイルをドラッグ＆ドロップ、または選択",
+      "supportedFormatMp4WavMp3": "対応フォーマット: mp4, wav, mp3",
+      "changeFile": "ファイルを変更"
+    },
     "youtube": "YouTube動画",
     "pdfDocument": "PDFまたはドキュメント",
     "customText": "カスタムテキスト",
@@ -123,7 +515,56 @@
     "uploadingFile": "サーバーにファイルをアップロード中...",
     "transcribing": "音声をテキストに変換中...",
     "extractingText": "テキストを抽出中...",
-    "generatingNote": "AI学習ノートを作成中...",
+    "generatingNote": {
+      "uploadAudio": "音声をアップロード",
+      "uploadingAudioFileToServer": "音声ファイルをサーバーにアップロード中...",
+      "transcribeAudio": "音声を文字起こし",
+      "convertingSpeechToText": "音声をテキストに変換中...",
+      "generateYourNote": "ノートを生成",
+      "creatingStudyNotes": "学習ノートを作成中...",
+      "uploadPDF": "PDFをアップロード",
+      "uploadingPDFDocumentToServer": "PDFファイルをサーバーにアップロード中...",
+      "extractText": "テキストを抽出",
+      "readingAndExtractingTextFromPDF": "PDFからテキストを抽出中...",
+      "uploadImage": "画像をアップロード",
+      "uploadingImageToServer": "画像をサーバーにアップロード中...",
+      "extractTextOCR": "テキストを抽出 (OCR)",
+      "recognizingAndExtractingTextFromImage": "画像から文字を認識・抽出中...",
+      "fetchVideo": "動画を取得",
+      "connectingToYouTube": "YouTubeに接続中...",
+      "extractTranscript": "文字起こしを抽出",
+      "downloadingVideoTranscript": "動画の文字起こしをダウンロード中...",
+      "processText": "テキストを処理",
+      "analyzingYourContent": "コンテンツを解析中...",
+      "uploadFile": "ファイルをアップロード",
+      "uploadingToServer": "サーバーにアップロード中...",
+      "processContent": "コンテンツを処理",
+      "extractingContent": "コンテンツを抽出中...",
+      "noteReady": "ノートが完成しました！",
+      "noteGenerationFailedOnTheServer": "サーバーでノートの生成に失敗しました。",
+      "failedToUploadImage": "画像をアップロードできませんでした",
+      "weCouldNotReadAnythingFrom": "画像からテキストを読み取れませんでした。より鮮明なノートの写真でお試しください。",
+      "preparingFile": "ファイルを準備中...",
+      "almostDone": "もう少しで完了します...",
+      "untitledNote": "無題のノート",
+      "failedToGenerateNote": "ノートの生成に失敗しました",
+      "whoaSpeedy": "少しペースが早いです！🏃💨",
+      "youReGeneratingContentABit": "コンテンツの生成リクエストが集中しています。AIが追いつくまで、60秒ほど待ってから再試行してください。",
+      "gotIt": "了解",
+      "fileTooLarge": "ファイルサイズが大きすぎます",
+      "yourFileExceedsThe15MBLimit": "無料プランの上限（15MB）を超えています。PROにアップグレードすると、最大100MBの講義データをアップロードできます。",
+      "upgradeToPRO": "PROにアップグレード",
+      "oopsWeHitASnag": "問題が発生しました 🚧",
+      "weCouldnTGenerateThatRight": "現在生成できません。しばらく待ってからもう一度お試しください。",
+      "processingContent": "コンテンツを処理中...",
+      "generatingYourNote": "ノートを生成中...",
+      "audioNote": "音声ノート",
+      "failedToGenerateFlashcards": "フラッシュカードの生成に失敗しました",
+      "generatingNote": "ノートを生成中",
+      "pleaseKeepThisScreenOpenWhile": "ノートの生成中は、この画面を開いたままにしてください。容量の大きいファイルは文字起こしに数分かかる場合があります。",
+      "goToNote": "ノートを見る",
+      "generateNoteTranscript": "文字起こしからノートを生成"
+    },
     "fetchingVideo": "YouTubeに接続中...",
     "processingText": "コンテンツを分析中...",
     "uploadAudioTitle": "音声をアップロード",
@@ -133,7 +574,63 @@
     "fetchVideo": "動画を取得",
     "extractTranscript": "文字起こしを抽出",
     "processText": "テキストを処理",
-    "generateNote": "ノートを生成"
+    "generateNote": "ノートを生成",
+    "customTextInput": {
+      "customText": "カスタムテキスト",
+      "createANoteFromAnyCustom": "入力したテキストからノートを作成",
+      "enterText": "テキストを入力",
+      "enterYourTextHere": "ここにテキストを入力..."
+    },
+    "uploadImage": {
+      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "アクセス権限が必要です",
+      "pleaseAllowAccessToYourPhoto": "写真ライブラリへのアクセスを許可してください",
+      "failedToPickImage": "画像を選択できませんでした",
+      "uploadImage": "画像をアップロード",
+      "createANoteFromAnyUploaded": "アップロードした画像からノートを作成",
+      "dragDropFilesOrBrowse": "ファイルをドラッグ＆ドロップ、または参照",
+      "supportedFormatPngJpegHeicWebp": "対応形式: png, jpeg, heic, webp",
+      "changeFile": "ファイルを変更"
+    },
+    "uploadPDF": {
+      "created": "作成日時: {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "ドキュメントを選択できませんでした",
+      "uploadPdf": "PDFをアップロード",
+      "createANoteFromAnyUploaded": "アップロードしたPDFからノートを作成",
+      "dragDropFilesOrBrowse": "ファイルをドラッグ＆ドロップ、または参照",
+      "supportedFormatPdf": "対応形式: pdf",
+      "changeFile": "ファイルを変更"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "動画を取得中",
+      "gettingVideoDetails": "動画の詳細を取得中",
+      "extractingTranscript": "文字起こしを抽出中",
+      "convertingAudioToText": "音声をテキストに変換中",
+      "generatingYourNote": "ノートを生成中",
+      "aiIsSummarisingTheContent": "AIが内容を要約中",
+      "noteGenerationFailedPleaseTryAgain": "ノートの生成に失敗しました。もう一度お試しください。",
+      "processingFailed": "処理に失敗しました",
+      "goBack": "戻る",
+      "retry": "再試行",
+      "failedToStartNoteGeneration": "ノートの生成を開始できませんでした",
+      "failedToProcessYouTubeVideoPlease": "YouTube動画の処理に失敗しました。もう一度お試しください。",
+      "cancelProcessing": "処理をキャンセル",
+      "areYouSureYouWantTo": "本当にキャンセルしますか？進捗は失われます。",
+      "continueProcessing": "処理を続ける",
+      "youTubeNote": "YouTubeノート",
+      "noteGenerated": "ノートが作成されました",
+      "generatingNote": "ノートを生成中",
+      "goToNote": "ノートを見る"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "動画情報を取得できませんでした",
+      "failedToFetchVideoInformation": "動画情報の取得に失敗しました",
+      "youtubeVideo": "YouTube動画",
+      "createANoteFromAnyYoutube": "YouTube動画からノートを作成",
+      "enterYoutubeURL": "YouTubeのURLを入力",
+      "pasteYoutubeURL": "YouTubeのURLを貼り付け",
+      "fetchingVideoInfo": "動画情報を取得中..."
+    }
   },
   "library": {
     "title": "ライブラリ",
@@ -163,7 +660,67 @@
     "almostDone": "もうすぐ完了...",
     "quizReady": "クイズの準備完了！",
     "startQuiz": "クイズを開始",
-    "questionCount": "{{total}}問中{{current}}問目"
+    "questionCount": "{{total}}問中{{current}}問目",
+    "previous": "前の問題",
+    "generatingQuiz": "AIでクイズを生成中...",
+    "exitTitle": "クイズを終了しますか？",
+    "exitMessage": "進行状況は保存されません。",
+    "exit": "終了する",
+    "errorTitle": "問題が発生しました 🚧",
+    "errorMessage": "現在クイズを生成できませんでした。しばらく待ってからもう一度お試しください。",
+    "noQuestions": "利用可能な問題がありません。",
+    "reading": "ノートを読み込み中...",
+    "identifying": "重要概念を特定中...",
+    "structuring": "問題を構成中...",
+    "almostReady": "まもなく完了します...",
+    "youScored": "スコア",
+    "timeInSeconds": "所要時間（秒）",
+    "accuracy": "正答率",
+    "grade": "成績",
+    "reportsCard": "成績表",
+    "reviewAnswers": "解答を確認",
+    "correctAnswer": "正解",
+    "yourAnswer": "あなたの回答",
+    "explanation": "解説",
+    "questionProgress": "問題 {{current}} / {{total}}",
+    "generatingQuizWait": "クイズを生成しています。完了まで少々お待ちください...",
+    "goToChats": "チャットへ移動",
+    "quizGroupDetail": {
+      "inProgress": "進行中",
+      "notStarted": "未着手",
+      "failedToLoadQuizHistory": "クイズ履歴を読み込めませんでした",
+      "failedToLoadChatContent": "チャット内容を読み込めませんでした",
+      "deleteQuiz": "クイズを削除",
+      "failedToDeleteQuiz": "クイズの削除に失敗しました",
+      "created": "作成日: {{dateTime}}",
+      "lastscore": "前回のスコア",
+      "bestscore": "ベストスコア",
+      "attempts": "受験回数",
+      "retakeQuiz": "もう一度解く",
+      "translate": "翻訳",
+      "newQuiz": "新規クイズ",
+      "quizHistory": "クイズ履歴",
+      "flashcardHistory": "フラッシュカード履歴",
+      "score": "スコア: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "このソースからのフラッシュカードセットはまだありません。",
+      "cards": "{{totalCards}}枚 · {{flashcardStatus}}",
+      "quizOptions": "クイズオプション",
+      "exportLatestAttempt": "最新の結果をエクスポート",
+      "questions": "{{totalQuestions}}問 · {{value}}",
+      "deleteAllAttemptsOne": "「{{title}}」の回答履歴（1件）を削除しますか？この操作は元に戻せません。",
+      "deleteAllAttemptsMany": "「{{title}}」の全{{total}}件の回答履歴を削除しますか？この操作は元に戻せません。",
+      "makeFlashcards": "単語カードを作成"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "クイズデータを読み込めませんでした（不正な応答形式）",
+      "failedToLoadQuizData": "クイズデータを読み込めませんでした",
+      "noContentAvailable": "利用可能なコンテンツがありません",
+      "goBack": "戻る",
+      "previous": "前へ"
+    },
+    "quiz": {
+      "generationFailed": "生成に失敗しました"
+    }
   },
   "flashcards": {
     "title": "フラッシュカード",
@@ -172,7 +729,68 @@
     "previous": "前へ",
     "shuffle": "シャッフル",
     "generating": "フラッシュカードを生成中...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "フラッシュカードを作成して記憶定着率をアップ",
+    "howManyQuestions": "問題数を選択",
+    "generateButton": "フラッシュカードを生成",
+    "generatingEllipsis": "生成中...",
+    "allDone": "すべて完了！",
+    "completedReview": "このデッキのすべてのカードを復習しました",
+    "backToNotes": "ノートに戻る",
+    "question": "問題",
+    "answer": "解答",
+    "noQuestionText": "（問題がありません）",
+    "noAnswerText": "（解答がありません）",
+    "enterQuestion": "問題を入力してください",
+    "enterAnswer": "解答を入力してください",
+    "clickToFlip": "クリックして裏返す",
+    "reading": "ノートを読み込み中...",
+    "identifying": "重要概念を特定中...",
+    "creating": "フラッシュカードを作成中...",
+    "almostReady": "まもなく完了します...",
+    "headerTitle": "フラッシュカード",
+    "progressFormat": "フラッシュカード {{current}} / {{total}}",
+    "noteIdRequired": "フラッシュカードの生成にはノートIDが必要です",
+    "invalidCardCount": "フラッシュカードの枚数は1〜100枚の間で選択してください",
+    "flashcardGroupDetail": {
+      "inProgress": "進行中",
+      "notStarted": "未着手",
+      "failedToLoadFlashcardHistory": "フラッシュカード履歴を読み込めませんでした",
+      "limitReached": "上限に達しました",
+      "flashcardGenerationLimitReached": "フラッシュカードの生成上限に達しました。",
+      "failedToGenerateFlashcards": "フラッシュカードの生成に失敗しました",
+      "failedToTranslateFlashcards": "フラッシュカードの翻訳に失敗しました",
+      "deleteFlashcards": "フラッシュカードを削除",
+      "failedToDeleteFlashcards": "フラッシュカードの削除に失敗しました",
+      "created": "作成日: {{dateTime}}",
+      "lastprogress": "前回の進捗",
+      "bestprogress": "最高の進捗",
+      "sets": "セット",
+      "studyNow": "今すぐ学習",
+      "translate": "翻訳",
+      "newFlashcards": "新しいフラッシュカード",
+      "flashcardHistory": "フラッシュカードの履歴",
+      "quizHistory": "クイズの履歴",
+      "cards": "{{totalCards}}枚 · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "このソースのクイズはまだありません。",
+      "score": "スコア {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "フラッシュカードのオプション",
+      "exportLatestSet": "最新のセットをエクスポート",
+      "questions": "{{totalQuestions}}問 · {{value}}",
+      "deleteAllSetsOne": "「{{title}}」のフラッシュカードセット（1件）を削除しますか？この操作は取り消せません。",
+      "deleteAllSetsMany": "「{{title}}」のすべてのフラッシュカードセット（{{total}}件）を削除しますか？この操作は取り消せません。",
+      "makeQuiz": "クイズを作成",
+      "failedToLoadChatContent": "チャット内容の読み込みに失敗しました"
+    },
+    "flashcardReview": {
+      "unknownError": "不明なエラー",
+      "noFlashcardsInThisSet": "このセットにはフラッシュカードがありません",
+      "goBack": "戻る",
+      "allDone": "すべて完了",
+      "youHaveReviewedAllTheCards": "このデッキのカードをすべて復習しました",
+      "question": "問題 {{value}}",
+      "questionOf": "問題 {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "チャット",
@@ -183,7 +801,191 @@
     "chatWithDocument": "ドキュメントとチャット",
     "selectFile": "チャットするファイルを選択",
     "uploadFile": "ファイルをアップロード",
-    "startChatting": "チャットを開始"
+    "startChatting": "チャットを開始",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "医学的な質問をして理解を深めましょう",
+      "askAnythingAboutThisDocument": "このドキュメントについて何でも質問してください...",
+      "askAQuestionAttachmentProcessingFailed": "質問を入力（添付ファイルの処理に失敗しました）",
+      "extractingText": "テキストを抽出中...",
+      "processingPDF": "PDFを処理中...",
+      "upgradeToProToContinueChatting": "チャットを続けるにはPROにアップグレード",
+      "queryremaining": "残り{{queriesRemaining}}回質問可能"
+    },
+    "chatEmptyState": {
+      "initializingChat": "チャットを初期化中...",
+      "extractingTextFromImage": "画像からテキストを抽出中...",
+      "processingPDFDocument": "PDFドキュメントを処理中...",
+      "analyzingYourNote": "ノートを分析中...",
+      "thisUsuallyTakesJustAFew": "⏱️ 通常は数秒で完了します。処理が終わり次第チャットを開始できます。",
+      "processingFailed": "処理に失敗しました",
+      "fileMightBeCorruptedOrUnreadable": "• ファイルが破損しているか、読み取れない可能性があります",
+      "imageQualityTooLow": "画質が低すぎます",
+      "pdfIsPasswordProtected": "PDFがパスワードで保護されています",
+      "contentFormatNotSupported": "サポートされていないコンテンツ形式です",
+      "networkConnectionIssue": "• ネットワークの接続エラー",
+      "tryADifferentFile": "別のファイルをお試しください",
+      "askAnyClinicalQuestionNoUpload": "💡 ファイルのアップロードなしで臨床に関する質問ができます。医学文献を引用し、関連画像とあわせて回答します。",
+      "readyToChat": "✓ チャットの準備完了",
+      "couldntProcessNote": "ノートを処理できませんでした。以下の原因が考えられます：",
+      "couldntProcessImage": "画像を処理できませんでした。以下の原因が考えられます：",
+      "couldntProcessDocument": "ドキュメントを処理できませんでした。以下の原因が考えられます：",
+      "askMeAboutNote": "💡 このノートについて何でも質問してください。要約や概念の解説、個別の質問にお答えします。",
+      "askMeAboutImage": "💡 この画像について何でも質問してください。要約や概念の解説、個別の質問にお答えします。",
+      "askMeAboutDocument": "💡 このドキュメントについて何でも質問してください。要約や概念の解説、個別の質問にお答えします。"
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} 習得済み",
+      "notStarted": "未学習",
+      "quizGeneration": "クイズ生成",
+      "score": "スコア {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "フラッシュカード生成",
+      "questions": "{{totalCards}}問 · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}}問 · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "考え中… 関連資料を検索しています...",
+      "couldnTGenerateAResponse": "回答を生成できませんでした。",
+      "retry": "再試行",
+      "alsoReferencedFromTheWeb": "ウェブからの参照情報",
+      "followUpQuestions": "関連する質問"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "医学的な疑問を質問すると、信頼できる出典付きで回答します",
+      "evidenceBasedPubMedSourcesPeerReviewed": "エビデンスに基づく · PubMed出典 · 査読済み",
+      "tryOutAnyOfThisTopics": "トピックを選んで試してみましょう",
+      "topics": {
+        "electrolytes": {
+          "label": "電解質異常の解説",
+          "question": "電解質異常の原因、症状、治療について教えてください"
+        },
+        "ecg": {
+          "label": "心電図（ECG）読影の基本",
+          "question": "心電図読影の基本について教えてください"
+        },
+        "drugInteractions": {
+          "label": "押さえておくべき主な薬物相互作用",
+          "question": "臨床上重要でよく見られる薬物相互作用を教えてください"
+        },
+        "nclex": {
+          "label": "NCLEX形式の演習問題",
+          "question": "NCLEX形式の練習問題を出してください"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA医薬品添付文書",
+      "fromYourAttachedMaterial": "添付資料より"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "チャットセッションの作成に失敗しました",
+      "failedToInitializeChatSession": "チャットセッションの初期化に失敗しました",
+      "failedToUpdateLanguage": "言語の更新に失敗しました",
+      "youVeReachedYour3Pin": "ピン留めの上限（3件）に達しました",
+      "failedToUpdatePin": "ピン留めの更新に失敗しました",
+      "permissionRequired": "アクセス権限が必要です",
+      "pleaseGrantCameraPermissionToTake": "写真を撮影するにはカメラへのアクセスを許可してください。",
+      "pleaseGrantPhotoLibraryPermissionTo": "画像をアップロードするには写真ライブラリへのアクセスを許可してください。",
+      "failedToUploadImage": "画像のアップロードに失敗しました",
+      "uploadFailed": "アップロードに失敗しました",
+      "failedToUploadDocument": "ドキュメントのアップロードに失敗しました",
+      "failedToStartChatFromThis": "このファイルからチャットを開始できませんでした。",
+      "chatFromImage": "画像からチャット",
+      "failedToStartANewQuestion": "新しい質問を開始できませんでした。もう一度お試しください。",
+      "failedToAttachFile": "ファイルの添付に失敗しました",
+      "failedToSendMessage": "メッセージの送信に失敗しました",
+      "copiedToClipboard": "クリップボードにコピーしました",
+      "notEnoughContentYet": "コンテンツがまだ不足しています",
+      "chatABitMoreBeforeGenerating": "クイズを生成するには、もう少しチャットを続けてください（100文字以上必要です）。",
+      "chatABitMoreBeforeGenerating2": "フラッシュカードを生成するには、もう少しチャットを続けてください（100文字以上必要です）。",
+      "failedToGenerateFlashcards": "フラッシュカードの生成に失敗しました",
+      "failedToRegenerateResponse": "回答の再生成に失敗しました",
+      "failedToRetryResponse": "回答の再試行に失敗しました"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "ノートの添付に失敗しました",
+      "folderCreatedSuccessfully": "フォルダ「{{name}}」を作成しました",
+      "failedToCreateFolder": "フォルダの作成に失敗しました",
+      "failedToAttachDocument": "ドキュメントの添付に失敗しました",
+      "failedToCreateChatSession": "チャットセッションの作成に失敗しました",
+      "failedToUploadDocument": "ドキュメントのアップロードに失敗しました",
+      "openingCamera": "📷 カメラを起動中...",
+      "openingImagePicker": "🖼️ 写真を選択中...",
+      "permissionRequired": "アクセス権限が必要です",
+      "pleaseGrantCameraPermissionToTake": "写真を撮影するにはカメラへのアクセスを許可してください。",
+      "pleaseGrantPhotoLibraryPermissionTo": "画像をアップロードするには写真ライブラリへのアクセスを許可してください。",
+      "failedToAttachImage": "画像の添付に失敗しました",
+      "failedToUploadImage": "画像のアップロードに失敗しました",
+      "failedToAttachAudio": "音声の添付に失敗しました",
+      "failedToUploadAudio": "音声のアップロードに失敗しました",
+      "items": "{{itemCount}}件のアイテム",
+      "thisFolderIsEmptyGoBack": "このフォルダは空です。戻って別のフォルダを選択してください。",
+      "addFolder": "フォルダを追加",
+      "uploadNewDocument": "新規ドキュメントをアップロード",
+      "uploadAPDFAndStartChatting": "PDFをアップロードしてすぐにチャットを開始",
+      "uploadNewImage": "新規画像をアップロード",
+      "uploadAnImageAndExtractText": "画像をアップロードして瞬時にテキストを抽出",
+      "uploadNewAudio": "新規音声をアップロード",
+      "uploadAnAudioFileAndTranscribe": "音声ファイルをアップロードして即座に文字起こし",
+      "orselectfromlibrary": "またはライブラリから選択",
+      "folders": "フォルダ",
+      "allNotes": "すべてのノート",
+      "noFilesToDisplay": "表示するファイルがありません",
+      "noNotesToDisplay": "表示するノートがありません",
+      "noDocumentsYet": "PDFドキュメントがまだありません。\nまずはノートを作成し、ここに戻ってチャットしましょう。",
+      "noImagesYet": "画像がまだありません。\nまずはノートを作成し、ここに戻ってチャットしましょう。",
+      "noAudioNotesYet": "音声ノートがまだありません。\nまずはノートを作成し、ここに戻ってチャットしましょう。",
+      "noNotesYet": "ノートがまだありません。\nまずはノートを作成し、ここに戻ってチャットしましょう。",
+      "attachNote": "ノートを添付",
+      "selectNote": "ノートを選択",
+      "attachImage": "画像を添付",
+      "selectImage": "画像を選択",
+      "attachDocument": "ドキュメントを添付",
+      "selectDocument": "ドキュメントを選択",
+      "attachAudio": "音声を添付",
+      "selectAudio": "音声を選択",
+      "attachFile": "ファイルを添付",
+      "selectFile": "ファイルを選択",
+      "aNote": "ノートを{{verb}}",
+      "anImage": "画像を{{verb}}",
+      "aDocument": "ドキュメントを{{verb}}",
+      "audio": "音声を{{verb}}",
+      "aFile": "ファイルを{{verb}}"
+    },
+    "chatAttachSheet": {
+      "addToChat": "チャットに追加",
+      "camera": "カメラ",
+      "photos": "写真",
+      "files": "ファイル",
+      "generateQuiz": "クイズを作成",
+      "generateFlashcards": "単語帳を作成",
+      "searchMedicalLiterature": "医学文献を検索",
+      "filterByDateSourceAndType": "日付、出典、種類で絞り込み",
+      "pullsRealCitedSourcesIntoYour": "実際の引用文献を回答に反映します",
+      "trustedmedicalsourcedatabase": "信頼できる医学情報データベース",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "米国国立医学図書館（NLM）",
+      "fdaDrugTreatmentData": "FDA 医薬品・治療データ"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "引用文献を確認",
+      "citations": "引用文献",
+      "fromTheWeb": "ウェブから"
+    },
+    "chatHeader": {
+      "readyTapToRename": "準備完了 · タップして名前を変更",
+      "processing": "処理中 {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "出典を表示 ↗"
+    },
+    "chatRename": {
+      "renameChat": "チャット名を変更"
+    },
+    "sourcesRow": {
+      "viewSources": "情報元を見る ({{total}})"
+    }
   },
   "languages": {
     "english": "英語",
@@ -205,6 +1007,487 @@
     "turkish": "トルコ語",
     "vietnamese": "ベトナム語",
     "thai": "タイ語",
-    "indonesian": "インドネシア語"
+    "indonesian": "インドネシア語",
+    "englishGB": "英語（イギリス）",
+    "englishAU": "英語（オーストラリア）",
+    "englishCA": "英語（カナダ）",
+    "spanishMX": "スペイン語（メキシコ）",
+    "frenchCA": "フランス語（カナダ）",
+    "portuguesePT": "ポルトガル語（ポルトガル）",
+    "norwegian": "ノルウェー語",
+    "danish": "デンマーク語",
+    "finnish": "フィンランド語",
+    "czech": "チェコ語",
+    "slovak": "スロバキア語",
+    "slovenian": "スロベニア語",
+    "croatian": "クロアチア語",
+    "hungarian": "ハンガリー語",
+    "romanian": "ルーマニア語",
+    "greek": "ギリシャ語",
+    "ukrainian": "ウクライナ語",
+    "arabicAE": "アラビア語 (UAE)",
+    "arabicEG": "アラビア語 (エジプト)",
+    "hebrew": "ヘブライ語",
+    "bengali": "ベンガル語",
+    "tamil": "タミル語",
+    "telugu": "テルグ語",
+    "kannada": "カンナダ語",
+    "malayalam": "マラヤーラム語",
+    "marathi": "マラーティー語",
+    "gujarati": "グジャラート語",
+    "punjabi": "パンジャブ語",
+    "urdu": "ウルドゥー語",
+    "malay": "マレー語",
+    "catalan": "カタルーニャ語"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "フォルダを追加",
+      "folderName": "フォルダ名",
+      "enterFolderName": "フォルダ名を入力",
+      "chooseColor": "カラーを選択",
+      "createFolder": "フォルダを作成"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "コンテンツを処理する前に",
+      "clinicalFactUsesAIToAnswer": "Clinical FactはAIを使用して質問に回答し、コンテンツからノート、クイズ、単語帳を作成します。以下の内容をご確認ください：",
+      "whatDataIsSent": "送信されるデータ",
+      "questionsAndMessagesYouTypeIn": "チャットに入力した質問やメッセージ",
+      "audioRecordingsOrUploadedAudioFiles": "録音データまたはアップロードした音声ファイル",
+      "pdfAndTextDocumentsYouUpload": "アップロードしたPDFやテキストドキュメント",
+      "imagesYouUpload": "アップロードした画像",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube動画のURLとその文字起こし",
+      "customTextYouEnter": "入力したカスタムテキスト",
+      "whoReceivesYourData": "データの送信先",
+      "howItSUsed": "データの利用目的",
+      "yourContentIsUsedSolelyTo": "送信されたコンテンツは、リクエストされた回答、ノート、クイズ、単語帳の生成にのみ使用されます。APIを通じて処理されるコンテンツには、各プロバイダーのデータ利用規約が適用されます。詳細はプライバシーポリシーをご確認ください。",
+      "iAgreeContinue": "同意して続ける",
+      "noThanks": "同意しない",
+      "whoReceivesBody": "お客様のコンテンツは、安全なバックエンドサーバーを経由して<bold>Google (Gemini)</bold>（ノート、クイズ、単語カードの生成、チャットの返答、ドキュメントや画像の処理）および<bold>OpenAI</bold>（音声文字起こし）に送信されます。また、チャットが関連箇所を検索できるよう、ドキュメントの文章は<bold>Google Vertex AI</bold>でインデックス化されます。最新の医学検索を使用する場合、質問は<bold>Tavily</bold>や公開医学文献データベース（PubMed、Europe PMC、Semantic Scholarなど）にも送信され、NIH、CDC、MedlinePlus、WHO、Mayo Clinicなどの信頼できる情報源から引用を取得します。これらのプロバイダーは回答を生成する目的でのみデータを処理し、汎用AIモデルのトレーニングに使用することはありません。また、当社がお客様のデータを第三者に販売することも一切ありません。"
+    },
+    "chatActionSheet": {
+      "unpinChat": "固定を解除",
+      "pinChat": "チャットをピン留め",
+      "deleteChat": "チャットを削除"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "単語帳を生成",
+      "createFlashcards": "単語帳を作成",
+      "createFlashcardsFromToImproveYour": "「{{noteTitle}}」から単語帳を作成して記憶の定着を図りましょう",
+      "createFlashcardsToImproveYourRetention": "単語帳を作成して記憶の定着を図りましょう",
+      "howManyQuestions": "問題数",
+      "generateFlashcards2": "単語帳を生成"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "チャットから作成",
+      "selectFromOneOfYourRecent": "最近のチャットから選択",
+      "pdfOrDocument": "PDF / ドキュメント",
+      "createFromAudio": "音声から作成",
+      "image": "画像",
+      "createFromCustomText": "カスタムテキストから作成",
+      "created": "作成日時: {{day}} {{time}}",
+      "createQuizFrom": "クイズの作成元",
+      "createFlashcardsFrom": "単語帳の作成元",
+      "selectFromChat": "チャットから選択",
+      "noRecentChatsYet": "最近のチャットはまだありません",
+      "quizFromPdf": "PDFやドキュメントからクイズを作成",
+      "flashcardsFromPdf": "PDFやドキュメントから単語帳を作成",
+      "quizFromAudio": "アップロードした音声からクイズを作成",
+      "flashcardsFromAudio": "アップロードした音声から単語帳を作成",
+      "quizFromImage": "画像からクイズを作成",
+      "flashcardsFromImage": "画像から単語帳を作成",
+      "quizFromText": "入力テキストからクイズを作成",
+      "flashcardsFromText": "入力テキストから単語帳を作成"
+    },
+    "createNote": {
+      "recordAudio": "音声を録音",
+      "generateANoteFromAnyRecorded": "録音した音声からノートを生成",
+      "uploadAudio": "音声をアップロード",
+      "createANoteFromAnyUploaded": "アップロードした音声からノートを作成",
+      "youtubeVideo": "YouTube動画",
+      "createANoteFromAnyYoutube": "YouTube動画からノートを作成",
+      "pdfOrDocument": "PDF / ドキュメント",
+      "createANoteFromPDFOr": "PDFやドキュメントからノートを作成",
+      "customText": "カスタムテキスト",
+      "createANoteFromCapturedText": "入力・抽出したテキストからノートを作成",
+      "image": "画像",
+      "createANoteFromAnyImage": "画像からノートを作成",
+      "createNote": "ノートを作成"
+    },
+    "createQuiz": {
+      "generateQuiz": "クイズを生成",
+      "createQuiz": "クイズを作成",
+      "practiceByCreatingQuestionsThatHelp": "「{{noteTitle}}」の問題を作成して理解を深めましょう",
+      "practiceYourNotesByCreatingQuestions": "ノートから問題を作成して理解を深めましょう",
+      "howManyQuestions": "問題数",
+      "timeInMinutes": "制限時間（分）"
+    },
+    "deleteNote": {
+      "deleteNote": "ノートを削除",
+      "areYouSureYouWantTo": "このノートを削除してもよろしいですか？"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "要約のエクスポート形式",
+      "exportTranscriptAs": "文字起こしのエクスポート形式",
+      "exportAs": "エクスポート形式",
+      "exportSummary": "要約をエクスポート",
+      "exportTranscript": "文字起こしをエクスポート"
+    },
+    "exportTypeStep": {
+      "exportNote": "ノートをエクスポート",
+      "exportSummary": "要約をエクスポート",
+      "exportTranscript": "文字起こしをエクスポート"
+    },
+    "exportSettings": {
+      "export": "{{title}}をエクスポート",
+      "selectFormat": "形式を選択",
+      "includeAnswers": "解答を含める",
+      "answersExplanationsIncluded": "解答・解説を含む",
+      "questionsOnly": "問題のみ",
+      "export2": "エクスポート"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "ノートの準備ができました！",
+      "howDidWeDo": "いかがでしたか？",
+      "happy": "満足",
+      "sad": "不満",
+      "maybeLater": "後で",
+      "whatWentWrong": "問題が発生しましたか？",
+      "yourFeedbackHelpsUsImprove": "いただいたフィードバックは改善に役立てられます。",
+      "tellUsWhatCouldBeBetter": "改善点をお聞かせください...",
+      "submit": "送信"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "コンテンツがありません",
+      "clickCardToFlip": "タップして裏返す"
+    },
+    "flashcardExport": {
+      "exportFailed": "エクスポートに失敗しました",
+      "unknownError": "不明なエラー",
+      "export": "{{setTitle}}をエクスポート",
+      "chooseWhatToExport": "エクスポート内容の選択",
+      "exportQuestions": "問題をエクスポート",
+      "exportAnswers": "解答をエクスポート"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "単語カードセットを削除",
+      "areYouSureYouWantTo": "「{{setTitle}}」を削除してもよろしいですか？",
+      "failedToDeleteFlashcardSet": "単語カードセットの削除に失敗しました",
+      "flashcardHistory": "単語カードの履歴",
+      "cards": "枚",
+      "reviewedMastered": "{{cardsReviewedCount}}枚復習済み • 習得率 {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}}件",
+      "enterYourFolderName": "フォルダ名を入力",
+      "yourFolderName": "フォルダ名",
+      "createFolder": "フォルダを作成",
+      "folders": "フォルダ",
+      "addFolder": "フォルダを追加",
+      "noFoldersToDisplay": "表示するフォルダがありません",
+      "clickTheButtonAboveToCreate": "上のボタンをタップしてノート用フォルダを作成できます",
+      "allFolders": "すべてのフォルダ",
+      "items2": "{{totalItems}}件"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "医学研究フィルター",
+      "howrecentdoyouwantthe": "情報源の発行時期",
+      "from": "開始年",
+      "whatkindofsourcedoyou": "情報源の種類",
+      "textbooks": "医学書・教科書",
+      "clinicalGuidelines": "診療ガイドライン",
+      "scientificJournalArticles": "学術誌論文",
+      "onlywiththisjournalarticles": "対象論文の種類を限定",
+      "metaAnalyses": "メタアナリシス",
+      "reviewArticles": "レビュー論文",
+      "clinicalTrials": "臨床試験",
+      "fromYear": "開始年",
+      "toYear": "終了年"
+    },
+    "noteOptions": {
+      "noteOptions": "ノートのオプション",
+      "editNote": "ノートを編集",
+      "reTranscribe": "再文字起こし",
+      "chatWithNote": "ノートについてAIとチャット",
+      "exportNote": "ノートをエクスポート",
+      "moveToFolder": "フォルダへ移動",
+      "deleteNote": "ノートを削除"
+    },
+    "onboardingTooltip": {
+      "skip": "スキップ"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "クイズを削除",
+      "areYouSureYouWantTo": "「{{quizTitle}}」を削除してもよろしいですか？",
+      "failedToDeleteQuiz": "クイズの削除に失敗しました",
+      "quizHistory": "クイズの履歴",
+      "questions": "問題",
+      "correct": "正解数: {{correctAnswers}}"
+    },
+    "referral": {
+      "copied": "コピーしました！",
+      "yourReferralCodeHasBeenCopied": "招待コードをクリップボードにコピーしました。",
+      "joinMeOnClinicalFactUse": "Clinical Factで一緒に勉強しよう！招待コード: {{referralCode}} – {{appUrl}}",
+      "joined": "登録日: {{joinedDate}}",
+      "referralCode": "招待コード",
+      "yourReferralCode": "あなたの招待コード",
+      "shareWithFriendsToEarnRewards": "友達を招待して特典を獲得",
+      "share": "共有",
+      "copyCode": "コードをコピー",
+      "referredFriends": "招待した友達",
+      "noReferralsYetShareYourCode": "まだ招待した友達がいません。コードを共有して始めましょう！",
+      "loadMore": "さらに読み込む",
+      "howItWorks": "仕組み",
+      "friendsUseYourCodeDuringSignup": "• 友達が登録時にあなたのコードを入力",
+      "youBothEarnRewardsWhenThey": "• 友達の登録完了時に双方へ特典を付与",
+      "friendsReferredCount": "招待した友達: {{referralCount}}人"
+    },
+    "uploadProgress": {
+      "extractingText": "テキストを抽出中...",
+      "transcribingAudio": "音声を文字起こし中...",
+      "processingPDF": "PDFを処理中...",
+      "settingUpChat": "チャットを準備中...",
+      "uploadFailed": "アップロードに失敗しました",
+      "failedToUploadFilePleaseTry": "ファイルのアップロードに失敗しました。もう一度お試しください。",
+      "yourFileIsReadyForChatting": "チャットの準備が完了しました！",
+      "uploadingYourFileToTheServer": "サーバーにファイルをアップロード中...",
+      "extractingTextFromYourImage": "画像からテキストを抽出中...",
+      "transcribingYourAudio": "音声を文字起こし中...",
+      "extractingTextFromYourPDF": "PDFからテキストを抽出中...",
+      "creatingYourChatSession": "チャットセッションを作成中...",
+      "pleaseWait": "しばらくお待ちください...",
+      "uploadFile": "ファイルをアップロード",
+      "processContent": "コンテンツを処理",
+      "createChat": "チャットを作成"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ 表示",
+      "export": "📤 エクスポート",
+      "delete": "🗑️ 削除"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Powered by"
+    },
+    "exportFormat": {
+      "txtFile": "TXTファイル",
+      "pdfFile": "PDFファイル",
+      "docFile": "DOCファイル"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "ノートの取得に失敗しました",
+      "failedToFetchFolders": "フォルダーの取得に失敗しました",
+      "failedToFetchNote": "ノートの取得に失敗しました",
+      "failedToDeleteNote": "ノートの削除に失敗しました",
+      "failedToCreateFolder": "フォルダーの作成に失敗しました",
+      "failedToDeleteFolder": "フォルダーの削除に失敗しました"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "チャットの削除に失敗しました"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "単語カードセットをエクスポートしました！",
+      "failedToExportFlashcardSet": "単語カードセットのエクスポートに失敗しました。"
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "クイズをエクスポートしました！",
+      "failedToExportQuiz": "クイズのエクスポートに失敗しました。"
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "無題の単語カード",
+      "failedToLoadFlashcards": "単語カードの読み込みに失敗しました",
+      "failedToSyncFlashcardSet": "単語カードセットの同期に失敗しました",
+      "failedToSyncCardUpdate": "カード更新の同期に失敗しました"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "クイズ"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "作成日時: {{day}} {{time}}",
+      "youVeReachedYour3Pin": "ピン留めの上限（3件）に達しました",
+      "failedToUpdatePin": "ピン留めの更新に失敗しました",
+      "noChatsYet": "チャットはまだありません",
+      "startAChatToGetAnswers": "チャットを始めて、信頼できる情報源に基づいた回答を入手しましょう。",
+      "createChat": "+ チャットを作成"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "単語カードを削除",
+      "areYouSureYouWantTo": "「{{sourceTitle}}」を削除してもよろしいですか？",
+      "failedToDeleteFlashcards": "単語カードの削除に失敗しました",
+      "sets": "{{setCount}}セット",
+      "flashcards": "単語カード",
+      "createFlashcards": "単語カードを作成",
+      "searchFlashcards": "単語カードを検索...",
+      "noFlashcardsYet": "単語カードはまだありません",
+      "createAFlashcardSetFromA": "ノートから単語カードセットを作成して学習を始めましょう",
+      "createSet": "+ セットを作成",
+      "flashcardOptions": "単語カードのオプション",
+      "view": "表示"
+    },
+    "folder": {
+      "deleteFolder": "フォルダを削除",
+      "areYouSureYouWantTo": "「{{name}}」を削除してもよろしいですか？中のノートはルートに移動されます。",
+      "failedToDeleteFolder": "フォルダの削除に失敗しました",
+      "error": "エラー: {{message}}",
+      "noFoldersYetCreateOne": "フォルダがまだありません。新しく作成しましょう！",
+      "folders": "フォルダ"
+    },
+    "home": {
+      "created": "作成日時: {{day}} {{time}}",
+      "failedToUpdateLanguage": "言語の更新に失敗しました",
+      "notEnoughContentYet": "内容がまだ不足しています",
+      "chatABitMoreBeforeGenerating": "クイズを生成するには、もう少しチャットを続けてください（最低100文字必要です）。",
+      "chatABitMoreBeforeGenerating2": "単語カードを生成するには、もう少しチャットを続けてください（最低100文字必要です）。",
+      "failedToGenerateFlashcards": "単語カードの生成に失敗しました",
+      "upgradeToPro": "PROにアップグレード",
+      "get80DiscountWhenYouUpgrade": "アカウントをアップグレードすると80%オフ",
+      "unlockPRO": "PROを利用する",
+      "noMedicalChats": "臨床チャットはありません",
+      "youHaveNotCreatedAnyMedical": "チャット履歴がありません。新しいチャットを開始して、出典付きの解説を確認しましょう。",
+      "talkToClinicalfactAI": "Clinical Fact AIに相談",
+      "jumpInWhereYouStopped": "前回の続きから再開",
+      "practiceQuiz": "練習クイズ",
+      "makeFlashcards": "単語カードを作成",
+      "continueChatWithNote": "ノートでチャットを続ける",
+      "continueChat": "チャットを続ける",
+      "recentChats": "最近のチャット",
+      "chatOptions": "チャットのオプション"
+    },
+    "library": {
+      "text": "{{year}}年{{month}}{{day}}日 {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "現在オフラインです。この操作を行うにはインターネットに接続してください。",
+      "failedToDeleteNote": "ノートの削除に失敗しました",
+      "failedToMoveNote": "ノートの移動に失敗しました",
+      "deleteFolder": "フォルダを削除しますか？",
+      "areYouSureNotesInsideWill": "本当によろしいですか？中のノートは削除されず、「すべてのノート」に移動されます。",
+      "failedToDeleteFolder": "フォルダの削除に失敗しました",
+      "library": "ライブラリ",
+      "addFolder": "フォルダを追加",
+      "searchForANoteFolder": "ノートやフォルダを検索",
+      "yourFolders": "フォルダ一覧",
+      "noFoldersToDisplay": "表示するフォルダがありません",
+      "tapAddFolderToCreateA": "「+ フォルダを追加」をタップして、ノート用のフォルダを作成しましょう",
+      "allNotes": "すべてのノート",
+      "items": "{{allNotesTotal}}件",
+      "items2": "{{itemCount}}件",
+      "yourNotes": "ノート一覧",
+      "untitledNote": "無題のノート",
+      "noResultsFor": "「{{searchQuery}}」の検索結果はありません",
+      "noNotesInThisFolder": "このフォルダにはノートがありません",
+      "noNotesToDisplay": "表示するノートがありません",
+      "tryADifferentSearchTerm": "別のキーワードで検索してください",
+      "moveNotesToThisFolderTo": "ここにノートを移動すると表示されます",
+      "clickBelowToGenerateYourNote": "以下をタップしてClinical Factでノートを生成",
+      "filterByType": "タイプで絞り込み",
+      "audio": "音声",
+      "text2": "テキスト",
+      "image": "画像",
+      "clearFilter": "フィルターを解除"
+    },
+    "profile": {
+      "permissionRequired": "権限が必要です",
+      "pleaseAllowAccessToYourPhoto": "プロフィール画像を設定するには、写真へのアクセスを許可してください。",
+      "uploadFailed": "アップロードに失敗しました",
+      "couldNotUpdateProfilePicture": "プロフィール画像を更新できませんでした。",
+      "failedToUploadProfilePicture": "プロフィール画像のアップロードに失敗しました。",
+      "checkOutClinicalFactAIPowered": "Clinical Factをチェックしよう！AIを活用した学習ノート：{{url}}",
+      "proSubscriber": "PROプラン利用中",
+      "subscriptionExpired": "サブスクリプション期限切れ",
+      "freeSubscriber": "無料プラン利用中",
+      "tapToManageIPhoneSettingsApple": "タップして管理 · iPhone設定 → Apple ID → サブスクリプション",
+      "tapToManagePlayStoreSubscriptions": "タップして管理 · Playストア → 定期購入",
+      "tapToRenewYourSubscription": "タップしてサブスクリプションを更新",
+      "tapToUpgradeToPro": "タップしてPROにアップグレード",
+      "referralCode": "紹介コード",
+      "areYouSureYouWantTo": "アカウントからサインアウトしますか？"
+    },
+    "quizHistory": {
+      "deleteQuiz": "クイズを削除",
+      "areYouSureYouWantTo": "「{{sourceTitle}}」を削除してもよろしいですか？",
+      "failedToDeleteQuiz": "クイズの削除に失敗しました",
+      "correct": "正解: {{correct}}/{{total}}",
+      "attempts": "解答回数: {{attempts}}回",
+      "quiz": "クイズ",
+      "createQuiz": "クイズを作成",
+      "searchQuizzes": "クイズを検索...",
+      "noQuizzesYet": "クイズはまだありません",
+      "createAQuizFromANote": "ノートからクイズを作成して始めましょう",
+      "createQuiz2": "+ クイズを作成",
+      "quizOptions": "クイズのオプション",
+      "view": "表示"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "アップグレードを利用できません",
+      "weCouldnTOpenTheUpgrade": "現在アップグレード画面を開けません。通信環境をご確認のうえ、もう一度お試しください。"
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "サーバーから無効な応答が返されました（{{status}}）",
+      "networkErrorPleaseCheckYourConnection": "ネットワークエラーです。接続状況をご確認ください。",
+      "connectionErrorPleaseTryAgain": "接続エラーが発生しました。もう一度お試しください。"
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "ファイルをエクスポートしました: {{filename}}",
+      "exportFailed": "エクスポートに失敗しました",
+      "exportFormat": "エクスポート形式",
+      "chooseFormat": "形式を選択",
+      "text": "テキスト"
+    },
+    "formatDate": {
+      "justNow": "たった今",
+      "minAgo": "{{diffMin}}分前",
+      "hrAgo": "{{diffHr}}時間前",
+      "dAgo": "{{diffDay}}日前",
+      "created": "作成日時: {{day}} {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "ワンタイムパスワードの送信に失敗しました",
+      "invalidOTP": "無効なワンタイムパスワードです",
+      "failedToVerifyOTP": "ワンタイムパスワードの認証に失敗しました",
+      "googleAuthenticationFailed": "Google認証に失敗しました",
+      "appleAuthenticationFailed": "Apple認証に失敗しました",
+      "failedToCompleteSignup": "登録を完了できませんでした",
+      "failedToSkipSignup": "登録のスキップに失敗しました"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "チャット",
+      "description": "ノート、ドキュメント、PDFとまとめてチャット可能"
+    },
+    "profileWelcome": {
+      "heading": "プロフィールへようこそ",
+      "description": "ここをタップして、プロフィールの変更やサブスクリプション状況の確認ができます"
+    },
+    "createNotes": {
+      "heading": "ノートを作成",
+      "description": "録音、音声、動画、画像、テキスト、YouTubeリンクなど、あらゆる形式からノートを作成できます"
+    },
+    "changeLanguage": {
+      "heading": "言語を変更",
+      "description": "ここからアプリの表示言語をお好みの言語に変更できます"
+    },
+    "manageHome": {
+      "heading": "ホームを管理",
+      "description": "作成したノートやアクティビティをまとめて確認できます"
+    },
+    "yourLibrary": {
+      "heading": "ライブラリ",
+      "description": "作成した全ノートの管理やフォルダ分けなどができます"
+    },
+    "yourProfile": {
+      "heading": "プロフィール",
+      "description": "プロフィール情報の確認や各種設定の変更がここから行えます"
+    }
   }
 }

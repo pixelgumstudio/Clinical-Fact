@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { theme } from '@clinicalfact/design-system';
+import { decodeHtmlEntities } from '../utils/htmlText';
 
 // ─── Inline parser ────────────────────────────────────────────────────────────
 
@@ -17,15 +18,9 @@ function parseInline(html: string): InlineNode[] {
   let italic = false;
   let code = false;
 
-  const cleaned = html
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'");
-
-  const parts = cleaned.split(/(<\/?(?:strong|b|em|i|code)[^>]*>)/i);
+  // Split on the real tags first and decode entities per text run afterwards: decoding up front
+  // turns "K &lt; 3.5 ... Na &gt; 145" into something that looks like a tag and loses the text.
+  const parts = html.split(/(<\/?(?:strong|b|em|i|code)[^>]*>)/i);
 
   for (const part of parts) {
     if (!part) continue;
@@ -37,7 +32,7 @@ function parseInline(html: string): InlineNode[] {
     if (/^<\/code>/i.test(part)) { code = false; continue; }
 
     // Strip any unknown residual tags then push text
-    const text = part.replace(/<[^>]+>/g, '');
+    const text = decodeHtmlEntities(part.replace(/<[^>]+>/g, ''));
     if (text) nodes.push({ text, bold, italic, code });
   }
 

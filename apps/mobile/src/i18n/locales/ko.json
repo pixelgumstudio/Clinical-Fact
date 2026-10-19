@@ -14,7 +14,9 @@
     "next": "다음",
     "done": "완료",
     "search": "검색",
-    "filter": "필터"
+    "filter": "필터",
+    "ok": "확인",
+    "info": "정보"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "플랜 업그레이드",
     "everyWeek": "매주",
     "everyMonth": "매월",
-    "everyYear": "매년"
+    "everyYear": "매년",
+    "expired": "만료됨",
+    "reportBug": "오류 신고",
+    "active": "활성",
+    "trial": "체험판"
   },
   "auth": {
-    "welcome": "Clinical Fact에 오신 것을 환영합니다",
+    "welcome": {
+      "googleSignInFailed": "Google 로그인 실패",
+      "failedToAuthenticateWithServer": "서버 인증에 실패했습니다",
+      "googleSignInIsOnlyAvailable": "Google 로그인은 네이티브 앱에서만 지원됩니다. 이메일로 로그인하거나 앱을 다운로드해 주세요.",
+      "code": "{{message}} (코드: {{code}})"
+    },
     "getStarted": "시작하기",
     "signIn": "로그인",
     "signUp": "회원가입",
@@ -83,12 +94,316 @@
     "didntGetCode": "코드를 받지 못하셨나요?",
     "resendCode": "코드 재전송",
     "resendIn": "재전송까지",
-    "enterVerificationCode": "전체 인증 코드를 입력하세요"
+    "enterVerificationCode": "전체 인증 코드를 입력하세요",
+    "languageSelect": {
+      "title": "언어 선택",
+      "subtitle": "앱에서 사용할 언어를 선택해 주세요. 프로필에서 언제든지 변경할 수 있어요.",
+      "searchPlaceholder": "언어 검색",
+      "noResults": "검색 결과가 없습니다"
+    },
+    "buttons": {
+      "continue": "계속하기",
+      "continueWithEmail": "이메일로 계속하기",
+      "continueWithGoogle": "Google로 계속하기",
+      "continueWithApple": "Apple로 계속하기",
+      "skip": "건너뛰기",
+      "verify": "인증 완료!",
+      "next": "다음",
+      "tryNow": "지금 Clinical Fact 무료로 시작하기"
+    },
+    "labels": {
+      "firstName": "이름",
+      "lastName": "성",
+      "username": "@사용자이름",
+      "referralCode": "추천인 코드",
+      "nameScreenTitle": "이름을 입력해 주세요",
+      "byAgree": "계속 진행하면 다음 항목에 동의하게 됩니다:",
+      "termsAndConditions": "이용약관",
+      "privacyPolicy": "개인정보 처리방침",
+      "and": "및"
+    },
+    "placeholders": {
+      "enterEmail": "이메일 주소를 입력해 주세요",
+      "firstName": "이름",
+      "lastName": "성",
+      "username": "@사용자이름",
+      "referralCode": "예: JOHN 또는 TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "올바른 이메일 주소를 입력해 주세요",
+      "emailRequired": "이메일 주소를 입력해 주세요",
+      "firstLastNameRequired": "성과 이름을 모두 입력해 주세요",
+      "usernameRequired": "사용자 이름을 입력해 주세요",
+      "usernameLength": "사용자 이름은 3~20자여야 합니다(영문, 숫자, 밑줄만 가능)",
+      "usernameTaken": "이미 사용 중인 사용자 이름입니다. 다른 이름을 사용해 주세요.",
+      "usernameCheckFailed": "사용자 이름 중복 확인에 실패했습니다",
+      "usernameError": "사용자 이름 확인 중 오류가 발생했습니다. 네트워크 연결을 확인해 주세요.",
+      "invalidOTP": "잘못된 인증 코드입니다. 다시 확인해 주세요.",
+      "otpExpired": "인증 코드가 만료되었습니다. 새 코드를 요청해 주세요.",
+      "otpRequired": "인증 코드를 모두 입력해 주세요",
+      "referralNotFound": "추천인 코드를 찾을 수 없습니다. 코드를 확인하고 다시 시도해 주세요.",
+      "referralValidateFailed": "코드 확인에 실패했습니다. 다시 시도해 주세요.",
+      "referralApplyFailed": "추천인 코드 적용에 실패했습니다. 다시 시도해 주세요.",
+      "codeSendFailed": "인증 코드 전송에 실패했습니다. 다시 시도해 주세요.",
+      "resendCodeFailed": "코드 재전송에 실패했습니다. 다시 시도해 주세요.",
+      "signInFailed": "로그인 실패",
+      "googleSignInFailed": "Google 로그인 실패",
+      "googleTokenFailed": "Google 토큰 처리에 실패했습니다",
+      "googleAccessTokenFailed": "액세스 토큰을 가져오지 못했습니다. 다시 시도해 주세요.",
+      "authTokenFailed": "인증 토큰을 가져오지 못했습니다. 다시 시도해 주세요.",
+      "googleStartFailed": "Google 로그인을 시작하지 못했습니다. 다시 시도해 주세요.",
+      "setupRequired": "설정 필요",
+      "googleOAuthMissing": "Google 로그인에는 OAuth 클라이언트 ID가 필요합니다.\\n\\n.env 파일에 자격 증명을 추가해 주세요.",
+      "youCanStillUseEmail": "\"이메일로 계속하기\"를 사용할 수 있습니다.",
+      "appleSignInFailed": "Apple 로그인 실패",
+      "appleTokenFailed": "Apple 토큰 처리에 실패했습니다",
+      "appleIosOnly": "Apple 로그인은 iOS에서만 지원됩니다."
+    },
+    "messages": {
+      "signingIn": "로그인 중...",
+      "codeValid": "✓ 유효한 코드입니다",
+      "signupFailed": "회원가입을 완료하지 못했습니다",
+      "setupFailed": "설정을 완료하지 못했습니다. 다시 시도해 주세요."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: 더 스마트한 노트 필기의 시작",
+      "tagline": "모든 자료를 완벽한 노트로",
+      "description": "음성, 문서, 동영상을 검색 가능한 깔끔한 노트로 변환하고 퀴즈, 플래시카드, 요약본을 바로 생성해 보세요.",
+      "createAccountTitle": "계정 만들기",
+      "orSignUpWith": "또는 다른 방법으로 가입",
+      "signUpWithEmail": "이메일로 회원가입",
+      "signInWithEmail": "이메일로 로그인",
+      "alreadyHaveAccount": "이미 계정이 있으신가요? ",
+      "dontHaveAccount": "계정이 없으신가요? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "의학 질문의 모든 것, 정확한 임상 근거로 확인하세요",
+        "description": "궁금한 의학 질문을 남겨보세요. PubMed, 임상 진료 지침 및 신뢰할 수 있는 의학 문헌 출처가 포함된 답변을 제공합니다."
+      },
+      "slide2": {
+        "headline": "출처로 뒷받침되는 모든 답변",
+        "description": "어설픈 추측이나 허위 정보 없이, 모든 답변은 직접 검증 가능한 실제 의학 연구로 연결됩니다."
+      },
+      "slide3": {
+        "headline": "더 스마트한 학습, 의학 시험 완벽 대비",
+        "description": "질문이나 업로드한 자료를 몇 초 만에 퀴즈와 플래시카드로 만들어 지금 배우는 내용을 바로 복습하세요."
+      }
+    },
+    "otp": {
+      "title": "이메일 주소 확인",
+      "subtitle": "이메일로 전송된 인증번호를 입력해 주세요"
+    },
+    "professionalDeclaration": {
+      "title": "전문직 면책 조항",
+      "subtitle": "Clinical Fact는 교육용 의학 문헌 검색 도구입니다",
+      "disclaimerIntro": "Clinical Fact는 간호학, 의학 및 보건의료 계열 학생들이 의학 지식, 연구 문헌 및 학습 자료에 접근할 수 있도록 돕는 AI 기반 정보 도구입니다. 본 앱은 의학적 진단, 치료 권고, 임상 지침 또는 환자 맞춤형 의학 조언을 제공하지 않으며, 직접적인 환자 진료나 임상적 의사결정의 근거로 사용되어서는 안 됩니다.",
+      "disclaimerHeading": "Clinical Fact의 답변 생성 방식:",
+      "disclaimerBody": "Clinical Fact는 PubMed, Semantic Scholar, 공식 FDA 의약품 라벨 등 공인된 의학 및 과학 출처에서 직접 정보를 검색하고, AI를 활용해 검색된 내용을 이해하기 쉬운 언어로 요약 및 설명합니다. 모든 답변은 해당 질문에 대해 검색된 출처만을 바탕으로 생성되며, 사용자가 직접 확인할 수 있도록 원본 자료 링크가 함께 제공됩니다. Clinical Fact는 자체 기억에만 의존해 의학적 사실을 만들어내거나 출처를 허위로 생성하지 않습니다.\n\nClinical Fact는 진단 도구, 치료 플랫폼, 의료 기기가 아니며 전문적인 의학적 판단, 공인된 교육 또는 소속 기관의 교육 과정을 대체할 수 없습니다. 답변, 인용, 퀴즈, 플래시카드를 포함하여 앱에서 생성된 모든 정보는 일반적인 교육 및 학습 목적으로만 제공되며, 학술적·임상적·전문적 맥락에서 이를 신뢰하기 전에 사용자가 독립적으로 검증해야 합니다.\nClinical Fact는 제공된 정보의 완전성, 정확성 또는 최신 임상적 유효성을 보장하지 않습니다. 의학 지식은 끊임없이 발전하므로, 중요한 정보는 항상 지도 교수, 임상 슈퍼바이저 및 최신 1차 출처와 대조하여 확인하시기 바랍니다.\n사용자가 직접 문서, 메모 또는 녹음본을 업로드하는 경우, Clinical Fact는 외부 출처가 명시적으로 함께 표시되지 않는 한 업로드된 내용만을 기반으로 답변, 요약, 퀴즈 및 플래시카드를 생성합니다.\n\nClinical Fact는 사용자의 신원, 재학 상태 또는 자격 증명을 확인하거나 인증하지 않습니다. 본 앱은 응급 상황이나 실시간 임상 의사결정에 사용하도록 고안되지 않았습니다.\n계속 진행하면 이러한 약관을 이해하고 동의하며, Clinical Fact를 순수한 학습 및 참고용 보조 도구로만 사용하는 것에 동의하는 것으로 간주됩니다.",
+      "checkboxLabel": "본 앱은 교육 및 참고 목적 전용이며 의학적 조언을 제공하지 않음을 이해했습니다",
+      "acceptButton": "동의하고 계속하기"
+    },
+    "survey": {
+      "role": "{{firstName}} 님을 가장 잘 나타내는 항목은 무엇인가요?",
+      "currentMethod": "현재 의학 질문에 대한 답을 주로 어떻게 찾고 계신가요?",
+      "timeDrain": "어떤 작업에 시간이 가장 많이 소요되나요?",
+      "appExpectation": "의학 앱 Clinical Fact에 어떤 점을 가장 기대하시나요?",
+      "aiToolsUsed": "지금까지 의학 자료 검색 및 연구에 어떤 AI 도구를 사용해 보셨나요?",
+      "aiToolIssue": "기존 도구를 사용하면서 어떤 점이 불편하셨나요?",
+      "aiTrustLevel": "AI 답변이 틀릴 수도 있다는 걱정을 얼마나 자주 하시나요?",
+      "biggestNeed": "지금 가장 필요한 기능은 무엇인가요?",
+      "studyTimePerWeek": "일주일에 공부할 수 있는 시간은 어느 정도인가요?",
+      "comingUp": "어떤 일정을 앞두고 계신가요?",
+      "referralSource": "Clinical Fact를 어떻게 알게 되셨나요?"
+    },
+    "onboarding": {
+      "username": "사용자 이름을 설정해 볼까요?",
+      "usernameSubtitle": "계정을 더욱 맞춤화할 수 있습니다",
+      "goals": "어떤 도움을 받기 위해\\nClinical Fact를 사용하시나요?",
+      "goalsSubtitle": "해당하는 항목을 모두 선택해 주세요. 맞춤 환경을 구성해 드립니다.",
+      "contentType": "주로 어떤 형태의\\n콘텐츠를 사용하시나요?",
+      "contentTypeSubtitle": "해당하는 항목을 모두 선택해 주세요. 맞춤 설정에 도움이 됩니다.",
+      "reviewStyle": "학습한 내용을 어떻게\\n복습하고 싶으신가요?",
+      "reviewStyleSubtitle": "선호하는 복습 방식을 선택해 주세요.",
+      "frustration": "{{firstName}} 님, 필기할 때 가장 답답했던 점은 무엇인가요?",
+      "frustrationSubtitle": "해당하는 항목을 모두 선택해 주세요. 불편한 점을 해결해 드릴게요.",
+      "referral": "{{firstName}} 님,\\nClinical Fact를\\n어떻게 알게 되셨나요?",
+      "referralSubtitle": "한 가지 옵션을 선택해 주세요."
+    },
+    "referralScreen": {
+      "title": "지인 추천으로\\n오셨나요?",
+      "subtitle": "추천인 코드가 있다면 입력해 주세요"
+    },
+    "setup": {
+      "preparingNotes": "노트 준비 중",
+      "preparingFlashcards": "플래시카드 준비 중",
+      "preparingQuiz": "퀴즈 템플릿 준비 중",
+      "preparingChat": "채팅 어시스턴트 준비 중",
+      "title": "{{firstName}} 님을 위한 맞춤형\\n워크스페이스를 설정하고 있습니다..."
+    },
+    "thanks": {
+      "title": "Clinical Fact를 신뢰해 주셔서 감사합니다",
+      "subtitle": "수천 명의 의학 및 간호학 전공생들과 함께하고 계십니다",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "원하는 모든 것을\\n학습할 수 있는 완벽한 도구",
+      "subtitle": "녹음하고, 검색하고, 퀴즈를 풀며 마스터하세요.",
+      "everythingYouNeedToLearnAnything": "학습에 필요한 모든 것",
+      "recordItResearchItQuizIt": "기록하고, 탐구하고, 퀴즈로 풀고, 완벽히 마스터하세요.",
+      "tryClinicalFactNowForFree": "지금 Clinical Fact 무료로 시작하기"
+    },
+    "features": {
+      "feature1": {
+        "title": "신뢰할 수 있는 의학 답변과 꼬리 질문",
+        "description": "모든 의학 질문에 대한 명쾌한 설명과 스마트한 꼬리 질문을 받아보세요. 공부 도중 막히는 일 없이 깊이 있게 학습할 수 있습니다."
+      },
+      "feature2": {
+        "title": "실제 출처에 기반한\n모든 의학적 답변",
+        "description": "PubMed, Semantic Scholar, Europe PMC에서 인용한 근거로, 지어낸 내용 없이 직접 검증할 수 있습니다."
+      },
+      "feature3": {
+        "title": "자료를 업로드하고 의학 핵심 요약을 확인하세요",
+        "description": "강의 슬라이드, PDF, 필기 자료를 신뢰할 수 있는 의학 출처 기반의 명쾌한 설명으로 변환해 보세요."
+      },
+      "feature4": {
+        "title": "대화 내용을 실전 퀴즈나 플래시카드로 변환하세요",
+        "description": "별도의 학습 앱 없이 대화 내용과 업로드 자료에서 연습 문제를 바로 생성할 수 있습니다."
+      },
+      "feature5": {
+        "title": "대화나 문서를 복습용 플래시카드로 변환하세요",
+        "description": "별도의 학습 앱 없이 대화 내용과 업로드 자료에서 연습 문제를 바로 생성할 수 있습니다."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "알림 켜기",
+      "thisHelpsUsStayOnTrack": "맞춤형 학습 환경을 제공하고 필요한 의학 정보를 더 빠르게 찾을 수 있도록 도와드립니다"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "인증 코드가 올바르지 않습니다. 다시 시도해 주세요.",
+      "failedToResendCodePleaseTry": "인증 코드 재전송에 실패했습니다. 다시 시도해 주세요.",
+      "confirmYourEmailAddress": "이메일 주소 확인",
+      "enterCodeSentTo": "{{email}} 주소로 전송된 OTP 인증 코드를 입력해 주세요",
+      "resendCodeIn": "{{seconds}}초 후 코드 재전송"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "추천을 통해 가입하셨나요?",
+      "enterTheirReferralCodeIfYou": "추천인 코드가 있다면 입력해 주세요",
+      "eGJOHNOrTECHBRO": "예: JOHN 또는 TECHBRO",
+      "codeIsValid": "✓ 유효한 코드입니다"
+    },
+    "resultsChart": {
+      "getBetterResults": "더 높은 성적을 달성하세요",
+      "over95OfClinicalfactUsersScore": "Clinical Fact 사용자의 95% 이상이 시험에서 95점 이상을 받습니다"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "간호학과 학생",
+        "medicalStudent": "의과대학 학생",
+        "paPharmacyStudent": "PA 또는 약학대학 학생",
+        "practicingNurse": "현직 간호사",
+        "practicingPhysician": "현직 의사",
+        "otherHealthcareProfessional": "기타 보건의료 전문가"
+      },
+      "currentMethod": {
+        "textbooksNotes": "전공 서적 및 강의 필기",
+        "flashcardQuizApps": "플래시카드 및 퀴즈 앱",
+        "youtube": "YouTube",
+        "aiChatbots": "AI 챗봇",
+        "colleagueClassmate": "동기 또는 동료에게 질문",
+        "practiceQuestionBanks": "시험 대비 문제은행"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "플래시카드 및 퀴즈를 직접 만드는 일",
+        "findingTrustworthyAnswer": "신뢰할 수 있는 답변을 빠르게 찾는 일",
+        "reReadingNotes": "기억나지 않는 필기를 다시 읽는 일",
+        "switchingApps": "너무 많은 앱을 번갈아 사용하는 일",
+        "chartingDocumentation": "차팅 및 의무기록 작성"
+      },
+      "appExpectation": {
+        "noHallucination": "환각(할루시네이션) 없는 정확한 AI",
+        "realCitations": "명확한 출처와 근거 제시",
+        "oneApp": "여러 개를 구독할 필요 없는 올인원 앱",
+        "explainsWhy": "단순한 정답이 아닌 '이유'를 설명"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google 검색",
+        "otherApps": "기타 앱"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "거짓 정보를 지어냄",
+        "notMedicalContent": "의학 전문 콘텐츠에 부적합함",
+        "noSources": "확인할 수 있는 출처가 없음",
+        "tooGeneric": "내용이 너무 일반적이라 시험이나 실무에 맞지 않음"
+      },
+      "aiTrustLevel": {
+        "everyTime": "항상 신뢰함",
+        "sometimes": "가끔 신뢰함",
+        "rarely": "거의 신뢰하지 않음",
+        "dontUseAi": "아직 AI를 사용하지 않음"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "신뢰할 수 있는 빠른 답변",
+        "quizzesFlashcardsWithoutWork": "직접 만들 필요 없는 퀴즈와 플래시카드",
+        "rememberingStudied": "공부한 내용을 오래 기억하도록 돕는 기능",
+        "medicalCitations": "의학 문헌 및 인용 참고",
+        "allOfTheAbove": "위의 모든 항목"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "뉴스레터",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "기타"
+      },
+      "studyTime": {
+        "under5Hours": "5시간 미만",
+        "510Hours": "5~10시간",
+        "1020Hours": "10~20시간",
+        "20PlusHours": "20시간 이상"
+      },
+      "comingUp": {
+        "medicalExams": "의학 시험",
+        "clinicalRotations": "임상 실습",
+        "nursingExams": "간호학 시험",
+        "otherExams": "기타 시험",
+        "staySharp": "임상 지식 유지 및 복습"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "노트 기록",
+    "noteTranscript": {
+      "noteTranscript": "노트 스크립트",
+      "noNoteIDProvided": "노트 ID가 제공되지 않았습니다",
+      "noTranscriptAvailableForThisNote": "이 노트에 사용할 수 있는 스크립트가 없습니다.",
+      "thisNoteWasNotCreatedFrom": "이 노트는 오디오/동영상으로 생성되지 않아 스크립트가 없습니다.",
+      "failedToLoadNote": "노트를 불러오지 못했습니다",
+      "noteTranscript2": "노트 스크립트",
+      "loadingTranscript": "스크립트 불러오는 중...",
+      "goToNote": "노트로 이동"
+    },
     "noteOptions": "노트 옵션",
-    "editNote": "노트 편집",
+    "editNote": {
+      "pleaseEnterANoteTitle": "노트 제목을 입력해 주세요",
+      "failedToUpdateNote": "노트를 수정하지 못했습니다",
+      "noteUpdatedSuccessfully": "노트가 성공적으로 수정되었습니다",
+      "editNote": "노트 편집",
+      "noteTitle": "노트 제목",
+      "enterNoteTitle": "노트 제목 입력",
+      "noteContent": "노트 내용",
+      "enterNoteContent": "노트 내용 입력",
+      "saveThisNote": "이 노트 저장",
+      "aiIsGeneratingYourNote": "AI가 노트를 생성하고 있습니다",
+      "largeAudioAndVideoFilesMay": "용량이 큰 오디오 및 동영상 파일은 처리에 몇 분 정도 걸릴 수 있습니다. 앱을 종료하지 마세요."
+    },
     "retranscribe": "재기록",
     "exportNote": "노트 내보내기",
     "shareNoteLink": "노트 링크 공유",
@@ -110,12 +425,89 @@
     "translate": "번역",
     "addToFolder": "폴더에 추가",
     "loadingNote": "노트 로딩 중...",
-    "noteNotFound": "노트 로딩 실패"
+    "noteNotFound": "노트 로딩 실패",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "플래시카드를 생성하지 못했습니다",
+      "anUnexpectedErrorOccurred": "예기치 않은 오류가 발생했습니다",
+      "history": "기록",
+      "export": "내보내기"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "폴더에 노트를 추가하지 못했습니다",
+      "folderNotFound": "폴더를 찾을 수 없습니다",
+      "addNote": "+ 노트 추가",
+      "noNotesInThisFolder": "이 폴더에 노트가 없습니다",
+      "moveNotesToThisFolderTo": "여기에 표시하려면 노트를 이 폴더로 이동하세요",
+      "addNoteToFolder": "폴더에 노트 추가",
+      "noNotesAvailableToAdd": "추가할 수 있는 노트가 없습니다",
+      "allYourNotesAreAlreadyIn": "모든 노트가 이미 이 폴더에 있습니다",
+      "created": "생성일: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "노트를 불러오지 못했습니다",
+      "reTranscribeNote": "노트 다시 텍스트 변환",
+      "thisWillReTranscribeTheAudio": "오디오를 다시 텍스트로 변환하고 노트를 업데이트합니다. 계속하시겠습니까?",
+      "reTranscribe": "다시 변환하기",
+      "noteReTranscribedSuccessfully": "노트가 성공적으로 다시 변환되었습니다",
+      "info": "정보",
+      "reTranscriptionFeatureIsComingSoon": "다시 텍스트 변환 기능이 곧 제공될 예정입니다",
+      "youAreCurrentlyOfflinePleaseConnect": "현재 오프라인 상태입니다. 이 작업을 수행하려면 인터넷에 연결해 주세요.",
+      "failedToDeleteNote": "노트를 삭제하지 못했습니다",
+      "failedToExportNote": "노트 내보내기 실패",
+      "noteTranslatedSuccessfully": "노트가 성공적으로 번역되었습니다",
+      "failedToTranslateNote": "노트 번역 실패",
+      "noteMovedTo": "노트를 {{name}}(으)로 이동했습니다",
+      "failedToMoveNoteToFolder": "폴더로 노트 이동 실패",
+      "summaryNotes": "요약 노트",
+      "loadingNote": "노트 불러오는 중...",
+      "imageNote": "이미지 노트",
+      "created": "생성일: {{dateTime}}",
+      "translate": "번역",
+      "transcribe": "텍스트 변환",
+      "editThisNote": "이 노트 편집",
+      "createFlashcards": "플래시카드 생성",
+      "createFlashcardsToImproveYourRetention": "플래시카드를 만들어 기억력을 높여보세요",
+      "createQuizQuestions": "퀴즈 문제 생성",
+      "practiceYourNotesByCreatingQuestions": "문제를 만들어 풀어보며 학습 내용을 완벽히 마스터하세요"
+    },
+    "sharedNote": {
+      "notFound": "찾을 수 없음",
+      "thisSharedNoteLinkIsInvalid": "공유 노트 링크가 유효하지 않거나 만료되었습니다.",
+      "failedToLoadSharedNote": "공유 노트를 불러오지 못했습니다.",
+      "saved": "저장 완료!",
+      "noteHasBeenAddedToYour": "내 보관함에 노트가 추가되었습니다.",
+      "viewInLibrary": "보관함에서 보기",
+      "stayHere": "여기에 머무르기",
+      "failedToSaveNote": "노트 저장 실패.",
+      "loadingSharedNote": "공유 노트 불러오는 중...",
+      "sharedNote": "공유된 노트",
+      "sharedWithYou": "나에게 공유됨",
+      "savedToLibrary": "보관함에 저장됨",
+      "saveToMyLibrary": "내 보관함에 저장"
+    }
   },
   "create": {
     "selectOption": "노트를 어떻게 만드시겠습니까?",
-    "recordAudio": "오디오 녹음",
-    "uploadAudio": "오디오 업로드",
+    "recordAudio": {
+      "permissionRequired": "권한 필요",
+      "pleaseGrantMicrophonePermissionToRecord": "오디오를 녹음하려면 마이크 권한을 허용해 주세요.",
+      "failedToRequestMicrophonePermission": "마이크 권한 요청 실패",
+      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "오디오 녹음 중",
+      "recordAudio": "오디오 녹음",
+      "createANoteFromAnyRecorded": "녹음된 오디오로 노트 생성",
+      "recording": "녹음 중 ({{time}})",
+      "recordAgain": "다시 녹음"
+    },
+    "uploadAudio": {
+      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "오디오 파일을 선택하지 못했습니다",
+      "uploadAudio": "오디오 업로드",
+      "createANoteFromAnyUploaded": "업로드한 오디오로 노트 생성",
+      "dragDropFilesOrBrowse": "파일을 드래그하거나 찾아보기",
+      "supportedFormatMp4WavMp3": "지원 형식: mp4, wav, mp3",
+      "changeFile": "파일 변경"
+    },
     "youtube": "YouTube 동영상",
     "pdfDocument": "PDF 또는 문서",
     "customText": "사용자 정의 텍스트",
@@ -123,7 +515,56 @@
     "uploadingFile": "서버에 파일 업로드 중...",
     "transcribing": "음성을 텍스트로 변환 중...",
     "extractingText": "텍스트 추출 중...",
-    "generatingNote": "AI 학습 노트 생성 중...",
+    "generatingNote": {
+      "uploadAudio": "오디오 업로드",
+      "uploadingAudioFileToServer": "오디오 파일을 서버에 업로드하는 중...",
+      "transcribeAudio": "오디오 텍스트 변환",
+      "convertingSpeechToText": "음성을 텍스트로 변환하는 중...",
+      "generateYourNote": "노트 생성",
+      "creatingStudyNotes": "학습 노트 생성 중...",
+      "uploadPDF": "PDF 업로드",
+      "uploadingPDFDocumentToServer": "PDF 문서를 서버에 업로드하는 중...",
+      "extractText": "텍스트 추출",
+      "readingAndExtractingTextFromPDF": "PDF에서 텍스트를 읽고 추출하는 중...",
+      "uploadImage": "이미지 업로드",
+      "uploadingImageToServer": "이미지를 서버에 업로드하는 중...",
+      "extractTextOCR": "텍스트 추출 (OCR)",
+      "recognizingAndExtractingTextFromImage": "이미지에서 텍스트를 인식하고 추출하는 중...",
+      "fetchVideo": "동영상 가져오기",
+      "connectingToYouTube": "YouTube에 연결하는 중...",
+      "extractTranscript": "자막 추출",
+      "downloadingVideoTranscript": "동영상 자막 다운로드 중...",
+      "processText": "텍스트 처리",
+      "analyzingYourContent": "콘텐츠 분석 중...",
+      "uploadFile": "파일 업로드",
+      "uploadingToServer": "서버에 업로드하는 중...",
+      "processContent": "콘텐츠 처리",
+      "extractingContent": "콘텐츠 추출 중...",
+      "noteReady": "노트 준비 완료!",
+      "noteGenerationFailedOnTheServer": "서버에서 노트 생성에 실패했습니다.",
+      "failedToUploadImage": "이미지 업로드 실패",
+      "weCouldNotReadAnythingFrom": "이미지에서 내용을 인식할 수 없습니다. 더 선명한 의학 필기 이미지로 다시 시도해 주세요.",
+      "preparingFile": "파일 준비 중...",
+      "almostDone": "거의 완료되었습니다...",
+      "untitledNote": "제목 없는 노트",
+      "failedToGenerateNote": "노트 생성 실패",
+      "whoaSpeedy": "잠시만요, 너무 빨라요! 🏃💨",
+      "youReGeneratingContentABit": "콘텐츠를 너무 빠르게 생성하고 있습니다. AI가 처리할 수 있도록 60초 정도 기다린 후 다시 시도해 주세요.",
+      "gotIt": "확인",
+      "fileTooLarge": "파일 용량 초과",
+      "yourFileExceedsThe15MBLimit": "무료 버전 제한 용량(15MB)을 초과했습니다. PRO로 업그레이드하여 최대 100MB의 강의 파일을 업로드해 보세요.",
+      "upgradeToPRO": "PRO로 업그레이드",
+      "oopsWeHitASnag": "문제가 발생했습니다 🚧",
+      "weCouldnTGenerateThatRight": "노트를 지금 생성하지 못했습니다. 잠시 후 다시 시도해 주세요!",
+      "processingContent": "콘텐츠 처리 중...",
+      "generatingYourNote": "노트 생성 중...",
+      "audioNote": "오디오 노트",
+      "failedToGenerateFlashcards": "플래시카드 생성 실패",
+      "generatingNote": "노트 생성 중",
+      "pleaseKeepThisScreenOpenWhile": "노트 생성이 완료될 때까지 이 화면을 열어 두세요. 파일 크기가 크면 텍스트 변환에 몇 분 정도 걸릴 수 있습니다.",
+      "goToNote": "노트로 이동",
+      "generateNoteTranscript": "노트 스크립트 생성"
+    },
     "fetchingVideo": "YouTube 연결 중...",
     "processingText": "콘텐츠 분석 중...",
     "uploadAudioTitle": "오디오 업로드",
@@ -133,7 +574,63 @@
     "fetchVideo": "동영상 가져오기",
     "extractTranscript": "기록 추출",
     "processText": "텍스트 처리",
-    "generateNote": "노트 생성"
+    "generateNote": "노트 생성",
+    "customTextInput": {
+      "customText": "직접 입력",
+      "createANoteFromAnyCustom": "입력한 텍스트로 노트 만들기",
+      "enterText": "텍스트 입력",
+      "enterYourTextHere": "여기에 텍스트를 입력하세요..."
+    },
+    "uploadImage": {
+      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{ampm}} {{formattedHours}}:{{formattedMinutes}}",
+      "permissionRequired": "권한 필요",
+      "pleaseAllowAccessToYourPhoto": "사진 보관함 접근 권한을 허용해 주세요",
+      "failedToPickImage": "이미지를 불러오지 못했습니다",
+      "uploadImage": "이미지 업로드",
+      "createANoteFromAnyUploaded": "업로드한 이미지로 노트 만들기",
+      "dragDropFilesOrBrowse": "파일을 드래그하거나 찾아보기",
+      "supportedFormatPngJpegHeicWebp": "지원 형식: png, jpeg, heic, webp",
+      "changeFile": "파일 변경"
+    },
+    "uploadPDF": {
+      "created": "생성일: {{year}}년 {{month}} {{day}}일 {{ampm}} {{formattedHours}}:{{formattedMinutes}}",
+      "failedToPickDocument": "문서를 불러오지 못했습니다",
+      "uploadPdf": "PDF 업로드",
+      "createANoteFromAnyUploaded": "업로드한 PDF로 노트 만들기",
+      "dragDropFilesOrBrowse": "파일을 드래그하거나 찾아보기",
+      "supportedFormatPdf": "지원 형식: pdf",
+      "changeFile": "파일 변경"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "동영상 불러오는 중",
+      "gettingVideoDetails": "동영상 정보 가져오는 중",
+      "extractingTranscript": "자막 추출 중",
+      "convertingAudioToText": "오디오를 텍스트로 변환 중",
+      "generatingYourNote": "노트 생성 중",
+      "aiIsSummarisingTheContent": "AI가 내용을 요약하고 있습니다",
+      "noteGenerationFailedPleaseTryAgain": "노트 생성에 실패했습니다. 다시 시도해 주세요.",
+      "processingFailed": "처리 실패",
+      "goBack": "돌아가기",
+      "retry": "다시 시도",
+      "failedToStartNoteGeneration": "노트 생성을 시작하지 못했습니다",
+      "failedToProcessYouTubeVideoPlease": "YouTube 동영상을 처리하지 못했습니다. 다시 시도해 주세요.",
+      "cancelProcessing": "처리 취소",
+      "areYouSureYouWantTo": "취소하시겠습니까? 진행 중인 작업 내용이 삭제됩니다.",
+      "continueProcessing": "계속 처리하기",
+      "youTubeNote": "YouTube 노트",
+      "noteGenerated": "노트 생성 완료",
+      "generatingNote": "노트 생성 중",
+      "goToNote": "노트로 이동"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "동영상 정보를 가져올 수 없습니다",
+      "failedToFetchVideoInformation": "동영상 정보를 가져오지 못했습니다",
+      "youtubeVideo": "YouTube 동영상",
+      "createANoteFromAnyYoutube": "원하는 YouTube 동영상으로 노트를 만들어 보세요",
+      "enterYoutubeURL": "YouTube URL 입력",
+      "pasteYoutubeURL": "YouTube URL 붙여넣기",
+      "fetchingVideoInfo": "동영상 정보 불러오는 중..."
+    }
   },
   "library": {
     "title": "라이브러리",
@@ -163,7 +660,67 @@
     "almostDone": "거의 완료...",
     "quizReady": "퀴즈 준비 완료!",
     "startQuiz": "퀴즈 시작",
-    "questionCount": "{{total}}개 중 {{current}}번째"
+    "questionCount": "{{total}}개 중 {{current}}번째",
+    "previous": "이전 문제",
+    "generatingQuiz": "AI로 퀴즈 생성 중...",
+    "exitTitle": "퀴즈를 종료할까요?",
+    "exitMessage": "진행 상황이 저장되지 않습니다.",
+    "exit": "종료",
+    "errorTitle": "문제가 발생했습니다 🚧",
+    "errorMessage": "지금은 문제를 생성할 수 없습니다. 잠시 후 다시 시도해 주세요!",
+    "noQuestions": "이용 가능한 문제가 없습니다.",
+    "reading": "노트 분석 중...",
+    "identifying": "핵심 개념 파악 중...",
+    "structuring": "문제 구성 중...",
+    "almostReady": "거의 다 되었습니다...",
+    "youScored": "내 점수",
+    "timeInSeconds": "소요 시간(초)",
+    "accuracy": "정답률",
+    "grade": "등급",
+    "reportsCard": "성적표",
+    "reviewAnswers": "답안 검토",
+    "correctAnswer": "정답",
+    "yourAnswer": "내 답안",
+    "explanation": "해설",
+    "questionProgress": "문제 {{current}} / {{total}}",
+    "generatingQuizWait": "퀴즈를 생성하고 있습니다. 잠시만 기다려 주세요...",
+    "goToChats": "채팅으로 이동",
+    "quizGroupDetail": {
+      "inProgress": "진행 중",
+      "notStarted": "시작 전",
+      "failedToLoadQuizHistory": "퀴즈 기록을 불러오지 못했습니다",
+      "failedToLoadChatContent": "채팅 내용을 불러오지 못했습니다",
+      "deleteQuiz": "퀴즈 삭제",
+      "failedToDeleteQuiz": "퀴즈를 삭제하지 못했습니다",
+      "created": "생성일 {{dateTime}}",
+      "lastscore": "최근 점수",
+      "bestscore": "최고 점수",
+      "attempts": "응시 횟수",
+      "retakeQuiz": "퀴즈 다시 풀기",
+      "translate": "번역",
+      "newQuiz": "새 퀴즈",
+      "quizHistory": "퀴즈 기록",
+      "flashcardHistory": "플래시카드 기록",
+      "score": "점수 {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "이 자료에서 생성된 플래시카드 세트가 아직 없습니다.",
+      "cards": "카드 {{totalCards}}개 · {{flashcardStatus}}",
+      "quizOptions": "퀴즈 옵션",
+      "exportLatestAttempt": "최근 응시 기록 내보내기",
+      "questions": "문제 {{totalQuestions}}개 · {{value}}",
+      "deleteAllAttemptsOne": "\"{{title}}\"의 퀴즈 응시 기록 1개를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "deleteAllAttemptsMany": "\"{{title}}\"의 퀴즈 응시 기록 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "makeFlashcards": "플래시카드 만들기"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "퀴즈 데이터를 불러오지 못했습니다. 잘못된 응답 형식입니다.",
+      "failedToLoadQuizData": "퀴즈 데이터를 불러오지 못했습니다",
+      "noContentAvailable": "표시할 내용이 없습니다",
+      "goBack": "돌아가기",
+      "previous": "이전"
+    },
+    "quiz": {
+      "generationFailed": "생성 실패"
+    }
   },
   "flashcards": {
     "title": "플래시카드",
@@ -172,7 +729,68 @@
     "previous": "이전",
     "shuffle": "섞기",
     "generating": "플래시카드 생성 중...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "플래시카드를 만들어 기억 효과를 높여보세요",
+    "howManyQuestions": "몇 문제를 만들까요?",
+    "generateButton": "플래시카드 생성",
+    "generatingEllipsis": "생성 중...",
+    "allDone": "학습 완료!",
+    "completedReview": "이 덱의 모든 카드를 검토했습니다",
+    "backToNotes": "노트로 돌아가기",
+    "question": "질문",
+    "answer": "답변",
+    "noQuestionText": "(질문 내용 없음)",
+    "noAnswerText": "(답변 내용 없음)",
+    "enterQuestion": "질문을 입력하세요",
+    "enterAnswer": "답변을 입력하세요",
+    "clickToFlip": "카드를 눌러 뒤집기",
+    "reading": "노트 분석 중...",
+    "identifying": "핵심 개념 파악 중...",
+    "creating": "플래시카드 생성 중...",
+    "almostReady": "거의 다 되었습니다...",
+    "headerTitle": "플래시카드",
+    "progressFormat": "플래시카드 {{current}} / {{total}}",
+    "noteIdRequired": "플래시카드를 생성하려면 노트 ID가 필요합니다",
+    "invalidCardCount": "1개에서 100개 사이의 카드를 선택해 주세요",
+    "flashcardGroupDetail": {
+      "inProgress": "진행 중",
+      "notStarted": "시작 전",
+      "failedToLoadFlashcardHistory": "플래시카드 기록을 불러오지 못했습니다",
+      "limitReached": "한도 도달",
+      "flashcardGenerationLimitReached": "플래시카드 생성 한도에 도달했습니다.",
+      "failedToGenerateFlashcards": "플래시카드를 생성하지 못했습니다",
+      "failedToTranslateFlashcards": "플래시카드를 번역하지 못했습니다",
+      "deleteFlashcards": "플래시카드 삭제",
+      "failedToDeleteFlashcards": "플래시카드를 삭제하지 못했습니다",
+      "created": "생성일 {{dateTime}}",
+      "lastprogress": "최근 진도",
+      "bestprogress": "최고 진도",
+      "sets": "세트",
+      "studyNow": "지금 학습하기",
+      "translate": "번역",
+      "newFlashcards": "새 플래시카드",
+      "flashcardHistory": "플래시카드 기록",
+      "quizHistory": "퀴즈 기록",
+      "cards": "카드 {{totalCards}}개 · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "이 자료에서 생성된 퀴즈가 아직 없습니다.",
+      "score": "점수 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "플래시카드 옵션",
+      "exportLatestSet": "최신 세트 내보내기",
+      "questions": "문제 {{totalQuestions}}개 · {{value}}",
+      "deleteAllSetsOne": "\"{{title}}\"의 플래시카드 세트 1개를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "deleteAllSetsMany": "\"{{title}}\"의 플래시카드 세트 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "makeQuiz": "퀴즈 만들기",
+      "failedToLoadChatContent": "채팅 내용을 불러오지 못했습니다"
+    },
+    "flashcardReview": {
+      "unknownError": "알 수 없는 오류",
+      "noFlashcardsInThisSet": "이 세트에 플래시카드가 없습니다",
+      "goBack": "돌아가기",
+      "allDone": "모두 완료",
+      "youHaveReviewedAllTheCards": "이 덱의 모든 카드를 복습했습니다",
+      "question": "문제 {{value}}",
+      "questionOf": "문제 {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "채팅",
@@ -183,7 +801,191 @@
     "chatWithDocument": "문서와 채팅",
     "selectFile": "채팅할 파일 선택",
     "uploadFile": "파일 업로드",
-    "startChatting": "채팅 시작"
+    "startChatting": "채팅 시작",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "의학 관련 질문을 남겨 자세한 설명을 확인해 보세요",
+      "askAnythingAboutThisDocument": "이 문서에 대해 무엇이든 물어보세요...",
+      "askAQuestionAttachmentProcessingFailed": "질문하기 — 첨부파일 처리 실패",
+      "extractingText": "텍스트 추출 중...",
+      "processingPDF": "PDF 처리 중...",
+      "upgradeToProToContinueChatting": "대화를 계속하려면 PRO로 업그레이드하세요",
+      "queryremaining": "남은 질문 횟수: {{queriesRemaining}}회"
+    },
+    "chatEmptyState": {
+      "initializingChat": "채팅 준비 중...",
+      "extractingTextFromImage": "이미지에서 텍스트 추출 중...",
+      "processingPDFDocument": "PDF 문서 처리 중...",
+      "analyzingYourNote": "노트 분석 중...",
+      "thisUsuallyTakesJustAFew": "⏱️ 보통 몇 초 정도 걸립니다. 처리가 완료되면 바로 질문하실 수 있어요.",
+      "processingFailed": "처리 실패",
+      "fileMightBeCorruptedOrUnreadable": "• 파일이 손상되었거나 읽을 수 없음",
+      "imageQualityTooLow": "이미지 화질이 너무 낮음",
+      "pdfIsPasswordProtected": "비밀번호로 보호된 PDF",
+      "contentFormatNotSupported": "지원되지 않는 콘텐츠 형식",
+      "networkConnectionIssue": "• 네트워크 연결 문제",
+      "tryADifferentFile": "다른 파일로 시도",
+      "askAnyClinicalQuestionNoUpload": "💡 파일 업로드 없이도 임상 관련 질문을 자유롭게 물어보세요. 의학 문헌을 인용하고 필요한 경우 관련 이미지를 함께 안내해 드립니다.",
+      "readyToChat": "✓ 질문 준비 완료",
+      "couldntProcessNote": "노트를 처리하지 못했습니다. 원인은 다음과 같을 수 있습니다:",
+      "couldntProcessImage": "이미지를 처리하지 못했습니다. 원인은 다음과 같을 수 있습니다:",
+      "couldntProcessDocument": "문서를 처리하지 못했습니다. 원인은 다음과 같을 수 있습니다:",
+      "askMeAboutNote": "💡 이 노트에 대해 무엇이든 물어보세요. 내용을 요약하거나 개념을 설명하고, 궁금한 점에 답변해 드립니다.",
+      "askMeAboutImage": "💡 이 이미지에 대해 무엇이든 물어보세요. 내용을 요약하거나 개념을 설명하고, 궁금한 점에 답변해 드립니다.",
+      "askMeAboutDocument": "💡 이 문서에 대해 무엇이든 물어보세요. 내용을 요약하거나 개념을 설명하고, 궁금한 점에 답변해 드립니다."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}}개 완료",
+      "notStarted": "시작 전",
+      "quizGeneration": "퀴즈 생성",
+      "score": "점수 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "플래시카드 생성",
+      "questions": "문제 {{totalCards}}개 · {{flashcardStatus}}",
+      "questions2": "문제 {{totalQuestions}}개 · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "답변 및 관련 자료를 찾는 중...",
+      "couldnTGenerateAResponse": "답변을 생성하지 못했습니다.",
+      "retry": "다시 시도",
+      "alsoReferencedFromTheWeb": "웹 참조 자료",
+      "followUpQuestions": "추천 후속 질문"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "의학 관련 질문을 해보세요. 실제 출처 기반의 정보를 제공합니다",
+      "evidenceBasedPubMedSourcesPeerReviewed": "근거 기반 · PubMed 출처 · 동료 평가 완료",
+      "tryOutAnyOfThisTopics": "추천 주제를 선택해 바로 시작해보세요",
+      "topics": {
+        "electrolytes": {
+          "label": "전해질 불균형 정리",
+          "question": "전해질 불균형의 원인, 증상 및 치료법에 대해 설명해 주세요"
+        },
+        "ecg": {
+          "label": "심전도(ECG) 판독 기초",
+          "question": "심전도(ECG) 판독의 기초는 무엇인가요?"
+        },
+        "drugInteractions": {
+          "label": "주요 약물 상호작용",
+          "question": "꼭 알아두어야 할 주요 약물 상호작용에는 어떤 것들이 있나요?"
+        },
+        "nclex": {
+          "label": "NCLEX 대비 연습 문제",
+          "question": "NCLEX 유형의 연습 문제를 출제해 주세요"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA 의약품 라벨",
+      "fromYourAttachedMaterial": "첨부된 자료 출처"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "채팅 세션을 생성하지 못했습니다",
+      "failedToInitializeChatSession": "채팅 세션을 시작하지 못했습니다",
+      "failedToUpdateLanguage": "언어 설정을 변경하지 못했습니다",
+      "youVeReachedYour3Pin": "고정 가능한 최대 개수(3개)에 도달했습니다",
+      "failedToUpdatePin": "고정 상태를 변경하지 못했습니다",
+      "permissionRequired": "권한 필요",
+      "pleaseGrantCameraPermissionToTake": "사진을 촬영하려면 카메라 접근 권한을 허용해 주세요.",
+      "pleaseGrantPhotoLibraryPermissionTo": "이미지를 업로드하려면 사진 보관함 접근 권한을 허용해 주세요.",
+      "failedToUploadImage": "이미지를 업로드하지 못했습니다",
+      "uploadFailed": "업로드 실패",
+      "failedToUploadDocument": "문서를 업로드하지 못했습니다",
+      "failedToStartChatFromThis": "이 파일로 채팅을 시작하지 못했습니다.",
+      "chatFromImage": "이미지 기반 채팅",
+      "failedToStartANewQuestion": "새 질문을 시작하지 못했습니다. 다시 시도해 주세요.",
+      "failedToAttachFile": "파일을 첨부하지 못했습니다",
+      "failedToSendMessage": "메시지를 전송하지 못했습니다",
+      "copiedToClipboard": "클립보드에 복사되었습니다",
+      "notEnoughContentYet": "내용이 아직 부족합니다",
+      "chatABitMoreBeforeGenerating": "퀴즈를 생성하려면 대화를 조금 더 나눠보세요 (최소 100자).",
+      "chatABitMoreBeforeGenerating2": "플래시카드를 생성하려면 대화를 조금 더 나눠보세요 (최소 100자).",
+      "failedToGenerateFlashcards": "플래시카드를 생성하지 못했습니다",
+      "failedToRegenerateResponse": "답변을 다시 생성하지 못했습니다",
+      "failedToRetryResponse": "답변 재시도에 실패했습니다"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "노트를 첨부하지 못했습니다",
+      "folderCreatedSuccessfully": "'{{name}}' 폴더가 생성되었습니다!",
+      "failedToCreateFolder": "폴더를 생성하지 못했습니다",
+      "failedToAttachDocument": "문서를 첨부하지 못했습니다",
+      "failedToCreateChatSession": "채팅 세션을 생성하지 못했습니다",
+      "failedToUploadDocument": "문서를 업로드하지 못했습니다",
+      "openingCamera": "📷 카메라 실행 중...",
+      "openingImagePicker": "🖼️ 갤러리 여는 중...",
+      "permissionRequired": "권한 필요",
+      "pleaseGrantCameraPermissionToTake": "사진을 촬영하려면 카메라 접근 권한을 허용해 주세요.",
+      "pleaseGrantPhotoLibraryPermissionTo": "이미지를 업로드하려면 사진 보관함 접근 권한을 허용해 주세요.",
+      "failedToAttachImage": "이미지를 첨부하지 못했습니다",
+      "failedToUploadImage": "이미지를 업로드하지 못했습니다",
+      "failedToAttachAudio": "오디오를 첨부하지 못했습니다",
+      "failedToUploadAudio": "오디오를 업로드하지 못했습니다",
+      "items": "항목 {{itemCount}}개",
+      "thisFolderIsEmptyGoBack": "폴더가 비어 있습니다. 뒤로 이동하여 다른 폴더를 선택해 주세요.",
+      "addFolder": "폴더 추가",
+      "uploadNewDocument": "새 문서 업로드",
+      "uploadAPDFAndStartChatting": "PDF를 업로드하고 바로 채팅을 시작하세요",
+      "uploadNewImage": "새 이미지 업로드",
+      "uploadAnImageAndExtractText": "이미지를 업로드하고 즉시 텍스트를 추출하세요",
+      "uploadNewAudio": "새 오디오 업로드",
+      "uploadAnAudioFileAndTranscribe": "오디오 파일을 업로드하여 바로 텍스트로 변환하세요",
+      "orselectfromlibrary": "또는 보관함에서 선택",
+      "folders": "폴더",
+      "allNotes": "모든 노트",
+      "noFilesToDisplay": "표시할 파일이 없습니다",
+      "noNotesToDisplay": "표시할 노트가 없습니다",
+      "noDocumentsYet": "아직 PDF 문서가 없습니다.\n먼저 노트를 생성한 후 해당 내용으로 대화해 보세요.",
+      "noImagesYet": "아직 이미지가 없습니다.\n먼저 노트를 생성한 후 해당 내용으로 대화해 보세요.",
+      "noAudioNotesYet": "아직 오디오 노트가 없습니다.\n먼저 노트를 생성한 후 해당 내용으로 대화해 보세요.",
+      "noNotesYet": "아직 노트가 없습니다.\n먼저 노트를 생성한 후 해당 내용으로 대화해 보세요.",
+      "attachNote": "노트 첨부",
+      "selectNote": "노트 선택",
+      "attachImage": "이미지 첨부",
+      "selectImage": "이미지 선택",
+      "attachDocument": "문서 첨부",
+      "selectDocument": "문서 선택",
+      "attachAudio": "오디오 첨부",
+      "selectAudio": "오디오 선택",
+      "attachFile": "파일 첨부",
+      "selectFile": "파일 선택",
+      "aNote": "노트 {{verb}}",
+      "anImage": "이미지 {{verb}}",
+      "aDocument": "문서 {{verb}}",
+      "audio": "오디오 {{verb}}",
+      "aFile": "파일 {{verb}}"
+    },
+    "chatAttachSheet": {
+      "addToChat": "채팅에 추가",
+      "camera": "카메라",
+      "photos": "사진",
+      "files": "파일",
+      "generateQuiz": "퀴즈 생성",
+      "generateFlashcards": "플래시카드 생성",
+      "searchMedicalLiterature": "의학 문헌 검색",
+      "filterByDateSourceAndType": "날짜, 출처 및 유형별 필터링",
+      "pullsRealCitedSourcesIntoYour": "실제 인용 출처를 답변에 반영합니다",
+      "trustedmedicalsourcedatabase": "신뢰할 수 있는 의학 출처 데이터베이스",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "미국 국립의학도서관(NLM)",
+      "fdaDrugTreatmentData": "FDA 의약품 및 치료 데이터"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "인용 출처 확인",
+      "citations": "출처",
+      "fromTheWeb": "웹 검색 결과"
+    },
+    "chatHeader": {
+      "readyTapToRename": "준비 완료 · 탭하여 이름 변경",
+      "processing": "처리 중 {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "출처 보기 ↗"
+    },
+    "chatRename": {
+      "renameChat": "채팅 이름 변경"
+    },
+    "sourcesRow": {
+      "viewSources": "출처 보기 ({{total}})"
+    }
   },
   "languages": {
     "english": "영어",
@@ -205,6 +1007,487 @@
     "turkish": "터키어",
     "vietnamese": "베트남어",
     "thai": "태국어",
-    "indonesian": "인도네시아어"
+    "indonesian": "인도네시아어",
+    "englishGB": "영어(영국)",
+    "englishAU": "영어(호주)",
+    "englishCA": "영어(캐나다)",
+    "spanishMX": "스페인어(멕시코)",
+    "frenchCA": "프랑스어(캐나다)",
+    "portuguesePT": "포르투갈어(포르투갈)",
+    "norwegian": "노르웨이어",
+    "danish": "덴마크어",
+    "finnish": "핀란드어",
+    "czech": "체코어",
+    "slovak": "슬로바키아어",
+    "slovenian": "슬로베니아어",
+    "croatian": "크로아티아어",
+    "hungarian": "헝가리어",
+    "romanian": "루마니아어",
+    "greek": "그리스어",
+    "ukrainian": "우크라이나어",
+    "arabicAE": "아랍어 (UAE)",
+    "arabicEG": "아랍어 (이집트)",
+    "hebrew": "히브리어",
+    "bengali": "벵골어",
+    "tamil": "타밀어",
+    "telugu": "텔루구어",
+    "kannada": "칸나다어",
+    "malayalam": "말라얄람어",
+    "marathi": "마라티어",
+    "gujarati": "구자라트어",
+    "punjabi": "펀자브어",
+    "urdu": "우르두어",
+    "malay": "말레이어",
+    "catalan": "카탈루냐어"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "폴더 추가",
+      "folderName": "폴더 이름",
+      "enterFolderName": "폴더 이름을 입력하세요",
+      "chooseColor": "색상 선택",
+      "createFolder": "폴더 생성"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "콘텐츠 처리 전 안내 사항",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact는 AI를 활용하여 질문에 답변하고 콘텐츠를 노트, 퀴즈, 플래시카드로 변환합니다. 다음 내용을 확인해 주세요:",
+      "whatDataIsSent": "전송되는 데이터",
+      "questionsAndMessagesYouTypeIn": "채팅에 입력한 질문 및 메시지",
+      "audioRecordingsOrUploadedAudioFiles": "녹음된 오디오 또는 업로드한 오디오 파일",
+      "pdfAndTextDocumentsYouUpload": "업로드한 PDF 및 텍스트 문서",
+      "imagesYouUpload": "업로드한 이미지",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube 동영상 URL 및 스크립트",
+      "customTextYouEnter": "직접 입력한 텍스트",
+      "whoReceivesYourData": "데이터를 제공받는 대상",
+      "howItSUsed": "데이터 활용 방식",
+      "yourContentIsUsedSolelyTo": "사용자의 콘텐츠는 요청하신 답변, 노트, 퀴즈 또는 플래시카드를 생성하는 목적으로만 사용됩니다. 각 제공업체의 API를 통해 처리되는 콘텐츠에는 해당 업체의 데이터 사용 정책이 적용됩니다. 자세한 내용은 개인정보 처리방침을 확인해 주세요.",
+      "iAgreeContinue": "동의하고 계속하기",
+      "noThanks": "취소",
+      "whoReceivesBody": "사용자의 콘텐츠는 안전한 자체 백엔드 서버를 통해 <bold>Google(Gemini)</bold>(요약 노트, 퀴즈 및 플래시카드 생성, 채팅 답변, 문서 및 이미지 처리)과 <bold>OpenAI</bold>(오디오 텍스트 변환)로 전송됩니다. 또한 채팅에서 관련 내용을 찾을 수 있도록 문서 발췌 내용이 <bold>Google Vertex AI</bold>에 색인화됩니다. 실시간 의학 검색 기능을 사용할 경우, NIH, CDC, MedlinePlus, WHO, Mayo Clinic과 같은 신뢰할 수 있는 출처의 인용 자료를 찾기 위해 질문 내용이 <bold>Tavily</bold> 및 공개 의학 문헌 데이터베이스(PubMed, Europe PMC, Semantic Scholar 등)로 전송됩니다. 이러한 서비스 제공업체는 답변 생성을 위한 목적으로만 데이터를 처리하며, 자체 범용 AI 모델 학습에 사용하지 않습니다. 또한 Clinical Fact는 사용자의 데이터를 제3자에게 절대 판매하지 않습니다."
+    },
+    "chatActionSheet": {
+      "unpinChat": "채팅 고정 해제",
+      "pinChat": "채팅 고정",
+      "deleteChat": "채팅 삭제"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "플래시카드 생성",
+      "createFlashcards": "플래시카드 만들기",
+      "createFlashcardsFromToImproveYour": "\"{{noteTitle}}\" 바탕으로 플래시카드를 만들어 암기력을 높여보세요",
+      "createFlashcardsToImproveYourRetention": "플래시카드를 만들어 암기력을 높여보세요",
+      "howManyQuestions": "문제 수",
+      "generateFlashcards2": "플래시카드 생성하기"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "채팅에서 생성",
+      "selectFromOneOfYourRecent": "최근 채팅 중에서 선택",
+      "pdfOrDocument": "PDF 또는 문서",
+      "createFromAudio": "오디오에서 생성",
+      "image": "이미지",
+      "createFromCustomText": "직접 입력한 텍스트에서 생성",
+      "created": "생성일: {{day}}, {{time}}",
+      "createQuizFrom": "다음에서 퀴즈 생성:",
+      "createFlashcardsFrom": "다음에서 플래시카드 생성:",
+      "selectFromChat": "채팅에서 선택",
+      "noRecentChatsYet": "최근 채팅이 없습니다",
+      "quizFromPdf": "PDF나 문서로 퀴즈 만들기",
+      "flashcardsFromPdf": "PDF나 문서로 플래시카드 세트 만들기",
+      "quizFromAudio": "업로드한 오디오로 퀴즈 만들기",
+      "flashcardsFromAudio": "업로드한 오디오로 플래시카드 세트 만들기",
+      "quizFromImage": "이미지로 퀴즈 만들기",
+      "flashcardsFromImage": "이미지로 플래시카드 세트 만들기",
+      "quizFromText": "입력한 텍스트로 퀴즈 만들기",
+      "flashcardsFromText": "입력한 텍스트로 플래시카드 세트 만들기"
+    },
+    "createNote": {
+      "recordAudio": "음성 녹음",
+      "generateANoteFromAnyRecorded": "녹음된 음성으로 노트 생성",
+      "uploadAudio": "오디오 업로드",
+      "createANoteFromAnyUploaded": "업로드한 오디오 파일로 노트 생성",
+      "youtubeVideo": "YouTube 동영상",
+      "createANoteFromAnyYoutube": "YouTube 동영상으로 노트 생성",
+      "pdfOrDocument": "PDF 또는 문서",
+      "createANoteFromPDFOr": "PDF나 문서로 노트 생성",
+      "customText": "직접 입력",
+      "createANoteFromCapturedText": "가져온 텍스트로 노트 생성",
+      "image": "이미지",
+      "createANoteFromAnyImage": "이미지로 노트 생성",
+      "createNote": "노트 만들기"
+    },
+    "createQuiz": {
+      "generateQuiz": "퀴즈 생성",
+      "createQuiz": "퀴즈 만들기",
+      "practiceByCreatingQuestionsThatHelp": "\"{{noteTitle}}\" 문제를 만들어 학습 내용을 완벽히 마스터해보세요",
+      "practiceYourNotesByCreatingQuestions": "노트 내용으로 문제를 만들어 완벽히 마스터해보세요",
+      "howManyQuestions": "문제 수",
+      "timeInMinutes": "시간(분)"
+    },
+    "deleteNote": {
+      "deleteNote": "노트 삭제",
+      "areYouSureYouWantTo": "이 노트를 삭제하시겠습니까?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "요약본 내보내기 형식",
+      "exportTranscriptAs": "스크립트 내보내기 형식",
+      "exportAs": "내보내기 형식",
+      "exportSummary": "요약본 내보내기",
+      "exportTranscript": "스크립트 내보내기"
+    },
+    "exportTypeStep": {
+      "exportNote": "노트 내보내기",
+      "exportSummary": "요약본 내보내기",
+      "exportTranscript": "스크립트 내보내기"
+    },
+    "exportSettings": {
+      "export": "{{title}} 내보내기",
+      "selectFormat": "형식 선택",
+      "includeAnswers": "정답 포함",
+      "answersExplanationsIncluded": "정답 및 해설 포함",
+      "questionsOnly": "문제만",
+      "export2": "내보내기"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "노트가 준비되었습니다!",
+      "howDidWeDo": "결과물이 만족스러우신가요?",
+      "happy": "좋아요",
+      "sad": "아쉬워요",
+      "maybeLater": "나중에 하기",
+      "whatWentWrong": "어떤 점이 아쉬우셨나요?",
+      "yourFeedbackHelpsUsImprove": "보내주신 의견은 서비스 개선에 큰 도움이 됩니다.",
+      "tellUsWhatCouldBeBetter": "개선할 점을 알려주세요...",
+      "submit": "제출하기"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "표시할 내용이 없습니다",
+      "clickCardToFlip": "카드를 탭하여 뒤집기"
+    },
+    "flashcardExport": {
+      "exportFailed": "내보내기 실패",
+      "unknownError": "알 수 없는 오류",
+      "export": "{{setTitle}} 내보내기",
+      "chooseWhatToExport": "내보낼 항목 선택",
+      "exportQuestions": "문제 내보내기",
+      "exportAnswers": "정답 내보내기"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "플래시카드 세트 삭제",
+      "areYouSureYouWantTo": "\"{{setTitle}}\"을(를) 삭제하시겠습니까?",
+      "failedToDeleteFlashcardSet": "플래시카드 세트 삭제 실패",
+      "flashcardHistory": "플래시카드 학습 기록",
+      "cards": "카드",
+      "reviewedMastered": "{{cardsReviewedCount}}개 학습 완료 • {{percentage}}% 암기 완료"
+    },
+    "folders": {
+      "items": "항목 {{itemCount}}개",
+      "enterYourFolderName": "폴더 이름을 입력하세요",
+      "yourFolderName": "폴더 이름",
+      "createFolder": "폴더 생성",
+      "folders": "폴더",
+      "addFolder": "폴더 추가",
+      "noFoldersToDisplay": "표시할 폴더가 없습니다",
+      "clickTheButtonAboveToCreate": "위 버튼을 눌러 노트를 정리할 폴더를 만드세요",
+      "allFolders": "모든 폴더",
+      "items2": "항목 {{totalItems}}개"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "의학 문헌 필터",
+      "howrecentdoyouwantthe": "출처 발행 시기",
+      "from": "시작 연도",
+      "whatkindofsourcedoyou": "필요한 출처 유형",
+      "textbooks": "교과서",
+      "clinicalGuidelines": "임상 진료 지침",
+      "scientificJournalArticles": "학술지 논문",
+      "onlywiththisjournalarticles": "포함할 학술 논문 유형",
+      "metaAnalyses": "메타분석",
+      "reviewArticles": "종설(리뷰 논문)",
+      "clinicalTrials": "임상시험",
+      "fromYear": "시작 연도",
+      "toYear": "종료 연도"
+    },
+    "noteOptions": {
+      "noteOptions": "노트 옵션",
+      "editNote": "노트 편집",
+      "reTranscribe": "다시 텍스트 변환",
+      "chatWithNote": "노트 기반 채팅",
+      "exportNote": "노트 내보내기",
+      "moveToFolder": "폴더로 이동",
+      "deleteNote": "노트 삭제"
+    },
+    "onboardingTooltip": {
+      "skip": "건너뛰기"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "퀴즈 삭제",
+      "areYouSureYouWantTo": "\"{{quizTitle}}\"을(를) 삭제하시겠습니까?",
+      "failedToDeleteQuiz": "퀴즈 삭제 실패",
+      "quizHistory": "퀴즈 기록",
+      "questions": "문제",
+      "correct": "정답 {{correctAnswers}}개"
+    },
+    "referral": {
+      "copied": "복사 완료!",
+      "yourReferralCodeHasBeenCopied": "추천 코드가 클립보드에 복사되었습니다.",
+      "joinMeOnClinicalFactUse": "Clinical Fact에서 함께 공부해요! 추천 코드: {{referralCode}} – {{appUrl}}",
+      "joined": "가입일: {{joinedDate}}",
+      "referralCode": "추천 코드",
+      "yourReferralCode": "내 추천 코드",
+      "shareWithFriendsToEarnRewards": "친구와 공유하고 리워드를 받으세요",
+      "share": "공유하기",
+      "copyCode": "코드 복사",
+      "referredFriends": "초대한 친구",
+      "noReferralsYetShareYourCode": "아직 초대한 친구가 없습니다. 코드를 공유해 보세요!",
+      "loadMore": "더 보기",
+      "howItWorks": "이용 방법",
+      "friendsUseYourCodeDuringSignup": "• 친구가 회원가입 시 내 코드를 입력합니다",
+      "youBothEarnRewardsWhenThey": "• 친구가 가입하면 둘 다 리워드를 받습니다",
+      "friendsReferredCount": "초대한 친구: {{referralCount}}명"
+    },
+    "uploadProgress": {
+      "extractingText": "텍스트 추출 중...",
+      "transcribingAudio": "오디오 변환 중...",
+      "processingPDF": "PDF 처리 중...",
+      "settingUpChat": "채팅 준비 중...",
+      "uploadFailed": "업로드 실패",
+      "failedToUploadFilePleaseTry": "파일 업로드에 실패했습니다. 다시 시도해 주세요.",
+      "yourFileIsReadyForChatting": "파일 처리가 완료되어 채팅을 시작할 수 있습니다!",
+      "uploadingYourFileToTheServer": "서버에 파일을 업로드하는 중...",
+      "extractingTextFromYourImage": "이미지에서 텍스트를 추출하는 중...",
+      "transcribingYourAudio": "오디오를 텍스트로 변환하는 중...",
+      "extractingTextFromYourPDF": "PDF에서 텍스트를 추출하는 중...",
+      "creatingYourChatSession": "채팅 세션을 생성하는 중...",
+      "pleaseWait": "잠시만 기다려 주세요...",
+      "uploadFile": "파일 업로드",
+      "processContent": "콘텐츠 처리",
+      "createChat": "채팅 생성"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ 보기",
+      "export": "📤 내보내기",
+      "delete": "🗑️ 삭제"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Powered by"
+    },
+    "exportFormat": {
+      "txtFile": "TXT 파일",
+      "pdfFile": "PDF 파일",
+      "docFile": "DOC 파일"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "노트를 불러오지 못했습니다",
+      "failedToFetchFolders": "폴더를 불러오지 못했습니다",
+      "failedToFetchNote": "노트를 불러오지 못했습니다",
+      "failedToDeleteNote": "노트를 삭제하지 못했습니다",
+      "failedToCreateFolder": "폴더를 생성하지 못했습니다",
+      "failedToDeleteFolder": "폴더를 삭제하지 못했습니다"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "채팅을 삭제하지 못했습니다"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "플래시카드 세트를 내보냈습니다!",
+      "failedToExportFlashcardSet": "플래시카드 세트 내보내기에 실패했습니다."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "퀴즈를 내보냈습니다!",
+      "failedToExportQuiz": "퀴즈 내보내기에 실패했습니다."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "제목 없는 플래시카드",
+      "failedToLoadFlashcards": "플래시카드를 불러오지 못했습니다",
+      "failedToSyncFlashcardSet": "플래시카드 세트 동기화에 실패했습니다",
+      "failedToSyncCardUpdate": "카드 업데이트 동기화에 실패했습니다"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "퀴즈"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "{{day}}, {{time}} 생성됨",
+      "youVeReachedYour3Pin": "고정 한도(최대 3개)에 도달했습니다",
+      "failedToUpdatePin": "고정 상태를 변경하지 못했습니다",
+      "noChatsYet": "대화 내역이 없습니다",
+      "startAChatToGetAnswers": "채팅을 시작하여 신뢰할 수 있는 출처 기반의 답변을 확인하세요.",
+      "createChat": "+ 새 채팅 시작"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "플래시카드 삭제",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\"을(를) 삭제하시겠습니까?",
+      "failedToDeleteFlashcards": "플래시카드를 삭제하지 못했습니다",
+      "sets": "{{setCount}}개 세트",
+      "flashcards": "플래시카드",
+      "createFlashcards": "플래시카드 생성",
+      "searchFlashcards": "플래시카드 검색...",
+      "noFlashcardsYet": "플래시카드가 없습니다",
+      "createAFlashcardSetFromA": "노트에서 플래시카드 세트를 만들어 학습을 시작하세요",
+      "createSet": "+ 세트 만들기",
+      "flashcardOptions": "플래시카드 옵션",
+      "view": "보기"
+    },
+    "folder": {
+      "deleteFolder": "폴더 삭제",
+      "areYouSureYouWantTo": "\"{{name}}\" 폴더를 삭제하시겠습니까? 내부 노트는 루트 디렉터리로 이동됩니다.",
+      "failedToDeleteFolder": "폴더를 삭제하지 못했습니다",
+      "error": "오류: {{message}}",
+      "noFoldersYetCreateOne": "폴더가 없습니다. 새 폴더를 만들어 보세요!",
+      "folders": "폴더"
+    },
+    "home": {
+      "created": "생성일: {{day}} {{time}}",
+      "failedToUpdateLanguage": "언어 설정을 변경하지 못했습니다",
+      "notEnoughContentYet": "내용이 아직 부족합니다",
+      "chatABitMoreBeforeGenerating": "퀴즈를 생성하려면 대화를 조금 더 진행해 주세요(최소 100자 이상).",
+      "chatABitMoreBeforeGenerating2": "플래시카드를 생성하려면 대화를 조금 더 진행해 주세요(최소 100자 이상).",
+      "failedToGenerateFlashcards": "플래시카드를 생성하지 못했습니다",
+      "upgradeToPro": "PRO로 업그레이드",
+      "get80DiscountWhenYouUpgrade": "계정 업그레이드 시 80% 할인 혜택 제공",
+      "unlockPRO": "PRO 잠금 해제",
+      "noMedicalChats": "임상 대화 내역이 없습니다",
+      "youHaveNotCreatedAnyMedical": "생성된 임상 대화가 없습니다. 새 채팅을 시작하고 검증된 출처를 확인해 보세요",
+      "talkToClinicalfactAI": "Clinical Fact AI와 대화하기",
+      "jumpInWhereYouStopped": "이어서 학습하기",
+      "practiceQuiz": "연습 퀴즈",
+      "makeFlashcards": "플래시카드 만들기",
+      "continueChatWithNote": "노트 기반으로 대화 이어가기",
+      "continueChat": "대화 이어가기",
+      "recentChats": "최근 대화",
+      "chatOptions": "채팅 옵션"
+    },
+    "library": {
+      "text": "{{year}}년 {{month}} {{day}}일 {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "현재 오프라인 상태입니다. 이 작업을 수행하려면 인터넷에 연결해 주세요.",
+      "failedToDeleteNote": "노트를 삭제하지 못했습니다",
+      "failedToMoveNote": "노트를 이동하지 못했습니다",
+      "deleteFolder": "폴더를 삭제하시겠습니까?",
+      "areYouSureNotesInsideWill": "정말 삭제하시겠습니까? 내부 노트는 삭제되지 않고 '모든 노트'로 이동됩니다.",
+      "failedToDeleteFolder": "폴더를 삭제하지 못했습니다",
+      "library": "보관함",
+      "addFolder": "폴더 추가",
+      "searchForANoteFolder": "노트 또는 폴더 검색",
+      "yourFolders": "내 폴더",
+      "noFoldersToDisplay": "표시할 폴더가 없습니다",
+      "tapAddFolderToCreateA": "노트를 정리하려면 '+ 폴더 추가'를 누르세요",
+      "allNotes": "모든 노트",
+      "items": "{{allNotesTotal}}개 항목",
+      "items2": "{{itemCount}}개 항목",
+      "yourNotes": "내 노트",
+      "untitledNote": "제목 없는 노트",
+      "noResultsFor": "\"{{searchQuery}}\"에 대한 검색 결과 없음",
+      "noNotesInThisFolder": "이 폴더에 노트가 없습니다",
+      "noNotesToDisplay": "표시할 노트가 없습니다",
+      "tryADifferentSearchTerm": "다른 검색어를 입력해 보세요",
+      "moveNotesToThisFolderTo": "이 폴더로 노트를 이동하면 여기에 표시됩니다",
+      "clickBelowToGenerateYourNote": "아래를 탭하여 Clinical Fact로 노트를 생성해 보세요",
+      "filterByType": "유형별 필터",
+      "audio": "오디오",
+      "text2": "텍스트",
+      "image": "이미지",
+      "clearFilter": "필터 초기화"
+    },
+    "profile": {
+      "permissionRequired": "권한 필요",
+      "pleaseAllowAccessToYourPhoto": "프로필 사진을 설정하려면 사진 보관함 접근을 허용해 주세요.",
+      "uploadFailed": "업로드 실패",
+      "couldNotUpdateProfilePicture": "프로필 사진을 업데이트할 수 없습니다.",
+      "failedToUploadProfilePicture": "프로필 사진 업로드에 실패했습니다.",
+      "checkOutClinicalFactAIPowered": "Clinical Fact를 확인해 보세요 – AI 기반 학습 노트! {{url}}",
+      "proSubscriber": "PRO 구독자",
+      "subscriptionExpired": "구독 만료됨",
+      "freeSubscriber": "무료 회원",
+      "tapToManageIPhoneSettingsApple": "관리하려면 탭하세요 · iPhone 설정 → Apple ID → 구독",
+      "tapToManagePlayStoreSubscriptions": "관리하려면 탭하세요 · Play 스토어 → 정기 결제",
+      "tapToRenewYourSubscription": "탭하여 구독 갱신하기",
+      "tapToUpgradeToPro": "탭하여 PRO로 업그레이드하기",
+      "referralCode": "추천 코드",
+      "areYouSureYouWantTo": "정말 계정에서 로그아웃하시겠습니까?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "퀴즈 삭제",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\"을(를) 삭제하시겠습니까?",
+      "failedToDeleteQuiz": "퀴즈 삭제 실패",
+      "correct": "{{correct}}/{{total}} 정답",
+      "attempts": "{{attempts}}회 시도",
+      "quiz": "퀴즈",
+      "createQuiz": "퀴즈 만들기",
+      "searchQuizzes": "퀴즈 검색...",
+      "noQuizzesYet": "아직 퀴즈가 없습니다",
+      "createAQuizFromANote": "노트에서 퀴즈를 생성하여 시작해 보세요",
+      "createQuiz2": "+ 퀴즈 만들기",
+      "quizOptions": "퀴즈 옵션",
+      "view": "보기"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "업그레이드를 이용할 수 없음",
+      "weCouldnTOpenTheUpgrade": "현재 업그레이드 화면을 열 수 없습니다. 네트워크 연결을 확인한 후 다시 시도해 주세요."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "서버에서 JSON 형식이 아닌 응답을 반환했습니다 ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "네트워크 오류가 발생했습니다. 연결 상태를 확인해 주세요.",
+      "connectionErrorPleaseTryAgain": "연결 오류가 발생했습니다. 다시 시도해 주세요."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "파일 내보내기 완료: {{filename}}",
+      "exportFailed": "내보내기 실패",
+      "exportFormat": "내보내기 형식",
+      "chooseFormat": "형식 선택",
+      "text": "텍스트"
+    },
+    "formatDate": {
+      "justNow": "방금 전",
+      "minAgo": "{{diffMin}}분 전",
+      "hrAgo": "{{diffHr}}시간 전",
+      "dAgo": "{{diffDay}}일 전",
+      "created": "{{day}} {{time}} 작성됨"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "인증 코드 전송 실패",
+      "invalidOTP": "유효하지 않은 인증 코드",
+      "failedToVerifyOTP": "인증 코드 확인 실패",
+      "googleAuthenticationFailed": "Google 인증 실패",
+      "appleAuthenticationFailed": "Apple 인증 실패",
+      "failedToCompleteSignup": "회원가입 완료 실패",
+      "failedToSkipSignup": "회원가입 건너뛰기 실패"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "채팅",
+      "description": "노트, 문서, PDF를 기반으로 한곳에서 AI와 대화해 보세요"
+    },
+    "profileWelcome": {
+      "heading": "프로필에 오신 것을 환영합니다",
+      "description": "내 프로필입니다. 여기를 탭하여 프로필 정보와 구독 상태를 변경할 수 있습니다."
+    },
+    "createNotes": {
+      "heading": "노트 만들기",
+      "description": "음성 녹음, 오디오, 비디오, 이미지, 텍스트, YouTube 링크 등 무엇이든 노트로 만들 수 있습니다"
+    },
+    "changeLanguage": {
+      "heading": "언어 변경",
+      "description": "여기서 앱 언어를 원하는 언어로 변경할 수 있습니다"
+    },
+    "manageHome": {
+      "heading": "홈 관리",
+      "description": "작성한 모든 노트를 확인하고 활동 내역을 한곳에서 모아보세요"
+    },
+    "yourLibrary": {
+      "heading": "내 보관함",
+      "description": "작성한 모든 노트를 관리하고, 폴더를 생성하여 정리해 보세요"
+    },
+    "yourProfile": {
+      "heading": "내 프로필",
+      "description": "프로필 정보를 확인하고 관련 설정을 변경할 수 있습니다"
+    }
   }
 }

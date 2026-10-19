@@ -15,7 +15,8 @@
     "done": "Tehty",
     "search": "Haku",
     "filter": "Suodattaa",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Tiedot"
   },
   "home": {
     "title": "Clinical Fact",
@@ -26,7 +27,7 @@
     "recentNotes": "Viimeisimmät muistiinpanot",
     "seeAll": "Katso kaikki",
     "noNotes": "Ei näytettäviä muistiinpanoja",
-    "noNotesDesc": "Aloita muistiinpanosi luominen clinicalfactille napsauttamalla yllä olevaa painiketta.",
+    "noNotesDesc": "Napauta yllä olevaa painiketta aloittaaksesi\nmuistiinpanon luomisen Clinical Factiin.",
     "loadingNotes": "Muistiinpanoja ladataan..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "Päivityspaketti",
     "everyWeek": "Joka viikko",
     "everyMonth": "Joka kuukausi",
-    "everyYear": "Joka vuosi"
+    "everyYear": "Joka vuosi",
+    "reportBug": "Ilmoita virheestä"
   },
   "auth": {
-    "welcome": "Tervetuloa Clinical Factiin",
+    "welcome": {
+      "googleSignInFailed": "Google-kirjautuminen epäonnistui",
+      "failedToAuthenticateWithServer": "Todennus palvelimen kanssa epäonnistui",
+      "googleSignInIsOnlyAvailable": "Google-kirjautuminen on käytettävissä vain mobiilisovelluksessa. Käytä sähköpostikirjautumista tai lataa sovellus.",
+      "code": "{{message}} (koodi: {{code}})"
+    },
     "getStarted": "Aloita",
     "signIn": "Kirjaudu sisään",
     "signUp": "Rekisteröidy",
@@ -94,7 +101,8 @@
       "skip": "Ohita",
       "verify": "Vahvistettu!",
       "next": "Seuraava",
-      "tryNow": "Kokeile Clinical Factiä nyt ilmaiseksi"
+      "tryNow": "Kokeile Clinical Factiä nyt ilmaiseksi",
+      "continueWithApple": "Jatka Applella"
     },
     "labels": {
       "firstName": "Etunimi",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Google-sisäänkirjautumisen aloittaminen epäonnistui. Yritä uudelleen.",
       "setupRequired": "Asennus vaaditaan",
       "googleOAuthMissing": "Google-sisäänkirjautuminen vaatii OAuth-asiakastunnukset.\\n\\nLisää tunnistetiedot .env-tiedostoosi.",
-      "youCanStillUseEmail": "Voit edelleen käyttää \"Jatka sähköpostitse\" -vaihtoehtoa."
+      "youCanStillUseEmail": "Voit edelleen käyttää \"Jatka sähköpostitse\" -vaihtoehtoa.",
+      "appleSignInFailed": "Apple-kirjautuminen epäonnistui",
+      "appleTokenFailed": "Apple-tunnuksen käsittely epäonnistui",
+      "appleIosOnly": "Apple-kirjautuminen on käytettävissä vain iOS-laitteilla."
     },
     "messages": {
       "signingIn": "Kirjautuminen sisään...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Muistiinpanoharjoitus:\\nÄlykkäämpiä muistiinpanoja Aloita tästä",
       "tagline": "Muunna mikä tahansa teksti täydellisiksi muistiinpanoiksi",
-      "description": "Muunna äänitteet, dokumentit tai videot selkeiksi, haettaviksi muistiinpanoiksi ja luo välittömästi tietokilpailuja, muistikortteja ja yhteenvetoja."
+      "description": "Muunna äänitteet, dokumentit tai videot selkeiksi, haettaviksi muistiinpanoiksi ja luo välittömästi tietokilpailuja, muistikortteja ja yhteenvetoja.",
+      "createAccountTitle": "Luo tili",
+      "orSignUpWith": "TAI REKISTERÖIDY KÄYTTÄEN",
+      "signUpWithEmail": "Rekisteröidy sähköpostiosoitteella",
+      "signInWithEmail": "Kirjaudu sähköpostiosoitteella",
+      "alreadyHaveAccount": "Onko sinulla jo tili? ",
+      "dontHaveAccount": "Eikö sinulla ole vielä tiliä? "
     },
     "otp": {
       "title": "Vahvista sähköpostiosoitteesi",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Kaikki mitä tarvitset oppiaksesi mitä tahansa",
-      "subtitle": "Äänitä se. Tutki sitä. Testaa sitä. Hallitse se."
+      "subtitle": "Äänitä se. Tutki sitä. Testaa sitä. Hallitse se.",
+      "everythingYouNeedToLearnAnything": "Kaikki mitä tarvitset oppimiseen",
+      "recordItResearchItQuizIt": "Tallenna. Tutki. Testaa. Hallitse.",
+      "tryClinicalFactNowForFree": "Kokeile Clinical Factia nyt ilmaiseksi"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Opi nopeammin tietokilpailujen ja muistikorttien avulla",
         "description": "Muunna muistiinpanot tietokilpailuiksi ja muistikorteiksi.\\nOpi nopeammin ja muista enemmän."
+      },
+      "feature1": {
+        "title": "Saat oikeita lääketieteellisiä vastauksia ja jatkokysymyksiä",
+        "description": "Kysy mitä tahansa lääketieteestä ja saat selkeän vastauksen sekä älykkäitä jatkokysymyksiä, jotta opiskelusi ei tyssää kesken kaiken."
+      },
+      "feature2": {
+        "title": "Jokainen lääketieteellinen vastaus\nperustuu aitoon lähteeseen",
+        "description": "Viitteet haetaan PubMedistä, Semantic Scholarista ja Europe PMC:stä – tarkistettavissa, ei keksittyjä."
+      },
+      "feature3": {
+        "title": "Lataa muistiinpanosi ja saa yhteenvedot materiaaleistasi",
+        "description": "Muuta mikä tahansa luentokalvo, PDF tai muistiinpano selkeäksi selitykseksi, joka perustuu luotettaviin lääketieteellisiin lähteisiin."
+      },
+      "feature4": {
+        "title": "Muuta mikä tahansa keskustelu visaksi tai muistikorteiksi kertausta varten",
+        "description": "Et tarvitse erillistä opiskelusovellusta – luo harjoituskysymyksiä suoraan keskusteluistasi ja tiedostoistasi."
+      },
+      "feature5": {
+        "title": "Muuta mikä tahansa keskustelu tai asiakirja muistikorteiksi kertausta varten",
+        "description": "Et tarvitse erillistä opiskelusovellusta – luo harjoituskysymyksiä suoraan keskusteluistasi ja tiedostoistasi."
+      }
+    },
+    "languageSelect": {
+      "title": "Valitse kieli",
+      "subtitle": "Valitse sovelluksessa käytettävä kieli. Voit muuttaa sen myöhemmin profiilistasi.",
+      "searchPlaceholder": "Hae kieliä",
+      "noResults": "Kieliä ei löytynyt"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Kysy mitä tahansa lääketieteestä. Saat kliiniset faktat",
+        "description": "Kysy mitä tahansa lääketieteellistä ja saat vastauksen, joka perustuu aitoihin lähteisiin PubMedistä, hoitosuosituksista ja luotettavasta lääketieteellisestä kirjallisuudesta."
+      },
+      "slide2": {
+        "headline": "Jokainen vastaus perustuu lähteeseen",
+        "description": "Ei arvailua eikä keksittyjä faktoja – jokainen vastaus linkittyy aitoon, tarkistettavissa olevaan lääketieteelliseen tutkimukseen."
+      },
+      "slide3": {
+        "headline": "Opiskele fiksummin, läpäise tentit",
+        "description": "Muuta mikä tahansa kysymys tai tiedosto visaksi tai muistikorteiksi sekunneissa – harjoittele suoraan opiskelemasi materiaalin pohjalta."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Ammatillinen ilmoitus",
+      "subtitle": "Clinical Fact on koulutuksellinen tiedonhakutyökalu",
+      "disclaimerIntro": "Clinical Fact on tekoälypohjainen tietotyökalu, joka on tarkoitettu sairaanhoito-, lääketieteen ja muiden terveystieteiden opiskelijoiden tueksi lääketieteellisen tiedon, tutkimuskirjallisuuden ja opintomateriaalien hakemiseen. Sovellus ei tee lääketieteellisiä diagnooseja, anna hoitosuosituksia, kliinisiä ohjeita tai potilaskohtaisia lääketieteellisiä neuvoja, eikä sitä saa käyttää suoran potilashoidon tai kliinisen päätöksenteon perustana.",
+      "disclaimerHeading": "Miten Clinical Fact luo vastaukset:",
+      "disclaimerBody": "Clinical Fact hakee tiedot suoraan vakiintuneista lääketieteellisistä ja tieteellisistä lähteistä, kuten PubMedistä, Semantic Scholarista ja FDA:n virallisista lääkeselosteista, ja käyttää AI-teknologiaa haetun sisällön tiivistämiseen ja selittämiseen selkokielellä. Jokainen vastaus luodaan ainoastaan kyseistä kysymystä varten haetuista lähteistä, ja viitteet linkittyvät alkuperäiseen materiaaliin, jotta voit tarkistaa ne itse. Clinical Fact ei luo lääketieteellisiä faktoja muistista eikä keksittyjä lähteitä.\n\nClinical Fact ei ole diagnosointityökalu, hoitoalusta, lääkinnällinen laite eikä korvike ammatilliselle lääketieteelliselle arviolle, pätevälle opetukselle tai oppilaitoksesi opetussuunnitelmalle. Kaikki sovelluksen luoma tieto, mukaan lukien vastaukset, viitteet, visat ja muistikortit, on tarkoitettu vain yleiseen koulutus- ja opiskelukäyttöön, ja käyttäjän on varmistettava se itsenäisesti ennen sen hyödyntämistä missään akateemisessa, kliinisessä tai ammatillisessa yhteydessä.\nClinical Fact ei takaa annettujen tietojen täydellisyyttä, tarkkuutta tai ajantasaista kliinistä merkitystä. Lääketieteellinen tieto kehittyy jatkuvasti – vertaa kriittisiä tietoja aina opettajiesi, kliinisten ohjaajiesi ja ajantasaisten ensisijaisten lähteiden kanssa.\nKun lataat omia asiakirjojasi, muistiinpanojasi tai tallenteitasi, Clinical Fact luo vastauksia, tiivistelmiä, visoja ja muistikortteja vain kyseisen ladatun sisällön pohjalta, ei ulkoisista lähteistä, ellei ulkoisia lähteitä näytetä erikseen sen rinnalla.\n\nClinical Fact ei todenna, vahvista tai varmenta käyttäjiensä henkilöllisyyttä, opiskelijastatusta tai pätevyyttä. Sovellusta ei ole tarkoitettu hätätilanteisiin eikä reaaliaikaisten kliinisten päätösten tekemiseen.\nJatkamalla vahvistat ymmärtäväsi nämä ehdot ja sitoudut käyttämään Clinical Fact -sovellusta ainoastaan opiskelun ja tiedonhaun apuvälineenä.",
+      "checkboxLabel": "Ymmärrän, että tämä sovellus on tarkoitettu vain opiskelukäyttöön eikä se anna lääketieteellisiä neuvoja",
+      "acceptButton": "Hyväksy ja jatka"
+    },
+    "survey": {
+      "role": "Mikä kuvaa sinua parhaiten, {{firstName}}?",
+      "currentMethod": "Miten yleensä etsit vastauksia lääketieteellisiin kysymyksiin tällä hetkellä?",
+      "timeDrain": "Mihin sinulla kuluu eniten aikaa hukkaan?",
+      "appExpectation": "Mitä odotat Clinical Fact -sovellukseltamme?",
+      "aiToolsUsed": "Mitä AI-työkaluja olet tähän mennessä käyttänyt lääketieteelliseen tiedonhakuun?",
+      "aiToolIssue": "Mikä kyseisissä työkaluissa tuotti ongelmia?",
+      "aiTrustLevel": "Kuinka usein huolehdit siitä, että AI-vastaus saattaa olla virheellinen?",
+      "biggestNeed": "Mitä tarvitset eniten juuri nyt?",
+      "studyTimePerWeek": "Kuinka paljon sinulla on aikaa opiskella viikossa?",
+      "comingUp": "Mitä sinulla on tulossa seuraavaksi?",
+      "referralSource": "Mistä kuulit Clinical Fact -sovelluksesta?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Ota ilmoitukset käyttöön",
+      "thisHelpsUsStayOnTrack": "Tämä auttaa meitä räätälöimään tiliäsi ja auttamaan sinua löytämään lääketieteellisiä vastauksia helpommin"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Virheellinen vahvistuskoodi. Yritä uudelleen.",
+      "failedToResendCodePleaseTry": "Koodin uudelleenlähetys epäonnistui. Yritä uudelleen.",
+      "confirmYourEmailAddress": "Vahvista sähköpostiosoitteesi",
+      "enterCodeSentTo": "Syötä OTP-koodi, jonka lähetimme sähköpostiosoitteeseen {{email}}",
+      "resendCodeIn": "Lähetä koodi uudelleen {{seconds}} s kuluttua"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Suositteliko joku sinulle sovellusta?",
+      "enterTheirReferralCodeIfYou": "Syötä suosittelukoodi, jos sinulla on sellainen",
+      "eGJOHNOrTECHBRO": "esim. MATTI tai TECHBRO",
+      "codeIsValid": "✓ Koodi on voimassa"
+    },
+    "resultsChart": {
+      "getBetterResults": "Saavuta parempia tuloksia",
+      "over95OfClinicalfactUsersScore": "Yli 95 % Clinical Factin käyttäjistä saa vähintään 95 % kokeista ja tenteistä"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Sairaanhoitajaopiskelija",
+        "medicalStudent": "Lääketieteen opiskelija",
+        "paPharmacyStudent": "PA- tai farmasian opiskelija",
+        "practicingNurse": "Valmistunut sairaanhoitaja",
+        "practicingPhysician": "Laillistettu lääkäri",
+        "otherHealthcareProfessional": "Muu terveydenhuollon ammattilainen"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Oppikirjat tai luentomuistiinpanot",
+        "flashcardQuizApps": "Muistikortti- tai visasovellukset",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chatbotit",
+        "colleagueClassmate": "Kysyminen kollegalta tai kurssikaverilta",
+        "practiceQuestionBanks": "Harjoituskysymyspankit"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Muistikorttien ja visojen tekeminen alusta alkaen",
+        "findingTrustworthyAnswer": "Luotettavan vastauksen löytäminen nopeasti",
+        "reReadingNotes": "Unohtuneiden muistiinpanojen uudelleenlukeminen",
+        "switchingApps": "Liian monen eri sovelluksen välillä vaihtelu",
+        "chartingDocumentation": "Kirjaaminen ja dokumentointi"
+      },
+      "appExpectation": {
+        "noHallucination": "AI, joka ei hallusinoi",
+        "realCitations": "Oikeat lähdeviitteet",
+        "oneApp": "Yksi sovellus viiden tilauksen sijaan",
+        "explainsWhy": "Selittää myös syyn, ei pelkkää vastausta"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google-haku",
+        "otherApps": "Muut sovellukset"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Keksi asioita omasta päästään",
+        "notMedicalContent": "Ei suunniteltu lääketieteelliselle sisällölle",
+        "noSources": "Ei lähteitä tarkistettavaksi",
+        "tooGeneric": "Liian yleisluonteinen, ei kokeisiin tai käytäntöön keskittyvä"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Joka kerta",
+        "sometimes": "Joskus",
+        "rarely": "Harvoin",
+        "dontUseAi": "En käytä vielä AI:ta"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Nopeita ja luotettavia vastauksia",
+        "quizzesFlashcardsWithoutWork": "Visoja ja muistikortteja ilman vaivaa",
+        "rememberingStudied": "Apua opitun muistamiseen",
+        "medicalCitations": "Lääketieteelliset lähdeviitteet",
+        "allOfTheAbove": "Kaikki edellä mainitut"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Uutiskirje",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Muu"
+      },
+      "studyTime": {
+        "under5Hours": "Alle 5 tuntia",
+        "510Hours": "5–10 tuntia",
+        "1020Hours": "10–20 tuntia",
+        "20PlusHours": "Yli 20 tuntia"
+      },
+      "comingUp": {
+        "medicalExams": "Lääketieteen tentit",
+        "clinicalRotations": "Kliiniset harjoittelut",
+        "nursingExams": "Hoitotyön tentit",
+        "otherExams": "Muut tentit",
+        "staySharp": "Haluan vain ylläpitää osaamistani"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Muistiinpanojen transkriptio",
+    "noteTranscript": {
+      "noteTranscript": "Muistiinpanon litterointi",
+      "noNoteIDProvided": "Muistiinpanon tunnistetta ei annettu",
+      "noTranscriptAvailableForThisNote": "Tälle muistiinpanolle ei ole litterointia.",
+      "thisNoteWasNotCreatedFrom": "Tätä muistiinpanoa ei luotu ääni- tai videotiedostosta, eikä sillä ole litterointia.",
+      "failedToLoadNote": "Muistiinpanon lataaminen epäonnistui",
+      "noteTranscript2": "Muistiinpanon litterointi",
+      "loadingTranscript": "Ladataan litterointia...",
+      "goToNote": "Siirry muistiinpanoon"
+    },
     "noteOptions": "Muistiinpanovaihtoehdot",
-    "editNote": "Muokkaa muistiinpanoa",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Kirjoita muistiinpanolle otsikko",
+      "failedToUpdateNote": "Muistiinpanon päivittäminen epäonnistui",
+      "noteUpdatedSuccessfully": "Muistiinpano päivitetty",
+      "editNote": "Muokkaa muistiinpanoa",
+      "noteTitle": "Muistiinpanon otsikko",
+      "enterNoteTitle": "Kirjoita muistiinpanon otsikko",
+      "noteContent": "Muistiinpanon sisältö",
+      "enterNoteContent": "Kirjoita muistiinpanon sisältö",
+      "saveThisNote": "Tallenna muistiinpano",
+      "aiIsGeneratingYourNote": "AI luo muistiinpanoasi",
+      "largeAudioAndVideoFilesMay": "Suurten ääni- ja videotiedostojen käsittely voi kestää muutaman minuutin. Pidä sovellus auki."
+    },
     "retranscribe": "Uudelleentranskriptio",
     "exportNote": "Vie muistiinpano",
     "shareNoteLink": "Jaa muistiinpanolinkki",
@@ -237,12 +443,89 @@
     "translate": "Kääntää",
     "addToFolder": "Lisää kansioon",
     "loadingNote": "Muistiinpanoa ladataan...",
-    "noteNotFound": "Muistiinpanon lataaminen epäonnistui"
+    "noteNotFound": "Muistiinpanon lataaminen epäonnistui",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Muistikorttien luominen epäonnistui",
+      "anUnexpectedErrorOccurred": "Tapahtui odottamaton virhe",
+      "history": "Historia",
+      "export": "Vie"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Muistiinpanon lisääminen kansioon epäonnistui",
+      "folderNotFound": "Kansiota ei löytynyt",
+      "addNote": "+ Lisää muistiinpano",
+      "noNotesInThisFolder": "Tässä kansiossa ei ole muistiinpanoja",
+      "moveNotesToThisFolderTo": "Siirrä muistiinpanoja tähän kansioon nähdäksesi ne täällä",
+      "addNoteToFolder": "Lisää muistiinpano kansioon",
+      "noNotesAvailableToAdd": "Ei lisättäviä muistiinpanoja",
+      "allYourNotesAreAlreadyIn": "Kaikki muistiinpanosi ovat jo tässä kansiossa",
+      "created": "Luotu {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Muistiinpanon lataaminen epäonnistui",
+      "reTranscribeNote": "Litteroi muistiinpano uudelleen",
+      "thisWillReTranscribeTheAudio": "Tämä litteroi äänitteen uudelleen ja päivittää muistiinpanon. Haluatko jatkaa?",
+      "reTranscribe": "Litteroi uudelleen",
+      "noteReTranscribedSuccessfully": "Muistiinpano litteroitu uudelleen",
+      "info": "Tiedot",
+      "reTranscriptionFeatureIsComingSoon": "Uudelleenlitterointi on tulossa pian",
+      "youAreCurrentlyOfflinePleaseConnect": "Olet offline-tilassa. Yhdistä internetiin suorittaaksesi tämän toiminnon.",
+      "failedToDeleteNote": "Muistiinpanon poistaminen epäonnistui",
+      "failedToExportNote": "Muistiinpanon vienti epäonnistui",
+      "noteTranslatedSuccessfully": "Muistiinpano käännetty onnistuneesti",
+      "failedToTranslateNote": "Muistiinpanon kääntäminen epäonnistui",
+      "noteMovedTo": "Muistiinpano siirretty kohteeseen {{name}}",
+      "failedToMoveNoteToFolder": "Muistiinpanon siirtäminen kansioon epäonnistui",
+      "summaryNotes": "Tiivistelmämuistiinpanot",
+      "loadingNote": "Ladataan muistiinpanoa...",
+      "imageNote": "Kuvamuistiinpano",
+      "created": "Luotu {{dateTime}}",
+      "translate": "Käännä",
+      "transcribe": "Litteroi",
+      "editThisNote": "Muokkaa muistiinpanoa",
+      "createFlashcards": "Luo muistikortteja",
+      "createFlashcardsToImproveYourRetention": "Luo muistikortteja tehostaaksesi oppimista",
+      "createQuizQuestions": "Luo visakysymyksiä",
+      "practiceYourNotesByCreatingQuestions": "Kertaa muistiinpanojasi luomalla kysymyksiä aiheen hallitsemiseksi"
+    },
+    "sharedNote": {
+      "notFound": "Ei löytynyt",
+      "thisSharedNoteLinkIsInvalid": "Jaetun muistiinpanon linkki on virheellinen tai vanhentunut.",
+      "failedToLoadSharedNote": "Jaetun muistiinpanon lataaminen epäonnistui.",
+      "saved": "Tallennettu!",
+      "noteHasBeenAddedToYour": "Muistiinpano on lisätty kirjastoosi.",
+      "viewInLibrary": "Näytä kirjastossa",
+      "stayHere": "Jää tähän",
+      "failedToSaveNote": "Muistiinpanon tallentaminen epäonnistui.",
+      "loadingSharedNote": "Ladataan jaettua muistiinpanoa...",
+      "sharedNote": "Jaettu muistiinpano",
+      "sharedWithYou": "Jaettu kanssasi",
+      "savedToLibrary": "Tallennettu kirjastoon",
+      "saveToMyLibrary": "Tallenna kirjastooni"
+    }
   },
   "create": {
     "selectOption": "Miten haluat luoda muistiinpanosi?",
-    "recordAudio": "Tallenna ääni",
-    "uploadAudio": "Lataa ääni",
+    "recordAudio": {
+      "permissionRequired": "Käyttöoikeus vaaditaan",
+      "pleaseGrantMicrophonePermissionToRecord": "Myönnä mikrofonin käyttöoikeus äänen tallentamiseksi.",
+      "failedToRequestMicrophonePermission": "Mikrofonin käyttöoikeuden pyytäminen epäonnistui",
+      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Äänitetään",
+      "recordAudio": "Äänitä",
+      "createANoteFromAnyRecorded": "Luo muistiinpano äänitteestä",
+      "recording": "Äänitetään ({{time}})",
+      "recordAgain": "Äänitä uudelleen"
+    },
+    "uploadAudio": {
+      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Äänitiedoston valitseminen epäonnistui",
+      "uploadAudio": "Lataa äänitiedosto",
+      "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta äänitiedostosta",
+      "dragDropFilesOrBrowse": "Vedä ja pudota tiedostoja tai selaa",
+      "supportedFormatMp4WavMp3": "Tuetut tiedostomuodot: mp4, wav, mp3",
+      "changeFile": "Vaihda tiedosto"
+    },
     "youtube": "YouTube-video",
     "pdfDocument": "PDF tai dokumentti",
     "customText": "Mukautettu teksti",
@@ -250,7 +533,56 @@
     "uploadingFile": "Tiedostoa ladataan palvelimelle...",
     "transcribing": "Muunnetaan puhetta tekstiksi...",
     "extractingText": "Tekstiä poimitaan...",
-    "generatingNote": "Tekoälyllä toimivien muistiinpanojen luominen...",
+    "generatingNote": {
+      "uploadAudio": "Lataa äänitiedosto",
+      "uploadingAudioFileToServer": "Ladataan äänitiedostoa palvelimelle...",
+      "transcribeAudio": "Litteroi ääni",
+      "convertingSpeechToText": "Muunnetaan puhetta tekstiksi...",
+      "generateYourNote": "Luo muistiinpanosi",
+      "creatingStudyNotes": "Luodaan opiskelumuistiinpanoja...",
+      "uploadPDF": "Lataa PDF",
+      "uploadingPDFDocumentToServer": "Ladataan PDF-tiedostoa palvelimelle...",
+      "extractText": "Pura teksti",
+      "readingAndExtractingTextFromPDF": "Luetaan ja puretaan tekstiä PDF-tiedostosta...",
+      "uploadImage": "Lataa kuva",
+      "uploadingImageToServer": "Ladataan kuvaa palvelimelle...",
+      "extractTextOCR": "Pura teksti (OCR)",
+      "recognizingAndExtractingTextFromImage": "Tunnistetaan ja puretaan tekstiä kuvasta...",
+      "fetchVideo": "Hae video",
+      "connectingToYouTube": "Yhdistetään YouTubeen...",
+      "extractTranscript": "Hae transkriptio",
+      "downloadingVideoTranscript": "Ladataan videon transkriptiota...",
+      "processText": "Käsittele teksti",
+      "analyzingYourContent": "Analysoidaan sisältöäsi...",
+      "uploadFile": "Lataa tiedosto",
+      "uploadingToServer": "Ladataan palvelimelle...",
+      "processContent": "Käsittele sisältö",
+      "extractingContent": "Puretaan sisältöä...",
+      "noteReady": "Muistiinpano on valmis!",
+      "noteGenerationFailedOnTheServer": "Muistiinpanon luominen epäonnistui palvelimella.",
+      "failedToUploadImage": "Kuvan lataaminen epäonnistui",
+      "weCouldNotReadAnythingFrom": "Kuvasta ei saatu luettua mitään. Kokeile selkeämpää kuvaa muistiinpanoistasi.",
+      "preparingFile": "Valmistellaan tiedostoa...",
+      "almostDone": "Melkein valmista...",
+      "untitledNote": "Nimetön muistiinpano",
+      "failedToGenerateNote": "Muistiinpanon luominen epäonnistui",
+      "whoaSpeedy": "Oho, mikä vauhti! 🏃💨",
+      "youReGeneratingContentABit": "Luot sisältöä hieman liian nopeasti. Pidä 60 sekunnin tauko ennen uutta yritystä, jotta AI ehtii mukaan.",
+      "gotIt": "Selvä",
+      "fileTooLarge": "Tiedosto on liian suuri",
+      "yourFileExceedsThe15MBLimit": "Tiedostosi ylittää maksuttoman version 15 MB:n rajan. Päivitä PRO-versioon ladataksesi jopa 100 MB:n luentoja.",
+      "upgradeToPRO": "Päivitä PRO-versioon",
+      "oopsWeHitASnag": "Hups, jokin meni pieleen 🚧",
+      "weCouldnTGenerateThatRight": "Muistiinpanoa ei voitu luoda juuri nyt. Odota hetki ja yritä uudelleen!",
+      "processingContent": "Käsitellään sisältöä...",
+      "generatingYourNote": "Luodaan muistiinpanoasi...",
+      "audioNote": "Äänimuistiinpano",
+      "failedToGenerateFlashcards": "Muistikorttien luominen epäonnistui",
+      "generatingNote": "Luodaan muistiinpanoa",
+      "pleaseKeepThisScreenOpenWhile": "Pidä tämä näyttö auki, kun muistiinpanoasi luodaan. Suurten tiedostojen litteroinnissa voi kestää muutama minuutti.",
+      "goToNote": "Siirry muistiinpanoon",
+      "generateNoteTranscript": "Luo muistiinpanon transkriptio"
+    },
     "fetchingVideo": "Yhdistetään YouTubeen...",
     "processingText": "Sisältöäsi analysoidaan...",
     "uploadAudioTitle": "Lataa ääni",
@@ -260,7 +592,63 @@
     "fetchVideo": "Hae video",
     "extractTranscript": "Ote transkriptio",
     "processText": "Prosessiteksti",
-    "generateNote": "Luo muistiinpanosi"
+    "generateNote": "Luo muistiinpanosi",
+    "customTextInput": {
+      "customText": "Oma teksti",
+      "createANoteFromAnyCustom": "Luo muistiinpano mistä tahansa omasta tekstistä",
+      "enterText": "Syötä teksti",
+      "enterYourTextHere": "Kirjoita tekstisi tähän..."
+    },
+    "uploadImage": {
+      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Käyttöoikeus vaaditaan",
+      "pleaseAllowAccessToYourPhoto": "Salli pääsy kuvakirjastoosi",
+      "failedToPickImage": "Kuvan valitseminen epäonnistui",
+      "uploadImage": "Lataa kuva",
+      "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta kuvasta",
+      "dragDropFilesOrBrowse": "Vedä ja pudota tiedostoja tai selaa",
+      "supportedFormatPngJpegHeicWebp": "Tuetut tiedostomuodot: png, jpeg, heic, webp",
+      "changeFile": "Vaihda tiedosto"
+    },
+    "uploadPDF": {
+      "created": "Luotu {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Tiedoston valitseminen epäonnistui",
+      "uploadPdf": "Lataa PDF",
+      "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta PDF-tiedostosta",
+      "dragDropFilesOrBrowse": "Vedä ja pudota tiedostoja tai selaa",
+      "supportedFormatPdf": "Tuettu tiedostomuoto: pdf",
+      "changeFile": "Vaihda tiedosto"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Haetaan videota",
+      "gettingVideoDetails": "Haetaan videon tietoja",
+      "extractingTranscript": "Puretaan transkriptiota",
+      "convertingAudioToText": "Muunnetaan ääntä tekstiksi",
+      "generatingYourNote": "Luodaan muistiinpanoasi",
+      "aiIsSummarisingTheContent": "AI tiivistää sisältöä",
+      "noteGenerationFailedPleaseTryAgain": "Muistiinpanon luominen epäonnistui. Yritä uudelleen.",
+      "processingFailed": "Käsittely epäonnistui",
+      "goBack": "Takaisin",
+      "retry": "Yritä uudelleen",
+      "failedToStartNoteGeneration": "Muistiinpanon luomista ei voitu aloittaa",
+      "failedToProcessYouTubeVideoPlease": "YouTube-videon käsittely epäonnistui. Yritä uudelleen.",
+      "cancelProcessing": "Peruuta käsittely",
+      "areYouSureYouWantTo": "Haluatko varmasti peruuttaa? Edistymisesi menetetään.",
+      "continueProcessing": "Jatka käsittelyä",
+      "youTubeNote": "YouTube-muistiinpano",
+      "noteGenerated": "Muistiinpano luotu",
+      "generatingNote": "Luodaan muistiinpanoa",
+      "goToNote": "Siirry muistiinpanoon"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Videon tietoja ei voitu hakea",
+      "failedToFetchVideoInformation": "Videon tietojen haku epäonnistui",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Luo muistiinpano mistä tahansa YouTube-videosta",
+      "enterYoutubeURL": "Syötä YouTube-osoite",
+      "pasteYoutubeURL": "Liitä YouTube-osoite",
+      "fetchingVideoInfo": "Haetaan videon tietoja..."
+    }
   },
   "library": {
     "title": "Kirjasto",
@@ -292,7 +680,7 @@
     "almostDone": "Melkein valmis...",
     "quizReady": "Visailu valmis!",
     "startQuiz": "Aloita testi",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} / {{total}}",
     "exitTitle": "Poistutaanko testitilasta?",
     "exitMessage": "Edistymisesi menetetään.",
     "exit": "Uloskäynti",
@@ -312,7 +700,45 @@
     "correctAnswer": "Oikea vastaus",
     "yourAnswer": "Vastauksesi",
     "explanation": "Selitys",
-    "questionProgress": "Kysymys {{current}} / {{total}}"
+    "questionProgress": "Kysymys {{current}} / {{total}}",
+    "generatingQuizWait": "Luomme visaasi, odotathan hetken...",
+    "goToChats": "Siirry keskusteluihin",
+    "quizGroupDetail": {
+      "inProgress": "Kesken",
+      "notStarted": "Ei aloitettu",
+      "failedToLoadQuizHistory": "Visahistorian lataaminen epäonnistui",
+      "failedToLoadChatContent": "Keskustelun sisällön lataaminen epäonnistui",
+      "deleteQuiz": "Poista visa",
+      "failedToDeleteQuiz": "Visan poistaminen epäonnistui",
+      "created": "Luotu {{dateTime}}",
+      "lastscore": "VIIMEISIN TULOS",
+      "bestscore": "PARAS TULOS",
+      "attempts": "YRITYKSET",
+      "retakeQuiz": "Tee visa uudelleen",
+      "translate": "Käännä",
+      "newQuiz": "Uusi visa",
+      "quizHistory": "Visahistoria",
+      "flashcardHistory": "Muistikorttihistoria",
+      "score": "Tulos {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Tästä lähteestä ei ole vielä muistikorttisarjoja.",
+      "cards": "{{totalCards}} korttia · {{flashcardStatus}}",
+      "quizOptions": "Visan asetukset",
+      "exportLatestAttempt": "Vie viimeisin yritys",
+      "questions": "{{totalQuestions}} kysymystä · {{value}}",
+      "deleteAllAttemptsOne": "Poistetaanko visan ”{{title}}” suorituskerta? Tätä toimintoa ei voi kumota.",
+      "deleteAllAttemptsMany": "Poistetaanko kaikki {{total}} visan ”{{title}}” suorituskertaa? Tätä toimintoa ei voi kumota.",
+      "makeFlashcards": "Luo muistikortteja"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Visan tietojen lataus epäonnistui – virheellinen vastausmuoto",
+      "failedToLoadQuizData": "Visan tietojen lataaminen epäonnistui",
+      "noContentAvailable": "Ei sisältöä saatavilla",
+      "goBack": "Takaisin",
+      "previous": "Edellinen"
+    },
+    "quiz": {
+      "generationFailed": "Luonti epäonnistui"
+    }
   },
   "flashcards": {
     "title": "muistikortit",
@@ -343,7 +769,46 @@
     "headerTitle": "Muistikortti",
     "progressFormat": "Muistikortti {{current}} / {{total}}",
     "noteIdRequired": "Muistiinpanotunnus vaaditaan muistikorttien luomiseen",
-    "invalidCardCount": "Valitse 1–100 muistikorttia"
+    "invalidCardCount": "Valitse 1–100 muistikorttia",
+    "flashcardGroupDetail": {
+      "inProgress": "Kesken",
+      "notStarted": "Ei aloitettu",
+      "failedToLoadFlashcardHistory": "Muistikorttihistorian lataaminen epäonnistui",
+      "limitReached": "Raja saavutettu",
+      "flashcardGenerationLimitReached": "Muistikorttien luontiraja on saavutettu.",
+      "failedToGenerateFlashcards": "Muistikorttien luominen epäonnistui",
+      "failedToTranslateFlashcards": "Muistikorttien kääntäminen epäonnistui",
+      "deleteFlashcards": "Poista muistikortit",
+      "failedToDeleteFlashcards": "Muistikorttien poistaminen epäonnistui",
+      "created": "Luotu {{dateTime}}",
+      "lastprogress": "VIIMEISIN EDISTYMINEN",
+      "bestprogress": "PARAS EDISTYMINEN",
+      "sets": "SARJAT",
+      "studyNow": "Opiskele nyt",
+      "translate": "Käännä",
+      "newFlashcards": "Uudet muistikortit",
+      "flashcardHistory": "Muistikorttihistoria",
+      "quizHistory": "Tietovisahistoria",
+      "cards": "{{totalCards}} korttia · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Ei vielä tietovisoja tästä lähteestä.",
+      "score": "Tulos {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Muistikorttien asetukset",
+      "exportLatestSet": "Vie uusin sarja",
+      "questions": "{{totalQuestions}} kysymystä · {{value}}",
+      "deleteAllSetsOne": "Poistetaanko sarja \"{{title}}\"? Tätä ei voi kumota.",
+      "deleteAllSetsMany": "Poistetaanko kaikki {{total}} muistikorttisarjaa kohteesta \"{{title}}\"? Tätä ei voi kumota.",
+      "makeQuiz": "Luo tietovisa",
+      "failedToLoadChatContent": "Keskustelun sisällön lataaminen epäonnistui"
+    },
+    "flashcardReview": {
+      "unknownError": "Tuntematon virhe",
+      "noFlashcardsInThisSet": "Tässä sarjassa ei ole muistikortteja",
+      "goBack": "Takaisin",
+      "allDone": "Kaikki valmista",
+      "youHaveReviewedAllTheCards": "Olet käynyt läpi pakan kaikki kortit",
+      "question": "Kysymys {{value}}",
+      "questionOf": "Kysymys {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Chat",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Keskustele dokumentin kanssa",
     "selectFile": "Valitse tiedosto, jonka kanssa keskustella",
     "uploadFile": "Lähetä tiedosto",
-    "startChatting": "Aloita keskustelu"
+    "startChatting": "Aloita keskustelu",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Esitä lääketieteellinen kysymys saadaksesi lisätietoa",
+      "askAnythingAboutThisDocument": "Kysy mitä vain tästä asiakirjasta...",
+      "askAQuestionAttachmentProcessingFailed": "Esitä kysymys – liitteen käsittely epäonnistui",
+      "extractingText": "Poimitaan tekstiä...",
+      "processingPDF": "Käsitellään PDF-tiedostoa...",
+      "upgradeToProToContinueChatting": "Päivitä PRO-versioon jatkaaksesi keskustelua",
+      "queryremaining": "{{queriesRemaining}} KYSYMYS JÄLJELLÄ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Alustetaan chattia...",
+      "extractingTextFromImage": "Poimitaan tekstiä kuvasta...",
+      "processingPDFDocument": "Käsitellään PDF-tiedostoa...",
+      "analyzingYourNote": "Analysoidaan muistiinpanoasi...",
+      "thisUsuallyTakesJustAFew": "⏱️ Tämä kestää yleensä vain muutaman sekunnin. Voit aloittaa chatin käsittelyn valmistuttua.",
+      "processingFailed": "Käsittely epäonnistui",
+      "fileMightBeCorruptedOrUnreadable": "• Tiedosto saattaa olla vioittunut tai lukukelvoton",
+      "imageQualityTooLow": "Kuvanlaatu on liian heikko",
+      "pdfIsPasswordProtected": "PDF on suojattu salasanalla",
+      "contentFormatNotSupported": "Tiedostomuotoa ei tueta",
+      "networkConnectionIssue": "• Verkkoyhteysongelma",
+      "tryADifferentFile": "Kokeile toista tiedostoa",
+      "askAnyClinicalQuestionNoUpload": "💡 Kysy mikä tahansa kliininen kysymys – tiedostoa ei tarvitse ladata. Vastaan lääketieteelliseen kirjallisuuteen viitaten ja liitän mukaan asiaankuuluvia kuvia, jos niitä on saatavilla.",
+      "readyToChat": "✓ Valmis chattiin",
+      "couldntProcessNote": "Muistiinpanon käsittely ei onnistunut. Syynä voi olla:",
+      "couldntProcessImage": "Kuvan käsittely ei onnistunut. Syynä voi olla:",
+      "couldntProcessDocument": "Asiakirjan käsittely ei onnistunut. Syynä voi olla:",
+      "askMeAboutNote": "💡 Kysy mitä vain tästä muistiinpanosta. Voin tiivistää, selittää käsitteitä tai vastata tarkempiin kysymyksiin.",
+      "askMeAboutImage": "💡 Kysy mitä vain tästä kuvasta. Voin tiivistää, selittää käsitteitä tai vastata tarkempiin kysymyksiin.",
+      "askMeAboutDocument": "💡 Kysy mitä vain tästä asiakirjasta. Voin tiivistää, selittää käsitteitä tai vastata tarkempiin kysymyksiin."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} osattu",
+      "notStarted": "Ei aloitettu",
+      "quizGeneration": "Tietovisan luonti",
+      "score": "Tulos {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Muistikorttien luonti",
+      "questions": "{{totalCards}} kysymystä · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} kysymystä · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Pohditaan ja etsitään lähteitä...",
+      "couldnTGenerateAResponse": "Vastauksen luominen epäonnistui.",
+      "retry": "Yritä uudelleen",
+      "alsoReferencedFromTheWeb": "Viitteenä myös verkosta",
+      "followUpQuestions": "Jatkokysymykset"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Kysy mitä tahansa lääketieteestä – saat lähteistettyä tietoa luotettavista lähteistä",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Näyttöön perustuva · PubMed-lähteet · Vertaisarvioitu",
+      "tryOutAnyOfThisTopics": "Kokeile jotakin näistä aiheista päästäksesi alkuun",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolyyttihäiriöt selitettynä",
+          "question": "Selitä elektrolyyttihäiriöt – syyt, oireet ja hoito"
+        },
+        "ecg": {
+          "label": "EKG:n tulkinnan perusteet",
+          "question": "Mitkä ovat EKG:n tulkinnan perusteet?"
+        },
+        "drugInteractions": {
+          "label": "Tärkeimmät lääkeyhteisvaikutukset",
+          "question": "Mitkä ovat keskeisiä lääkeyhteisvaikutuksia, jotka minun tulisi tietää?"
+        },
+        "nclex": {
+          "label": "NCLEX-tyyliset harjoitusaiheet",
+          "question": "Anna minulle NCLEX-tyylinen harjoituskysymys"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA-lääkeseloste",
+      "fromYourAttachedMaterial": "Liitetystä materiaalistasi"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Keskusteluistunnon luominen epäonnistui",
+      "failedToInitializeChatSession": "Keskusteluistunnon alustaminen epäonnistui",
+      "failedToUpdateLanguage": "Kielen päivittäminen epäonnistui",
+      "youVeReachedYour3Pin": "Olet saavuttanut 3 kiinnityksen rajan",
+      "failedToUpdatePin": "Kiinnityksen päivittäminen epäonnistui",
+      "permissionRequired": "Käyttöoikeus vaaditaan",
+      "pleaseGrantCameraPermissionToTake": "Myönnä kameran käyttöoikeus ottaaksesi kuvan.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Myönnä kuvakirjaston käyttöoikeus ladataksesi kuvia.",
+      "failedToUploadImage": "Kuvan lataaminen epäonnistui",
+      "uploadFailed": "Lataus epäonnistui",
+      "failedToUploadDocument": "Asiakirjan lataaminen epäonnistui",
+      "failedToStartChatFromThis": "Keskustelun aloittaminen tästä tiedostosta epäonnistui.",
+      "chatFromImage": "Keskustele kuvan pohjalta",
+      "failedToStartANewQuestion": "Uuden kysymyksen aloittaminen epäonnistui. Yritä uudelleen.",
+      "failedToAttachFile": "Tiedoston liittäminen epäonnistui",
+      "failedToSendMessage": "Viestin lähettäminen epäonnistui",
+      "copiedToClipboard": "Kopioitu leikepöydälle",
+      "notEnoughContentYet": "Ei vielä tarpeeksi sisältöä",
+      "chatABitMoreBeforeGenerating": "Keskustele hieman lisää ennen visan luomista (vähintään 100 merkkiä).",
+      "chatABitMoreBeforeGenerating2": "Keskustele hieman lisää ennen muistikorttien luomista (vähintään 100 merkkiä).",
+      "failedToGenerateFlashcards": "Muistikorttien luominen epäonnistui",
+      "failedToRegenerateResponse": "Vastauksen luominen uudelleen epäonnistui",
+      "failedToRetryResponse": "Vastauksen uudelleenyritys epäonnistui"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Muistiinpanon liittäminen epäonnistui",
+      "folderCreatedSuccessfully": "Kansio \"{{name}}\" luotu onnistuneesti!",
+      "failedToCreateFolder": "Kansion luominen epäonnistui",
+      "failedToAttachDocument": "Asiakirjan liittäminen epäonnistui",
+      "failedToCreateChatSession": "Keskusteluistunnon luominen epäonnistui",
+      "failedToUploadDocument": "Asiakirjan lataaminen epäonnistui",
+      "openingCamera": "📷 Avataan kameraa...",
+      "openingImagePicker": "🖼️ Avataan kuvavalitsinta...",
+      "permissionRequired": "Käyttöoikeus vaaditaan",
+      "pleaseGrantCameraPermissionToTake": "Myönnä kameran käyttöoikeus ottaaksesi kuvan.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Myönnä kuvakirjaston käyttöoikeus ladataksesi kuvia.",
+      "failedToAttachImage": "Kuvan liittäminen epäonnistui",
+      "failedToUploadImage": "Kuvan lataaminen epäonnistui",
+      "failedToAttachAudio": "Äänitiedoston liittäminen epäonnistui",
+      "failedToUploadAudio": "Äänitiedoston lataaminen epäonnistui",
+      "aNote": "{{verb}} muistiinpano",
+      "anImage": "{{verb}} kuva",
+      "aDocument": "{{verb}} asiakirja",
+      "audio": "{{verb}} ääni",
+      "aFile": "{{verb}} tiedosto",
+      "items": "{{itemCount}} kohdetta",
+      "thisFolderIsEmptyGoBack": "Tämä kansio on tyhjä. Palaa takaisin valitaksesi toisen kansion.",
+      "addFolder": "Lisää kansio",
+      "uploadNewDocument": "Lataa uusi asiakirja",
+      "uploadAPDFAndStartChatting": "Lataa PDF ja aloita keskustelu heti",
+      "uploadNewImage": "Lataa uusi kuva",
+      "uploadAnImageAndExtractText": "Lataa kuva ja poimi teksti heti",
+      "uploadNewAudio": "Lataa uusi äänitiedosto",
+      "uploadAnAudioFileAndTranscribe": "Lataa äänitiedosto ja litteroi se heti",
+      "orselectfromlibrary": "TAI VALITSE KIRJASTOSTA",
+      "folders": "Kansiot",
+      "allNotes": "Kaikki muistiinpanot",
+      "noFilesToDisplay": "Ei näytettäviä tiedostoja",
+      "noNotesToDisplay": "Ei näytettäviä muistiinpanoja",
+      "noDocumentsYet": "Sinulla ei ole vielä PDF-asiakirjoja.\nLuo ensin muistiinpanoja ja palaa sitten keskustelemaan niiden pohjalta.",
+      "noImagesYet": "Sinulla ei ole vielä kuvia.\nLuo ensin muistiinpanoja ja palaa sitten keskustelemaan niiden pohjalta.",
+      "noAudioNotesYet": "Sinulla ei ole vielä äänimuistiinpanoja.\nLuo ensin muistiinpanoja ja palaa sitten keskustelemaan niiden pohjalta.",
+      "noNotesYet": "Sinulla ei ole vielä muistiinpanoja.\nLuo ensin muistiinpanoja ja palaa sitten keskustelemaan niiden pohjalta.",
+      "attachNote": "Liitä muistiinpano",
+      "selectNote": "Valitse muistiinpano",
+      "attachImage": "Liitä kuva",
+      "selectImage": "Valitse kuva",
+      "attachDocument": "Liitä asiakirja",
+      "selectDocument": "Valitse asiakirja",
+      "attachAudio": "Liitä äänitiedosto",
+      "selectAudio": "Valitse äänitiedosto",
+      "attachFile": "Liitä tiedosto",
+      "selectFile": "Valitse tiedosto"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Lisää keskusteluun",
+      "camera": "Kamera",
+      "photos": "Kuvat",
+      "files": "Tiedostot",
+      "generateQuiz": "Luo tietovisa",
+      "generateFlashcards": "Luo muistikortteja",
+      "searchMedicalLiterature": "Hae lääketieteellisestä kirjallisuudesta",
+      "filterByDateSourceAndType": "Suodata päivämäärän, lähteen ja tyypin mukaan",
+      "pullsRealCitedSourcesIntoYour": "Hakee vastauksiisi aitoja, viitattuja lähteitä",
+      "trustedmedicalsourcedatabase": "LUOTETTUJEN LÄÄKETIETEELLISTEN LÄHTEIDEN TIETOKANTA",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA:n lääke- ja hoitotiedot"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Tarkista lähteet",
+      "citations": "Viitteet",
+      "fromTheWeb": "Verkosta"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Valmis · nimeä uudelleen napauttamalla",
+      "processing": "Käsitellään {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Näytä lähde ↗"
+    },
+    "chatRename": {
+      "renameChat": "Nimeä keskustelu uudelleen"
+    },
+    "sourcesRow": {
+      "viewSources": "Näytä lähteet ({{total}})"
+    }
   },
   "languages": {
     "english": "englanti",
@@ -408,5 +1057,455 @@
     "malay": "Malaiji",
     "indonesian": "Indonesia",
     "catalan": "katalaani"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Lisää kansio",
+      "folderName": "Kansion nimi",
+      "enterFolderName": "Kirjoita kansion nimi",
+      "chooseColor": "Valitse väri",
+      "createFolder": "Luo kansio"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Ennen kuin käsittelemme sisältöäsi",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact käyttää AI:ta vastaamaan kysymyksiisi ja muuntamaan sisältösi muistiinpanoiksi, tietovisoiksi ja muistikorteiksi. Huomioi seuraavat asiat:",
+      "whatDataIsSent": "Mitä tietoja lähetetään",
+      "questionsAndMessagesYouTypeIn": "Keskusteluun kirjoittamasi kysymykset ja viestit",
+      "audioRecordingsOrUploadedAudioFiles": "Äänitallenteet tai lataamasi äänitiedostot",
+      "pdfAndTextDocumentsYouUpload": "Lataamasi PDF- ja tekstiasiakirjat",
+      "imagesYouUpload": "Lataamasi kuvat",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube-videoiden URL-osoitteet ja niiden transkriptiot",
+      "customTextYouEnter": "Kirjoittamasi oma teksti",
+      "whoReceivesYourData": "Kuka vastaanottaa tietosi",
+      "howItSUsed": "Miten tietoja käytetään",
+      "yourContentIsUsedSolelyTo": "Sisältöäsi käytetään ainoastaan pyytämäsi vastauksen, muistiinpanon, tietovisan tai muistikorttien luomiseen. Kunkin palveluntarjoajan omat tietosuojakäytännöt koskevat heidän rajapintansa kautta käsiteltyä sisältöä. Lisätietoja löydät tietosuojaselosteestamme.",
+      "iAgreeContinue": "Hyväksyn — Jatka",
+      "noThanks": "Ei kiitos",
+      "whoReceivesBody": "Sisältösi lähetetään suojattujen palvelimiemme kautta <bold>Googlelle (Gemini)</bold> (muistiinpanojen, visojen ja muistikorttien luonti, chat-vastaukset sekä asiakirjojen ja kuvien käsittely) ja <bold>OpenAI:lle</bold> (äänen transkriptio). Asiakirjojesi tekstiosiot indeksoidaan myös <bold>Google Vertex AI:lla</bold>, jotta chat löytää niistä olennaiset kohdat. Kun käytät reaaliaikaista lääketieteellistä hakua, kysymyksesi lähetetään lisäksi <bold>Tavilylle</bold> ja julkisiin lääketieteellisiin tietokantoihin (kuten PubMed, Europe PMC ja Semantic Scholar) luotettavien lähteiden, kuten NIH:n, CDC:n, MedlinePlusin, WHO:n ja Mayo Clinicin, viitteiden hakemista varten. Nämä palveluntarjoajat käsittelevät tietojasi vain vastausten luomiseen – he eivät käytä niitä omien yleiskäyttöisten AI-malliensa kouluttamiseen, emmekä me myy tietojasi kolmansille osapuolille."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Poista kiinnitys",
+      "pinChat": "Kiinnitä keskustelu",
+      "deleteChat": "Poista keskustelu"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Luo muistikortteja",
+      "createFlashcards": "Luo muistikortit",
+      "createFlashcardsFromToImproveYour": "Luo muistikortteja muistiinpanosta ”{{noteTitle}}” tehostaaksesi oppimista",
+      "createFlashcardsToImproveYourRetention": "Luo muistikortteja ja tehosta muistamista",
+      "howManyQuestions": "Kysymysten määrä",
+      "generateFlashcards2": "Luo muistikortit"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Luo keskustelusta",
+      "selectFromOneOfYourRecent": "Valitse viimeisimmistä keskusteluistasi",
+      "pdfOrDocument": "PDF tai dokumentti",
+      "createFromAudio": "Luo äänitteestä",
+      "image": "Kuva",
+      "createFromCustomText": "Luo omasta tekstistä",
+      "created": "Luotu {{day}}, {{time}}",
+      "createQuizFrom": "Luo tietovisa lähteestä",
+      "createFlashcardsFrom": "Luo muistikortit lähteestä",
+      "selectFromChat": "Valitse keskustelusta",
+      "noRecentChatsYet": "Ei vielä viimeaikaisia keskusteluja",
+      "quizFromPdf": "Luo tietovisa PDF:stä tai dokumentista",
+      "flashcardsFromPdf": "Luo muistikorttisetti PDF:stä tai dokumentista",
+      "quizFromAudio": "Luo tietovisa ladatusta äänitteestä",
+      "flashcardsFromAudio": "Luo muistikorttisetti ladatusta äänitteestä",
+      "quizFromImage": "Luo tietovisa mistä tahansa kuvasta",
+      "flashcardsFromImage": "Luo muistikorttisetti mistä tahansa kuvasta",
+      "quizFromText": "Luo tietovisa tallennetusta tekstistä",
+      "flashcardsFromText": "Luo muistikorttisetti tallennetusta tekstistä"
+    },
+    "createNote": {
+      "recordAudio": "Äänitä",
+      "generateANoteFromAnyRecorded": "Luo muistiinpano mistä tahansa äänitteestä",
+      "uploadAudio": "Lataa äänite",
+      "createANoteFromAnyUploaded": "Luo muistiinpano ladatusta äänitiedostosta",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Luo muistiinpano mistä tahansa YouTube-videosta",
+      "pdfOrDocument": "PDF tai dokumentti",
+      "createANoteFromPDFOr": "Luo muistiinpano PDF:stä tai dokumentista",
+      "customText": "Oma teksti",
+      "createANoteFromCapturedText": "Luo muistiinpano tallennetusta tekstistä",
+      "image": "Kuva",
+      "createANoteFromAnyImage": "Luo muistiinpano mistä tahansa kuvasta",
+      "createNote": "Luo muistiinpano"
+    },
+    "createQuiz": {
+      "generateQuiz": "Luo tietovisa",
+      "createQuiz": "Luo tietovisa",
+      "practiceByCreatingQuestionsThatHelp": "Kertaa muistiinpanoa \"{{noteTitle}}\" luomalla kysymyksiä aiheen hallitsemiseksi",
+      "practiceYourNotesByCreatingQuestions": "Kertaa muistiinpanojasi luomalla kysymyksiä aiheen hallitsemiseksi",
+      "howManyQuestions": "Kysymysten määrä",
+      "timeInMinutes": "Aika (minuutteina)"
+    },
+    "deleteNote": {
+      "deleteNote": "Poista muistiinpano",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa tämän muistiinpanon?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Vie tiivistelmä muodossa",
+      "exportTranscriptAs": "Vie transkriptio muodossa",
+      "exportAs": "Vie muodossa",
+      "exportSummary": "Vie tiivistelmä",
+      "exportTranscript": "Vie transkriptio"
+    },
+    "exportTypeStep": {
+      "exportNote": "Vie muistiinpano",
+      "exportSummary": "Vie tiivistelmä",
+      "exportTranscript": "Vie transkriptio"
+    },
+    "exportSettings": {
+      "export": "Vie {{title}}",
+      "selectFormat": "Valitse muoto",
+      "includeAnswers": "Sisällytä vastaukset",
+      "answersExplanationsIncluded": "Sisältää vastaukset ja selitykset",
+      "questionsOnly": "Vain kysymykset",
+      "export2": "Vie"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Muistiinpanosi on valmis!",
+      "howDidWeDo": "Miten onnistuimme?",
+      "happy": "Tyytyväinen",
+      "sad": "Surullinen",
+      "maybeLater": "Ehkä myöhemmin",
+      "whatWentWrong": "Mikä meni pieleen?",
+      "yourFeedbackHelpsUsImprove": "Palautteesi auttaa meitä kehittymään.",
+      "tellUsWhatCouldBeBetter": "Kerro meille, mitä voisimme parantaa...",
+      "submit": "Lähetä"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Sisältöä ei ole saatavilla",
+      "clickCardToFlip": "napauta kääntääksesi kortti"
+    },
+    "flashcardExport": {
+      "exportFailed": "Vienti epäonnistui",
+      "unknownError": "Tuntematon virhe",
+      "export": "Vie {{setTitle}}",
+      "chooseWhatToExport": "Valitse vietävät tiedot",
+      "exportQuestions": "Vie kysymykset",
+      "exportAnswers": "Vie vastaukset"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Poista muistikorttisetti",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa setin \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Muistikorttisetin poistaminen epäonnistui",
+      "flashcardHistory": "Muistikorttihistoria",
+      "cards": "Kortit",
+      "reviewedMastered": "{{cardsReviewedCount}} kerrattu • {{percentage}} % hallittu"
+    },
+    "folders": {
+      "items": "{{itemCount}} kohdetta",
+      "enterYourFolderName": "Kirjoita kansion nimi",
+      "yourFolderName": "Kansion nimi",
+      "createFolder": "Luo kansio",
+      "folders": "Kansiot",
+      "addFolder": "Lisää kansio",
+      "noFoldersToDisplay": "Ei näytettäviä kansioita",
+      "clickTheButtonAboveToCreate": "Napauta yllä olevaa painiketta luodaksesi kansion muistiinpanoillesi",
+      "allFolders": "Kaikki kansiot",
+      "items2": "{{totalItems}} kohdetta"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Lääketieteellisen tutkimuksen suodattimet",
+      "howrecentdoyouwantthe": "KUINKA TUOREITA LÄHTEIDEN TULEE OLLA",
+      "from": "Alkaen",
+      "whatkindofsourcedoyou": "MINKÄLAISTA LÄHDETTÄ ETSIT",
+      "textbooks": "Oppikirjat",
+      "clinicalGuidelines": "Hoitosuositukset",
+      "scientificJournalArticles": "Tieteelliset artikkelit",
+      "onlywiththisjournalarticles": "VAIN SEURAAVAT ARTIKKELITYYPIT",
+      "metaAnalyses": "Meta-analyysit",
+      "reviewArticles": "Katsausartikkelit",
+      "clinicalTrials": "Kliiniset tutkimukset",
+      "fromYear": "Vuodesta",
+      "toYear": "Vuoteen"
+    },
+    "noteOptions": {
+      "noteOptions": "Muistiinpanon valinnat",
+      "editNote": "Muokkaa muistiinpanoa",
+      "reTranscribe": "Litteroi uudelleen",
+      "chatWithNote": "Keskustele muistiinpanosta",
+      "exportNote": "Vie muistiinpano",
+      "moveToFolder": "Siirrä kansioon",
+      "deleteNote": "Poista muistiinpano"
+    },
+    "onboardingTooltip": {
+      "skip": "Ohita"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Poista tietovisa",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa visan \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Tietovisan poistaminen epäonnistui",
+      "quizHistory": "Visahistoria",
+      "questions": "Kysymykset",
+      "correct": "{{correctAnswers}} oikein"
+    },
+    "referral": {
+      "copied": "Kopioitu!",
+      "yourReferralCodeHasBeenCopied": "Kutsukoodisi on kopioitu leikepöydälle.",
+      "joinMeOnClinicalFactUse": "Liity mukaan Clinical Fact -sovellukseen! Käytä koodiani {{referralCode}} – {{appUrl}}",
+      "joined": "Liittynyt {{joinedDate}}",
+      "referralCode": "Suosittelukoodi",
+      "yourReferralCode": "Oma suosittelukoodisi",
+      "shareWithFriendsToEarnRewards": "Jaa kavereille ja ansaitse palkintoja",
+      "share": "Jaa",
+      "copyCode": "Kopioi koodi",
+      "referredFriends": "Kutsutut kaverit",
+      "noReferralsYetShareYourCode": "Ei vielä kutsuja. Jaa koodisi aloittaaksesi!",
+      "loadMore": "Lataa lisää",
+      "howItWorks": "Miten se toimii",
+      "friendsUseYourCodeDuringSignup": "• Kaverit käyttävät koodiasi rekisteröityessään",
+      "youBothEarnRewardsWhenThey": "• Molemmat saavat palkintoja heidän liityttyään",
+      "friendsReferredCount": "Kutsuttuja kavereita: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Puretaan tekstiä...",
+      "transcribingAudio": "Litteroidaan ääntä...",
+      "processingPDF": "Käsitellään PDF-tiedostoa...",
+      "settingUpChat": "Valmistellaan chattia...",
+      "uploadFailed": "Lataus epäonnistui",
+      "failedToUploadFilePleaseTry": "Tiedoston lataus epäonnistui. Yritä uudelleen.",
+      "yourFileIsReadyForChatting": "Tiedostosi on valmis chattiin!",
+      "uploadingYourFileToTheServer": "Ladataan tiedostoa palvelimelle...",
+      "extractingTextFromYourImage": "Puretaan tekstiä kuvasta...",
+      "transcribingYourAudio": "Litteroidaan äänitettäsi...",
+      "extractingTextFromYourPDF": "Puretaan tekstiä PDF-tiedostostasi...",
+      "creatingYourChatSession": "Luodaan chat-istuntoa...",
+      "pleaseWait": "Odota hetki...",
+      "uploadFile": "Lataa tiedosto",
+      "processContent": "Käsittele sisältö",
+      "createChat": "Luo chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Näytä",
+      "export": "📤 Vie",
+      "delete": "🗑️ Poista"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Palvelun tarjoaa"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-tiedosto",
+      "pdfFile": "PDF-tiedosto",
+      "docFile": "Doc-tiedosto"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Muistiinpanojen haku epäonnistui",
+      "failedToFetchFolders": "Kansioiden haku epäonnistui",
+      "failedToFetchNote": "Muistiinpanon haku epäonnistui",
+      "failedToDeleteNote": "Muistiinpanon poisto epäonnistui",
+      "failedToCreateFolder": "Kansion luonti epäonnistui",
+      "failedToDeleteFolder": "Kansion poisto epäonnistui"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Chatin poisto epäonnistui"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Kertauskortit viety onnistuneesti!",
+      "failedToExportFlashcardSet": "Kertauskorttien vienti epäonnistui."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Tietovisa viety onnistuneesti!",
+      "failedToExportQuiz": "Tietovisan vienti epäonnistui."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Nimeämättömät kertauskortit",
+      "failedToLoadFlashcards": "Kertauskorttien lataaminen epäonnistui",
+      "failedToSyncFlashcardSet": "Kertauskorttien synkronointi epäonnistui",
+      "failedToSyncCardUpdate": "Kortin päivityksen synkronointi epäonnistui"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Tietovisa"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Luotu {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Olet saavuttanut 3 kiinnityksen rajan",
+      "failedToUpdatePin": "Kiinnityksen päivitys epäonnistui",
+      "noChatsYet": "Ei vielä chatteja",
+      "startAChatToGetAnswers": "Aloita chat saadaksesi luotettaviin lähteisiin perustuvia vastauksia.",
+      "createChat": "+ Luo chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Poista kertauskortit",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa kohteen \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Muistikorttien poistaminen epäonnistui",
+      "sets": "{{setCount}} pakkaa",
+      "flashcards": "Muistikortit",
+      "createFlashcards": "Luo muistikortteja",
+      "searchFlashcards": "Hae muistikorteista...",
+      "noFlashcardsYet": "Ei vielä muistikortteja",
+      "createAFlashcardSetFromA": "Aloita luomalla muistikorttipakka muistiinpanosta",
+      "createSet": "+ Luo pakka",
+      "flashcardOptions": "Muistikorttien valinnat",
+      "view": "Näytä"
+    },
+    "folder": {
+      "deleteFolder": "Poista kansio",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa kansion ”{{name}}”? Sen sisältämät muistiinpanot siirretään juureen.",
+      "failedToDeleteFolder": "Kansion poistaminen epäonnistui",
+      "error": "Virhe: {{message}}",
+      "noFoldersYetCreateOne": "Ei vielä kansioita. Luo uusi!",
+      "folders": "Kansiot"
+    },
+    "home": {
+      "created": "Luotu {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Kielen päivittäminen epäonnistui",
+      "notEnoughContentYet": "Ei vielä tarpeeksi sisältöä",
+      "chatABitMoreBeforeGenerating": "Keskustele vielä hieman ennen visan luomista (vähintään 100 merkkiä).",
+      "chatABitMoreBeforeGenerating2": "Keskustele vielä hieman ennen muistikorttien luomista (vähintään 100 merkkiä).",
+      "failedToGenerateFlashcards": "Muistikorttien luominen epäonnistui",
+      "upgradeToPro": "Päivitä PRO-versioon",
+      "get80DiscountWhenYouUpgrade": "Saat 80 % alennusta, kun päivität tilisi",
+      "unlockPRO": "Avaa PRO",
+      "noMedicalChats": "Ei lääketieteellisiä keskusteluja",
+      "youHaveNotCreatedAnyMedical": "Et ole vielä luonut lääketieteellisiä keskusteluja. Aloita uusi keskustelu saadaksesi lähdeviitteet",
+      "talkToClinicalfactAI": "Keskustele Clinicalfact AI:n kanssa",
+      "jumpInWhereYouStopped": "Jatka siitä, mihin jäit",
+      "practiceQuiz": "Harjoitusvisa",
+      "makeFlashcards": "Tee muistikortteja",
+      "continueChatWithNote": "Jatka keskustelua muistiinpanon pohjalta",
+      "continueChat": "Jatka keskustelua",
+      "recentChats": "Viimeisimmät keskustelut",
+      "chatOptions": "Keskustelun asetukset"
+    },
+    "library": {
+      "text": "{{day}}. {{month}}ta {{year}} klo {{hours}}.{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Olet offline-tilassa. Yhdistä internetiin suorittaaksesi tämän toiminnon.",
+      "failedToDeleteNote": "Muistiinpanon poistaminen epäonnistui",
+      "failedToMoveNote": "Muistiinpanon siirtäminen epäonnistui",
+      "deleteFolder": "Poistetaanko kansio?",
+      "areYouSureNotesInsideWill": "Oletko varma? Kansion muistiinpanoja ei poisteta, vaan ne siirretään Kaikki muistiinpanot -osioon.",
+      "failedToDeleteFolder": "Kansion poistaminen epäonnistui",
+      "library": "Kirjasto",
+      "addFolder": "Lisää kansio",
+      "searchForANoteFolder": "Etsi muistiinpanoa tai kansiota",
+      "yourFolders": "Omat kansiot",
+      "noFoldersToDisplay": "Ei näytettäviä kansioita",
+      "tapAddFolderToCreateA": "Napauta ”+ Lisää kansio” luodaksesi kansion muistiinpanoillesi",
+      "allNotes": "Kaikki muistiinpanot",
+      "items": "{{allNotesTotal}} kohdetta",
+      "items2": "{{itemCount}} kohdetta",
+      "yourNotes": "Omat muistiinpanot",
+      "untitledNote": "Nimetön muistiinpano",
+      "noResultsFor": "Ei hakutuloksia haulle ”{{searchQuery}}”",
+      "noNotesInThisFolder": "Tässä kansiossa ei ole muistiinpanoja",
+      "noNotesToDisplay": "Ei näytettäviä muistiinpanoja",
+      "tryADifferentSearchTerm": "Kokeile toista hakusanaa",
+      "moveNotesToThisFolderTo": "Siirrä muistiinpanoja tähän kansioon nähdäksesi ne täällä",
+      "clickBelowToGenerateYourNote": "Luo muistiinpano Clinical Fact -sovelluksella napsauttamalla alta",
+      "filterByType": "Suodata tyypin mukaan",
+      "audio": "Ääni",
+      "text2": "Teksti",
+      "image": "Kuva",
+      "clearFilter": "Tyhjennä suodatin"
+    },
+    "profile": {
+      "permissionRequired": "Käyttöoikeus vaaditaan",
+      "pleaseAllowAccessToYourPhoto": "Salli pääsy kuvakirjastoosi profiilikuvan asettamiseksi.",
+      "uploadFailed": "Lataus epäonnistui",
+      "couldNotUpdateProfilePicture": "Profiilikuvan päivitys epäonnistui.",
+      "failedToUploadProfilePicture": "Profiilikuvan lataaminen epäonnistui.",
+      "checkOutClinicalFactAIPowered": "Tutustu Clinical Factiin – AI-pohjaisiin muistiinpanoihin opiskeluun! {{url}}",
+      "proSubscriber": "PRO-tilaaja",
+      "subscriptionExpired": "Tilaus päättynyt",
+      "freeSubscriber": "Ilmaisversio",
+      "tapToManageIPhoneSettingsApple": "Hallinnoi napauttamalla · iPhonen Asetukset → Apple ID → Tilaukset",
+      "tapToManagePlayStoreSubscriptions": "Hallinnoi napauttamalla · Play Kauppa → Tilaukset",
+      "tapToRenewYourSubscription": "Uusi tilauksesi napauttamalla",
+      "tapToUpgradeToPro": "Päivitä PRO-versioon napauttamalla",
+      "referralCode": "Suosittelukoodi",
+      "areYouSureYouWantTo": "Haluatko varmasti kirjautua ulos tililtäsi?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Poista visa",
+      "areYouSureYouWantTo": "Haluatko varmasti poistaa visan \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Visan poistaminen epäonnistui",
+      "correct": "{{correct}}/{{total}} oikein",
+      "attempts": "{{attempts}} yritystä",
+      "quiz": "Visa",
+      "createQuiz": "Luo visa",
+      "searchQuizzes": "Hae visoista...",
+      "noQuizzesYet": "Ei vielä visoja",
+      "createAQuizFromANote": "Aloita luomalla visa muistiinpanosta",
+      "createQuiz2": "+ Luo visa",
+      "quizOptions": "Visan asetukset",
+      "view": "Näytä"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Päivitys ei ole saatavilla",
+      "weCouldnTOpenTheUpgrade": "Päivitysnäkymää ei voitu avata juuri nyt. Tarkista verkkoyhteytesi ja yritä uudelleen."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Palvelin ei palauttanut JSON-vastausta ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Verkkovirhe. Tarkista verkkoyhteytesi.",
+      "connectionErrorPleaseTryAgain": "Yhteysvirhe. Yritä uudelleen."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Tiedosto viety: {{filename}}",
+      "exportFailed": "Vienti epäonnistui",
+      "exportFormat": "Vientimuoto",
+      "chooseFormat": "Valitse muoto",
+      "text": "Teksti"
+    },
+    "formatDate": {
+      "justNow": "Juuri nyt",
+      "minAgo": "{{diffMin}} min sitten",
+      "hrAgo": "{{diffHr}} t sitten",
+      "dAgo": "{{diffDay}} pv sitten",
+      "created": "Luotu {{day}} klo {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Kertakoodin lähetys epäonnistui",
+      "invalidOTP": "Virheellinen kertakoodi",
+      "failedToVerifyOTP": "Kertakoodin vahvistaminen epäonnistui",
+      "googleAuthenticationFailed": "Google-tunnistautuminen epäonnistui",
+      "appleAuthenticationFailed": "Apple-tunnistautuminen epäonnistui",
+      "failedToCompleteSignup": "Rekisteröitymisen viimeistely epäonnistui",
+      "failedToSkipSignup": "Rekisteröitymisen ohittaminen epäonnistui"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Keskustelut",
+      "description": "Keskustele muistiinpanojesi, dokumenttiesi tai PDF-tiedostojesi kanssa yhdessä paikassa"
+    },
+    "profileWelcome": {
+      "heading": "Tervetuloa profiiliisi",
+      "description": "Tämä on profiilisi. Muokkaa tietojasi ja hallinnoi tilaustasi napauttamalla tästä."
+    },
+    "createNotes": {
+      "heading": "Luo muistiinpano",
+      "description": "Luo muistiinpanoja mistä tahansa muodosta: tallenteesta, äänitiedostosta, videosta, kuvasta, tekstistä tai YouTube-linkistä"
+    },
+    "changeLanguage": {
+      "heading": "Vaihda kieli",
+      "description": "Vaihda sovelluksen kieli haluamaksesi täältä."
+    },
+    "manageHome": {
+      "heading": "Hallitse etusivua",
+      "description": "Tarkastele luomiasi muistiinpanoja ja näe kaikki toiminnot yhdessä paikassa."
+    },
+    "yourLibrary": {
+      "heading": "Kirjastosi",
+      "description": "Hallitse luomiasi muistiinpanoja, luo niille kansioita ja paljon muuta."
+    },
+    "yourProfile": {
+      "heading": "Profiilisi",
+      "description": "Tarkastele profiilitietojasi ja muokkaa profiilisi asetuksia täältä."
+    }
   }
 }

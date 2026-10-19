@@ -15,6 +15,7 @@ import { colors, Icon, theme, MicrophoneIcon } from '@clinicalfact/design-system
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
+import { useTranslation } from 'react-i18next';
 
 type UploadAudioNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadAudio'>;
 type UploadAudioRouteProp = RouteProp<MainStackParamList, 'UploadAudio'>;
@@ -28,6 +29,7 @@ interface UploadedFile {
 }
 
 export const UploadAudioScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<UploadAudioNavigationProp>();
   const route = useRoute<UploadAudioRouteProp>();
   const { withAccess } = useGatedFeature();
@@ -47,7 +49,7 @@ export const UploadAudioScreen = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes.toString().padStart(2, '0');
-    return `Created ${month} ${day}, ${year}, ${formattedHours}:${formattedMinutes}${ampm}`;
+    return t('create.uploadAudio.created', { month, day, year, formattedHours, formattedMinutes, ampm });
   };
 
   const handlePickFile = async () => {
@@ -68,7 +70,7 @@ export const UploadAudioScreen = () => {
         });
       }
     } catch (error) {
-      Alert.alert('Error', 'Failed to pick audio file');
+      Alert.alert(t('common.error'), t('create.uploadAudio.failedToPickAudioFile'));
     }
   };
 
@@ -116,8 +118,8 @@ export const UploadAudioScreen = () => {
         </View>
 
         {/* Title */}
-        <Text style={styles.title}>Upload audio</Text>
-        <Text style={styles.subtitle}>Create a note from any uploaded audio</Text>
+        <Text style={styles.title}>{t('create.uploadAudio.uploadAudio')}</Text>
+        <Text style={styles.subtitle}>{t('create.uploadAudio.createANoteFromAnyUploaded')}</Text>
 
         {!uploadedFile ? (
           /* Upload Area */
@@ -125,8 +127,8 @@ export const UploadAudioScreen = () => {
             <View style={styles.uploadAreaIcon}>
               <MicrophoneIcon size={22} color={theme.colors.yale[900]} />
             </View>
-            <Text style={styles.uploadTitle}>Drag & drop files or Browse</Text>
-            <Text style={styles.uploadSubtitle}>Supported format : mp4, wav, mp3</Text>
+            <Text style={styles.uploadTitle}>{t('create.uploadAudio.dragDropFilesOrBrowse')}</Text>
+            <Text style={styles.uploadSubtitle}>{t('create.uploadAudio.supportedFormatMp4WavMp3')}</Text>
           </TouchableOpacity>
         ) : (
           /* Uploaded File Display */
@@ -146,7 +148,7 @@ export const UploadAudioScreen = () => {
 
         {uploadedFile && (
           <TouchableOpacity style={styles.changeFileButton} onPress={handleChangeFile} activeOpacity={0.7}>
-            <Text style={styles.changeFileText}>Change file</Text>
+            <Text style={styles.changeFileText}>{t('create.uploadAudio.changeFile')}</Text>
           </TouchableOpacity>
         )}
       </ScrollView>
@@ -160,7 +162,7 @@ export const UploadAudioScreen = () => {
           disabled={!uploadedFile}
           activeOpacity={0.8}
         >
-          <Text style={styles.continueButtonText}>Continue</Text>
+          <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

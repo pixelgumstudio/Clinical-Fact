@@ -1,19 +1,11 @@
+import { stripHtml } from './htmlText';
+
 /** Shortest transcript the quiz/flashcard backends accept — mirrors the server-side check. */
 export const MIN_TRANSCRIPT_CHARS = 100;
 
 /** Longest transcript sent for generation. Longer chats keep only their most recent part so
  *  the request stays within the AI context window and the client's request timeout. */
 export const MAX_TRANSCRIPT_CHARS = 20000;
-
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 
 interface TranscriptMessage {
   role: string;

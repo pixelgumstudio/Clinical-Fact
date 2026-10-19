@@ -135,7 +135,7 @@ export const WelcomeScreen = () => {
       }
     } else if (response.type === 'error') {
       setGoogleLoading(false);
-      const errorMessage = response.error?.message || 'Google sign-in failed';
+      const errorMessage = response.error?.message || t('auth.welcome.googleSignInFailed');
       console.error('Google OAuth Error:', errorMessage);
       setError(errorMessage);
       Alert.alert(
@@ -177,7 +177,7 @@ export const WelcomeScreen = () => {
           navigation.navigate('ProfessionalDeclaration');
         }
       } else {
-        throw new Error(authResponse.message || 'Failed to authenticate with server');
+        throw new Error(authResponse.message || t('auth.welcome.failedToAuthenticateWithServer'));
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : t('auth.errors.googleTokenFailed');
@@ -229,7 +229,7 @@ export const WelcomeScreen = () => {
     if (!GoogleSignin) {
       Alert.alert(
         t('common.info'),
-        'Google Sign-in is only available in native builds. Please use email authentication or download the native app.'
+        t('auth.welcome.googleSignInIsOnlyAvailable')
       );
       return;
     }
@@ -258,7 +258,7 @@ export const WelcomeScreen = () => {
         setError(message);
         // The native code is shown too so a failure can be read straight off the screen
         // (e.g. "10" = package/SHA-1 doesn't match an Android OAuth client).
-        Alert.alert(t('auth.errors.signInFailed'), err.code ? `${message}\n\n(code: ${err.code})` : message);
+        Alert.alert(t('auth.errors.signInFailed'), err.code ? t('auth.welcome.code', { message, code: err.code }) : message);
       }
     } finally {
       setGoogleLoading(false);
@@ -338,7 +338,7 @@ export const WelcomeScreen = () => {
           navigation.navigate('ProfessionalDeclaration');
         }
       } else {
-        throw new Error(authResponse.message || 'Failed to authenticate with server');
+        throw new Error(authResponse.message || t('auth.welcome.failedToAuthenticateWithServer'));
       }
     } catch (err: any) {
       if (err.code === 'ERR_REQUEST_CANCELED') {

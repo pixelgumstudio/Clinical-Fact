@@ -20,6 +20,8 @@ import api from '../services/api';
 import { useAIConsentStore } from '../store/aiConsentStore';
 import { CreateQuizModal } from './CreateQuizModal';
 import { CreateFlashcardsModal } from './CreateFlashcardsModal';
+import { useTranslation } from 'react-i18next';
+import { stripHtml } from '../utils/htmlText';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -44,21 +46,12 @@ interface CreateFromSourceSheetProps {
   mode: 'quiz' | 'flashcard';
 }
 
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-
 export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
   visible,
   onClose,
   mode,
 }) => {
+  const { t } = useTranslation();
   const navigation = useNavigation<CreateFromSourceNavigationProp>();
   const [, setPanel] = useState<'options' | 'chats'>('options');
   const translateX = useRef(new Animated.Value(0)).current;
@@ -176,32 +169,32 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
   const options: SourceOption[] = [
     {
       icon: 'chat',
-      title: 'Create from chat',
-      description: 'Select from one of your recent chat',
+      title: t('components.createFromSourceSheet.createFromChat'),
+      description: t('components.createFromSourceSheet.selectFromOneOfYourRecent'),
       onPress: goToChats,
     },
     {
       icon: 'note',
-      title: 'PDF or Document',
-      description: `Create a ${mode === 'quiz' ? 'quiz' : 'flashcard set'} from PDF or Document`,
+      title: t('components.createFromSourceSheet.pdfOrDocument'),
+      description: mode === 'quiz' ? t('components.createFromSourceSheet.quizFromPdf') : t('components.createFromSourceSheet.flashcardsFromPdf'),
       onPress: () => navigateToScreen('UploadPDF'),
     },
     {
       icon: 'uploadRecordFill',
-      title: 'Create from audio',
-      description: `Create a ${mode === 'quiz' ? 'quiz' : 'flashcard set'} from upload audio`,
+      title: t('components.createFromSourceSheet.createFromAudio'),
+      description: mode === 'quiz' ? t('components.createFromSourceSheet.quizFromAudio') : t('components.createFromSourceSheet.flashcardsFromAudio'),
       onPress: () => navigateToScreen('UploadAudio'),
     },
     {
       icon: 'imageFill',
-      title: 'Image',
-      description: `Create a ${mode === 'quiz' ? 'quiz' : 'flashcard set'} from any image`,
+      title: t('components.createFromSourceSheet.image'),
+      description: mode === 'quiz' ? t('components.createFromSourceSheet.quizFromImage') : t('components.createFromSourceSheet.flashcardsFromImage'),
       onPress: () => navigateToScreen('UploadImage'),
     },
     {
       icon: 'textFill',
-      title: 'Create from custom text',
-      description: `Create a ${mode === 'quiz' ? 'quiz' : 'flashcard set'} from captured text`,
+      title: t('components.createFromSourceSheet.createFromCustomText'),
+      description: mode === 'quiz' ? t('components.createFromSourceSheet.quizFromText') : t('components.createFromSourceSheet.flashcardsFromText'),
       onPress: () => navigateToScreen('CustomTextInput'),
     },
   ];
@@ -214,7 +207,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
         ? 'Today'
         : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-      return `Created ${day}, ${time}`;
+      return t('components.createFromSourceSheet.created', { day, time });
     } catch {
       return dateString;
     }
@@ -233,7 +226,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
                   <View style={styles.panel}>
                     <View style={styles.header}>
                       <Text style={styles.headerTitle}>
-                        {mode === 'quiz' ? 'Create Quiz from' : 'Create Flashcards from'}
+                        {mode === 'quiz' ? t('components.createFromSourceSheet.createQuizFrom') : t('components.createFromSourceSheet.createFlashcardsFrom')}
                       </Text>
                       <TouchableOpacity onPress={onClose} style={styles.closeButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                         <Icon name="close" size={20} color={theme.colors.grey[600]} />
@@ -266,7 +259,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
                       <TouchableOpacity onPress={onClose} style={styles.closeButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                         <Icon name="close" size={20} color={theme.colors.grey[600]} />
                       </TouchableOpacity>
-                      <Text style={styles.headerTitle}>Select from chat</Text>
+                      <Text style={styles.headerTitle}>{t('components.createFromSourceSheet.selectFromChat')}</Text>
                       <View style={styles.closeButton} />
                     </View>
                     {isLoadingChats ? (
@@ -275,7 +268,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
                       </View>
                     ) : chats.length === 0 ? (
                       <View style={styles.loadingContainer}>
-                        <Text style={styles.emptyText}>No recent chats yet</Text>
+                        <Text style={styles.emptyText}>{t('components.createFromSourceSheet.noRecentChatsYet')}</Text>
                       </View>
                     ) : (
                       <FlatList

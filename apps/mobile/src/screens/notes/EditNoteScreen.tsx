@@ -23,6 +23,8 @@ import {
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useInvalidateNotes } from '../../hooks/queries';
+import { useTranslation } from 'react-i18next';
+import { decodeHtmlEntities } from '../../utils/htmlText';
 
 type EditNoteRouteProp = RouteProp<MainStackParamList, 'EditNote'>;
 type EditNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'EditNote'>;
@@ -30,18 +32,13 @@ type EditNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'Edi
 /** Strip HTML tags and decode common entities to plain text for editing. */
 function htmlToPlainText(html: string): string {
   if (!html) return '';
-  return html
+  const withoutTags = html
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
+    .replace(/<[^>]+>/g, '');
+  return decodeHtmlEntities(withoutTags)
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -56,6 +53,7 @@ function plainTextToHtml(text: string): string {
 }
 
 export const EditNoteScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<EditNoteNavigationProp>();
   const route = useRoute<EditNoteRouteProp>();
 
@@ -131,7 +129,7 @@ export const EditNoteScreen = () => {
 
   const handleSaveNote = async () => {
     if (!title.trim()) {
-      Alert.alert('Error', 'Please enter a note title');
+      Alert.alert(t('common.error'), t('notes.editNote.pleaseEnterANoteTitle'));
       return;
     }
 
@@ -151,16 +149,16 @@ export const EditNoteScreen = () => {
         await new Promise<void>((resolve) => setTimeout(resolve, 250));
         savedOk = true;
       } else {
-        Alert.alert('Error', response.message || 'Failed to update note');
+        Alert.alert(t('common.error'), response.message || t('notes.editNote.failedToUpdateNote'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to update note');
+      Alert.alert(t('common.error'), error.message || t('notes.editNote.failedToUpdateNote'));
     } finally {
       setIsSaving(false);
     }
 
     if (savedOk) {
-      Alert.alert('Success', 'Note updated successfully', [
+      Alert.alert(t('common.success'), t('notes.editNote.noteUpdatedSuccessfully'), [
         { text: 'OK', onPress: () => navigation.goBack() },
       ]);
     }
@@ -177,7 +175,7 @@ export const EditNoteScreen = () => {
           <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
             <ChevronLeftIcon size={24} color={colors.slate[800]} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Edit note</Text>
+          <Text style={styles.headerTitle}>{t('notes.editNote.editNote')}</Text>
           <View style={styles.headerSpacer} />
         </View>
 
@@ -188,12 +186,12 @@ export const EditNoteScreen = () => {
         >
           {/* Note Title Input */}
           <View style={styles.inputGroup}>
-            <Text style={styles.inputLabel}>Note title</Text>
+            <Text style={styles.inputLabel}>{t('notes.editNote.noteTitle')}</Text>
             <TextInput
               style={styles.titleInput}
               value={title}
               onChangeText={setTitle}
-              placeholder="Enter note title"
+              placeholder={t('notes.editNote.enterNoteTitle')}
               placeholderTextColor={colors.text.tertiary}
               maxLength={200}
             />
@@ -201,12 +199,12 @@ export const EditNoteScreen = () => {
 
           {/* Note Content Input */}
           <View style={styles.inputGroup}>
-            <Text style={styles.inputLabel}>Note content</Text>
+            <Text style={styles.inputLabel}>{t('notes.editNote.noteContent')}</Text>
             <TextInput
               style={styles.contentInput}
               value={content}
               onChangeText={setContent}
-              placeholder="Enter note content"
+              placeholder={t('notes.editNote.enterNoteContent')}
               placeholderTextColor={colors.text.tertiary}
               multiline
               textAlignVertical="top"
@@ -222,7 +220,7 @@ export const EditNoteScreen = () => {
             activeOpacity={0.8}
             disabled={isSaving}
           >
-            <Text style={styles.saveButtonText}>Save this note</Text>
+            <Text style={styles.saveButtonText}>{t('notes.editNote.saveThisNote')}</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
@@ -231,7 +229,7 @@ export const EditNoteScreen = () => {
       <Modal visible={isSaving} transparent animationType="fade" statusBarTranslucent>
         <View style={styles.overlayBackdrop}>
           <View style={styles.overlayCard}>
-            <Text style={styles.overlayTitle}>AI is generating your note</Text>
+            <Text style={styles.overlayTitle}>{t('notes.editNote.aiIsGeneratingYourNote')}</Text>
             <Text style={styles.overlayStatus}>{NOTE_STATUSES[saveStatusIndex]}</Text>
             <View style={styles.overlayProgressRow}>
               <View style={styles.overlayProgressBar}>
@@ -240,7 +238,7 @@ export const EditNoteScreen = () => {
               <Text style={styles.overlayProgressPct}>{Math.round(saveProgress)}%</Text>
             </View>
             <Text style={styles.overlaySubtext}>
-              Large audio and video files may take a few minutes to process. Please keep the app open.
+             {t('notes.editNote.largeAudioAndVideoFilesMay')}
             </Text>
           </View>
         </View>

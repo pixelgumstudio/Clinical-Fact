@@ -15,10 +15,11 @@
     "done": "נַעֲשָׂה",
     "search": "לְחַפֵּשׂ",
     "filter": "לְסַנֵן",
-    "ok": "בְּסֵדֶר"
+    "ok": "בְּסֵדֶר",
+    "info": "מידע"
   },
   "home": {
-    "title": "נוטדריל",
+    "title": "Clinical Fact",
     "createNotes": "צור הערות",
     "createNotesDesc": "צור הערות, חידונים,\nכרטיסיות ועוד כדי לעזור לך\nללמוד מהר יותר",
     "chatWithPDF": "צ'אט עם כל קובץ PDF",
@@ -26,7 +27,7 @@
     "recentNotes": "הערות אחרונות",
     "seeAll": "ראה הכל",
     "noNotes": "אין הערות להצגה",
-    "noNotesDesc": "אנא לחץ על הכפתור למעלה כדי להתחיל ביצירת ההערה שלך עבור clinicalfact.",
+    "noNotesDesc": "לחצו על הכפתור למעלה כדי להתחיל\nביצירת הסיכום שלכם עבור Clinical Fact.",
     "loadingNotes": "טוען הערות..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "תוכנית שדרוג",
     "everyWeek": "כל שבוע",
     "everyMonth": "כל חודש",
-    "everyYear": "כל שנה"
+    "everyYear": "כל שנה",
+    "reportBug": "דיווח על תקלה"
   },
   "auth": {
-    "welcome": "ברוכים הבאים ל-Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "ההתחברות באמצעות Google נכשלה",
+      "failedToAuthenticateWithServer": "אימות מול השרת נכשל",
+      "googleSignInIsOnlyAvailable": "התחברות באמצעות Google זמינה רק באפליקציה המקורית. יש להתחבר באמצעות אימייל או להוריד את האפליקציה.",
+      "code": "{{message}} (קוד: {{code}})"
+    },
     "getStarted": "התחל",
     "signIn": "כניסה",
     "signUp": "הרשמה",
@@ -94,7 +101,8 @@
       "skip": "לְדַלֵג",
       "verify": "מְאוּמָת!",
       "next": "הַבָּא",
-      "tryNow": "נסה את Clinical Fact עכשיו בחינם"
+      "tryNow": "נסה את Clinical Fact עכשיו בחינם",
+      "continueWithApple": "המשך עם Apple"
     },
     "labels": {
       "firstName": "שֵׁם פְּרַטִי",
@@ -139,7 +147,10 @@
       "googleStartFailed": "נכשלה הפעלת הכניסה לגוגל. אנא נסה שוב.",
       "setupRequired": "נדרשת התקנה",
       "googleOAuthMissing": "כניסה ל-Google דורשת מזהי לקוח של OAuth.\\n\\nאנא הוסף אישורים לקובץ ה-.env שלך.",
-      "youCanStillUseEmail": "עדיין ניתן להשתמש באפשרות \"המשך עם אימייל\"."
+      "youCanStillUseEmail": "עדיין ניתן להשתמש באפשרות \"המשך עם אימייל\".",
+      "appleSignInFailed": "ההתחברות באמצעות Apple נכשלה",
+      "appleTokenFailed": "עיבוד אסימון Apple נכשל",
+      "appleIosOnly": "ההתחברות באמצעות Apple זמינה במכשירי iOS בלבד."
     },
     "messages": {
       "signingIn": "כניסה...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nהערות חכמות יותר התחל כאן",
       "tagline": "הפכו כל טקסט להערות מושלמות",
-      "description": "הפכו אודיו, מסמכים או סרטונים להערות ברורות וניתנות לחיפוש וצרו באופן מיידי חידונים, כרטיסיות וסיכומים."
+      "description": "הפכו אודיו, מסמכים או סרטונים להערות ברורות וניתנות לחיפוש וצרו באופן מיידי חידונים, כרטיסיות וסיכומים.",
+      "createAccountTitle": "יצירת חשבון",
+      "orSignUpWith": "או הרשמה באמצעות",
+      "signUpWithEmail": "הרשמה באמצעות דוא״ל",
+      "signInWithEmail": "התחברות באמצעות דוא״ל",
+      "alreadyHaveAccount": "כבר יש לך חשבון? ",
+      "dontHaveAccount": "אין לך חשבון עדיין? "
     },
     "otp": {
       "title": "אשר את כתובת הדוא\"ל שלך",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "כל מה שצריך כדי ללמוד כל דבר",
-      "subtitle": "הקליטו את זה. חקרו את זה. בחנו את זה. שלטו בזה."
+      "subtitle": "הקליטו את זה. חקרו את זה. בחנו את זה. שלטו בזה.",
+      "everythingYouNeedToLearnAnything": "כל מה שצריך כדי ללמוד כל נושא",
+      "recordItResearchItQuizIt": "הקלטה. חקר. בחנים. שליטה בחומר.",
+      "tryClinicalFactNowForFree": "נסו את Clinical Fact עכשיו בחינם"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "למד מהר יותר עם חידון וכרטיסיות",
         "description": "הפכו הערות לחידונים וכרטיסיות.\\nלמדו מהר יותר וזכרו יותר."
+      },
+      "feature1": {
+        "title": "תשובות רפואיות מבוססות ושאלות המשך",
+        "description": "שאלו כל שאלה רפואית וקבלו הסבר ברור לצד שאלות המשך חכמות, כדי שלעולם לא תיתקעו באמצע הלמידה."
+      },
+      "feature2": {
+        "title": "כל תשובה רפואית\nמגובה במקור אמין",
+        "description": "ציטוטים מתוך PubMed,‏ Semantic Scholar ו-Europe PMC – ניתנים לבדיקה ולא מומצאים."
+      },
+      "feature3": {
+        "title": "מעלים סיכומים ומקבלים תמציות רפואיות על החומר",
+        "description": "הפכו כל מצגת, PDF או סיכום שיעור להסבר ברור המגובה במקורות רפואיים מוסמכים."
+      },
+      "feature4": {
+        "title": "הופכים כל שיחה לבוחן או לכרטיסיות זיכרון",
+        "description": "בלי אפליקציה נפרדת לשינון – הפיקו שאלות תרגול ישירות מהצ'אטים ומהקבצים שהעליתם."
+      },
+      "feature5": {
+        "title": "הופכים כל שיחה או מסמך לשאלות בכרטיסיות לתרגול",
+        "description": "בלי אפליקציה נפרדת לשינון – הפיקו שאלות תרגול ישירות מהצ'אטים ומהקבצים שהעליתם."
+      }
+    },
+    "languageSelect": {
+      "title": "בחירת שפה",
+      "subtitle": "בחר את השפה שבה תרצה להשתמש באפליקציה. ניתן לשנות זאת בכל שלב בפרופיל.",
+      "searchPlaceholder": "חיפוש שפות",
+      "noResults": "לא נמצאו שפות"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "שאלו כל שאלה רפואית. קבלו עובדות קליניות מבוססות",
+        "description": "שאלו כל שאלה רפואית וקבלו תשובה המגובה במקורות מצוטטים מ-PubMed, הנחיות קליניות וספרות רפואית מהימנה"
+      },
+      "slide2": {
+        "headline": "כל תשובה מגובה במקור",
+        "description": "בלי ניחושים ובלי עובדות מומצאות – כל תשובה מקושרת ישירות למחקר רפואי שניתן לאמת."
+      },
+      "slide3": {
+        "headline": "לומדים חכם יותר, עוברים את הבחינות ברפואה",
+        "description": "הפכו כל שאלה או קובץ שהעליתם לבוחן או לכרטיסיות זיכרון בשניות – תרגול שנבנה ישירות מחומרי הלימוד שלכם."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "הצהרה מקצועית",
+      "subtitle": "Clinical Fact הוא כלי לחיפוש ספרות רפואית למטרות לימודיות",
+      "disclaimerIntro": "Clinical Fact הוא כלי מידע המבוסס על בינה מלאכותית (AI) שנועד לסייע לסטודנטים לסיעוד, רפואה ומדעי הבריאות בגישה לידע רפואי, ספרות מחקרית וחומרי לימוד. האפליקציה אינה מספקת אבחנות רפואיות, המלצות טיפוליות, הנחיות קליניות או ייעוץ רפואי מותאם אישית למטופל, ואין להשתמש בה כבסיס לטיפול ישיר במטופלים או לקבלת החלטות קליניות.",
+      "disclaimerHeading": "כיצד Clinical Fact מפיק תשובות:",
+      "disclaimerBody": "Clinical Fact שולף מידע ישירות ממקורות רפואיים ומדעיים מבוססים, כולל PubMed,‏ Semantic Scholar ועלונים רשמיים של ה-FDA, ומשתמש ב-AI כדי לתמצת ולהסביר את התוכן שנשלף בשפה ברורה. כל תשובה נוצרת אך ורק מהמקורות שנשלפו עבור אותה שאלה ספציפית, והציטוטים מקשרים לחומר המקורי כדי שתוכלו לאמת אותו בעצמכם. Clinical Fact אינו מייצר עובדות רפואיות מזיכרון ואינו ממציא מקורות.\n\nClinical Fact אינו כלי אבחוני, פלטפורמת טיפול, מכשור רפואי או תחליף לשיקול דעת רפואי מקצועי, הוראה מוסמכת או תוכנית הלימודים של המוסד האקדמי שלכם. כל מידע שמופק על ידי האפליקציה, לרבות תשובות, ציטוטים, בחנים וכרטיסיות, מסופק למטרות לימוד והעשרה כלליות בלבד, ויש לאמתו באופן עצמאי לפני שמסתמכים עליו בכל הקשר אקדמי, קליני או מקצועי.\nClinical Fact אינו מבטיח את שלמותו, דיוקו או הרלוונטיות הקלינית העדכנית של המידע המסופק. הידע הרפואי מתפתח ללא הרף – יש תמיד להצליב מידע קריטי מול המרצים, המדריכים הקליניים ומקורות ראשוניים עדכניים.\nבעת העלאת מסמכים, סיכומים או הקלטות משלכם, Clinical Fact מייצר תשובות, סיכומים, בחנים וכרטיסיות בהתבסס על התוכן שהעליתם בלבד, ולא על מקורות חיצוניים, אלא אם מקורות חיצוניים מוצגים לצדם במפורש.\n\nClinical Fact אינו מאמת או מאשר את זהותם, מעמדם הלימודי או הסמכתם של משתמשיו. האפליקציה אינה מיועדת לשימוש במצבי חירום או לקבלת החלטות קליניות בזמן אמת.\nהמשך השימוש מהווה אישור לכך שהבנתם תנאים אלה והסכמתם להשתמש ב-Clinical Fact ככלי עזר ללימוד ולעיון בלבד.",
+      "checkboxLabel": "אני מבין/ה שאפליקציה זו מיועדת לעיון לימודי בלבד ואינה מספקת ייעוץ רפואי",
+      "acceptButton": "אישור והמשך"
+    },
+    "survey": {
+      "role": "מה הכי מתאר אותך, {{firstName}}?",
+      "currentMethod": "איך בדרך כלל את/ה מוצא/ת כרגע תשובות לשאלות רפואיות?",
+      "timeDrain": "מה גוזל ממך הכי הרבה זמן?",
+      "appExpectation": "מה הציפיות שלך מאפליקציית הרפואה Clinical Fact?",
+      "aiToolsUsed": "באילו כלי AI יצא לך להשתמש עד כה ללמידה ומחקר ברפואה?",
+      "aiToolIssue": "מה היו החסרונות בכלים האלה?",
+      "aiTrustLevel": "באיזו תדירות עולה בך חשש שתשובת AI עלולה להיות שגויה?",
+      "biggestNeed": "מה הצורך הדחוף ביותר שלך כרגע?",
+      "studyTimePerWeek": "כמה זמן יש לך ללמידה בכל שבוע?",
+      "comingUp": "מה היעד הלימודי הבא שלך?",
+      "referralSource": "איך שמעת על Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "הפעלת התראות",
+      "thisHelpsUsStayOnTrack": "זה יעזור לנו להתאים אישית את החשבון שלך ולסייע לך למצוא תשובות רפואיות בצורה טובה יותר"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "קוד האימות שגוי. יש לנסות שוב.",
+      "failedToResendCodePleaseTry": "שליחת הקוד מחדש נכשלה. יש לנסות שוב.",
+      "confirmYourEmailAddress": "אימות כתובת האימייל",
+      "enterCodeSentTo": "יש להזין את קוד ה-OTP שנשלח לכתובת האימייל {{email}}",
+      "resendCodeIn": "שליחת קוד מחדש בעוד {{seconds}} שנ'"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "הגעת דרך חבר/ה?",
+      "enterTheirReferralCodeIfYou": "אם יש לך קוד הפניה, אפשר להזין אותו כאן",
+      "eGJOHNOrTECHBRO": "לדוגמה: JOHN או TECHBRO",
+      "codeIsValid": "✓ הקוד תקין"
+    },
+    "resultsChart": {
+      "getBetterResults": "להגיע לתוצאות טובות יותר",
+      "over95OfClinicalfactUsersScore": "מעל 95% ממשתמשי Clinicalfact מקבלים 95 ומעלה במבחנים"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "סטודנט/ית לסיעוד",
+        "medicalStudent": "סטודנט/ית לרפואה",
+        "paPharmacyStudent": "סטודנט/ית לרוקחות או לעוזרי רופא (PA)",
+        "practicingNurse": "אח/ות מוסמך/ת",
+        "practicingPhysician": "רופא/ה",
+        "otherHealthcareProfessional": "מקצוע רפואי/בריאות אחר"
+      },
+      "currentMethod": {
+        "textbooksNotes": "ספרי לימוד או סיכומי שיעור",
+        "flashcardQuizApps": "אפליקציות כרטיסיות או בחנים",
+        "youtube": "YouTube",
+        "aiChatbots": "צ'אטבוטים של AI",
+        "colleagueClassmate": "שאלות לקולגות או לחברים ללימודים",
+        "practiceQuestionBanks": "מאגרי שאלות תרגול (קיו-בנק)"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "יצירת כרטיסיות ובחנים מאפס",
+        "findingTrustworthyAnswer": "מציאת תשובה מהימנה במהירות",
+        "reReadingNotes": "קריאה חוזרת של סיכומים שנשכחו",
+        "switchingApps": "מעבר בין יותר מדי אפליקציות",
+        "chartingDocumentation": "תיעוד רפואי ורישום"
+      },
+      "appExpectation": {
+        "noHallucination": "כלי AI שלא ממציא עובדות",
+        "realCitations": "ציטוטים אמיתיים ומקורות מהימנים",
+        "oneApp": "אפליקציה אחת במקום חמישה מנויים",
+        "explainsWhy": "הסבר של ה-\"למה\", לא רק התשובה"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "חיפוש ב-Google",
+        "otherApps": "אפליקציות אחרות"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "המציא דברים",
+        "notMedicalContent": "לא מותאם לתוכן רפואי",
+        "noSources": "אין מקורות שאפשר לבדוק",
+        "tooGeneric": "כללי מדי, לא ממוקד למבחנים או לקליניקה"
+      },
+      "aiTrustLevel": {
+        "everyTime": "תמיד",
+        "sometimes": "לפעמים",
+        "rarely": "לעיתים רחוקות",
+        "dontUseAi": "עדיין לא יצא לי להשתמש ב-AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "תשובות מהירות שאפשר לסמוך עליהן",
+        "quizzesFlashcardsWithoutWork": "בחנים וכרטיסיות בלי להתאמץ",
+        "rememberingStudied": "עזרה בלזכור את מה שלמדתי",
+        "medicalCitations": "הפניות ומקורות רפואיים",
+        "allOfTheAbove": "כל התשובות נכונות"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "ניוזלטר",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "אחר"
+      },
+      "studyTime": {
+        "under5Hours": "פחות מ-5 שעות",
+        "510Hours": "5–10 שעות",
+        "1020Hours": "10–20 שעות",
+        "20PlusHours": "20+ שעות"
+      },
+      "comingUp": {
+        "medicalExams": "מבחנים ברפואה",
+        "clinicalRotations": "סבבים קליניים",
+        "nursingExams": "מבחנים בסיעוד",
+        "otherExams": "מבחנים אחרים",
+        "staySharp": "רק רוצה לשמור על חדות"
       }
     }
   },
   "notes": {
-    "noteTranscript": "תמליל הערות",
+    "noteTranscript": {
+      "noteTranscript": "תמלול הסיכום",
+      "noNoteIDProvided": "לא סופק מזהה סיכום",
+      "noTranscriptAvailableForThisNote": "אין תמלול זמין לסיכום זה.",
+      "thisNoteWasNotCreatedFrom": "סיכום זה לא נוצר מאודיו/וידאו ואין לו תמלול.",
+      "failedToLoadNote": "טעינת הסיכום נכשלה",
+      "noteTranscript2": "תמלול הסיכום",
+      "loadingTranscript": "טוען תמלול...",
+      "goToNote": "מעבר לסיכום"
+    },
     "noteOptions": "אפשרויות הערה",
-    "editNote": "עריכת הערה",
+    "editNote": {
+      "pleaseEnterANoteTitle": "נא להזין כותרת לסיכום",
+      "failedToUpdateNote": "עדכון הסיכום נכשל",
+      "noteUpdatedSuccessfully": "הסיכום עודכן בהצלחה",
+      "editNote": "עריכת סיכום",
+      "noteTitle": "כותרת הסיכום",
+      "enterNoteTitle": "הזנת כותרת לסיכום",
+      "noteContent": "תוכן הסיכום",
+      "enterNoteContent": "הזנת תוכן הסיכום",
+      "saveThisNote": "שמירת סיכום זה",
+      "aiIsGeneratingYourNote": "ה-AI מייצר את הסיכום שלך",
+      "largeAudioAndVideoFilesMay": "עיבוד קובצי אודיו ווידאו גדולים עשוי להימשך מספר דקות. נא להשאיר את האפליקציה פתוחה."
+    },
     "retranscribe": "תמלול מחדש",
     "exportNote": "ייצוא הערה",
     "shareNoteLink": "שתף קישור להערה",
@@ -237,12 +443,89 @@
     "translate": "לְתַרְגֵם",
     "addToFolder": "הוסף לתיקייה",
     "loadingNote": "טוען הערה...",
-    "noteNotFound": "טעינת ההערה נכשלה"
+    "noteNotFound": "טעינת ההערה נכשלה",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "יצירת הכרטיסיות נכשלה",
+      "anUnexpectedErrorOccurred": "אירעה שגיאה בלתי צפויה",
+      "history": "היסטוריה",
+      "export": "ייצוא"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "הוספת הסיכום לתיקייה נכשלה",
+      "folderNotFound": "התיקייה לא נמצאה",
+      "addNote": "+ הוספת סיכום",
+      "noNotesInThisFolder": "אין סיכומים בתיקייה זו",
+      "moveNotesToThisFolderTo": "העבר סיכומים לתיקייה זו כדי לראות אותם כאן",
+      "addNoteToFolder": "הוספת סיכום לתיקייה",
+      "noNotesAvailableToAdd": "אין סיכומים זמינים להוספה",
+      "allYourNotesAreAlreadyIn": "כל הסיכומים שלך כבר נמצאים בתיקייה זו",
+      "created": "נוצר ב-{{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "טעינת הסיכום נכשלה",
+      "reTranscribeNote": "תמלול הסיכום מחדש",
+      "thisWillReTranscribeTheAudio": "פעולה זו תתמלל את האודיו מחדש ותעדכן את הסיכום. להמשיך?",
+      "reTranscribe": "תמלול מחדש",
+      "noteReTranscribedSuccessfully": "הסיכום תומלל מחדש בהצלחה",
+      "info": "מידע",
+      "reTranscriptionFeatureIsComingSoon": "תכונת התמלול מחדש תהיה זמינה בקרוב",
+      "youAreCurrentlyOfflinePleaseConnect": "אין כרגע חיבור לאינטרנט. יש להתחבר לרשת כדי לבצע פעולה זו.",
+      "failedToDeleteNote": "מחיקת הסיכום נכשלה",
+      "failedToExportNote": "ייצוא ההערה נכשל",
+      "noteTranslatedSuccessfully": "ההערה תורגמה בהצלחה",
+      "failedToTranslateNote": "תרגום ההערה נכשל",
+      "noteMovedTo": "ההערה הועברה אל {{name}}",
+      "failedToMoveNoteToFolder": "העברת ההערה לתיקייה נכשלה",
+      "summaryNotes": "סיכומי הערות",
+      "loadingNote": "טוען הערה...",
+      "imageNote": "הערת תמונה",
+      "created": "נוצר ב-{{dateTime}}",
+      "translate": "תרגם",
+      "transcribe": "תמלל",
+      "editThisNote": "ערוך הערה זו",
+      "createFlashcards": "צור כרטיסיות",
+      "createFlashcardsToImproveYourRetention": "צור כרטיסיות כדי לשפר את הזיכרון וההטמעה",
+      "createQuizQuestions": "צור שאלות תרגול",
+      "practiceYourNotesByCreatingQuestions": "תרגל את החומר על ידי יצירת שאלות שיעזרו לך לשלוט בנושא"
+    },
+    "sharedNote": {
+      "notFound": "לא נמצא",
+      "thisSharedNoteLinkIsInvalid": "קישור זה להערה משותפת אינו תקין או שפג תוקפו.",
+      "failedToLoadSharedNote": "טעינת ההערה המשותפת נכשלה.",
+      "saved": "נשמר!",
+      "noteHasBeenAddedToYour": "ההערה נוספה לספרייה שלך.",
+      "viewInLibrary": "הצג בספרייה",
+      "stayHere": "הישאר כאן",
+      "failedToSaveNote": "שמירת ההערה נכשלה.",
+      "loadingSharedNote": "טוען הערה משותפת...",
+      "sharedNote": "הערה משותפת",
+      "sharedWithYou": "שותף איתך",
+      "savedToLibrary": "נשמר בספרייה",
+      "saveToMyLibrary": "שמור בספרייה שלי"
+    }
   },
   "create": {
     "selectOption": "איך תרצה ליצור את ההערה שלך?",
-    "recordAudio": "הקלטת אודיו",
-    "uploadAudio": "העלאת אודיו",
+    "recordAudio": {
+      "permissionRequired": "נדרשת הרשאה",
+      "pleaseGrantMicrophonePermissionToRecord": "יש להעניק הרשאת גישה למיקרופון כדי להקליט אודיו.",
+      "failedToRequestMicrophonePermission": "בקשת ההרשאה למיקרופון נכשלה",
+      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "מקליט אודיו",
+      "recordAudio": "הקלטת אודיו",
+      "createANoteFromAnyRecorded": "יצירת הערה מכל הקלטת אודיו",
+      "recording": "מקליט ({{time}})",
+      "recordAgain": "הקלט שוב"
+    },
+    "uploadAudio": {
+      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "בחירת קובץ האודיו נכשלה",
+      "uploadAudio": "העלאת אודיו",
+      "createANoteFromAnyUploaded": "יצירת הערה מכל קובץ אודיו שמועלה",
+      "dragDropFilesOrBrowse": "גרור ושחרר קבצים או עיין",
+      "supportedFormatMp4WavMp3": "פורמטים נתמכים: mp4, wav, mp3",
+      "changeFile": "החלף קובץ"
+    },
     "youtube": "סרטון יוטיוב",
     "pdfDocument": "PDF או מסמך",
     "customText": "טקסט מותאם אישית",
@@ -250,7 +533,56 @@
     "uploadingFile": "מעלה קובץ לשרת...",
     "transcribing": "המרת דיבור לטקסט...",
     "extractingText": "מחלץ טקסט...",
-    "generatingNote": "יצירת הערות לימוד המופעלות על ידי בינה מלאכותית...",
+    "generatingNote": {
+      "uploadAudio": "העלאת אודיו",
+      "uploadingAudioFileToServer": "מעלה קובץ אודיו לשרת...",
+      "transcribeAudio": "תמלול אודיו",
+      "convertingSpeechToText": "ממיר דיבור לטקסט...",
+      "generateYourNote": "יצירת ההערה שלך",
+      "creatingStudyNotes": "יוצר סיכומי למידה...",
+      "uploadPDF": "העלאת PDF",
+      "uploadingPDFDocumentToServer": "מעלה מסמך PDF לשרת...",
+      "extractText": "חילוץ טקסט",
+      "readingAndExtractingTextFromPDF": "קורא ומחלץ טקסט מ-PDF...",
+      "uploadImage": "העלאת תמונה",
+      "uploadingImageToServer": "מעלה תמונה לשרת...",
+      "extractTextOCR": "חילוץ טקסט (OCR)",
+      "recognizingAndExtractingTextFromImage": "מזהה ומחלץ טקסט מהתמונה...",
+      "fetchVideo": "אחזור וידאו",
+      "connectingToYouTube": "מתחבר ל-YouTube...",
+      "extractTranscript": "חילוץ תמלול",
+      "downloadingVideoTranscript": "מוריד תמלול וידאו...",
+      "processText": "עיבוד טקסט",
+      "analyzingYourContent": "מנתח את התוכן שלך...",
+      "uploadFile": "העלאת קובץ",
+      "uploadingToServer": "מעלה לשרת...",
+      "processContent": "עיבוד תוכן",
+      "extractingContent": "מחלץ תוכן...",
+      "noteReady": "הסיכום מוכן!",
+      "noteGenerationFailedOnTheServer": "יצירת הסיכום נכשלה בשרת.",
+      "failedToUploadImage": "העלאת התמונה נכשלה",
+      "weCouldNotReadAnythingFrom": "לא הצלחנו לקרוא שום דבר מהתמונה הזו. נסה להעלות תמונה ברורה יותר של הסיכומים הרפואיים שלך.",
+      "preparingFile": "מכין קובץ...",
+      "almostDone": "כמעט סיימנו...",
+      "untitledNote": "סיכום ללא כותרת",
+      "failedToGenerateNote": "יצירת הסיכום נכשלה",
+      "whoaSpeedy": "וואו, לאט יותר! 🏃💨",
+      "youReGeneratingContentABit": "קצב יצירת התוכן מהיר מדי. קח הפסקה של 60 שניות כדי לאפשר ל-AI שלנו להדביק את הקצב.",
+      "gotIt": "הבנתי",
+      "fileTooLarge": "הקובץ גדול מדי",
+      "yourFileExceedsThe15MBLimit": "הקובץ חורג ממגבלת 15MB למשתמשים בחינם. שדרג ל-PRO כדי להעלות הרצאות עד 100MB.",
+      "upgradeToPRO": "שדרוג ל-PRO",
+      "oopsWeHitASnag": "אופס, נתקלנו בבעיה 🚧",
+      "weCouldnTGenerateThatRight": "לא הצלחנו ליצור את זה כרגע. המתן רגע ונסה שוב!",
+      "processingContent": "מעבד תוכן...",
+      "generatingYourNote": "יוצר את הסיכום שלך...",
+      "audioNote": "סיכום קולי",
+      "failedToGenerateFlashcards": "יצירת הכרטיסיות נכשלה",
+      "generatingNote": "יוצר סיכום",
+      "pleaseKeepThisScreenOpenWhile": "נא להשאיר מסך זה פתוח בזמן יצירת הסיכום. תמלול קבצים גדולים עשוי להימשך מספר דקות.",
+      "goToNote": "מעבר לסיכום",
+      "generateNoteTranscript": "יצירת תמלול לסיכום"
+    },
     "fetchingVideo": "מתחבר ליוטיוב...",
     "processingText": "ניתוח התוכן שלך...",
     "uploadAudioTitle": "העלאת אודיו",
@@ -260,7 +592,63 @@
     "fetchVideo": "אחזור וידאו",
     "extractTranscript": "תמליל חילוץ",
     "processText": "טקסט תהליך",
-    "generateNote": "צור את ההערה שלך"
+    "generateNote": "צור את ההערה שלך",
+    "customTextInput": {
+      "customText": "טקסט מותאם אישית",
+      "createANoteFromAnyCustom": "יצירת סיכום מכל טקסט חופשי",
+      "enterText": "הזנת טקסט",
+      "enterYourTextHere": "הזן את הטקסט כאן..."
+    },
+    "uploadImage": {
+      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "נדרשת הרשאה",
+      "pleaseAllowAccessToYourPhoto": "נא לאפשר גישה לספריית התמונות שלך",
+      "failedToPickImage": "בחירת התמונה נכשלה",
+      "uploadImage": "העלאת תמונה",
+      "createANoteFromAnyUploaded": "יצירת סיכום מכל תמונה שהועלתה",
+      "dragDropFilesOrBrowse": "גרור ושחרר קבצים או עיין",
+      "supportedFormatPngJpegHeicWebp": "פורמטים נתמכים: png, jpeg, heic, webp",
+      "changeFile": "החלפת קובץ"
+    },
+    "uploadPDF": {
+      "created": "נוצר ב-{{day}} ב{{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "בחירת המסמך נכשלה",
+      "uploadPdf": "העלאת PDF",
+      "createANoteFromAnyUploaded": "יצירת סיכום מכל קובץ PDF שהועלה",
+      "dragDropFilesOrBrowse": "גרור ושחרר קבצים או עיין",
+      "supportedFormatPdf": "פורמט נתמך: pdf",
+      "changeFile": "החלפת קובץ"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "מביא סרטון",
+      "gettingVideoDetails": "מקבל פרטי סרטון",
+      "extractingTranscript": "מחלץ תמלול",
+      "convertingAudioToText": "ממיר שמע לטקסט",
+      "generatingYourNote": "יוצר את הסיכום שלך",
+      "aiIsSummarisingTheContent": "ה-AI מתמצת את התוכן",
+      "noteGenerationFailedPleaseTryAgain": "יצירת הסיכום נכשלה. נסה שוב.",
+      "processingFailed": "העיבוד נכשל",
+      "goBack": "חזרה",
+      "retry": "נסה שוב",
+      "failedToStartNoteGeneration": "יצירת הסיכום נכשלה",
+      "failedToProcessYouTubeVideoPlease": "עיבוד סרטון ה-YouTube נכשל. יש לנסות שוב.",
+      "cancelProcessing": "ביטול העיבוד",
+      "areYouSureYouWantTo": "לבטל? ההתקדמות שלך תאבד.",
+      "continueProcessing": "המשך עיבוד",
+      "youTubeNote": "סיכום מ-YouTube",
+      "noteGenerated": "הסיכום נוצר בהצלחה",
+      "generatingNote": "יוצר סיכום...",
+      "goToNote": "מעבר לסיכום"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "לא ניתן לאחזר פרטי סרטון",
+      "failedToFetchVideoInformation": "אחזור פרטי הסרטון נכשל",
+      "youtubeVideo": "סרטון YouTube",
+      "createANoteFromAnyYoutube": "יצירת סיכום מכל סרטון YouTube",
+      "enterYoutubeURL": "הזנת כתובת YouTube",
+      "pasteYoutubeURL": "הדבקת כתובת YouTube",
+      "fetchingVideoInfo": "מאחזר פרטי סרטון..."
+    }
   },
   "library": {
     "title": "סִפְרִיָה",
@@ -292,7 +680,7 @@
     "almostDone": "כמעט גמור...",
     "quizReady": "חידון מוכן!",
     "startQuiz": "התחל חידון",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} מתוך {{total}}",
     "exitTitle": "לצאת מהחידון?",
     "exitMessage": "ההתקדמות שלך תאבד.",
     "exit": "יְצִיאָה",
@@ -312,7 +700,45 @@
     "correctAnswer": "תשובה נכונה",
     "yourAnswer": "התשובה שלך",
     "explanation": "הֶסבֵּר",
-    "questionProgress": "שאלה {{current}} מתוך {{total}}"
+    "questionProgress": "שאלה {{current}} מתוך {{total}}",
+    "generatingQuizWait": "אנחנו מכינים את הבוחן שלך, רק כמה רגעים...",
+    "goToChats": "מעבר לצ'אטים",
+    "quizGroupDetail": {
+      "inProgress": "בתהליך",
+      "notStarted": "טרם התחיל",
+      "failedToLoadQuizHistory": "טעינת היסטוריית המבחנים נכשלה",
+      "failedToLoadChatContent": "טעינת תוכן הצ'אט נכשלה",
+      "deleteQuiz": "מחיקת מבחן",
+      "failedToDeleteQuiz": "מחיקת המבחן נכשלה",
+      "created": "נוצר ב-{{dateTime}}",
+      "lastscore": "ציון אחרון",
+      "bestscore": "הציון הטוב ביותר",
+      "attempts": "ניסיונות",
+      "retakeQuiz": "בצע שוב",
+      "translate": "תרגום",
+      "newQuiz": "מבחן חדש",
+      "quizHistory": "היסטוריית מבחנים",
+      "flashcardHistory": "היסטוריית כרטיסיות",
+      "score": "ציון: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "אין עדיין סטים של כרטיסיות ממקור זה.",
+      "cards": "{{totalCards}} כרטיסיות · {{flashcardStatus}}",
+      "quizOptions": "אפשרויות מבחן",
+      "exportLatestAttempt": "ייצוא ניסיון אחרון",
+      "questions": "{{totalQuestions}} שאלות · {{value}}",
+      "deleteAllAttemptsOne": "למחוק את הניסיון היחיד עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
+      "deleteAllAttemptsMany": "למחוק את כל {{total}} הניסיונות עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
+      "makeFlashcards": "צור כרטיסיות"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "טעינת נתוני המבחן נכשלה - פורמט תשובה לא תקין",
+      "failedToLoadQuizData": "טעינת נתוני המבחן נכשלה",
+      "noContentAvailable": "אין תוכן זמין",
+      "goBack": "חזרה",
+      "previous": "הקודם"
+    },
+    "quiz": {
+      "generationFailed": "היצירה נכשלה"
+    }
   },
   "flashcards": {
     "title": "כרטיסיות",
@@ -343,7 +769,46 @@
     "headerTitle": "כרטיס פלאש",
     "progressFormat": "כרטיסיית פלאש {{current}} מתוך {{total}}",
     "noteIdRequired": "נדרש מזהה הערה כדי ליצור כרטיסי למידה",
-    "invalidCardCount": "אנא בחר בין 1 ל-100 כרטיסיות"
+    "invalidCardCount": "אנא בחר בין 1 ל-100 כרטיסיות",
+    "flashcardGroupDetail": {
+      "inProgress": "בתהליך",
+      "notStarted": "טרם התחיל",
+      "failedToLoadFlashcardHistory": "טעינת היסטוריית הכרטיסיות נכשלה",
+      "limitReached": "הגעת למגבלה",
+      "flashcardGenerationLimitReached": "הגעת למגבלת יצירת הכרטיסיות.",
+      "failedToGenerateFlashcards": "יצירת הכרטיסיות נכשלה",
+      "failedToTranslateFlashcards": "תרגום הכרטיסיות נכשל",
+      "deleteFlashcards": "מחיקת כרטיסיות",
+      "failedToDeleteFlashcards": "מחיקת הכרטיסיות נכשלה",
+      "created": "נוצר ב-{{dateTime}}",
+      "lastprogress": "התקדמות אחרונה",
+      "bestprogress": "ההתקדמות הטובה ביותר",
+      "sets": "ערכות",
+      "studyNow": "למד עכשיו",
+      "translate": "תרגם",
+      "newFlashcards": "כרטיסיות חדשות",
+      "flashcardHistory": "היסטוריית כרטיסיות",
+      "quizHistory": "היסטוריית בחנים",
+      "cards": "{{totalCards}} כרטיסיות · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "אין עדיין בחנים ממקור זה.",
+      "score": "ציון: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "אפשרויות כרטיסיות",
+      "exportLatestSet": "ייצוא הערכה האחרונה",
+      "questions": "{{totalQuestions}} שאלות · {{value}}",
+      "deleteAllSetsOne": "למחוק את ערכת הכרטיסיות עבור \"{{title}}\"? לא ניתן לבטל פעולה זו.",
+      "deleteAllSetsMany": "למחוק את כל {{total}} ערכות הכרטיסיות עבור \"{{title}}\"? לא ניתן לבטל פעולה זו.",
+      "makeQuiz": "צור חידון",
+      "failedToLoadChatContent": "טעינת תוכן הצ׳אט נכשלה"
+    },
+    "flashcardReview": {
+      "unknownError": "שגיאה לא ידועה",
+      "noFlashcardsInThisSet": "אין כרטיסיות בערכה זו",
+      "goBack": "חזרה",
+      "allDone": "הכל מוכן",
+      "youHaveReviewedAllTheCards": "חזרת על כל הכרטיסיות בחפיסה זו",
+      "question": "שאלה {{value}}",
+      "questionOf": "שאלה {{value}} מתוך {{totalCards}}"
+    }
   },
   "chat": {
     "title": "לְשׂוֹחֵחַ",
@@ -354,7 +819,186 @@
     "chatWithDocument": "צ'אט עם מסמך",
     "selectFile": "בחר קובץ לשיחה",
     "uploadFile": "העלאת קובץ",
-    "startChatting": "התחל צ'אט"
+    "startChatting": "התחל צ'אט",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "שאל שאלה רפואית כדי לקבל הבהרות נוספות",
+      "askAnythingAboutThisDocument": "אפשר לשאול הכל על המסמך הזה...",
+      "askAQuestionAttachmentProcessingFailed": "שאל שאלה — עיבוד הקובץ המצורף נכשל",
+      "extractingText": "מחלץ טקסט...",
+      "processingPDF": "מעבד קובץ PDF...",
+      "upgradeToProToContinueChatting": "שדרג ל-PRO כדי להמשיך בצ'אט",
+      "queryremaining": "נותרה שאילתה {{queriesRemaining}}"
+    },
+    "chatEmptyState": {
+      "initializingChat": "מאתחל צ'אט...",
+      "extractingTextFromImage": "מחלץ טקסט מהתמונה...",
+      "processingPDFDocument": "מעבד מסמך PDF...",
+      "analyzingYourNote": "מנתח את הסיכום שלך...",
+      "thisUsuallyTakesJustAFew": "⏱️ בדרך כלל זה לוקח כמה שניות. תוכל לשוחח בצ'אט ברגע שהעיבוד יסתיים.",
+      "processingFailed": "העיבוד נכשל",
+      "fileMightBeCorruptedOrUnreadable": "• ייתכן שהקובץ פגום או לא קריא",
+      "imageQualityTooLow": "איכות התמונה נמוכה מדי",
+      "pdfIsPasswordProtected": "ה-PDF מוגן בסיסמה",
+      "contentFormatNotSupported": "פורמט התוכן אינו נתמך",
+      "networkConnectionIssue": "• בעיית חיבור לרשת",
+      "tryADifferentFile": "נסה קובץ אחר",
+      "askAnyClinicalQuestionNoUpload": "💡 שאל כל שאלה קלינית — אין צורך להעלות קובץ. אענה בהתבסס על ספרות רפואית ומקורות מצוטטים, כולל תמונות רלוונטיות במידת האפשר.",
+      "readyToChat": "✓ מוכן לצ'אט",
+      "couldntProcessNote": "לא הצלחנו לעבד את הסיכום. הסיבות האפשריות:",
+      "couldntProcessImage": "לא הצלחנו לעבד את התמונה. הסיבות האפשריות:",
+      "couldntProcessDocument": "לא הצלחנו לעבד את המסמך. הסיבות האפשריות:",
+      "askMeAboutNote": "💡 אפשר לשאול אותי הכל על הסיכום הזה. אני יכול לתמצת, להסביר מושגים או לענות על שאלות ספציפיות.",
+      "askMeAboutImage": "💡 אפשר לשאול אותי הכל על התמונה הזו. אני יכול לתמצת, להסביר מושגים או לענות על שאלות ספציפיות.",
+      "askMeAboutDocument": "💡 אפשר לשאול אותי הכל על המסמך הזה. אני יכול לתמצת, להסביר מושגים או לענות על שאלות ספציפיות."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} הושלמו בהצלחה",
+      "notStarted": "טרם התחיל",
+      "quizGeneration": "יצירת בוחן",
+      "score": "ציון: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "יצירת כרטיסיות",
+      "questions": "{{totalCards}} שאלות · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} שאלות · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "חושב ומחפש מקורות עבורך...",
+      "couldnTGenerateAResponse": "לא הצלחנו להפיק תשובה.",
+      "retry": "נסה שוב",
+      "alsoReferencedFromTheWeb": "מקורות נוספים מהאינטרנט",
+      "followUpQuestions": "שאלות המשך"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "שאל כל שאלה רפואית וקבל עובדות מבוססות עם מקורות מצוטטים",
+      "evidenceBasedPubMedSourcesPeerReviewed": "מבוסס ראיות · מקורות מ-PubMed · ביקורת עמיתים",
+      "tryOutAnyOfThisTopics": "כדאי לנסות אחד מהנושאים האלה כדי להתחיל",
+      "topics": {
+        "electrolytes": {
+          "label": "הסבר על חוסר איזון אלקטרוליטי",
+          "question": "הסבר על הפרעות אלקטרוליטריות — גורמים, תסמינים וטיפול"
+        },
+        "ecg": {
+          "label": "יסודות פענוח אק\"ג",
+          "question": "מהם העקרונות הבסיסיים לפענוח אק\"ג?"
+        },
+        "drugInteractions": {
+          "label": "אינטראקציות בין-תרופתיות נפוצות",
+          "question": "אילו אינטראקציות חשובות ונפוצות בין תרופות כדאי להכיר?"
+        },
+        "nclex": {
+          "label": "שאלות תרגול בסגנון NCLEX",
+          "question": "תן לי שאלת תרגול בסגנון NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "עלון תרופה של ה-FDA",
+      "fromYourAttachedMaterial": "מהחומרים שצירפת"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "יצירת הצ'אט נכשלה",
+      "failedToInitializeChatSession": "אתחול הצ'אט נכשל",
+      "failedToUpdateLanguage": "עדכון השפה נכשל",
+      "youVeReachedYour3Pin": "הגעת למגבלת 3 ההצמדות",
+      "failedToUpdatePin": "עדכון ההצמדה נכשל",
+      "permissionRequired": "נדרשת הרשאה",
+      "pleaseGrantCameraPermissionToTake": "יש לאשר גישה למצלמה כדי לצלם תמונה.",
+      "pleaseGrantPhotoLibraryPermissionTo": "יש לאשר גישה לספריית התמונות כדי להעלות תמונות.",
+      "failedToUploadImage": "העלאת התמונה נכשלה",
+      "uploadFailed": "ההעלאה נכשלה",
+      "failedToUploadDocument": "העלאת המסמך נכשלה",
+      "failedToStartChatFromThis": "לא ניתן לפתוח צ'אט מקובץ זה.",
+      "chatFromImage": "צ'אט מתמונה",
+      "failedToStartANewQuestion": "התחלת שאלה חדשה נכשלה. יש לנסות שוב.",
+      "failedToAttachFile": "צירוף הקובץ נכשל",
+      "failedToSendMessage": "שליחת ההודעה נכשלה",
+      "copiedToClipboard": "הועתק ללוח",
+      "notEnoughContentYet": "אין עדיין מספיק תוכן",
+      "chatABitMoreBeforeGenerating": "יש לנהל עוד קצת שיחה לפני יצירת בוחן (לפחות 100 תווים).",
+      "chatABitMoreBeforeGenerating2": "יש לנהל עוד קצת שיחה לפני יצירת כרטיסיות (לפחות 100 תווים).",
+      "failedToGenerateFlashcards": "יצירת הכרטיסיות נכשלה",
+      "failedToRegenerateResponse": "יצירת התשובה מחדש נכשלה",
+      "failedToRetryResponse": "הניסיון החוזר לקבלת תשובה נכשל"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "צירוף הסיכום נכשל",
+      "folderCreatedSuccessfully": "התיקייה \"{{name}}\" נוצרה בהצלחה!",
+      "failedToCreateFolder": "יצירת התיקייה נכשלה",
+      "failedToAttachDocument": "צירוף המסמך נכשל",
+      "failedToCreateChatSession": "יצירת הצ'אט נכשלה",
+      "failedToUploadDocument": "העלאת המסמך נכשלה",
+      "openingCamera": "📷 פותח מצלמה...",
+      "openingImagePicker": "🖼️ פותח את בורר התמונות...",
+      "permissionRequired": "נדרשת הרשאה",
+      "pleaseGrantCameraPermissionToTake": "יש לאשר גישה למצלמה כדי לצלם תמונה.",
+      "pleaseGrantPhotoLibraryPermissionTo": "יש לאשר גישה לספריית התמונות כדי להעלות תמונות.",
+      "failedToAttachImage": "צירוף התמונה נכשל",
+      "failedToUploadImage": "העלאת התמונה נכשלה",
+      "failedToAttachAudio": "צירוף האודיו נכשל",
+      "failedToUploadAudio": "העלאת האודיו נכשלה",
+      "items": "{{itemCount}} פריטים",
+      "thisFolderIsEmptyGoBack": "תיקייה זו ריקה. חזור כדי לבחור תיקייה אחרת.",
+      "addFolder": "הוספת תיקייה",
+      "uploadNewDocument": "העלאת מסמך חדש",
+      "uploadAPDFAndStartChatting": "העלה קובץ PDF והתחל צ'אט באופן מיידי",
+      "uploadNewImage": "העלאת תמונה חדשה",
+      "uploadAnImageAndExtractText": "העלה תמונה וחלץ טקסט באופן מיידי",
+      "uploadNewAudio": "העלאת אודיו חדש",
+      "uploadAnAudioFileAndTranscribe": "העלאת קובץ שמע ותמלול מיידי שלו",
+      "orselectfromlibrary": "או בחירה מהספרייה",
+      "folders": "תיקיות",
+      "allNotes": "כל הסיכומים",
+      "noFilesToDisplay": "אין קבצים להצגה",
+      "noNotesToDisplay": "אין סיכומים להצגה",
+      "noDocumentsYet": "עדיין אין לך מסמכי PDF.\nיש ליצור תחילה סיכומים, ואז לחזור כדי לשוחח עליהם.",
+      "noImagesYet": "עדיין אין לך תמונות.\nיש ליצור תחילה סיכומים, ואז לחזור כדי לשוחח עליהם.",
+      "noAudioNotesYet": "עדיין אין לך הקלטות שמע.\nיש ליצור תחילה סיכומים, ואז לחזור כדי לשוחח עליהם.",
+      "noNotesYet": "עדיין אין לך סיכומים.\nיש ליצור תחילה סיכומים, ואז לחזור כדי לשוחח עליהם.",
+      "attachNote": "צירוף סיכום",
+      "selectNote": "בחירת סיכום",
+      "attachImage": "צירוף תמונה",
+      "selectImage": "בחירת תמונה",
+      "attachDocument": "צירוף מסמך",
+      "selectDocument": "בחירת מסמך",
+      "attachAudio": "צירוף שמע",
+      "selectAudio": "בחירת שמע",
+      "attachFile": "צירוף קובץ",
+      "selectFile": "בחירת קובץ"
+    },
+    "chatAttachSheet": {
+      "addToChat": "הוספה לצ'אט",
+      "camera": "מצלמה",
+      "photos": "תמונות",
+      "files": "קבצים",
+      "generateQuiz": "יצירת מבחן תרגול",
+      "generateFlashcards": "יצירת כרטיסיות",
+      "searchMedicalLiterature": "חיפוש בספרות הרפואית",
+      "filterByDateSourceAndType": "סינון לפי תאריך, מקור וסוג",
+      "pullsRealCitedSourcesIntoYour": "שילוב מקורות מהימנים ומצוטטים בתשובות",
+      "trustedmedicalsourcedatabase": "מאגר מקורות רפואיים מהימנים",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "הספרייה הלאומית לרפואה של ארה\"ב (NLM)",
+      "fdaDrugTreatmentData": "נתוני תרופות וטיפולים של ה-FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "בדיקת ציטוטים",
+      "citations": "ציטוטים ומקורות",
+      "fromTheWeb": "מהאינטרנט"
+    },
+    "chatHeader": {
+      "readyTapToRename": "מוכן · הקשה לשינוי השם",
+      "processing": "מעבד {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "הצגת המקור ↗"
+    },
+    "chatRename": {
+      "renameChat": "שינוי שם הצ'אט"
+    },
+    "sourcesRow": {
+      "viewSources": "הצגת מקורות ({{total}})"
+    }
   },
   "languages": {
     "english": "אַנגְלִית",
@@ -408,5 +1052,455 @@
     "malay": "מלאית",
     "indonesian": "אינדונזית",
     "catalan": "קטלאנית"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "הוספת תיקייה",
+      "folderName": "שם התיקייה",
+      "enterFolderName": "הזנת שם התיקייה",
+      "chooseColor": "בחירת צבע",
+      "createFolder": "יצירת תיקייה"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "לפני שנעבד את התוכן שלך",
+      "clinicalFactUsesAIToAnswer": "‏Clinical Fact משתמשת ב-AI כדי לענות על שאלותיך ולהפוך את התוכן שלך לסיכומים, מבחני תרגול וכרטיסיות. הנה מה שחשוב לדעת:",
+      "whatDataIsSent": "איזה מידע נשלח",
+      "questionsAndMessagesYouTypeIn": "שאלות והודעות שנכתבות בצ'אט",
+      "audioRecordingsOrUploadedAudioFiles": "הקלטות שמע או קובצי שמע שהועלו",
+      "pdfAndTextDocumentsYouUpload": "מסמכי PDF וטקסט שהועלו",
+      "imagesYouUpload": "תמונות שהועלו",
+      "youTubeVideoURLsAndTheirTranscripts": "קישורים לסרטוני YouTube ותמלילים שלהם",
+      "customTextYouEnter": "טקסט מותאם אישית שהוזן",
+      "whoReceivesYourData": "מי מקבל את המידע שלך",
+      "howItSUsed": "כיצד המידע משמש אותנו",
+      "yourContentIsUsedSolelyTo": "התוכן שלך משמש אך ורק ליצירת התשובה, הסיכום, המבחן או הכרטיסיות שביקשת. מדיניות השימוש בנתונים של כל ספק חלה על תוכן המעובד דרך ה-API שלו. לפרטים נוספים, ניתן לעיין במדיניות הפרטיות שלנו.",
+      "iAgreeContinue": "אני מסכים/ה — המשך",
+      "noThanks": "לא תודה",
+      "whoReceivesBody": "התוכן שלך נשלח ל-<bold>Google (Gemini)</bold> (יצירת סיכומים, בחנים וכרטיסיות לימוד; מענה בצ'אט; עיבוד מסמכים ותמונות) ול-<bold>OpenAI</bold> (תמלול שמע) דרך השרתים המאובטחים שלנו. קטעים מהמסמכים שלך מאונדקסים גם ב-<bold>Google Vertex AI</bold> כדי שהצ'אט יוכל לאתר את החלקים הרלוונטיים. בשימוש בחיפוש רפואי בזמן אמת, השאלה שלך נשלחת גם ל-<bold>Tavily</bold> ולמאגרי ספרות רפואית ציבוריים (כגון PubMed, Europe PMC ו-Semantic Scholar) כדי למצוא מובאות ממקורות מהימנים כמו NIH, CDC, MedlinePlus, WHO ו-Mayo Clinic. ספקים אלה מעבדים את הנתונים שלך אך ורק כדי להפיק עבורך תשובה — הם אינם משתמשים בהם לאימון מודלי ה-AI הכלליים שלהם, ואנו לא מוכרים את המידע שלך לאף גורם צד שלישי."
+    },
+    "chatActionSheet": {
+      "unpinChat": "ביטול הצמדת הצ'אט",
+      "pinChat": "הצמד צ'אט",
+      "deleteChat": "מחק צ'אט"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "צור כרטיסיות",
+      "createFlashcards": "יצירת כרטיסיות",
+      "createFlashcardsFromToImproveYour": "צור כרטיסיות מתוך \"{{noteTitle}}\" כדי לשפר את הזיכרון וההבנה",
+      "createFlashcardsToImproveYourRetention": "צור כרטיסיות כדי לשפר את הזיכרון וההבנה",
+      "howManyQuestions": "כמה שאלות?",
+      "generateFlashcards2": "צור כרטיסיות"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "צור מתוך צ'אט",
+      "selectFromOneOfYourRecent": "בחר מתוך אחד הצ'אטים האחרונים שלך",
+      "pdfOrDocument": "PDF או מסמך",
+      "createFromAudio": "צור מהקלטת שמע",
+      "image": "תמונה",
+      "createFromCustomText": "צור מטקסט חופשי",
+      "created": "נוצר ב-{{day}}, {{time}}",
+      "createQuizFrom": "צור מבחן מתוך",
+      "createFlashcardsFrom": "צור כרטיסיות מתוך",
+      "selectFromChat": "בחר מתוך צ'אט",
+      "noRecentChatsYet": "אין עדיין צ'אטים אחרונים",
+      "quizFromPdf": "צור מבחן מ-PDF או ממסמך",
+      "flashcardsFromPdf": "צור ערכת כרטיסיות מ-PDF או ממסמך",
+      "quizFromAudio": "צור מבחן מקובץ שמע שהועלה",
+      "flashcardsFromAudio": "צור ערכת כרטיסיות מקובץ שמע שהועלה",
+      "quizFromImage": "צור מבחן מכל תמונה",
+      "flashcardsFromImage": "צור ערכת כרטיסיות מכל תמונה",
+      "quizFromText": "צור מבחן מטקסט שנסרק",
+      "flashcardsFromText": "צור ערכת כרטיסיות מטקסט שנסרק"
+    },
+    "createNote": {
+      "recordAudio": "הקלט שמע",
+      "generateANoteFromAnyRecorded": "צור סיכום מכל הקלטת שמע",
+      "uploadAudio": "העלה קובץ שמע",
+      "createANoteFromAnyUploaded": "צור סיכום מכל קובץ שמע שהועלה",
+      "youtubeVideo": "סרטון YouTube",
+      "createANoteFromAnyYoutube": "צור סיכום מכל סרטון YouTube",
+      "pdfOrDocument": "PDF או מסמך",
+      "createANoteFromPDFOr": "צור סיכום מ-PDF או ממסמך",
+      "customText": "טקסט חופשי",
+      "createANoteFromCapturedText": "צור סיכום מטקסט שנסרק",
+      "image": "תמונה",
+      "createANoteFromAnyImage": "צור סיכום מכל תמונה",
+      "createNote": "צור סיכום"
+    },
+    "createQuiz": {
+      "generateQuiz": "צור מבחן",
+      "createQuiz": "יצירת מבחן",
+      "practiceByCreatingQuestionsThatHelp": "תרגל את \"{{noteTitle}}\" בעזרת שאלות שיעזרו לך לשלוט בחומר",
+      "practiceYourNotesByCreatingQuestions": "תרגל את הסיכומים שלך בעזרת שאלות שיעזרו לך לשלוט בחומר",
+      "howManyQuestions": "כמה שאלות?",
+      "timeInMinutes": "זמן (בדקות)"
+    },
+    "deleteNote": {
+      "deleteNote": "מחק סיכום",
+      "areYouSureYouWantTo": "האם אתה בטוח שברצונך למחוק סיכום זה?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "ייצא סיכום כ-",
+      "exportTranscriptAs": "ייצא תמליל כ-",
+      "exportAs": "ייצא כ-",
+      "exportSummary": "ייצוא סיכום",
+      "exportTranscript": "ייצוא תמליל"
+    },
+    "exportTypeStep": {
+      "exportNote": "ייצוא סיכום",
+      "exportSummary": "ייצוא תמצית",
+      "exportTranscript": "ייצוא תמליל"
+    },
+    "exportSettings": {
+      "export": "ייצוא {{title}}",
+      "selectFormat": "בחר פורמט",
+      "includeAnswers": "כלול תשובות",
+      "answersExplanationsIncluded": "כולל תשובות והסברים",
+      "questionsOnly": "שאלות בלבד",
+      "export2": "ייצוא"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "הסיכום שלך מוכן!",
+      "howDidWeDo": "איך היינו?",
+      "happy": "מרוצה",
+      "sad": "לא מרוצה",
+      "maybeLater": "אולי מאוחר יותר",
+      "whatWentWrong": "מה השתבש?",
+      "yourFeedbackHelpsUsImprove": "המשוב שלך עוזר לנו להשתפר.",
+      "tellUsWhatCouldBeBetter": "ספרו לנו מה אפשר לשפר...",
+      "submit": "שליחה"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "אין תוכן זמין",
+      "clickCardToFlip": "הקש על הכרטיסייה כדי להפוך"
+    },
+    "flashcardExport": {
+      "exportFailed": "הייצוא נכשל",
+      "unknownError": "שגיאה לא ידועה",
+      "export": "ייצוא {{setTitle}}",
+      "chooseWhatToExport": "בחר מה לייצא",
+      "exportQuestions": "ייצוא שאלות",
+      "exportAnswers": "ייצוא תשובות"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "מחיקת ערכת כרטיסיות",
+      "areYouSureYouWantTo": "האם אתה בטוח שברצונך למחוק את \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "מחיקת ערכת הכרטיסיות נכשלה",
+      "flashcardHistory": "היסטוריית כרטיסיות",
+      "cards": "כרטיסיות",
+      "reviewedMastered": "נלמדו {{cardsReviewedCount}} • הופנמו {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} פריטים",
+      "enterYourFolderName": "הזן שם לתיקייה",
+      "yourFolderName": "שם התיקייה",
+      "createFolder": "יצירת תיקייה",
+      "folders": "תיקיות",
+      "addFolder": "הוספת תיקייה",
+      "noFoldersToDisplay": "אין תיקיות להצגה",
+      "clickTheButtonAboveToCreate": "הקש על הכפתור למעלה כדי ליצור תיקייה לסיכומים שלך",
+      "allFolders": "כל התיקיות",
+      "items2": "{{totalItems}} פריטים"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "מסנני מחקר רפואי",
+      "howrecentdoyouwantthe": "עד כמה המקור צריך להיות עדכני",
+      "from": "החל מ-",
+      "whatkindofsourcedoyou": "איזה סוג מקור דרוש לך",
+      "textbooks": "ספרי לימוד (Textbooks)",
+      "clinicalGuidelines": "קווים מנחים קליניים",
+      "scientificJournalArticles": "מאמרים מכתבי עת מדעיים",
+      "onlywiththisjournalarticles": "רק ממאמרים אלה בכתב העת",
+      "metaAnalyses": "מטה-אנליזות",
+      "reviewArticles": "מאמרי סקירה (Review)",
+      "clinicalTrials": "ניסויים קליניים",
+      "fromYear": "משנה",
+      "toYear": "עד שנה"
+    },
+    "noteOptions": {
+      "noteOptions": "אפשרויות סיכום",
+      "editNote": "עריכת סיכום",
+      "reTranscribe": "תמלול מחדש",
+      "chatWithNote": "צ'אט על הסיכום",
+      "exportNote": "ייצוא סיכום",
+      "moveToFolder": "העברה לתיקייה",
+      "deleteNote": "מחיקת סיכום"
+    },
+    "onboardingTooltip": {
+      "skip": "דילוג"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "מחיקת מבחן",
+      "areYouSureYouWantTo": "האם אתה בטוח שברצונך למחוק את \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "מחיקת המבחן נכשלה",
+      "quizHistory": "היסטוריית מבחנים",
+      "questions": "שאלות",
+      "correct": "{{correctAnswers}} נכונות"
+    },
+    "referral": {
+      "copied": "הועתק!",
+      "yourReferralCodeHasBeenCopied": "קוד ההפניה הועתק ללוח.",
+      "joinMeOnClinicalFactUse": "הצטרפו אליי ל-Clinical Fact! השתמשו בקוד שלי {{referralCode}} – {{appUrl}}",
+      "joined": "הצטרף/ה ב-{{joinedDate}}",
+      "referralCode": "קוד הפניה",
+      "yourReferralCode": "קוד ההפניה שלך",
+      "shareWithFriendsToEarnRewards": "שתף עם חברים כדי לזכות בהטבות",
+      "share": "שיתוף",
+      "copyCode": "העתקת קוד",
+      "referredFriends": "חברים שהופנו",
+      "noReferralsYetShareYourCode": "אין הפניות עדיין. שתף את הקוד שלך כדי להתחיל!",
+      "loadMore": "טען עוד",
+      "howItWorks": "איך זה עובד",
+      "friendsUseYourCodeDuringSignup": "• חברים משתמשים בקוד שלך במהלך ההרשמה",
+      "youBothEarnRewardsWhenThey": "• שניכם זוכים בהטבות כשהם מצטרפים",
+      "friendsReferredCount": "חברים שהופנו: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "מחלץ טקסט...",
+      "transcribingAudio": "מתמלל שמע...",
+      "processingPDF": "מעבד PDF...",
+      "settingUpChat": "מגדיר צ'אט...",
+      "uploadFailed": "ההעלאה נכשלה",
+      "failedToUploadFilePleaseTry": "העלאת הקובץ נכשלה. אנא נסה שוב.",
+      "yourFileIsReadyForChatting": "הקובץ שלך מוכן לצ'אט!",
+      "uploadingYourFileToTheServer": "מעלה את הקובץ לשרת...",
+      "extractingTextFromYourImage": "מחלץ טקסט מהתמונה...",
+      "transcribingYourAudio": "מתמלל את קובץ השמע...",
+      "extractingTextFromYourPDF": "מחלץ טקסט מה-PDF...",
+      "creatingYourChatSession": "יוצר את סשן הצ'אט...",
+      "pleaseWait": "רק רגע...",
+      "uploadFile": "העלאת קובץ",
+      "processContent": "עיבוד תוכן",
+      "createChat": "יצירת צ'אט"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ הצג",
+      "export": "📤 ייצוא",
+      "delete": "🗑️ מחיקה"
+    },
+    "poweredByFooter": {
+      "poweredBy": "מופעל על ידי"
+    },
+    "exportFormat": {
+      "txtFile": "קובץ TXT",
+      "pdfFile": "קובץ PDF",
+      "docFile": "קובץ DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "טעינת הסיכומים נכשלה",
+      "failedToFetchFolders": "טעינת התיקיות נכשלה",
+      "failedToFetchNote": "טעינת הסיכום נכשלה",
+      "failedToDeleteNote": "מחיקת הסיכום נכשלה",
+      "failedToCreateFolder": "יצירת התיקייה נכשלה",
+      "failedToDeleteFolder": "מחיקת התיקייה נכשלה"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "מחיקת הצ'אט נכשלה"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "ערכת הכרטיסיות יוצאה בהצלחה!",
+      "failedToExportFlashcardSet": "ייצוא ערכת הכרטיסיות נכשל."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "הבוחן יוצא בהצלחה!",
+      "failedToExportQuiz": "ייצוא הבוחן נכשל."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "כרטיסיות ללא שם",
+      "failedToLoadFlashcards": "טעינת הכרטיסיות נכשלה",
+      "failedToSyncFlashcardSet": "סנכרון ערכת הכרטיסיות נכשל",
+      "failedToSyncCardUpdate": "סנכרון עדכון הכרטיסייה נכשל"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "בחנים"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "נוצר ב-{{day}}, {{time}}",
+      "youVeReachedYour3Pin": "הגעת למגבלת 3 הנעצים",
+      "failedToUpdatePin": "עדכון ההצמדה נכשל",
+      "noChatsYet": "אין עדיין צ'אטים",
+      "startAChatToGetAnswers": "כדאי להתחיל צ'אט כדי לקבל תשובות מבוססות מקורות.",
+      "createChat": "+ יצירת צ'אט"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "מחיקת כרטיסיות",
+      "areYouSureYouWantTo": "בטוח שברצונך למחוק את \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "מחיקת הכרטיסיות נכשלה",
+      "sets": "{{setCount}} ערכות",
+      "flashcards": "כרטיסיות זיכרון",
+      "createFlashcards": "יצירת כרטיסיות",
+      "searchFlashcards": "חיפוש כרטיסיות...",
+      "noFlashcardsYet": "אין עדיין כרטיסיות",
+      "createAFlashcardSetFromA": "כדי להתחיל, ניתן ליצור ערכת כרטיסיות מתוך סיכום",
+      "createSet": "+ יצירת ערכה",
+      "flashcardOptions": "אפשרויות כרטיסייה",
+      "view": "הצגה"
+    },
+    "folder": {
+      "deleteFolder": "מחיקת תיקייה",
+      "areYouSureYouWantTo": "בטוח שברצונך למחוק את \"{{name}}\"? הסיכומים שבתוכה יועברו לתיקייה הראשית.",
+      "failedToDeleteFolder": "מחיקת התיקייה נכשלה",
+      "error": "שגיאה: {{message}}",
+      "noFoldersYetCreateOne": "אין עדיין תיקיות. הגיע הזמן ליצור אחת!",
+      "folders": "תיקיות"
+    },
+    "home": {
+      "created": "נוצר ב-{{day}}, {{time}}",
+      "failedToUpdateLanguage": "עדכון השפה נכשל",
+      "notEnoughContentYet": "אין עדיין מספיק תוכן",
+      "chatABitMoreBeforeGenerating": "יש לכתוב עוד בצ'אט לפני יצירת בוחן (לפחות 100 תווים).",
+      "chatABitMoreBeforeGenerating2": "יש לכתוב עוד בצ'אט לפני יצירת כרטיסיות (לפחות 100 תווים).",
+      "failedToGenerateFlashcards": "יצירת הכרטיסיות נכשלה",
+      "upgradeToPro": "שדרוג ל-PRO",
+      "get80DiscountWhenYouUpgrade": "80% הנחה בעת שדרוג החשבון",
+      "unlockPRO": "פתיחת PRO",
+      "noMedicalChats": "אין צ'אטים רפואיים",
+      "youHaveNotCreatedAnyMedical": "טרם פתחת צ'אטים רפואיים. אפשר להתחיל צ'אט חדש ולקבל מקורות מצוטטים",
+      "talkToClinicalfactAI": "שיחה עם Clinical Fact AI",
+      "jumpInWhereYouStopped": "להמשיך מאיפה שעצרת",
+      "practiceQuiz": "בוחן לתרגול",
+      "makeFlashcards": "יצירת כרטיסיות",
+      "continueChatWithNote": "המשך צ'אט עם הסיכום",
+      "continueChat": "המשך בצ'אט",
+      "recentChats": "צ'אטים אחרונים",
+      "chatOptions": "אפשרויות צ'אט"
+    },
+    "library": {
+      "text": "{{day}} ב{{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "אין כרגע חיבור לרשת. יש להתחבר לאינטרנט כדי לבצע פעולה זו.",
+      "failedToDeleteNote": "מחיקת הסיכום נכשלה",
+      "failedToMoveNote": "העברת הסיכום נכשלה",
+      "deleteFolder": "למחוק את התיקייה?",
+      "areYouSureNotesInsideWill": "בטוח? הסיכומים שבתוכה לא יימחקו, אלא יועברו אל 'כל הסיכומים'.",
+      "failedToDeleteFolder": "מחיקת התיקייה נכשלה",
+      "library": "ספרייה",
+      "addFolder": "הוספת תיקייה",
+      "searchForANoteFolder": "חיפוש סיכום / תיקייה",
+      "yourFolders": "התיקיות שלך",
+      "noFoldersToDisplay": "אין תיקיות להצגה",
+      "tapAddFolderToCreateA": "יש ללחוץ על \"+ הוספת תיקייה\" כדי ליצור תיקייה לסיכומים",
+      "allNotes": "כל הסיכומים",
+      "items": "{{allNotesTotal}} פריטים",
+      "items2": "{{itemCount}} פריטים",
+      "yourNotes": "הסיכומים שלך",
+      "untitledNote": "סיכום ללא כותרת",
+      "noResultsFor": "אין תוצאות עבור \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "אין סיכומים בתיקייה זו",
+      "noNotesToDisplay": "אין סיכומים להצגה",
+      "tryADifferentSearchTerm": "נסה מונח חיפוש אחר",
+      "moveNotesToThisFolderTo": "העבר סיכומים לתיקייה זו כדי לראות אותם כאן",
+      "clickBelowToGenerateYourNote": "לחץ למטה כדי ליצור סיכום עם Clinical Fact",
+      "filterByType": "סינון לפי סוג",
+      "audio": "שמע",
+      "text2": "טקסט",
+      "image": "תמונה",
+      "clearFilter": "נקה סינון"
+    },
+    "profile": {
+      "permissionRequired": "נדרשת הרשאה",
+      "pleaseAllowAccessToYourPhoto": "אנא אפשר גישה לספריית התמונות כדי להגדיר תמונת פרופיל.",
+      "uploadFailed": "ההעלאה נכשלה",
+      "couldNotUpdateProfilePicture": "לא ניתן לעדכן את תמונת הפרופיל.",
+      "failedToUploadProfilePicture": "העלאת תמונת הפרופיל נכשלה.",
+      "checkOutClinicalFactAIPowered": "כדאי לבדוק את Clinical Fact – סיכומי לימוד מבוססי AI! {{url}}",
+      "proSubscriber": "מנוי PRO",
+      "subscriptionExpired": "המנוי פג תוקף",
+      "freeSubscriber": "מנוי חינמי",
+      "tapToManageIPhoneSettingsApple": "הקש לניהול · הגדרות ה-iPhone ← Apple ID ← מנויים",
+      "tapToManagePlayStoreSubscriptions": "הקש לניהול · Play Store ← מנויים",
+      "tapToRenewYourSubscription": "הקש לחידוש המנוי",
+      "tapToUpgradeToPro": "הקש לשדרוג ל-PRO",
+      "referralCode": "קוד הפניה",
+      "areYouSureYouWantTo": "האם אתה בטוח שברצונך להתנתק מהחשבון?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "מחיקת בוחן",
+      "areYouSureYouWantTo": "האם אתה בטוח שברצונך למחוק את \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "מחיקת הבוחן נכשלה",
+      "correct": "{{correct}}/{{total}} נכונות",
+      "attempts": "{{attempts}} ניסיונות",
+      "quiz": "בוחן",
+      "createQuiz": "צור בוחן",
+      "searchQuizzes": "חיפוש בחנים...",
+      "noQuizzesYet": "אין עדיין בחנים",
+      "createAQuizFromANote": "צור בוחן מתוך סיכום כדי להתחיל",
+      "createQuiz2": "+ צור בוחן",
+      "quizOptions": "אפשרויות בוחן",
+      "view": "צפייה"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "השדרוג אינו זמין",
+      "weCouldnTOpenTheUpgrade": "לא ניתן לפתוח את מסך השדרוג כרגע. אנא בדוק את החיבור ונסה שוב."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "השרת החזיר תגובה שאינה JSON‏ ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "שגיאת רשת. אנא בדוק את החיבור שלך.",
+      "connectionErrorPleaseTryAgain": "שגיאת התחברות. אנא נסה שוב."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "הקובץ יוצא: {{filename}}",
+      "exportFailed": "הייצוא נכשל",
+      "exportFormat": "פורמט ייצוא",
+      "chooseFormat": "בחר פורמט",
+      "text": "טקסט"
+    },
+    "formatDate": {
+      "justNow": "ממש עכשיו",
+      "minAgo": "לפני {{diffMin}} דק׳",
+      "hrAgo": "לפני {{diffHr}} שע׳",
+      "dAgo": "לפני {{diffDay}} ימים",
+      "created": "נוצר ב-{{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "שליחת הקוד החד-פעמי נכשלה",
+      "invalidOTP": "קוד אימות לא תקין",
+      "failedToVerifyOTP": "אימות הקוד נכשל",
+      "googleAuthenticationFailed": "ההתחברות דרך Google נכשלה",
+      "appleAuthenticationFailed": "ההתחברות דרך Apple נכשלה",
+      "failedToCompleteSignup": "השלמת ההרשמה נכשלה",
+      "failedToSkipSignup": "דילוג על ההרשמה נכשל"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "צ׳אטים",
+      "description": "צ'אט עם כל סיכום, מסמך או קובץ PDF במקום אחד"
+    },
+    "profileWelcome": {
+      "heading": "ברוכים הבאים לפרופיל שלך",
+      "description": "זהו הפרופיל שלך. ניתן להקיש כאן כדי לערוך פרטים ולבדוק את סטטוס המנוי"
+    },
+    "createNotes": {
+      "heading": "יצירת סיכום",
+      "description": "יצירת סיכומים מכל מקור: הקלטה, שמע, וידאו, תמונה, טקסט וקישורים מ-YouTube"
+    },
+    "changeLanguage": {
+      "heading": "שינוי שפה",
+      "description": "שינוי שפת האפליקציה לשפה המועדפת עליך ישירות מכאן"
+    },
+    "manageHome": {
+      "heading": "ניהול דף הבית",
+      "description": "צפייה בכל הסיכומים שנוצרו ובכל הפעולות שלך במקום אחד"
+    },
+    "yourLibrary": {
+      "heading": "הספרייה שלך",
+      "description": "ניהול כל הסיכומים שנוצרו, ארגון בתיקיות ועוד"
+    },
+    "yourProfile": {
+      "heading": "הפרופיל שלך",
+      "description": "צפייה בכל פרטי הפרופיל ועריכת ההגדרות שלו ישירות מכאן"
+    }
   }
 }

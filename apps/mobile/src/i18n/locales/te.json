@@ -15,10 +15,11 @@
     "done": "పూర్తయింది",
     "search": "శోధన",
     "filter": "ఫిల్టర్",
-    "ok": "సరే"
+    "ok": "సరే",
+    "info": "సమాచారం"
   },
   "home": {
-    "title": "నోట్‌డ్రిల్",
+    "title": "Clinical Fact",
     "createNotes": "గమనికలను సృష్టించండి",
     "createNotesDesc": "మీరు వేగంగా నేర్చుకోవడానికి సహాయపడే నోట్స్, క్విజ్‌లు, ఫ్లాష్‌కార్డ్‌లు మరియు మరిన్నింటిని సృష్టించండి\n",
     "chatWithPDF": "ఏదైనా PDFతో చాట్ చేయండి",
@@ -26,7 +27,7 @@
     "recentNotes": "ఇటీవలి గమనికలు",
     "seeAll": "అన్నీ చూడండి",
     "noNotes": "ప్రదర్శించడానికి గమనికలు లేవు",
-    "noNotesDesc": "నోట్‌డ్రిల్ కోసం మీ నోట్‌ను రూపొందించడం ప్రారంభించడానికి దయచేసి పైన ఉన్న బటన్‌పై క్లిక్ చేయండి.",
+    "noNotesDesc": "Clinical Fact లో మీ నోట్స్ రూపొందించడం ప్రారంభించడానికి\nదయచేసి పైన ఉన్న బటన్‌ను క్లిక్ చేయండి.",
     "loadingNotes": "గమనికలు లోడ్ అవుతున్నాయి..."
   },
   "profile": {
@@ -42,8 +43,8 @@
     "accountStatus": "ఖాతా స్థితి",
     "version": "వెర్షన్",
     "expired": "గడువు ముగిసింది",
-    "rateApp": "నోట్‌డ్రిల్‌కు 5 నక్షత్రాలు రేటింగ్ ఇవ్వండి",
-    "shareApp": "నోట్‌డ్రిల్ యాప్‌ను షేర్ చేయండి",
+    "rateApp": "Clinical Fact కి 5 స్టార్స్ రేటింగ్ ఇవ్వండి",
+    "shareApp": "Clinical Fact యాప్‌ను షేర్ చేయండి",
     "changeLanguage": "భాషను మార్చండి",
     "chatWithUs": "మాతో చాట్ చేయండి",
     "termsAndConditions": "నిబంధనలు మరియు షరతులు",
@@ -63,7 +64,7 @@
     "trial": "విచారణ",
     "free": "ఉచితం",
     "pro": "ప్రో",
-    "welcomeToPro": "నోట్‌డ్రిల్ ప్రోకి స్వాగతం",
+    "welcomeToPro": "Clinical Fact PRO కి స్వాగతం",
     "fullName": "పూర్తి పేరు",
     "emailAddress": "ఇమెయిల్ చిరునామా",
     "nextBillingDate": "తదుపరి బిల్లింగ్ తేదీ",
@@ -71,10 +72,16 @@
     "upgradePlan": "అప్‌గ్రేడ్ ప్లాన్",
     "everyWeek": "ప్రతి వారం",
     "everyMonth": "ప్రతి నెల",
-    "everyYear": "ప్రతి సంవత్సరం"
+    "everyYear": "ప్రతి సంవత్సరం",
+    "reportBug": "సమస్యను నివేదించండి"
   },
   "auth": {
-    "welcome": "నోట్‌డ్రిల్‌కు స్వాగతం",
+    "welcome": {
+      "googleSignInFailed": "Google సైన్-ఇన్ విఫలమైంది",
+      "failedToAuthenticateWithServer": "సర్వర్‌తో ప్రామాణీకరణ విఫలమైంది",
+      "googleSignInIsOnlyAvailable": "Google సైన్-ఇన్ స్థానిక యాప్ వెర్షన్‌లో మాత్రమే అందుబాటులో ఉంది. దయచేసి ఇమెయిల్‌ని ఉపయోగించండి లేదా యాప్‌ను డౌన్‌లోడ్ చేసుకోండి.",
+      "code": "{{message}} (కోడ్: {{code}})"
+    },
     "getStarted": "ప్రారంభించండి",
     "signIn": "సైన్ ఇన్",
     "signUp": "నమోదు చేసుకోండి",
@@ -94,7 +101,8 @@
       "skip": "దాటవేయి",
       "verify": "ధృవీకరించబడింది!",
       "next": "తరువాత",
-      "tryNow": "నోట్‌డ్రిల్‌ను ఇప్పుడే ఉచితంగా ప్రయత్నించండి"
+      "tryNow": "Clinical Fact ని ఉచితంగా ఇప్పుడే ప్రయత్నించండి",
+      "continueWithApple": "Appleతో కొనసాగించండి"
     },
     "labels": {
       "firstName": "మొదటి పేరు",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Google సైన్-ఇన్ ప్రారంభించడంలో విఫలమయ్యాము. దయచేసి మళ్ళీ ప్రయత్నించండి.",
       "setupRequired": "సెటప్ అవసరం",
       "googleOAuthMissing": "Google సైన్-ఇన్‌కు OAuth క్లయింట్ IDలు అవసరం.\\n\\nదయచేసి మీ .env ఫైల్‌లో ఆధారాలను జోడించండి.",
-      "youCanStillUseEmail": "మీరు ఇప్పటికీ \"ఇమెయిల్‌తో కొనసాగించండి\"ని ఉపయోగించవచ్చు."
+      "youCanStillUseEmail": "మీరు ఇప్పటికీ \"ఇమెయిల్‌తో కొనసాగించండి\"ని ఉపయోగించవచ్చు.",
+      "appleSignInFailed": "Apple సైన్ ఇన్ విఫలమైంది",
+      "appleTokenFailed": "Apple టోకెన్ ప్రాసెసింగ్ విఫలమైంది",
+      "appleIosOnly": "Appleతో సైన్ ఇన్ కేవలం iOSలో మాత్రమే అందుబాటులో ఉంది."
     },
     "messages": {
       "signingIn": "లాగిన్ అవుతోంది...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "నోట్‌డ్రిల్:\\nమరింత తెలివైన నోట్స్ ఇక్కడ నుండి ప్రారంభించండి",
       "tagline": "ఏదైనా టెక్స్ట్‌ను చక్కటి నోట్స్‌గా మార్చండి",
-      "description": "ఆడియో, డాక్యుమెంట్లు లేదా వీడియోలను స్పష్టమైన, శోధించదగిన నోట్స్‌గా మార్చండి మరియు తక్షణమే క్విజ్‌లు, ఫ్లాష్‌కార్డులు మరియు సారాంశాలను సృష్టించండి."
+      "description": "ఆడియో, డాక్యుమెంట్లు లేదా వీడియోలను స్పష్టమైన, శోధించదగిన నోట్స్‌గా మార్చండి మరియు తక్షణమే క్విజ్‌లు, ఫ్లాష్‌కార్డులు మరియు సారాంశాలను సృష్టించండి.",
+      "createAccountTitle": "ఖాతాను సృష్టించండి",
+      "orSignUpWith": "లేదా వీటితో సైన్ అప్ చేయండి",
+      "signUpWithEmail": "ఈమెయిల్‌తో సైన్ అప్ చేయండి",
+      "signInWithEmail": "ఈమెయిల్‌తో సైన్ ఇన్ చేయండి",
+      "alreadyHaveAccount": "ఇప్పటికే ఖాతా ఉందా? ",
+      "dontHaveAccount": "ఖాతా లేదా? "
     },
     "otp": {
       "title": "మీ ఇమెయిల్ చిరునామాను నిర్ధారించండి",
@@ -159,7 +176,7 @@
     "onboarding": {
       "username": "మీ యూజర్‌నేమ్ తీసుకుందాం",
       "usernameSubtitle": "ఇది మీ ఖాతాను మరింత వ్యక్తిగతంగా మార్చడానికి సహాయపడుతుంది",
-      "goals": "మీకు సహాయం చేయడానికి మీరు నోట్‌రిల్‌ను దేనికి ఉపయోగిస్తారు?",
+      "goals": "దేనిలో సహాయం కోసం మీరు Clinical Fact ని\nఉపయోగిస్తున్నారు?",
       "goalsSubtitle": "వర్తించేవన్నీ ఎంచుకోండి. మేము మీ కోసం అనుభవాన్ని తీర్చిదిద్దుతాము.",
       "contentType": "మీరు ఎక్కువగా ఏ రకమైన కంటెంట్‌ను ఉపయోగిస్తారు",
       "contentTypeSubtitle": "వర్తించేవన్నీ ఎంచుకోండి. ఇది మీ అనుభవాన్ని అనుకూలీకరించడంలో మాకు సహాయపడుతుంది.",
@@ -167,7 +184,7 @@
       "reviewStyleSubtitle": "మీకు నచ్చిన సమీక్షా పద్ధతిని ఎంచుకోండి.",
       "frustration": "{{firstName}}, నోట్స్ తీసుకోవడంలో మీకు అత్యంత చికాకు కలిగించే విషయం ఏమిటి?",
       "frustrationSubtitle": "వర్తించేవన్నీ ఎంచుకోండి. ఇది మీ సమస్యలను పరిష్కరించడానికి మాకు సహాయపడుతుంది.",
-      "referral": "కేవలం తెలుసుకోవాలనే ఆసక్తితో అడుగుతున్నాను\\n{{firstName}},\\nమీకు నోట్‌డ్రిల్ గురించి ఎలా తెలిసింది?",
+      "referral": "తెలుసుకోవాలనే ఆసక్తితో అడుగుతున్నాం\n{{firstName}},\nClinical Fact గురించి మీకు ఎలా తెలిసింది?",
       "referralSubtitle": "ఒక ఎంపికను ఎంచుకోండి."
     },
     "referralScreen": {
@@ -182,13 +199,16 @@
       "title": "మీ వ్యక్తిగత కార్యస్థలాన్ని ఏర్పాటు చేసుకుంటోంది, {{firstName}}..."
     },
     "thanks": {
-      "title": "నోట్‌డ్రిల్‌ను నమ్మినందుకు ధన్యవాదాలు 🎧",
+      "title": "Clinical Fact ను విశ్వసించినందుకు ధన్యవాదాలు",
       "subtitle": "తమ చిందరవందరగా ఉన్న నోట్సును స్పష్టతగా, ఆత్మవిశ్వాసంగా మార్చుకున్న 5000 మందికి పైగా అభ్యాసకులతో మీరు కూడా చేరుతున్నారు.",
       "stars": "⭐⭐⭐⭐⭐"
     },
     "demoVideo": {
       "title": "మీరు ఏదైనా నేర్చుకోవడానికి కావలసినవన్నీ",
-      "subtitle": "దాన్ని నమోదు చేసుకోండి. దానిపై పరిశోధన చేయండి. దానిపై క్విజ్ ఆడండి. దానిలో ప్రావీణ్యం సంపాదించండి."
+      "subtitle": "దాన్ని నమోదు చేసుకోండి. దానిపై పరిశోధన చేయండి. దానిపై క్విజ్ ఆడండి. దానిలో ప్రావీణ్యం సంపాదించండి.",
+      "everythingYouNeedToLearnAnything": "ఏదైనా నేర్చుకోవడానికి మీకు కావాల్సినవన్నీ",
+      "recordItResearchItQuizIt": "రికార్డ్ చేయండి. పరిశోధించండి. క్విజ్ రాయండి. నైపుణ్యం సాధించండి.",
+      "tryClinicalFactNowForFree": "Clinical Factని ఇప్పుడే ఉచితంగా ఉపయోగించండి"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "క్విజ్ మరియు ఫ్లాష్‌కార్డులతో వేగంగా నేర్చుకోండి",
         "description": "నోట్సును క్విజ్‌లుగా, ఫ్లాష్‌కార్డులుగా మార్చుకోండి. వేగంగా నేర్చుకోండి, ఎక్కువగా గుర్తుంచుకోండి."
+      },
+      "feature1": {
+        "title": "నిజమైన వైద్య సమాధానాలు మరియు ఫాలో-అప్ ప్రశ్నలు పొందండి",
+        "description": "వైద్యపరమైన ఏ ప్రశ్ననైనా అడగండి; స్పష్టమైన వివరణతో పాటు స్మార్ట్ ఫాలో-అప్ ప్రశ్నలను పొందండి, తద్వారా చదువు మధ్యలో ఎలాంటి సందేహం లేకుండా ముందుకు సాగండి."
+      },
+      "feature2": {
+        "title": "ప్రతి వైద్య సమాధానానికి,\nనిజమైన ఆధారం ఉంటుంది",
+        "description": "PubMed, Semantic Scholar మరియు Europe PMC నుండి సేకరించిన ప్రామాణిక మూలాలు — స్వయంగా ధృవీకరించుకోవచ్చు, కల్పితాలు కావు."
+      },
+      "feature3": {
+        "title": "నోట్స్ అప్‌లోడ్ చేయండి, మీ మెటీరియల్ ఆధారంగా సారాంశాలు పొందండి",
+        "description": "ఏ లెక్చర్ స్లైడ్, PDF లేదా నోట్స్‌నైనా విశ్వసనీయ వైద్య ఆధారాలతో కూడిన స్పష్టమైన వివరణగా మార్చుకోండి."
+      },
+      "feature4": {
+        "title": "ప్రాక్టీస్ కోసం ఏ చాట్‌నైనా క్విజ్ లేదా ఫ్లాష్‌కార్డ్‌లుగా మార్చండి",
+        "description": "చదువుకోవడానికి వేరే యాప్ అవసరం లేదు; మీ చాట్‌లు మరియు అప్‌లోడ్‌ల నుండే నేరుగా ప్రాక్టీస్ ప్రశ్నలను రూపొందించుకోండి."
+      },
+      "feature5": {
+        "title": "ఏ చాట్ లేదా డాక్యుమెంట్‌నైనా ఫ్లాష్‌కార్డ్ ప్రశ్నలుగా మార్చండి",
+        "description": "చదువుకోవడానికి వేరే యాప్ అవసరం లేదు; మీ చాట్‌లు మరియు అప్‌లోడ్‌ల నుండే నేరుగా ప్రాక్టీస్ ప్రశ్నలను రూపొందించుకోండి."
+      }
+    },
+    "languageSelect": {
+      "title": "మీ భాషను ఎంచుకోండి",
+      "subtitle": "యాప్‌లో మీరు ఉపయోగించాలనుకుంటున్న భాషను ఎంచుకోండి. తర్వాత మీ ప్రొఫైల్‌లో దీన్ని మార్చుకోవచ్చు.",
+      "searchPlaceholder": "భాషలను వెతకండి",
+      "noResults": "ఏ భాషలూ కనుగొనబడలేదు"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "వైద్యపరంగా ఏదైనా అడగండి. Clinical Factను తెలుసుకోండి",
+        "description": "వైద్యపరమైన ఏ ప్రశ్ననైనా అడగండి; PubMed, క్లినికల్ గైడ్‌లైన్స్ మరియు విశ్వసనీయ వైద్య పరిశోధనల ఆధారాలతో కూడిన సమాధానాన్ని పొందండి"
+      },
+      "slide2": {
+        "headline": "ప్రతి సమాధానానికి ప్రామాణిక ఆధారం",
+        "description": "ఊహాగానాలు లేవు, కల్పితాలు లేవు; ప్రతి సమాధానం నేరుగా నిజమైన వైద్య పరిశోధనలతో లింక్ చేయబడి ఉంటుంది."
+      },
+      "slide3": {
+        "headline": "స్మార్ట్‌గా చదవండి, మెడికల్ పరీక్షల్లో విజయం సాధించండి",
+        "description": "ఏ ప్రశ్న లేదా అప్‌లోడ్‌నైనా క్షణాల్లో క్విజ్ లేదా ఫ్లాష్‌కార్డ్ సెట్‌గా మార్చుకోండి; మీరు చదువుతున్న అంశాల నుంచే నేరుగా ప్రాక్టీస్ చేయండి."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "వృత్తిపరమైన ప్రకటన",
+      "subtitle": "Clinical Fact అనేది విద్యా పరిశోధన సెర్చ్ టూల్",
+      "disclaimerIntro": "Clinical Fact అనేది నర్సింగ్, మెడికల్ మరియు ఇతర హెల్త్ సైన్సెస్ విద్యార్థులకు వైద్య పరిజ్ఞానం, పరిశోధనా సమాచారం మరియు స్టడీ మెటీరియల్‌ను అందించడానికి రూపొందించిన AI ఆధారిత సమాచార సాధనం. ఈ యాప్ వైద్య నిర్ధారణలు, చికిత్స సిఫార్సులు, క్లినికల్ సూచనలు లేదా రోగి-నిర్దిష్ట వైద్య సలహాలను అందించదు; మరియు ప్రత్యక్ష రోగి సంరక్షణ లేదా క్లినికల్ నిర్ణయాల కోసం దీనిని ప్రాతిపదికగా ఉపయోగించకూడదు.",
+      "disclaimerHeading": "Clinical Fact సమాధానాలను ఎలా రూపొందిస్తుంది:",
+      "disclaimerBody": "Clinical Fact సమాచారాన్ని PubMed, Semantic Scholar మరియు అధికారిక FDA ఔషధ లేబులింగ్ వంటి గుర్తింపు పొందిన వైద్య, శాస్త్రీయ మూలాల నుండి నేరుగా సేకరిస్తుంది మరియు ఆ కంటెంట్‌ను సరళమైన భాషలో వివరించడానికి AIని ఉపయోగిస్తుంది. ప్రతి సమాధానం కేవలం ఆ నిర్దిష్ట ప్రశ్నకు లభించిన మూలాల ఆధారంగా మాత్రమే రూపొందించబడుతుంది, మరియు మీరు స్వయంగా ధృవీకరించుకోవడానికి మూలాల లింకులు అందించబడతాయి. Clinical Fact తన జ్ఞాపకశక్తి నుండి వైద్య విషయాలను సృష్టించదు లేదా నకిలీ ఆధారాలను చూపించదు.\n\nClinical Fact అనేది రోగనిర్ధారణ సాధనం, చికిత్సా వేదిక, వైద్య పరికరం లేదా వృత్తిపరమైన వైద్య నిర్ణయాలు, లైసెన్స్ పొందిన బోధన లేదా మీ సంస్థ యొక్క పాఠ్యాంశాలకు ప్రత్యామ్నాయం కాదు. సమాధానాలు, సైటేషన్లు, క్విజ్‌లు మరియు ఫ్లాష్‌కార్డులతో సహా యాప్ రూపొందించిన ఏదైనా సమాచారం సాధారణ విద్య మరియు అభ్యసన ప్రయోజనాల కోసం మాత్రమే అందించబడుతుంది; అకడమిక్, క్లినికల్ లేదా వృత్తిపరమైన సందర్భంలో దానిపై ఆధారపడే ముందు వినియోగదారుడు స్వయంగా ధృవీకరించుకోవాలి.\nఅందించిన ఏ సమాచారం యొక్క పరిపూర్ణత, ఖచ్చితత్వం లేదా ప్రస్తుత క్లినికల్ ప్రాముఖ్యతకు Clinical Fact హామీ ఇవ్వదు. వైద్య పరిజ్ఞానం నిరంతరం మారుతూ ఉంటుంది — ముఖ్యమైన సమాచారాన్ని ఎల్లప్పుడూ మీ అధ్యాపకులు, క్లినికల్ సూపర్‌వైజర్లు మరియు తాజా ప్రాథమిక వనరులతో సరిచూసుకోండి.\nమీరు మీ స్వంత పత్రాలు, నోట్స్ లేదా రికార్డింగ్‌లను అప్‌లోడ్ చేసినప్పుడు, Clinical Fact బాహ్య వనరులను స్పష్టంగా చూపించకపోతే, కేవలం ఆ అప్‌లోడ్ చేసిన కంటెంట్ ఆధారంగా మాత్రమే సమాధానాలు, సారాంశాలు, క్విజ్‌లు మరియు ఫ్లాష్‌కార్డులను రూపొందిస్తుంది.\n\nClinical Fact తన వినియోగదారుల గుర్తింపు, నమోదు స్థితి లేదా అర్హతలను ధృవీకరించదు లేదా నిర్ధారించదు. ఈ యాప్ అత్యవసర పరిస్థితుల్లో లేదా నిజ-సమయ క్లినికల్ నిర్ణయాలు తీసుకోవడానికి ఉద్దేశించినది కాదు.\nకొనసాగించడం ద్వారా, మీరు ఈ నిబంధనలను అర్థం చేసుకున్నారని మరియు కేవలం అధ్యయనం మరియు రిఫరెన్స్ సహాయంగా మాత్రమే Clinical Factను ఉపయోగించడానికి అంగీకరిస్తున్నారని ధృవీకరిస్తున్నారు.",
+      "checkboxLabel": "ఈ యాప్ కేవలం విద్యా రిఫరెన్స్ కోసం మాత్రమేనని మరియు ఎలాంటి వైద్య సలహాలను అందించదని నేను అర్థం చేసుకున్నాను",
+      "acceptButton": "అంగీకరించి కొనసాగండి"
+    },
+    "survey": {
+      "role": "{{firstName}}, మీ గురించి ఏది బాగా వివరిస్తుంది?",
+      "currentMethod": "ప్రస్తుతం వైద్యపరమైన ప్రశ్నలకు సమాధానాలను సాధారణంగా ఎలా వెతుకుతున్నారు?",
+      "timeDrain": "మీ సమయాన్ని ఎక్కువగా వృధా చేస్తున్నది ఏమిటి?",
+      "appExpectation": "మా Clinical Fact మెడికల్ యాప్ నుండి మీరు ఏమి ఆశిస్తున్నారు?",
+      "aiToolsUsed": "మీ వైద్య పరిశోధనల కోసం ఇప్పటివరకు ఏ AI సాధనాలను ఉపయోగించారు?",
+      "aiToolIssue": "ఆ సాధనాలతో మీకు ఎదురైన సమస్య ఏమిటి?",
+      "aiTrustLevel": "AI సమాధానం తప్పు కావచ్చని మీరు ఎంత తరచుగా ఆందోళన చెందుతారు?",
+      "biggestNeed": "ప్రస్తుతం మీకు అత్యంత అవసరమైనది ఏమిటి?",
+      "studyTimePerWeek": "ప్రతి వారం చదువుకోవడానికి మీకు ఎంత సమయం లభిస్తుంది?",
+      "comingUp": "త్వరలో మీ ముందున్న లక్ష్యాలు లేదా పరీక్షలు ఏమిటి?",
+      "referralSource": "Clinical Fact గురించి మీకు ఎలా తెలిసింది?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "నోటిఫికేషన్‌లను ఆన్ చేయండి",
+      "thisHelpsUsStayOnTrack": "ఇది మీ ఖాతాను వ్యక్తిగతీకరించడానికి మరియు వైద్య సమాధానాలను సులభంగా కనుగొనడానికి మాకు సహాయపడుతుంది"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "చెల్లని ధృవీకరణ కోడ్. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+      "failedToResendCodePleaseTry": "కోడ్‌ను మళ్లీ పంపడం విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+      "confirmYourEmailAddress": "మీ ఇమెయిల్ చిరునామాను నిర్ధారించండి",
+      "enterCodeSentTo": "మీ ఇమెయిల్ {{email}} కి మేము పంపిన OTP కోడ్‌ను నమోదు చేయండి",
+      "resendCodeIn": "{{seconds}} సెకన్లలో కోడ్‌ను మళ్లీ పంపండి"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "ఎవరైనా మిమ్మల్ని రిఫర్ చేశారా?",
+      "enterTheirReferralCodeIfYou": "రిఫరల్ కోడ్ ఉంటే ఇక్కడ నమోదు చేయండి",
+      "eGJOHNOrTECHBRO": "ఉదా. JOHN లేదా TECHBRO",
+      "codeIsValid": "✓ కోడ్ చెల్లుబాటు అయ్యింది"
+    },
+    "resultsChart": {
+      "getBetterResults": "మరింత మెరుగైన ఫలితాలను పొందండి",
+      "over95OfClinicalfactUsersScore": "95% కంటే ఎక్కువ మంది Clinical Fact యూజర్లు తమ పరీక్షల్లో 95% పైగా స్కోర్ సాధిస్తున్నారు"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "నర్సింగ్ విద్యార్థి",
+        "medicalStudent": "మెడికల్ విద్యార్థి",
+        "paPharmacyStudent": "PA లేదా ఫార్మసీ విద్యార్థి",
+        "practicingNurse": "ప్రాక్టీసింగ్ నర్స్",
+        "practicingPhysician": "ప్రాక్టీసింగ్ ఫిజిషియన్",
+        "otherHealthcareProfessional": "ఇతర హెల్త్‌కేర్ ప్రొఫెషనల్"
+      },
+      "currentMethod": {
+        "textbooksNotes": "పాఠ్యపుస్తకాలు లేదా క్లాస్ నోట్స్",
+        "flashcardQuizApps": "ఫ్లాష్‌కార్డ్ లేదా క్విజ్ యాప్‌లు",
+        "youtube": "YouTube",
+        "aiChatbots": "AI చాట్‌బాట్‌లు",
+        "colleagueClassmate": "తోటి ఉద్యోగి లేదా సహవిద్యార్థిని అడగడం",
+        "practiceQuestionBanks": "ప్రాక్టీస్ ప్రశ్నల బ్యాంకులు"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "ఫ్లాష్‌కార్డ్‌లు & క్విజ్‌లను మొదటి నుండి తయారు చేయడం",
+        "findingTrustworthyAnswer": "నమ్మదగిన సమాధానాన్ని త్వరగా కనుగొనడం",
+        "reReadingNotes": "గుర్తులేని నోట్స్‌ను మళ్లీ మళ్లీ చదవడం",
+        "switchingApps": "చాలా యాప్‌ల మధ్య మారడం",
+        "chartingDocumentation": "చార్టింగ్ & డాక్యుమెంటేషన్"
+      },
+      "appExpectation": {
+        "noHallucination": "తప్పుడు సమాచారం ఇవ్వని AI",
+        "realCitations": "సరైన మూలాల నుండి సైటేషన్‌లు (రిఫరెన్స్‌లు)",
+        "oneApp": "ఐదు వేర్వేరు సబ్‌స్క్రిప్షన్‌లకు బదులుగా ఒకే యాప్",
+        "explainsWhy": "కేవలం సమాధానమే కాకుండా \"ఎందుకు\" అనేది వివరిస్తుంది"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google search",
+        "otherApps": "ఇతర యాప్‌లు"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "తప్పుడు విషయాలను సృష్టించింది",
+        "notMedicalContent": "మెడికల్ కంటెంట్ కోసం రూపొందించబడలేదు",
+        "noSources": "పరిశీలించడానికి సరైన మూలాలు లేవు",
+        "tooGeneric": "చాలా సాధారణంగా ఉంది, పరీక్ష లేదా ప్రాక్టీస్‌పై దృష్టి పెట్టలేదు"
+      },
+      "aiTrustLevel": {
+        "everyTime": "ప్రతిసారీ",
+        "sometimes": "కొన్నిసార్లు",
+        "rarely": "అరుదుగా",
+        "dontUseAi": "నేను ఇంకా AI ఉపయోగించలేదు"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "నేను విశ్వసించగల వేగవంతమైన సమాధానాలు",
+        "quizzesFlashcardsWithoutWork": "శ్రమ లేకుండా క్విజ్‌లు & ఫ్లాష్‌కార్డ్‌లు",
+        "rememberingStudied": "చదివిన విషయాలను గుర్తుంచుకోవడంలో సహాయం",
+        "medicalCitations": "మెడికల్ సైటేషన్ల రిఫరెన్స్",
+        "allOfTheAbove": "పైవన్నీ"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "న్యూస్‌లెటర్",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "ఇతరాలు"
+      },
+      "studyTime": {
+        "under5Hours": "5 గంటల కంటే తక్కువ",
+        "510Hours": "5–10 గంటలు",
+        "1020Hours": "10–20 గంటలు",
+        "20PlusHours": "20+ గంటలు"
+      },
+      "comingUp": {
+        "medicalExams": "మెడికల్ పరీక్షలు",
+        "clinicalRotations": "క్లినికల్ రొటేషన్లు",
+        "nursingExams": "నర్సింగ్ పరీక్షలు",
+        "otherExams": "ఇతర పరీక్షలు",
+        "staySharp": "నాలెడ్జ్ పెంచుకోవడానికి మాత్రమే"
       }
     }
   },
   "notes": {
-    "noteTranscript": "గమనిక ప్రతిలేఖనం",
+    "noteTranscript": {
+      "noteTranscript": "నోట్ ట్రాన్స్‌క్రిప్ట్",
+      "noNoteIDProvided": "నోట్ ID ఇవ్వబడలేదు",
+      "noTranscriptAvailableForThisNote": "ఈ నోట్ కోసం ట్రాన్స్‌క్రిప్ట్ అందుబాటులో లేదు.",
+      "thisNoteWasNotCreatedFrom": "ఈ నోట్ ఆడియో/వీడియో నుండి తయారు చేయబడలేదు, కాబట్టి ట్రాన్స్‌క్రిప్ట్ లేదు.",
+      "failedToLoadNote": "నోట్ లోడ్ చేయడం విఫలమైంది",
+      "noteTranscript2": "నోట్ ట్రాన్స్‌క్రిప్ట్",
+      "loadingTranscript": "ట్రాన్స్‌క్రిప్ట్ లోడ్ అవుతోంది...",
+      "goToNote": "నోట్‌కి వెళ్లండి"
+    },
     "noteOptions": "గమనిక ఎంపికలు",
-    "editNote": "గమనికను సవరించండి",
+    "editNote": {
+      "pleaseEnterANoteTitle": "దయచేసి నోట్ శీర్షికను నమోదు చేయండి",
+      "failedToUpdateNote": "నోట్ అప్‌డేట్ చేయడం విఫలమైంది",
+      "noteUpdatedSuccessfully": "నోట్ విజయవంతంగా అప్‌డేట్ చేయబడింది",
+      "editNote": "నోట్‌ను సవరించండి",
+      "noteTitle": "నోట్ శీర్షిక",
+      "enterNoteTitle": "నోట్ శీర్షికను నమోదు చేయండి",
+      "noteContent": "నోట్ కంటెంట్",
+      "enterNoteContent": "నోట్ కంటెంట్‌ను నమోదు చేయండి",
+      "saveThisNote": "ఈ నోట్‌ను సేవ్ చేయండి",
+      "aiIsGeneratingYourNote": "AI మీ నోట్‌ను రూపొందిస్తోంది",
+      "largeAudioAndVideoFilesMay": "పెద్ద ఆడియో మరియు వీడియో ఫైల్‌ల ప్రాసెసింగ్‌కు కొన్ని నిమిషాలు పట్టవచ్చు. దయచేసి యాప్‌ను తెరిచి ఉంచండి."
+    },
     "retranscribe": "తిరిగి లిప్యంతరీకరించండి",
     "exportNote": "ఎగుమతి గమనిక",
     "shareNoteLink": "షేర్ నోట్ లింక్",
@@ -237,12 +443,89 @@
     "translate": "అనువదించు",
     "addToFolder": "ఫోల్డర్‌కు జోడించండి",
     "loadingNote": "గమనిక లోడ్ అవుతోంది...",
-    "noteNotFound": "నోట్ లోడ్ చేయడంలో విఫలమైంది"
+    "noteNotFound": "నోట్ లోడ్ చేయడంలో విఫలమైంది",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడం విఫలమైంది",
+      "anUnexpectedErrorOccurred": "అనుకోని లోపం సంభవించింది",
+      "history": "చరిత్ర",
+      "export": "ఎక్స్‌పోర్ట్"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "ఫోల్డర్‌కు నోట్‌ను జోడించడం విఫలమైంది",
+      "folderNotFound": "ఫోల్డర్ కనుగొనబడలేదు",
+      "addNote": "+ నోట్‌ను జోడించండి",
+      "noNotesInThisFolder": "ఈ ఫోల్డర్‌లో నోట్స్ లేవు",
+      "moveNotesToThisFolderTo": "ఇక్కడ చూడటానికి నోట్స్‌ను ఈ ఫోల్డర్‌కు తరలించండి",
+      "addNoteToFolder": "ఫోల్డర్‌కు నోట్‌ను జోడించండి",
+      "noNotesAvailableToAdd": "జోడించడానికి నోట్స్ ఏవీ లేవు",
+      "allYourNotesAreAlreadyIn": "మీ నోట్స్ అన్నీ ఇప్పటికే ఈ ఫోల్డర్‌లో ఉన్నాయి",
+      "created": "{{value}} నాడు సృష్టించబడింది"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "నోట్ లోడ్ చేయడం విఫలమైంది",
+      "reTranscribeNote": "నోట్‌ను మళ్లీ ట్రాన్స్‌క్రైబ్ చేయండి",
+      "thisWillReTranscribeTheAudio": "ఇది ఆడియోను మళ్లీ ట్రాన్స్‌క్రైబ్ చేసి, నోట్‌ను అప్‌డేట్ చేస్తుంది. కొనసాగించాలా?",
+      "reTranscribe": "మళ్లీ ట్రాన్స్‌క్రైబ్ చేయండి",
+      "noteReTranscribedSuccessfully": "నోట్ విజయవంతంగా మళ్లీ ట్రాన్స్‌క్రైబ్ చేయబడింది",
+      "info": "సమాచారం",
+      "reTranscriptionFeatureIsComingSoon": "రీ-ట్రాన్స్‌క్రిప్షన్ ఫీచర్ త్వరలో అందుబాటులోకి రానుంది",
+      "youAreCurrentlyOfflinePleaseConnect": "మీరు ప్రస్తుతం ఆఫ్‌లైన్‌లో ఉన్నారు. ఈ పని చేయడానికి దయచేసి ఇంటర్నెట్‌కి కనెక్ట్ అవ్వండి.",
+      "failedToDeleteNote": "నోట్‌ను తొలగించడం విఫలమైంది",
+      "failedToExportNote": "నోట్ ఎగుమతి చేయడం విఫలమైంది",
+      "noteTranslatedSuccessfully": "నోట్ విజయవంతంగా అనువదించబడింది",
+      "failedToTranslateNote": "నోట్ అనువదించడం విఫలమైంది",
+      "noteMovedTo": "నోట్ {{name}}కి తరలించబడింది",
+      "failedToMoveNoteToFolder": "నోట్‌ను ఫోల్డర్‌కి తరలించడం విఫలమైంది",
+      "summaryNotes": "సారాంశ నోట్స్",
+      "loadingNote": "నోట్ లోడ్ అవుతోంది...",
+      "imageNote": "ఇమేజ్ నోట్",
+      "created": "{{dateTime}}న సృష్టించబడింది",
+      "translate": "అనువదించు",
+      "transcribe": "ట్రాన్స్‌క్రైబ్ చేయి",
+      "editThisNote": "ఈ నోట్‌ను సవరించు",
+      "createFlashcards": "ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "createFlashcardsToImproveYourRetention": "గుర్తుంచుకునే నైపుణ్యాలను మెరుగుపరచుకోవడానికి ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "createQuizQuestions": "క్విజ్ ప్రశ్నలను సృష్టించండి",
+      "practiceYourNotesByCreatingQuestions": "సబ్జెక్ట్‌పై పట్టు సాధించేందుకు ప్రశ్నలను రూపొందించి ప్రాక్టీస్ చేయండి"
+    },
+    "sharedNote": {
+      "notFound": "కనిపించలేదు",
+      "thisSharedNoteLinkIsInvalid": "ఈ షేర్ చేసిన నోట్ లింక్ చెల్లదు లేదా గడువు ముగిసింది.",
+      "failedToLoadSharedNote": "షేర్ చేసిన నోట్ లోడ్ చేయడం విఫలమైంది.",
+      "saved": "సేవ్ చేయబడింది!",
+      "noteHasBeenAddedToYour": "నోట్ మీ లైబ్రరీకి జోడించబడింది.",
+      "viewInLibrary": "లైబ్రరీలో చూడండి",
+      "stayHere": "ఇక్కడే ఉండండి",
+      "failedToSaveNote": "నోట్‌ను సేవ్ చేయడం విఫలమైంది.",
+      "loadingSharedNote": "షేర్ చేసిన నోట్ లోడ్ అవుతోంది...",
+      "sharedNote": "షేర్ చేసిన నోట్",
+      "sharedWithYou": "మీతో షేర్ చేయబడింది",
+      "savedToLibrary": "లైబ్రరీకి సేవ్ చేయబడింది",
+      "saveToMyLibrary": "నా లైబ్రరీకి సేవ్ చేయి"
+    }
   },
   "create": {
     "selectOption": "మీరు మీ నోట్‌ను ఎలా సృష్టించాలనుకుంటున్నారు?",
-    "recordAudio": "ఆడియోను రికార్డ్ చేయండి",
-    "uploadAudio": "ఆడియోను అప్‌లోడ్ చేయండి",
+    "recordAudio": {
+      "permissionRequired": "అనుమతి అవసరం",
+      "pleaseGrantMicrophonePermissionToRecord": "ఆడియో రికార్డ్ చేయడానికి దయచేసి మైక్రోఫోన్ అనుమతిని ఇవ్వండి.",
+      "failedToRequestMicrophonePermission": "మైక్రోఫోన్ అనుమతి అభ్యర్థించడం విఫలమైంది",
+      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "recordingAudio": "ఆడియో రికార్డింగ్",
+      "recordAudio": "ఆడియో రికార్డ్ చేయి",
+      "createANoteFromAnyRecorded": "రికార్డ్ చేసిన ఏదైనా ఆడియో నుండి నోట్‌ను సృష్టించండి",
+      "recording": "రికార్డ్ అవుతోంది ({{time}})",
+      "recordAgain": "మళ్లీ రికార్డ్ చేయి"
+    },
+    "uploadAudio": {
+      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "failedToPickAudioFile": "ఆడియో ఫైల్‌ను ఎంచుకోవడం విఫలమైంది",
+      "uploadAudio": "ఆడియోను అప్‌లోడ్ చేయండి",
+      "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఏదైనా ఆడియో నుండి నోట్‌ను సృష్టించండి",
+      "dragDropFilesOrBrowse": "ఫైల్‌లను డ్రాగ్ & డ్రాప్ చేయండి లేదా బ్రౌజ్ చేయండి",
+      "supportedFormatMp4WavMp3": "సపోర్ట్ చేసే ఫార్మాట్‌లు: mp4, wav, mp3",
+      "changeFile": "ఫైల్‌ను మార్చు"
+    },
     "youtube": "యూట్యూబ్ వీడియో",
     "pdfDocument": "PDF లేదా పత్రం",
     "customText": "కస్టమ్ టెక్స్ట్",
@@ -250,7 +533,56 @@
     "uploadingFile": "సర్వర్‌కు ఫైల్ అప్‌లోడ్ అవుతోంది...",
     "transcribing": "మాటలను టెక్స్ట్‌గా మార్చడం...",
     "extractingText": "టెక్స్ట్‌ను సంగ్రహిస్తోంది...",
-    "generatingNote": "AI ఆధారిత స్టడీ నోట్స్ సృష్టించడం...",
+    "generatingNote": {
+      "uploadAudio": "ఆడియోను అప్‌లోడ్ చేయండి",
+      "uploadingAudioFileToServer": "ఆడియో ఫైల్ సర్వర్‌కి అప్‌లోడ్ అవుతోంది...",
+      "transcribeAudio": "ఆడియోను ట్రాన్స్‌క్రైబ్ చేయండి",
+      "convertingSpeechToText": "వాయిస్‌ని టెక్స్ట్‌గా మారుస్తోంది...",
+      "generateYourNote": "మీ నోట్‌ను రూపొందించండి",
+      "creatingStudyNotes": "స్టడీ నోట్స్ రూపొందించబడుతున్నాయి...",
+      "uploadPDF": "PDFని అప్‌లోడ్ చేయండి",
+      "uploadingPDFDocumentToServer": "PDF డాక్యుమెంట్ సర్వర్‌కి అప్‌లోడ్ అవుతోంది...",
+      "extractText": "టెక్స్ట్‌ను వేరుచేయి",
+      "readingAndExtractingTextFromPDF": "PDF నుండి టెక్స్ట్‌ను చదివి సంగ్రహిస్తోంది...",
+      "uploadImage": "చిత్రాన్ని అప్‌లోడ్ చేయండి",
+      "uploadingImageToServer": "చిత్రం సర్వర్‌కి అప్‌లోడ్ అవుతోంది...",
+      "extractTextOCR": "టెక్స్ట్‌ను సంగ్రహించు (OCR)",
+      "recognizingAndExtractingTextFromImage": "చిత్రం నుండి టెక్స్ట్‌ను గుర్తించి సంగ్రహిస్తోంది...",
+      "fetchVideo": "వీడియోను పొందండి",
+      "connectingToYouTube": "YouTubeకి కనెక్ట్ అవుతోంది...",
+      "extractTranscript": "ట్రాన్స్‌క్రిప్ట్‌ను సంగ్రహించండి",
+      "downloadingVideoTranscript": "వీడియో ట్రాన్స్‌క్రిప్ట్ డౌన్‌లోడ్ అవుతోంది...",
+      "processText": "టెక్స్ట్‌ను ప్రాసెస్ చేయండి",
+      "analyzingYourContent": "కంటెంట్‌ను విశ్లేషిస్తోంది...",
+      "uploadFile": "ఫైల్‌ను అప్‌లోడ్ చేయండి",
+      "uploadingToServer": "సర్వర్‌కు అప్‌లోడ్ అవుతోంది...",
+      "processContent": "కంటెంట్‌ను ప్రాసెస్ చేయండి",
+      "extractingContent": "కంటెంట్‌ను వెలికితీస్తోంది...",
+      "noteReady": "నోట్ సిద్ధంగా ఉంది!",
+      "noteGenerationFailedOnTheServer": "సర్వర్‌లో నోట్ జనరేషన్ విఫలమైంది.",
+      "failedToUploadImage": "ఇమేజ్ అప్‌లోడ్ చేయడం విఫలమైంది",
+      "weCouldNotReadAnythingFrom": "ఆ ఇమేజ్ నుండి ఏమీ చదవలేకపోయాము. దయచేసి మీ మెడికల్ నోట్స్ స్పష్టమైన ఇమేజ్‌తో మళ్లీ ప్రయత్నించండి.",
+      "preparingFile": "ఫైల్ సిద్ధమవుతోంది...",
+      "almostDone": "దాదాపు పూర్తయింది...",
+      "untitledNote": "పేరులేని నోట్",
+      "failedToGenerateNote": "నోట్ జనరేట్ చేయడం విఫలమైంది",
+      "whoaSpeedy": "అబ్బో, చాలా వేగంగా ఉన్నారు! 🏃💨",
+      "youReGeneratingContentABit": "మీరు కంటెంట్‌ను చాలా వేగంగా జనరేట్ చేస్తున్నారు. మా AI సమన్వయం చేసుకోవడానికి మళ్లీ ప్రయత్నించే ముందు 60 సెకన్ల పాటు ఆగండి.",
+      "gotIt": "అర్థమైంది",
+      "fileTooLarge": "ఫైల్ సైజు చాలా పెద్దదిగా ఉంది",
+      "yourFileExceedsThe15MBLimit": "మీ ఫైల్ ఉచిత వినియోగదారుల 15MB పరిమితిని మించిపోయింది. 100MB వరకు లెక్చర్లను అప్‌లోడ్ చేయడానికి PRO కి అప్‌గ్రేడ్ అవ్వండి.",
+      "upgradeToPRO": "PRO కి అప్‌గ్రేడ్ అవ్వండి",
+      "oopsWeHitASnag": "క్షమించండి, చిన్న సమస్య ఎదురైంది 🚧",
+      "weCouldnTGenerateThatRight": "దాన్ని ప్రస్తుతం జనరేట్ చేయలేకపోయాము. కాసేపు ఆగి మళ్లీ ప్రయత్నించండి!",
+      "processingContent": "కంటెంట్ ప్రాసెస్ అవుతోంది...",
+      "generatingYourNote": "మీ నోట్‌ను జనరేట్ చేస్తోంది...",
+      "audioNote": "ఆడియో నోట్",
+      "failedToGenerateFlashcards": "ఫ్లాష్‌కార్డ్‌లను జనరేట్ చేయడం విఫలమైంది",
+      "generatingNote": "నోట్ జనరేట్ అవుతోంది",
+      "pleaseKeepThisScreenOpenWhile": "మీ నోట్ జనరేట్ అవుతున్నప్పుడు దయచేసి ఈ స్క్రీన్‌ను అలాగే ఉంచండి. పెద్ద ఫైల్స్ ట్రాన్స్‌క్రిప్ట్ కావడానికి కొన్ని నిమిషాలు పట్టవచ్చు.",
+      "goToNote": "నోట్‌కి వెళ్లండి",
+      "generateNoteTranscript": "నోట్ ట్రాన్స్‌క్రిప్ట్‌ను జనరేట్ చేయండి"
+    },
     "fetchingVideo": "యూట్యూబ్‌కి కనెక్ట్ అవుతోంది...",
     "processingText": "మీ కంటెంట్‌ను విశ్లేషిస్తున్నాము...",
     "uploadAudioTitle": "ఆడియోను అప్‌లోడ్ చేయండి",
@@ -260,7 +592,63 @@
     "fetchVideo": "వీడియోను పొందండి",
     "extractTranscript": "ట్రాన్స్క్రిప్ట్‌ను సంగ్రహించండి",
     "processText": "టెక్స్ట్‌ను ప్రాసెస్ చేయండి",
-    "generateNote": "మీ నోట్‌ను రూపొందించండి"
+    "generateNote": "మీ నోట్‌ను రూపొందించండి",
+    "customTextInput": {
+      "customText": "కస్టమ్ టెక్స్ట్",
+      "createANoteFromAnyCustom": "ఏదైనా కస్టమ్ టెక్స్ట్ నుండి నోట్‌ను రూపొందించండి",
+      "enterText": "టెక్స్ట్‌ను నమోదు చేయండి",
+      "enterYourTextHere": "మీ టెక్స్ట్‌ను ఇక్కడ నమోదు చేయండి..."
+    },
+    "uploadImage": {
+      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "permissionRequired": "అనుమతి అవసరం",
+      "pleaseAllowAccessToYourPhoto": "దయచేసి మీ ఫోటో లైబ్రరీ యాక్సెస్‌ను అనుమతించండి",
+      "failedToPickImage": "ఇమేజ్‌ను ఎంచుకోవడం విఫలమైంది",
+      "uploadImage": "ఇమేజ్‌ను అప్‌లోడ్ చేయండి",
+      "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఏదైనా ఇమేజ్ నుండి నోట్‌ను రూపొందించండి",
+      "dragDropFilesOrBrowse": "ఫైల్స్‌ను డ్రాగ్ & డ్రాప్ చేయండి లేదా బ్రౌజ్ చేయండి",
+      "supportedFormatPngJpegHeicWebp": "సపోర్ట్ చేసే ఫార్మాట్‌లు: png, jpeg, heic, webp",
+      "changeFile": "ఫైల్‌ను మార్చండి"
+    },
+    "uploadPDF": {
+      "created": "{{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}న సృష్టించబడింది",
+      "failedToPickDocument": "డాక్యుమెంట్‌ను ఎంచుకోవడం విఫలమైంది",
+      "uploadPdf": "Pdfని అప్‌లోడ్ చేయండి",
+      "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఏదైనా pdf నుండి నోట్‌ను రూపొందించండి",
+      "dragDropFilesOrBrowse": "ఫైల్స్‌ను డ్రాగ్ & డ్రాప్ చేయండి లేదా బ్రౌజ్ చేయండి",
+      "supportedFormatPdf": "సపోర్ట్ చేసే ఫార్మాట్: pdf",
+      "changeFile": "ఫైల్‌ను మార్చండి"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "వీడియోను పొందుతోంది",
+      "gettingVideoDetails": "వీడియో వివరాలను పొందుతోంది",
+      "extractingTranscript": "ట్రాన్స్‌క్రిప్ట్‌ను సేకరిస్తోంది",
+      "convertingAudioToText": "ఆడియోను టెక్స్ట్‌గా మారుస్తోంది",
+      "generatingYourNote": "మీ నోట్‌ను జనరేట్ చేస్తోంది",
+      "aiIsSummarisingTheContent": "AI కంటెంట్‌ను సారాంశం చేస్తోంది",
+      "noteGenerationFailedPleaseTryAgain": "నోట్ జనరేషన్ విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.",
+      "processingFailed": "ప్రాసెసింగ్ విఫలమైంది",
+      "goBack": "వెనక్కి వెళ్ళు",
+      "retry": "మళ్ళీ ప్రయత్నించండి",
+      "failedToStartNoteGeneration": "నోట్ తయారీని ప్రారంభించడం విఫలమైంది",
+      "failedToProcessYouTubeVideoPlease": "YouTube వీడియోను ప్రాసెస్ చేయడం విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+      "cancelProcessing": "ప్రాసెసింగ్‌ను రద్దు చేయి",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా రద్దు చేయాలనుకుంటున్నారా? మీ ప్రోగ్రెస్ పోతుంది.",
+      "continueProcessing": "ప్రాసెసింగ్‌ను కొనసాగించు",
+      "youTubeNote": "YouTube నోట్",
+      "noteGenerated": "నోట్ సిద్ధమైంది",
+      "generatingNote": "నోట్ సిద్ధమవుతోంది",
+      "goToNote": "నోట్‌కి వెళ్ళు"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "వీడియో సమాచారాన్ని పొందడం సాధ్యపడలేదు",
+      "failedToFetchVideoInformation": "వీడియో సమాచారాన్ని పొందడం విఫలమైంది",
+      "youtubeVideo": "YouTube వీడియో",
+      "createANoteFromAnyYoutube": "ఏదైనా YouTube వీడియో నుండి నోట్ రూపొందించండి",
+      "enterYoutubeURL": "YouTube URLని నమోదు చేయండి",
+      "pasteYoutubeURL": "YouTube URLని పేస్ట్ చేయండి",
+      "fetchingVideoInfo": "వీడియో సమాచారాన్ని సేకరిస్తోంది..."
+    }
   },
   "library": {
     "title": "గ్రంథాలయం",
@@ -292,7 +680,7 @@
     "almostDone": "దాదాపు పూర్తయింది...",
     "quizReady": "క్విజ్ సిద్ధం!",
     "startQuiz": "క్విజ్ ప్రారంభించండి",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{total}} లో {{current}}",
     "exitTitle": "క్విజ్ నుండి నిష్క్రమించాలా?",
     "exitMessage": "మీ పురోగతి నష్టపోతుంది.",
     "exit": "నిష్క్రమణ",
@@ -312,7 +700,45 @@
     "correctAnswer": "సరైన సమాధానం",
     "yourAnswer": "మీ సమాధానం",
     "explanation": "వివరణ",
-    "questionProgress": "ప్రశ్న {{current}} of {{total}}"
+    "questionProgress": "ప్రశ్న {{current}} of {{total}}",
+    "generatingQuizWait": "మేము మీ కోసం క్విజ్ సిద్ధం చేస్తున్నాము, దయచేసి వేచి ఉండండి..",
+    "goToChats": "చాట్‌లకు వెళ్లండి",
+    "quizGroupDetail": {
+      "inProgress": "కొనసాగుతోంది",
+      "notStarted": "ప్రారంభించలేదు",
+      "failedToLoadQuizHistory": "క్విజ్ హిస్టరీని లోడ్ చేయడం విఫలమైంది",
+      "failedToLoadChatContent": "చాట్ కంటెంట్‌ని లోడ్ చేయడం విఫలమైంది",
+      "deleteQuiz": "క్విజ్‌ను తొలగించు",
+      "failedToDeleteQuiz": "క్విజ్‌ను తొలగించడం విఫలమైంది",
+      "created": "{{dateTime}} న సృష్టించబడింది",
+      "lastscore": "చివరి స్కోర్",
+      "bestscore": "ఉత్తమ స్కోర్",
+      "attempts": "ప్రయత్నాలు",
+      "retakeQuiz": "క్విజ్‌ని మళ్ళీ రాయండి",
+      "translate": "అనువదించు",
+      "newQuiz": "కొత్త క్విజ్",
+      "quizHistory": "క్విజ్ హిస్టరీ",
+      "flashcardHistory": "ఫ్లాష్‌కార్డ్ హిస్టరీ",
+      "score": "స్కోరు {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "ఈ సోర్స్ నుండి ఇంకా ఫ్లాష్‌కార్డ్ సెట్‌లు లేవు.",
+      "cards": "{{totalCards}} కార్డులు · {{flashcardStatus}}",
+      "quizOptions": "క్విజ్ ఎంపికలు",
+      "exportLatestAttempt": "చివరి ప్రయత్నాన్ని ఎక్స్‌పోర్ట్ చేయండి",
+      "questions": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
+      "deleteAllAttemptsOne": "\"{{title}}\" కోసం ఉన్న 1 క్విజ్ ప్రయత్నాన్ని తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "deleteAllAttemptsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} క్విజ్ ప్రయత్నాలను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "makeFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "క్విజ్ డేటాను లోడ్ చేయడం విఫలమైంది - చెల్లని రెస్పాన్స్ ఫార్మాట్",
+      "failedToLoadQuizData": "క్విజ్ డేటాను లోడ్ చేయడం విఫలమైంది",
+      "noContentAvailable": "కంటెంట్ ఏదీ అందుబాటులో లేదు",
+      "goBack": "వెనక్కి వెళ్ళు",
+      "previous": "మునుపటిది"
+    },
+    "quiz": {
+      "generationFailed": "రూపొందించడం విఫలమైంది"
+    }
   },
   "flashcards": {
     "title": "ఫ్లాష్‌కార్డులు",
@@ -343,7 +769,46 @@
     "headerTitle": "ఫ్లాష్‌కార్డ్",
     "progressFormat": "ఫ్లాష్‌కార్డ్ {{current}} of {{total}}",
     "noteIdRequired": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడానికి నోట్ ఐడి అవసరం.",
-    "invalidCardCount": "దయచేసి 1 నుండి 100 ఫ్లాష్‌కార్డుల మధ్య ఎంచుకోండి"
+    "invalidCardCount": "దయచేసి 1 నుండి 100 ఫ్లాష్‌కార్డుల మధ్య ఎంచుకోండి",
+    "flashcardGroupDetail": {
+      "inProgress": "కొనసాగుతోంది",
+      "notStarted": "ప్రారంభించలేదు",
+      "failedToLoadFlashcardHistory": "ఫ్లాష్‌కార్డ్ హిస్టరీని లోడ్ చేయడం విఫలమైంది",
+      "limitReached": "పరిమితి ముగిసింది",
+      "flashcardGenerationLimitReached": "ఫ్లాష్‌కార్డ్ తయారీ పరిమితి ముగిసింది.",
+      "failedToGenerateFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడం విఫలమైంది",
+      "failedToTranslateFlashcards": "ఫ్లాష్‌కార్డ్‌లను అనువదించడం విఫలమైంది",
+      "deleteFlashcards": "ఫ్లాష్‌కార్డ్‌లను తొలగించు",
+      "failedToDeleteFlashcards": "ఫ్లాష్‌కార్డ్‌లను తొలగించడం విఫలమైంది",
+      "created": "{{dateTime}} న సృష్టించబడింది",
+      "lastprogress": "చివరి ప్రోగ్రెస్",
+      "bestprogress": "ఉత్తమ ప్రోగ్రెస్",
+      "sets": "సెట్‌లు",
+      "studyNow": "ఇప్పుడే చదవండి",
+      "translate": "అనువదించండి",
+      "newFlashcards": "కొత్త ఫ్లాష్‌కార్డ్‌లు",
+      "flashcardHistory": "ఫ్లాష్‌కార్డ్ చరిత్ర",
+      "quizHistory": "క్విజ్ చరిత్ర",
+      "cards": "{{totalCards}} కార్డులు · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "ఈ సోర్స్ నుండి ఇంకా ఎలాంటి క్విజ్‌లు లేవు.",
+      "score": "స్కోరు {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "ఫ్లాష్‌కార్డ్ ఎంపికలు",
+      "exportLatestSet": "తాజా సెట్‌ను ఎగుమతి చేయండి",
+      "questions": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
+      "deleteAllSetsOne": "\"{{title}}\" కోసం ఉన్న 1 ఫ్లాష్‌కార్డ్ సెట్‌ను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "deleteAllSetsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} ఫ్లాష్‌కార్డ్ సెట్‌లను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
+      "makeQuiz": "క్విజ్‌ను రూపొందించండి",
+      "failedToLoadChatContent": "చాట్ కంటెంట్‌ను లోడ్ చేయడం విఫలమైంది"
+    },
+    "flashcardReview": {
+      "unknownError": "తెలియని లోపం",
+      "noFlashcardsInThisSet": "ఈ సెట్‌లో ఫ్లాష్‌కార్డులు లేవు",
+      "goBack": "వెనక్కి వెళ్లండి",
+      "allDone": "అంతా పూర్తయింది",
+      "youHaveReviewedAllTheCards": "మీరు ఈ డెక్‌లోని అన్ని కార్డులను రివ్యూ చేశారు",
+      "question": "ప్రశ్న {{value}}",
+      "questionOf": "{{totalCards}} లో ప్రశ్న {{value}}"
+    }
   },
   "chat": {
     "title": "చాట్",
@@ -354,7 +819,191 @@
     "chatWithDocument": "పత్రంతో చాట్ చేయండి",
     "selectFile": "చాట్ చేయడానికి ఒక ఫైల్‌ను ఎంచుకోండి",
     "uploadFile": "ఫైల్ అప్‌లోడ్ చేయండి",
-    "startChatting": "చాటింగ్ ప్రారంభించండి"
+    "startChatting": "చాటింగ్ ప్రారంభించండి",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "మరింత స్పష్టత కోసం వైద్యపరమైన ప్రశ్న అడగండి",
+      "askAnythingAboutThisDocument": "ఈ డాక్యుమెంట్ గురించి ఏదైనా అడగండి...",
+      "askAQuestionAttachmentProcessingFailed": "ప్రశ్న అడగండి — అటాచ్‌మెంట్ ప్రాసెసింగ్ విఫలమైంది",
+      "extractingText": "టెక్స్ట్‌ను సంగ్రహిస్తోంది...",
+      "processingPDF": "PDF ప్రాసెస్ అవుతోంది...",
+      "upgradeToProToContinueChatting": "చాట్ చేయడం కొనసాగించడానికి PRO కు అప్‌గ్రేడ్ అవ్వండి",
+      "queryremaining": "{{queriesRemaining}} ప్రశ్న మిగిలి ఉంది"
+    },
+    "chatEmptyState": {
+      "initializingChat": "చాట్‌ను ప్రారంభిస్తోంది...",
+      "extractingTextFromImage": "చిత్రం నుండి టెక్స్ట్‌ను సంగ్రహిస్తోంది...",
+      "processingPDFDocument": "PDF డాక్యుమెంట్‌ను ప్రాసెస్ చేస్తోంది...",
+      "analyzingYourNote": "మీ నోట్‌ను విశ్లేషిస్తోంది...",
+      "thisUsuallyTakesJustAFew": "⏱️ దీనికి సాధారణంగా కొన్ని సెకన్ల సమయం పడుతుంది. ప్రాసెసింగ్ పూర్తయిన తర్వాత మీరు చాట్ చేయవచ్చు.",
+      "processingFailed": "ప్రాసెసింగ్ విఫలమైంది",
+      "fileMightBeCorruptedOrUnreadable": "• ఫైల్ పాడై ఉండవచ్చు లేదా చదవడానికి వీలు కాకపోవచ్చు",
+      "imageQualityTooLow": "చిత్ర నాణ్యత చాలా తక్కువగా ఉంది",
+      "pdfIsPasswordProtected": "PDF పాస్‌వర్డ్ రక్షితమైనది",
+      "contentFormatNotSupported": "కంటెంట్ ఫార్మాట్‌కు మద్దతు లేదు",
+      "networkConnectionIssue": "• నెట్‌వర్క్ కనెక్షన్ సమస్య",
+      "tryADifferentFile": "మరొక ఫైల్‌ని ప్రయత్నించండి",
+      "askAnyClinicalQuestionNoUpload": "💡 ఏదైనా క్లినికల్ ప్రశ్న అడగండి — అప్‌లోడ్ చేయాల్సిన అవసరం లేదు. నేను సంబంధిత చిత్రాలతో పాటు, ప్రామాణిక మెడికల్ ఆధారాలను ఉపయోగించి సమాధానం ఇస్తాను.",
+      "readyToChat": "✓ చాట్ చేయడానికి సిద్ధంగా ఉంది",
+      "couldntProcessNote": "మేము ఈ నోట్‌ను ప్రాసెస్ చేయలేకపోయాము. దీనికి గల కారణాలు:",
+      "couldntProcessImage": "మేము ఈ చిత్రాన్ని ప్రాసెస్ చేయలేకపోయాము. దీనికి గల కారణాలు:",
+      "couldntProcessDocument": "మేము ఈ డాక్యుమెంట్‌ను ప్రాసెస్ చేయలేకపోయాము. దీనికి గల కారణాలు:",
+      "askMeAboutNote": "💡 ఈ నోట్ గురించి నన్ను ఏదైనా అడగండి. నేను సారాంశాన్ని అందించగలను, భావనలను వివరించగలను లేదా నిర్దిష్ట ప్రశ్నలకు సమాధానం ఇవ్వగలను.",
+      "askMeAboutImage": "💡 ఈ చిత్రం గురించి నన్ను ఏదైనా అడగండి. నేను సారాంశాన్ని అందించగలను, భావనలను వివరించగలను లేదా నిర్దిష్ట ప్రశ్నలకు సమాధానం ఇవ్వగలను.",
+      "askMeAboutDocument": "💡 ఈ డాక్యుమెంట్ గురించి నన్ను ఏదైనా అడగండి. నేను సారాంశాన్ని అందించగలను, భావనలను వివరించగలను లేదా నిర్దిష్ట ప్రశ్నలకు సమాధానం ఇవ్వగలను."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} నేర్చుకున్నారు",
+      "notStarted": "ప్రారంభించలేదు",
+      "quizGeneration": "క్విజ్ రూపకల్పన",
+      "score": "స్కోరు {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "ఫ్లాష్‌కార్డ్‌ల రూపకల్పన",
+      "questions": "{{totalCards}} ప్రశ్నలు · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} ప్రశ్నలు · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "ఆలోచిస్తోంది మరియు మీ కోసం వనరులను వెతుకుతోంది...",
+      "couldnTGenerateAResponse": "సమాధానాన్ని రూపొందించడం సాధ్యపడలేదు.",
+      "retry": "మళ్లీ ప్రయత్నించండి",
+      "alsoReferencedFromTheWeb": "వెబ్ నుండి కూడా సూచించబడింది",
+      "followUpQuestions": "తదుపరి ప్రశ్నలు"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "వైద్యపరమైన ప్రశ్న ఏదైనా అడగండి, సరైన ఆధారాలతో కూడిన సమాధానం పొందండి",
+      "evidenceBasedPubMedSourcesPeerReviewed": "సాక్ష్యాధారితం · PubMed మూలాలు · పీర్-రివ్యూడ్",
+      "tryOutAnyOfThisTopics": "ప్రారంభించడానికి ఈ అంశాలలో ఏదైనా ఒకదాన్ని ప్రయత్నించండి",
+      "topics": {
+        "electrolytes": {
+          "label": "ఎలక్ట్రోలైట్ అసమతుల్యత వివరణ",
+          "question": "ఎలక్ట్రోలైట్ అసమతుల్యత — కారణాలు, లక్షణాలు మరియు చికిత్స గురించి వివరించండి"
+        },
+        "ecg": {
+          "label": "ECG ప్రాథమిక అంశాలు",
+          "question": "ECG రీడింగ్ ప్రాథమిక సూత్రాలు ఏమిటి?"
+        },
+        "drugInteractions": {
+          "label": "ముఖ్యమైన ఔషధ పరస్పర చర్యలు (Drug Interactions)",
+          "question": "నేను తెలుసుకోవలసిన సాధారణ మరియు ముఖ్యమైన ఔషధ పరస్పర చర్యలు ఏమిటి?"
+        },
+        "nclex": {
+          "label": "NCLEX-శైలి ప్రాక్టీస్ అంశాలు",
+          "question": "నాకు NCLEX-శైలి ప్రాక్టీస్ ప్రశ్న ఒకటి ఇవ్వండి"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA డ్రగ్ లేబుల్",
+      "fromYourAttachedMaterial": "మీరు జోడించిన మెటీరియల్ నుండి"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "చాట్ సెషన్‌ను సృష్టించడం విఫలమైంది",
+      "failedToInitializeChatSession": "చాట్ సెషన్‌ను ప్రారంభించడం విఫలమైంది",
+      "failedToUpdateLanguage": "భాషను అప్‌డేట్ చేయడం విఫలమైంది",
+      "youVeReachedYour3Pin": "మీ 3 పిన్‌ల పరిమితి ముగిసింది",
+      "failedToUpdatePin": "పిన్‌ను అప్‌డేట్ చేయడం విఫలమైంది",
+      "permissionRequired": "అనుమతి అవసరం",
+      "pleaseGrantCameraPermissionToTake": "ఫోటో తీయడానికి దయచేసి కెమెరా అనుమతిని మంజూరు చేయండి.",
+      "pleaseGrantPhotoLibraryPermissionTo": "చిత్రాలను అప్‌లోడ్ చేయడానికి దయచేసి ఫోటో లైబ్రరీ అనుమతిని మంజూరు చేయండి.",
+      "failedToUploadImage": "చిత్రాన్ని అప్‌లోడ్ చేయడం విఫలమైంది",
+      "uploadFailed": "అప్‌లోడ్ విఫలమైంది",
+      "failedToUploadDocument": "పత్రాన్ని అప్‌లోడ్ చేయడం విఫలమైంది",
+      "failedToStartChatFromThis": "ఈ ఫైల్ నుండి చాట్‌ను ప్రారంభించడం విఫలమైంది.",
+      "chatFromImage": "చిత్రం నుండి చాట్ చేయండి",
+      "failedToStartANewQuestion": "కొత్త ప్రశ్నను ప్రారంభించడం విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.",
+      "failedToAttachFile": "ఫైల్‌ను జోడించడం విఫలమైంది",
+      "failedToSendMessage": "సందేశాన్ని పంపడం విఫలమైంది",
+      "copiedToClipboard": "క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది",
+      "notEnoughContentYet": "ఇంకా తగినంత కంటెంట్ లేదు",
+      "chatABitMoreBeforeGenerating": "క్విజ్ రూపొందించే ముందు మరికొంత చాట్ చేయండి (కనీసం 100 అక్షరాలు).",
+      "chatABitMoreBeforeGenerating2": "ఫ్లాష్‌కార్డ్‌లను రూపొందించే ముందు మరికొంత చాట్ చేయండి (కనీసం 100 అక్షరాలు).",
+      "failedToGenerateFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడం విఫలమైంది",
+      "failedToRegenerateResponse": "సమాధానాన్ని మళ్లీ రూపొందించడం విఫలమైంది",
+      "failedToRetryResponse": "మళ్లీ ప్రయత్నించడం విఫలమైంది"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "నోట్‌ను జోడించడం విఫలమైంది",
+      "folderCreatedSuccessfully": "\"{{name}}\" ఫోల్డర్ విజయవంతంగా సృష్టించబడింది!",
+      "failedToCreateFolder": "ఫోల్డర్‌ను సృష్టించడం విఫలమైంది",
+      "failedToAttachDocument": "పత్రాన్ని జోడించడం విఫలమైంది",
+      "failedToCreateChatSession": "చాట్ సెషన్‌ను సృష్టించడం విఫలమైంది",
+      "failedToUploadDocument": "పత్రాన్ని అప్‌లోడ్ చేయడం విఫలమైంది",
+      "openingCamera": "📷 కెమెరాను తెరుస్తోంది...",
+      "openingImagePicker": "🖼️ ఇమేజ్ పికర్‌ని తెరుస్తోంది...",
+      "permissionRequired": "అనుమతి అవసరం",
+      "pleaseGrantCameraPermissionToTake": "ఫోటో తీయడానికి దయచేసి కెమెరా అనుమతిని మంజూరు చేయండి.",
+      "pleaseGrantPhotoLibraryPermissionTo": "చిత్రాలను అప్‌లోడ్ చేయడానికి దయచేసి ఫోటో లైబ్రరీ అనుమతిని మంజూరు చేయండి.",
+      "failedToAttachImage": "చిత్రాన్ని జోడించడం విఫలమైంది",
+      "failedToUploadImage": "చిత్రాన్ని అప్‌లోడ్ చేయడం విఫలమైంది",
+      "failedToAttachAudio": "ఆడియోను జోడించడం విఫలమైంది",
+      "failedToUploadAudio": "ఆడియోను అప్‌లోడ్ చేయడం విఫలమైంది",
+      "items": "{{itemCount}} అంశాలు",
+      "thisFolderIsEmptyGoBack": "ఈ ఫోల్డర్ ఖాళీగా ఉంది. వేరే ఫోల్డర్‌ను ఎంచుకోవడానికి వెనక్కి వెళ్ళండి.",
+      "addFolder": "ఫోల్డర్‌ను జోడించండి",
+      "uploadNewDocument": "కొత్త పత్రాన్ని అప్‌లోడ్ చేయండి",
+      "uploadAPDFAndStartChatting": "PDFని అప్‌లోడ్ చేసి వెంటనే చాట్ చేయడం ప్రారంభించండి",
+      "uploadNewImage": "కొత్త చిత్రాన్ని అప్‌లోడ్ చేయండి",
+      "uploadAnImageAndExtractText": "చిత్రాన్ని అప్‌లోడ్ చేసి వెంటనే టెక్స్ట్‌ని పొందండి",
+      "uploadNewAudio": "కొత్త ఆడియోను అప్‌లోడ్ చేయండి",
+      "uploadAnAudioFileAndTranscribe": "ఆడియో ఫైల్‌ను అప్‌లోడ్ చేసి తక్షణమే ట్రాన్స్‌క్రయిబ్ చేయండి",
+      "orselectfromlibrary": "లేదా లైబ్రరీ నుండి ఎంచుకోండి",
+      "folders": "ఫోల్డర్‌లు",
+      "allNotes": "అన్ని నోట్స్",
+      "noFilesToDisplay": "చూపించడానికి ఫైల్స్ లేవు",
+      "noNotesToDisplay": "చూపించడానికి నోట్స్ లేవు",
+      "noDocumentsYet": "మీ వద్ద ఇంకా ఏ PDF పత్రాలు లేవు.\nముందుగా కొన్ని నోట్స్ సృష్టించి, ఆపై వాటితో చాట్ చేయడానికి తిరిగి రండి.",
+      "noImagesYet": "మీ వద్ద ఇంకా ఏ చిత్రాలు లేవు.\nముందుగా కొన్ని నోట్స్ సృష్టించి, ఆపై వాటితో చాట్ చేయడానికి తిరిగి రండి.",
+      "noAudioNotesYet": "మీ వద్ద ఇంకా ఏ ఆడియో నోట్స్ లేవు.\nముందుగా కొన్ని నోట్స్ సృష్టించి, ఆపై వాటితో చాట్ చేయడానికి తిరిగి రండి.",
+      "noNotesYet": "మీ వద్ద ఇంకా ఏ నోట్స్ లేవు.\nముందుగా కొన్ని నోట్స్ సృష్టించి, ఆపై వాటితో చాట్ చేయడానికి తిరిగి రండి.",
+      "attachNote": "నోట్ జత చేయండి",
+      "selectNote": "నోట్‌ను ఎంచుకోండి",
+      "attachImage": "చిత్రాన్ని జత చేయండి",
+      "selectImage": "చిత్రాన్ని ఎంచుకోండి",
+      "attachDocument": "పత్రాన్ని జత చేయండి",
+      "selectDocument": "పత్రాన్ని ఎంచుకోండి",
+      "attachAudio": "ఆడియోను జత చేయండి",
+      "selectAudio": "ఆడియోను ఎంచుకోండి",
+      "attachFile": "ఫైల్‌ను జత చేయండి",
+      "selectFile": "ఫైల్‌ను ఎంచుకోండి",
+      "aNote": "నోట్‌ను {{verb}}",
+      "anImage": "చిత్రాన్ని {{verb}}",
+      "aDocument": "డాక్యుమెంట్‌ను {{verb}}",
+      "audio": "ఆడియోను {{verb}}",
+      "aFile": "ఫైల్‌ను {{verb}}"
+    },
+    "chatAttachSheet": {
+      "addToChat": "చాట్‌కు జోడించండి",
+      "camera": "కెమెరా",
+      "photos": "ఫోటోలు",
+      "files": "ఫైల్స్",
+      "generateQuiz": "క్విజ్ రూపొందించండి",
+      "generateFlashcards": "ఫ్లాష్‌కార్డ్‌లు రూపొందించండి",
+      "searchMedicalLiterature": "వైద్య సాహిత్యాన్ని శోధించండి",
+      "filterByDateSourceAndType": "తేదీ, మూలం మరియు రకం ఆధారంగా ఫిల్టర్ చేయండి",
+      "pullsRealCitedSourcesIntoYour": "మీ సమాధానాలలోకి ప్రామాణిక మూలాల వివరాలను తీసుకువస్తుంది",
+      "trustedmedicalsourcedatabase": "విశ్వసనీయ వైద్య మూలాల డేటాబేస్",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA ఔషధ & చికిత్స డేటా"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "సైటేషన్లను పరిశీలించండి",
+      "citations": "సైటేషన్‌లు",
+      "fromTheWeb": "వెబ్ నుండి"
+    },
+    "chatHeader": {
+      "readyTapToRename": "సిద్ధంగా ఉంది · పేరు మార్చడానికి నొక్కండి",
+      "processing": "ప్రాసెస్ అవుతోంది {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "మూలాన్ని చూడండి ↗"
+    },
+    "chatRename": {
+      "renameChat": "చాట్ పేరు మార్చండి"
+    },
+    "sourcesRow": {
+      "viewSources": "మూలాలను చూడండి ({{total}})"
+    }
   },
   "languages": {
     "english": "ఇంగ్లీష్",
@@ -408,5 +1057,455 @@
     "malay": "మలయ్",
     "indonesian": "ఇండోనేషియన్",
     "catalan": "కాటలాన్"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "ఫోల్డర్‌ను జోడించండి",
+      "folderName": "ఫోల్డర్ పేరు",
+      "enterFolderName": "ఫోల్డర్ పేరును నమోదు చేయండి",
+      "chooseColor": "రంగును ఎంచుకోండి",
+      "createFolder": "ఫోల్డర్‌ను సృష్టించండి"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "మేము మీ కంటెంట్‌ను ప్రాసెస్ చేయడానికి ముందు",
+      "clinicalFactUsesAIToAnswer": "మీ ప్రశ్నలకు సమాధానమివ్వడానికి మరియు మీ కంటెంట్‌ను నోట్స్, క్విజ్‌లు మరియు ఫ్లాష్‌కార్డ్‌లుగా మార్చడానికి Clinical Fact AI ని ఉపయోగిస్తుంది. మీరు తెలుసుకోవలసిన విషయాలు ఇక్కడ ఉన్నాయి:",
+      "whatDataIsSent": "ఏ డేటా పంపబడుతుంది",
+      "questionsAndMessagesYouTypeIn": "మీరు చాట్‌లో టైప్ చేసే ప్రశ్నలు మరియు సందేశాలు",
+      "audioRecordingsOrUploadedAudioFiles": "ఆడియో రికార్డింగ్‌లు లేదా అప్‌లోడ్ చేసిన ఆడియో ఫైల్స్",
+      "pdfAndTextDocumentsYouUpload": "మీరు అప్‌లోడ్ చేసే PDF మరియు టెక్స్ట్ పత్రాలు",
+      "imagesYouUpload": "మీరు అప్‌లోడ్ చేసే చిత్రాలు",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube వీడియో URLలు మరియు వాటి ట్రాన్స్‌క్రిప్ట్‌లు",
+      "customTextYouEnter": "మీరు నమోదు చేసే అనుకూల టెక్స్ట్",
+      "whoReceivesYourData": "మీ డేటాను ఎవరు స్వీకరిస్తారు",
+      "howItSUsed": "ఇది ఎలా ఉపయోగించబడుతుంది",
+      "yourContentIsUsedSolelyTo": "మీరు అభ్యర్థించిన సమాధానం, నోట్, క్విజ్ లేదా ఫ్లాష్‌కార్డ్‌లను రూపొందించడానికి మాత్రమే మీ కంటెంట్ ఉపయోగించబడుతుంది. వారి API ద్వారా ప్రాసెస్ చేయబడిన కంటెంట్‌కు ఆయా ప్రొవైడర్ల స్వంత డేటా వినియోగ విధానాలు వర్తిస్తాయి. మరిన్ని వివరాల కోసం, మా గోప్యతా విధానాన్ని చూడండి.",
+      "iAgreeContinue": "నేను అంగీకరిస్తున్నాను — కొనసాగించండి",
+      "noThanks": "వద్దు, ధన్యవాదాలు",
+      "whoReceivesBody": "మీ కంటెంట్ మా సురక్షిత బ్యాకెండ్ సర్వర్‌ల ద్వారా <bold>Google (Gemini)</bold> (నోట్స్, క్విజ్ మరియు ఫ్లాష్‌కార్డ్ తయారీ; చాట్ సమాధానాలు; డాక్యుమెంట్ మరియు ఇమేజ్ ప్రాసెసింగ్) మరియు <bold>OpenAI</bold> (ఆడియో ట్రాన్స్‌క్రిప్షన్) లకు పంపబడుతుంది. చాట్‌లో సంబంధిత భాగాలను కనుగొనడానికి మీ డాక్యుమెంట్‌లలోని భాగాలు <bold>Google Vertex AI</bold> తో ఇండెక్స్ చేయబడతాయి. లైవ్ మెడికల్ సెర్చ్ ఉపయోగించినప్పుడు, NIH, CDC, MedlinePlus, WHO మరియు Mayo Clinic వంటి విశ్వసనీయ వనరుల నుండి సైటేషన్‌లను కనుగొనడానికి మీ ప్రశ్న <bold>Tavily</bold> తో పాటు పబ్లిక్ మెడికల్ లిటరేచర్ డేటాబేస్‌లకు (PubMed, Europe PMC మరియు Semantic Scholar వంటివి) పంపబడుతుంది. ఈ ప్రొవైడర్‌లు మీ సమాధానాన్ని అందించడానికి మాత్రమే మీ డేటాను ప్రాసెస్ చేస్తారు — వారి సాధారణ-ప్రయోజన AI మోడల్స్‌కు శిక్షణ ఇవ్వడానికి వారు దీనిని ఉపయోగించరు, మరియు మేము మీ డేటాను ఏ థర్డ్ పార్టీకి విక్రయించము."
+    },
+    "chatActionSheet": {
+      "unpinChat": "చాట్ అన్‌పిన్ చేయండి",
+      "pinChat": "చాట్‌ను పిన్ చేయండి",
+      "deleteChat": "చాట్‌ను తొలగించండి"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి",
+      "createFlashcards": "ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "createFlashcardsFromToImproveYour": "జ్ఞాపకశక్తిని మెరుగుపరుచుకోవడానికి \"{{noteTitle}}\" నుండి ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "createFlashcardsToImproveYourRetention": "జ్ఞాపకశక్తిని మెరుగుపరుచుకోవడానికి ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "howManyQuestions": "ఎన్ని ప్రశ్నలు",
+      "generateFlashcards2": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "చాట్ నుండి సృష్టించండి",
+      "selectFromOneOfYourRecent": "మీ ఇటీవలి చాట్‌లలో ఒకదాన్ని ఎంచుకోండి",
+      "pdfOrDocument": "PDF లేదా డాక్యుమెంట్",
+      "createFromAudio": "ఆడియో నుండి సృష్టించండి",
+      "image": "చిత్రం",
+      "createFromCustomText": "కస్టమ్ టెక్స్ట్ నుండి సృష్టించండి",
+      "created": "{{day}}, {{time}}న సృష్టించబడింది",
+      "createQuizFrom": "దీని నుండి క్విజ్ సృష్టించండి:",
+      "createFlashcardsFrom": "దీని నుండి ఫ్లాష్‌కార్డ్‌లను సృష్టించండి:",
+      "selectFromChat": "చాట్ నుండి ఎంచుకోండి",
+      "noRecentChatsYet": "ఇటీవలి చాట్‌లు ఏవీ లేవు",
+      "quizFromPdf": "PDF లేదా డాక్యుమెంట్ నుండి క్విజ్‌ని సృష్టించండి",
+      "flashcardsFromPdf": "PDF లేదా డాక్యుమెంట్ నుండి ఫ్లాష్‌కార్డ్ సెట్‌ను సృష్టించండి",
+      "quizFromAudio": "అప్‌లోడ్ చేసిన ఆడియో నుండి క్విజ్‌ని సృష్టించండి",
+      "flashcardsFromAudio": "అప్‌లోడ్ చేసిన ఆడియో నుండి ఫ్లాష్‌కార్డ్ సెట్‌ను సృష్టించండి",
+      "quizFromImage": "ఏదైనా చిత్రం నుండి క్విజ్‌ని సృష్టించండి",
+      "flashcardsFromImage": "ఏదైనా చిత్రం నుండి ఫ్లాష్‌కార్డ్ సెట్‌ను సృష్టించండి",
+      "quizFromText": "టెక్స్ట్ నుండి క్విజ్‌ని సృష్టించండి",
+      "flashcardsFromText": "టెక్స్ట్ నుండి ఫ్లాష్‌కార్డ్ సెట్‌ను సృష్టించండి"
+    },
+    "createNote": {
+      "recordAudio": "ఆడియో రికార్డ్ చేయండి",
+      "generateANoteFromAnyRecorded": "రికార్డ్ చేసిన ఆడియో నుండి నోట్‌ను రూపొందించండి",
+      "uploadAudio": "ఆడియోను అప్‌లోడ్ చేయండి",
+      "createANoteFromAnyUploaded": "అప్‌లోడ్ చేసిన ఆడియో నుండి నోట్‌ను సృష్టించండి",
+      "youtubeVideo": "YouTube వీడియో",
+      "createANoteFromAnyYoutube": "ఏదైనా YouTube వీడియో నుండి నోట్‌ను సృష్టించండి",
+      "pdfOrDocument": "PDF లేదా డాక్యుమెంట్",
+      "createANoteFromPDFOr": "PDF లేదా డాక్యుమెంట్ నుండి నోట్‌ను సృష్టించండి",
+      "customText": "కస్టమ్ టెక్స్ట్",
+      "createANoteFromCapturedText": "తీసుకున్న టెక్స్ట్ నుండి నోట్‌ను సృష్టించండి",
+      "image": "చిత్రం",
+      "createANoteFromAnyImage": "ఏదైనా చిత్రం నుండి నోట్‌ను సృష్టించండి",
+      "createNote": "నోట్ సృష్టించండి"
+    },
+    "createQuiz": {
+      "generateQuiz": "క్విజ్‌ని రూపొందించండి",
+      "createQuiz": "క్విజ్‌ని సృష్టించండి",
+      "practiceByCreatingQuestionsThatHelp": "టాపిక్‌పై పట్టు సాధించేందుకు ప్రశ్నలను రూపొందించి \"{{noteTitle}}\" ప్రాక్టీస్ చేయండి",
+      "practiceYourNotesByCreatingQuestions": "టాపిక్‌పై పట్టు సాధించేందుకు ప్రశ్నలను రూపొందించి మీ నోట్స్ ప్రాక్టీస్ చేయండి",
+      "howManyQuestions": "ఎన్ని ప్రశ్నలు",
+      "timeInMinutes": "సమయం (నిమిషాల్లో)"
+    },
+    "deleteNote": {
+      "deleteNote": "నోట్‌ను తొలగించండి",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా ఈ నోట్‌ను తొలగించాలనుకుంటున్నారా?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "సారాంశాన్ని ఇలా ఎక్స్‌పోర్ట్ చేయండి",
+      "exportTranscriptAs": "ట్రాన్స్‌క్రిప్ట్‌ను ఇలా ఎక్స్‌పోర్ట్ చేయండి",
+      "exportAs": "ఇలా ఎక్స్‌పోర్ట్ చేయండి",
+      "exportSummary": "సారాంశాన్ని ఎక్స్‌పోర్ట్ చేయండి",
+      "exportTranscript": "ట్రాన్స్‌క్రిప్ట్‌ను ఎక్స్‌పోర్ట్ చేయండి"
+    },
+    "exportTypeStep": {
+      "exportNote": "నోట్‌ను ఎక్స్‌పోర్ట్ చేయండి",
+      "exportSummary": "సారాంశాన్ని ఎక్స్‌పోర్ట్ చేయండి",
+      "exportTranscript": "ట్రాన్స్‌క్రిప్ట్‌ను ఎక్స్‌పోర్ట్ చేయండి"
+    },
+    "exportSettings": {
+      "export": "{{title}}ను ఎక్స్‌పోర్ట్ చేయండి",
+      "selectFormat": "ఫార్మాట్‌ను ఎంచుకోండి",
+      "includeAnswers": "సమాధానాలను చేర్చండి",
+      "answersExplanationsIncluded": "సమాధానాలు & వివరణలు చేర్చబడ్డాయి",
+      "questionsOnly": "ప్రశ్నలు మాత్రమే",
+      "export2": "ఎగుమతి చేయి"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "మీ నోట్ సిద్ధంగా ఉంది!",
+      "howDidWeDo": "మా పనితీరు ఎలా ఉంది?",
+      "happy": "సంతృప్తి",
+      "sad": "అసంతృప్తి",
+      "maybeLater": "తర్వాత చూడవచ్చు",
+      "whatWentWrong": "ఎక్కడ సమస్య వచ్చింది?",
+      "yourFeedbackHelpsUsImprove": "మీ ఫీడ్‌బ్యాక్ మేము మరింత మెరుగుపడటానికి సహాయపడుతుంది.",
+      "tellUsWhatCouldBeBetter": "ఇంకా ఏం మెరుగుపరచవచ్చో మాకు చెప్పండి...",
+      "submit": "సమర్పించు"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "కంటెంట్ ఏదీ అందుబాటులో లేదు",
+      "clickCardToFlip": "తిప్పడానికి కార్డుపై నొక్కండి"
+    },
+    "flashcardExport": {
+      "exportFailed": "ఎగుమతి విఫలమైంది",
+      "unknownError": "తెలియని లోపం",
+      "export": "{{setTitle}}ను ఎగుమతి చేయి",
+      "chooseWhatToExport": "దేనిని ఎగుమతి చేయాలో ఎంచుకోండి",
+      "exportQuestions": "ప్రశ్నలను ఎగుమతి చేయి",
+      "exportAnswers": "సమాధానాలను ఎగుమతి చేయి"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "ఫ్లాష్‌కార్డ్ సెట్‌ను తొలగించు",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా \"{{setTitle}}\"ను తొలగించాలనుకుంటున్నారా?",
+      "failedToDeleteFlashcardSet": "ఫ్లాష్‌కార్డ్ సెట్ తొలగింపు విఫలమైంది",
+      "flashcardHistory": "ఫ్లాష్‌కార్డ్ హిస్టరీ",
+      "cards": "కార్డులు",
+      "reviewedMastered": "{{cardsReviewedCount}} రివ్యూ చేయబడ్డాయి • {{percentage}}% ప్రావీణ్యం పొందారు"
+    },
+    "folders": {
+      "items": "{{itemCount}} అంశాలు",
+      "enterYourFolderName": "మీ ఫోల్డర్ పేరును నమోదు చేయండి",
+      "yourFolderName": "మీ ఫోల్డర్ పేరు",
+      "createFolder": "ఫోల్డర్‌ను సృష్టించు",
+      "folders": "ఫోల్డర్‌లు",
+      "addFolder": "ఫోల్డర్‌ను జోడించు",
+      "noFoldersToDisplay": "చూపించడానికి ఫోల్డర్‌లు ఏవీ లేవు",
+      "clickTheButtonAboveToCreate": "మీ నోట్స్ కోసం ఫోల్డర్‌ను సృష్టించడానికి పై బటన్‌ను నొక్కండి",
+      "allFolders": "అన్ని ఫోల్డర్‌లు",
+      "items2": "{{totalItems}} అంశాలు"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "మెడికల్ రీసెర్చ్ ఫిల్టర్‌లు",
+      "howrecentdoyouwantthe": "మూలం ఎంత తాజాదిగా ఉండాలి",
+      "from": "నుండి",
+      "whatkindofsourcedoyou": "మీకు ఎలాంటి మూలం కావాలి",
+      "textbooks": "టెక్స్ట్‌బుక్స్",
+      "clinicalGuidelines": "క్లినికల్ గైడ్‌లైన్స్",
+      "scientificJournalArticles": "సైంటిఫిక్ జర్నల్ ఆర్టికల్స్",
+      "onlywiththisjournalarticles": "ఈ జర్నల్ ఆర్టికల్స్‌తో మాత్రమే",
+      "metaAnalyses": "మెటా-అనాలసిస్",
+      "reviewArticles": "రివ్యూ ఆర్టికల్స్",
+      "clinicalTrials": "క్లినికల్ ట్రయల్స్",
+      "fromYear": "ప్రారంభ సంవత్సరం",
+      "toYear": "ముగింపు సంవత్సరం"
+    },
+    "noteOptions": {
+      "noteOptions": "నోట్ ఆప్షన్‌లు",
+      "editNote": "నోట్‌ను సవరించు",
+      "reTranscribe": "మళ్లీ ట్రాన్స్‌క్రైబ్ చేయి",
+      "chatWithNote": "నోట్‌తో చాట్ చేయండి",
+      "exportNote": "నోట్‌ను ఎగుమతి చేయి",
+      "moveToFolder": "ఫోల్డర్‌కు తరలించు",
+      "deleteNote": "నోట్‌ను తొలగించు"
+    },
+    "onboardingTooltip": {
+      "skip": "దాటవేయి"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "క్విజ్‌ను తొలగించు",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా \"{{quizTitle}}\"ను తొలగించాలనుకుంటున్నారా?",
+      "failedToDeleteQuiz": "క్విజ్ తొలగింపు విఫలమైంది",
+      "quizHistory": "క్విజ్ హిస్టరీ",
+      "questions": "ప్రశ్నలు",
+      "correct": "{{correctAnswers}} సరైనవి"
+    },
+    "referral": {
+      "copied": "కాపీ చేయబడింది!",
+      "yourReferralCodeHasBeenCopied": "మీ రెఫరల్ కోడ్ క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది.",
+      "joinMeOnClinicalFactUse": "Clinical Factలో నాతో చేరండి! నా కోడ్ ఉపయోగించండి {{referralCode}} – {{appUrl}}",
+      "joined": "{{joinedDate}}న చేరారు",
+      "referralCode": "రెఫరల్ కోడ్",
+      "yourReferralCode": "మీ రెఫరల్ కోడ్",
+      "shareWithFriendsToEarnRewards": "రివార్డులు పొందడానికి స్నేహితులతో పంచుకోండి",
+      "share": "షేర్ చేయండి",
+      "copyCode": "కోడ్ కాపీ చేయండి",
+      "referredFriends": "రెఫర్ చేసిన స్నేహితులు",
+      "noReferralsYetShareYourCode": "ఇంకా రెఫరల్స్ లేవు. ప్రారంభించడానికి మీ కోడ్‌ను షేర్ చేయండి!",
+      "loadMore": "మరిన్ని చూపించు",
+      "howItWorks": "ఇది ఎలా పనిచేస్తుంది",
+      "friendsUseYourCodeDuringSignup": "• సైన్ అప్ సమయంలో స్నేహితులు మీ కోడ్‌ను ఉపయోగిస్తారు",
+      "youBothEarnRewardsWhenThey": "• వారు చేరినప్పుడు మీ ఇద్దరికీ రివార్డులు లభిస్తాయి",
+      "friendsReferredCount": "రెఫర్ చేసిన స్నేహితులు: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "టెక్స్ట్‌ని ఎక్స్‌ట్రాక్ట్ చేస్తోంది...",
+      "transcribingAudio": "ఆడియోను ట్రాన్స్‌క్రైబ్ చేస్తోంది...",
+      "processingPDF": "PDF ప్రాసెస్ అవుతోంది...",
+      "settingUpChat": "చాట్ సెటప్ చేస్తోంది...",
+      "uploadFailed": "అప్‌లోడ్ విఫలమైంది",
+      "failedToUploadFilePleaseTry": "ఫైల్ అప్‌లోడ్ చేయడం విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+      "yourFileIsReadyForChatting": "మీ ఫైల్ చాటింగ్ కోసం సిద్ధంగా ఉంది!",
+      "uploadingYourFileToTheServer": "మీ ఫైల్‌ సర్వర్‌కి అప్‌లోడ్ అవుతోంది...",
+      "extractingTextFromYourImage": "మీ ఇమేజ్ నుండి టెక్స్ట్‌ని ఎక్స్‌ట్రాక్ట్ చేస్తోంది...",
+      "transcribingYourAudio": "మీ ఆడియోను ట్రాన్స్‌క్రైబ్ చేస్తోంది...",
+      "extractingTextFromYourPDF": "మీ PDF నుండి టెక్స్ట్‌ని ఎక్స్‌ట్రాక్ట్ చేస్తోంది...",
+      "creatingYourChatSession": "మీ చాట్ సెషన్‌ను రూపొందిస్తోంది...",
+      "pleaseWait": "దయచేసి వేచి ఉండండి...",
+      "uploadFile": "ఫైల్ అప్‌లోడ్ చేయండి",
+      "processContent": "కంటెంట్‌ను ప్రాసెస్ చేయండి",
+      "createChat": "చాట్ ప్రారంభించండి"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ వీక్షించండి",
+      "export": "📤 ఎక్స్‌పోర్ట్ చేయండి",
+      "delete": "🗑️ తొలగించండి"
+    },
+    "poweredByFooter": {
+      "poweredBy": "సహకారంతో"
+    },
+    "exportFormat": {
+      "txtFile": "TXT ఫైల్",
+      "pdfFile": "PDF ఫైల్",
+      "docFile": "Doc ఫైల్"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "నోట్స్ లోడ్ చేయడం విఫలమైంది",
+      "failedToFetchFolders": "ఫోల్డర్‌లను లోడ్ చేయడం విఫలమైంది",
+      "failedToFetchNote": "నోట్ లోడ్ చేయడం విఫలమైంది",
+      "failedToDeleteNote": "నోట్ తొలగించడం విఫలమైంది",
+      "failedToCreateFolder": "ఫోల్డర్ సృష్టించడం విఫలమైంది",
+      "failedToDeleteFolder": "ఫోల్డర్ తొలగించడం విఫలమైంది"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "చాట్ తొలగించడం విఫలమైంది"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "ఫ్లాష్‌కార్డ్ సెట్ విజయవంతంగా ఎక్స్‌పోర్ట్ చేయబడింది!",
+      "failedToExportFlashcardSet": "ఫ్లాష్‌కార్డ్ సెట్ ఎక్స్‌పోర్ట్ చేయడం విఫలమైంది."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "క్విజ్ విజయవంతంగా ఎక్స్‌పోర్ట్ చేయబడింది!",
+      "failedToExportQuiz": "క్విజ్ ఎక్స్‌పోర్ట్ చేయడం విఫలమైంది."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "శీర్షిక లేని ఫ్లాష్‌కార్డులు",
+      "failedToLoadFlashcards": "ఫ్లాష్‌కార్డులను లోడ్ చేయడం విఫలమైంది",
+      "failedToSyncFlashcardSet": "ఫ్లాష్‌కార్డ్ సెట్‌ను సింక్ చేయడం విఫలమైంది",
+      "failedToSyncCardUpdate": "కార్డ్ అప్‌డేట్‌ను సింక్ చేయడం విఫలమైంది"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "క్విజ్"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "{{day}}, {{time}}న సృష్టించబడింది",
+      "youVeReachedYour3Pin": "మీ 3 పిన్‌ల పరిమితి ముగిసింది",
+      "failedToUpdatePin": "పిన్ అప్‌డేట్ చేయడం విఫలమైంది",
+      "noChatsYet": "ఇంకా చాట్‌లు లేవు",
+      "startAChatToGetAnswers": "నిజమైన ఆధారాలతో కూడిన సమాధానాల కోసం చాట్‌ను ప్రారంభించండి.",
+      "createChat": "+ చాట్‌ను ప్రారంభించండి"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "ఫ్లాష్‌కార్డ్‌లను తొలగించండి",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా \"{{sourceTitle}}\"ని తొలగించాలనుకుంటున్నారా?",
+      "failedToDeleteFlashcards": "ఫ్లాష్‌కార్డ్‌ల తొలగింపు విఫలమైంది",
+      "sets": "{{setCount}} సెట్‌లు",
+      "flashcards": "ఫ్లాష్‌కార్డ్‌లు",
+      "createFlashcards": "ఫ్లాష్‌కార్డ్‌లను సృష్టించండి",
+      "searchFlashcards": "ఫ్లాష్‌కార్డ్‌లను శోధించండి...",
+      "noFlashcardsYet": "ఇంకా ఫ్లాష్‌కార్డ్‌లు లేవు",
+      "createAFlashcardSetFromA": "ప్రారంభించడానికి నోట్ నుండి ఫ్లాష్‌కార్డ్ సెట్‌ను సృష్టించండి",
+      "createSet": "+ సెట్‌ను సృష్టించండి",
+      "flashcardOptions": "ఫ్లాష్‌కార్డ్ ఎంపికలు",
+      "view": "చూడండి"
+    },
+    "folder": {
+      "deleteFolder": "ఫోల్డర్‌ను తొలగించండి",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా \"{{name}}\"ని తొలగించాలనుకుంటున్నారా? ఇందులోని నోట్స్ రూట్‌కి తరలించబడతాయి.",
+      "failedToDeleteFolder": "ఫోల్డర్ తొలగింపు విఫలమైంది",
+      "error": "లోపం: {{message}}",
+      "noFoldersYetCreateOne": "ఇంకా ఫోల్డర్‌లు లేవు. ఒకదాన్ని సృష్టించండి!",
+      "folders": "ఫోల్డర్‌లు"
+    },
+    "home": {
+      "created": "{{day}}, {{time}}న సృష్టించబడింది",
+      "failedToUpdateLanguage": "భాషను అప్‌డేట్ చేయడం విఫలమైంది",
+      "notEnoughContentYet": "ఇంకా తగినంత కంటెంట్ లేదు",
+      "chatABitMoreBeforeGenerating": "క్విజ్‌ను రూపొందించడానికి ముందు కాస్త ఎక్కువ చాట్ చేయండి (కనీసం 100 అక్షరాలు).",
+      "chatABitMoreBeforeGenerating2": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడానికి ముందు కాస్త ఎక్కువ చాట్ చేయండి (కనీసం 100 అక్షరాలు).",
+      "failedToGenerateFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించడం విఫలమైంది",
+      "upgradeToPro": "PRO కి అప్‌గ్రేడ్ అవ్వండి",
+      "get80DiscountWhenYouUpgrade": "మీ ఖాతాను అప్‌గ్రేడ్ చేసినప్పుడు 80% తగ్గింపును పొందండి",
+      "unlockPRO": "PRO ని అన్‌లాక్ చేయండి",
+      "noMedicalChats": "మెడికల్ చాట్‌లు లేవు",
+      "youHaveNotCreatedAnyMedical": "మీరు ఇంకా ఎలాంటి మెడికల్ చాట్‌లను సృష్టించలేదు, దయచేసి కొత్త చాట్‌ను ప్రారంభించి సైట్ చేసిన ఆధారాలను పొందండి",
+      "talkToClinicalfactAI": "Clinical Fact AIతో మాట్లాడండి",
+      "jumpInWhereYouStopped": "మీరు ఆపిన చోటు నుంచే కొనసాగించండి",
+      "practiceQuiz": "ప్రాక్టీస్ క్విజ్",
+      "makeFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి",
+      "continueChatWithNote": "నోట్‌తో చాట్‌ను కొనసాగించండి",
+      "continueChat": "చాట్‌ను కొనసాగించండి",
+      "recentChats": "ఇటీవలి చాట్‌లు",
+      "chatOptions": "చాట్ ఎంపికలు"
+    },
+    "library": {
+      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}} {{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "మీరు ప్రస్తుతం ఆఫ్‌లైన్‌లో ఉన్నారు. ఈ చర్యను పూర్తి చేయడానికి దయచేసి ఇంటర్నెట్‌కి కనెక్ట్ అవ్వండి.",
+      "failedToDeleteNote": "నోట్ తొలగింపు విఫలమైంది",
+      "failedToMoveNote": "నోట్‌ను తరలించడం విఫలమైంది",
+      "deleteFolder": "ఫోల్డర్‌ను తొలగించాలా?",
+      "areYouSureNotesInsideWill": "మీరు ఖచ్చితంగా అనుకుంటున్నారా? ఇందులోని నోట్స్ తొలగించబడవు, అవి కేవలం 'అన్ని నోట్స్'కి తరలించబడతాయి.",
+      "failedToDeleteFolder": "ఫోల్డర్ తొలగింపు విఫలమైంది",
+      "library": "లైబ్రరీ",
+      "addFolder": "ఫోల్డర్‌ను జోడించండి",
+      "searchForANoteFolder": "నోట్ / ఫోల్డర్ కోసం వెతకండి",
+      "yourFolders": "మీ ఫోల్డర్‌లు",
+      "noFoldersToDisplay": "చూపించడానికి ఫోల్డర్‌లు లేవు",
+      "tapAddFolderToCreateA": "మీ నోట్స్ కోసం ఫోల్డర్‌ను సృష్టించడానికి \"+ ఫోల్డర్‌ను జోడించండి\"ని ట్యాప్ చేయండి",
+      "allNotes": "అన్ని నోట్స్",
+      "items": "{{allNotesTotal}} అంశాలు",
+      "items2": "{{itemCount}} అంశాలు",
+      "yourNotes": "మీ నోట్స్",
+      "untitledNote": "శీర్షిక లేని నోట్",
+      "noResultsFor": "\"{{searchQuery}}\" కి ఫలితాలు ఏవీ లేవు",
+      "noNotesInThisFolder": "ఈ ఫోల్డర్‌లో నోట్స్ ఏవీ లేవు",
+      "noNotesToDisplay": "చూపించడానికి నోట్స్ ఏవీ లేవు",
+      "tryADifferentSearchTerm": "మరొక పదాన్ని శోధించండి",
+      "moveNotesToThisFolderTo": "నోట్స్ ఇక్కడ కనిపించడానికి వాటిని ఈ ఫోల్డర్‌కు తరలించండి",
+      "clickBelowToGenerateYourNote": "Clinical Fact తో మీ నోట్ రూపొందించడానికి క్రింద క్లిక్ చేయండి",
+      "filterByType": "రకం ప్రకారం ఫిల్టర్ చేయండి",
+      "audio": "ఆడియో",
+      "text2": "టెక్స్ట్",
+      "image": "చిత్రం",
+      "clearFilter": "ఫిల్టర్‌ను తీసివేయండి"
+    },
+    "profile": {
+      "permissionRequired": "అనుమతి అవసరం",
+      "pleaseAllowAccessToYourPhoto": "ప్రొఫైల్ చిత్రాన్ని సెట్ చేయడానికి దయచేసి మీ ఫోటో లైబ్రరీకి యాక్సెస్ అనుమతించండి.",
+      "uploadFailed": "అప్‌లోడ్ విఫలమైంది",
+      "couldNotUpdateProfilePicture": "ప్రొఫైల్ చిత్రాన్ని అప్‌డేట్ చేయడం సాధ్యపడలేదు.",
+      "failedToUploadProfilePicture": "ప్రొఫైల్ చిత్రం అప్‌లోడ్ విఫలమైంది.",
+      "checkOutClinicalFactAIPowered": "Clinical Fact ను చూడండి – AI-ఆధారిత స్టడీ నోట్స్! {{url}}",
+      "proSubscriber": "PRO చందాదారు",
+      "subscriptionExpired": "సబ్‌స్క్రిప్షన్ గడువు ముగిసింది",
+      "freeSubscriber": "ఉచిత చందాదారు",
+      "tapToManageIPhoneSettingsApple": "నిర్వహించడానికి నొక్కండి · iPhone Settings → Apple ID → Subscriptions",
+      "tapToManagePlayStoreSubscriptions": "నిర్వహించడానికి నొక్కండి · Play Store → Subscriptions",
+      "tapToRenewYourSubscription": "మీ సబ్‌స్క్రిప్షన్‌ను పునరుద్ధరించుకోవడానికి నొక్కండి",
+      "tapToUpgradeToPro": "PRO కి అప్‌గ్రేడ్ చేయడానికి నొక్కండి",
+      "referralCode": "రెఫరల్ కోడ్",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా మీ ఖాతా నుండి సైన్ అవుట్ చేయాలనుకుంటున్నారా?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "క్విజ్‌ను తొలగించు",
+      "areYouSureYouWantTo": "మీరు ఖచ్చితంగా \"{{sourceTitle}}\" ని తొలగించాలనుకుంటున్నారా?",
+      "failedToDeleteQuiz": "క్విజ్ తొలగించడం విఫలమైంది",
+      "correct": "{{correct}}/{{total}} సరైనవి",
+      "attempts": "{{attempts}} ప్రయత్నాలు",
+      "quiz": "క్విజ్",
+      "createQuiz": "క్విజ్‌ను రూపొందించండి",
+      "searchQuizzes": "క్విజ్‌లను శోధించండి...",
+      "noQuizzesYet": "ఇంకా క్విజ్‌లు ఏవీ లేవు",
+      "createAQuizFromANote": "ప్రారంభించడానికి నోట్ నుండి క్విజ్‌ను రూపొందించండి",
+      "createQuiz2": "+ క్విజ్ సృష్టించండి",
+      "quizOptions": "క్విజ్ ఎంపికలు",
+      "view": "చూడండి"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "అప్‌గ్రేడ్ అందుబాటులో లేదు",
+      "weCouldnTOpenTheUpgrade": "ప్రస్తుతం అప్‌గ్రేడ్ స్క్రీన్‌ను తెరవలేకపోయాము. దయచేసి మీ ఇంటర్నెట్ కనెక్షన్‌ని తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "సర్వర్ నాన్-JSON ప్రతిస్పందనను ఇచ్చింది ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "నెట్‌వర్క్ లోపం. దయచేసి మీ కనెక్షన్‌ని తనిఖీ చేయండి.",
+      "connectionErrorPleaseTryAgain": "కనెక్షన్ లోపం. దయచేసి మళ్లీ ప్రయత్నించండి."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "ఫైల్ ఎగుమతి చేయబడింది: {{filename}}",
+      "exportFailed": "ఎగుమతి విఫలమైంది",
+      "exportFormat": "ఎగుమతి ఫార్మాట్",
+      "chooseFormat": "ఫార్మాట్‌ను ఎంచుకోండి",
+      "text": "టెక్స్ట్"
+    },
+    "formatDate": {
+      "justNow": "ఇప్పుడే",
+      "minAgo": "{{diffMin}} నిమిషాల క్రితం",
+      "hrAgo": "{{diffHr}} గంటల క్రితం",
+      "dAgo": "{{diffDay}} రోజుల క్రితం",
+      "created": "{{day}}, {{time}} న సృష్టించబడింది"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "OTP పంపడం విఫలమైంది",
+      "invalidOTP": "చెల్లని OTP",
+      "failedToVerifyOTP": "OTP ధృవీకరణ విఫలమైంది",
+      "googleAuthenticationFailed": "Google ప్రామాణీకరణ విఫలమైంది",
+      "appleAuthenticationFailed": "Apple ప్రామాణీకరణ విఫలమైంది",
+      "failedToCompleteSignup": "సైన్అప్ పూర్తి చేయడం విఫలమైంది",
+      "failedToSkipSignup": "సైన్అప్‌ను దాటవేయడం విఫలమైంది"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "చాట్‌లు",
+      "description": "నోట్స్, డాక్యుమెంట్లు లేదా PDFలతో ఒకే చోట చాట్ చేయండి"
+    },
+    "profileWelcome": {
+      "heading": "మీ ప్రొఫైల్‌కు స్వాగతం",
+      "description": "ఇది మీ ప్రొఫైల్. మీ ప్రొఫైల్ వివరాలు మరియు సబ్‌స్క్రిప్షన్ స్టేటస్‌ను మార్చడానికి ఇక్కడ నొక్కండి"
+    },
+    "createNotes": {
+      "heading": "నోట్ క్రియేట్ చేయండి",
+      "description": "రికార్డింగ్, ఆడియో, వీడియో, ఇమేజ్, టెక్స్ట్ మరియు YouTube లింక్స్ వేటినుండైనా నోట్స్ క్రియేట్ చేసుకోండి"
+    },
+    "changeLanguage": {
+      "heading": "భాషను మార్చండి",
+      "description": "ఇక్కడి నుండి యాప్ భాషను మీకు నచ్చిన భాషలోకి మార్చుకోండి"
+    },
+    "manageHome": {
+      "heading": "హోమ్‌ను మేనేజ్ చేయండి",
+      "description": "మీరు క్రియేట్ చేసిన అన్ని నోట్స్ మరియు మీ కార్యకలాపాలను ఒకే చోట చూడండి"
+    },
+    "yourLibrary": {
+      "heading": "మీ లైబ్రరీ",
+      "description": "మీ నోట్స్‌ను మేనేజ్ చేయండి, ఫోల్డర్‌లను క్రియేట్ చేయండి మరియు మరిన్ని చేయండి"
+    },
+    "yourProfile": {
+      "heading": "మీ ప్రొఫైల్",
+      "description": "మీ ప్రొఫైల్ వివరాలను చూడండి మరియు సెట్టింగ్స్‌ను ఇక్కడి నుండి ఎడిట్ చేసుకోండి"
+    }
   }
 }

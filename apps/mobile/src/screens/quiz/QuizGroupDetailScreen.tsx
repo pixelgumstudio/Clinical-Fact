@@ -17,10 +17,15 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
+import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
+import { useAIConsentStore } from '../../store/aiConsentStore';
 import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportQuiz } from '../../hooks/useExportQuiz';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
 import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
+import { stripHtml } from '../../utils/htmlText';
 
 type QuizGroupDetailRouteProp = RouteProp<MainStackParamList, 'QuizGroupDetail'>;
 type QuizGroupDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'QuizGroupDetail'>;
@@ -57,20 +62,12 @@ interface FlashcardSetRow {
 
 const getFlashcardStatus = (set: FlashcardSetRow) => {
   if (set.totalCards > 0 && set.masteredCards >= set.totalCards) return 'Mastered';
-  if (set.masteredCards > 0) return 'In Progress';
-  return 'Not Started';
+  if (set.masteredCards > 0) return i18n.t('quiz.quizGroupDetail.inProgress');
+  return i18n.t('quiz.quizGroupDetail.notStarted');
 };
 
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .trim();
-
 export const QuizGroupDetailScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<QuizGroupDetailNavigationProp>();
   const route = useRoute<QuizGroupDetailRouteProp>();
   const { noteId, chatSessionId, title } = route.params;
@@ -80,9 +77,10 @@ export const QuizGroupDetailScreen = () => {
   const [activeTab, setActiveTab] = useState<TabType>('history');
   const [flashcardSets, setFlashcardSets] = useState<FlashcardSetRow[]>([]);
   const [isLoadingFlashcards, setIsLoadingFlashcards] = useState(true);
-  const [isPreparingAction, setIsPreparingAction] = useState<'retake' | 'new' | 'translate' | null>(null);
+  const [isPreparingAction, setIsPreparingAction] = useState<'retake' | 'new' | 'translate' | 'flashcards' | null>(null);
   const [isCreateQuizModalVisible, setCreateQuizModalVisible] = useState(false);
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
+  const [createFlashcardsVisible, setCreateFlashcardsVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [exportModalVisible, setExportModalVisible] = useState(false);
   const { exportQuiz, isLoading: isExporting, error: exportError } = useExportQuiz();
@@ -94,11 +92,11 @@ export const QuizGroupDetailScreen = () => {
       if (response.success && response.data) {
         setData(response.data);
       } else {
-        Alert.alert('Error', 'Failed to load quiz history');
+        Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadQuizHistory'));
         navigation.goBack();
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to load quiz history');
+      Alert.alert(t('common.error'), error.message || t('quiz.quizGroupDetail.failedToLoadQuizHistory'));
       navigation.goBack();
     } finally {
       setIsLoading(false);
@@ -149,7 +147,7 @@ export const QuizGroupDetailScreen = () => {
       }
       const transcript = await getChatTranscript();
       if (!transcript) {
-        Alert.alert('Error', 'Failed to load chat content');
+        Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadChatContent'));
         return;
       }
       navigation.navigate('Quiz', {
@@ -174,7 +172,7 @@ export const QuizGroupDetailScreen = () => {
     try {
       const transcript = await getChatTranscript();
       if (!transcript) {
-        Alert.alert('Error', 'Failed to load chat content');
+        Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadChatContent'));
         return;
       }
       navigation.navigate('Quiz', {
@@ -184,6 +182,39 @@ export const QuizGroupDetailScreen = () => {
         timeInMinutes,
         chatSessionId,
       });
+    } finally {
+      setIsPreparingAction(null);
+    }
+  };
+
+  // Flashcards from the same note or chat this quiz came from.
+  const handleGenerateFlashcards = async (cardCount: number) => {
+    const consented = await useAIConsentStore.getState().ensureConsent();
+    if (!consented) return;
+    setIsPreparingAction('flashcards');
+    try {
+      let response;
+      if (noteId) {
+        response = await api.generateFlashcards(noteId, cardCount, 'medium', []);
+      } else {
+        const transcript = await getChatTranscript();
+        if (!transcript) {
+          Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadChatContent'));
+          return;
+        }
+        response = await api.generateFlashcardsFromText(transcript, title, cardCount, 'medium', [], undefined, chatSessionId);
+      }
+      if (response.success && response.data) {
+        setCreateFlashcardsVisible(false);
+        navigation.navigate('FlashcardReview', { setId: response.data._id, title: response.data.title || title });
+      } else if ((response as any).quotaExceeded) {
+        setCreateFlashcardsVisible(false);
+        Alert.alert(t('flashcards.flashcardGroupDetail.limitReached'), response.message || t('flashcards.flashcardGroupDetail.flashcardGenerationLimitReached'));
+      } else {
+        Alert.alert(t('common.error'), response.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
+      }
+    } catch (error: any) {
+      Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
     } finally {
       setIsPreparingAction(null);
     }
@@ -206,7 +237,7 @@ export const QuizGroupDetailScreen = () => {
       }
       const transcript = await getChatTranscript();
       if (!transcript) {
-        Alert.alert('Error', 'Failed to load chat content');
+        Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToLoadChatContent'));
         return;
       }
       navigation.navigate('Quiz', {
@@ -252,19 +283,21 @@ export const QuizGroupDetailScreen = () => {
     if (!data) return;
     setMenuVisible(false);
     Alert.alert(
-      'Delete Quiz',
-      `Delete all ${data.attempts.length} quiz ${data.attempts.length === 1 ? 'attempt' : 'attempts'} for "${title}"? This can't be undone.`,
+      t('quiz.quizGroupDetail.deleteQuiz'),
+      data.attempts.length === 1
+        ? t('quiz.quizGroupDetail.deleteAllAttemptsOne', { title })
+        : t('quiz.quizGroupDetail.deleteAllAttemptsMany', { total: data.attempts.length, title }),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: async () => {
             try {
               await Promise.all(data.attempts.map((a) => api.deleteQuiz(a.quizId)));
               navigation.goBack();
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete quiz');
+              Alert.alert(t('common.error'), t('quiz.quizGroupDetail.failedToDeleteQuiz'));
             }
           },
         },
@@ -305,7 +338,7 @@ export const QuizGroupDetailScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>{displayTitle}</Text>
         {earliestCreatedAt && (
-          <Text style={styles.createdAt}>Created {formatDateTime(earliestCreatedAt)}</Text>
+          <Text style={styles.createdAt}>{t('quiz.quizGroupDetail.created', { dateTime: formatDateTime(earliestCreatedAt) })}</Text>
         )}
 
         {data.source && (
@@ -315,7 +348,7 @@ export const QuizGroupDetailScreen = () => {
             </View>
             <View style={styles.sourceInfo}>
               <Text style={styles.sourceTitle} numberOfLines={1}>{data.source.title}</Text>
-              <Text style={styles.sourceDate}>Created {formatDateTime(data.source.createdAt)}</Text>
+              <Text style={styles.sourceDate}>{t('quiz.quizGroupDetail.created', { dateTime: formatDateTime(data.source.createdAt) })}</Text>
             </View>
             <Icon name="foward" size={16} color={theme.colors.grey[200]} />
           </TouchableOpacity>
@@ -323,15 +356,15 @@ export const QuizGroupDetailScreen = () => {
 
         <View style={styles.statsRow}>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>LAST SCORE</Text>
+            <Text style={styles.statLabel}>{t('quiz.quizGroupDetail.lastscore')}</Text>
             <Text style={styles.statValue}>{formatScore(data.lastScore)}</Text>
           </View>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>BEST SCORE</Text>
+            <Text style={styles.statLabel}>{t('quiz.quizGroupDetail.bestscore')}</Text>
             <Text style={styles.statValue}>{formatScore(data.bestScore)}</Text>
           </View>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>ATTEMPTS</Text>
+            <Text style={styles.statLabel}>{t('quiz.quizGroupDetail.attempts')}</Text>
             <Text style={styles.statValue}>{data.attemptCount}</Text>
           </View>
         </View>
@@ -345,7 +378,7 @@ export const QuizGroupDetailScreen = () => {
           {isPreparingAction === 'retake' ? (
             <ActivityIndicator size="small" color={colors.white} />
           ) : (
-            <Text style={styles.retakeButtonText}>Retake Quiz</Text>
+            <Text style={styles.retakeButtonText}>{t('quiz.quizGroupDetail.retakeQuiz')}</Text>
           )}
         </TouchableOpacity>
 
@@ -361,7 +394,7 @@ export const QuizGroupDetailScreen = () => {
             ) : (
               <>
                 <Icon name="translate" size={20} color={theme.colors.grey[300]} />
-                <Text style={styles.secondaryButtonText}>Translate</Text>
+                <Text style={styles.secondaryButtonText}>{t('quiz.quizGroupDetail.translate')}</Text>
               </>
             )}
           </TouchableOpacity>
@@ -374,10 +407,23 @@ export const QuizGroupDetailScreen = () => {
             {isPreparingAction === 'new' ? (
               <ActivityIndicator size="small" color={theme.colors.grey[900]} />
             ) : (
-              <Text style={styles.secondaryButtonText}>New Quiz</Text>
+              <Text style={styles.secondaryButtonText}>{t('quiz.quizGroupDetail.newQuiz')}</Text>
             )}
           </TouchableOpacity>
         </View>
+
+        <TouchableOpacity
+          style={[styles.secondaryButton, styles.fullWidthButton]}
+          onPress={() => setCreateFlashcardsVisible(true)}
+          disabled={isPreparingAction !== null}
+          activeOpacity={0.7}
+        >
+          {isPreparingAction === 'flashcards' ? (
+            <ActivityIndicator size="small" color={theme.colors.grey[900]} />
+          ) : (
+            <Text style={styles.secondaryButtonText}>{t('quiz.quizGroupDetail.makeFlashcards')}</Text>
+          )}
+        </TouchableOpacity>
 
         {/* Tabs */}
         <View style={styles.tabsRow}>
@@ -386,11 +432,11 @@ export const QuizGroupDetailScreen = () => {
             {activeTab === 'overview' && <View style={styles.tabUnderline} />}
           </TouchableOpacity> */}
           <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('history')} activeOpacity={0.7}>
-            <Text style={[styles.tabText, activeTab === 'history' && styles.tabTextActive]}>Quiz history</Text>
+            <Text style={[styles.tabText, activeTab === 'history' && styles.tabTextActive]}>{t('quiz.quizGroupDetail.quizHistory')}</Text>
             {activeTab === 'history' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
           <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('flashcards')} activeOpacity={0.7}>
-            <Text style={[styles.tabText, activeTab === 'flashcards' && styles.tabTextActive]}>Flashcard history</Text>
+            <Text style={[styles.tabText, activeTab === 'flashcards' && styles.tabTextActive]}>{t('quiz.quizGroupDetail.flashcardHistory')}</Text>
             {activeTab === 'flashcards' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
         </View>
@@ -414,14 +460,13 @@ export const QuizGroupDetailScreen = () => {
                     <Text style={styles.attemptTime}>{formatRelativeTime(attempt.createdAt)}</Text>
                   </View>
                   <Text style={styles.attemptMeta}>
-                    {attempt.totalQuestions} questions ·{' '}
-                    {attempt.isCompleted ? (
+                    {t('quiz.quizGroupDetail.questions', { totalQuestions: attempt.totalQuestions, value: attempt.isCompleted ? (
                       <Text style={attempt.correctAnswers / attempt.totalQuestions >= 0.5 ? styles.scoreGood : styles.scoreBad}>
-                        Score {attempt.correctAnswers}/{attempt.totalQuestions}
+                       {t('quiz.quizGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions })}
                       </Text>
                     ) : (
-                      'Not Started'
-                    )}
+                      t('quiz.quizGroupDetail.notStarted')
+                    ) })}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -434,7 +479,7 @@ export const QuizGroupDetailScreen = () => {
             {isLoadingFlashcards ? (
               <ActivityIndicator size="small" color={theme.colors.yale[700]} />
             ) : flashcardSets.length === 0 ? (
-              <Text style={styles.emptyFlashcardsText}>No flashcard sets from this source yet.</Text>
+              <Text style={styles.emptyFlashcardsText}>{t('quiz.quizGroupDetail.noFlashcardSetsFromThisSource')}</Text>
             ) : (
               flashcardSets.map((set) => (
                 <TouchableOpacity
@@ -452,7 +497,7 @@ export const QuizGroupDetailScreen = () => {
                       <Text style={styles.attemptTime}>{formatRelativeTime(set.createdAt)}</Text>
                     </View>
                     <Text style={styles.attemptMeta}>
-                      {set.totalCards} cards · {getFlashcardStatus(set)}
+                      {t('quiz.quizGroupDetail.cards', { totalCards: set.totalCards, flashcardStatus: getFlashcardStatus(set) })}
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -466,6 +511,14 @@ export const QuizGroupDetailScreen = () => {
         visible={isCreateQuizModalVisible}
         onClose={() => setCreateQuizModalVisible(false)}
         onGenerateQuiz={handleGenerateNewQuiz}
+        noteTitle={displayTitle}
+      />
+
+      <CreateFlashcardsModal
+        visible={createFlashcardsVisible}
+        onClose={() => setCreateFlashcardsVisible(false)}
+        onGenerateFlashcards={handleGenerateFlashcards}
+        isGenerating={isPreparingAction === 'flashcards'}
         noteTitle={displayTitle}
       />
 
@@ -495,19 +548,19 @@ export const QuizGroupDetailScreen = () => {
               <View style={styles.menuModalContainer}>
                 <View style={styles.menuHandleBar} />
                 <View style={styles.menuHeaderRow}>
-                  <Text style={styles.menuHeaderTitle}>Quiz options</Text>
+                  <Text style={styles.menuHeaderTitle}>{t('quiz.quizGroupDetail.quizOptions')}</Text>
                   <TouchableOpacity onPress={() => setMenuVisible(false)} style={styles.menuCloseButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                     <Icon name="close" size={20} color={theme.colors.grey[600]} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7} onPress={handleExportLatest}>
                   <Icon name="export" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>Export latest attempt</Text>
+                  <Text style={styles.menuModalOptionText}>{t('quiz.quizGroupDetail.exportLatestAttempt')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7} onPress={handleDeleteGroup}>
                   <Icon name="delete" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>Delete</Text>
+                  <Text style={styles.menuModalOptionText}>{t('common.delete')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
               </View>
@@ -651,6 +704,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.grey[50],
     borderRadius: theme.borderRadius.full,
+  },
+  fullWidthButton: {
+    width: '100%',
+    marginBottom: theme.spacing[6],
   },
   secondaryButtonText: {
     ...theme.typography.textStyles.subtitle1,

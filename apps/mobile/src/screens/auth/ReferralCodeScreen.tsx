@@ -17,6 +17,7 @@ import { api } from '../../services/api';
 import { useDebounce } from '../../hooks/useDebounce';
 import Purchases from 'react-native-purchases';
 import { colors } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 type ReferralCodeScreenNavigationProp = NativeStackNavigationProp<
   AuthStackParamList,
@@ -36,6 +37,7 @@ const CHECKBOX_GRADIENT: [string, string, ...string[]] = [
 ];
 
 export const ReferralCodeScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<ReferralCodeScreenNavigationProp>();
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
@@ -153,10 +155,10 @@ export const ReferralCodeScreen = () => {
       >
         <View style={styles.titleSection}>
           <Text style={styles.title}>
-            Were you referred {'\n'}by someone?
+           {t('auth.referralCode.wereYouReferredBySomeone')}
           </Text>
           <Text style={styles.subtitle}>
-            Enter their referral code if you have one
+           {t('auth.referralCode.enterTheirReferralCodeIfYou')}
           </Text>
         </View>
 
@@ -164,7 +166,7 @@ export const ReferralCodeScreen = () => {
           <TextInput
             value={code}
             onChangeText={handleValidate}
-            placeholder="e.g. JOHN or TECHBRO"
+            placeholder={t('auth.referralCode.eGJOHNOrTECHBRO')}
             placeholderTextColor={colors.oneOff.mutedPlaceholder}
             editable={!isApplying}
             style={styles.textInput}
@@ -175,7 +177,7 @@ export const ReferralCodeScreen = () => {
         {code.trim().length >= 8 && code.trim().length <= 10 && error ? (
           <Text style={styles.errorText}>{error}</Text>
         ) : code.trim().length >= 8 && code.trim().length <= 10 && !error && !isValidating ? (
-          <Text style={styles.successText}>✓ Code is valid</Text>
+          <Text style={styles.successText}>{t('auth.referralCode.codeIsValid')}</Text>
         ) : null}
       </ScrollView>
 

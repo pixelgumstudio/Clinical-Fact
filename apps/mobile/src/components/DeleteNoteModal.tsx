@@ -13,6 +13,7 @@ import {
   typography,
   DeleteLargeIcon,
 } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface DeleteNoteModalProps {
   visible: boolean;
@@ -25,6 +26,7 @@ export const DeleteNoteModal: React.FC<DeleteNoteModalProps> = ({
   onClose,
   onConfirmDelete,
 }) => {
+  const { t } = useTranslation();
   return (
     <Modal
       visible={visible}
@@ -45,11 +47,11 @@ export const DeleteNoteModal: React.FC<DeleteNoteModalProps> = ({
               </View>
 
               {/* Title */}
-              <Text style={styles.title}>Delete note</Text>
+              <Text style={styles.title}>{t('components.deleteNote.deleteNote')}</Text>
 
               {/* Description */}
               <Text style={styles.description}>
-                Are you sure you want to delete this note?
+               {t('components.deleteNote.areYouSureYouWantTo')}
               </Text>
 
               {/* Buttons */}
@@ -59,7 +61,7 @@ export const DeleteNoteModal: React.FC<DeleteNoteModalProps> = ({
                   onPress={onConfirmDelete}
                   activeOpacity={0.8}
                 >
-                  <Text style={styles.deleteButtonText}>Delete note</Text>
+                  <Text style={styles.deleteButtonText}>{t('components.deleteNote.deleteNote')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -67,7 +69,7 @@ export const DeleteNoteModal: React.FC<DeleteNoteModalProps> = ({
                   onPress={onClose}
                   activeOpacity={0.8}
                 >
-                  <Text style={styles.cancelButtonText}>Cancel</Text>
+                  <Text style={styles.cancelButtonText}>{t('common.cancel')}</Text>
                 </TouchableOpacity>
               </View>
             </View>

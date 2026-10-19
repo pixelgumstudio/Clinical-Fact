@@ -409,133 +409,97 @@ export const useSignupStore = create<SignupState>()(
   }
 ));
 
-// Content type options
-export const CONTENT_TYPE_OPTIONS = [
-  { id: 'textbooks-pdfs', label: 'Audio  and voice recordings' },
-  { id: 'video-lectures', label: 'PDFs and Word documents' },
-  { id: 'handwritten-notes', label: 'Podcasts and YouTube notes' },
-  { id: 'recorded-lectures', label: 'Personal knowledge hub' },
-  { id: 'online-articles', label: 'YouTube  and  video links' },
-];
-
-// Goal options - Based on design specification
-export const GOAL_OPTIONS = [
-  { id: 'better-grades', label: 'Study and exam prep' },
-  { id: 'ace-exams', label: 'Work meetings and tasks' },
-  { id: 'organize-notes', label: 'Research and academic reading' },
-  { id: 'learn-faster', label: 'Podcasts or YouTube notes' },
-  { id: 'improve-skills', label: 'Personal knowledge hub' },
-];
-
-// Review style options
-export const REVIEW_STYLE_OPTIONS = [
-  { id: 'quizzes', label: 'Quizzes'},
-  { id: 'flashcards', label: 'Flashcards'},
-  { id: 'summaries', label: 'AI Summaries'},
-  { id: 'practice-problems', label: 'Chat with your notes'},
-];
-
-// Frustration options
-export const FRUSTRATION_OPTIONS = [
-  { id: 'time-consuming', label: 'Takes too much time', icon: '⏰' },
-  { id: 'disorganized', label: 'Notes get disorganized', icon: '📁' },
-  { id: 'forgetting', label: 'Forgetting what I learned', icon: '🧠' },
-  { id: 'finding-info', label: 'Can\'t find information later', icon: '🔍' },
-  { id: 'boring', label: 'Studying is boring', icon: '😴' },
-  { id: 'overwhelmed', label: 'Too much information', icon: '📚' },
-];
-
 // 8-screen onboarding survey options (confirmed 2026-07-30)
 export const ROLE_OPTIONS = [
-  { id: 'nursing-student', label: 'Nursing student' },
-  { id: 'medical-student', label: 'Medical student' },
-  { id: 'pa-pharmacy-student', label: 'PA or Pharmacy student' },
-  { id: 'practicing-nurse', label: 'Practicing nurse' },
-  { id: 'practicing-physician', label: 'Practicing physician' },
-  { id: 'other-healthcare-professional', label: 'Other healthcare professional' },
+  { id: 'nursing-student', labelKey: 'auth.options.role.nursingStudent' },
+  { id: 'medical-student', labelKey: 'auth.options.role.medicalStudent' },
+  { id: 'pa-pharmacy-student', labelKey: 'auth.options.role.paPharmacyStudent' },
+  { id: 'practicing-nurse', labelKey: 'auth.options.role.practicingNurse' },
+  { id: 'practicing-physician', labelKey: 'auth.options.role.practicingPhysician' },
+  { id: 'other-healthcare-professional', labelKey: 'auth.options.role.otherHealthcareProfessional' },
 ];
 
 export const CURRENT_METHOD_OPTIONS = [
-  { id: 'textbooks-notes', label: 'Textbooks or class notes' },
-  { id: 'flashcard-quiz-apps', label: 'Flashcard or quiz apps' },
-  { id: 'youtube', label: 'YouTube' },
-  { id: 'ai-chatbots', label: 'AI chatbots' },
-  { id: 'colleague-classmate', label: 'Asking a colleague or classmate' },
-  { id: 'practice-question-banks', label: 'Practice question banks' },
+  { id: 'textbooks-notes', labelKey: 'auth.options.currentMethod.textbooksNotes' },
+  { id: 'flashcard-quiz-apps', labelKey: 'auth.options.currentMethod.flashcardQuizApps' },
+  { id: 'youtube', labelKey: 'auth.options.currentMethod.youtube' },
+  { id: 'ai-chatbots', labelKey: 'auth.options.currentMethod.aiChatbots' },
+  { id: 'colleague-classmate', labelKey: 'auth.options.currentMethod.colleagueClassmate' },
+  { id: 'practice-question-banks', labelKey: 'auth.options.currentMethod.practiceQuestionBanks' },
 ];
 
 export const TIME_DRAIN_OPTIONS = [
-  { id: 'making-flashcards-quizzes', label: 'Making flashcards & quizzes from scratch' },
-  { id: 'finding-trustworthy-answer', label: 'Finding a trustworthy answer fast' },
-  { id: 're-reading-notes', label: "Re-reading notes I don't remember" },
-  { id: 'switching-apps', label: 'Switching between too many apps' },
-  { id: 'charting-documentation', label: 'Charting & documentation' },
+  { id: 'making-flashcards-quizzes', labelKey: 'auth.options.timeDrain.makingFlashcardsQuizzes' },
+  { id: 'finding-trustworthy-answer', labelKey: 'auth.options.timeDrain.findingTrustworthyAnswer' },
+  { id: 're-reading-notes', labelKey: 'auth.options.timeDrain.reReadingNotes' },
+  { id: 'switching-apps', labelKey: 'auth.options.timeDrain.switchingApps' },
+  { id: 'charting-documentation', labelKey: 'auth.options.timeDrain.chartingDocumentation' },
 ];
 
 export const APP_EXPECTATION_OPTIONS = [
-  { id: 'no-hallucination', label: "An AI that doesn't hallucinate" },
-  { id: 'real-citations', label: 'Real citations from source' },
-  { id: 'one-app', label: 'One app instead of five subscriptions' },
-  { id: 'explains-why', label: 'Explains the "why," not just the answer' },
+  { id: 'no-hallucination', labelKey: 'auth.options.appExpectation.noHallucination' },
+  { id: 'real-citations', labelKey: 'auth.options.appExpectation.realCitations' },
+  { id: 'one-app', labelKey: 'auth.options.appExpectation.oneApp' },
+  { id: 'explains-why', labelKey: 'auth.options.appExpectation.explainsWhy' },
 ];
 
 export const AI_TOOLS_USED_OPTIONS = [
-  { id: 'chatgpt', label: 'ChatGPT' },
-  { id: 'google-gemini', label: 'Google Gemini' },
-  { id: 'notebook-llm', label: 'Notebook LLM' },
-  { id: 'claude', label: 'Claude' },
-  { id: 'uworld', label: 'Uworld' },
-  { id: 'google-search', label: 'Google search' },
-  { id: 'other-apps', label: 'Other Apps' },
+  { id: 'chatgpt', labelKey: 'auth.options.aiToolsUsed.chatgpt' },
+  { id: 'google-gemini', labelKey: 'auth.options.aiToolsUsed.googleGemini' },
+  { id: 'notebook-llm', labelKey: 'auth.options.aiToolsUsed.notebookLlm' },
+  { id: 'claude', labelKey: 'auth.options.aiToolsUsed.claude' },
+  { id: 'uworld', labelKey: 'auth.options.aiToolsUsed.uworld' },
+  { id: 'google-search', labelKey: 'auth.options.aiToolsUsed.googleSearch' },
+  { id: 'other-apps', labelKey: 'auth.options.aiToolsUsed.otherApps' },
 ];
 
 export const AI_TOOL_ISSUE_OPTIONS = [
-  { id: 'made-things-up', label: 'Made things up' },
-  { id: 'not-medical-content', label: 'Not built for medical content' },
-  { id: 'no-sources', label: 'No sources to check' },
-  { id: 'too-generic', label: 'Too generic, not Exam or practice-focused' },
+  { id: 'made-things-up', labelKey: 'auth.options.aiToolIssue.madeThingsUp' },
+  { id: 'not-medical-content', labelKey: 'auth.options.aiToolIssue.notMedicalContent' },
+  { id: 'no-sources', labelKey: 'auth.options.aiToolIssue.noSources' },
+  { id: 'too-generic', labelKey: 'auth.options.aiToolIssue.tooGeneric' },
 ];
 
 export const AI_TRUST_LEVEL_OPTIONS = [
-  { id: 'every-time', label: 'Every time' },
-  { id: 'sometimes', label: 'Sometimes' },
-  { id: 'rarely', label: 'Rarely' },
-  { id: 'dont-use-ai', label: "I don't use AI yet" },
+  { id: 'every-time', labelKey: 'auth.options.aiTrustLevel.everyTime' },
+  { id: 'sometimes', labelKey: 'auth.options.aiTrustLevel.sometimes' },
+  { id: 'rarely', labelKey: 'auth.options.aiTrustLevel.rarely' },
+  { id: 'dont-use-ai', labelKey: 'auth.options.aiTrustLevel.dontUseAi' },
 ];
 
 export const BIGGEST_NEED_OPTIONS = [
-  { id: 'fast-trustworthy-answers', label: 'Fast answers I can trust' },
-  { id: 'quizzes-flashcards-without-work', label: 'Quizzes & flashcards without work' },
-  { id: 'remembering-studied', label: "Help remembering what I've studied" },
-  { id: 'medical-citations', label: 'Medical citations reference' },
-  { id: 'all-of-the-above', label: 'All of the above' },
+  { id: 'fast-trustworthy-answers', labelKey: 'auth.options.biggestNeed.fastTrustworthyAnswers' },
+  { id: 'quizzes-flashcards-without-work', labelKey: 'auth.options.biggestNeed.quizzesFlashcardsWithoutWork' },
+  { id: 'remembering-studied', labelKey: 'auth.options.biggestNeed.rememberingStudied' },
+  { id: 'medical-citations', labelKey: 'auth.options.biggestNeed.medicalCitations' },
+  { id: 'all-of-the-above', labelKey: 'auth.options.biggestNeed.allOfTheAbove' },
 ];
 
 // Referral source options (confirmed 2026-07-29 — replaces the previous
 // Reddit/YouTube/Google Search/Friend-or-Family set)
 export const REFERRAL_OPTIONS = [
-  { id: 'tiktok', label: 'TikTok' },
-  { id: 'instagram', label: 'Instagram' },
-  { id: 'facebook', label: 'Facebook' },
-  { id: 'newsletter', label: 'Newsletter' },
-  { id: 'threads', label: 'Threads' },
-  { id: 'appstore', label: 'App Store' },
-  { id: 'playstore', label: 'Play Store' },
-  { id: 'other', label: 'Other' },
+  { id: 'tiktok', labelKey: 'auth.options.referral.tiktok' },
+  { id: 'instagram', labelKey: 'auth.options.referral.instagram' },
+  { id: 'facebook', labelKey: 'auth.options.referral.facebook' },
+  { id: 'newsletter', labelKey: 'auth.options.referral.newsletter' },
+  { id: 'threads', labelKey: 'auth.options.referral.threads' },
+  { id: 'appstore', labelKey: 'auth.options.referral.appstore' },
+  { id: 'playstore', labelKey: 'auth.options.referral.playstore' },
+  { id: 'other', labelKey: 'auth.options.referral.other' },
 ];
 
 // Post-Thanks mini survey options (confirmed 2026-07-29)
 export const STUDY_TIME_OPTIONS = [
-  { id: 'under-5-hours', label: 'Under 5 hours' },
-  { id: '5-10-hours', label: '5–10 hours' },
-  { id: '10-20-hours', label: '10–20 hours' },
-  { id: '20-plus-hours', label: '20+ hours' },
+  { id: 'under-5-hours', labelKey: 'auth.options.studyTime.under5Hours' },
+  { id: '5-10-hours', labelKey: 'auth.options.studyTime.510Hours' },
+  { id: '10-20-hours', labelKey: 'auth.options.studyTime.1020Hours' },
+  { id: '20-plus-hours', labelKey: 'auth.options.studyTime.20PlusHours' },
 ];
 
 export const COMING_UP_OPTIONS = [
-  { id: 'medical-exams', label: 'Medical exams' },
-  { id: 'clinical-rotations', label: 'Clinical rotations' },
-  { id: 'nursing-exams', label: 'Nursing exams' },
-  { id: 'other-exams', label: 'Other Exams' },
-  { id: 'stay-sharp', label: 'Just want to stay sharp' },
+  { id: 'medical-exams', labelKey: 'auth.options.comingUp.medicalExams' },
+  { id: 'clinical-rotations', labelKey: 'auth.options.comingUp.clinicalRotations' },
+  { id: 'nursing-exams', labelKey: 'auth.options.comingUp.nursingExams' },
+  { id: 'other-exams', labelKey: 'auth.options.comingUp.otherExams' },
+  { id: 'stay-sharp', labelKey: 'auth.options.comingUp.staySharp' },
 ];

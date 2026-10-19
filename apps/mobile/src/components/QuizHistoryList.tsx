@@ -21,6 +21,7 @@ import { useExportQuiz } from '../hooks/useExportQuiz';
 import { ExportSettingsModal } from './ExportSettingsModal';
 import { HistoryItemActionSheet } from './HistoryItemActionSheet';
 import { formatDateTime } from '../utils/formatDate';
+import { useTranslation } from 'react-i18next';
 
 type QuizHistoryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -38,6 +39,7 @@ interface QuizHistoryListProps {
 }
 
 export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
+  const { t } = useTranslation();
   const navigation = useNavigation<QuizHistoryNavigationProp>();
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -95,21 +97,21 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
 
   const handleDeleteQuiz = async (quizId: string, quizTitle: string) => {
     Alert.alert(
-      'Delete Quiz',
-      `Are you sure you want to delete "${quizTitle}"?`,
+      t('components.quizHistoryList.deleteQuiz'),
+      t('components.quizHistoryList.areYouSureYouWantTo', { quizTitle }),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           onPress: async () => {
             try {
               await api.deleteQuiz(quizId);
               setQuizzes(quizzes.filter(q => (q.id || q._id) !== quizId));
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete quiz');
+              Alert.alert(t('common.error'), t('components.quizHistoryList.failedToDeleteQuiz'));
             }
           },
           style: 'destructive',
@@ -132,7 +134,7 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Quiz History</Text>
+      <Text style={styles.heading}>{t('components.quizHistoryList.quizHistory')}</Text>
       <FlatList
         data={quizzes}
         keyExtractor={(item) => item.id || item._id || Math.random().toString()}
@@ -148,7 +150,7 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
                 {/* Stats Container */}
                 <View style={styles.statsContainer}>
                   <Text style={styles.totalQuestionsText}>{item.totalQuestions}</Text>
-                  <Text style={styles.statsLabel}>Questions</Text>
+                  <Text style={styles.statsLabel}>{t('components.quizHistoryList.questions')}</Text>
                 </View>
 
                 {/* Quiz Info */}
@@ -160,7 +162,7 @@ export const QuizHistoryList: React.FC<QuizHistoryListProps> = ({ noteId }) => {
                     {formatDateTime(item.createdAt)}
                   </Text>
                   <Text style={styles.quizStats}>
-                    {item.correctAnswers || 0} correct
+                    {t('components.quizHistoryList.correct', { correctAnswers: item.correctAnswers || 0 })}
                   </Text>
                 </View>
               </View>

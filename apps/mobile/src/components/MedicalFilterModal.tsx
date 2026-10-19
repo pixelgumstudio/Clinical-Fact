@@ -13,6 +13,7 @@ import { Icon, theme, Switch as DSSwitch } from '@clinicalfact/design-system';
 import { MedicalChatFilters } from '../services/api';
 import { sheetChromeStyles } from '../screens/chat/ChatConversation/sheetChromeStyles';
 import { CounterInput } from './CounterInput';
+import { useTranslation } from 'react-i18next';
 
 interface MedicalFilterModalProps {
   visible: boolean;
@@ -46,6 +47,7 @@ export const MedicalFilterModal: React.FC<MedicalFilterModalProps> = ({
   filters,
   onApply,
 }) => {
+  const { t } = useTranslation();
   const [draft, setDraft] = useState<MedicalChatFilters>(filters);
   const [activePicker, setActivePicker] = useState<ActivePicker>(null);
   // Every underlying source (Europe PMC, PubMed, Semantic Scholar) only filters by
@@ -105,15 +107,15 @@ export const MedicalFilterModal: React.FC<MedicalFilterModalProps> = ({
                 <TouchableOpacity onPress={onBack} style={sheetChromeStyles.closeButton} activeOpacity={0.7}>
                   <Icon name="foward" size={20} color={theme.colors.grey[600]} style={styles.backIcon} />
                 </TouchableOpacity>
-                <Text style={sheetChromeStyles.title}>Medical research filters</Text>
+                <Text style={sheetChromeStyles.title}>{t('components.medicalFilter.medicalResearchFilters')}</Text>
                 <View style={sheetChromeStyles.closeButton} />
               </View>
 
               <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-                <Text style={styles.sectionLabel}>HOW RECENT DO YOU WANT THE SOURCE</Text>
+                <Text style={styles.sectionLabel}>{t('components.medicalFilter.howrecentdoyouwantthe')}</Text>
                 <View style={styles.card}>
                   <TouchableOpacity style={styles.row} onPress={() => openPicker('from')} activeOpacity={0.7}>
-                    <Text style={styles.rowLabel}>From</Text>
+                    <Text style={styles.rowLabel}>{t('components.medicalFilter.from')}</Text>
                     <View style={styles.rowValueGroup}>
                       <Text style={styles.rowValue}>{fromYear ? String(fromYear) : 'Any'}</Text>
                       <Icon name="foward" size={16} color={theme.colors.grey[200]} />
@@ -129,40 +131,40 @@ export const MedicalFilterModal: React.FC<MedicalFilterModalProps> = ({
                   </TouchableOpacity>
                 </View>
 
-                <Text style={styles.sectionLabel}>WHAT KIND OF SOURCE DO YOU NEED</Text>
+                <Text style={styles.sectionLabel}>{t('components.medicalFilter.whatkindofsourcedoyou')}</Text>
                 <View style={styles.card}>
                   <View style={styles.row}>
-                    <Text style={styles.rowLabel}>Textbooks</Text>
+                    <Text style={styles.rowLabel}>{t('components.medicalFilter.textbooks')}</Text>
                     <DSSwitch value={books} onValueChange={() => toggleSource('books')} />
                   </View>
                   <View style={styles.divider} />
                   <View style={styles.row}>
-                    <Text style={styles.rowLabel}>Clinical guidelines</Text>
+                    <Text style={styles.rowLabel}>{t('components.medicalFilter.clinicalGuidelines')}</Text>
                     <DSSwitch value={guidelines} onValueChange={() => toggleSource('guidelines')} />
                   </View>
                   <View style={styles.divider} />
                   <View style={styles.row}>
-                    <Text style={styles.rowLabel}>Scientific Journal articles</Text>
+                    <Text style={styles.rowLabel}>{t('components.medicalFilter.scientificJournalArticles')}</Text>
                     <DSSwitch value={scientificArticles} onValueChange={() => toggleSource('scientificArticles')} />
                   </View>
                 </View>
 
                 {scientificArticles && (
                   <>
-                    <Text style={styles.sectionLabel}>ONLY WITH THIS JOURNAL ARTICLES</Text>
+                    <Text style={styles.sectionLabel}>{t('components.medicalFilter.onlywiththisjournalarticles')}</Text>
                     <View style={styles.card}>
                       <View style={styles.row}>
-                        <Text style={styles.rowLabel}>Meta-analyses</Text>
+                        <Text style={styles.rowLabel}>{t('components.medicalFilter.metaAnalyses')}</Text>
                         <DSSwitch value={metaAnalyses} onValueChange={() => toggleArticleType('metaAnalyses')} />
                       </View>
                       <View style={styles.divider} />
                       <View style={styles.row}>
-                        <Text style={styles.rowLabel}>Review articles</Text>
+                        <Text style={styles.rowLabel}>{t('components.medicalFilter.reviewArticles')}</Text>
                         <DSSwitch value={reviewArticles} onValueChange={() => toggleArticleType('reviewArticles')} />
                       </View>
                       <View style={styles.divider} />
                       <View style={styles.row}>
-                        <Text style={styles.rowLabel}>Clinical trials</Text>
+                        <Text style={styles.rowLabel}>{t('components.medicalFilter.clinicalTrials')}</Text>
                         <DSSwitch value={clinicalTrials} onValueChange={() => toggleArticleType('clinicalTrials')} />
                       </View>
                     </View>
@@ -184,9 +186,9 @@ export const MedicalFilterModal: React.FC<MedicalFilterModalProps> = ({
               <TouchableWithoutFeedback>
                 <View style={styles.yearPickerSheet}>
                   <View style={styles.yearPickerHeader}>
-                    <Text style={styles.yearPickerTitle}>{activePicker === 'from' ? 'From year' : 'To year'}</Text>
+                    <Text style={styles.yearPickerTitle}>{activePicker === 'from' ? t('components.medicalFilter.fromYear') : t('components.medicalFilter.toYear')}</Text>
                     <TouchableOpacity onPress={handleDone} activeOpacity={0.7}>
-                      <Text style={styles.yearPickerDone}>Done</Text>
+                      <Text style={styles.yearPickerDone}>{t('common.done')}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.yearPickerBody}>

@@ -15,7 +15,8 @@
     "done": "Ferdig",
     "search": "Søk",
     "filter": "Filter",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Info"
   },
   "home": {
     "title": "Clinical Fact",
@@ -26,7 +27,7 @@
     "recentNotes": "Nylige notater",
     "seeAll": "Se alle",
     "noNotes": "Ingen notater å vise",
-    "noNotesDesc": "Klikk på knappen ovenfor for å begynne å generere notatet ditt for notatdrill.",
+    "noNotesDesc": "Trykk på knappen over for å begynne\nå generere notatet ditt for Clinical Fact.",
     "loadingNotes": "Laster inn notater ..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "Oppgraderingsplan",
     "everyWeek": "Hver uke",
     "everyMonth": "Hver måned",
-    "everyYear": "Hvert år"
+    "everyYear": "Hvert år",
+    "reportBug": "Meld fra om en feil"
   },
   "auth": {
-    "welcome": "Velkommen til Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Google-innlogging mislyktes",
+      "failedToAuthenticateWithServer": "Kunne ikke autentisere mot serveren",
+      "googleSignInIsOnlyAvailable": "Google-innlogging er kun tilgjengelig i den opprinnelige appen. Vennligst bruk e-post eller last ned appen.",
+      "code": "{{message}} (kode: {{code}})"
+    },
     "getStarted": "Kom i gang",
     "signIn": "Logg inn",
     "signUp": "Registrer deg",
@@ -94,7 +101,8 @@
       "skip": "Hopp over",
       "verify": "Verifisert!",
       "next": "Neste",
-      "tryNow": "Prøv Clinical Fact gratis nå"
+      "tryNow": "Prøv Clinical Fact gratis nå",
+      "continueWithApple": "Fortsett med Apple"
     },
     "labels": {
       "firstName": "Fornavn",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Kunne ikke starte Google-pålogging. Prøv på nytt.",
       "setupRequired": "Oppsett kreves",
       "googleOAuthMissing": "Google-pålogging krever OAuth-klient-ID-er.\\n\\nLegg til påloggingsinformasjon i .env-filen din.",
-      "youCanStillUseEmail": "Du kan fortsatt bruke «Fortsett med e-post»."
+      "youCanStillUseEmail": "Du kan fortsatt bruke «Fortsett med e-post».",
+      "appleSignInFailed": "Apple-pålogging mislyktes",
+      "appleTokenFailed": "Kunne ikke behandle Apple-token",
+      "appleIosOnly": "Innlogging med Apple er kun tilgjengelig på iOS."
     },
     "messages": {
       "signingIn": "Logger inn...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact: Smartere notater Start her",
       "tagline": "Gjør hvilken som helst tekst om til perfekte notater",
-      "description": "Gjør lyd, dokumenter eller videoer om til tydelige, søkbare notater, og lag umiddelbart spørrekonkurranser, flashcards og sammendrag."
+      "description": "Gjør lyd, dokumenter eller videoer om til tydelige, søkbare notater, og lag umiddelbart spørrekonkurranser, flashcards og sammendrag.",
+      "createAccountTitle": "Opprett en konto",
+      "orSignUpWith": "ELLER REGISTRER DEG MED",
+      "signUpWithEmail": "Registrer deg med e-post",
+      "signInWithEmail": "Logg inn med e-post",
+      "alreadyHaveAccount": "Har du allerede en konto? ",
+      "dontHaveAccount": "Har du ingen konto? "
     },
     "otp": {
       "title": "Bekreft e-postadressen din",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Alt du trenger for å lære hva som helst",
-      "subtitle": "Spill det inn. Undersøk det. Test det. Mestre det."
+      "subtitle": "Spill det inn. Undersøk det. Test det. Mestre det.",
+      "everythingYouNeedToLearnAnything": "Alt du trenger for å lære hva som helst",
+      "recordItResearchItQuizIt": "Gjør opptak. Utforsk. Ta quizer. Mestre pensum.",
+      "tryClinicalFactNowForFree": "Prøv Clinical Fact gratis nå"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Lær raskere med quiz og flashcards",
         "description": "Gjør notater om til spørrekonkurranser og flashcards.\\nLær raskere og husk mer."
+      },
+      "feature1": {
+        "title": "Få ekte medisinske svar og oppfølgingsspørsmål",
+        "description": "Still et hvilket som helst medisinsk spørsmål og få en tydelig forklaring pluss smarte oppfølgingsspørsmål, så du aldri står fast under lesingen."
+      },
+      "feature2": {
+        "title": "Hvert medisinske svar,\nbasert på en ekte kilde",
+        "description": "Kildehenvisninger hentet fra PubMed, Semantic Scholar og Europe PMC – etterprøvbare, ikke oppdiktede."
+      },
+      "feature3": {
+        "title": "Last opp notatene dine, få medisinske sammendrag av eget pensum",
+        "description": "Gjør om lysbilder, PDF-er eller notater til klare forklaringer støttet av pålitelige medisinske kilder."
+      },
+      "feature4": {
+        "title": "Gjør om chatter til quiz eller flashcards for øving",
+        "description": "Ingen separat studie-app nødvendig – generer øvingsspørsmål direkte fra samtalene og opplastingene dine."
+      },
+      "feature5": {
+        "title": "Gjør om chatter eller dokumenter til flashcards for øving",
+        "description": "Ingen separat studie-app nødvendig – generer øvingsspørsmål direkte fra samtalene og opplastingene dine."
+      }
+    },
+    "languageSelect": {
+      "title": "Velg språk",
+      "subtitle": "Velg språket du vil bruke i appen. Du kan endre det senere i profilen din.",
+      "searchPlaceholder": "Søk etter språk",
+      "noResults": "Ingen språk funnet"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Spør om alt innen medisin. Få kliniske fakta",
+        "description": "Still ethvert medisinsk spørsmål og få svar støttet av reelle, siterte kilder fra PubMed, kliniske retningslinjer og anerkjent medisinsk faglitteratur"
+      },
+      "slide2": {
+        "headline": "Hvert svar er basert på en kilde",
+        "description": "Ingen gjetting, ingen oppdiktede fakta – hvert svar lenker direkte til etterprøvbar medisinsk forskning."
+      },
+      "slide3": {
+        "headline": "Studer smartere, bestå medisinske eksamener",
+        "description": "Gjør om ethvert spørsmål eller opplastet fil til en quiz eller flashcards på sekunder – øv direkte på pensumet ditt."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Faglig erklæring",
+      "subtitle": "Clinical Fact er et pedagogisk verktøy for litteratursøk",
+      "disclaimerIntro": "Clinical Fact er et informasjonsverktøy basert på kunstig intelligens, utviklet for å støtte studenter innen sykepleie, medisin og andre helsefag med å hente inn medisinsk kunnskap, forskningslitteratur og studiemateriell. Appen gir ikke medisinske diagnoser, behandlingsanbefalinger, kliniske instruksjoner eller pasientspesifikke helseråd, og må ikke brukes som grunnlag for direkte pasientbehandling eller kliniske beslutninger.",
+      "disclaimerHeading": "Hvordan Clinical Fact genererer svar:",
+      "disclaimerBody": "Clinical Fact henter informasjon direkte fra etablerte medisinske og vitenskapelige kilder, inkludert PubMed, Semantic Scholar og offisiell FDA-legemiddelinformasjon, og bruker AI til å oppsummere og forklare innholdet på et forståelig språk. Hvert svar genereres utelukkende fra kildene som hentes inn for det spesifikke spørsmålet, og siteringer lenker tilbake til originalkilden slik at du selv kan etterprøve det. Clinical Fact genererer ikke medisinske fakta etter hukommelsen eller dikter opp kilder.\n\nClinical Fact er ikke et diagnostisk verktøy, en behandlingsplattform, medisinsk utstyr eller en erstatning for profesjonell medisinsk vurdering, autorisert veiledning eller studiestedets pensum. All informasjon generert av appen, inkludert svar, siteringer, quizer og flashcards, leveres utelukkende for generelle utdannings- og studieformål, og må verifiseres uavhengig av brukeren før den legges til grunn i en akademisk, klinisk eller faglig sammenheng.\nClinical Fact garanterer ikke at informasjonen er fullstendig, nøyaktig eller klinisk oppdatert. Medisinsk kunnskap utvikler seg kontinuerlig – krysssjekk alltid kritisk informasjon med undervisere, veiledere i praksis og oppdaterte primærkilder.\nNår du laster opp egne dokumenter, notater eller opptak, genererer Clinical Fact svar, sammendrag, quizer og flashcards basert utelukkende på det opplastede innholdet, ikke eksterne kilder med mindre disse vises eksplisitt ved siden av.\n\nClinical Fact verifiserer, godkjenner eller bekrefter ikke brukernes identitet, studentstatus eller autorisasjon. Appen er ikke ment for bruk i akutte situasjoner eller for kliniske beslutninger i sanntid.\nVed å fortsette bekrefter du at du forstår disse vilkårene og godtar å bruke Clinical Fact utelukkende som et studie- og oppslagsverk.",
+      "checkboxLabel": "Jeg forstår at denne appen kun er til opplæringsformål og ikke gir medisinske råd",
+      "acceptButton": "Godta og fortsett"
+    },
+    "survey": {
+      "role": "Hva beskriver deg best, {{firstName}}?",
+      "currentMethod": "Hvordan finner du vanligvis svar på medisinske spørsmål nå?",
+      "timeDrain": "Hva stjeler mesteparten av tiden din?",
+      "appExpectation": "Hva forventer du av Clinical Fact?",
+      "aiToolsUsed": "Hvilke AI-verktøy har du brukt til medisinsk research så langt?",
+      "aiToolIssue": "Hva fungerte dårlig med disse verktøyene?",
+      "aiTrustLevel": "Hvor ofte bekymrer du deg for at et AI-svar kan være feil?",
+      "biggestNeed": "Hva trenger du mest akkurat nå?",
+      "studyTimePerWeek": "Hvor mye tid har du til studier hver uke?",
+      "comingUp": "Hva venter deg i nærmeste fremtid?",
+      "referralSource": "Hvor hørte du om Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Slå på varsler",
+      "thisHelpsUsStayOnTrack": "Dette hjelper oss med å tilpasse kontoen din og gjøre det enklere å finne medisinske svar"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Ugyldig bekreftelseskode. Vennligst prøv igjen.",
+      "failedToResendCodePleaseTry": "Kunne ikke sende koden på nytt. Vennligst prøv igjen.",
+      "confirmYourEmailAddress": "Bekreft e-postadressen din",
+      "enterCodeSentTo": "Vennligst oppgi engangskoden vi sendte til {{email}}",
+      "resendCodeIn": "Send ny kode om {{seconds}} sek"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Ble du vervet av noen?",
+      "enterTheirReferralCodeIfYou": "Oppgi vervingskoden hvis du har en",
+      "eGJOHNOrTECHBRO": "f.eks. JON eller MEDSTUD",
+      "codeIsValid": "✓ Koden er gyldig"
+    },
+    "resultsChart": {
+      "getBetterResults": "Få bedre resultater",
+      "over95OfClinicalfactUsersScore": "Over 95 % av Clinical Fact-brukere oppnår toppkarakter på tester og eksamener"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Sykepleierstudent",
+        "medicalStudent": "Medisinstudent",
+        "paPharmacyStudent": "Farmasi- eller helsefagstudent",
+        "practicingNurse": "Autorisert sykepleier",
+        "practicingPhysician": "Praktiserende lege",
+        "otherHealthcareProfessional": "Annet helsepersonell"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Lærebøker eller forelesningsnotater",
+        "flashcardQuizApps": "Flashcard- eller quiz-apper",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chatter",
+        "colleagueClassmate": "Spørre en kollega eller medstudent",
+        "practiceQuestionBanks": "Oppgavebanker for øving"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Lage flashcards og quizer fra bunnen av",
+        "findingTrustworthyAnswer": "Finne pålitelige svar raskt",
+        "reReadingNotes": "Lese notater jeg har glemt på nytt",
+        "switchingApps": "Bytte mellom for mange apper",
+        "chartingDocumentation": "Journalføring og dokumentasjon"
+      },
+      "appExpectation": {
+        "noHallucination": "En AI som ikke hallusinerer",
+        "realCitations": "Faktiske kildehenvisninger",
+        "oneApp": "Én app i stedet for fem abonnementer",
+        "explainsWhy": "Forklarer «hvorfor», ikke bare fasiten"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "UWorld",
+        "googleSearch": "Google-søk",
+        "otherApps": "Andre apper"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Fant opp ting",
+        "notMedicalContent": "Ikke tilpasset medisinsk innhold",
+        "noSources": "Ingen kilder å verifisere mot",
+        "tooGeneric": "For generelt, ikke rettet mot eksamen eller praksis"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Hver gang",
+        "sometimes": "Noen ganger",
+        "rarely": "Sjelden",
+        "dontUseAi": "Jeg bruker ikke AI ennå"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Raske svar jeg kan stole på",
+        "quizzesFlashcardsWithoutWork": "Quizer og flashcards uten ekstraarbeid",
+        "rememberingStudied": "Hjelp til å huske det jeg har lest",
+        "medicalCitations": "Medisinske kildehenvisninger",
+        "allOfTheAbove": "Alt det ovennevnte"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Nyhetsbrev",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Annet"
+      },
+      "studyTime": {
+        "under5Hours": "Under 5 timer",
+        "510Hours": "5–10 timer",
+        "1020Hours": "10–20 timer",
+        "20PlusHours": "20+ timer"
+      },
+      "comingUp": {
+        "medicalExams": "Medisineksamener",
+        "clinicalRotations": "Klinisk praksis",
+        "nursingExams": "Sykepleiereksamener",
+        "otherExams": "Andre eksamener",
+        "staySharp": "Vil bare holde kunnskapen ved like"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Merknadstranskripsjon",
+    "noteTranscript": {
+      "noteTranscript": "Notattranskripsjon",
+      "noNoteIDProvided": "Ingen notat-ID oppgitt",
+      "noTranscriptAvailableForThisNote": "Ingen transkripsjon tilgjengelig for dette notatet.",
+      "thisNoteWasNotCreatedFrom": "Dette notatet ble ikke opprettet fra lyd/video og har ingen transkripsjon.",
+      "failedToLoadNote": "Kunne ikke laste inn notat",
+      "noteTranscript2": "Notattranskripsjon",
+      "loadingTranscript": "Laster inn transkripsjon...",
+      "goToNote": "Gå til notat"
+    },
     "noteOptions": "Notatalternativer",
-    "editNote": "Rediger notat",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Vennligst skriv inn en tittel",
+      "failedToUpdateNote": "Kunne ikke oppdatere notat",
+      "noteUpdatedSuccessfully": "Notatet ble oppdatert",
+      "editNote": "Rediger notat",
+      "noteTitle": "Notattittel",
+      "enterNoteTitle": "Skriv inn notattittel",
+      "noteContent": "Notatinnhold",
+      "enterNoteContent": "Skriv inn notatinnhold",
+      "saveThisNote": "Lagre dette notatet",
+      "aiIsGeneratingYourNote": "AI genererer notatet ditt",
+      "largeAudioAndVideoFilesMay": "Store lyd- og videofiler kan ta et par minutter å behandle. Vennligst hold appen åpen."
+    },
     "retranscribe": "Transkribere på nytt",
     "exportNote": "Eksporter notat",
     "shareNoteLink": "Del notatlenken",
@@ -237,12 +443,89 @@
     "translate": "Oversett",
     "addToFolder": "Legg til i mappe",
     "loadingNote": "Laster inn notat ...",
-    "noteNotFound": "Kunne ikke laste inn notatet"
+    "noteNotFound": "Kunne ikke laste inn notatet",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "anUnexpectedErrorOccurred": "Det oppsto en uventet feil",
+      "history": "Historikk",
+      "export": "Eksporter"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Kunne ikke legge til notat i mappen",
+      "folderNotFound": "Fant ikke mappen",
+      "addNote": "+ Legg til notat",
+      "noNotesInThisFolder": "Ingen notater i denne mappen",
+      "moveNotesToThisFolderTo": "Flytt notater til denne mappen for å se dem her",
+      "addNoteToFolder": "Legg til notat i mappe",
+      "noNotesAvailableToAdd": "Ingen tilgjengelige notater å legge til",
+      "allYourNotesAreAlreadyIn": "Alle notatene dine er allerede i denne mappen",
+      "created": "Opprettet {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Kunne ikke laste inn notat",
+      "reTranscribeNote": "Transkriber notat på nytt",
+      "thisWillReTranscribeTheAudio": "Dette vil transkribere lyden på nytt og oppdatere notatet. Vil du fortsette?",
+      "reTranscribe": "Transkriber på nytt",
+      "noteReTranscribedSuccessfully": "Notatet ble transkribert på nytt",
+      "info": "Info",
+      "reTranscriptionFeatureIsComingSoon": "Ny transkripsjon kommer snart",
+      "youAreCurrentlyOfflinePleaseConnect": "Du er frakoblet. Koble til internett for å utføre denne handlingen.",
+      "failedToDeleteNote": "Kunne ikke slette notat",
+      "failedToExportNote": "Kunne ikke eksportere notat",
+      "noteTranslatedSuccessfully": "Notatet ble oversatt",
+      "failedToTranslateNote": "Kunne ikke oversette notat",
+      "noteMovedTo": "Notat flyttet til {{name}}",
+      "failedToMoveNoteToFolder": "Kunne ikke flytte notat til mappe",
+      "summaryNotes": "Sammendragsnotater",
+      "loadingNote": "Laster notat...",
+      "imageNote": "Bildenotat",
+      "created": "Opprettet {{dateTime}}",
+      "translate": "Oversett",
+      "transcribe": "Transkriber",
+      "editThisNote": "Rediger dette notatet",
+      "createFlashcards": "Lag flashcards",
+      "createFlashcardsToImproveYourRetention": "Lag flashcards for å huske pensum bedre",
+      "createQuizQuestions": "Lag quizspørsmål",
+      "practiceYourNotesByCreatingQuestions": "Øv på notatene dine ved å lage spørsmål som hjelper deg å mestre temaet"
+    },
+    "sharedNote": {
+      "notFound": "Ikke funnet",
+      "thisSharedNoteLinkIsInvalid": "Denne delte lenken er ugyldig eller har utløpt.",
+      "failedToLoadSharedNote": "Kunne ikke laste delt notat.",
+      "saved": "Lagret!",
+      "noteHasBeenAddedToYour": "Notatet er lagt til i biblioteket ditt.",
+      "viewInLibrary": "Vis i biblioteket",
+      "stayHere": "Bli her",
+      "failedToSaveNote": "Kunne ikke lagre notat.",
+      "loadingSharedNote": "Laster delt notat...",
+      "sharedNote": "Delt notat",
+      "sharedWithYou": "Delt med deg",
+      "savedToLibrary": "Lagret i biblioteket",
+      "saveToMyLibrary": "Lagre i mitt bibliotek"
+    }
   },
   "create": {
     "selectOption": "Hvordan vil du opprette notatet ditt?",
-    "recordAudio": "Spill inn lyd",
-    "uploadAudio": "Last opp lyd",
+    "recordAudio": {
+      "permissionRequired": "Tilgang kreves",
+      "pleaseGrantMicrophonePermissionToRecord": "Gi tilgang til mikrofonen for å ta opp lyd.",
+      "failedToRequestMicrophonePermission": "Kunne ikke be om mikrofontilgang",
+      "created": "Opprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Tar opp lyd",
+      "recordAudio": "Ta opp lyd",
+      "createANoteFromAnyRecorded": "Opprett et notat fra et lydopptak",
+      "recording": "Tar opp ({{time}})",
+      "recordAgain": "Ta opp på nytt"
+    },
+    "uploadAudio": {
+      "created": "Opprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Kunne ikke velge lydfil",
+      "uploadAudio": "Last opp lyd",
+      "createANoteFromAnyUploaded": "Opprett et notat fra en opplastet lydfil",
+      "dragDropFilesOrBrowse": "Dra og slipp filer eller Bla gjennom",
+      "supportedFormatMp4WavMp3": "Støttede formater: mp4, wav, mp3",
+      "changeFile": "Endre fil"
+    },
     "youtube": "YouTube-video",
     "pdfDocument": "PDF eller dokument",
     "customText": "Tilpasset tekst",
@@ -250,7 +533,56 @@
     "uploadingFile": "Laster opp fil til server...",
     "transcribing": "Konverterer tale til tekst...",
     "extractingText": "Uttrekker tekst...",
-    "generatingNote": "Lager AI-drevne studienotater ...",
+    "generatingNote": {
+      "uploadAudio": "Last opp lyd",
+      "uploadingAudioFileToServer": "Laster opp lydfil til serveren...",
+      "transcribeAudio": "Transkriber lyd",
+      "convertingSpeechToText": "Konverterer tale til tekst...",
+      "generateYourNote": "Generer notatet ditt",
+      "creatingStudyNotes": "Oppretter studienotater...",
+      "uploadPDF": "Last opp PDF",
+      "uploadingPDFDocumentToServer": "Laster opp PDF-dokument til serveren...",
+      "extractText": "Hent ut tekst",
+      "readingAndExtractingTextFromPDF": "Leser og henter ut tekst fra PDF...",
+      "uploadImage": "Last opp bilde",
+      "uploadingImageToServer": "Laster opp bilde til serveren...",
+      "extractTextOCR": "Hent ut tekst (OCR)",
+      "recognizingAndExtractingTextFromImage": "Gjenkjenner og henter ut tekst fra bilde...",
+      "fetchVideo": "Hent video",
+      "connectingToYouTube": "Kobler til YouTube...",
+      "extractTranscript": "Hent transkripsjon",
+      "downloadingVideoTranscript": "Laster ned videotranskripsjon...",
+      "processText": "Behandle tekst",
+      "analyzingYourContent": "Analyserer innholdet ditt...",
+      "uploadFile": "Last opp fil",
+      "uploadingToServer": "Laster opp til server...",
+      "processContent": "Behandle innhold",
+      "extractingContent": "Henter ut innhold...",
+      "noteReady": "Notatet er klart!",
+      "noteGenerationFailedOnTheServer": "Generering av notat mislyktes på serveren.",
+      "failedToUploadImage": "Kunne ikke laste opp bilde",
+      "weCouldNotReadAnythingFrom": "Vi klarte ikke å lese noe fra det bildet. Prøv et tydeligere bilde av notatene dine.",
+      "preparingFile": "Klargjør fil...",
+      "almostDone": "Nesten ferdig...",
+      "untitledNote": "Uten tittel",
+      "failedToGenerateNote": "Kunne ikke generere notat",
+      "whoaSpeedy": "Oi, det gikk unna! 🏃💨",
+      "youReGeneratingContentABit": "Du genererer innhold litt for raskt. Ta en 60-sekunders pause så vår AI rekker å henge med.",
+      "gotIt": "Den er grei",
+      "fileTooLarge": "Filen er for stor",
+      "yourFileExceedsThe15MBLimit": "Filen overskrider grensen på 15 MB for gratisbrukere. Oppgrader til PRO for å laste opp forelesninger på opptil 100 MB.",
+      "upgradeToPRO": "Oppgrader til PRO",
+      "oopsWeHitASnag": "Ops, noe gikk galt 🚧",
+      "weCouldnTGenerateThatRight": "Vi kunne ikke generere det akkurat nå. Vent litt og prøv igjen!",
+      "processingContent": "Behandler innhold...",
+      "generatingYourNote": "Genererer notatet ditt...",
+      "audioNote": "Lydnotat",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "generatingNote": "Genererer notat",
+      "pleaseKeepThisScreenOpenWhile": "Vennligst hold denne skjermen åpen mens notatet genereres. Store filer kan ta noen minutter å transkribere.",
+      "goToNote": "Gå til notat",
+      "generateNoteTranscript": "Generer transkripsjon"
+    },
     "fetchingVideo": "Kobler til YouTube ...",
     "processingText": "Analyserer innholdet ditt ...",
     "uploadAudioTitle": "Last opp lyd",
@@ -260,7 +592,63 @@
     "fetchVideo": "Hent video",
     "extractTranscript": "Utdrag av transkripsjon",
     "processText": "Prosesstekst",
-    "generateNote": "Generer notatet ditt"
+    "generateNote": "Generer notatet ditt",
+    "customTextInput": {
+      "customText": "Egendefinert tekst",
+      "createANoteFromAnyCustom": "Opprett et notat fra valgfri tekst",
+      "enterText": "Skriv inn tekst",
+      "enterYourTextHere": "Skriv inn teksten din her..."
+    },
+    "uploadImage": {
+      "created": "Opprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Tilgang kreves",
+      "pleaseAllowAccessToYourPhoto": "Vennligst gi tilgang til bildebiblioteket ditt",
+      "failedToPickImage": "Kunne ikke velge bilde",
+      "uploadImage": "Last opp bilde",
+      "createANoteFromAnyUploaded": "Opprett et notat fra et opplastet bilde",
+      "dragDropFilesOrBrowse": "Dra og slipp filer, eller bla gjennom",
+      "supportedFormatPngJpegHeicWebp": "Støttede formater: png, jpeg, heic, webp",
+      "changeFile": "Endre fil"
+    },
+    "uploadPDF": {
+      "created": "Opprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Kunne ikke velge dokument",
+      "uploadPdf": "Last opp PDF",
+      "createANoteFromAnyUploaded": "Opprett et notat fra en opplastet PDF",
+      "dragDropFilesOrBrowse": "Dra og slipp filer, eller bla gjennom",
+      "supportedFormatPdf": "Støttet format: pdf",
+      "changeFile": "Endre fil"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Henter video",
+      "gettingVideoDetails": "Henter videodetaljer",
+      "extractingTranscript": "Henter transkripsjon",
+      "convertingAudioToText": "Konverterer lyd til tekst",
+      "generatingYourNote": "Genererer notatet ditt",
+      "aiIsSummarisingTheContent": "AI oppsummerer innholdet",
+      "noteGenerationFailedPleaseTryAgain": "Generering av notat mislyktes. Vennligst prøv igjen.",
+      "processingFailed": "Behandlingen mislyktes",
+      "goBack": "Gå tilbake",
+      "retry": "Prøv igjen",
+      "failedToStartNoteGeneration": "Kunne ikke starte notatgenerering",
+      "failedToProcessYouTubeVideoPlease": "Kunne ikke behandle YouTube-videoen. Prøv igjen.",
+      "cancelProcessing": "Avbryt behandling",
+      "areYouSureYouWantTo": "Er du sikker på at du vil avbryte? Fremgangen din vil gå tapt.",
+      "continueProcessing": "Fortsett behandling",
+      "youTubeNote": "YouTube-notat",
+      "noteGenerated": "Notat opprettet",
+      "generatingNote": "Genererer notat",
+      "goToNote": "Gå til notat"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Kunne ikke hente videoinformasjon",
+      "failedToFetchVideoInformation": "Kunne ikke hente videoinformasjon",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Lag et notat fra en YouTube-video",
+      "enterYoutubeURL": "Skriv inn YouTube-URL",
+      "pasteYoutubeURL": "Lim inn YouTube-URL",
+      "fetchingVideoInfo": "Henter videoinfo..."
+    }
   },
   "library": {
     "title": "Bibliotek",
@@ -292,7 +680,7 @@
     "almostDone": "Nesten ferdig...",
     "quizReady": "Quiz klar!",
     "startQuiz": "Start quiz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} av {{total}}",
     "exitTitle": "Avslutte quizen?",
     "exitMessage": "Fremgangen din vil gå tapt.",
     "exit": "Gå",
@@ -312,7 +700,45 @@
     "correctAnswer": "Riktig svar",
     "yourAnswer": "Ditt svar",
     "explanation": "Forklaring",
-    "questionProgress": "Spørsmål {{current}} av {{total}}"
+    "questionProgress": "Spørsmål {{current}} av {{total}}",
+    "generatingQuizWait": "Vi lager quizen din, vennligst vent litt...",
+    "goToChats": "Gå til chatter",
+    "quizGroupDetail": {
+      "inProgress": "Pågår",
+      "notStarted": "Ikke startet",
+      "failedToLoadQuizHistory": "Kunne ikke laste quizhistorikk",
+      "failedToLoadChatContent": "Kunne ikke laste chatinnhold",
+      "deleteQuiz": "Slett quiz",
+      "failedToDeleteQuiz": "Kunne ikke slette quiz",
+      "created": "Opprettet {{dateTime}}",
+      "lastscore": "SISTE SCORE",
+      "bestscore": "BESTE SCORE",
+      "attempts": "FORSØK",
+      "retakeQuiz": "Ta quizen på nytt",
+      "translate": "Oversett",
+      "newQuiz": "Ny quiz",
+      "quizHistory": "Quizhistorikk",
+      "flashcardHistory": "Flashcard-historikk",
+      "score": "Resultat {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Ingen flashcard-sett fra denne kilden ennå.",
+      "cards": "{{totalCards}} kort · {{flashcardStatus}}",
+      "quizOptions": "Quizalternativer",
+      "exportLatestAttempt": "Eksporter siste forsøk",
+      "questions": "{{totalQuestions}} spørsmål · {{value}}",
+      "deleteAllAttemptsOne": "Slette 1 quizforsøk for «{{title}}»? Dette kan ikke angres.",
+      "deleteAllAttemptsMany": "Slette alle {{total}} quizforsøk for «{{title}}»? Dette kan ikke angres.",
+      "makeFlashcards": "Lag flashcards"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Kunne ikke laste quizdata – ugyldig svarformat",
+      "failedToLoadQuizData": "Kunne ikke laste quizdata",
+      "noContentAvailable": "Ingen innhold tilgjengelig",
+      "goBack": "Gå tilbake",
+      "previous": "Forrige"
+    },
+    "quiz": {
+      "generationFailed": "Generering mislyktes"
+    }
   },
   "flashcards": {
     "title": "Flashcards",
@@ -343,7 +769,46 @@
     "headerTitle": "Flashcard",
     "progressFormat": "Flashkort {{current}} av {{total}}",
     "noteIdRequired": "Notat-ID kreves for å generere flashcards",
-    "invalidCardCount": "Vennligst velg mellom 1 og 100 flashcards"
+    "invalidCardCount": "Vennligst velg mellom 1 og 100 flashcards",
+    "flashcardGroupDetail": {
+      "inProgress": "Pågår",
+      "notStarted": "Ikke startet",
+      "failedToLoadFlashcardHistory": "Kunne ikke laste flashcard-historikk",
+      "limitReached": "Grensen er nådd",
+      "flashcardGenerationLimitReached": "Grensen for flashcard-generering er nådd.",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "failedToTranslateFlashcards": "Kunne ikke oversette flashcards",
+      "deleteFlashcards": "Slett flashcards",
+      "failedToDeleteFlashcards": "Kunne ikke slette flashcards",
+      "created": "Opprettet {{dateTime}}",
+      "lastprogress": "SISTE FREMGANG",
+      "bestprogress": "BESTE FREMGANG",
+      "sets": "SETT",
+      "studyNow": "Øv nå",
+      "translate": "Oversett",
+      "newFlashcards": "Nye flashcards",
+      "flashcardHistory": "Flashcard-historikk",
+      "quizHistory": "Quiz-historikk",
+      "cards": "{{totalCards}} kort · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Ingen quizer fra denne kilden ennå.",
+      "score": "Resultat {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Valg for flashcards",
+      "exportLatestSet": "Eksporter siste sett",
+      "questions": "{{totalQuestions}} spørsmål · {{value}}",
+      "deleteAllSetsOne": "Slette 1 flashcard-sett for «{{title}}»? Dette kan ikke angres.",
+      "deleteAllSetsMany": "Slette alle {{total}} flashcard-sett for «{{title}}»? Dette kan ikke angres.",
+      "makeQuiz": "Lag en quiz",
+      "failedToLoadChatContent": "Kunne ikke laste chat-innhold"
+    },
+    "flashcardReview": {
+      "unknownError": "Ukjent feil",
+      "noFlashcardsInThisSet": "Ingen flashcards i dette settet",
+      "goBack": "Gå tilbake",
+      "allDone": "Ferdig",
+      "youHaveReviewedAllTheCards": "Du har gått gjennom alle kortene i denne bunken",
+      "question": "Spørsmål {{value}}",
+      "questionOf": "Spørsmål {{value}} av {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Chat",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Chat med dokument",
     "selectFile": "Velg en fil å chatte med",
     "uploadFile": "Last opp fil",
-    "startChatting": "Begynn å chatte"
+    "startChatting": "Begynn å chatte",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Still et medisinsk spørsmål for å få mer forklaring",
+      "askAnythingAboutThisDocument": "Spør om hva som helst i dette dokumentet...",
+      "askAQuestionAttachmentProcessingFailed": "Still et spørsmål – behandling av vedlegg mislyktes",
+      "extractingText": "Henter ut tekst...",
+      "processingPDF": "Behandler PDF...",
+      "upgradeToProToContinueChatting": "Oppgrader til PRO for å fortsette samtalen",
+      "queryremaining": "{{queriesRemaining}} FORESPØRSEL IGJEN"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Klargjør chat...",
+      "extractingTextFromImage": "Henter ut tekst fra bilde...",
+      "processingPDFDocument": "Behandler PDF-dokument...",
+      "analyzingYourNote": "Analyserer notatet ditt...",
+      "thisUsuallyTakesJustAFew": "⏱️ Dette tar vanligvis bare noen sekunder. Du kan chatte så snart behandlingen er fullført.",
+      "processingFailed": "Behandlingen mislyktes",
+      "fileMightBeCorruptedOrUnreadable": "• Filen kan være skadet eller uleselig",
+      "imageQualityTooLow": "Bildekvaliteten er for lav",
+      "pdfIsPasswordProtected": "PDF-filen er passordbeskyttet",
+      "contentFormatNotSupported": "Filformatet støttes ikke",
+      "networkConnectionIssue": "• Nettverksproblem",
+      "tryADifferentFile": "Prøv en annen fil",
+      "askAnyClinicalQuestionNoUpload": "💡 Still et hvilket som helst klinisk spørsmål – opplasting trengs ikke. Jeg svarer med referanser til medisinsk litteratur, og relevante bilder der det er tilgjengelig.",
+      "readyToChat": "✓ Klar til å chatte",
+      "couldntProcessNote": "Vi kunne ikke behandle dette notatet. Dette kan skyldes:",
+      "couldntProcessImage": "Vi kunne ikke behandle dette bildet. Dette kan skyldes:",
+      "couldntProcessDocument": "Vi kunne ikke behandle dette dokumentet. Dette kan skyldes:",
+      "askMeAboutNote": "💡 Spør meg om hva som helst fra dette notatet. Jeg kan oppsummere, forklare konsepter eller svare på konkrete spørsmål.",
+      "askMeAboutImage": "💡 Spør meg om hva som helst fra dette bildet. Jeg kan oppsummere, forklare konsepter eller svare på konkrete spørsmål.",
+      "askMeAboutDocument": "💡 Spør meg om hva som helst fra dette dokumentet. Jeg kan oppsummere, forklare konsepter eller svare på konkrete spørsmål."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} mestret",
+      "notStarted": "Ikke påbegynt",
+      "quizGeneration": "Quiz-oppretting",
+      "score": "Resultat {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Flashcard-oppretting",
+      "questions": "{{totalCards}} spørsmål · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} spørsmål · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Tenker og henter kilder for deg...",
+      "couldnTGenerateAResponse": "Kunne ikke generere et svar.",
+      "retry": "Prøv igjen",
+      "alsoReferencedFromTheWeb": "Også referert fra nettet",
+      "followUpQuestions": "Oppfølgingsspørsmål"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Spør om hva som helst innen medisin – få kildebelagte fakta basert på ekte forskning",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Evidensbasert · PubMed-kilder · Fagfellevurdert",
+      "tryOutAnyOfThisTopics": "Prøv et av disse emnene for å komme i gang",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolyttforstyrrelser forklart",
+          "question": "Forklar elektrolyttforstyrrelser – årsaker, symptomer og behandling"
+        },
+        "ecg": {
+          "label": "Grunnleggende EKG-tolkning",
+          "question": "Hva er det grunnleggende innen EKG-tolkning?"
+        },
+        "drugInteractions": {
+          "label": "Viktige legemiddelinteraksjoner",
+          "question": "Hvilke vanlige og viktige legemiddelinteraksjoner bør jeg kjenne til?"
+        },
+        "nclex": {
+          "label": "NCLEX-øvingsoppgaver",
+          "question": "Gi meg et NCLEX-lignende øvingsspørsmål"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA-preparatomtale",
+      "fromYourAttachedMaterial": "Fra det vedlagte materialet ditt"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Kunne ikke opprette chat-økt",
+      "failedToInitializeChatSession": "Kunne ikke starte chat-økt",
+      "failedToUpdateLanguage": "Kunne ikke oppdatere språk",
+      "youVeReachedYour3Pin": "Du har nådd grensen på 3 festede elementer",
+      "failedToUpdatePin": "Kunne ikke oppdatere feste",
+      "permissionRequired": "Tillatelse kreves",
+      "pleaseGrantCameraPermissionToTake": "Gi tilgang til kameraet for å ta et bilde.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Gi tilgang til bildebiblioteket for å laste opp bilder.",
+      "failedToUploadImage": "Kunne ikke laste opp bilde",
+      "uploadFailed": "Opplasting mislyktes",
+      "failedToUploadDocument": "Kunne ikke laste opp dokument",
+      "failedToStartChatFromThis": "Kunne ikke starte chat fra denne filen.",
+      "chatFromImage": "Chat fra bilde",
+      "failedToStartANewQuestion": "Kunne ikke starte et nytt spørsmål. Prøv igjen.",
+      "failedToAttachFile": "Kunne ikke legge ved fil",
+      "failedToSendMessage": "Kunne ikke sende melding",
+      "copiedToClipboard": "Kopiert til utklippstavlen",
+      "notEnoughContentYet": "Ikke nok innhold ennå",
+      "chatABitMoreBeforeGenerating": "Chat litt mer før du genererer en quiz (minst 100 tegn).",
+      "chatABitMoreBeforeGenerating2": "Chat litt mer før du genererer flashcards (minst 100 tegn).",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "failedToRegenerateResponse": "Kunne ikke regenerere svar",
+      "failedToRetryResponse": "Kunne ikke prøve svaret på nytt"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Kunne ikke legge ved notat",
+      "folderCreatedSuccessfully": "Mappen «{{name}}» ble opprettet!",
+      "failedToCreateFolder": "Kunne ikke opprette mappe",
+      "failedToAttachDocument": "Kunne ikke legge ved dokument",
+      "failedToCreateChatSession": "Kunne ikke opprette chat-økt",
+      "failedToUploadDocument": "Kunne ikke laste opp dokument",
+      "openingCamera": "📷 Åpner kamera...",
+      "openingImagePicker": "🖼️ Åpner bildevelger...",
+      "permissionRequired": "Tillatelse kreves",
+      "pleaseGrantCameraPermissionToTake": "Gi tilgang til kameraet for å ta et bilde.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Gi tilgang til bildebiblioteket for å laste opp bilder.",
+      "failedToAttachImage": "Kunne ikke legge ved bilde",
+      "failedToUploadImage": "Kunne ikke laste opp bilde",
+      "failedToAttachAudio": "Kunne ikke legge ved lydfil",
+      "failedToUploadAudio": "Kunne ikke laste opp lydfil",
+      "items": "{{itemCount}} elementer",
+      "thisFolderIsEmptyGoBack": "Denne mappen er tom. Gå tilbake for å velge en annen mappe.",
+      "addFolder": "Legg til mappe",
+      "uploadNewDocument": "Last opp nytt dokument",
+      "uploadAPDFAndStartChatting": "Last opp en PDF og start chatten med en gang",
+      "uploadNewImage": "Last opp nytt bilde",
+      "uploadAnImageAndExtractText": "Last opp et bilde og hent ut tekst med en gang",
+      "uploadNewAudio": "Last opp ny lydfil",
+      "uploadAnAudioFileAndTranscribe": "Last opp en lydfil og transkriber den umiddelbart",
+      "orselectfromlibrary": "ELLER VELG FRA BIBLIOTEKET",
+      "folders": "Mapper",
+      "allNotes": "Alle notater",
+      "noFilesToDisplay": "Ingen filer å vise",
+      "noNotesToDisplay": "Ingen notater å vise",
+      "noDocumentsYet": "Du har ingen PDF-dokumenter ennå.\nOpprett noen notater først, og kom tilbake for å chatte med dem.",
+      "noImagesYet": "Du har ingen bilder ennå.\nOpprett noen notater først, og kom tilbake for å chatte med dem.",
+      "noAudioNotesYet": "Du har ingen lydnotater ennå.\nOpprett noen notater først, og kom tilbake for å chatte med dem.",
+      "noNotesYet": "Du har ingen notater ennå.\nOpprett noen notater først, og kom tilbake for å chatte med dem.",
+      "attachNote": "Legg ved notat",
+      "selectNote": "Velg notat",
+      "attachImage": "Legg ved bilde",
+      "selectImage": "Velg bilde",
+      "attachDocument": "Legg ved dokument",
+      "selectDocument": "Velg dokument",
+      "attachAudio": "Legg ved lydfil",
+      "selectAudio": "Velg lydfil",
+      "attachFile": "Legg ved fil",
+      "selectFile": "Velg fil",
+      "aNote": "{{verb}} et notat",
+      "anImage": "{{verb}} et bilde",
+      "aDocument": "{{verb}} et dokument",
+      "audio": "{{verb}} lyd",
+      "aFile": "{{verb}} en fil"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Legg til i chat",
+      "camera": "Kamera",
+      "photos": "Bilder",
+      "files": "Filer",
+      "generateQuiz": "Generer quiz",
+      "generateFlashcards": "Generer flashcards",
+      "searchMedicalLiterature": "Søk i medisinsk litteratur",
+      "filterByDateSourceAndType": "Filtrer etter dato, kilde og type",
+      "pullsRealCitedSourcesIntoYour": "Henter inn ekte, kildehenviste referanser i svarene dine",
+      "trustedmedicalsourcedatabase": "PÅLITELIG MEDISINSK KILDEDATABASE",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA-legemiddel- og behandlingsdata"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Sjekk kilder",
+      "citations": "Kilder",
+      "fromTheWeb": "Fra nettet"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Klar · trykk for å gi nytt navn",
+      "processing": "Behandler {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Vis kilde ↗"
+    },
+    "chatRename": {
+      "renameChat": "Gi nytt navn til chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Se kilder ({{total}})"
+    }
   },
   "languages": {
     "english": "Engelsk",
@@ -397,7 +1046,7 @@
     "malayalam": "Malayalam",
     "marathi": "Marathisk",
     "gujarati": "Gujarati",
-    "punjabi": "Punjabi",
+    "punjabi": "Panjabi",
     "urdu": "Urdu",
     "chineseSimplified": "Kinesisk (forenklet)",
     "chineseTraditional": "Kinesisk (tradisjonell)",
@@ -408,5 +1057,455 @@
     "malay": "Malayisk",
     "indonesian": "Indonesisk",
     "catalan": "Katalansk"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Legg til mappe",
+      "folderName": "Mappenavn",
+      "enterFolderName": "Skriv inn mappenavn",
+      "chooseColor": "Velg farge",
+      "createFolder": "Opprett mappe"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Før vi behandler innholdet ditt",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact bruker AI til å svare på spørsmålene dine og gjøre om innholdet ditt til notater, quizer og flashcards. Dette må du vite:",
+      "whatDataIsSent": "Hvilke data som sendes",
+      "questionsAndMessagesYouTypeIn": "Spørsmål og meldinger du skriver i chatten",
+      "audioRecordingsOrUploadedAudioFiles": "Lydopptak eller opplastede lydfiler",
+      "pdfAndTextDocumentsYouUpload": "PDF- og tekstdokumenter du laster opp",
+      "imagesYouUpload": "Bilder du laster opp",
+      "youTubeVideoURLsAndTheirTranscripts": "Lenker til YouTube-videoer og transkripsjonene deres",
+      "customTextYouEnter": "Egendefinert tekst du skriver inn",
+      "whoReceivesYourData": "Hvem som mottar dataene dine",
+      "howItSUsed": "Hvordan det brukes",
+      "yourContentIsUsedSolelyTo": "Innholdet ditt brukes utelukkende til å generere svaret, notatet, quizen eller flashcardene du ba om. Hver leverandørs egne retningslinjer for databruk gjelder for innhold som behandles via deres API. Se personvernerklæringen vår for mer informasjon.",
+      "iAgreeContinue": "Jeg godtar – Fortsett",
+      "noThanks": "Nei takk",
+      "whoReceivesBody": "Innholdet ditt sendes til <bold>Google (Gemini)</bold> (generering av notater, quizer og flashcards, chat-svar, samt dokument- og bildebehandling) og til <bold>OpenAI</bold> (lydtranskripsjon) via våre sikre backend-servere. Utdrag fra dokumentene dine indekseres også med <bold>Google Vertex AI</bold> slik at chatten kan finne relevante deler. Når direkte medisinsk søk brukes, sendes spørsmålet ditt også til <bold>Tavily</bold> og offentlige medisinske litteraturdatabaser (som PubMed, Europe PMC og Semantic Scholar) for å finne kildehenvisninger fra pålitelige kilder som NIH, CDC, MedlinePlus, WHO og Mayo Clinic. Disse leverandørene behandler dataene dine utelukkende for å generere svaret ditt – de bruker dem ikke til å trene opp sine egne generelle AI-modeller, og vi selger aldri dataene dine til tredjeparter."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Løsne chat",
+      "pinChat": "Fest chat",
+      "deleteChat": "Slett chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Generer flashcards",
+      "createFlashcards": "Opprett flashcards",
+      "createFlashcardsFromToImproveYour": "Lag flashcards fra «{{noteTitle}}» for å huske pensum bedre",
+      "createFlashcardsToImproveYourRetention": "Lag flashcards for å huske pensum bedre",
+      "howManyQuestions": "Hvor mange spørsmål",
+      "generateFlashcards2": "Generer flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Opprett fra chat",
+      "selectFromOneOfYourRecent": "Velg fra en av dine nylige chatter",
+      "pdfOrDocument": "PDF eller dokument",
+      "createFromAudio": "Opprett fra lyd",
+      "image": "Bilde",
+      "createFromCustomText": "Opprett fra egendefinert tekst",
+      "created": "Opprettet {{day}}, {{time}}",
+      "createQuizFrom": "Lag quiz fra",
+      "createFlashcardsFrom": "Lag flashcards fra",
+      "selectFromChat": "Velg fra chat",
+      "noRecentChatsYet": "Ingen nylige chatter ennå",
+      "quizFromPdf": "Lag en quiz fra PDF eller dokument",
+      "flashcardsFromPdf": "Lag et flashcard-sett fra PDF eller dokument",
+      "quizFromAudio": "Lag en quiz fra opplastet lydfil",
+      "flashcardsFromAudio": "Lag et flashcard-sett fra opplastet lydfil",
+      "quizFromImage": "Lag en quiz fra et bilde",
+      "flashcardsFromImage": "Lag et flashcard-sett fra et bilde",
+      "quizFromText": "Lag en quiz fra innhentet tekst",
+      "flashcardsFromText": "Lag et flashcard-sett fra innhentet tekst"
+    },
+    "createNote": {
+      "recordAudio": "Ta opp lyd",
+      "generateANoteFromAnyRecorded": "Generer et notat fra et lydopptak",
+      "uploadAudio": "Last opp lyd",
+      "createANoteFromAnyUploaded": "Opprett et notat fra en opplastet lydfil",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Opprett et notat fra en YouTube-video",
+      "pdfOrDocument": "PDF eller dokument",
+      "createANoteFromPDFOr": "Opprett et notat fra PDF eller dokument",
+      "customText": "Egendefinert tekst",
+      "createANoteFromCapturedText": "Opprett et notat fra innhentet tekst",
+      "image": "Bilde",
+      "createANoteFromAnyImage": "Opprett et notat fra et bilde",
+      "createNote": "Opprett notat"
+    },
+    "createQuiz": {
+      "generateQuiz": "Generer quiz",
+      "createQuiz": "Opprett quiz",
+      "practiceByCreatingQuestionsThatHelp": "Øv på «{{noteTitle}}» ved å lage spørsmål som hjelper deg å mestre temaet",
+      "practiceYourNotesByCreatingQuestions": "Øv på notatene dine ved å lage spørsmål som hjelper deg å mestre temaet",
+      "howManyQuestions": "Hvor mange spørsmål",
+      "timeInMinutes": "Tid (i minutter)"
+    },
+    "deleteNote": {
+      "deleteNote": "Slett notat",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette dette notatet?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Eksporter sammendrag som",
+      "exportTranscriptAs": "Eksporter transkripsjon som",
+      "exportAs": "Eksporter som",
+      "exportSummary": "Eksporter sammendrag",
+      "exportTranscript": "Eksporter transkripsjon"
+    },
+    "exportTypeStep": {
+      "exportNote": "Eksporter notat",
+      "exportSummary": "Eksporter sammendrag",
+      "exportTranscript": "Eksporter transkripsjon"
+    },
+    "exportSettings": {
+      "export": "Eksporter {{title}}",
+      "selectFormat": "Velg format",
+      "includeAnswers": "Inkluder svar",
+      "answersExplanationsIncluded": "Svar og forklaringer er inkludert",
+      "questionsOnly": "Kun spørsmål",
+      "export2": "Eksporter"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Notatet ditt er klart!",
+      "howDidWeDo": "Hvordan gjorde vi det?",
+      "happy": "Fornøyd",
+      "sad": "Misfornøyd",
+      "maybeLater": "Kanskje senere",
+      "whatWentWrong": "Hva gikk galt?",
+      "yourFeedbackHelpsUsImprove": "Tilbakemeldingen din hjelper oss å bli bedre.",
+      "tellUsWhatCouldBeBetter": "Fortell oss hva som kan forbedres ...",
+      "submit": "Send inn"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Ingen innhold tilgjengelig",
+      "clickCardToFlip": "Trykk på kortet for å snu"
+    },
+    "flashcardExport": {
+      "exportFailed": "Eksport mislyktes",
+      "unknownError": "Ukjent feil",
+      "export": "Eksporter {{setTitle}}",
+      "chooseWhatToExport": "Velg hva som skal eksporteres",
+      "exportQuestions": "Eksporter spørsmål",
+      "exportAnswers": "Eksporter svar"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Slett kortsett",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette «{{setTitle}}»?",
+      "failedToDeleteFlashcardSet": "Kunne ikke slette kortsett",
+      "flashcardHistory": "Korthistorikk",
+      "cards": "Kort",
+      "reviewedMastered": "{{cardsReviewedCount}} repetert • {{percentage}} % mestret"
+    },
+    "folders": {
+      "items": "{{itemCount}} elementer",
+      "enterYourFolderName": "Skriv inn mappenavn",
+      "yourFolderName": "Mappenavnet ditt",
+      "createFolder": "Opprett mappe",
+      "folders": "Mapper",
+      "addFolder": "Legg til mappe",
+      "noFoldersToDisplay": "Ingen mapper å vise",
+      "clickTheButtonAboveToCreate": "Trykk på knappen over for å opprette en mappe for notatene dine",
+      "allFolders": "Alle mapper",
+      "items2": "{{totalItems}} elementer"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtre for medisinsk forskning",
+      "howrecentdoyouwantthe": "HVOR NY MÅ KILDEN VÆRE?",
+      "from": "Fra",
+      "whatkindofsourcedoyou": "HVA SLAGS KILDE TRENGER DU?",
+      "textbooks": "Lærebøker",
+      "clinicalGuidelines": "Kliniske retningslinjer",
+      "scientificJournalArticles": "Vitenskapelige tidsskriftartikler",
+      "onlywiththisjournalarticles": "KUN MED DISSE TIDSSKRIFTARTIKLENE",
+      "metaAnalyses": "Metaanalyser",
+      "reviewArticles": "Oversiktsartikler",
+      "clinicalTrials": "Kliniske studier",
+      "fromYear": "Fra år",
+      "toYear": "Til år"
+    },
+    "noteOptions": {
+      "noteOptions": "Notatvalg",
+      "editNote": "Rediger notat",
+      "reTranscribe": "Transkriber på nytt",
+      "chatWithNote": "Chat med notatet",
+      "exportNote": "Eksporter notat",
+      "moveToFolder": "Flytt til mappe",
+      "deleteNote": "Slett notat"
+    },
+    "onboardingTooltip": {
+      "skip": "Hopp over"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Slett quiz",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette «{{quizTitle}}»?",
+      "failedToDeleteQuiz": "Kunne ikke slette quiz",
+      "quizHistory": "Quizhistorikk",
+      "questions": "Spørsmål",
+      "correct": "{{correctAnswers}} riktige"
+    },
+    "referral": {
+      "copied": "Kopiert!",
+      "yourReferralCodeHasBeenCopied": "Vennekoden din er kopiert til utklippstavlen.",
+      "joinMeOnClinicalFactUse": "Bli med på Clinical Fact! Bruk koden min {{referralCode}} – {{appUrl}}",
+      "joined": "Ble med {{joinedDate}}",
+      "referralCode": "Vennekode",
+      "yourReferralCode": "Din vennekode",
+      "shareWithFriendsToEarnRewards": "Del med venner for å få belønninger",
+      "share": "Del",
+      "copyCode": "Kopier kode",
+      "referredFriends": "Vervede venner",
+      "noReferralsYetShareYourCode": "Ingen vervinger ennå. Del koden din for å komme i gang!",
+      "loadMore": "Last inn mer",
+      "howItWorks": "Slik fungerer det",
+      "friendsUseYourCodeDuringSignup": "• Venner bruker koden din når de registrerer seg",
+      "youBothEarnRewardsWhenThey": "• Begge får belønninger når de blir med",
+      "friendsReferredCount": "Venner vervet: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Henter ut tekst...",
+      "transcribingAudio": "Transkriberer lyd...",
+      "processingPDF": "Behandler PDF...",
+      "settingUpChat": "Klargjør chat...",
+      "uploadFailed": "Opplasting mislyktes",
+      "failedToUploadFilePleaseTry": "Kunne ikke laste opp filen. Prøv igjen.",
+      "yourFileIsReadyForChatting": "Filen din er klar for chat!",
+      "uploadingYourFileToTheServer": "Laster opp filen til tjeneren...",
+      "extractingTextFromYourImage": "Henter ut tekst fra bildet...",
+      "transcribingYourAudio": "Transkriberer lyden din...",
+      "extractingTextFromYourPDF": "Henter ut tekst fra PDF-en...",
+      "creatingYourChatSession": "Oppretter samtale...",
+      "pleaseWait": "Vennligst vent...",
+      "uploadFile": "Last opp fil",
+      "processContent": "Behandle innhold",
+      "createChat": "Opprett chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Vis",
+      "export": "📤 Eksporter",
+      "delete": "🗑️ Slett"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Levert av"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-fil",
+      "pdfFile": "PDF-fil",
+      "docFile": "DOC-fil"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Kunne ikke hente notater",
+      "failedToFetchFolders": "Kunne ikke hente mapper",
+      "failedToFetchNote": "Kunne ikke hente notat",
+      "failedToDeleteNote": "Kunne ikke slette notat",
+      "failedToCreateFolder": "Kunne ikke opprette mappe",
+      "failedToDeleteFolder": "Kunne ikke slette mappe"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Kunne ikke slette chat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Flashcard-sett eksportert!",
+      "failedToExportFlashcardSet": "Kunne ikke eksportere flashcard-sett."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quiz eksportert!",
+      "failedToExportQuiz": "Kunne ikke eksportere quiz."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Uten tittel",
+      "failedToLoadFlashcards": "Kunne ikke laste flashcards",
+      "failedToSyncFlashcardSet": "Kunne ikke synkronisere flashcard-sett",
+      "failedToSyncCardUpdate": "Kunne ikke synkronisere kortoppdatering"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Opprettet {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Du har nådd grensen på 3 festede samtaler",
+      "failedToUpdatePin": "Kunne ikke oppdatere festing",
+      "noChatsYet": "Ingen chatter ennå",
+      "startAChatToGetAnswers": "Start en chat for å få svar basert på pålitelige kilder.",
+      "createChat": "+ Ny chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Slett flashcards",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette «{{sourceTitle}}»?",
+      "failedToDeleteFlashcards": "Kunne ikke slette flashcards",
+      "sets": "{{setCount}} sett",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Opprett flashcards",
+      "searchFlashcards": "Søk i flashcards...",
+      "noFlashcardsYet": "Ingen flashcards ennå",
+      "createAFlashcardSetFromA": "Opprett et flashcard-sett fra et notat for å komme i gang",
+      "createSet": "+ Opprett sett",
+      "flashcardOptions": "Alternativer for flashcard",
+      "view": "Vis"
+    },
+    "folder": {
+      "deleteFolder": "Slett mappe",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette «{{name}}»? Notatene inni flyttes til hovedoversikten.",
+      "failedToDeleteFolder": "Kunne ikke slette mappe",
+      "error": "Feil: {{message}}",
+      "noFoldersYetCreateOne": "Ingen mapper ennå. Opprett en!",
+      "folders": "Mapper"
+    },
+    "home": {
+      "created": "Opprettet {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Kunne ikke oppdatere språk",
+      "notEnoughContentYet": "Ikke nok innhold ennå",
+      "chatABitMoreBeforeGenerating": "Chat litt mer før du genererer en quiz (minst 100 tegn).",
+      "chatABitMoreBeforeGenerating2": "Chat litt mer før du genererer flashcards (minst 100 tegn).",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "upgradeToPro": "Oppgrader til PRO",
+      "get80DiscountWhenYouUpgrade": "Få 80 % rabatt når du oppgraderer kontoen din",
+      "unlockPRO": "Lås opp PRO",
+      "noMedicalChats": "Ingen medisinske chatter",
+      "youHaveNotCreatedAnyMedical": "Du har ikke opprettet noen medisinske chatter ennå. Start en ny chat for å få kildebelagte svar",
+      "talkToClinicalfactAI": "Snakk med Clinical Fact AI",
+      "jumpInWhereYouStopped": "Fortsett der du slapp",
+      "practiceQuiz": "Øvingsquiz",
+      "makeFlashcards": "Lag flashcards",
+      "continueChatWithNote": "Fortsett chat med notat",
+      "continueChat": "Fortsett chat",
+      "recentChats": "Nylige chatter",
+      "chatOptions": "Chat-alternativer"
+    },
+    "library": {
+      "text": "{{day}}. {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Du er frakoblet. Koble til internett for å utføre denne handlingen.",
+      "failedToDeleteNote": "Kunne ikke slette notat",
+      "failedToMoveNote": "Kunne ikke flytte notat",
+      "deleteFolder": "Slette mappen?",
+      "areYouSureNotesInsideWill": "Er du sikker? Notatene i mappen slettes ikke, men flyttes til «Alle notater».",
+      "failedToDeleteFolder": "Kunne ikke slette mappen",
+      "library": "Bibliotek",
+      "addFolder": "Ny mappe",
+      "searchForANoteFolder": "Søk etter notat eller mappe",
+      "yourFolders": "Dine mapper",
+      "noFoldersToDisplay": "Ingen mapper å vise",
+      "tapAddFolderToCreateA": "Trykk på «+ Ny mappe» for å opprette en mappe til notatene dine",
+      "allNotes": "Alle notater",
+      "items": "{{allNotesTotal}} elementer",
+      "items2": "{{itemCount}} elementer",
+      "yourNotes": "Dine notater",
+      "untitledNote": "Uten tittel",
+      "noResultsFor": "Ingen resultater for «{{searchQuery}}»",
+      "noNotesInThisFolder": "Ingen notater i denne mappen",
+      "noNotesToDisplay": "Ingen notater å vise",
+      "tryADifferentSearchTerm": "Prøv et annet søkeord",
+      "moveNotesToThisFolderTo": "Flytt notater til denne mappen for å se dem her",
+      "clickBelowToGenerateYourNote": "Trykk nedenfor for å opprette notatet ditt med Clinical Fact",
+      "filterByType": "Filtrer etter type",
+      "audio": "Lyd",
+      "text2": "Tekst",
+      "image": "Bilde",
+      "clearFilter": "Tøm filter"
+    },
+    "profile": {
+      "permissionRequired": "Tillatelse kreves",
+      "pleaseAllowAccessToYourPhoto": "Gi tilgang til bildebiblioteket ditt for å velge et profilbilde.",
+      "uploadFailed": "Opplasting mislyktes",
+      "couldNotUpdateProfilePicture": "Kunne ikke oppdatere profilbildet.",
+      "failedToUploadProfilePicture": "Kunne ikke laste opp profilbilde.",
+      "checkOutClinicalFactAIPowered": "Sjekk ut Clinical Fact – AI-drevne studienotater! {{url}}",
+      "proSubscriber": "PRO-abonnent",
+      "subscriptionExpired": "Abonnementet er utløpt",
+      "freeSubscriber": "Gratisbruker",
+      "tapToManageIPhoneSettingsApple": "Trykk for å administrere · iPhone-innstillinger → Apple-ID → Abonnementer",
+      "tapToManagePlayStoreSubscriptions": "Trykk for å administrere · Play Butikk → Abonnementer",
+      "tapToRenewYourSubscription": "Trykk for å fornye abonnementet",
+      "tapToUpgradeToPro": "Trykk for å oppgradere til PRO",
+      "referralCode": "Vervekode",
+      "areYouSureYouWantTo": "Er du sikker på at du vil logge ut av kontoen din?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Slett quiz",
+      "areYouSureYouWantTo": "Er du sikker på at du vil slette «{{sourceTitle}}»?",
+      "failedToDeleteQuiz": "Kunne ikke slette quiz",
+      "correct": "{{correct}}/{{total}} riktige",
+      "attempts": "{{attempts}} forsøk",
+      "quiz": "Quiz",
+      "createQuiz": "Opprett quiz",
+      "searchQuizzes": "Søk i quizer...",
+      "noQuizzesYet": "Ingen quizer ennå",
+      "createAQuizFromANote": "Opprett en quiz fra et notat for å komme i gang",
+      "createQuiz2": "+ Opprett quiz",
+      "quizOptions": "Quiz-alternativer",
+      "view": "Vis"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Oppgradering utilgjengelig",
+      "weCouldnTOpenTheUpgrade": "Kunne ikke åpne oppgraderingssiden akkurat nå. Sjekk internettforbindelsen og prøv igjen."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Serveren returnerte et ikke-JSON-svar ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Nettverksfeil. Sjekk internettforbindelsen din.",
+      "connectionErrorPleaseTryAgain": "Tilkoblingsfeil. Prøv igjen."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fil eksportert: {{filename}}",
+      "exportFailed": "Eksport mislyktes",
+      "exportFormat": "Eksportformat",
+      "chooseFormat": "Velg format",
+      "text": "Tekst"
+    },
+    "formatDate": {
+      "justNow": "Akkurat nå",
+      "minAgo": "for {{diffMin}} min siden",
+      "hrAgo": "for {{diffHr}} t siden",
+      "dAgo": "for {{diffDay}} d siden",
+      "created": "Opprettet {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Kunne ikke sende engangskode",
+      "invalidOTP": "Ugyldig engangskode",
+      "failedToVerifyOTP": "Kunne ikke verifisere engangskode",
+      "googleAuthenticationFailed": "Google-autentisering mislyktes",
+      "appleAuthenticationFailed": "Apple-autentisering mislyktes",
+      "failedToCompleteSignup": "Kunne ikke fullføre registreringen",
+      "failedToSkipSignup": "Kunne ikke hoppe over registreringen"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Samtaler",
+      "description": "Chat med notater, dokumenter eller PDF-filer – alt på ett sted"
+    },
+    "profileWelcome": {
+      "heading": "Velkommen til profilen din",
+      "description": "Dette er profilen din. Trykk her for å gjøre endringer og se abonnementsstatus"
+    },
+    "createNotes": {
+      "heading": "Opprett notat",
+      "description": "Lag notater fra hva som helst: Lydopptak, video, bilder, tekst og YouTube-lenker"
+    },
+    "changeLanguage": {
+      "heading": "Endre språk",
+      "description": "Endre språket i appen herfra til ønsket språk"
+    },
+    "manageHome": {
+      "heading": "Administrer Hjem",
+      "description": "Se alle opprettede notater og hold oversikt over handlingene dine på ett sted"
+    },
+    "yourLibrary": {
+      "heading": "Biblioteket ditt",
+      "description": "Administrer notatene dine, lag mapper og mer"
+    },
+    "yourProfile": {
+      "heading": "Profilen din",
+      "description": "Se all profilinformasjon og administrer innstillingene dine herfra"
+    }
   }
 }

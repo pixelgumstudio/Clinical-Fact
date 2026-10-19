@@ -114,15 +114,15 @@ export const QuizReviewScreen = () => {
         console.log('Parsed answers:', answersData);
         setParsedAnswers(answersData);
       } else {
-        const errorMsg = 'Failed to load quiz data - invalid response format';
+        const errorMsg = t('quiz.quizReview.failedToLoadQuizDataInvalid');
         console.error(errorMsg, response);
         setError(errorMsg);
       }
     } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : 'Failed to load quiz data';
+      const errorMsg = error instanceof Error ? error.message : t('quiz.quizReview.failedToLoadQuizData');
       console.error('Error fetching quiz data:', error);
       setError(errorMsg);
-      Alert.alert('Error', errorMsg);
+      Alert.alert(t('common.error'), errorMsg);
     } finally {
       setIsLoading(false);
     }
@@ -191,13 +191,13 @@ export const QuizReviewScreen = () => {
         </View>
         <View style={styles.centerContainer}>
           <Text style={styles.errorText}>
-            {error || 'No content available'}
+            {error || t('quiz.quizReview.noContentAvailable')}
           </Text>
           <TouchableOpacity
             style={[styles.goToNotesButton, { marginTop: theme.spacing[4] }]}
             onPress={handleGoBack}
           >
-            <Text style={styles.goToNotesButtonText}>Go Back</Text>
+            <Text style={styles.goToNotesButtonText}>{t('quiz.quizReview.goBack')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -300,7 +300,7 @@ export const QuizReviewScreen = () => {
             ]}
           >
             <Text style={[styles.navButtonText, currentQuestionIndex === 0 && styles.navButtonTextDisabled]}>
-              Previous
+             {t('quiz.quizReview.previous')}
             </Text>
           </TouchableOpacity>
 
@@ -313,7 +313,7 @@ export const QuizReviewScreen = () => {
             ]}
           >
             <Text style={[styles.navButtonText, currentQuestionIndex === totalQuestions - 1 && styles.navButtonTextDisabled]}>
-              Next
+             {t('common.next')}
             </Text>
           </TouchableOpacity>
         </View>

@@ -14,7 +14,9 @@
     "next": "下一步",
     "done": "完成",
     "search": "搜索",
-    "filter": "筛选"
+    "filter": "筛选",
+    "ok": "确定",
+    "info": "信息"
   },
   "home": {
     "title": "Clinical Fact",
@@ -25,7 +27,7 @@
     "recentNotes": "最近的笔记",
     "seeAll": "查看全部",
     "noNotes": "没有笔记可显示",
-    "noNotesDesc": "请点击上方按钮开始\n为clinicalfact生成您的笔记。",
+    "noNotesDesc": "请点击上方按钮，\n开始生成你的 Clinical Fact 笔记。",
     "loadingNotes": "正在加载笔记..."
   },
   "profile": {
@@ -68,10 +70,19 @@
     "upgradePlan": "升级计划",
     "everyWeek": "每周",
     "everyMonth": "每月",
-    "everyYear": "每年"
+    "everyYear": "每年",
+    "expired": "已过期",
+    "reportBug": "反馈问题",
+    "active": "生效中",
+    "trial": "试用期"
   },
   "auth": {
-    "welcome": "欢迎使用Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Google 登录失败",
+      "failedToAuthenticateWithServer": "服务器身份验证失败",
+      "googleSignInIsOnlyAvailable": "Google 登录仅支持原生应用。请使用邮箱登录或下载原生 App。",
+      "code": "{{message}} (错误码: {{code}})"
+    },
     "getStarted": "开始使用",
     "signIn": "登录",
     "signUp": "注册",
@@ -83,12 +94,316 @@
     "didntGetCode": "没有收到验证码？",
     "resendCode": "重新发送验证码",
     "resendIn": "重新发送于",
-    "enterVerificationCode": "请输入完整的验证码"
+    "enterVerificationCode": "请输入完整的验证码",
+    "languageSelect": {
+      "title": "选择语言",
+      "subtitle": "选择您想在应用中使用的语言。之后可在个人资料中随时更改。",
+      "searchPlaceholder": "搜索语言",
+      "noResults": "未找到相关语言"
+    },
+    "buttons": {
+      "continue": "继续",
+      "continueWithEmail": "通过邮箱继续",
+      "continueWithGoogle": "通过 Google 继续",
+      "continueWithApple": "通过 Apple 继续",
+      "skip": "跳过",
+      "verify": "验证成功！",
+      "next": "下一步",
+      "tryNow": "立即免费体验 Clinical Fact"
+    },
+    "labels": {
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@用户名",
+      "referralCode": "推荐码",
+      "nameScreenTitle": "您的姓名",
+      "byAgree": "继续即表示您同意我们的",
+      "termsAndConditions": "服务条款",
+      "privacyPolicy": "隐私政策",
+      "and": "和"
+    },
+    "placeholders": {
+      "enterEmail": "输入您的邮箱地址",
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@用户名",
+      "referralCode": "例如 JOHN 或 TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "请输入有效的邮箱地址",
+      "emailRequired": "请输入您的邮箱地址",
+      "firstLastNameRequired": "请输入您的姓氏和名字",
+      "usernameRequired": "请输入用户名",
+      "usernameLength": "用户名需为 3-20 个字符（仅限字母、数字和下划线）",
+      "usernameTaken": "该用户名已被使用，请换一个试试。",
+      "usernameCheckFailed": "检查用户名可用性失败",
+      "usernameError": "检查用户名出错，请检查网络连接。",
+      "invalidOTP": "验证码无效，请核对后重试。",
+      "otpExpired": "验证码已过期，请重新获取。",
+      "otpRequired": "请输入完整的验证码",
+      "referralNotFound": "未找到该推荐码，请检查拼写后重试。",
+      "referralValidateFailed": "验证推荐码失败，请重试。",
+      "referralApplyFailed": "应用推荐码失败，请重试。",
+      "codeSendFailed": "发送验证码失败，请重试。",
+      "resendCodeFailed": "重新发送验证码失败，请重试。",
+      "signInFailed": "登录失败",
+      "googleSignInFailed": "Google 登录失败",
+      "googleTokenFailed": "处理 Google 令牌失败",
+      "googleAccessTokenFailed": "获取访问令牌失败，请重试。",
+      "authTokenFailed": "获取认证令牌失败，请重试。",
+      "googleStartFailed": "启动 Google 登录失败，请重试。",
+      "setupRequired": "需要配置",
+      "googleOAuthMissing": "Google 登录需要 OAuth 客户端 ID。\\n\\n请在 .env 文件中添加相关凭据。",
+      "youCanStillUseEmail": "您仍可以使用“通过邮箱继续”。",
+      "appleSignInFailed": "Apple 登录失败",
+      "appleTokenFailed": "处理 Apple 令牌失败",
+      "appleIosOnly": "Apple 登录仅在 iOS 设备上可用。"
+    },
+    "messages": {
+      "signingIn": "正在登录...",
+      "codeValid": "✓ 验证码有效",
+      "signupFailed": "注册未能完成",
+      "setupFailed": "设置未能完成，请重试。"
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact：更高效的临床笔记，从这里开始",
+      "tagline": "将任意文本转化为完美笔记",
+      "description": "将音频、文档或视频转化为清晰且可检索的笔记，并快速生成测验、抽认卡与总结。",
+      "createAccountTitle": "创建账号",
+      "orSignUpWith": "或通过以下方式注册",
+      "signUpWithEmail": "使用邮箱注册",
+      "signInWithEmail": "使用邮箱登录",
+      "alreadyHaveAccount": "已有账号？",
+      "dontHaveAccount": "还没有账号？"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "随时提问医学问题，获取权威临床依据",
+        "description": "提出任何医学问题，获得由 PubMed、临床指南和权威医学文献真实引用的可靠解答。"
+      },
+      "slide2": {
+        "headline": "每个解答，皆有据可查",
+        "description": "绝无揣测，绝不捏造，每个答案均链接至真实、可核对的医学研究文献。"
+      },
+      "slide3": {
+        "headline": "高效备考，轻松通过医学考试",
+        "description": "数秒内将任何问题或上传资料转化为测验或抽认卡，紧密围绕所学内容开展针对性练习。"
+      }
+    },
+    "otp": {
+      "title": "验证你的电子邮箱",
+      "subtitle": "请输入发送至你邮箱的验证码"
+    },
+    "professionalDeclaration": {
+      "title": "专业声明",
+      "subtitle": "Clinical Fact 是一款教育类文献检索工具",
+      "disclaimerIntro": "Clinical Fact 是一款基于人工智能的信息工具，旨在帮助护理学、临床医学及其他健康科学专业的学生获取医学知识、研究文献和学习资料。本应用不提供医学诊断、治疗建议、临床指导或针对具体患者的医疗建议，严禁作为直接患者护理或临床决策的依据。",
+      "disclaimerHeading": "Clinical Fact 如何生成解答：",
+      "disclaimerBody": "Clinical Fact 直接从权威医学与科学来源（包括 PubMed、Semantic Scholar 和 FDA 官方药物标签）检索信息，并使用 AI 以通俗易懂的语言对检索到的内容进行总结和阐释。每个解答仅根据针对该具体问题检索到的来源生成，并且引用均链接回原始文献，方便你自行核对。Clinical Fact 不会凭记忆生成医学事实，也不会捏造文献来源。\n\nClinical Fact 不是诊断工具、治疗平台或医疗器械，也不能替代专业的医学判断、执业指导或所在院校的教学大纲。本应用生成的任何信息（包括解答、引用、测验和抽认卡）仅供一般教育和学习参考，在将其应用于任何学术、临床或专业环境之前，用户必须独立进行核实。\nClinical Fact 不保证所提供任何信息的完整性、准确性或最新临床适用性。医学知识不断更新发展——请务必与授课导师、临床带教老师及最新一手文献交叉核对关键信息。\n当你上传自己的文档、笔记或录音时，Clinical Fact 仅根据上传的内容生成解答、总结、测验和抽认卡，不会结合外部来源，除非明确同时展示了外部来源。\n\nClinical Fact 不会核实、认证或确认用户的身份、在读状态或专业资质。本应用不得用于紧急情况或用于做出实时临床决策。\n继续操作即表示你理解这些条款，并同意仅将 Clinical Fact 作为学习和参考辅助工具使用。",
+      "checkboxLabel": "我已知晓本应用仅供教育参考，不提供医疗建议",
+      "acceptButton": "接受并继续"
+    },
+    "survey": {
+      "role": "{{firstName}}，哪项最符合你的身份？",
+      "currentMethod": "目前你通常如何查找医学问题的答案？",
+      "timeDrain": "什么最消耗你的时间？",
+      "appExpectation": "你对 Clinical Fact 医学应用有什么期待？",
+      "aiToolsUsed": "目前你在医学学习或研究中用过哪些 AI 工具？",
+      "aiToolIssue": "使用这些工具时遇到了什么问题？",
+      "aiTrustLevel": "你经常担心 AI 的回答可能出错吗？",
+      "biggestNeed": "目前你最需要什么？",
+      "studyTimePerWeek": "你每周有多少学习时间？",
+      "comingUp": "你近期有什么重要安排？",
+      "referralSource": "你从哪里了解到 Clinical Fact 的？"
+    },
+    "onboarding": {
+      "username": "来设置你的用户名吧",
+      "usernameSubtitle": "这能让你的账号更具个性化",
+      "goals": "你希望用 Clinical Fact\\n来协助完成什么？",
+      "goalsSubtitle": "可多选。我们将为你量身打造使用体验。",
+      "contentType": "你平时主要使用\\n哪类学习内容？",
+      "contentTypeSubtitle": "可多选。这有助于我们为你定制专属体验。",
+      "reviewStyle": "你喜欢如何复习\\n所学内容？",
+      "reviewStyleSubtitle": "选择你偏好的复习方式。",
+      "frustration": "{{firstName}}，记笔记时最让你头疼的是什么？",
+      "frustrationSubtitle": "可多选。这有助于我们帮你解决问题。",
+      "referral": "冒昧问一下\\n{{firstName}}，\\n你是从哪里得知 Clinical Fact 的？",
+      "referralSubtitle": "请选择一项。"
+    },
+    "referralScreen": {
+      "title": "有人向你推荐过\\n本应用吗？",
+      "subtitle": "如果有，请输入对方的推荐码"
+    },
+    "setup": {
+      "preparingNotes": "正在准备笔记",
+      "preparingFlashcards": "正在准备抽认卡",
+      "preparingQuiz": "正在准备测验模板",
+      "preparingChat": "正在准备对话助手",
+      "title": "正在为你配置个性化\\n工作空间，{{firstName}}..."
+    },
+    "thanks": {
+      "title": "感谢你对 Clinical Fact 的信任",
+      "subtitle": "你已加入成千上万名医护学生的行列",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "掌握所学内容\\n所需的一切工具",
+      "subtitle": "记录。检索。测验。掌握。",
+      "everythingYouNeedToLearnAnything": "助你掌握一切所需知识",
+      "recordItResearchItQuizIt": "随手记录，深入探究，测验自查，全面掌握。",
+      "tryClinicalFactNowForFree": "立即免费体验 Clinical Fact"
+    },
+    "features": {
+      "feature1": {
+        "title": "获取真实医学解答与延伸追问",
+        "description": "提问任何医学问题，即可获得清晰解析和智能追问建议，让你的学习思路永不卡壳。"
+      },
+      "feature2": {
+        "title": "每个医学解答，\n均有权威文献支持",
+        "description": "引文出自 PubMed、Semantic Scholar 和 Europe PMC，真实可查，绝非捏造。"
+      },
+      "feature3": {
+        "title": "上传笔记，获取专属医学知识总结",
+        "description": "将课件幻灯片、PDF 或笔记转化为由权威医学来源支持的清晰解读。"
+      },
+      "feature4": {
+        "title": "将对话转换为测验或抽认卡进行练习",
+        "description": "无需另用学习软件，直接根据对话和上传的资料生成练习题。"
+      },
+      "feature5": {
+        "title": "将对话或文档转化为抽认卡习题进行练习",
+        "description": "无需另用学习软件，直接根据对话和上传的资料生成练习题。"
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "开启通知",
+      "thisHelpsUsStayOnTrack": "这有助于我们为你提供个性化体验，并帮你更高效地查找医学解答"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "验证码无效，请重试。",
+      "failedToResendCodePleaseTry": "验证码发送失败，请重试。",
+      "confirmYourEmailAddress": "验证你的邮箱地址",
+      "enterCodeSentTo": "请输入发送至 {{email}} 的验证码",
+      "resendCodeIn": "{{seconds}} 秒后重新发送"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "有人向你推荐了吗？",
+      "enterTheirReferralCodeIfYou": "如果有，请输入对方的推荐码",
+      "eGJOHNOrTECHBRO": "例如：JOHN 或 TECHBRO",
+      "codeIsValid": "✓ 推荐码有效"
+    },
+    "resultsChart": {
+      "getBetterResults": "取得更理想的成绩",
+      "over95OfClinicalfactUsersScore": "超过 95% 的 Clinicalfact 用户在测验和考试中取得 95% 及以上的优异成绩"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "护理专业学生",
+        "medicalStudent": "医学生",
+        "paPharmacyStudent": "助理医师 (PA) 或药学专业学生",
+        "practicingNurse": "执业护士",
+        "practicingPhysician": "执业医师",
+        "otherHealthcareProfessional": "其他医护专业人员"
+      },
+      "currentMethod": {
+        "textbooksNotes": "教材或课堂笔记",
+        "flashcardQuizApps": "抽认卡或刷题 App",
+        "youtube": "YouTube",
+        "aiChatbots": "AI 聊天助手",
+        "colleagueClassmate": "向同事或同学请教",
+        "practiceQuestionBanks": "模拟练习题库"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "从零制作抽认卡和测验",
+        "findingTrustworthyAnswer": "快速查找可靠的临床解答",
+        "reReadingNotes": "重读记不住的笔记",
+        "switchingApps": "在多个 App 之间来回切换",
+        "chartingDocumentation": "书写病历与医疗文书"
+      },
+      "appExpectation": {
+        "noHallucination": "不会出现“幻觉”的 AI",
+        "realCitations": "标明真实可靠的文献来源",
+        "oneApp": "一个 App 搞定，无需订阅多个工具",
+        "explainsWhy": "讲透“为什么”，而不只是给答案"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google 搜索",
+        "otherApps": "其他 App"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "胡编乱造（幻觉）",
+        "notMedicalContent": "非针对医学专业内容设计",
+        "noSources": "无法核对参考来源",
+        "tooGeneric": "内容太泛，不贴合考点或临床实际"
+      },
+      "aiTrustLevel": {
+        "everyTime": "每次都相信",
+        "sometimes": "有时相信",
+        "rarely": "很少相信",
+        "dontUseAi": "我目前还没用过 AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "快速获取值得信赖的答案",
+        "quizzesFlashcardsWithoutWork": "一键生成测验与抽认卡，无需手动制作",
+        "rememberingStudied": "帮助巩固并记住学过的知识",
+        "medicalCitations": "医学文献引用参考",
+        "allOfTheAbove": "以上全部"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "简报/通讯",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "其他"
+      },
+      "studyTime": {
+        "under5Hours": "5小时以下",
+        "510Hours": "5–10小时",
+        "1020Hours": "10–20小时",
+        "20PlusHours": "20小时以上"
+      },
+      "comingUp": {
+        "medicalExams": "医学考试",
+        "clinicalRotations": "临床实习/轮转",
+        "nursingExams": "护理考试",
+        "otherExams": "其他考试",
+        "staySharp": "仅想保持专业敏锐度"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "笔记转录",
+    "noteTranscript": {
+      "noteTranscript": "笔记转写文本",
+      "noNoteIDProvided": "未提供笔记 ID",
+      "noTranscriptAvailableForThisNote": "此笔记暂无转写文本。",
+      "thisNoteWasNotCreatedFrom": "此笔记非由音频/视频生成，因此没有转写文本。",
+      "failedToLoadNote": "加载笔记失败",
+      "noteTranscript2": "笔记转写",
+      "loadingTranscript": "正在加载转写文本...",
+      "goToNote": "查看笔记"
+    },
     "noteOptions": "笔记选项",
-    "editNote": "编辑笔记",
+    "editNote": {
+      "pleaseEnterANoteTitle": "请输入笔记标题",
+      "failedToUpdateNote": "更新笔记失败",
+      "noteUpdatedSuccessfully": "笔记更新成功",
+      "editNote": "编辑笔记",
+      "noteTitle": "笔记标题",
+      "enterNoteTitle": "输入笔记标题",
+      "noteContent": "笔记内容",
+      "enterNoteContent": "输入笔记内容",
+      "saveThisNote": "保存笔记",
+      "aiIsGeneratingYourNote": "AI 正在生成笔记",
+      "largeAudioAndVideoFilesMay": "音视频文件较大时可能需要处理几分钟，请保持应用开启。"
+    },
     "retranscribe": "重新转录",
     "exportNote": "导出笔记",
     "shareNoteLink": "分享笔记链接",
@@ -110,12 +425,89 @@
     "translate": "翻译",
     "addToFolder": "添加到文件夹",
     "loadingNote": "正在加载笔记...",
-    "noteNotFound": "加载笔记失败"
+    "noteNotFound": "加载笔记失败",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "生成抽认卡失败",
+      "anUnexpectedErrorOccurred": "发生意外错误",
+      "history": "历史记录",
+      "export": "导出"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "添加笔记至文件夹失败",
+      "folderNotFound": "未找到文件夹",
+      "addNote": "+ 添加笔记",
+      "noNotesInThisFolder": "此文件夹下暂无笔记",
+      "moveNotesToThisFolderTo": "将笔记移动到此文件夹后即可在此查看",
+      "addNoteToFolder": "添加笔记至文件夹",
+      "noNotesAvailableToAdd": "没有可添加的笔记",
+      "allYourNotesAreAlreadyIn": "你的所有笔记均已在此文件夹中",
+      "created": "创建于 {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "加载笔记失败",
+      "reTranscribeNote": "重新转写笔记",
+      "thisWillReTranscribeTheAudio": "这将重新转写音频并更新笔记。是否继续？",
+      "reTranscribe": "重新转写",
+      "noteReTranscribedSuccessfully": "笔记重新转写成功",
+      "info": "信息",
+      "reTranscriptionFeatureIsComingSoon": "重新转写功能即将推出",
+      "youAreCurrentlyOfflinePleaseConnect": "你当前处于离线状态。请连接网络后再执行此操作。",
+      "failedToDeleteNote": "删除笔记失败",
+      "failedToExportNote": "导出笔记失败",
+      "noteTranslatedSuccessfully": "笔记翻译成功",
+      "failedToTranslateNote": "翻译笔记失败",
+      "noteMovedTo": "笔记已移至 {{name}}",
+      "failedToMoveNoteToFolder": "移动笔记至文件夹失败",
+      "summaryNotes": "要点总结",
+      "loadingNote": "正在加载笔记...",
+      "imageNote": "图片笔记",
+      "created": "创建于 {{dateTime}}",
+      "translate": "翻译",
+      "transcribe": "转录",
+      "editThisNote": "编辑此笔记",
+      "createFlashcards": "生成抽认卡",
+      "createFlashcardsToImproveYourRetention": "制作抽认卡，巩固记忆效果",
+      "createQuizQuestions": "生成测验题目",
+      "practiceYourNotesByCreatingQuestions": "通过生成测验练习笔记内容，掌握核心知识点"
+    },
+    "sharedNote": {
+      "notFound": "未找到",
+      "thisSharedNoteLinkIsInvalid": "该共享笔记链接无效或已过期。",
+      "failedToLoadSharedNote": "加载共享笔记失败。",
+      "saved": "已保存！",
+      "noteHasBeenAddedToYour": "笔记已添加到你的资料库。",
+      "viewInLibrary": "在资料库中查看",
+      "stayHere": "留在当前页",
+      "failedToSaveNote": "保存笔记失败。",
+      "loadingSharedNote": "正在加载共享笔记...",
+      "sharedNote": "共享笔记",
+      "sharedWithYou": "与你共享",
+      "savedToLibrary": "已保存至资料库",
+      "saveToMyLibrary": "保存到我的资料库"
+    }
   },
   "create": {
     "selectOption": "您想如何创建笔记？",
-    "recordAudio": "录制音频",
-    "uploadAudio": "上传音频",
+    "recordAudio": {
+      "permissionRequired": "需要权限",
+      "pleaseGrantMicrophonePermissionToRecord": "请授予麦克风权限以录制音频。",
+      "failedToRequestMicrophonePermission": "请求麦克风权限失败",
+      "created": "创建于 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "正在录制音频",
+      "recordAudio": "录制音频",
+      "createANoteFromAnyRecorded": "通过录音生成笔记",
+      "recording": "录音中（{{time}}）",
+      "recordAgain": "重新录制"
+    },
+    "uploadAudio": {
+      "created": "创建于 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "选取音频文件失败",
+      "uploadAudio": "上传音频",
+      "createANoteFromAnyUploaded": "通过上传的音频生成笔记",
+      "dragDropFilesOrBrowse": "拖放文件或点击浏览",
+      "supportedFormatMp4WavMp3": "支持的格式：mp4、wav、mp3",
+      "changeFile": "更换文件"
+    },
     "youtube": "YouTube视频",
     "pdfDocument": "PDF或文档",
     "customText": "自定义文本",
@@ -123,7 +515,56 @@
     "uploadingFile": "正在上传文件到服务器...",
     "transcribing": "正在将语音转换为文本...",
     "extractingText": "正在提取文本...",
-    "generatingNote": "正在创建AI学习笔记...",
+    "generatingNote": {
+      "uploadAudio": "上传音频",
+      "uploadingAudioFileToServer": "正在上传音频文件到服务器...",
+      "transcribeAudio": "转录音频",
+      "convertingSpeechToText": "正在进行语音转文字...",
+      "generateYourNote": "生成笔记",
+      "creatingStudyNotes": "正在生成学习笔记...",
+      "uploadPDF": "上传 PDF",
+      "uploadingPDFDocumentToServer": "正在上传 PDF 文档到服务器...",
+      "extractText": "提取文本",
+      "readingAndExtractingTextFromPDF": "正在读取并提取 PDF 中的文本...",
+      "uploadImage": "上传图片",
+      "uploadingImageToServer": "正在上传图片到服务器...",
+      "extractTextOCR": "提取文字（OCR）",
+      "recognizingAndExtractingTextFromImage": "正在识别并提取图片中的文字...",
+      "fetchVideo": "获取视频",
+      "connectingToYouTube": "正在连接到 YouTube...",
+      "extractTranscript": "提取字幕文本",
+      "downloadingVideoTranscript": "正在下载视频字幕文本...",
+      "processText": "处理文本",
+      "analyzingYourContent": "正在分析您的内容...",
+      "uploadFile": "上传文件",
+      "uploadingToServer": "正在上传至服务器...",
+      "processContent": "处理内容",
+      "extractingContent": "正在提取内容...",
+      "noteReady": "笔记已生成！",
+      "noteGenerationFailedOnTheServer": "服务器生成笔记失败。",
+      "failedToUploadImage": "图片上传失败",
+      "weCouldNotReadAnythingFrom": "未能识别该图片中的内容。请尝试上传更清晰的医学笔记图片。",
+      "preparingFile": "正在准备文件...",
+      "almostDone": "即将完成...",
+      "untitledNote": "无标题笔记",
+      "failedToGenerateNote": "笔记生成失败",
+      "whoaSpeedy": "慢一点，太快啦！🏃💨",
+      "youReGeneratingContentABit": "您的内容生成频率过快。请稍候 60 秒再试，让我们的 AI 稍作缓冲。",
+      "gotIt": "我知道了",
+      "fileTooLarge": "文件过大",
+      "yourFileExceedsThe15MBLimit": "您的文件超出了免费用户的 15MB 限制。升级至 PRO 即可上传最大 100MB 的授课音频/文件。",
+      "upgradeToPRO": "升级至 PRO",
+      "oopsWeHitASnag": "抱歉，出了点小问题 🚧",
+      "weCouldnTGenerateThatRight": "当前无法生成该内容。请稍候再试！",
+      "processingContent": "正在处理内容...",
+      "generatingYourNote": "正在生成您的笔记...",
+      "audioNote": "语音笔记",
+      "failedToGenerateFlashcards": "抽认卡生成失败",
+      "generatingNote": "正在生成笔记",
+      "pleaseKeepThisScreenOpenWhile": "生成笔记期间请保持在此页面。大文件转写可能需要几分钟时间。",
+      "goToNote": "查看笔记",
+      "generateNoteTranscript": "生成笔记转写文本"
+    },
     "fetchingVideo": "正在连接YouTube...",
     "processingText": "正在分析您的内容...",
     "uploadAudioTitle": "上传音频",
@@ -133,7 +574,63 @@
     "fetchVideo": "获取视频",
     "extractTranscript": "提取转录",
     "processText": "处理文本",
-    "generateNote": "生成您的笔记"
+    "generateNote": "生成您的笔记",
+    "customTextInput": {
+      "customText": "自定义文本",
+      "createANoteFromAnyCustom": "从任意自定义文本创建笔记",
+      "enterText": "输入文本",
+      "enterYourTextHere": "在此输入您的文本..."
+    },
+    "uploadImage": {
+      "created": "创建于 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "需要权限",
+      "pleaseAllowAccessToYourPhoto": "请允许访问您的照片图库",
+      "failedToPickImage": "选择图片失败",
+      "uploadImage": "上传图片",
+      "createANoteFromAnyUploaded": "从上传的图片创建笔记",
+      "dragDropFilesOrBrowse": "拖拽文件至此处或浏览上传",
+      "supportedFormatPngJpegHeicWebp": "支持的格式：png、jpeg、heic、webp",
+      "changeFile": "更改文件"
+    },
+    "uploadPDF": {
+      "created": "创建于 {{year}}年{{month}}{{day}}日 {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "选择文档失败",
+      "uploadPdf": "上传 PDF",
+      "createANoteFromAnyUploaded": "从上传的 PDF 创建笔记",
+      "dragDropFilesOrBrowse": "拖拽文件至此处或浏览上传",
+      "supportedFormatPdf": "支持的格式：pdf",
+      "changeFile": "更改文件"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "正在获取视频",
+      "gettingVideoDetails": "正在获取视频详情",
+      "extractingTranscript": "正在提取字幕文本",
+      "convertingAudioToText": "正在将音频转为文本",
+      "generatingYourNote": "正在生成您的笔记",
+      "aiIsSummarisingTheContent": "AI 正在总结内容",
+      "noteGenerationFailedPleaseTryAgain": "笔记生成失败，请重试。",
+      "processingFailed": "处理失败",
+      "goBack": "返回",
+      "retry": "重试",
+      "failedToStartNoteGeneration": "无法开始生成笔记",
+      "failedToProcessYouTubeVideoPlease": "YouTube 视频处理失败，请重试。",
+      "cancelProcessing": "取消处理",
+      "areYouSureYouWantTo": "确定要取消吗？当前进度将丢失。",
+      "continueProcessing": "继续处理",
+      "youTubeNote": "YouTube 笔记",
+      "noteGenerated": "笔记已生成",
+      "generatingNote": "正在生成笔记",
+      "goToNote": "查看笔记"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "无法获取视频信息",
+      "failedToFetchVideoInformation": "获取视频信息失败",
+      "youtubeVideo": "YouTube 视频",
+      "createANoteFromAnyYoutube": "从任何 YouTube 视频生成笔记",
+      "enterYoutubeURL": "输入 YouTube 链接",
+      "pasteYoutubeURL": "粘贴 YouTube 链接",
+      "fetchingVideoInfo": "正在获取视频信息..."
+    }
   },
   "library": {
     "title": "资料库",
@@ -163,7 +660,67 @@
     "almostDone": "即将完成...",
     "quizReady": "测验已准备好！",
     "startQuiz": "开始测验",
-    "questionCount": "第{{current}}题，共{{total}}题"
+    "questionCount": "第{{current}}题，共{{total}}题",
+    "previous": "上一题",
+    "generatingQuiz": "AI 正在生成测验...",
+    "exitTitle": "退出测验？",
+    "exitMessage": "当前答题进度将会丢失。",
+    "exit": "退出",
+    "errorTitle": "抱歉，出了点小问题 🚧",
+    "errorMessage": "暂时无法生成内容，请稍候再试！",
+    "noQuestions": "暂无可用题目。",
+    "reading": "正在读取笔记...",
+    "identifying": "正在提取核心考点...",
+    "structuring": "正在构建题目...",
+    "almostReady": "马上就好...",
+    "youScored": "最终得分",
+    "timeInSeconds": "用时（秒）",
+    "accuracy": "正确率",
+    "grade": "评级",
+    "reportsCard": "成绩单",
+    "reviewAnswers": "查看解析",
+    "correctAnswer": "正确答案",
+    "yourAnswer": "你的答案",
+    "explanation": "解析",
+    "questionProgress": "第 {{current}} 题，共 {{total}} 题",
+    "generatingQuizWait": "正在为您生成测验，请稍候...",
+    "goToChats": "前往对话",
+    "quizGroupDetail": {
+      "inProgress": "进行中",
+      "notStarted": "未开始",
+      "failedToLoadQuizHistory": "加载测验记录失败",
+      "failedToLoadChatContent": "加载对话内容失败",
+      "deleteQuiz": "删除测验",
+      "failedToDeleteQuiz": "删除测验失败",
+      "created": "创建于 {{dateTime}}",
+      "lastscore": "上次得分",
+      "bestscore": "最高得分",
+      "attempts": "作答次数",
+      "retakeQuiz": "重新测验",
+      "translate": "翻译",
+      "newQuiz": "新测验",
+      "quizHistory": "测验历史",
+      "flashcardHistory": "抽认卡历史",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "暂无来自该来源的抽认卡组。",
+      "cards": "{{totalCards}} 张卡片 · {{flashcardStatus}}",
+      "quizOptions": "测验设置",
+      "exportLatestAttempt": "导出最近作答记录",
+      "questions": "{{totalQuestions}} 道题目 · {{value}}",
+      "deleteAllAttemptsOne": "确定要删除“{{title}}”的这 1 次测验记录吗？此操作无法撤销。",
+      "deleteAllAttemptsMany": "确定要删除“{{title}}”的全部 {{total}} 次测验记录吗？此操作无法撤销。",
+      "makeFlashcards": "制作记忆卡"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "加载测验数据失败：响应格式无效",
+      "failedToLoadQuizData": "加载测验数据失败",
+      "noContentAvailable": "暂无内容",
+      "goBack": "返回",
+      "previous": "上一题"
+    },
+    "quiz": {
+      "generationFailed": "生成失败"
+    }
   },
   "flashcards": {
     "title": "闪卡",
@@ -172,7 +729,68 @@
     "previous": "上一张",
     "shuffle": "随机播放",
     "generating": "正在生成闪卡...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "制作抽认卡，巩固记忆效果",
+    "howManyQuestions": "需要多少张卡片？",
+    "generateButton": "生成抽认卡",
+    "generatingEllipsis": "生成中...",
+    "allDone": "全部完成！",
+    "completedReview": "你已复习完此卡包中的所有卡片",
+    "backToNotes": "返回笔记",
+    "question": "问题",
+    "answer": "答案",
+    "noQuestionText": "（无问题内容）",
+    "noAnswerText": "（无答案内容）",
+    "enterQuestion": "输入问题",
+    "enterAnswer": "输入答案",
+    "clickToFlip": "点击卡片翻转",
+    "reading": "正在读取笔记...",
+    "identifying": "正在提取核心概念...",
+    "creating": "正在制作抽认卡...",
+    "almostReady": "马上就好...",
+    "headerTitle": "抽认卡",
+    "progressFormat": "第 {{current}} 张，共 {{total}} 张",
+    "noteIdRequired": "生成抽认卡需要提供笔记 ID",
+    "invalidCardCount": "请选择 1 到 100 之间的卡片数量",
+    "flashcardGroupDetail": {
+      "inProgress": "学习中",
+      "notStarted": "未开始",
+      "failedToLoadFlashcardHistory": "加载抽认卡记录失败",
+      "limitReached": "已达上限",
+      "flashcardGenerationLimitReached": "抽认卡生成次数已达上限。",
+      "failedToGenerateFlashcards": "生成抽认卡失败",
+      "failedToTranslateFlashcards": "翻译抽认卡失败",
+      "deleteFlashcards": "删除抽认卡",
+      "failedToDeleteFlashcards": "删除抽认卡失败",
+      "created": "创建于 {{dateTime}}",
+      "lastprogress": "上次进度",
+      "bestprogress": "最佳进度",
+      "sets": "卡片集",
+      "studyNow": "立即学习",
+      "translate": "翻译",
+      "newFlashcards": "新建抽认卡",
+      "flashcardHistory": "抽认卡记录",
+      "quizHistory": "测验记录",
+      "cards": "{{totalCards}} 张卡片 · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "此来源暂无测验。",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "抽认卡选项",
+      "exportLatestSet": "导出最新卡片集",
+      "questions": "{{totalQuestions}} 道题目 · {{value}}",
+      "deleteAllSetsOne": "确定要删除“{{title}}”的这 1 个抽认卡集吗？此操作无法撤销。",
+      "deleteAllSetsMany": "确定要删除“{{title}}”的全部 {{total}} 个抽认卡集吗？此操作无法撤销。",
+      "makeQuiz": "生成测验",
+      "failedToLoadChatContent": "无法加载聊天内容"
+    },
+    "flashcardReview": {
+      "unknownError": "未知错误",
+      "noFlashcardsInThisSet": "该卡片集中暂无抽认卡",
+      "goBack": "返回",
+      "allDone": "全部完成",
+      "youHaveReviewedAllTheCards": "你已复习完此卡组中的所有卡片",
+      "question": "问题 {{value}}",
+      "questionOf": "问题 {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "聊天",
@@ -183,7 +801,191 @@
     "chatWithDocument": "与文档聊天",
     "selectFile": "选择要聊天的文件",
     "uploadFile": "上传文件",
-    "startChatting": "开始聊天"
+    "startChatting": "开始聊天",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "提出医学问题以获取更多解答",
+      "askAnythingAboutThisDocument": "询问有关此文档的任何问题...",
+      "askAQuestionAttachmentProcessingFailed": "提问 — 附件处理失败",
+      "extractingText": "正在提取文本...",
+      "processingPDF": "正在处理 PDF...",
+      "upgradeToProToContinueChatting": "升级至 PRO 继续对话",
+      "queryremaining": "剩余 {{queriesRemaining}} 次提问"
+    },
+    "chatEmptyState": {
+      "initializingChat": "正在初始化对话...",
+      "extractingTextFromImage": "正在从图片中提取文本...",
+      "processingPDFDocument": "正在处理 PDF 文档...",
+      "analyzingYourNote": "正在分析您的笔记...",
+      "thisUsuallyTakesJustAFew": "⏱️ 通常只需几秒钟。处理完成后即可开始对话。",
+      "processingFailed": "处理失败",
+      "fileMightBeCorruptedOrUnreadable": "• 文件可能已损坏或无法读取",
+      "imageQualityTooLow": "图片清晰度过低",
+      "pdfIsPasswordProtected": "PDF 文件受密码保护",
+      "contentFormatNotSupported": "不支持该内容格式",
+      "networkConnectionIssue": "• 网络连接异常",
+      "tryADifferentFile": "尝试其他文件",
+      "askAnyClinicalQuestionNoUpload": "💡 随时提出任何临床问题，无需上传文件。我将结合权威医学文献进行解答，并尽量提供相关图示。",
+      "readyToChat": "✓ 可以开始对话",
+      "couldntProcessNote": "无法处理此笔记，可能原因：",
+      "couldntProcessImage": "无法处理此图片，可能原因：",
+      "couldntProcessDocument": "无法处理此文档，可能原因：",
+      "askMeAboutNote": "💡 随时问我关于这篇笔记的问题。我可以总结要点、解释概念或解答具体疑问。",
+      "askMeAboutImage": "💡 随时问我关于这张图片的问题。我可以总结要点、解释概念或解答具体疑问。",
+      "askMeAboutDocument": "💡 随时问我关于这份文档的问题。我可以总结要点、解释概念或解答具体疑问。"
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "已掌握 {{masteredCards}}/{{totalCards}}",
+      "notStarted": "未开始",
+      "quizGeneration": "测验生成",
+      "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "抽认卡生成",
+      "questions": "{{totalCards}} 道题目 · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} 道题目 · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "正在思考并为您查找参考资料...",
+      "couldnTGenerateAResponse": "未能生成回复。",
+      "retry": "重试",
+      "alsoReferencedFromTheWeb": "同时参考了网络内容",
+      "followUpQuestions": "后续追问"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "随时提出医学问题，获取权威文献支持的要点",
+      "evidenceBasedPubMedSourcesPeerReviewed": "循证医学 · PubMed文献 · 同行评审",
+      "tryOutAnyOfThisTopics": "尝试以下推荐主题，立即开始",
+      "topics": {
+        "electrolytes": {
+          "label": "电解质紊乱解析",
+          "question": "请解释电解质紊乱的病因、临床表现和治疗原则"
+        },
+        "ecg": {
+          "label": "心电图（ECG）判读基础",
+          "question": "心电图判读的基础知识有哪些？"
+        },
+        "drugInteractions": {
+          "label": "常见药物相互作用",
+          "question": "有哪些需要重点掌握的常见药物相互作用？"
+        },
+        "nclex": {
+          "label": "NCLEX 风格练习题",
+          "question": "请给我出一道 NCLEX 风格的练习题"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA 药品说明书",
+      "fromYourAttachedMaterial": "来自你上传的学习资料"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "创建会话失败",
+      "failedToInitializeChatSession": "初始化会话失败",
+      "failedToUpdateLanguage": "更新语言失败",
+      "youVeReachedYour3Pin": "已达到最多置顶 3 个会话的上限",
+      "failedToUpdatePin": "更新置顶状态失败",
+      "permissionRequired": "需要权限",
+      "pleaseGrantCameraPermissionToTake": "请授予相机权限以拍摄照片。",
+      "pleaseGrantPhotoLibraryPermissionTo": "请授予照片库访问权限以上传图片。",
+      "failedToUploadImage": "上传图片失败",
+      "uploadFailed": "上传失败",
+      "failedToUploadDocument": "上传文档失败",
+      "failedToStartChatFromThis": "无法基于该文件发起对话。",
+      "chatFromImage": "基于图片对话",
+      "failedToStartANewQuestion": "发起新提问失败，请重试。",
+      "failedToAttachFile": "添加附件失败",
+      "failedToSendMessage": "发送消息失败",
+      "copiedToClipboard": "已复制到剪贴板",
+      "notEnoughContentYet": "内容不足",
+      "chatABitMoreBeforeGenerating": "请多聊几句再生成测验（至少 100 个字符）。",
+      "chatABitMoreBeforeGenerating2": "请多聊几句再生成记忆卡（至少 100 个字符）。",
+      "failedToGenerateFlashcards": "生成记忆卡失败",
+      "failedToRegenerateResponse": "重新生成回答失败",
+      "failedToRetryResponse": "重试失败"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "添加笔记失败",
+      "folderCreatedSuccessfully": "文件夹“{{name}}”创建成功！",
+      "failedToCreateFolder": "创建文件夹失败",
+      "failedToAttachDocument": "添加文档失败",
+      "failedToCreateChatSession": "创建会话失败",
+      "failedToUploadDocument": "上传文档失败",
+      "openingCamera": "📷 正在打开相机...",
+      "openingImagePicker": "🖼️ 正在打开相册...",
+      "permissionRequired": "需要权限",
+      "pleaseGrantCameraPermissionToTake": "请授予相机权限以拍摄照片。",
+      "pleaseGrantPhotoLibraryPermissionTo": "请授予照片库访问权限以上传图片。",
+      "failedToAttachImage": "添加图片失败",
+      "failedToUploadImage": "上传图片失败",
+      "failedToAttachAudio": "添加音频失败",
+      "failedToUploadAudio": "上传音频失败",
+      "items": "{{itemCount}} 项",
+      "thisFolderIsEmptyGoBack": "此文件夹为空。请返回选择其他文件夹。",
+      "addFolder": "新建文件夹",
+      "uploadNewDocument": "上传新文档",
+      "uploadAPDFAndStartChatting": "上传 PDF，立即开启对话",
+      "uploadNewImage": "上传新图片",
+      "uploadAnImageAndExtractText": "上传图片，即刻提取文字",
+      "uploadNewAudio": "上传新音频",
+      "uploadAnAudioFileAndTranscribe": "上传音频文件并立即转录",
+      "orselectfromlibrary": "或从资料库中选择",
+      "folders": "文件夹",
+      "allNotes": "所有笔记",
+      "noFilesToDisplay": "暂无文件",
+      "noNotesToDisplay": "暂无笔记",
+      "noDocumentsYet": "暂无 PDF 文档。\n先创建一些笔记，再回来针对内容提问吧。",
+      "noImagesYet": "暂无图片。\n先创建一些笔记，再回来针对内容提问吧。",
+      "noAudioNotesYet": "暂无语音笔记。\n先创建一些笔记，再回来针对内容提问吧。",
+      "noNotesYet": "暂无笔记。\n先创建一些笔记，再回来针对内容提问吧。",
+      "attachNote": "添加笔记附件",
+      "selectNote": "选择笔记",
+      "attachImage": "添加图片附件",
+      "selectImage": "选择图片",
+      "attachDocument": "添加文档附件",
+      "selectDocument": "选择文档",
+      "attachAudio": "添加音频附件",
+      "selectAudio": "选择音频",
+      "attachFile": "添加附件",
+      "selectFile": "选择文件",
+      "aNote": "{{verb}}笔记",
+      "anImage": "{{verb}}图片",
+      "aDocument": "{{verb}}文档",
+      "audio": "{{verb}}音频",
+      "aFile": "{{verb}}文件"
+    },
+    "chatAttachSheet": {
+      "addToChat": "添加到对话",
+      "camera": "拍照",
+      "photos": "照片",
+      "files": "文件",
+      "generateQuiz": "生成测验",
+      "generateFlashcards": "生成抽认卡",
+      "searchMedicalLiterature": "检索医学文献",
+      "filterByDateSourceAndType": "按日期、来源和类型筛选",
+      "pullsRealCitedSourcesIntoYour": "在回答中引入真实、有引证的文献来源",
+      "trustedmedicalsourcedatabase": "权威医学文献数据库",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "美国国家医学图书馆 (NLM)",
+      "fdaDrugTreatmentData": "FDA 药品与治疗数据"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "查看引用来源",
+      "citations": "引文",
+      "fromTheWeb": "网络来源"
+    },
+    "chatHeader": {
+      "readyTapToRename": "就绪 · 点击重命名",
+      "processing": "正在处理 {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "查看来源 ↗"
+    },
+    "chatRename": {
+      "renameChat": "重命名对话"
+    },
+    "sourcesRow": {
+      "viewSources": "查看来源 ({{total}})"
+    }
   },
   "languages": {
     "english": "英语",
@@ -205,6 +1007,487 @@
     "turkish": "土耳其语",
     "vietnamese": "越南语",
     "thai": "泰语",
-    "indonesian": "印尼语"
+    "indonesian": "印尼语",
+    "englishGB": "英语（英国）",
+    "englishAU": "英语（澳大利亚）",
+    "englishCA": "英语（加拿大）",
+    "spanishMX": "西班牙语（墨西哥）",
+    "frenchCA": "法语（加拿大）",
+    "portuguesePT": "葡萄牙语（葡萄牙）",
+    "norwegian": "挪威语",
+    "danish": "丹麦语",
+    "finnish": "芬兰语",
+    "czech": "捷克语",
+    "slovak": "斯洛伐克语",
+    "slovenian": "斯洛文尼亚语",
+    "croatian": "克罗地亚语",
+    "hungarian": "匈牙利语",
+    "romanian": "罗马尼亚语",
+    "greek": "希腊语",
+    "ukrainian": "乌克兰语",
+    "arabicAE": "阿拉伯语（阿联酋）",
+    "arabicEG": "阿拉伯语（埃及）",
+    "hebrew": "希伯来语",
+    "bengali": "孟加拉语",
+    "tamil": "泰米尔语",
+    "telugu": "泰卢固语",
+    "kannada": "卡纳达语",
+    "malayalam": "马拉雅拉姆语",
+    "marathi": "马拉地语",
+    "gujarati": "古吉拉特语",
+    "punjabi": "旁遮普语",
+    "urdu": "乌尔都语",
+    "malay": "马来语",
+    "catalan": "加泰罗尼亚语"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "新建文件夹",
+      "folderName": "文件夹名称",
+      "enterFolderName": "输入文件夹名称",
+      "chooseColor": "选择颜色",
+      "createFolder": "创建文件夹"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "在处理您的内容之前",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact 使用 AI 回答您的问题，并将您的内容转换为笔记、测验和抽认卡。请了解以下须知事项：",
+      "whatDataIsSent": "发送的数据内容",
+      "questionsAndMessagesYouTypeIn": "您在聊天中输入的问题和消息",
+      "audioRecordingsOrUploadedAudioFiles": "录音或上传的音频文件",
+      "pdfAndTextDocumentsYouUpload": "您上传的 PDF 和文本文档",
+      "imagesYouUpload": "您上传的图片",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube 视频链接及其字幕文本",
+      "customTextYouEnter": "您输入的自定义文本",
+      "whoReceivesYourData": "谁会接收您的数据",
+      "howItSUsed": "数据的使用方式",
+      "yourContentIsUsedSolelyTo": "您的内容仅用于生成您所请求的回答、笔记、测验或抽认卡。通过其 API 处理的内容受各服务提供商自身的数据使用政策约束。详情请参阅我们的《隐私政策》。",
+      "iAgreeContinue": "同意并继续",
+      "noThanks": "暂不同意",
+      "whoReceivesBody": "你的内容将通过我们安全的后端服务器发送给 <bold>Google (Gemini)</bold>（用于生成笔记、测验与抽认卡、AI 对话回复以及处理文档和图像）和 <bold>OpenAI</bold>（用于音频转录）。你的文档段落还会通过 <bold>Google Vertex AI</bold> 建立索引，以便在对话中精准检索相关内容。在使用实时医学检索时，你的问题还会发送至 <bold>Tavily</bold> 及公共医学文献数据库（如 PubMed、Europe PMC 和 Semantic Scholar），以检索来自 NIH、CDC、MedlinePlus、WHO 和梅奥诊所（Mayo Clinic）等权威机构的引用来源。这些服务商处理你的数据仅用于生成解答，绝不会将其用于训练其通用的 AI 模型，我们也绝不会将你的数据出售给任何第三方。"
+    },
+    "chatActionSheet": {
+      "unpinChat": "取消置顶对话",
+      "pinChat": "置顶对话",
+      "deleteChat": "删除对话"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "生成抽认卡",
+      "createFlashcards": "创建抽认卡",
+      "createFlashcardsFromToImproveYour": "基于“{{noteTitle}}”创建抽认卡，巩固记忆效果",
+      "createFlashcardsToImproveYourRetention": "创建抽认卡以巩固记忆效果",
+      "howManyQuestions": "题目数量",
+      "generateFlashcards2": "生成抽认卡"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "从对话创建",
+      "selectFromOneOfYourRecent": "从最近的对话中选择",
+      "pdfOrDocument": "PDF 或文档",
+      "createFromAudio": "从音频创建",
+      "image": "图片",
+      "createFromCustomText": "从自定义文本创建",
+      "created": "创建于 {{day}} {{time}}",
+      "createQuizFrom": "测验生成来源：",
+      "createFlashcardsFrom": "抽认卡生成来源：",
+      "selectFromChat": "从对话中选择",
+      "noRecentChatsYet": "暂无最近对话",
+      "quizFromPdf": "根据 PDF 或文档创建测验",
+      "flashcardsFromPdf": "根据 PDF 或文档创建抽认卡集",
+      "quizFromAudio": "根据上传的音频创建测验",
+      "flashcardsFromAudio": "根据上传的音频创建抽认卡集",
+      "quizFromImage": "根据图片创建测验",
+      "flashcardsFromImage": "根据图片创建抽认卡集",
+      "quizFromText": "根据所提取文本创建测验",
+      "flashcardsFromText": "根据所提取文本创建抽认卡集"
+    },
+    "createNote": {
+      "recordAudio": "录制音频",
+      "generateANoteFromAnyRecorded": "将录制的音频生成笔记",
+      "uploadAudio": "上传音频",
+      "createANoteFromAnyUploaded": "将上传的音频生成笔记",
+      "youtubeVideo": "YouTube 视频",
+      "createANoteFromAnyYoutube": "根据任意 YouTube 视频生成笔记",
+      "pdfOrDocument": "PDF 或文档",
+      "createANoteFromPDFOr": "根据 PDF 或文档生成笔记",
+      "customText": "自定义文本",
+      "createANoteFromCapturedText": "根据所提取文本生成笔记",
+      "image": "图片",
+      "createANoteFromAnyImage": "根据任意图片生成笔记",
+      "createNote": "创建笔记"
+    },
+    "createQuiz": {
+      "generateQuiz": "生成测验",
+      "createQuiz": "创建测验",
+      "practiceByCreatingQuestionsThatHelp": "通过题目练习“{{noteTitle}}”，助您彻底掌握该知识点",
+      "practiceYourNotesByCreatingQuestions": "通过针对笔记出题练习，助您掌握相关知识",
+      "howManyQuestions": "题目数量",
+      "timeInMinutes": "时长（分钟）"
+    },
+    "deleteNote": {
+      "deleteNote": "删除笔记",
+      "areYouSureYouWantTo": "确定要删除这条笔记吗？"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "导出总结格式为",
+      "exportTranscriptAs": "导出逐字稿格式为",
+      "exportAs": "导出格式为",
+      "exportSummary": "导出总结",
+      "exportTranscript": "导出逐字稿"
+    },
+    "exportTypeStep": {
+      "exportNote": "导出笔记",
+      "exportSummary": "导出总结",
+      "exportTranscript": "导出逐字稿"
+    },
+    "exportSettings": {
+      "export": "导出 {{title}}",
+      "selectFormat": "选择格式",
+      "includeAnswers": "包含答案",
+      "answersExplanationsIncluded": "包含答案与解析",
+      "questionsOnly": "仅题目",
+      "export2": "导出"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "笔记已生成！",
+      "howDidWeDo": "体验如何？",
+      "happy": "满意",
+      "sad": "不满意",
+      "maybeLater": "稍后再说",
+      "whatWentWrong": "遇到了什么问题？",
+      "yourFeedbackHelpsUsImprove": "您的反馈能帮助我们做得更好。",
+      "tellUsWhatCouldBeBetter": "告诉我们哪些地方可以改进...",
+      "submit": "提交"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "暂无内容",
+      "clickCardToFlip": "点击卡片翻转"
+    },
+    "flashcardExport": {
+      "exportFailed": "导出失败",
+      "unknownError": "未知错误",
+      "export": "导出 {{setTitle}}",
+      "chooseWhatToExport": "选择导出内容",
+      "exportQuestions": "导出题目",
+      "exportAnswers": "导出答案"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "删除抽认卡集",
+      "areYouSureYouWantTo": "确定要删除“{{setTitle}}”吗？",
+      "failedToDeleteFlashcardSet": "删除抽认卡集失败",
+      "flashcardHistory": "抽认卡历史",
+      "cards": "卡片",
+      "reviewedMastered": "已复习 {{cardsReviewedCount}} 张 • 掌握率 {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} 项",
+      "enterYourFolderName": "输入文件夹名称",
+      "yourFolderName": "文件夹名称",
+      "createFolder": "创建文件夹",
+      "folders": "文件夹",
+      "addFolder": "新建文件夹",
+      "noFoldersToDisplay": "暂无文件夹",
+      "clickTheButtonAboveToCreate": "点击上方按钮为笔记创建文件夹",
+      "allFolders": "所有文件夹",
+      "items2": "{{totalItems}} 项"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "医学文献筛选",
+      "howrecentdoyouwantthe": "文献发布时间",
+      "from": "起始时间",
+      "whatkindofsourcedoyou": "文献类型需求",
+      "textbooks": "医学教材",
+      "clinicalGuidelines": "临床指南",
+      "scientificJournalArticles": "学术期刊论文",
+      "onlywiththisjournalarticles": "仅包含此类期刊论文",
+      "metaAnalyses": "Meta 分析",
+      "reviewArticles": "综述文章",
+      "clinicalTrials": "临床试验",
+      "fromYear": "起始年份",
+      "toYear": "截止年份"
+    },
+    "noteOptions": {
+      "noteOptions": "笔记选项",
+      "editNote": "编辑笔记",
+      "reTranscribe": "重新转录",
+      "chatWithNote": "就笔记提问",
+      "exportNote": "导出笔记",
+      "moveToFolder": "移动至文件夹",
+      "deleteNote": "删除笔记"
+    },
+    "onboardingTooltip": {
+      "skip": "跳过"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "删除测验",
+      "areYouSureYouWantTo": "确定要删除“{{quizTitle}}”吗？",
+      "failedToDeleteQuiz": "删除测验失败",
+      "quizHistory": "测验历史",
+      "questions": "题目",
+      "correct": "答对 {{correctAnswers}} 题"
+    },
+    "referral": {
+      "copied": "已复制！",
+      "yourReferralCodeHasBeenCopied": "您的推荐码已复制到剪贴板。",
+      "joinMeOnClinicalFactUse": "来 Clinical Fact 和我一起学习吧！使用我的推荐码 {{referralCode}} – {{appUrl}}",
+      "joined": "加入时间：{{joinedDate}}",
+      "referralCode": "推荐码",
+      "yourReferralCode": "您的推荐码",
+      "shareWithFriendsToEarnRewards": "分享给好友以赢取奖励",
+      "share": "分享",
+      "copyCode": "复制推荐码",
+      "referredFriends": "已邀请的好友",
+      "noReferralsYetShareYourCode": "暂无邀请记录。立即分享您的推荐码吧！",
+      "loadMore": "加载更多",
+      "howItWorks": "活动规则",
+      "friendsUseYourCodeDuringSignup": "• 好友在注册时使用您的推荐码",
+      "youBothEarnRewardsWhenThey": "• 好友成功加入后，双方均可获得奖励",
+      "friendsReferredCount": "已成功邀请好友：{{referralCount}} 人"
+    },
+    "uploadProgress": {
+      "extractingText": "正在提取文本...",
+      "transcribingAudio": "正在转录音频...",
+      "processingPDF": "正在处理 PDF...",
+      "settingUpChat": "正在准备对话...",
+      "uploadFailed": "上传失败",
+      "failedToUploadFilePleaseTry": "文件上传失败，请重试。",
+      "yourFileIsReadyForChatting": "文件已准备就绪，可以开始提问！",
+      "uploadingYourFileToTheServer": "正在将文件上传至服务器...",
+      "extractingTextFromYourImage": "正在提取图片中的文本...",
+      "transcribingYourAudio": "正在转录您的音频...",
+      "extractingTextFromYourPDF": "正在提取 PDF 中的文本...",
+      "creatingYourChatSession": "正在创建对话...",
+      "pleaseWait": "请稍候...",
+      "uploadFile": "上传文件",
+      "processContent": "处理内容",
+      "createChat": "创建对话"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ 查看",
+      "export": "📤 导出",
+      "delete": "🗑️ 删除"
+    },
+    "poweredByFooter": {
+      "poweredBy": "技术支持："
+    },
+    "exportFormat": {
+      "txtFile": "TXT 文件",
+      "pdfFile": "PDF 文件",
+      "docFile": "DOC 文件"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "获取笔记失败",
+      "failedToFetchFolders": "获取文件夹失败",
+      "failedToFetchNote": "获取笔记内容失败",
+      "failedToDeleteNote": "删除笔记失败",
+      "failedToCreateFolder": "创建文件夹失败",
+      "failedToDeleteFolder": "删除文件夹失败"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "删除对话失败"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "抽认卡集导出成功！",
+      "failedToExportFlashcardSet": "导出抽认卡集失败。"
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "测验导出成功！",
+      "failedToExportQuiz": "导出测验失败。"
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "无标题抽认卡",
+      "failedToLoadFlashcards": "加载抽认卡失败",
+      "failedToSyncFlashcardSet": "同步抽认卡集失败",
+      "failedToSyncCardUpdate": "同步卡片更新失败"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "测验"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "创建于 {{day}} {{time}}",
+      "youVeReachedYour3Pin": "已达到最多置顶 3 个对话的上限",
+      "failedToUpdatePin": "更新置顶状态失败",
+      "noChatsYet": "暂无对话",
+      "startAChatToGetAnswers": "开始对话，获取有真实文献支持的解答。",
+      "createChat": "+ 新建对话"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "删除抽认卡",
+      "areYouSureYouWantTo": "确定要删除“{{sourceTitle}}”吗？",
+      "failedToDeleteFlashcards": "删除抽认卡失败",
+      "sets": "{{setCount}} 套",
+      "flashcards": "抽认卡",
+      "createFlashcards": "创建抽认卡",
+      "searchFlashcards": "搜索抽认卡...",
+      "noFlashcardsYet": "暂无抽认卡",
+      "createAFlashcardSetFromA": "从笔记创建一套抽认卡即可开始学习",
+      "createSet": "+ 创建卡套",
+      "flashcardOptions": "抽认卡选项",
+      "view": "查看"
+    },
+    "folder": {
+      "deleteFolder": "删除文件夹",
+      "areYouSureYouWantTo": "确定要删除“{{name}}”吗？其中的笔记将被移至根目录。",
+      "failedToDeleteFolder": "删除文件夹失败",
+      "error": "错误：{{message}}",
+      "noFoldersYetCreateOne": "暂无文件夹，立即创建一个！",
+      "folders": "文件夹"
+    },
+    "home": {
+      "created": "创建于 {{day}} {{time}}",
+      "failedToUpdateLanguage": "更新语言失败",
+      "notEnoughContentYet": "内容不足",
+      "chatABitMoreBeforeGenerating": "请多聊几句再生成测验（至少 100 个字符）。",
+      "chatABitMoreBeforeGenerating2": "请多聊几句再生成抽认卡（至少 100 个字符）。",
+      "failedToGenerateFlashcards": "生成抽认卡失败",
+      "upgradeToPro": "升级到 PRO",
+      "get80DiscountWhenYouUpgrade": "升级账户立享 2 折优惠",
+      "unlockPRO": "解锁 PRO",
+      "noMedicalChats": "暂无医学对话",
+      "youHaveNotCreatedAnyMedical": "您尚未发起任何医学对话，请新建对话以获取带文献引用的解答",
+      "talkToClinicalfactAI": "与 Clinical Fact AI 对话",
+      "jumpInWhereYouStopped": "继续上次的学习",
+      "practiceQuiz": "测验练习",
+      "makeFlashcards": "制作抽认卡",
+      "continueChatWithNote": "结合笔记继续对话",
+      "continueChat": "继续对话",
+      "recentChats": "最近对话",
+      "chatOptions": "对话选项"
+    },
+    "library": {
+      "text": "{{year}}年{{month}}{{day}}日 {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "当前处于离线状态。请连接网络以执行此操作。",
+      "failedToDeleteNote": "删除笔记失败",
+      "failedToMoveNote": "移动笔记失败",
+      "deleteFolder": "删除文件夹？",
+      "areYouSureNotesInsideWill": "确定删除吗？其中的笔记不会被删除，将移至“全部笔记”。",
+      "failedToDeleteFolder": "删除文件夹失败",
+      "library": "资料库",
+      "addFolder": "新建文件夹",
+      "searchForANoteFolder": "搜索笔记/文件夹",
+      "yourFolders": "我的文件夹",
+      "noFoldersToDisplay": "暂无文件夹",
+      "tapAddFolderToCreateA": "点击“+ 新建文件夹”整理您的笔记",
+      "allNotes": "全部笔记",
+      "items": "{{allNotesTotal}} 项",
+      "items2": "{{itemCount}} 项",
+      "yourNotes": "我的笔记",
+      "untitledNote": "无标题笔记",
+      "noResultsFor": "未找到“{{searchQuery}}”的相关结果",
+      "noNotesInThisFolder": "此文件夹中无笔记",
+      "noNotesToDisplay": "暂无笔记显示",
+      "tryADifferentSearchTerm": "尝试其他搜索关键词",
+      "moveNotesToThisFolderTo": "将笔记移至此文件夹即可在此查看",
+      "clickBelowToGenerateYourNote": "点击下方，使用 Clinical Fact 生成笔记",
+      "filterByType": "按类型筛选",
+      "audio": "音频",
+      "text2": "文本",
+      "image": "图片",
+      "clearFilter": "清除筛选"
+    },
+    "profile": {
+      "permissionRequired": "需要权限",
+      "pleaseAllowAccessToYourPhoto": "请允许访问相册以设置头像。",
+      "uploadFailed": "上传失败",
+      "couldNotUpdateProfilePicture": "无法更新头像。",
+      "failedToUploadProfilePicture": "头像上传失败。",
+      "checkOutClinicalFactAIPowered": "快来试试 Clinical Fact——AI 赋能的医学学习利器！{{url}}",
+      "proSubscriber": "PRO 订阅用户",
+      "subscriptionExpired": "订阅已过期",
+      "freeSubscriber": "免费用户",
+      "tapToManageIPhoneSettingsApple": "点击管理 · iPhone 设置 → Apple ID → 订阅",
+      "tapToManagePlayStoreSubscriptions": "点击管理 · Play 商店 → 订阅",
+      "tapToRenewYourSubscription": "点击续订",
+      "tapToUpgradeToPro": "点击升级至 PRO",
+      "referralCode": "推荐码",
+      "areYouSureYouWantTo": "确定要退出登录吗？"
+    },
+    "quizHistory": {
+      "deleteQuiz": "删除测验",
+      "areYouSureYouWantTo": "确定要删除“{{sourceTitle}}”吗？",
+      "failedToDeleteQuiz": "删除测验失败",
+      "correct": "答对 {{correct}}/{{total}} 题",
+      "attempts": "作答 {{attempts}} 次",
+      "quiz": "测验",
+      "createQuiz": "创建测验",
+      "searchQuizzes": "搜索测验...",
+      "noQuizzesYet": "暂无测验",
+      "createAQuizFromANote": "从笔记生成测验以开始练习",
+      "createQuiz2": "+ 创建测验",
+      "quizOptions": "测验选项",
+      "view": "查看"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "暂无法升级",
+      "weCouldnTOpenTheUpgrade": "暂时无法打开升级页面。请检查网络连接后重试。"
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "服务器返回非 JSON 响应 ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "网络错误，请检查网络连接。",
+      "connectionErrorPleaseTryAgain": "连接错误，请重试。"
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "文件已导出：{{filename}}",
+      "exportFailed": "导出失败",
+      "exportFormat": "导出格式",
+      "chooseFormat": "选择格式",
+      "text": "纯文本"
+    },
+    "formatDate": {
+      "justNow": "刚刚",
+      "minAgo": "{{diffMin}} 分钟前",
+      "hrAgo": "{{diffHr}} 小时前",
+      "dAgo": "{{diffDay}} 天前",
+      "created": "创建于 {{day}} {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "验证码发送失败",
+      "invalidOTP": "验证码无效",
+      "failedToVerifyOTP": "验证码核验失败",
+      "googleAuthenticationFailed": "Google 认证失败",
+      "appleAuthenticationFailed": "Apple 认证失败",
+      "failedToCompleteSignup": "注册失败",
+      "failedToSkipSignup": "跳过失败"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "问答对话",
+      "description": "随时随地与任何笔记、文档或 PDF 展开对话"
+    },
+    "profileWelcome": {
+      "heading": "欢迎来到个人中心",
+      "description": "这里是您的个人主页，点击此处可编辑个人信息及查看订阅状态"
+    },
+    "createNotes": {
+      "heading": "创建笔记",
+      "description": "支持多种格式生成笔记：录音、音频、视频、图片、文本和 YouTube 链接"
+    },
+    "changeLanguage": {
+      "heading": "更改语言",
+      "description": "在此处将应用切换为您所需的语言"
+    },
+    "manageHome": {
+      "heading": "主页管理",
+      "description": "一站式查看所有已创建的笔记和近期动态"
+    },
+    "yourLibrary": {
+      "heading": "资料库",
+      "description": "管理所有已建笔记，创建文件夹分类整理等"
+    },
+    "yourProfile": {
+      "heading": "个人中心",
+      "description": "在此查看个人资料详情并修改相关设置"
+    }
   }
 }

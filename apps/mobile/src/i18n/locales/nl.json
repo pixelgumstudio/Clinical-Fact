@@ -14,7 +14,9 @@
     "next": "Volgende",
     "done": "Klaar",
     "search": "Zoeken",
-    "filter": "Filteren"
+    "filter": "Filteren",
+    "ok": "OK",
+    "info": "Info"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "Plan upgraden",
     "everyWeek": "Elke week",
     "everyMonth": "Elke maand",
-    "everyYear": "Elk jaar"
+    "everyYear": "Elk jaar",
+    "expired": "Verlopen",
+    "reportBug": "Probleem melden",
+    "active": "ACTIEF",
+    "trial": "PROEFPERIODE"
   },
   "auth": {
-    "welcome": "Welkom bij Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Inloggen met Google mislukt",
+      "failedToAuthenticateWithServer": "Authenticatie met de server mislukt",
+      "googleSignInIsOnlyAvailable": "Inloggen met Google is alleen beschikbaar in de app. Log in met e-mail of download de app.",
+      "code": "{{message}} (code: {{code}})"
+    },
     "getStarted": "Aan de slag",
     "signIn": "Inloggen",
     "signUp": "Registreren",
@@ -83,12 +94,316 @@
     "didntGetCode": "Code niet ontvangen?",
     "resendCode": "Code opnieuw verzenden",
     "resendIn": "Opnieuw verzenden over",
-    "enterVerificationCode": "Voer de volledige verificatiecode in"
+    "enterVerificationCode": "Voer de volledige verificatiecode in",
+    "languageSelect": {
+      "title": "Kies je taal",
+      "subtitle": "Kies de taal die je in de app wilt gebruiken. Je kunt dit later wijzigen in je profiel.",
+      "searchPlaceholder": "Talen zoeken",
+      "noResults": "Geen talen gevonden"
+    },
+    "buttons": {
+      "continue": "Doorgaan",
+      "continueWithEmail": "Doorgaan met e-mail",
+      "continueWithGoogle": "Doorgaan met Google",
+      "continueWithApple": "Doorgaan met Apple",
+      "skip": "Overslaan",
+      "verify": "Geverifieerd!",
+      "next": "Volgende",
+      "tryNow": "Probeer Clinical Fact nu gratis"
+    },
+    "labels": {
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "username": "@gebruikersnaam",
+      "referralCode": "Verwijzingscode",
+      "nameScreenTitle": "Je voor- en achternaam",
+      "byAgree": "Door verder te gaan ga je akkoord met onze",
+      "termsAndConditions": "Algemene voorwaarden",
+      "privacyPolicy": "het privacybeleid",
+      "and": "en"
+    },
+    "placeholders": {
+      "enterEmail": "Vul je e-mailadres in",
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "username": "@gebruikersnaam",
+      "referralCode": "bijv. JAN of TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Vul een geldig e-mailadres in",
+      "emailRequired": "Vul je e-mailadres in",
+      "firstLastNameRequired": "Vul zowel je voor- als achternaam in",
+      "usernameRequired": "Vul een gebruikersnaam in",
+      "usernameLength": "Gebruikersnaam moet 3-20 tekens bevatten (alleen letters, cijfers en liggende streepjes)",
+      "usernameTaken": "Deze gebruikersnaam is al bezet. Probeer een andere.",
+      "usernameCheckFailed": "Controleren van gebruikersnaam mislukt",
+      "usernameError": "Fout bij controleren van gebruikersnaam. Controleer je verbinding.",
+      "invalidOTP": "Ongeldige code. Controleer de code en probeer het opnieuw.",
+      "otpExpired": "Code verlopen. Vraag een nieuwe code aan.",
+      "otpRequired": "Vul de volledige verificatiecode in",
+      "referralNotFound": "Verwijzingscode niet gevonden. Controleer de spelling en probeer het opnieuw.",
+      "referralValidateFailed": "Valideren van code mislukt. Probeer het opnieuw.",
+      "referralApplyFailed": "Toepassen van verwijzingscode mislukt. Probeer het opnieuw.",
+      "codeSendFailed": "Versturen van verificatiecode mislukt. Probeer het opnieuw.",
+      "resendCodeFailed": "Opnieuw verzenden van code mislukt. Probeer het opnieuw.",
+      "signInFailed": "Inloggen mislukt",
+      "googleSignInFailed": "Inloggen met Google mislukt",
+      "googleTokenFailed": "Verwerken van Google-token mislukt",
+      "googleAccessTokenFailed": "Ophalen van toegangstoken mislukt. Probeer het opnieuw.",
+      "authTokenFailed": "Ophalen van authenticatietoken mislukt. Probeer het opnieuw.",
+      "googleStartFailed": "Starten van Google-aanmelding mislukt. Probeer het opnieuw.",
+      "setupRequired": "Configuratie vereist",
+      "googleOAuthMissing": "Google Sign-In vereist OAuth Client IDs.\\n\\nVoeg de inloggegevens toe aan je .env-bestand.",
+      "youCanStillUseEmail": "Je kunt nog steeds \"Doorgaan met e-mail\" gebruiken.",
+      "appleSignInFailed": "Inloggen met Apple mislukt",
+      "appleTokenFailed": "Verwerken van Apple-token mislukt",
+      "appleIosOnly": "Inloggen met Apple is alleen beschikbaar op iOS."
+    },
+    "messages": {
+      "signingIn": "Bezig met inloggen...",
+      "codeValid": "✓ Code is geldig",
+      "signupFailed": "Registratie voltooien mislukt",
+      "setupFailed": "Instellen mislukt. Probeer het opnieuw."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Slimmere aantekeningen beginnen hier",
+      "tagline": "Zet elke tekst om in perfecte notities",
+      "description": "Zet audio, documenten of video's om in duidelijke, doorzoekbare notities en maak direct quizzen, flashcards en samenvattingen.",
+      "createAccountTitle": "Account aanmaken",
+      "orSignUpWith": "OF REGISTREER MET",
+      "signUpWithEmail": "Aanmelden met e-mailadres",
+      "signInWithEmail": "Inloggen met e-mailadres",
+      "alreadyHaveAccount": "Heb je al een account? ",
+      "dontHaveAccount": "Nog geen account? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Stel elke medische vraag. Krijg het klinische feit",
+        "description": "Stel elke medische vraag en krijg een antwoord onderbouwd met echte, geciteerde bronnen uit PubMed, klinische richtlijnen en betrouwbare medische literatuur"
+      },
+      "slide2": {
+        "headline": "Elk antwoord, onderbouwd door een bron",
+        "description": "Geen giswerk, geen verzonnen feiten: elk antwoord linkt direct naar echt, controleerbaar medisch onderzoek."
+      },
+      "slide3": {
+        "headline": "Studeer slimmer, haal je medische examens",
+        "description": "Zet elke vraag of upload binnen enkele seconden om in een quiz of set flashcards: oefenmateriaal rechtstreeks gebaseerd op wat je leert."
+      }
+    },
+    "otp": {
+      "title": "Bevestig je e-mailadres",
+      "subtitle": "Voer de verificatiecode in die we naar je e-mailadres hebben gestuurd"
+    },
+    "professionalDeclaration": {
+      "title": "Professionele verklaring",
+      "subtitle": "Clinical Fact is een educatief hulpmiddel voor literatuuronderzoek",
+      "disclaimerIntro": "Clinical Fact is een op kunstmatige intelligentie gebaseerd informatief hulpmiddel, bedoeld om studenten verpleegkunde, geneeskunde en andere gezondheidswetenschappen te ondersteunen bij het vinden van medische kennis, wetenschappelijke literatuur en studiemateriaal. De app biedt geen medische diagnoses, behandeladviezen, klinische instructies of patiëntspecifiek medisch advies, en mag niet worden gebruikt als basis voor directe patiëntenzorg of klinische besluitvorming.",
+      "disclaimerHeading": "Hoe Clinical Fact antwoorden genereert:",
+      "disclaimerBody": "Clinical Fact haalt informatie rechtstreeks uit gevestigde medische en wetenschappelijke bronnen, waaronder PubMed, Semantic Scholar en officiële FDA-bijsluiters, en gebruikt AI om deze inhoud in begrijpelijke taal samen te vatten en uit te leggen. Elk antwoord wordt uitsluitend gegenereerd op basis van de bronnen die voor die specifieke vraag zijn opgehaald, en citaten linken naar het oorspronkelijke materiaal zodat je dit zelf kunt verifiëren. Clinical Fact genereert geen medische feiten uit het geheugen en verzint geen bronnen.\n\nClinical Fact is geen diagnostisch hulpmiddel, behandelplatform, medisch hulpmiddel of vervanging van professioneel medisch oordeel, bevoegd onderwijs of het curriculum van je onderwijsinstelling. Alle door de app gegenereerde informatie, inclusief antwoorden, citaten, quizzen en flashcards, wordt uitsluitend verstrekt voor algemene educatieve en studiedoeleinden en moet onafhankelijk door de gebruiker worden geverifieerd voordat erop wordt vertrouwd in een academische, klinische of professionele context.\nClinical Fact garandeert niet de volledigheid, nauwkeurigheid of actuele klinische relevantie van de verstrekte informatie. Medische kennis ontwikkelt zich voortdurend — controleer kritieke informatie altijd bij je docenten, klinische supervisoren en actuele primaire bronnen.\nWanneer je je eigen documenten, notities of opnamen uploadt, genereert Clinical Fact antwoorden, samenvattingen, quizzen en flashcards uitsluitend op basis van die geüploade inhoud, en niet op basis van externe bronnen, tenzij externe bronnen er expliciet naast worden weergegeven.\n\nClinical Fact verifieert, authenticeert of bevestigt de identiteit, inschrijfstatus of kwalificaties van haar gebruikers niet. De app is niet bedoeld voor gebruik in noodsituaties of voor het nemen van realtime klinische beslissingen.\nDoor verder te gaan, bevestig je dat je deze voorwaarden begrijpt en ermee instemt Clinical Fact uitsluitend als studie- en naslaghulpmiddel te gebruiken.",
+      "checkboxLabel": "Ik begrijp dat deze app uitsluitend bedoeld is als educatief naslagwerk en geen medisch advies biedt",
+      "acceptButton": "Accepteren en doorgaan"
+    },
+    "survey": {
+      "role": "Wat omschrijft jou het best, {{firstName}}?",
+      "currentMethod": "Hoe vind je momenteel meestal antwoorden op medische vragen?",
+      "timeDrain": "Wat kost jou de meeste tijd?",
+      "appExpectation": "Wat verwacht je van onze medische app Clinical Fact?",
+      "aiToolsUsed": "Welke AI-tools heb je tot nu toe gebruikt voor je medische studie?",
+      "aiToolIssue": "Wat ging er mis bij die tools?",
+      "aiTrustLevel": "Hoe vaak maak je je zorgen dat een AI-antwoord onjuist kan zijn?",
+      "biggestNeed": "Waar heb je op dit moment het meeste behoefte aan?",
+      "studyTimePerWeek": "Hoeveel tijd heb je per week om te studeren?",
+      "comingUp": "Wat staat er binnenkort voor jou op de planning?",
+      "referralSource": "Hoe heb je gehoord over Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Kies je gebruikersnaam",
+      "usernameSubtitle": "Dit maakt je account wat persoonlijker",
+      "goals": "Waar wil je Clinical Fact\\nvoor gebruiken?",
+      "goalsSubtitle": "Selecteer alles wat van toepassing is. We stemmen de ervaring op je af.",
+      "contentType": "Welk type materiaal gebruik\\nje het meest?",
+      "contentTypeSubtitle": "Selecteer alles wat van toepassing is. Zo kunnen we je ervaring personaliseren.",
+      "reviewStyle": "Hoe herhaal je het liefst\\nwat je hebt geleerd?",
+      "reviewStyleSubtitle": "Selecteer je voorkeursmethode om te herhalen.",
+      "frustration": "{{firstName}}, waar loop je het meest tegenaan bij het maken van notities?",
+      "frustrationSubtitle": "Selecteer alles wat van toepassing is. Dit helpt ons je beter te ondersteunen.",
+      "referral": "Zomaar benieuwd,\\n{{firstName}},\\nhoe heb je over Clinical Fact gehoord?",
+      "referralSubtitle": "Kies één optie."
+    },
+    "referralScreen": {
+      "title": "Ben je door iemand\\ndoorverwezen?",
+      "subtitle": "Voer de doorverwijscode in als je er een hebt"
+    },
+    "setup": {
+      "preparingNotes": "Notities voorbereiden",
+      "preparingFlashcards": "Flashcards voorbereiden",
+      "preparingQuiz": "Quizsjablonen voorbereiden",
+      "preparingChat": "Chatassistenten voorbereiden",
+      "title": "Je persoonlijke werkruimte\\nwordt ingesteld, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Bedankt voor je vertrouwen in Clinical Fact",
+      "subtitle": "Je sluit je aan bij duizenden studenten verpleegkunde en geneeskunde",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Alles wat je nodig hebt\\nom alles te leren",
+      "subtitle": "Neem het op. Zoek het uit. Oefen het. Beheers het.",
+      "everythingYouNeedToLearnAnything": "Alles wat je nodig hebt om te leren",
+      "recordItResearchItQuizIt": "Opnemen. Onderzoeken. Oefenen. Beheersen.",
+      "tryClinicalFactNowForFree": "Probeer Clinical Fact nu gratis"
+    },
+    "features": {
+      "feature1": {
+        "title": "Krijg echte medische antwoorden en vervolgvragen",
+        "description": "Stel elke medische vraag en krijg een duidelijke uitleg plus slimme vervolgvragen, zodat je tijdens het studeren nooit vastloopt."
+      },
+      "feature2": {
+        "title": "Elk medisch antwoord,\nonderbouwd door een echte bron",
+        "description": "Citaties uit PubMed, Semantic Scholar en Europe PMC: controleerbaar, niet verzonnen."
+      },
+      "feature3": {
+        "title": "Upload je aantekeningen, krijg medische samenvattingen van je lesstof",
+        "description": "Zet collegeslides, pdf's of aantekeningen om in een duidelijke uitleg, onderbouwd door betrouwbare medische bronnen."
+      },
+      "feature4": {
+        "title": "Maak van elke chat een quiz of flashcards om te oefenen",
+        "description": "Geen aparte studie-app nodig: genereer oefenvragen rechtstreeks uit je chats en uploads."
+      },
+      "feature5": {
+        "title": "Maak van elke chat of elk document flashcards om te oefenen",
+        "description": "Geen aparte studie-app nodig: genereer oefenvragen rechtstreeks uit je chats en uploads."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Meldingen inschakelen",
+      "thisHelpsUsStayOnTrack": "Zo kunnen we je account personaliseren en je helpen sneller medische antwoorden te vinden"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Ongeldige verificatiecode. Probeer het opnieuw.",
+      "failedToResendCodePleaseTry": "Code opnieuw verzenden mislukt. Probeer het opnieuw.",
+      "confirmYourEmailAddress": "Bevestig je e-mailadres",
+      "enterCodeSentTo": "Voer de verificatiecode in die we hebben gestuurd naar {{email}}",
+      "resendCodeIn": "Code opnieuw verzenden over {{seconds}} sec."
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Heb je een uitnodigingscode gekregen?",
+      "enterTheirReferralCodeIfYou": "Voer de uitnodigingscode in als je die hebt",
+      "eGJOHNOrTECHBRO": "bijv. JAN of TECHBRO",
+      "codeIsValid": "✓ Code is geldig"
+    },
+    "resultsChart": {
+      "getBetterResults": "Behaal betere resultaten",
+      "over95OfClinicalfactUsersScore": "Meer dan 95% van de Clinical Fact-gebruikers scoort 95% of hoger op hun toetsen en examens"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Student verpleegkunde",
+        "medicalStudent": "Student geneeskunde",
+        "paPharmacyStudent": "Student PA of farmacie",
+        "practicingNurse": "Verpleegkundige",
+        "practicingPhysician": "Arts",
+        "otherHealthcareProfessional": "Andere zorgprofessional"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Studieboeken of collegeaantekeningen",
+        "flashcardQuizApps": "Flashcard- of quiz-apps",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chatbots",
+        "colleagueClassmate": "Vragen aan een collega of medestudent",
+        "practiceQuestionBanks": "Oefenvragenbanken"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Zelf flashcards en quizzen maken",
+        "findingTrustworthyAnswer": "Snel een betrouwbaar antwoord vinden",
+        "reReadingNotes": "Aantekeningen herlezen die ik niet meer weet",
+        "switchingApps": "Schakelen tussen te veel apps",
+        "chartingDocumentation": "Verslaglegging en dossiervoering"
+      },
+      "appExpectation": {
+        "noHallucination": "Een AI die niet hallucineert",
+        "realCitations": "Echte bronvermeldingen",
+        "oneApp": "Eén app in plaats van vijf abonnementen",
+        "explainsWhy": "Legt het 'waarom' uit, niet alleen het antwoord"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "UWorld",
+        "googleSearch": "Google Zoeken",
+        "otherApps": "Andere apps"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Verzon dingen",
+        "notMedicalContent": "Niet gemaakt voor medische inhoud",
+        "noSources": "Geen bronnen om te verifiëren",
+        "tooGeneric": "Te algemeen, niet gericht op examens of de praktijk"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Altijd",
+        "sometimes": "Soms",
+        "rarely": "Zelden",
+        "dontUseAi": "Ik gebruik nog geen AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Snelle, betrouwbare antwoorden",
+        "quizzesFlashcardsWithoutWork": "Quizzen en flashcards zonder gedoe",
+        "rememberingStudied": "Hulp bij het onthouden van de leerstof",
+        "medicalCitations": "Medische bronvermeldingen",
+        "allOfTheAbove": "Al het bovenstaande"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Nieuwsbrief",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Anders"
+      },
+      "studyTime": {
+        "under5Hours": "Minder dan 5 uur",
+        "510Hours": "5–10 uur",
+        "1020Hours": "10–20 uur",
+        "20PlusHours": "20+ uur"
+      },
+      "comingUp": {
+        "medicalExams": "Medische tentamens",
+        "clinicalRotations": "Coschappen / stages",
+        "nursingExams": "Verpleegkunde-examens",
+        "otherExams": "Andere examens",
+        "staySharp": "Kennis op peil houden"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "Notitie transcriptie",
+    "noteTranscript": {
+      "noteTranscript": "Transcript van notitie",
+      "noNoteIDProvided": "Geen notitie-ID opgegeven",
+      "noTranscriptAvailableForThisNote": "Geen transcript beschikbaar voor deze notitie.",
+      "thisNoteWasNotCreatedFrom": "Deze notitie is niet gemaakt op basis van audio/video en heeft geen transcript.",
+      "failedToLoadNote": "Laden van notitie mislukt",
+      "noteTranscript2": "Transcript van notitie",
+      "loadingTranscript": "Transcript laden...",
+      "goToNote": "Naar notitie"
+    },
     "noteOptions": "Notitie-opties",
-    "editNote": "Notitie bewerken",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Voer een titel voor de notitie in",
+      "failedToUpdateNote": "Bijwerken van notitie mislukt",
+      "noteUpdatedSuccessfully": "Notitie succesvol bijgewerkt",
+      "editNote": "Notitie bewerken",
+      "noteTitle": "Notitietitel",
+      "enterNoteTitle": "Voer notitietitel in",
+      "noteContent": "Notitie-inhoud",
+      "enterNoteContent": "Voer notitie-inhoud in",
+      "saveThisNote": "Deze notitie opslaan",
+      "aiIsGeneratingYourNote": "AI genereert je notitie",
+      "largeAudioAndVideoFilesMay": "Grote audio- en videobestanden kunnen enkele minuten duren om te verwerken. Houd de app geopend."
+    },
     "retranscribe": "Opnieuw transcriberen",
     "exportNote": "Notitie exporteren",
     "shareNoteLink": "Notitielink delen",
@@ -110,12 +425,89 @@
     "translate": "Vertalen",
     "addToFolder": "Toevoegen aan map",
     "loadingNote": "Notitie laden...",
-    "noteNotFound": "Notitie laden mislukt"
+    "noteNotFound": "Notitie laden mislukt",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Genereren van flashcards mislukt",
+      "anUnexpectedErrorOccurred": "Er is een onverwachte fout opgetreden",
+      "history": "Geschiedenis",
+      "export": "Exporteren"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Notitie toevoegen aan map mislukt",
+      "folderNotFound": "Map niet gevonden",
+      "addNote": "+ Notitie toevoegen",
+      "noNotesInThisFolder": "Geen notities in deze map",
+      "moveNotesToThisFolderTo": "Verplaats notities naar deze map om ze hier te zien",
+      "addNoteToFolder": "Notitie aan map toevoegen",
+      "noNotesAvailableToAdd": "Geen notities beschikbaar om toe te voegen",
+      "allYourNotesAreAlreadyIn": "Al je notities staan al in deze map",
+      "created": "Aangemaakt op {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Laden van notitie mislukt",
+      "reTranscribeNote": "Notitie opnieuw transcriberen",
+      "thisWillReTranscribeTheAudio": "Dit zal de audio opnieuw transcriberen en de notitie bijwerken. Doorgaan?",
+      "reTranscribe": "Opnieuw transcriberen",
+      "noteReTranscribedSuccessfully": "Notitie succesvol opnieuw getranscribeerd",
+      "info": "Info",
+      "reTranscriptionFeatureIsComingSoon": "De functie voor opnieuw transcriberen volgt binnenkort",
+      "youAreCurrentlyOfflinePleaseConnect": "Je bent momenteel offline. Maak verbinding met internet om deze actie uit te voeren.",
+      "failedToDeleteNote": "Verwijderen van notitie mislukt",
+      "failedToExportNote": "Exporteren van notitie mislukt",
+      "noteTranslatedSuccessfully": "Notitie succesvol vertaald",
+      "failedToTranslateNote": "Vertalen van notitie mislukt",
+      "noteMovedTo": "Notitie verplaatst naar {{name}}",
+      "failedToMoveNoteToFolder": "Verplaatsen van notitie naar map mislukt",
+      "summaryNotes": "Samenvattende notities",
+      "loadingNote": "Notitie laden...",
+      "imageNote": "Afbeeldingsnotitie",
+      "created": "Aangemaakt op {{dateTime}}",
+      "translate": "Vertalen",
+      "transcribe": "Transcriberen",
+      "editThisNote": "Notitie bewerken",
+      "createFlashcards": "Flashcards maken",
+      "createFlashcardsToImproveYourRetention": "Maak flashcards om je kennis beter te onthouden",
+      "createQuizQuestions": "Quizvragen maken",
+      "practiceYourNotesByCreatingQuestions": "Oefen je notities door vragen te maken en de stof te beheersen"
+    },
+    "sharedNote": {
+      "notFound": "Niet gevonden",
+      "thisSharedNoteLinkIsInvalid": "Deze link voor de gedeelde notitie is ongeldig of verlopen.",
+      "failedToLoadSharedNote": "Laden van gedeelde notitie mislukt.",
+      "saved": "Opgeslagen!",
+      "noteHasBeenAddedToYour": "Notitie is toegevoegd aan je bibliotheek.",
+      "viewInLibrary": "Bekijken in bibliotheek",
+      "stayHere": "Hier blijven",
+      "failedToSaveNote": "Opslaan van notitie mislukt.",
+      "loadingSharedNote": "Gedeelde notitie laden...",
+      "sharedNote": "Gedeelde notitie",
+      "sharedWithYou": "Met jou gedeeld",
+      "savedToLibrary": "Opgeslagen in bibliotheek",
+      "saveToMyLibrary": "Opslaan in mijn bibliotheek"
+    }
   },
   "create": {
     "selectOption": "Hoe wil je je notitie maken?",
-    "recordAudio": "Audio opnemen",
-    "uploadAudio": "Audio uploaden",
+    "recordAudio": {
+      "permissionRequired": "Toestemming vereist",
+      "pleaseGrantMicrophonePermissionToRecord": "Geef toegang tot de microfoon om audio op te nemen.",
+      "failedToRequestMicrophonePermission": "Toestemming vragen voor microfoon mislukt",
+      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Audio opnemen",
+      "recordAudio": "Audio opnemen",
+      "createANoteFromAnyRecorded": "Maak een notitie van elke audio-opname",
+      "recording": "Opnemen ({{time}})",
+      "recordAgain": "Opnieuw opnemen"
+    },
+    "uploadAudio": {
+      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Selecteren van audiobestand mislukt",
+      "uploadAudio": "Audio uploaden",
+      "createANoteFromAnyUploaded": "Maak een notitie van elk geüpload audiobestand",
+      "dragDropFilesOrBrowse": "Sleep bestanden hierheen of blader",
+      "supportedFormatMp4WavMp3": "Ondersteunde formaten: mp4, wav, mp3",
+      "changeFile": "Bestand wijzigen"
+    },
     "youtube": "YouTube-video",
     "pdfDocument": "PDF of document",
     "customText": "Aangepaste tekst",
@@ -123,7 +515,56 @@
     "uploadingFile": "Bestand uploaden naar server...",
     "transcribing": "Spraak naar tekst converteren...",
     "extractingText": "Tekst extraheren...",
-    "generatingNote": "AI-studienotities maken...",
+    "generatingNote": {
+      "uploadAudio": "Audio uploaden",
+      "uploadingAudioFileToServer": "Audiobestand uploaden naar server...",
+      "transcribeAudio": "Audio transcriberen",
+      "convertingSpeechToText": "Spraak omzetten naar tekst...",
+      "generateYourNote": "Je notitie genereren",
+      "creatingStudyNotes": "Studienotities maken...",
+      "uploadPDF": "PDF uploaden",
+      "uploadingPDFDocumentToServer": "PDF-document uploaden naar server...",
+      "extractText": "Tekst extraheren",
+      "readingAndExtractingTextFromPDF": "Tekst lezen en extraheren uit PDF...",
+      "uploadImage": "Afbeelding uploaden",
+      "uploadingImageToServer": "Afbeelding uploaden naar server...",
+      "extractTextOCR": "Tekst extraheren (OCR)",
+      "recognizingAndExtractingTextFromImage": "Tekst herkennen en extraheren uit afbeelding...",
+      "fetchVideo": "Video ophalen",
+      "connectingToYouTube": "Verbinden met YouTube...",
+      "extractTranscript": "Transcript ophalen",
+      "downloadingVideoTranscript": "Videotranscript downloaden...",
+      "processText": "Tekst verwerken",
+      "analyzingYourContent": "Inhoud analyseren...",
+      "uploadFile": "Bestand uploaden",
+      "uploadingToServer": "Uploaden naar server...",
+      "processContent": "Inhoud verwerken",
+      "extractingContent": "Inhoud extraheren...",
+      "noteReady": "Notitie gereed!",
+      "noteGenerationFailedOnTheServer": "Notitie genereren mislukt op de server.",
+      "failedToUploadImage": "Afbeelding uploaden mislukt",
+      "weCouldNotReadAnythingFrom": "We konden niets lezen op deze afbeelding. Probeer een duidelijkere afbeelding van je medische notities.",
+      "preparingFile": "Bestand voorbereiden...",
+      "almostDone": "Bijna klaar...",
+      "untitledNote": "Naamloze notitie",
+      "failedToGenerateNote": "Notitie genereren mislukt",
+      "whoaSpeedy": "Ho, even rustig aan! 🏃💨",
+      "youReGeneratingContentABit": "Je genereert iets te snel inhoud. Wacht 60 seconden voordat je het opnieuw probeert, zodat onze AI het kan bijbenen.",
+      "gotIt": "Begrepen",
+      "fileTooLarge": "Bestand te groot",
+      "yourFileExceedsThe15MBLimit": "Je bestand overschrijdt de limiet van 15 MB voor gratis gebruikers. Upgrade naar PRO om colleges tot 100 MB te uploaden.",
+      "upgradeToPRO": "Upgrade naar PRO",
+      "oopsWeHitASnag": "Oeps, er ging iets mis 🚧",
+      "weCouldnTGenerateThatRight": "We konden dit nu niet genereren. Wacht even en probeer het opnieuw!",
+      "processingContent": "Inhoud verwerken...",
+      "generatingYourNote": "Je notitie genereren...",
+      "audioNote": "Audionotitie",
+      "failedToGenerateFlashcards": "Flashcards genereren mislukt",
+      "generatingNote": "Notitie genereren",
+      "pleaseKeepThisScreenOpenWhile": "Houd dit scherm open terwijl je notitie wordt gegenereerd. Het transcriberen van grote bestanden kan enkele minuten duren.",
+      "goToNote": "Naar notitie",
+      "generateNoteTranscript": "Notitietranscript genereren"
+    },
     "fetchingVideo": "Verbinden met YouTube...",
     "processingText": "Je inhoud analyseren...",
     "uploadAudioTitle": "Audio uploaden",
@@ -133,7 +574,63 @@
     "fetchVideo": "Video ophalen",
     "extractTranscript": "Transcriptie extraheren",
     "processText": "Tekst verwerken",
-    "generateNote": "Je notitie genereren"
+    "generateNote": "Je notitie genereren",
+    "customTextInput": {
+      "customText": "Aangepaste tekst",
+      "createANoteFromAnyCustom": "Maak een notitie van elke gewenste tekst",
+      "enterText": "Voer tekst in",
+      "enterYourTextHere": "Voer hier je tekst in..."
+    },
+    "uploadImage": {
+      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Toestemming vereist",
+      "pleaseAllowAccessToYourPhoto": "Geef toegang tot je fotobibliotheek",
+      "failedToPickImage": "Afbeelding selecteren mislukt",
+      "uploadImage": "Afbeelding uploaden",
+      "createANoteFromAnyUploaded": "Maak een notitie van elke geüploade afbeelding",
+      "dragDropFilesOrBrowse": "Sleep bestanden hierheen of blader",
+      "supportedFormatPngJpegHeicWebp": "Ondersteunde formaten: png, jpeg, heic, webp",
+      "changeFile": "Bestand wijzigen"
+    },
+    "uploadPDF": {
+      "created": "Aangemaakt op {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Document selecteren mislukt",
+      "uploadPdf": "Pdf uploaden",
+      "createANoteFromAnyUploaded": "Maak een notitie van elke geüploade pdf",
+      "dragDropFilesOrBrowse": "Sleep bestanden hierheen of blader",
+      "supportedFormatPdf": "Ondersteund formaat: pdf",
+      "changeFile": "Bestand wijzigen"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Video ophalen",
+      "gettingVideoDetails": "Videogegevens ophalen",
+      "extractingTranscript": "Transcript ophalen",
+      "convertingAudioToText": "Audio omzetten naar tekst",
+      "generatingYourNote": "Je notitie genereren",
+      "aiIsSummarisingTheContent": "AI vat de inhoud samen",
+      "noteGenerationFailedPleaseTryAgain": "Notitie genereren mislukt. Probeer het opnieuw.",
+      "processingFailed": "Verwerking mislukt",
+      "goBack": "Ga terug",
+      "retry": "Opnieuw proberen",
+      "failedToStartNoteGeneration": "Starten van notitiegeneratie mislukt",
+      "failedToProcessYouTubeVideoPlease": "Verwerken van YouTube-video mislukt. Probeer het opnieuw.",
+      "cancelProcessing": "Verwerking annuleren",
+      "areYouSureYouWantTo": "Weet je zeker dat je wilt annuleren? Je voortgang gaat verloren.",
+      "continueProcessing": "Doorgaan met verwerken",
+      "youTubeNote": "YouTube-notitie",
+      "noteGenerated": "Notitie gegenereerd",
+      "generatingNote": "Notitie genereren...",
+      "goToNote": "Naar notitie"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Kon video-informatie niet ophalen",
+      "failedToFetchVideoInformation": "Ophalen van video-informatie mislukt",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Maak een notitie van elke YouTube-video",
+      "enterYoutubeURL": "Voer YouTube-URL in",
+      "pasteYoutubeURL": "Plak YouTube-URL",
+      "fetchingVideoInfo": "Video-info ophalen..."
+    }
   },
   "library": {
     "title": "Bibliotheek",
@@ -163,7 +660,67 @@
     "almostDone": "Bijna klaar...",
     "quizReady": "Quiz klaar!",
     "startQuiz": "Quiz starten",
-    "questionCount": "{{current}} van {{total}}"
+    "questionCount": "{{current}} van {{total}}",
+    "previous": "Vorige vraag",
+    "generatingQuiz": "Quiz genereren met AI...",
+    "exitTitle": "Quiz verlaten?",
+    "exitMessage": "Je voortgang gaat verloren.",
+    "exit": "Verlaten",
+    "errorTitle": "Oeps, er ging iets mis 🚧",
+    "errorMessage": "We konden dit nu niet genereren. Wacht even en probeer het opnieuw!",
+    "noQuestions": "Geen vragen beschikbaar.",
+    "reading": "Je aantekeningen lezen...",
+    "identifying": "Kernbegrippen identificeren...",
+    "structuring": "Vragen structureren...",
+    "almostReady": "Bijna klaar...",
+    "youScored": "JE SCORE",
+    "timeInSeconds": "TIJD IN SECONDEN",
+    "accuracy": "NAUWKEURIGHEID",
+    "grade": "CIJFER",
+    "reportsCard": "Resultatenoverzicht",
+    "reviewAnswers": "Antwoorden bekijken",
+    "correctAnswer": "Juist antwoord",
+    "yourAnswer": "Jouw antwoord",
+    "explanation": "Uitleg",
+    "questionProgress": "Vraag {{current}} van {{total}}",
+    "generatingQuizWait": "We genereren je quiz, even geduld...",
+    "goToChats": "Ga naar chats",
+    "quizGroupDetail": {
+      "inProgress": "Bezig",
+      "notStarted": "Niet gestart",
+      "failedToLoadQuizHistory": "Laden van quizgeschiedenis mislukt",
+      "failedToLoadChatContent": "Laden van chatinhoud mislukt",
+      "deleteQuiz": "Quiz verwijderen",
+      "failedToDeleteQuiz": "Verwijderen van quiz mislukt",
+      "created": "Aangemaakt op {{dateTime}}",
+      "lastscore": "LAATSTE SCORE",
+      "bestscore": "BESTE SCORE",
+      "attempts": "POGINGEN",
+      "retakeQuiz": "Quiz opnieuw doen",
+      "translate": "Vertalen",
+      "newQuiz": "Nieuwe quiz",
+      "quizHistory": "Quizgeschiedenis",
+      "flashcardHistory": "Flashcardgeschiedenis",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Nog geen flashcardsets van deze bron.",
+      "cards": "{{totalCards}} kaarten · {{flashcardStatus}}",
+      "quizOptions": "Quizopties",
+      "exportLatestAttempt": "Laatste poging exporteren",
+      "questions": "{{totalQuestions}} vragen · {{value}}",
+      "deleteAllAttemptsOne": "De enige quizpoging voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "deleteAllAttemptsMany": "Alle {{total}} quizpogingen voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "makeFlashcards": "Maak flashcards"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Laden van quizgegevens mislukt - ongeldige reactie",
+      "failedToLoadQuizData": "Laden van quizgegevens mislukt",
+      "noContentAvailable": "Geen inhoud beschikbaar",
+      "goBack": "Ga terug",
+      "previous": "Vorige"
+    },
+    "quiz": {
+      "generationFailed": "Genereren mislukt"
+    }
   },
   "flashcards": {
     "title": "Flashcards",
@@ -172,7 +729,68 @@
     "previous": "Vorige",
     "shuffle": "Schudden",
     "generating": "Flashcards genereren...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Maak flashcards om de leerstof beter te onthouden",
+    "howManyQuestions": "Hoeveel vragen?",
+    "generateButton": "Flashcards genereren",
+    "generatingEllipsis": "Genereren...",
+    "allDone": "Helemaal klaar!",
+    "completedReview": "Je hebt alle kaarten in deze stapel doorgenomen",
+    "backToNotes": "Terug naar aantekeningen",
+    "question": "Vraag",
+    "answer": "Antwoord",
+    "noQuestionText": "(Geen vraagtekst)",
+    "noAnswerText": "(Geen antwoordtekst)",
+    "enterQuestion": "Voer je vraag in",
+    "enterAnswer": "Voer het antwoord in",
+    "clickToFlip": "tik op de kaart om te draaien",
+    "reading": "Je aantekeningen lezen...",
+    "identifying": "Kernbegrippen identificeren...",
+    "creating": "Flashcards maken...",
+    "almostReady": "Bijna klaar...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} van {{total}}",
+    "noteIdRequired": "Notitie-ID is vereist om flashcards te genereren",
+    "invalidCardCount": "Kies tussen 1 en 100 flashcards",
+    "flashcardGroupDetail": {
+      "inProgress": "Bezig",
+      "notStarted": "Niet gestart",
+      "failedToLoadFlashcardHistory": "Laden van flashcardgeschiedenis mislukt",
+      "limitReached": "Limiet bereikt",
+      "flashcardGenerationLimitReached": "Limiet voor genereren van flashcards bereikt.",
+      "failedToGenerateFlashcards": "Genereren van flashcards mislukt",
+      "failedToTranslateFlashcards": "Vertalen van flashcards mislukt",
+      "deleteFlashcards": "Flashcards verwijderen",
+      "failedToDeleteFlashcards": "Verwijderen van flashcards mislukt",
+      "created": "Aangemaakt op {{dateTime}}",
+      "lastprogress": "LAATSTE VOORTGANG",
+      "bestprogress": "BESTE VOORTGANG",
+      "sets": "SETS",
+      "studyNow": "Nu leren",
+      "translate": "Vertalen",
+      "newFlashcards": "Nieuwe flashcards",
+      "flashcardHistory": "Flashcard-geschiedenis",
+      "quizHistory": "Quizgeschiedenis",
+      "cards": "{{totalCards}} kaarten · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Nog geen quizzen van deze bron.",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Flashcard-opties",
+      "exportLatestSet": "Laatste set exporteren",
+      "questions": "{{totalQuestions}} vragen · {{value}}",
+      "deleteAllSetsOne": "De flashcardset voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "deleteAllSetsMany": "Alle {{total}} flashcardsets voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "makeQuiz": "Maak een quiz",
+      "failedToLoadChatContent": "Chatinhoud laden mislukt"
+    },
+    "flashcardReview": {
+      "unknownError": "Onbekende fout",
+      "noFlashcardsInThisSet": "Geen flashcards in deze set",
+      "goBack": "Terug",
+      "allDone": "Helemaal klaar",
+      "youHaveReviewedAllTheCards": "Je hebt alle kaarten in deze stapel doorgenomen",
+      "question": "Vraag {{value}}",
+      "questionOf": "Vraag {{value}} van {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Chat",
@@ -183,7 +801,191 @@
     "chatWithDocument": "Chat met document",
     "selectFile": "Selecteer een bestand om mee te chatten",
     "uploadFile": "Bestand uploaden",
-    "startChatting": "Beginnen met chatten"
+    "startChatting": "Beginnen met chatten",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Stel een medische vraag voor meer uitleg",
+      "askAnythingAboutThisDocument": "Vraag alles over dit document...",
+      "askAQuestionAttachmentProcessingFailed": "Stel een vraag — verwerking van bijlage mislukt",
+      "extractingText": "Tekst extraheren...",
+      "processingPDF": "Pdf verwerken...",
+      "upgradeToProToContinueChatting": "Upgrade naar PRO om te blijven chatten",
+      "queryremaining": "{{queriesRemaining}} ZOEKOPDRACHT OVER"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Chat initialiseren...",
+      "extractingTextFromImage": "Tekst uit afbeelding extraheren...",
+      "processingPDFDocument": "Pdf-document verwerken...",
+      "analyzingYourNote": "Notitie analyseren...",
+      "thisUsuallyTakesJustAFew": "⏱️ Dit duurt meestal een paar seconden. Je kunt chatten zodra de verwerking is voltooid.",
+      "processingFailed": "Verwerking mislukt",
+      "fileMightBeCorruptedOrUnreadable": "• Bestand is mogelijk beschadigd of onleesbaar",
+      "imageQualityTooLow": "Beeldkwaliteit te laag",
+      "pdfIsPasswordProtected": "Pdf is beveiligd met een wachtwoord",
+      "contentFormatNotSupported": "Indeling van inhoud niet ondersteund",
+      "networkConnectionIssue": "• Probleem met netwerkverbinding",
+      "tryADifferentFile": "Probeer een ander bestand",
+      "askAnyClinicalQuestionNoUpload": "💡 Stel een willekeurige klinische vraag — uploaden is niet nodig. Ik antwoord op basis van geciteerde medische literatuur, inclusief relevante afbeeldingen indien beschikbaar.",
+      "readyToChat": "✓ Klaar om te chatten",
+      "couldntProcessNote": "We konden deze notitie niet verwerken. Mogelijke oorzaken:",
+      "couldntProcessImage": "We konden deze afbeelding niet verwerken. Mogelijke oorzaken:",
+      "couldntProcessDocument": "We konden dit document niet verwerken. Mogelijke oorzaken:",
+      "askMeAboutNote": "💡 Vraag me alles over deze notitie. Ik kan samenvatten, concepten uitleggen of specifieke vragen beantwoorden.",
+      "askMeAboutImage": "💡 Vraag me alles over deze afbeelding. Ik kan samenvatten, concepten uitleggen of specifieke vragen beantwoorden.",
+      "askMeAboutDocument": "💡 Vraag me alles over dit document. Ik kan samenvatten, concepten uitleggen of specifieke vragen beantwoorden."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} beheerst",
+      "notStarted": "Niet gestart",
+      "quizGeneration": "Quiz genereren",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Flashcards genereren",
+      "questions": "{{totalCards}} vragen · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} vragen · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Nadenken en bronnen voor je zoeken...",
+      "couldnTGenerateAResponse": "Kon geen antwoord genereren.",
+      "retry": "Opnieuw proberen",
+      "alsoReferencedFromTheWeb": "Ook geraadpleegd vanaf het web",
+      "followUpQuestions": "Vervolgvragen"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Stel elke medische vraag en krijg onderbouwde feiten met bronvermelding",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Evidence-based · PubMed-bronnen · Peer-reviewed",
+      "tryOutAnyOfThisTopics": "Probeer een van deze onderwerpen om te beginnen",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolytenstoornissen uitgelegd",
+          "question": "Leg elektrolytenstoornissen uit — oorzaken, symptomen en behandeling"
+        },
+        "ecg": {
+          "label": "Basis van ECG-beoordeling",
+          "question": "Wat is de basis van het beoordelen van een ECG?"
+        },
+        "drugInteractions": {
+          "label": "Belangrijke interacties tussen geneesmiddelen",
+          "question": "Welke veelvoorkomende en belangrijke interacties tussen geneesmiddelen moet ik kennen?"
+        },
+        "nclex": {
+          "label": "Oefenonderwerpen in NCLEX-stijl",
+          "question": "Geef me een oefenvraag in NCLEX-stijl"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA-bijsluiter",
+      "fromYourAttachedMaterial": "Uit je bijgevoegde materiaal"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Aanmaken van chatsessie mislukt",
+      "failedToInitializeChatSession": "Initialiseren van chatsessie mislukt",
+      "failedToUpdateLanguage": "Taal bijwerken mislukt",
+      "youVeReachedYour3Pin": "Je hebt de limiet van 3 vastgezette chats bereikt",
+      "failedToUpdatePin": "Vastzetten mislukt",
+      "permissionRequired": "Toestemming vereist",
+      "pleaseGrantCameraPermissionToTake": "Geef toegang tot de camera om een foto te maken.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Geef toegang tot je fotobibliotheek om afbeeldingen te uploaden.",
+      "failedToUploadImage": "Uploaden van afbeelding mislukt",
+      "uploadFailed": "Uploaden mislukt",
+      "failedToUploadDocument": "Uploaden van document mislukt",
+      "failedToStartChatFromThis": "Kan geen chat starten vanuit dit bestand.",
+      "chatFromImage": "Chatten via afbeelding",
+      "failedToStartANewQuestion": "Starten van een nieuwe vraag mislukt. Probeer het opnieuw.",
+      "failedToAttachFile": "Bijvoegen van bestand mislukt",
+      "failedToSendMessage": "Bericht verzenden mislukt",
+      "copiedToClipboard": "Gekopieerd naar klembord",
+      "notEnoughContentYet": "Nog niet genoeg inhoud",
+      "chatABitMoreBeforeGenerating": "Chat nog iets meer voordat je een quiz genereert (minimaal 100 tekens).",
+      "chatABitMoreBeforeGenerating2": "Chat nog iets meer voordat je flashcards genereert (minimaal 100 tekens).",
+      "failedToGenerateFlashcards": "Genereren van flashcards mislukt",
+      "failedToRegenerateResponse": "Opnieuw genereren van antwoord mislukt",
+      "failedToRetryResponse": "Opnieuw proberen van antwoord mislukt"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Bijvoegen van notitie mislukt",
+      "folderCreatedSuccessfully": "Map \"{{name}}\" succesvol aangemaakt!",
+      "failedToCreateFolder": "Aanmaken van map mislukt",
+      "failedToAttachDocument": "Bijvoegen van document mislukt",
+      "failedToCreateChatSession": "Aanmaken van chatsessie mislukt",
+      "failedToUploadDocument": "Uploaden van document mislukt",
+      "openingCamera": "📷 Camera openen...",
+      "openingImagePicker": "🖼️ Fotokiezer openen...",
+      "permissionRequired": "Toestemming vereist",
+      "pleaseGrantCameraPermissionToTake": "Geef toegang tot de camera om een foto te maken.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Geef toegang tot je fotobibliotheek om afbeeldingen te uploaden.",
+      "failedToAttachImage": "Bijvoegen van afbeelding mislukt",
+      "failedToUploadImage": "Uploaden van afbeelding mislukt",
+      "failedToAttachAudio": "Bijvoegen van audio mislukt",
+      "failedToUploadAudio": "Uploaden van audio mislukt",
+      "items": "{{itemCount}} items",
+      "thisFolderIsEmptyGoBack": "Deze map is leeg. Ga terug om een andere map te kiezen.",
+      "addFolder": "Map toevoegen",
+      "uploadNewDocument": "Nieuw document uploaden",
+      "uploadAPDFAndStartChatting": "Upload een pdf en begin direct met chatten",
+      "uploadNewImage": "Nieuwe afbeelding uploaden",
+      "uploadAnImageAndExtractText": "Upload een afbeelding en haal er direct tekst uit",
+      "uploadNewAudio": "Nieuwe audio uploaden",
+      "uploadAnAudioFileAndTranscribe": "Upload een audiobestand en transcribeer het direct",
+      "orselectfromlibrary": "OF KIES UIT BIBLIOTHEEK",
+      "folders": "Mappen",
+      "allNotes": "Alle notities",
+      "noFilesToDisplay": "Geen bestanden om weer te geven",
+      "noNotesToDisplay": "Geen notities om weer te geven",
+      "noDocumentsYet": "Je hebt nog geen pdf-documenten.\nMaak eerst notities aan om er vervolgens mee te chatten.",
+      "noImagesYet": "Je hebt nog geen afbeeldingen.\nMaak eerst notities aan om er vervolgens mee te chatten.",
+      "noAudioNotesYet": "Je hebt nog geen audionotities.\nMaak eerst notities aan om er vervolgens mee te chatten.",
+      "noNotesYet": "Je hebt nog geen notities.\nMaak eerst notities aan om er vervolgens mee te chatten.",
+      "attachNote": "Notitie toevoegen",
+      "selectNote": "Selecteer een notitie",
+      "attachImage": "Afbeelding toevoegen",
+      "selectImage": "Selecteer een afbeelding",
+      "attachDocument": "Document toevoegen",
+      "selectDocument": "Selecteer een document",
+      "attachAudio": "Audio toevoegen",
+      "selectAudio": "Selecteer audio",
+      "attachFile": "Bestand toevoegen",
+      "selectFile": "Selecteer een bestand",
+      "aNote": "{{verb}} een notitie",
+      "anImage": "{{verb}} een afbeelding",
+      "aDocument": "{{verb}} een document",
+      "audio": "{{verb}} audio",
+      "aFile": "{{verb}} een bestand"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Aan chat toevoegen",
+      "camera": "Camera",
+      "photos": "Foto's",
+      "files": "Bestanden",
+      "generateQuiz": "Quiz genereren",
+      "generateFlashcards": "Flashcards genereren",
+      "searchMedicalLiterature": "Medische literatuur doorzoeken",
+      "filterByDateSourceAndType": "Filteren op datum, bron en type",
+      "pullsRealCitedSourcesIntoYour": "Haalt echte, geciteerde bronnen op voor je antwoorden",
+      "trustedmedicalsourcedatabase": "DATABASE MET BETROUWBARE MEDISCHE BRONNEN",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA-gegevens over geneesmiddelen en behandelingen"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Bronnen controleren",
+      "citations": "Bronnen",
+      "fromTheWeb": "Van het web"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Gereed · tik om te hernoemen",
+      "processing": "Verwerken {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Bekijk bron ↗"
+    },
+    "chatRename": {
+      "renameChat": "Chat hernoemen"
+    },
+    "sourcesRow": {
+      "viewSources": "Bekijk bronnen ({{total}})"
+    }
   },
   "languages": {
     "english": "Engels",
@@ -205,6 +1007,487 @@
     "turkish": "Turks",
     "vietnamese": "Vietnamees",
     "thai": "Thais",
-    "indonesian": "Indonesisch"
+    "indonesian": "Indonesisch",
+    "englishGB": "Engels (VK)",
+    "englishAU": "Engels (Australië)",
+    "englishCA": "Engels (Canada)",
+    "spanishMX": "Spaans (Mexico)",
+    "frenchCA": "Frans (Canada)",
+    "portuguesePT": "Portugees (Portugal)",
+    "norwegian": "Noors",
+    "danish": "Deens",
+    "finnish": "Fins",
+    "czech": "Tsjechisch",
+    "slovak": "Slowaaks",
+    "slovenian": "Sloveens",
+    "croatian": "Kroatisch",
+    "hungarian": "Hongaars",
+    "romanian": "Roemeens",
+    "greek": "Grieks",
+    "ukrainian": "Oekraïens",
+    "arabicAE": "Arabisch (VAE)",
+    "arabicEG": "Arabisch (Egypte)",
+    "hebrew": "Hebreeuws",
+    "bengali": "Bengaals",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Maleis",
+    "catalan": "Catalaans"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Map toevoegen",
+      "folderName": "Mapnaam",
+      "enterFolderName": "Voer mapnaam in",
+      "chooseColor": "Kies kleur",
+      "createFolder": "Map aanmaken"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Voordat we je content verwerken",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact gebruikt AI om je vragen te beantwoorden en je inhoud om te zetten in notities, quizzen en flashcards. Dit moet je weten:",
+      "whatDataIsSent": "Welke gegevens worden verzonden",
+      "questionsAndMessagesYouTypeIn": "Vragen en berichten die je in de chat typt",
+      "audioRecordingsOrUploadedAudioFiles": "Audio-opnamen of geüploade audiobestanden",
+      "pdfAndTextDocumentsYouUpload": "Pdf- en tekstdocumenten die je uploadt",
+      "imagesYouUpload": "Afbeeldingen die je uploadt",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube-video-URL's en bijbehorende transcripten",
+      "customTextYouEnter": "Zelf ingevoerde tekst",
+      "whoReceivesYourData": "Wie je gegevens ontvangt",
+      "howItSUsed": "Hoe het wordt gebruikt",
+      "yourContentIsUsedSolelyTo": "Je content wordt uitsluitend gebruikt om het door jou gevraagde antwoord, de notitie, quiz of flashcards te genereren. Op content die via hun API wordt verwerkt, is het gegevensbeleid van de betreffende provider van toepassing. Zie ons Privacybeleid voor meer details.",
+      "iAgreeContinue": "Akkoord — Doorgaan",
+      "noThanks": "Nee, bedankt",
+      "whoReceivesBody": "Je content wordt via onze beveiligde backend-servers verzonden naar <bold>Google (Gemini)</bold> (voor het genereren van notities, quizzen en flashcards, chatantwoorden en de verwerking van documenten en afbeeldingen) en naar <bold>OpenAI</bold> (voor audiotranscriptie). Fragmenten uit je documenten worden tevens geïndexeerd met <bold>Google Vertex AI</bold>, zodat de chat relevante passages kan terugvinden. Wanneer live medisch zoeken wordt gebruikt, wordt je vraag ook verstuurd naar <bold>Tavily</bold> en openbare medische literatuurdatabases (zoals PubMed, Europe PMC en Semantic Scholar) om citaten te vinden uit betrouwbare bronnen zoals NIH, CDC, MedlinePlus, WHO en Mayo Clinic. Deze providers verwerken je gegevens uitsluitend om je antwoord te genereren; ze gebruiken deze niet om hun eigen algemene AI-modellen te trainen, en we verkopen je gegevens nooit aan derden."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Chat losmaken",
+      "pinChat": "Chat vastpinnen",
+      "deleteChat": "Chat verwijderen"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Flashcards genereren",
+      "createFlashcards": "Flashcards maken",
+      "createFlashcardsFromToImproveYour": "Maak flashcards van \"{{noteTitle}}\" om de stof beter te onthouden",
+      "createFlashcardsToImproveYourRetention": "Maak flashcards om de stof beter te onthouden",
+      "howManyQuestions": "Aantal vragen",
+      "generateFlashcards2": "Flashcards genereren"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Maken vanuit chat",
+      "selectFromOneOfYourRecent": "Kies uit een van je recente chats",
+      "pdfOrDocument": "Pdf of document",
+      "createFromAudio": "Maken vanuit audio",
+      "image": "Afbeelding",
+      "createFromCustomText": "Maken vanuit eigen tekst",
+      "created": "Gemaakt op {{day}}, {{time}}",
+      "createQuizFrom": "Quiz maken van",
+      "createFlashcardsFrom": "Flashcards maken van",
+      "selectFromChat": "Kiezen uit chat",
+      "noRecentChatsYet": "Nog geen recente chats",
+      "quizFromPdf": "Maak een quiz van een pdf of document",
+      "flashcardsFromPdf": "Maak een set flashcards van een pdf of document",
+      "quizFromAudio": "Maak een quiz van geüploade audio",
+      "flashcardsFromAudio": "Maak een set flashcards van geüploade audio",
+      "quizFromImage": "Maak een quiz van een afbeelding",
+      "flashcardsFromImage": "Maak een set flashcards van een afbeelding",
+      "quizFromText": "Maak een quiz van vastgelegde tekst",
+      "flashcardsFromText": "Maak een set flashcards van vastgelegde tekst"
+    },
+    "createNote": {
+      "recordAudio": "Audio opnemen",
+      "generateANoteFromAnyRecorded": "Genereer een notitie van opgenomen audio",
+      "uploadAudio": "Audio uploaden",
+      "createANoteFromAnyUploaded": "Maak een notitie van geüploade audio",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Maak een notitie van een YouTube-video",
+      "pdfOrDocument": "Pdf of document",
+      "createANoteFromPDFOr": "Maak een notitie van een pdf of document",
+      "customText": "Eigen tekst",
+      "createANoteFromCapturedText": "Maak een notitie van vastgelegde tekst",
+      "image": "Afbeelding",
+      "createANoteFromAnyImage": "Maak een notitie van een afbeelding",
+      "createNote": "Notitie maken"
+    },
+    "createQuiz": {
+      "generateQuiz": "Quiz genereren",
+      "createQuiz": "Quiz maken",
+      "practiceByCreatingQuestionsThatHelp": "Oefen \"{{noteTitle}}\" door vragen te maken waarmee je het onderwerp beheerst",
+      "practiceYourNotesByCreatingQuestions": "Oefen je notities door vragen te maken waarmee je het onderwerp beheerst",
+      "howManyQuestions": "Aantal vragen",
+      "timeInMinutes": "Tijd (in minuten)"
+    },
+    "deleteNote": {
+      "deleteNote": "Notitie verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je deze notitie wilt verwijderen?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Samenvatting exporteren als",
+      "exportTranscriptAs": "Transcript exporteren als",
+      "exportAs": "Exporteren als",
+      "exportSummary": "Samenvatting exporteren",
+      "exportTranscript": "Transcript exporteren"
+    },
+    "exportTypeStep": {
+      "exportNote": "Notitie exporteren",
+      "exportSummary": "Samenvatting exporteren",
+      "exportTranscript": "Transcript exporteren"
+    },
+    "exportSettings": {
+      "export": "{{title}} exporteren",
+      "selectFormat": "Formaat selecteren",
+      "includeAnswers": "Antwoorden toevoegen",
+      "answersExplanationsIncluded": "Inclusief antwoorden en toelichtingen",
+      "questionsOnly": "Alleen vragen",
+      "export2": "Exporteren"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Je notitie is klaar!",
+      "howDidWeDo": "Hoe hebben we het gedaan?",
+      "happy": "Tevreden",
+      "sad": "Ontevreden",
+      "maybeLater": "Misschien later",
+      "whatWentWrong": "Wat ging er mis?",
+      "yourFeedbackHelpsUsImprove": "Je feedback helpt ons te verbeteren.",
+      "tellUsWhatCouldBeBetter": "Vertel ons wat er beter kan...",
+      "submit": "Versturen"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Geen inhoud beschikbaar",
+      "clickCardToFlip": "tik op kaart om om te draaien"
+    },
+    "flashcardExport": {
+      "exportFailed": "Exporteren mislukt",
+      "unknownError": "Onbekende fout",
+      "export": "{{setTitle}} exporteren",
+      "chooseWhatToExport": "Kies wat je wilt exporteren",
+      "exportQuestions": "Vragen exporteren",
+      "exportAnswers": "Antwoorden exporteren"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Flashcardset verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je \"{{setTitle}}\" wilt verwijderen?",
+      "failedToDeleteFlashcardSet": "Verwijderen van flashcardset mislukt",
+      "flashcardHistory": "Flashcardgeschiedenis",
+      "cards": "Kaarten",
+      "reviewedMastered": "{{cardsReviewedCount}} herhaald • {{percentage}}% beheerst"
+    },
+    "folders": {
+      "items": "{{itemCount}} items",
+      "enterYourFolderName": "Voer mapnaam in",
+      "yourFolderName": "Je mapnaam",
+      "createFolder": "Map aanmaken",
+      "folders": "Mappen",
+      "addFolder": "Map toevoegen",
+      "noFoldersToDisplay": "Geen mappen om weer te geven",
+      "clickTheButtonAboveToCreate": "Tik op de knop hierboven om een map voor je notities aan te maken",
+      "allFolders": "Alle mappen",
+      "items2": "{{totalItems}} items"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filters voor medisch onderzoek",
+      "howrecentdoyouwantthe": "HOE RECENT MOET DE BRON ZIJN",
+      "from": "Van",
+      "whatkindofsourcedoyou": "WAT VOOR BRON HEB JE NODIG",
+      "textbooks": "Leerboeken",
+      "clinicalGuidelines": "Klinische richtlijnen",
+      "scientificJournalArticles": "Wetenschappelijke tijdschriftartikelen",
+      "onlywiththisjournalarticles": "ALLEEN MET DEZE TIJDSCHRIFTARTIKELEN",
+      "metaAnalyses": "Meta-analyses",
+      "reviewArticles": "Review-artikelen",
+      "clinicalTrials": "Klinische studies (trials)",
+      "fromYear": "Vanaf jaar",
+      "toYear": "Tot jaar"
+    },
+    "noteOptions": {
+      "noteOptions": "Notitie-opties",
+      "editNote": "Notitie bewerken",
+      "reTranscribe": "Opnieuw transcriberen",
+      "chatWithNote": "Chatten met notitie",
+      "exportNote": "Notitie exporteren",
+      "moveToFolder": "Verplaatsen naar map",
+      "deleteNote": "Notitie verwijderen"
+    },
+    "onboardingTooltip": {
+      "skip": "Overslaan"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Quiz verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je \"{{quizTitle}}\" wilt verwijderen?",
+      "failedToDeleteQuiz": "Verwijderen van quiz mislukt",
+      "quizHistory": "Quizgeschiedenis",
+      "questions": "Vragen",
+      "correct": "{{correctAnswers}} goed"
+    },
+    "referral": {
+      "copied": "Gekopieerd!",
+      "yourReferralCodeHasBeenCopied": "Je doorverwijscode is gekopieerd naar het klembord.",
+      "joinMeOnClinicalFactUse": "Doe met me mee op Clinical Fact! Gebruik mijn code {{referralCode}} – {{appUrl}}",
+      "joined": "Lid sinds {{joinedDate}}",
+      "referralCode": "Doorverwijscode",
+      "yourReferralCode": "Jouw doorverwijscode",
+      "shareWithFriendsToEarnRewards": "Deel met vrienden en verdien beloningen",
+      "share": "Delen",
+      "copyCode": "Code kopiëren",
+      "referredFriends": "Aangemelde vrienden",
+      "noReferralsYetShareYourCode": "Nog geen aanmeldingen. Deel je code om te beginnen!",
+      "loadMore": "Meer laden",
+      "howItWorks": "Hoe het werkt",
+      "friendsUseYourCodeDuringSignup": "• Vrienden gebruiken jouw code bij registratie",
+      "youBothEarnRewardsWhenThey": "• Jullie ontvangen beiden beloningen als ze lid worden",
+      "friendsReferredCount": "Vrienden uitgenodigd: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Tekst extraheren...",
+      "transcribingAudio": "Audio transcriberen...",
+      "processingPDF": "Pdf verwerken...",
+      "settingUpChat": "Chat instellen...",
+      "uploadFailed": "Uploaden mislukt",
+      "failedToUploadFilePleaseTry": "Bestand uploaden mislukt. Probeer het opnieuw.",
+      "yourFileIsReadyForChatting": "Je bestand is klaar voor de chat!",
+      "uploadingYourFileToTheServer": "Bestand uploaden naar server...",
+      "extractingTextFromYourImage": "Tekst extraheren uit afbeelding...",
+      "transcribingYourAudio": "Audio transcriberen...",
+      "extractingTextFromYourPDF": "Tekst extraheren uit pdf...",
+      "creatingYourChatSession": "Chatsessie aanmaken...",
+      "pleaseWait": "Even geduld...",
+      "uploadFile": "Bestand uploaden",
+      "processContent": "Inhoud verwerken",
+      "createChat": "Chat aanmaken"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Bekijken",
+      "export": "📤 Exporteren",
+      "delete": "🗑️ Verwijderen"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Mogelijk gemaakt door"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-bestand",
+      "pdfFile": "PDF-bestand",
+      "docFile": "DOC-bestand"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Notities ophalen mislukt",
+      "failedToFetchFolders": "Mappen ophalen mislukt",
+      "failedToFetchNote": "Notitie ophalen mislukt",
+      "failedToDeleteNote": "Notitie verwijderen mislukt",
+      "failedToCreateFolder": "Map aanmaken mislukt",
+      "failedToDeleteFolder": "Map verwijderen mislukt"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Chat verwijderen mislukt"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Flashcardset succesvol geëxporteerd!",
+      "failedToExportFlashcardSet": "Exporteren van flashcardset mislukt."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quiz succesvol geëxporteerd!",
+      "failedToExportQuiz": "Exporteren van quiz mislukt."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Naamloze flashcards",
+      "failedToLoadFlashcards": "Flashcards laden mislukt",
+      "failedToSyncFlashcardSet": "Synchroniseren van flashcardset mislukt",
+      "failedToSyncCardUpdate": "Bijwerken van kaart mislukt"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Aangemaakt op {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Je hebt de limiet van 3 vastgezette chats bereikt",
+      "failedToUpdatePin": "Vastzetten bijwerken mislukt",
+      "noChatsYet": "Nog geen chats",
+      "startAChatToGetAnswers": "Start een chat voor antwoorden onderbouwd met betrouwbare bronnen.",
+      "createChat": "+ Nieuwe chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Flashcards verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je \"{{sourceTitle}}\" wilt verwijderen?",
+      "failedToDeleteFlashcards": "Verwijderen van flashcards mislukt",
+      "sets": "{{setCount}} sets",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Flashcards maken",
+      "searchFlashcards": "Flashcards zoeken...",
+      "noFlashcardsYet": "Nog geen flashcards",
+      "createAFlashcardSetFromA": "Maak een set flashcards van een notitie om te beginnen",
+      "createSet": "+ Set maken",
+      "flashcardOptions": "Flashcard-opties",
+      "view": "Bekijken"
+    },
+    "folder": {
+      "deleteFolder": "Map verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je \"{{name}}\" wilt verwijderen? Notities hierin worden verplaatst naar de hoofdmap.",
+      "failedToDeleteFolder": "Map verwijderen mislukt",
+      "error": "Fout: {{message}}",
+      "noFoldersYetCreateOne": "Nog geen mappen. Maak er een aan!",
+      "folders": "Mappen"
+    },
+    "home": {
+      "created": "Aangemaakt op {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Taal bijwerken mislukt",
+      "notEnoughContentYet": "Nog niet genoeg inhoud",
+      "chatABitMoreBeforeGenerating": "Chat nog wat langer voordat je een quiz genereert (minimaal 100 tekens).",
+      "chatABitMoreBeforeGenerating2": "Chat nog wat langer voordat je flashcards genereert (minimaal 100 tekens).",
+      "failedToGenerateFlashcards": "Genereren van flashcards mislukt",
+      "upgradeToPro": "Upgrade naar PRO",
+      "get80DiscountWhenYouUpgrade": "Krijg 80% korting wanneer je je account upgradet",
+      "unlockPRO": "Ontgrendel PRO",
+      "noMedicalChats": "Geen medische chats",
+      "youHaveNotCreatedAnyMedical": "Je hebt nog geen medische chats gestart. Begin een nieuwe chat en ontvang geciteerde bronnen",
+      "talkToClinicalfactAI": "Praat met Clinical Fact AI",
+      "jumpInWhereYouStopped": "Ga verder waar je gebleven was",
+      "practiceQuiz": "Oefenquiz",
+      "makeFlashcards": "Flashcards maken",
+      "continueChatWithNote": "Verder chatten met notitie",
+      "continueChat": "Verder chatten",
+      "recentChats": "Recente chats",
+      "chatOptions": "Chatopties"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Je bent momenteel offline. Maak verbinding met internet om deze actie uit te voeren.",
+      "failedToDeleteNote": "Notitie verwijderen mislukt",
+      "failedToMoveNote": "Notitie verplaatsen mislukt",
+      "deleteFolder": "Map verwijderen?",
+      "areYouSureNotesInsideWill": "Weet je het zeker? Notities in deze map worden niet verwijderd, maar verplaatst naar 'Alle notities'.",
+      "failedToDeleteFolder": "Map verwijderen mislukt",
+      "library": "Bibliotheek",
+      "addFolder": "Map toevoegen",
+      "searchForANoteFolder": "Zoek naar een notitie / map",
+      "yourFolders": "Jouw mappen",
+      "noFoldersToDisplay": "Geen mappen om weer te geven",
+      "tapAddFolderToCreateA": "Tik op '+ Map toevoegen' om een map voor je notities te maken",
+      "allNotes": "Alle notities",
+      "items": "{{allNotesTotal}} items",
+      "items2": "{{itemCount}} items",
+      "yourNotes": "Jouw notities",
+      "untitledNote": "Naamloze notitie",
+      "noResultsFor": "Geen resultaten voor \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Geen notities in deze map",
+      "noNotesToDisplay": "Geen notities om weer te geven",
+      "tryADifferentSearchTerm": "Probeer een andere zoekterm",
+      "moveNotesToThisFolderTo": "Verplaats notities naar deze map om ze hier te zien",
+      "clickBelowToGenerateYourNote": "Tik hieronder om je notitie te genereren met Clinical Fact",
+      "filterByType": "Filter op type",
+      "audio": "Audio",
+      "text2": "Tekst",
+      "image": "Afbeelding",
+      "clearFilter": "Filter wissen"
+    },
+    "profile": {
+      "permissionRequired": "Toegang vereist",
+      "pleaseAllowAccessToYourPhoto": "Geef toegang tot je fotobibliotheek om een profielfoto in te stellen.",
+      "uploadFailed": "Uploaden mislukt",
+      "couldNotUpdateProfilePicture": "Kon profielfoto niet bijwerken.",
+      "failedToUploadProfilePicture": "Uploaden van profielfoto mislukt.",
+      "checkOutClinicalFactAIPowered": "Bekijk Clinical Fact – studienotities met AI! {{url}}",
+      "proSubscriber": "PRO-abonnee",
+      "subscriptionExpired": "Abonnement verlopen",
+      "freeSubscriber": "Gratis gebruiker",
+      "tapToManageIPhoneSettingsApple": "Tik om te beheren · iPhone-instellingen → Apple ID → Abonnementen",
+      "tapToManagePlayStoreSubscriptions": "Tik om te beheren · Play Store → Abonnementen",
+      "tapToRenewYourSubscription": "Tik om je abonnement te verlengen",
+      "tapToUpgradeToPro": "Tik om te upgraden naar PRO",
+      "referralCode": "Verwijzingscode",
+      "areYouSureYouWantTo": "Weet je zeker dat je wilt uitloggen?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Quiz verwijderen",
+      "areYouSureYouWantTo": "Weet je zeker dat je \"{{sourceTitle}}\" wilt verwijderen?",
+      "failedToDeleteQuiz": "Verwijderen van quiz mislukt",
+      "correct": "{{correct}}/{{total}} correct",
+      "attempts": "{{attempts}} pogingen",
+      "quiz": "Quiz",
+      "createQuiz": "Quiz maken",
+      "searchQuizzes": "Zoek quizzen...",
+      "noQuizzesYet": "Nog geen quizzen",
+      "createAQuizFromANote": "Maak een quiz van een notitie om te beginnen",
+      "createQuiz2": "+ Quiz maken",
+      "quizOptions": "Quizopties",
+      "view": "Bekijken"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Upgrade niet beschikbaar",
+      "weCouldnTOpenTheUpgrade": "We konden het upgradescherm niet openen. Controleer je verbinding en probeer het opnieuw."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Server retourneerde geen JSON-antwoord ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Netwerkfout. Controleer je internetverbinding.",
+      "connectionErrorPleaseTryAgain": "Verbindingsfout. Probeer het opnieuw."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Bestand geëxporteerd: {{filename}}",
+      "exportFailed": "Exporteren mislukt",
+      "exportFormat": "Exportformaat",
+      "chooseFormat": "Kies formaat",
+      "text": "Tekst"
+    },
+    "formatDate": {
+      "justNow": "Zojuist",
+      "minAgo": "{{diffMin}} min. geleden",
+      "hrAgo": "{{diffHr}} uur geleden",
+      "dAgo": "{{diffDay}} d geleden",
+      "created": "Aangemaakt op {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Versturen van code mislukt",
+      "invalidOTP": "Ongeldige code",
+      "failedToVerifyOTP": "Verifiëren van code mislukt",
+      "googleAuthenticationFailed": "Google-verificatie mislukt",
+      "appleAuthenticationFailed": "Apple-verificatie mislukt",
+      "failedToCompleteSignup": "Registratie voltooien mislukt",
+      "failedToSkipSignup": "Registratie overslaan mislukt"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Chats",
+      "description": "Chat met al je notities, documenten of pdf's op één plek"
+    },
+    "profileWelcome": {
+      "heading": "Welkom bij je profiel",
+      "description": "Dit is je profiel. Tik hier om je gegevens en abonnementstatus aan te passen"
+    },
+    "createNotes": {
+      "heading": "Notitie maken",
+      "description": "Maak elk type notitie van: opnames, audio, video, afbeeldingen, tekst en YouTube-links"
+    },
+    "changeLanguage": {
+      "heading": "Taal wijzigen",
+      "description": "Verander hier de taal van de app naar de gewenste taal"
+    },
+    "manageHome": {
+      "heading": "Startscherm beheren",
+      "description": "Bekijk al je gemaakte notities en zie al je acties op één plek"
+    },
+    "yourLibrary": {
+      "heading": "Je bibliotheek",
+      "description": "Beheer al je notities, maak mappen aan en nog veel meer"
+    },
+    "yourProfile": {
+      "heading": "Je profiel",
+      "description": "Bekijk al je profielgegevens en pas hier direct je instellingen aan"
+    }
   }
 }

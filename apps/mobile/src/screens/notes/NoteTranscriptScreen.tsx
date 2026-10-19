@@ -20,6 +20,7 @@ import {
 } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
+import { useTranslation } from 'react-i18next';
 
 type NoteTranscriptRouteProp = RouteProp<MainStackParamList, 'NoteTranscript'>;
 type NoteTranscriptNavigationProp = NativeStackNavigationProp<MainStackParamList, 'NoteTranscript'>;
@@ -82,6 +83,7 @@ function detectMusic(text: string): boolean {
 }
 
 export const NoteTranscriptScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<NoteTranscriptNavigationProp>();
   const route = useRoute<NoteTranscriptRouteProp>();
 
@@ -90,7 +92,7 @@ export const NoteTranscriptScreen = () => {
   const [transcriptData, setTranscriptData] = useState<TranscriptSegment[]>([]);
   const [, setIsMusic] = useState(false);
 
-  const noteTitle = route.params?.title || 'Note Transcript';
+  const noteTitle = route.params?.title || t('notes.noteTranscript.noteTranscript');
   const noteId = route.params?.noteId;
 
   useEffect(() => {
@@ -99,7 +101,7 @@ export const NoteTranscriptScreen = () => {
 
   const loadNoteData = async () => {
     if (!noteId) {
-      Alert.alert('Error', 'No note ID provided');
+      Alert.alert(t('common.error'), t('notes.noteTranscript.noNoteIDProvided'));
       navigation.goBack();
       return;
     }
@@ -125,16 +127,16 @@ export const NoteTranscriptScreen = () => {
           setTranscriptData(paragraphs);
           setIsMusic(detectMusic(rawText));
         } else if (response.data.sourceType === 'audio' || response.data.sourceType === 'video') {
-          setTranscriptData([{ text: 'No transcript available for this note.' }]);
+          setTranscriptData([{ text: t('notes.noteTranscript.noTranscriptAvailableForThisNote') }]);
         } else {
-          setTranscriptData([{ text: 'This note was not created from audio/video and does not have a transcript.' }]);
+          setTranscriptData([{ text: t('notes.noteTranscript.thisNoteWasNotCreatedFrom') }]);
         }
       } else {
-        Alert.alert('Error', 'Failed to load note');
+        Alert.alert(t('common.error'), t('notes.noteTranscript.failedToLoadNote'));
         navigation.goBack();
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to load note');
+      Alert.alert(t('common.error'), error.message || t('notes.noteTranscript.failedToLoadNote'));
       navigation.goBack();
     } finally {
       setIsLoading(false);
@@ -171,7 +173,7 @@ export const NoteTranscriptScreen = () => {
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
           <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Note transcript</Text>
+        <Text style={styles.headerTitle}>{t('notes.noteTranscript.noteTranscript2')}</Text>
         <TouchableOpacity style={styles.moreButton}>
           <MoreVerticalIcon size={24} color={colors.slate[500]} />
         </TouchableOpacity>
@@ -180,7 +182,7 @@ export const NoteTranscriptScreen = () => {
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary[500]} />
-          <Text style={styles.loadingText}>Loading transcript...</Text>
+          <Text style={styles.loadingText}>{t('notes.noteTranscript.loadingTranscript')}</Text>
         </View>
       ) : (
         <>
@@ -216,7 +218,7 @@ export const NoteTranscriptScreen = () => {
           {/* Bottom Button */}
           <View style={styles.bottomContainer}>
             <TouchableOpacity style={styles.goToNoteButton} onPress={handleGoToNote}>
-              <Text style={styles.goToNoteButtonText}>Go to note</Text>
+              <Text style={styles.goToNoteButtonText}>{t('notes.noteTranscript.goToNote')}</Text>
             </TouchableOpacity>
           </View>
         </>

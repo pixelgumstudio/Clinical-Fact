@@ -14,7 +14,9 @@
     "next": "Selanjutnya",
     "done": "Selesai",
     "search": "Cari",
-    "filter": "Filter"
+    "filter": "Filter",
+    "ok": "OK",
+    "info": "Info"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "Tingkatkan paket",
     "everyWeek": "Setiap minggu",
     "everyMonth": "Setiap bulan",
-    "everyYear": "Setiap tahun"
+    "everyYear": "Setiap tahun",
+    "expired": "Kedaluwarsa",
+    "reportBug": "Laporkan bug",
+    "active": "AKTIF",
+    "trial": "UJI COBA"
   },
   "auth": {
-    "welcome": "Selamat datang di Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Gagal masuk dengan Google",
+      "failedToAuthenticateWithServer": "Gagal mengautentikasi dengan server",
+      "googleSignInIsOnlyAvailable": "Masuk dengan Google hanya tersedia di aplikasi native. Silakan gunakan autentikasi email atau unduh aplikasi native.",
+      "code": "{{message}} (kode: {{code}})"
+    },
     "getStarted": "Mulai",
     "signIn": "Masuk",
     "signUp": "Daftar",
@@ -83,12 +94,316 @@
     "didntGetCode": "Tidak menerima kode?",
     "resendCode": "Kirim ulang kode",
     "resendIn": "Kirim ulang dalam",
-    "enterVerificationCode": "Silakan masukkan kode verifikasi lengkap"
+    "enterVerificationCode": "Silakan masukkan kode verifikasi lengkap",
+    "languageSelect": {
+      "title": "Pilih bahasa Anda",
+      "subtitle": "Pilih bahasa yang ingin Anda gunakan di aplikasi. Anda dapat mengubahnya nanti di profil.",
+      "searchPlaceholder": "Cari bahasa",
+      "noResults": "Bahasa tidak ditemukan"
+    },
+    "buttons": {
+      "continue": "Lanjutkan",
+      "continueWithEmail": "Lanjutkan dengan Email",
+      "continueWithGoogle": "Lanjutkan dengan Google",
+      "continueWithApple": "Lanjutkan dengan Apple",
+      "skip": "Lewati",
+      "verify": "Terverifikasi!",
+      "next": "Berikutnya",
+      "tryNow": "Coba Clinical Fact sekarang gratis"
+    },
+    "labels": {
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
+      "username": "@username",
+      "referralCode": "Kode referral",
+      "nameScreenTitle": "Nama depan dan belakang Anda",
+      "byAgree": "Dengan melanjutkan, Anda menyetujui",
+      "termsAndConditions": "Syarat dan ketentuan",
+      "privacyPolicy": "kebijakan privasi",
+      "and": "dan"
+    },
+    "placeholders": {
+      "enterEmail": "Masukkan alamat email Anda",
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
+      "username": "@username",
+      "referralCode": "mis. JOHN atau TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Masukkan alamat email yang valid",
+      "emailRequired": "Silakan masukkan alamat email Anda",
+      "firstLastNameRequired": "Silakan masukkan nama depan dan nama belakang Anda",
+      "usernameRequired": "Silakan masukkan username",
+      "usernameLength": "Username harus terdiri dari 3-20 karakter (hanya huruf, angka, garis bawah)",
+      "usernameTaken": "Username sudah digunakan. Silakan coba yang lain.",
+      "usernameCheckFailed": "Gagal memeriksa ketersediaan username",
+      "usernameError": "Gagal memeriksa username. Periksa koneksi Anda.",
+      "invalidOTP": "Kode tidak valid. Silakan periksa dan coba lagi.",
+      "otpExpired": "Kode kedaluwarsa. Silakan minta kode baru.",
+      "otpRequired": "Silakan masukkan kode verifikasi lengkap",
+      "referralNotFound": "Kode referral tidak ditemukan. Periksa ejaan dan coba lagi.",
+      "referralValidateFailed": "Gagal memvalidasi kode. Silakan coba lagi.",
+      "referralApplyFailed": "Gagal menerapkan kode referral. Silakan coba lagi.",
+      "codeSendFailed": "Gagal mengirim kode verifikasi. Silakan coba lagi.",
+      "resendCodeFailed": "Gagal mengirim ulang kode. Silakan coba lagi.",
+      "signInFailed": "Gagal Masuk",
+      "googleSignInFailed": "Gagal Masuk dengan Google",
+      "googleTokenFailed": "Gagal memproses token Google",
+      "googleAccessTokenFailed": "Gagal mendapatkan token akses. Silakan coba lagi.",
+      "authTokenFailed": "Gagal mendapatkan token autentikasi. Silakan coba lagi.",
+      "googleStartFailed": "Gagal memulai proses masuk Google. Silakan coba lagi.",
+      "setupRequired": "Penyiapan Diperlukan",
+      "googleOAuthMissing": "Masuk dengan Google memerlukan Client ID OAuth.\\n\\nSilakan tambahkan kredensial ke file .env Anda.",
+      "youCanStillUseEmail": "Anda tetap dapat menggunakan \"Lanjutkan dengan Email\".",
+      "appleSignInFailed": "Gagal Masuk dengan Apple",
+      "appleTokenFailed": "Gagal memproses token Apple",
+      "appleIosOnly": "Masuk dengan Apple hanya tersedia di iOS."
+    },
+    "messages": {
+      "signingIn": "Sedang masuk...",
+      "codeValid": "✓ Kode valid",
+      "signupFailed": "Gagal menyelesaikan pendaftaran",
+      "setupFailed": "Gagal menyelesaikan penyiapan. Silakan coba lagi."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Catatan Lebih Cerdas Dimulai di Sini",
+      "tagline": "Ubah teks apa pun jadi catatan sempurna",
+      "description": "Ubah audio, dokumen, atau video menjadi catatan rapi yang mudah dicari, serta buat kuis, flashcard, dan rangkuman secara instan.",
+      "createAccountTitle": "Buat akun",
+      "orSignUpWith": "ATAU DAFTAR DENGAN",
+      "signUpWithEmail": "Daftar dengan Alamat Email",
+      "signInWithEmail": "Masuk dengan Alamat Email",
+      "alreadyHaveAccount": "Sudah punya akun? ",
+      "dontHaveAccount": "Belum punya akun? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Tanyakan apa pun seputar medis. Dapatkan fakta klinisnya",
+        "description": "Ajukan pertanyaan medis apa pun dan dapatkan jawaban berbasis sitasi nyata dari PubMed, pedoman klinis, dan literatur medis tepercaya"
+      },
+      "slide2": {
+        "headline": "Setiap Jawaban Didukung Sumber Rujukan",
+        "description": "Tanpa tebakan, tanpa fakta rekaan—setiap jawaban terhubung langsung ke riset medis nyata yang dapat diverifikasi."
+      },
+      "slide3": {
+        "headline": "Belajar Lebih Cerdas, Lulus Ujian Medis",
+        "description": "Ubah pertanyaan atau unggahan apa pun menjadi set kuis atau flashcard dalam hitungan detik. Latihan langsung dari bahan belajarmu."
+      }
+    },
+    "otp": {
+      "title": "Konfirmasi alamat email kamu",
+      "subtitle": "Masukkan kode OTP yang kami kirimkan ke alamat email kamu"
+    },
+    "professionalDeclaration": {
+      "title": "Pernyataan Profesional",
+      "subtitle": "Clinical Fact adalah alat penelusuran literatur untuk tujuan pendidikan",
+      "disclaimerIntro": "Clinical Fact adalah sarana informasi berbasis kecerdasan buatan (AI) yang ditujukan untuk membantu mahasiswa keperawatan, kedokteran, dan ilmu kesehatan lainnya dalam mengakses pengetahuan medis, literatur riset, serta materi belajar. Aplikasi ini tidak memberikan diagnosis medis, rekomendasi pengobatan, instruksi klinis, atau saran medis khusus pasien, dan tidak boleh digunakan sebagai dasar untuk perawatan langsung pasien atau pengambilan keputusan klinis.",
+      "disclaimerHeading": "Cara Clinical Fact menghasilkan jawaban:",
+      "disclaimerBody": "Clinical Fact mengambil informasi langsung dari sumber medis dan ilmiah tepercaya, termasuk PubMed, Semantic Scholar, dan label obat resmi FDA, lalu menggunakan AI untuk merangkum dan menjelaskan konten tersebut dalam bahasa yang mudah dipahami. Setiap jawaban dibuat hanya dari sumber yang diambil untuk pertanyaan spesifik tersebut, dan sitasi terhubung langsung ke materi asli agar kamu dapat memverifikasinya sendiri. Clinical Fact tidak menghasilkan fakta medis dari ingatan atau mengarang sumber.\n\nClinical Fact bukan alat diagnostik, platform penanganan, perangkat medis, atau pengganti penilaian klinis profesional, bimbingan dosen/klinisi berlisensi, atau kurikulum institusi kamu. Segala informasi yang dihasilkan oleh aplikasi ini, termasuk jawaban, sitasi, kuis, dan flashcard, disediakan hanya untuk tujuan pendidikan dan pembelajaran umum, serta harus diverifikasi secara mandiri oleh pengguna sebelum dijadikan rujukan dalam konteks akademik, klinis, atau profesional apa pun.\nClinical Fact tidak menjamin kelengkapan, keakuratan, atau relevansi klinis terkini dari informasi yang diberikan. Ilmu kedokteran terus berkembang — selalu lakukan pengecekan silang untuk informasi krusial dengan dosen, pembimbing klinik, dan sumber primer terbaru.\nSaat kamu mengunggah dokumen, catatan, atau rekaman sendiri, Clinical Fact menghasilkan jawaban, ringkasan, kuis, dan flashcard hanya berdasarkan materi yang diunggah tersebut, bukan dari sumber eksternal kecuali jika sumber eksternal ditampilkan secara eksplisit di sampingnya.\n\nClinical Fact tidak memverifikasi, mengautentikasi, atau mengonfirmasi identitas, status kemahasiswaan, atau kredensial penggunanya. Aplikasi ini tidak ditujukan untuk penggunaan dalam situasi gawat darurat atau untuk pengambilan keputusan klinis seketika.\nDengan melanjutkan, kamu menyatakan memahami ketentuan ini dan setuju untuk menggunakan Clinical Fact semata-mata sebagai sarana belajar dan referensi.",
+      "checkboxLabel": "Saya memahami bahwa aplikasi ini hanya untuk referensi pendidikan dan tidak menyediakan saran medis",
+      "acceptButton": "Setujui dan lanjutkan"
+    },
+    "survey": {
+      "role": "Mana yang paling menggambarkan dirimu, {{firstName}}?",
+      "currentMethod": "Bagaimana caramu mencari jawaban pertanyaan medis saat ini?",
+      "timeDrain": "Apa yang paling banyak menyita waktumu?",
+      "appExpectation": "Apa ekspektasimu terhadap aplikasi medis Clinical Fact ini?",
+      "aiToolsUsed": "Alat AI apa saja yang sudah pernah kamu gunakan untuk riset medis?",
+      "aiToolIssue": "Kendala apa yang kamu temui pada alat-alat tersebut?",
+      "aiTrustLevel": "Seberapa sering kamu khawatir jawaban AI mungkin keliru?",
+      "biggestNeed": "Apa yang paling kamu butuhkan saat ini?",
+      "studyTimePerWeek": "Berapa banyak waktu belajarmu setiap minggu?",
+      "comingUp": "Agenda apa yang sedang kamu persiapkan dalam waktu dekat?",
+      "referralSource": "Dari mana kamu mengetahui tentang Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Yuk, buat username kamu",
+      "usernameSubtitle": "Agar akunmu terasa lebih personal",
+      "goals": "Untuk apa kamu ingin menggunakan\\nClinical Fact?",
+      "goalsSubtitle": "Pilih semua yang sesuai. Kami akan menyesuaikan pengalamanmu.",
+      "contentType": "Jenis konten apa yang\\npaling sering kamu gunakan?",
+      "contentTypeSubtitle": "Pilih semua yang sesuai. Ini membantu kami mempersonalisasi pengalaman belajarmu.",
+      "reviewStyle": "Bagaimana caramu mengulang\\nmateri yang sudah dipelajari?",
+      "reviewStyleSubtitle": "Pilih metode pengulangan materi yang kamu sukai.",
+      "frustration": "{{firstName}}, apa hal yang paling menyulitkan saat mencatat materi?",
+      "frustrationSubtitle": "Pilih semua yang sesuai. Ini membantu kami menemukan solusi untukmu.",
+      "referral": "Ingin tahu nih,\\n{{firstName}},\\ndari mana kamu tahu tentang Clinical Fact?",
+      "referralSubtitle": "Pilih salah satu."
+    },
+    "referralScreen": {
+      "title": "Apakah kamu direkomendasikan\\noleh seseorang?",
+      "subtitle": "Masukkan kode referral mereka jika ada"
+    },
+    "setup": {
+      "preparingNotes": "Menyiapkan catatan",
+      "preparingFlashcards": "Menyiapkan Flashcard",
+      "preparingQuiz": "Menyiapkan templat kuis",
+      "preparingChat": "Menyiapkan asisten Chat",
+      "title": "Menyiapkan ruang belajar personalmu,\\n{{firstName}}..."
+    },
+    "thanks": {
+      "title": "Terima kasih telah memercayai Clinical Fact",
+      "subtitle": "Kamu bergabung dengan ribuan mahasiswa keperawatan dan kedokteran",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Segala yang kamu butuhkan untuk\\nmempelajari apa saja",
+      "subtitle": "Rekam. Telusuri. Uji. Kuasai.",
+      "everythingYouNeedToLearnAnything": "Semua yang Anda butuhkan untuk mempelajari apa pun",
+      "recordItResearchItQuizIt": "Rekam. Telusuri. Uji. Kuasai.",
+      "tryClinicalFactNowForFree": "Coba Clinical Fact sekarang gratis"
+    },
+    "features": {
+      "feature1": {
+        "title": "Dapatkan jawaban medis nyata dan pertanyaan lanjutan",
+        "description": "Ajukan pertanyaan medis apa pun dan dapatkan penjelasan yang jelas beserta pertanyaan lanjutan yang cerdas, agar proses belajarmu tidak pernah buntu."
+      },
+      "feature2": {
+        "title": "Setiap jawaban medis,\ndidukung sumber terpercaya",
+        "description": "Sitasi diambil dari PubMed, Semantic Scholar, dan Europe PMC—dapat diverifikasi, bukan dibuat-buat."
+      },
+      "feature3": {
+        "title": "Unggah catatan, dapatkan rangkuman medis dari materi kamu",
+        "description": "Ubah slide kuliah, PDF, atau catatan apa pun menjadi penjelasan jelas yang didukung sumber medis tepercaya."
+      },
+      "feature4": {
+        "title": "Ubah obrolan apa pun menjadi Kuis atau flashcard untuk latihan",
+        "description": "Tak perlu aplikasi belajar terpisah, buat soal latihan langsung dari obrolan dan materi unggahanmu."
+      },
+      "feature5": {
+        "title": "Ubah obrolan atau dokumen apa pun menjadi soal flashcard untuk latihan",
+        "description": "Tak perlu aplikasi belajar terpisah, buat soal latihan langsung dari obrolan dan materi unggahanmu."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Aktifkan notifikasi",
+      "thisHelpsUsStayOnTrack": "Ini membantu kami mempersonalisasi akun Anda dan membantu Anda menemukan jawaban medis dengan lebih baik"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Kode verifikasi tidak valid. Silakan coba lagi.",
+      "failedToResendCodePleaseTry": "Gagal mengirim ulang kode. Silakan coba lagi.",
+      "confirmYourEmailAddress": "Konfirmasi alamat email Anda",
+      "enterCodeSentTo": "Masukkan kode OTP yang kami kirimkan ke alamat email {{email}}",
+      "resendCodeIn": "Kirim ulang kode dalam {{seconds}} dtk"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Punya kode referral dari seseorang?",
+      "enterTheirReferralCodeIfYou": "Masukkan kode referral mereka jika ada",
+      "eGJOHNOrTECHBRO": "cth. JOHN atau TECHBRO",
+      "codeIsValid": "✓ Kode valid"
+    },
+    "resultsChart": {
+      "getBetterResults": "Raih hasil yang lebih baik",
+      "over95OfClinicalfactUsersScore": "Lebih dari 95% pengguna Clinical Fact meraih skor 95% ke atas dalam tes dan ujian mereka"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Mahasiswa keperawatan",
+        "medicalStudent": "Mahasiswa kedokteran",
+        "paPharmacyStudent": "Mahasiswa PA atau Farmasi",
+        "practicingNurse": "Perawat klinis",
+        "practicingPhysician": "Dokter praktik",
+        "otherHealthcareProfessional": "Tenaga kesehatan lainnya"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Buku teks atau catatan kuliah",
+        "flashcardQuizApps": "Aplikasi flashcard atau kuis",
+        "youtube": "YouTube",
+        "aiChatbots": "Chatbot AI",
+        "colleagueClassmate": "Bertanya ke rekan atau teman sekelas",
+        "practiceQuestionBanks": "Bank soal latihan"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Membuat flashcard & kuis dari awal",
+        "findingTrustworthyAnswer": "Mencari jawaban tepercaya dengan cepat",
+        "reReadingNotes": "Membaca ulang catatan yang terlupa",
+        "switchingApps": "Berpindah-pindah antar terlalu banyak aplikasi",
+        "chartingDocumentation": "Charting & dokumentasi"
+      },
+      "appExpectation": {
+        "noHallucination": "AI yang tidak berhalusinasi",
+        "realCitations": "Sitasi asli dari sumber rujukan",
+        "oneApp": "Satu aplikasi, bukan lima langganan",
+        "explainsWhy": "Menjelaskan alasan \"mengapa\", bukan hanya jawaban"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google Search",
+        "otherApps": "Aplikasi Lainnya"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Mengarang jawaban",
+        "notMedicalContent": "Tidak dirancang untuk konten medis",
+        "noSources": "Tidak ada sumber untuk diverifikasi",
+        "tooGeneric": "Terlalu umum, tidak fokus ujian atau praktik"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Selalu",
+        "sometimes": "Kadang-kadang",
+        "rarely": "Jarang",
+        "dontUseAi": "Belum pernah menggunakan AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Jawaban cepat yang dapat dipercaya",
+        "quizzesFlashcardsWithoutWork": "Kuis & flashcard otomatis tanpa repot",
+        "rememberingStudied": "Bantuan mengingat materi yang telah dipelajari",
+        "medicalCitations": "Referensi sitasi medis",
+        "allOfTheAbove": "Semua di atas"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Lainnya"
+      },
+      "studyTime": {
+        "under5Hours": "Kurang dari 5 jam",
+        "510Hours": "5–10 jam",
+        "1020Hours": "10–20 jam",
+        "20PlusHours": "20+ jam"
+      },
+      "comingUp": {
+        "medicalExams": "Ujian kedokteran",
+        "clinicalRotations": "Rotasi klinik",
+        "nursingExams": "Ujian keperawatan",
+        "otherExams": "Ujian lainnya",
+        "staySharp": "Ingin tetap terasah"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "Transkrip catatan",
+    "noteTranscript": {
+      "noteTranscript": "Transkrip Catatan",
+      "noNoteIDProvided": "ID catatan tidak ditemukan",
+      "noTranscriptAvailableForThisNote": "Tidak ada transkrip untuk catatan ini.",
+      "thisNoteWasNotCreatedFrom": "Catatan ini tidak dibuat dari audio/video dan tidak memiliki transkrip.",
+      "failedToLoadNote": "Gagal memuat catatan",
+      "noteTranscript2": "Transkrip catatan",
+      "loadingTranscript": "Memuat transkrip...",
+      "goToNote": "Buka catatan"
+    },
     "noteOptions": "Opsi catatan",
-    "editNote": "Edit catatan",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Masukkan judul catatan",
+      "failedToUpdateNote": "Gagal memperbarui catatan",
+      "noteUpdatedSuccessfully": "Catatan berhasil diperbarui",
+      "editNote": "Edit catatan",
+      "noteTitle": "Judul catatan",
+      "enterNoteTitle": "Masukkan judul catatan",
+      "noteContent": "Isi catatan",
+      "enterNoteContent": "Masukkan isi catatan",
+      "saveThisNote": "Simpan catatan ini",
+      "aiIsGeneratingYourNote": "AI sedang membuat catatan Anda",
+      "largeAudioAndVideoFilesMay": "File audio dan video besar mungkin perlu beberapa menit untuk diproses. Harap tetap buka aplikasi."
+    },
     "retranscribe": "Transkripsi ulang",
     "exportNote": "Ekspor catatan",
     "shareNoteLink": "Bagikan tautan catatan",
@@ -110,12 +425,89 @@
     "translate": "Terjemahkan",
     "addToFolder": "Tambahkan ke folder",
     "loadingNote": "Memuat catatan...",
-    "noteNotFound": "Gagal memuat catatan"
+    "noteNotFound": "Gagal memuat catatan",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Gagal membuat flashcard",
+      "anUnexpectedErrorOccurred": "Terjadi kesalahan yang tidak terduga",
+      "history": "Riwayat",
+      "export": "Ekspor"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Gagal menambahkan catatan ke folder",
+      "folderNotFound": "Folder tidak ditemukan",
+      "addNote": "+ Tambah catatan",
+      "noNotesInThisFolder": "Tidak ada catatan di folder ini",
+      "moveNotesToThisFolderTo": "Pindahkan catatan ke folder ini untuk melihatnya di sini",
+      "addNoteToFolder": "Tambahkan catatan ke folder",
+      "noNotesAvailableToAdd": "Tidak ada catatan yang tersedia untuk ditambahkan",
+      "allYourNotesAreAlreadyIn": "Semua catatan Anda sudah ada di folder ini",
+      "created": "Dibuat {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Gagal memuat catatan",
+      "reTranscribeNote": "Transkrip Ulang Catatan",
+      "thisWillReTranscribeTheAudio": "Ini akan mentranskrip ulang audio dan memperbarui catatan. Lanjutkan?",
+      "reTranscribe": "Transkrip ulang",
+      "noteReTranscribedSuccessfully": "Catatan berhasil ditranskrip ulang",
+      "info": "Info",
+      "reTranscriptionFeatureIsComingSoon": "Fitur transkrip ulang akan segera hadir",
+      "youAreCurrentlyOfflinePleaseConnect": "Anda sedang offline. Sambungkan ke internet untuk melakukan tindakan ini.",
+      "failedToDeleteNote": "Gagal menghapus catatan",
+      "failedToExportNote": "Gagal mengekspor catatan",
+      "noteTranslatedSuccessfully": "Catatan berhasil diterjemahkan",
+      "failedToTranslateNote": "Gagal menerjemahkan catatan",
+      "noteMovedTo": "Catatan dipindahkan ke {{name}}",
+      "failedToMoveNoteToFolder": "Gagal memindahkan catatan ke folder",
+      "summaryNotes": "Catatan Ringkasan",
+      "loadingNote": "Memuat catatan...",
+      "imageNote": "Catatan Gambar",
+      "created": "Dibuat {{dateTime}}",
+      "translate": "Terjemahkan",
+      "transcribe": "Transkripsikan",
+      "editThisNote": "Edit catatan ini",
+      "createFlashcards": "Buat flashcard",
+      "createFlashcardsToImproveYourRetention": "Buat flashcard untuk meningkatkan daya ingat Anda",
+      "createQuizQuestions": "Buat soal kuis",
+      "practiceYourNotesByCreatingQuestions": "Latih pemahaman catatan Anda dengan membuat soal latihan"
+    },
+    "sharedNote": {
+      "notFound": "Tidak Ditemukan",
+      "thisSharedNoteLinkIsInvalid": "Tautan catatan bersama ini tidak valid atau telah kedaluwarsa.",
+      "failedToLoadSharedNote": "Gagal memuat catatan bersama.",
+      "saved": "Tersimpan!",
+      "noteHasBeenAddedToYour": "Catatan telah ditambahkan ke pustaka Anda.",
+      "viewInLibrary": "Lihat di Pustaka",
+      "stayHere": "Tetap di sini",
+      "failedToSaveNote": "Gagal menyimpan catatan.",
+      "loadingSharedNote": "Memuat catatan bersama...",
+      "sharedNote": "Catatan Bersama",
+      "sharedWithYou": "Dibagikan kepada Anda",
+      "savedToLibrary": "Tersimpan di pustaka",
+      "saveToMyLibrary": "Simpan ke pustaka saya"
+    }
   },
   "create": {
     "selectOption": "Bagaimana Anda ingin membuat catatan Anda?",
-    "recordAudio": "Rekam audio",
-    "uploadAudio": "Unggah audio",
+    "recordAudio": {
+      "permissionRequired": "Izin Diperlukan",
+      "pleaseGrantMicrophonePermissionToRecord": "Harap berikan izin mikrofon untuk merekam audio.",
+      "failedToRequestMicrophonePermission": "Gagal meminta izin mikrofon",
+      "created": "Dibuat {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "recordingAudio": "Merekam Audio",
+      "recordAudio": "Rekam audio",
+      "createANoteFromAnyRecorded": "Buat catatan dari rekaman audio apa pun",
+      "recording": "Merekam ({{time}})",
+      "recordAgain": "Rekam ulang"
+    },
+    "uploadAudio": {
+      "created": "Dibuat {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "failedToPickAudioFile": "Gagal memilih file audio",
+      "uploadAudio": "Unggah audio",
+      "createANoteFromAnyUploaded": "Buat catatan dari audio yang diunggah",
+      "dragDropFilesOrBrowse": "Tarik & lepas file atau Telusuri",
+      "supportedFormatMp4WavMp3": "Format yang didukung: mp4, wav, mp3",
+      "changeFile": "Ubah file"
+    },
     "youtube": "Video YouTube",
     "pdfDocument": "PDF atau dokumen",
     "customText": "Teks khusus",
@@ -123,7 +515,56 @@
     "uploadingFile": "Mengunggah file ke server...",
     "transcribing": "Mengonversi ucapan ke teks...",
     "extractingText": "Mengekstrak teks...",
-    "generatingNote": "Membuat catatan belajar bertenaga AI...",
+    "generatingNote": {
+      "uploadAudio": "Unggah audio",
+      "uploadingAudioFileToServer": "Mengunggah file audio ke server...",
+      "transcribeAudio": "Transkripsikan audio",
+      "convertingSpeechToText": "Mengonversi suara ke teks...",
+      "generateYourNote": "Buat catatan Anda",
+      "creatingStudyNotes": "Membuat catatan belajar...",
+      "uploadPDF": "Unggah PDF",
+      "uploadingPDFDocumentToServer": "Mengunggah dokumen PDF ke server...",
+      "extractText": "Ekstrak teks",
+      "readingAndExtractingTextFromPDF": "Membaca dan mengekstrak teks dari PDF...",
+      "uploadImage": "Unggah gambar",
+      "uploadingImageToServer": "Mengunggah gambar ke server...",
+      "extractTextOCR": "Ekstrak teks (OCR)",
+      "recognizingAndExtractingTextFromImage": "Mengenali dan mengekstrak teks dari gambar...",
+      "fetchVideo": "Ambil video",
+      "connectingToYouTube": "Menghubungkan ke YouTube...",
+      "extractTranscript": "Ekstrak transkrip",
+      "downloadingVideoTranscript": "Mengunduh transkrip video...",
+      "processText": "Proses teks",
+      "analyzingYourContent": "Menganalisis konten Anda...",
+      "uploadFile": "Unggah file",
+      "uploadingToServer": "Mengunggah ke server...",
+      "processContent": "Proses konten",
+      "extractingContent": "Mengekstrak konten...",
+      "noteReady": "Catatan siap!",
+      "noteGenerationFailedOnTheServer": "Gagal membuat catatan di server.",
+      "failedToUploadImage": "Gagal mengunggah gambar",
+      "weCouldNotReadAnythingFrom": "Kami tidak dapat membaca apa pun dari gambar tersebut. Coba gunakan gambar catatan medis yang lebih jelas.",
+      "preparingFile": "Menyiapkan file...",
+      "almostDone": "Hampir selesai...",
+      "untitledNote": "Catatan Tanpa Judul",
+      "failedToGenerateNote": "Gagal membuat catatan",
+      "whoaSpeedy": "Wah, cepat sekali! 🏃💨",
+      "youReGeneratingContentABit": "Anda membuat konten terlalu cepat. Istirahat sejenak selama 60 detik sebelum mencoba lagi agar AI kami dapat mengejar.",
+      "gotIt": "Mengerti",
+      "fileTooLarge": "File Terlalu Besar",
+      "yourFileExceedsThe15MBLimit": "File Anda melebihi batas 15MB untuk pengguna gratis. Tingkatkan ke PRO untuk mengunggah materi kuliah hingga 100MB.",
+      "upgradeToPRO": "Tingkatkan ke PRO",
+      "oopsWeHitASnag": "Ups, terjadi kendala 🚧",
+      "weCouldnTGenerateThatRight": "Kami belum bisa membuatnya sekarang. Tunggu sebentar dan coba lagi!",
+      "processingContent": "Memproses konten...",
+      "generatingYourNote": "Membuat catatan Anda...",
+      "audioNote": "Catatan Audio",
+      "failedToGenerateFlashcards": "Gagal membuat flashcard",
+      "generatingNote": "Membuat catatan",
+      "pleaseKeepThisScreenOpenWhile": "Harap biarkan layar ini tetap terbuka selagi catatan dibuat. File berukuran besar mungkin membutuhkan waktu beberapa menit untuk ditranskripsi.",
+      "goToNote": "Buka catatan",
+      "generateNoteTranscript": "Buat transkrip catatan"
+    },
     "fetchingVideo": "Menghubungkan ke YouTube...",
     "processingText": "Menganalisis konten Anda...",
     "uploadAudioTitle": "Unggah audio",
@@ -133,7 +574,63 @@
     "fetchVideo": "Ambil video",
     "extractTranscript": "Ekstrak transkrip",
     "processText": "Proses teks",
-    "generateNote": "Buat catatan Anda"
+    "generateNote": "Buat catatan Anda",
+    "customTextInput": {
+      "customText": "Teks kustom",
+      "createANoteFromAnyCustom": "Buat catatan dari teks kustom apa pun",
+      "enterText": "Masukkan Teks",
+      "enterYourTextHere": "Ketik teks Anda di sini..."
+    },
+    "uploadImage": {
+      "created": "Dibuat {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Izin Diperlukan",
+      "pleaseAllowAccessToYourPhoto": "Izinkan akses ke galeri foto Anda",
+      "failedToPickImage": "Gagal memilih gambar",
+      "uploadImage": "Unggah gambar",
+      "createANoteFromAnyUploaded": "Buat catatan dari gambar yang diunggah",
+      "dragDropFilesOrBrowse": "Tarik & lepas file atau Telusuri",
+      "supportedFormatPngJpegHeicWebp": "Format yang didukung: png, jpeg, heic, webp",
+      "changeFile": "Ubah file"
+    },
+    "uploadPDF": {
+      "created": "Dibuat {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Gagal memilih dokumen",
+      "uploadPdf": "Unggah PDF",
+      "createANoteFromAnyUploaded": "Buat catatan dari PDF yang diunggah",
+      "dragDropFilesOrBrowse": "Tarik & lepas file atau Telusuri",
+      "supportedFormatPdf": "Format yang didukung: pdf",
+      "changeFile": "Ubah file"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Mengambil video",
+      "gettingVideoDetails": "Mengambil detail video",
+      "extractingTranscript": "Mengekstrak transkrip",
+      "convertingAudioToText": "Mengonversi audio ke teks",
+      "generatingYourNote": "Membuat catatan Anda",
+      "aiIsSummarisingTheContent": "AI sedang meringkas konten",
+      "noteGenerationFailedPleaseTryAgain": "Gagal membuat catatan. Silakan coba lagi.",
+      "processingFailed": "Pemrosesan Gagal",
+      "goBack": "Kembali",
+      "retry": "Coba Lagi",
+      "failedToStartNoteGeneration": "Gagal memulai pembuatan catatan",
+      "failedToProcessYouTubeVideoPlease": "Gagal memproses video YouTube. Silakan coba lagi.",
+      "cancelProcessing": "Batalkan Pemrosesan",
+      "areYouSureYouWantTo": "Yakin ingin membatalkan? Progres Anda akan hilang.",
+      "continueProcessing": "Lanjutkan Pemrosesan",
+      "youTubeNote": "Catatan YouTube",
+      "noteGenerated": "Catatan Dibuat",
+      "generatingNote": "Membuat catatan",
+      "goToNote": "Buka catatan"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Tidak dapat mengambil informasi video",
+      "failedToFetchVideoInformation": "Gagal mengambil informasi video",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Buat catatan dari video YouTube apa pun",
+      "enterYoutubeURL": "Masukkan URL YouTube",
+      "pasteYoutubeURL": "Tempel URL YouTube",
+      "fetchingVideoInfo": "Mengambil info video..."
+    }
   },
   "library": {
     "title": "Perpustakaan",
@@ -163,7 +660,67 @@
     "almostDone": "Hampir selesai...",
     "quizReady": "Kuis siap!",
     "startQuiz": "Mulai Kuis",
-    "questionCount": "{{current}} dari {{total}}"
+    "questionCount": "{{current}} dari {{total}}",
+    "previous": "Pertanyaan sebelumnya",
+    "generatingQuiz": "Membuat kuis dengan AI...",
+    "exitTitle": "Keluar dari Kuis?",
+    "exitMessage": "Progres kamu akan hilang.",
+    "exit": "Keluar",
+    "errorTitle": "Ups, ada kendala 🚧",
+    "errorMessage": "Kami belum bisa membuatnya sekarang. Tunggu sebentar dan coba lagi!",
+    "noQuestions": "Tidak ada pertanyaan yang tersedia.",
+    "reading": "Membaca catatanmu...",
+    "identifying": "Mengidentifikasi konsep kunci...",
+    "structuring": "Menyusun pertanyaan...",
+    "almostReady": "Hampir siap...",
+    "youScored": "SKOR KAMU",
+    "timeInSeconds": "WAKTU (DETIK)",
+    "accuracy": "AKURASI",
+    "grade": "NILAI",
+    "reportsCard": "Kartu hasil",
+    "reviewAnswers": "Tinjau jawaban",
+    "correctAnswer": "Jawaban benar",
+    "yourAnswer": "Jawaban kamu",
+    "explanation": "Penjelasan",
+    "questionProgress": "Pertanyaan {{current}} dari {{total}}",
+    "generatingQuizWait": "Kami sedang membuat kuis untukmu, mohon tunggu sebentar...",
+    "goToChats": "Buka obrolan",
+    "quizGroupDetail": {
+      "inProgress": "Sedang Berlangsung",
+      "notStarted": "Belum Dimulai",
+      "failedToLoadQuizHistory": "Gagal memuat riwayat kuis",
+      "failedToLoadChatContent": "Gagal memuat konten obrolan",
+      "deleteQuiz": "Hapus Kuis",
+      "failedToDeleteQuiz": "Gagal menghapus kuis",
+      "created": "Dibuat {{dateTime}}",
+      "lastscore": "SKOR TERAKHIR",
+      "bestscore": "SKOR TERBAIK",
+      "attempts": "PERCOBAAN",
+      "retakeQuiz": "Ulangi Kuis",
+      "translate": "Terjemahkan",
+      "newQuiz": "Kuis Baru",
+      "quizHistory": "Riwayat kuis",
+      "flashcardHistory": "Riwayat flashcard",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Belum ada set flashcard dari sumber ini.",
+      "cards": "{{totalCards}} kartu · {{flashcardStatus}}",
+      "quizOptions": "Opsi kuis",
+      "exportLatestAttempt": "Ekspor percobaan terakhir",
+      "questions": "{{totalQuestions}} soal · {{value}}",
+      "deleteAllAttemptsOne": "Hapus 1 riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "deleteAllAttemptsMany": "Hapus semua {{total}} riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "makeFlashcards": "Buat flashcard"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Gagal memuat data kuis - format respons tidak valid",
+      "failedToLoadQuizData": "Gagal memuat data kuis",
+      "noContentAvailable": "Konten tidak tersedia",
+      "goBack": "Kembali",
+      "previous": "Sebelumnya"
+    },
+    "quiz": {
+      "generationFailed": "Pembuatan gagal"
+    }
   },
   "flashcards": {
     "title": "Kartu flash",
@@ -172,7 +729,68 @@
     "previous": "Sebelumnya",
     "shuffle": "Acak",
     "generating": "Membuat kartu flash...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Buat flashcard untuk meningkatkan daya ingatmu",
+    "howManyQuestions": "Berapa banyak pertanyaan?",
+    "generateButton": "Buat flashcard",
+    "generatingEllipsis": "Membuat...",
+    "allDone": "Selesai!",
+    "completedReview": "Kamu sudah meninjau semua kartu di dek ini",
+    "backToNotes": "Kembali ke catatan",
+    "question": "Pertanyaan",
+    "answer": "Jawaban",
+    "noQuestionText": "(Tidak ada teks pertanyaan)",
+    "noAnswerText": "(Tidak ada teks jawaban)",
+    "enterQuestion": "Masukkan pertanyaanmu",
+    "enterAnswer": "Masukkan jawaban",
+    "clickToFlip": "ketuk kartu untuk membalik",
+    "reading": "Membaca catatanmu...",
+    "identifying": "Mengidentifikasi konsep kunci...",
+    "creating": "Membuat flashcard...",
+    "almostReady": "Hampir siap...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} dari {{total}}",
+    "noteIdRequired": "ID Catatan diperlukan untuk membuat flashcard",
+    "invalidCardCount": "Silakan pilih antara 1 hingga 100 flashcard",
+    "flashcardGroupDetail": {
+      "inProgress": "Sedang Berlangsung",
+      "notStarted": "Belum Dimulai",
+      "failedToLoadFlashcardHistory": "Gagal memuat riwayat flashcard",
+      "limitReached": "Batas tercapai",
+      "flashcardGenerationLimitReached": "Batas pembuatan flashcard telah tercapai.",
+      "failedToGenerateFlashcards": "Gagal membuat flashcard",
+      "failedToTranslateFlashcards": "Gagal menerjemahkan flashcard",
+      "deleteFlashcards": "Hapus Flashcard",
+      "failedToDeleteFlashcards": "Gagal menghapus flashcard",
+      "created": "Dibuat {{dateTime}}",
+      "lastprogress": "PROGRES TERAKHIR",
+      "bestprogress": "PROGRES TERBAIK",
+      "sets": "SET",
+      "studyNow": "Pelajari Sekarang",
+      "translate": "Terjemahkan",
+      "newFlashcards": "Flashcard Baru",
+      "flashcardHistory": "Riwayat flashcard",
+      "quizHistory": "Riwayat kuis",
+      "cards": "{{totalCards}} kartu · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Belum ada kuis dari sumber ini.",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Opsi flashcard",
+      "exportLatestSet": "Ekspor set terbaru",
+      "questions": "{{totalQuestions}} pertanyaan · {{value}}",
+      "deleteAllSetsOne": "Hapus 1 set flashcard untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "deleteAllSetsMany": "Hapus semua {{total}} set flashcard untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
+      "makeQuiz": "Buat kuis",
+      "failedToLoadChatContent": "Gagal memuat konten chat"
+    },
+    "flashcardReview": {
+      "unknownError": "Kesalahan tidak diketahui",
+      "noFlashcardsInThisSet": "Tidak ada flashcard di set ini",
+      "goBack": "Kembali",
+      "allDone": "Selesai semua",
+      "youHaveReviewedAllTheCards": "Kamu sudah meninjau semua kartu di dek ini",
+      "question": "Pertanyaan {{value}}",
+      "questionOf": "Pertanyaan {{value}} dari {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Obrolan",
@@ -183,7 +801,191 @@
     "chatWithDocument": "Obrolan dengan dokumen",
     "selectFile": "Pilih file untuk diobrol",
     "uploadFile": "Unggah file",
-    "startChatting": "Mulai mengobrol"
+    "startChatting": "Mulai mengobrol",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Ajukan pertanyaan medis untuk klarifikasi lebih lanjut",
+      "askAnythingAboutThisDocument": "Tanyakan apa saja tentang dokumen ini...",
+      "askAQuestionAttachmentProcessingFailed": "Ajukan pertanyaan — pemrosesan lampiran gagal",
+      "extractingText": "Mengekstrak teks...",
+      "processingPDF": "Memproses PDF...",
+      "upgradeToProToContinueChatting": "Tingkatkan ke PRO untuk lanjut mengobrol",
+      "queryremaining": "{{queriesRemaining}} PERTANYAAN TERSISA"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Menyiapkan chat...",
+      "extractingTextFromImage": "Mengekstrak teks dari gambar...",
+      "processingPDFDocument": "Memproses dokumen PDF...",
+      "analyzingYourNote": "Menganalisis catatanmu...",
+      "thisUsuallyTakesJustAFew": "⏱️ Biasanya ini hanya butuh beberapa detik. Kamu bisa mulai chat setelah pemrosesan selesai.",
+      "processingFailed": "Pemrosesan Gagal",
+      "fileMightBeCorruptedOrUnreadable": "• File mungkin rusak atau tidak terbaca",
+      "imageQualityTooLow": "Kualitas gambar terlalu rendah",
+      "pdfIsPasswordProtected": "PDF dilindungi kata sandi",
+      "contentFormatNotSupported": "Format konten tidak didukung",
+      "networkConnectionIssue": "• Masalah koneksi internet",
+      "tryADifferentFile": "Coba File Lain",
+      "askAnyClinicalQuestionNoUpload": "💡 Ajukan pertanyaan klinis apa pun — tanpa perlu unggah file. Saya akan menjawab menggunakan rujukan literatur medis, disertai gambar yang relevan jika tersedia.",
+      "readyToChat": "✓ Siap untuk chat",
+      "couldntProcessNote": "Kami tidak dapat memproses catatan ini. Hal ini mungkin karena:",
+      "couldntProcessImage": "Kami tidak dapat memproses gambar ini. Hal ini mungkin karena:",
+      "couldntProcessDocument": "Kami tidak dapat memproses dokumen ini. Hal ini mungkin karena:",
+      "askMeAboutNote": "💡 Tanyakan apa saja tentang catatan ini. Saya bisa merangkum, menjelaskan konsep, atau menjawab pertanyaan spesifik.",
+      "askMeAboutImage": "💡 Tanyakan apa saja tentang gambar ini. Saya bisa merangkum, menjelaskan konsep, atau menjawab pertanyaan spesifik.",
+      "askMeAboutDocument": "💡 Tanyakan apa saja tentang dokumen ini. Saya bisa merangkum, menjelaskan konsep, atau menjawab pertanyaan spesifik."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} dikuasai",
+      "notStarted": "Belum Dimulai",
+      "quizGeneration": "Pembuatan kuis",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Pembuatan flashcard",
+      "questions": "{{totalCards}} pertanyaan · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} pertanyaan · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Sedang berpikir dan mencari referensi untukmu...",
+      "couldnTGenerateAResponse": "Tidak dapat membuat tanggapan.",
+      "retry": "Coba lagi",
+      "alsoReferencedFromTheWeb": "Juga merujuk dari web",
+      "followUpQuestions": "Pertanyaan lanjutan"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Tanyakan apa pun seputar medis, dapatkan fakta tersitasi dari sumber tepercaya",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Berbasis bukti · Sumber PubMed · Peer-reviewed",
+      "tryOutAnyOfThisTopics": "Coba salah satu topik ini untuk memulai",
+      "topics": {
+        "electrolytes": {
+          "label": "Penjelasan gangguan elektrolit",
+          "question": "Jelaskan tentang gangguan elektrolit — penyebab, gejala, dan penanganannya"
+        },
+        "ecg": {
+          "label": "Dasar-dasar interpretasi EKG",
+          "question": "Apa saja dasar-dasar interpretasi EKG?"
+        },
+        "drugInteractions": {
+          "label": "Interaksi obat umum yang perlu diketahui",
+          "question": "Apa saja interaksi obat umum dan penting yang perlu saya ketahui?"
+        },
+        "nclex": {
+          "label": "Topik latihan soal gaya NCLEX",
+          "question": "Beri saya contoh latihan soal gaya NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Label obat FDA",
+      "fromYourAttachedMaterial": "Dari materi lampiran Anda"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Gagal membuat sesi obrolan",
+      "failedToInitializeChatSession": "Gagal menginisialisasi sesi obrolan",
+      "failedToUpdateLanguage": "Gagal memperbarui bahasa",
+      "youVeReachedYour3Pin": "Anda telah mencapai batas 3 sematan",
+      "failedToUpdatePin": "Gagal memperbarui sematan",
+      "permissionRequired": "Izin Diperlukan",
+      "pleaseGrantCameraPermissionToTake": "Harap berikan izin kamera untuk mengambil foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Harap berikan izin galeri foto untuk mengunggah gambar.",
+      "failedToUploadImage": "Gagal mengunggah gambar",
+      "uploadFailed": "Gagal mengunggah",
+      "failedToUploadDocument": "Gagal mengunggah dokumen",
+      "failedToStartChatFromThis": "Gagal memulai obrolan dari berkas ini.",
+      "chatFromImage": "Obrolan dari gambar",
+      "failedToStartANewQuestion": "Gagal memulai pertanyaan baru. Silakan coba lagi.",
+      "failedToAttachFile": "Gagal melampirkan berkas",
+      "failedToSendMessage": "Gagal mengirim pesan",
+      "copiedToClipboard": "Disalin ke papan klip",
+      "notEnoughContentYet": "Konten belum cukup",
+      "chatABitMoreBeforeGenerating": "Lanjutkan obrolan sebelum membuat kuis (minimal 100 karakter).",
+      "chatABitMoreBeforeGenerating2": "Lanjutkan obrolan sebelum membuat flashcard (minimal 100 karakter).",
+      "failedToGenerateFlashcards": "Gagal membuat flashcard",
+      "failedToRegenerateResponse": "Gagal membuat ulang respons",
+      "failedToRetryResponse": "Gagal mencoba ulang respons"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Gagal melampirkan catatan",
+      "folderCreatedSuccessfully": "Folder \"{{name}}\" berhasil dibuat!",
+      "failedToCreateFolder": "Gagal membuat folder",
+      "failedToAttachDocument": "Gagal melampirkan dokumen",
+      "failedToCreateChatSession": "Gagal membuat sesi obrolan",
+      "failedToUploadDocument": "Gagal mengunggah dokumen",
+      "openingCamera": "📷 Membuka kamera...",
+      "openingImagePicker": "🖼️ Membuka pemilih gambar...",
+      "permissionRequired": "Izin Diperlukan",
+      "pleaseGrantCameraPermissionToTake": "Harap berikan izin kamera untuk mengambil foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Harap berikan izin galeri foto untuk mengunggah gambar.",
+      "failedToAttachImage": "Gagal melampirkan gambar",
+      "failedToUploadImage": "Gagal mengunggah gambar",
+      "failedToAttachAudio": "Gagal melampirkan audio",
+      "failedToUploadAudio": "Gagal mengunggah audio",
+      "aNote": "{{verb}} catatan",
+      "anImage": "{{verb}} gambar",
+      "aDocument": "{{verb}} dokumen",
+      "audio": "{{verb}} audio",
+      "aFile": "{{verb}} berkas",
+      "items": "{{itemCount}} item",
+      "thisFolderIsEmptyGoBack": "Folder ini kosong. Kembali untuk memilih folder lain.",
+      "addFolder": "Tambah folder",
+      "uploadNewDocument": "Unggah dokumen baru",
+      "uploadAPDFAndStartChatting": "Unggah PDF dan langsung mulai chat",
+      "uploadNewImage": "Unggah gambar baru",
+      "uploadAnImageAndExtractText": "Unggah gambar dan langsung ekstrak teks",
+      "uploadNewAudio": "Unggah audio baru",
+      "uploadAnAudioFileAndTranscribe": "Unggah file audio dan langsung transkripsikan",
+      "orselectfromlibrary": "ATAU PILIH DARI PUSTAKA",
+      "folders": "Folder",
+      "allNotes": "Semua Catatan",
+      "noFilesToDisplay": "Tidak ada file untuk ditampilkan",
+      "noNotesToDisplay": "Tidak ada catatan untuk ditampilkan",
+      "noDocumentsYet": "Anda belum memiliki dokumen PDF.\nBuat beberapa catatan terlebih dahulu, lalu kembali untuk chat dengannya.",
+      "noImagesYet": "Anda belum memiliki gambar.\nBuat beberapa catatan terlebih dahulu, lalu kembali untuk chat dengannya.",
+      "noAudioNotesYet": "Anda belum memiliki catatan audio.\nBuat beberapa catatan terlebih dahulu, lalu kembali untuk chat dengannya.",
+      "noNotesYet": "Anda belum memiliki catatan.\nBuat beberapa catatan terlebih dahulu, lalu kembali untuk chat dengannya.",
+      "attachNote": "Lampirkan catatan",
+      "selectNote": "Pilih catatan",
+      "attachImage": "Lampirkan gambar",
+      "selectImage": "Pilih gambar",
+      "attachDocument": "Lampirkan dokumen",
+      "selectDocument": "Pilih dokumen",
+      "attachAudio": "Lampirkan audio",
+      "selectAudio": "Pilih audio",
+      "attachFile": "Lampirkan file",
+      "selectFile": "Pilih file"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Tambahkan ke chat",
+      "camera": "Kamera",
+      "photos": "Foto",
+      "files": "File",
+      "generateQuiz": "Buat Kuis",
+      "generateFlashcards": "Buat Flashcard",
+      "searchMedicalLiterature": "Cari literatur medis",
+      "filterByDateSourceAndType": "Filter berdasarkan Tanggal, Sumber, dan Jenis",
+      "pullsRealCitedSourcesIntoYour": "Menyertakan sumber rujukan tepercaya ke dalam jawaban Anda",
+      "trustedmedicalsourcedatabase": "DATABASE SUMBER MEDIS TEPERCAYA",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Data Obat & Pengobatan FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Periksa sitasi",
+      "citations": "Sitasi",
+      "fromTheWeb": "Dari web"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Siap · ketuk untuk ubah nama",
+      "processing": "Memproses {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Lihat sumber ↗"
+    },
+    "chatRename": {
+      "renameChat": "Ubah Nama Chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Lihat sumber ({{total}})"
+    }
   },
   "languages": {
     "english": "Inggris",
@@ -205,6 +1007,487 @@
     "turkish": "Turki",
     "vietnamese": "Vietnam",
     "thai": "Thailand",
-    "indonesian": "Indonesia"
+    "indonesian": "Indonesia",
+    "englishGB": "Inggris (Inggris Raya)",
+    "englishAU": "Inggris (Australia)",
+    "englishCA": "Inggris (Kanada)",
+    "spanishMX": "Spanyol (Meksiko)",
+    "frenchCA": "Prancis (Kanada)",
+    "portuguesePT": "Portugis (Portugal)",
+    "norwegian": "Norwegia",
+    "danish": "Denmark",
+    "finnish": "Finlandia",
+    "czech": "Ceko",
+    "slovak": "Slowakia",
+    "slovenian": "Slovenia",
+    "croatian": "Kroasia",
+    "hungarian": "Hongaria",
+    "romanian": "Rumania",
+    "greek": "Yunani",
+    "ukrainian": "Ukraina",
+    "arabicAE": "Arab (UEA)",
+    "arabicEG": "Arab (Mesir)",
+    "hebrew": "Ibrani",
+    "bengali": "Bengali",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Melayu",
+    "catalan": "Katalan"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Tambah folder",
+      "folderName": "Nama folder",
+      "enterFolderName": "Masukkan nama folder",
+      "chooseColor": "Pilih warna",
+      "createFolder": "Buat folder"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Sebelum kami memproses konten Anda",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact menggunakan AI untuk menjawab pertanyaan Anda dan mengubah konten Anda menjadi catatan, kuis, dan flashcard. Berikut hal yang perlu Anda ketahui:",
+      "whatDataIsSent": "Data apa yang dikirimkan",
+      "questionsAndMessagesYouTypeIn": "Pertanyaan dan pesan yang Anda ketik di chat",
+      "audioRecordingsOrUploadedAudioFiles": "Rekaman audio atau file audio yang diunggah",
+      "pdfAndTextDocumentsYouUpload": "Dokumen PDF dan teks yang Anda unggah",
+      "imagesYouUpload": "Gambar yang Anda unggah",
+      "youTubeVideoURLsAndTheirTranscripts": "URL video YouTube dan transkripnya",
+      "customTextYouEnter": "Teks kustom yang Anda masukkan",
+      "whoReceivesYourData": "Siapa yang menerima data Anda",
+      "howItSUsed": "Cara data digunakan",
+      "yourContentIsUsedSolelyTo": "Konten Anda hanya digunakan untuk menghasilkan jawaban, catatan, kuis, atau flashcard yang Anda minta. Kebijakan penggunaan data dari masing-masing penyedia berlaku untuk konten yang diproses melalui API mereka. Untuk detail selengkapnya, lihat Kebijakan Privasi kami.",
+      "iAgreeContinue": "Saya Setuju — Lanjutkan",
+      "noThanks": "Tidak, Terima Kasih",
+      "whoReceivesBody": "Konten Anda dikirim ke <bold>Google (Gemini)</bold> (pembuatan catatan, kuis, dan flashcard; respons chat; pemrosesan dokumen dan gambar) serta ke <bold>OpenAI</bold> (transkripsi audio) melalui server backend kami yang aman. Bagian dari dokumen Anda juga diindeks dengan <bold>Google Vertex AI</bold> agar fitur chat dapat menemukan bagian yang relevan. Saat pencarian medis langsung digunakan, pertanyaan Anda juga dikirim ke <bold>Tavily</bold> dan basis data literatur medis publik (seperti PubMed, Europe PMC, dan Semantic Scholar) untuk menemukan sitasi dari sumber tepercaya seperti NIH, CDC, MedlinePlus, WHO, dan Mayo Clinic. Penyedia ini hanya memproses data Anda untuk menghasilkan jawaban — mereka tidak menggunakannya untuk melatih model AI umum mereka, dan kami tidak menjual data Anda kepada pihak ketiga mana pun."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Lepas sematan chat",
+      "pinChat": "Sematkan chat",
+      "deleteChat": "Hapus chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Buat flashcard",
+      "createFlashcards": "Buat Flashcard",
+      "createFlashcardsFromToImproveYour": "Buat flashcard dari \"{{noteTitle}}\" untuk meningkatkan daya ingat Anda",
+      "createFlashcardsToImproveYourRetention": "Buat flashcard untuk meningkatkan daya ingat Anda",
+      "howManyQuestions": "Jumlah pertanyaan",
+      "generateFlashcards2": "Buat Flashcard"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Buat dari chat",
+      "selectFromOneOfYourRecent": "Pilih dari salah satu chat terbaru Anda",
+      "pdfOrDocument": "PDF atau Dokumen",
+      "createFromAudio": "Buat dari audio",
+      "image": "Gambar",
+      "createFromCustomText": "Buat dari teks kustom",
+      "created": "Dibuat {{day}}, {{time}}",
+      "createQuizFrom": "Buat Kuis dari",
+      "createFlashcardsFrom": "Buat Flashcard dari",
+      "selectFromChat": "Pilih dari chat",
+      "noRecentChatsYet": "Belum ada chat terbaru",
+      "quizFromPdf": "Buat kuis dari PDF atau Dokumen",
+      "flashcardsFromPdf": "Buat set flashcard dari PDF atau Dokumen",
+      "quizFromAudio": "Buat kuis dari unggahan audio",
+      "flashcardsFromAudio": "Buat set flashcard dari unggahan audio",
+      "quizFromImage": "Buat kuis dari gambar apa pun",
+      "flashcardsFromImage": "Buat set flashcard dari gambar apa pun",
+      "quizFromText": "Buat kuis dari teks yang diambil",
+      "flashcardsFromText": "Buat set flashcard dari teks yang diambil"
+    },
+    "createNote": {
+      "recordAudio": "Rekam audio",
+      "generateANoteFromAnyRecorded": "Buat catatan dari rekaman audio apa pun",
+      "uploadAudio": "Unggah audio",
+      "createANoteFromAnyUploaded": "Buat catatan dari unggahan audio apa pun",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Buat catatan dari video YouTube apa pun",
+      "pdfOrDocument": "PDF atau Dokumen",
+      "createANoteFromPDFOr": "Buat catatan dari PDF atau Dokumen",
+      "customText": "Teks kustom",
+      "createANoteFromCapturedText": "Buat catatan dari teks yang diambil",
+      "image": "Gambar",
+      "createANoteFromAnyImage": "Buat catatan dari gambar apa pun",
+      "createNote": "Buat catatan"
+    },
+    "createQuiz": {
+      "generateQuiz": "Buat Kuis",
+      "createQuiz": "Buat Kuis",
+      "practiceByCreatingQuestionsThatHelp": "Pelajari \"{{noteTitle}}\" dengan membuat pertanyaan untuk menguasai topik ini",
+      "practiceYourNotesByCreatingQuestions": "Pelajari catatan Anda dengan membuat pertanyaan untuk menguasai topik ini",
+      "howManyQuestions": "Jumlah pertanyaan",
+      "timeInMinutes": "Waktu (dalam menit)"
+    },
+    "deleteNote": {
+      "deleteNote": "Hapus catatan",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus catatan ini?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Ekspor ringkasan sebagai",
+      "exportTranscriptAs": "Ekspor transkrip sebagai",
+      "exportAs": "Ekspor sebagai",
+      "exportSummary": "Ekspor ringkasan",
+      "exportTranscript": "Ekspor transkrip"
+    },
+    "exportTypeStep": {
+      "exportNote": "Ekspor catatan",
+      "exportSummary": "Ekspor ringkasan",
+      "exportTranscript": "Ekspor transkrip"
+    },
+    "exportSettings": {
+      "export": "Ekspor {{title}}",
+      "selectFormat": "Pilih format",
+      "includeAnswers": "Sertakan jawaban",
+      "answersExplanationsIncluded": "Termasuk jawaban & penjelasan",
+      "questionsOnly": "Hanya pertanyaan",
+      "export2": "Ekspor"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Catatan Anda sudah siap!",
+      "howDidWeDo": "Bagaimana pengalaman Anda?",
+      "happy": "Puas",
+      "sad": "Sedih",
+      "maybeLater": "Mungkin Nanti",
+      "whatWentWrong": "Apa kendalanya?",
+      "yourFeedbackHelpsUsImprove": "Masukan Anda membantu kami menjadi lebih baik.",
+      "tellUsWhatCouldBeBetter": "Beri tahu kami apa yang bisa diperbaiki...",
+      "submit": "Kirim"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Tidak ada konten yang tersedia",
+      "clickCardToFlip": "ketuk kartu untuk membalik"
+    },
+    "flashcardExport": {
+      "exportFailed": "Ekspor Gagal",
+      "unknownError": "Kesalahan tidak diketahui",
+      "export": "Ekspor {{setTitle}}",
+      "chooseWhatToExport": "Pilih yang ingin diekspor",
+      "exportQuestions": "Ekspor Pertanyaan",
+      "exportAnswers": "Ekspor Jawaban"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Hapus Set Flashcard",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Gagal menghapus set flashcard",
+      "flashcardHistory": "Riwayat Flashcard",
+      "cards": "Kartu",
+      "reviewedMastered": "{{cardsReviewedCount}} ditinjau • {{percentage}}% dikuasai"
+    },
+    "folders": {
+      "items": "{{itemCount}} item",
+      "enterYourFolderName": "Masukkan nama folder",
+      "yourFolderName": "Nama folder Anda",
+      "createFolder": "Buat folder",
+      "folders": "Folder",
+      "addFolder": "Tambah folder",
+      "noFoldersToDisplay": "Tidak ada folder untuk ditampilkan",
+      "clickTheButtonAboveToCreate": "Ketuk tombol di atas untuk membuat folder catatan Anda",
+      "allFolders": "Semua folder",
+      "items2": "{{totalItems}} item"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filter riset medis",
+      "howrecentdoyouwantthe": "SEBERAPA BARU SUMBER YANG ANDA INGINKAN",
+      "from": "Dari",
+      "whatkindofsourcedoyou": "JENIS SUMBER APA YANG ANDA BUTUHKAN",
+      "textbooks": "Buku teks",
+      "clinicalGuidelines": "Pedoman klinis",
+      "scientificJournalArticles": "Artikel jurnal ilmiah",
+      "onlywiththisjournalarticles": "HANYA DENGAN ARTIKEL JURNAL INI",
+      "metaAnalyses": "Meta-analisis",
+      "reviewArticles": "Artikel tinjauan",
+      "clinicalTrials": "Uji klinis",
+      "fromYear": "Dari tahun",
+      "toYear": "Sampai tahun"
+    },
+    "noteOptions": {
+      "noteOptions": "Opsi catatan",
+      "editNote": "Edit catatan",
+      "reTranscribe": "Transkripsikan ulang",
+      "chatWithNote": "Chat dengan catatan",
+      "exportNote": "Ekspor catatan",
+      "moveToFolder": "Pindahkan ke folder",
+      "deleteNote": "Hapus catatan"
+    },
+    "onboardingTooltip": {
+      "skip": "Lewati"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Hapus Kuis",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Gagal menghapus kuis",
+      "quizHistory": "Riwayat Kuis",
+      "questions": "Soal",
+      "correct": "{{correctAnswers}} benar"
+    },
+    "referral": {
+      "copied": "Tersalin!",
+      "yourReferralCodeHasBeenCopied": "Kode referral Anda telah disalin ke papan klip.",
+      "joinMeOnClinicalFactUse": "Ayo bergabung di Clinical Fact! Gunakan kode saya {{referralCode}} – {{appUrl}}",
+      "joined": "Bergabung {{joinedDate}}",
+      "referralCode": "Kode referral",
+      "yourReferralCode": "Kode Referral Kamu",
+      "shareWithFriendsToEarnRewards": "Bagikan ke teman untuk mendapatkan hadiah",
+      "share": "Bagikan",
+      "copyCode": "Salin Kode",
+      "referredFriends": "Teman yang diundang",
+      "noReferralsYetShareYourCode": "Belum ada referral. Bagikan kodemu untuk memulai!",
+      "loadMore": "Muat lebih banyak",
+      "howItWorks": "Cara kerja",
+      "friendsUseYourCodeDuringSignup": "• Teman menggunakan kodemu saat mendaftar",
+      "youBothEarnRewardsWhenThey": "• Kalian berdua mendapatkan hadiah saat mereka bergabung",
+      "friendsReferredCount": "Teman yang diundang: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Mengekstrak teks...",
+      "transcribingAudio": "Mentranskripsi audio...",
+      "processingPDF": "Memproses PDF...",
+      "settingUpChat": "Menyiapkan chat...",
+      "uploadFailed": "Gagal Mengunggah",
+      "failedToUploadFilePleaseTry": "Gagal mengunggah file. Silakan coba lagi.",
+      "yourFileIsReadyForChatting": "File kamu siap untuk chat!",
+      "uploadingYourFileToTheServer": "Mengunggah file ke server...",
+      "extractingTextFromYourImage": "Mengekstrak teks dari gambar...",
+      "transcribingYourAudio": "Mentranskripsi audio kamu...",
+      "extractingTextFromYourPDF": "Mengekstrak teks dari PDF kamu...",
+      "creatingYourChatSession": "Membuat sesi chat...",
+      "pleaseWait": "Mohon tunggu...",
+      "uploadFile": "Unggah file",
+      "processContent": "Proses konten",
+      "createChat": "Buat chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Lihat",
+      "export": "📤 Ekspor",
+      "delete": "🗑️ Hapus"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Didukung oleh"
+    },
+    "exportFormat": {
+      "txtFile": "File TXT",
+      "pdfFile": "File PDF",
+      "docFile": "File DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Gagal memuat catatan",
+      "failedToFetchFolders": "Gagal memuat folder",
+      "failedToFetchNote": "Gagal memuat catatan",
+      "failedToDeleteNote": "Gagal menghapus catatan",
+      "failedToCreateFolder": "Gagal membuat folder",
+      "failedToDeleteFolder": "Gagal menghapus folder"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Gagal menghapus chat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Set flashcard berhasil diekspor!",
+      "failedToExportFlashcardSet": "Gagal mengekspor set flashcard."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Kuis berhasil diekspor!",
+      "failedToExportQuiz": "Gagal mengekspor kuis."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Flashcard Tanpa Judul",
+      "failedToLoadFlashcards": "Gagal memuat flashcard",
+      "failedToSyncFlashcardSet": "Gagal menyinkronkan set flashcard",
+      "failedToSyncCardUpdate": "Gagal menyinkronkan pembaruan kartu"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Kuis"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Dibuat {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Kamu telah mencapai batas 3 sematan",
+      "failedToUpdatePin": "Gagal memperbarui sematan",
+      "noChatsYet": "Belum ada chat",
+      "startAChatToGetAnswers": "Mulai chat untuk mendapatkan jawaban yang didukung sumber nyata.",
+      "createChat": "+ Buat chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Hapus Flashcard",
+      "areYouSureYouWantTo": "Apakah kamu yakin ingin menghapus \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Gagal menghapus flashcard",
+      "sets": "{{setCount}} set",
+      "flashcards": "Flashcard",
+      "createFlashcards": "Buat Flashcard",
+      "searchFlashcards": "Cari flashcard...",
+      "noFlashcardsYet": "Belum ada flashcard",
+      "createAFlashcardSetFromA": "Buat set flashcard dari catatan untuk memulai",
+      "createSet": "+ Buat Set",
+      "flashcardOptions": "Opsi flashcard",
+      "view": "Lihat"
+    },
+    "folder": {
+      "deleteFolder": "Hapus Folder",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus \"{{name}}\"? Catatan di dalamnya akan dipindahkan ke folder utama.",
+      "failedToDeleteFolder": "Gagal menghapus folder",
+      "error": "Error: {{message}}",
+      "noFoldersYetCreateOne": "Belum ada folder. Buat sekarang!",
+      "folders": "Folder"
+    },
+    "home": {
+      "created": "Dibuat {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Gagal memperbarui bahasa",
+      "notEnoughContentYet": "Konten belum cukup",
+      "chatABitMoreBeforeGenerating": "Chat lebih banyak sebelum membuat kuis (minimal 100 karakter).",
+      "chatABitMoreBeforeGenerating2": "Chat lebih banyak sebelum membuat flashcard (minimal 100 karakter).",
+      "failedToGenerateFlashcards": "Gagal membuat flashcard",
+      "upgradeToPro": "Upgrade ke PRO",
+      "get80DiscountWhenYouUpgrade": "Dapatkan diskon 80% saat meng-upgrade akun Anda",
+      "unlockPRO": "Buka PRO",
+      "noMedicalChats": "Belum ada chat medis",
+      "youHaveNotCreatedAnyMedical": "Anda belum membuat chat medis apa pun, silakan mulai chat baru dan dapatkan sumber rujukan",
+      "talkToClinicalfactAI": "Chat dengan Clinicalfact AI",
+      "jumpInWhereYouStopped": "Lanjutkan dari sesi terakhir",
+      "practiceQuiz": "Latihan Kuis",
+      "makeFlashcards": "Buat flashcard",
+      "continueChatWithNote": "Lanjutkan chat dengan Catatan",
+      "continueChat": "Lanjutkan chat",
+      "recentChats": "Chat terbaru",
+      "chatOptions": "Opsi chat"
+    },
+    "library": {
+      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Anda sedang offline. Harap sambungkan ke internet untuk melakukan tindakan ini.",
+      "failedToDeleteNote": "Gagal menghapus catatan",
+      "failedToMoveNote": "Gagal memindahkan catatan",
+      "deleteFolder": "Hapus Folder?",
+      "areYouSureNotesInsideWill": "Apakah Anda yakin? Catatan di dalamnya tidak akan dihapus, hanya dipindahkan ke Semua Catatan.",
+      "failedToDeleteFolder": "Gagal menghapus folder",
+      "library": "Pustaka",
+      "addFolder": "Tambah folder",
+      "searchForANoteFolder": "Cari catatan / folder",
+      "yourFolders": "Folder Anda",
+      "noFoldersToDisplay": "Tidak ada folder untuk ditampilkan",
+      "tapAddFolderToCreateA": "Ketuk \"+ Tambah folder\" untuk membuat folder catatan Anda",
+      "allNotes": "Semua Catatan",
+      "items": "{{allNotesTotal}} item",
+      "items2": "{{itemCount}} item",
+      "yourNotes": "Catatan Anda",
+      "untitledNote": "Catatan Tanpa Judul",
+      "noResultsFor": "Tidak ada hasil untuk \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Tidak ada catatan di folder ini",
+      "noNotesToDisplay": "Tidak ada catatan untuk ditampilkan",
+      "tryADifferentSearchTerm": "Coba kata kunci pencarian lain",
+      "moveNotesToThisFolderTo": "Pindahkan catatan ke folder ini untuk melihatnya di sini",
+      "clickBelowToGenerateYourNote": "Klik di bawah untuk membuat catatan dengan Clinical Fact",
+      "filterByType": "Filter berdasarkan jenis",
+      "audio": "Audio",
+      "text2": "Teks",
+      "image": "Gambar",
+      "clearFilter": "Hapus filter"
+    },
+    "profile": {
+      "permissionRequired": "Izin Diperlukan",
+      "pleaseAllowAccessToYourPhoto": "Izinkan akses ke galeri foto Anda untuk mengatur foto profil.",
+      "uploadFailed": "Unggahan Gagal",
+      "couldNotUpdateProfilePicture": "Tidak dapat memperbarui foto profil.",
+      "failedToUploadProfilePicture": "Gagal mengunggah foto profil.",
+      "checkOutClinicalFactAIPowered": "Lihat Clinical Fact – catatan belajar bertenaga AI! {{url}}",
+      "proSubscriber": "Pelanggan PRO",
+      "subscriptionExpired": "Langganan berakhir",
+      "freeSubscriber": "Pengguna gratis",
+      "tapToManageIPhoneSettingsApple": "Ketuk untuk mengelola · Pengaturan iPhone → ID Apple → Langganan",
+      "tapToManagePlayStoreSubscriptions": "Ketuk untuk mengelola · Play Store → Langganan",
+      "tapToRenewYourSubscription": "Ketuk untuk memperpanjang langganan Anda",
+      "tapToUpgradeToPro": "Ketuk untuk upgrade ke PRO",
+      "referralCode": "Kode referral",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin keluar dari akun Anda?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Hapus Kuis",
+      "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Gagal menghapus kuis",
+      "correct": "{{correct}}/{{total}} benar",
+      "attempts": "{{attempts}} percobaan",
+      "quiz": "Kuis",
+      "createQuiz": "Buat Kuis",
+      "searchQuizzes": "Cari kuis...",
+      "noQuizzesYet": "Belum ada kuis",
+      "createAQuizFromANote": "Buat kuis dari catatan untuk memulai",
+      "createQuiz2": "+ Buat Kuis",
+      "quizOptions": "Opsi kuis",
+      "view": "Lihat"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Upgrade tidak tersedia",
+      "weCouldnTOpenTheUpgrade": "Tidak dapat membuka layar upgrade saat ini. Silakan periksa koneksi Anda dan coba lagi."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Server mengembalikan respons non-JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Kesalahan jaringan. Silakan periksa koneksi Anda.",
+      "connectionErrorPleaseTryAgain": "Kesalahan koneksi. Silakan coba lagi."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "File berhasil diekspor: {{filename}}",
+      "exportFailed": "Ekspor Gagal",
+      "exportFormat": "Format Ekspor",
+      "chooseFormat": "Pilih format",
+      "text": "Teks"
+    },
+    "formatDate": {
+      "justNow": "Baru saja",
+      "minAgo": "{{diffMin}} mnt lalu",
+      "hrAgo": "{{diffHr}} jam lalu",
+      "dAgo": "{{diffDay}}h lalu",
+      "created": "Dibuat {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Gagal mengirim OTP",
+      "invalidOTP": "OTP tidak valid",
+      "failedToVerifyOTP": "Gagal memverifikasi OTP",
+      "googleAuthenticationFailed": "Autentikasi Google gagal",
+      "appleAuthenticationFailed": "Autentikasi Apple gagal",
+      "failedToCompleteSignup": "Gagal menyelesaikan pendaftaran",
+      "failedToSkipSignup": "Gagal melewati pendaftaran"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Obrolan",
+      "description": "Tanya jawab dengan catatan, dokumen, atau PDF apa pun di satu tempat"
+    },
+    "profileWelcome": {
+      "heading": "Selamat datang di Profil Anda",
+      "description": "Ini adalah profil Anda, ketuk di sini untuk mengubah profil dan status langganan Anda"
+    },
+    "createNotes": {
+      "heading": "Buat catatan",
+      "description": "Buat jenis catatan apa pun dari berbagai sumber: Rekaman, Audio, Video, Gambar, Teks, dan tautan YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Ubah bahasa",
+      "description": "Ubah bahasa aplikasi sesuai keinginan Anda dari sini"
+    },
+    "manageHome": {
+      "heading": "Kelola beranda",
+      "description": "Lihat semua catatan yang dibuat dan pantau semua aktivitas Anda di satu tempat"
+    },
+    "yourLibrary": {
+      "heading": "Pustaka Anda",
+      "description": "Kelola semua catatan yang dibuat, buat folder untuk catatan Anda, dan lainnya"
+    },
+    "yourProfile": {
+      "heading": "Profil Anda",
+      "description": "Lihat info profil dan sesuaikan pengaturannya dari sini"
+    }
   }
 }

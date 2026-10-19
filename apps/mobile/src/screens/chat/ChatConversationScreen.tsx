@@ -18,7 +18,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import api, { MedicalChatFilters, MedicalChatSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
+import api, { MedicalChatFilters, MedicalChatSource, MedicalChatGroundingSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import {
   colors,
@@ -57,6 +57,8 @@ import { showInAppPaywall } from '../../services/revenuecat';
 import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
+import { useTranslation } from 'react-i18next';
+import { stripHtml } from '../../utils/htmlText';
 
 type ChatConversationRouteProp = RouteProp<MainStackParamList, 'ChatConversation'>;
 type ChatConversationNavigationProp = NativeStackNavigationProp<MainStackParamList, 'ChatConversation'>;
@@ -71,6 +73,7 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 const MEDICAL_CHAT_FREE_LIMIT = 2;
 
 export const ChatConversationScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<ChatConversationNavigationProp>();
   const route = useRoute<ChatConversationRouteProp>();
   const { chatId, noteId, title, type, fileName } = route.params || {};
@@ -84,7 +87,10 @@ export const ChatConversationScreen = () => {
   const toggleLiveSearch = useMedicalSearchStore((s) => s.toggleLiveSearch);
   const [isPinned, setIsPinned] = useState(false);
   const [isPinning, setIsPinning] = useState(false);
-  const [citationsSheetSources, setCitationsSheetSources] = useState<MedicalChatSource[] | null>(null);
+  const [citationsSheet, setCitationsSheet] = useState<{
+    sources: MedicalChatSource[];
+    webSources: MedicalChatGroundingSource[];
+  } | null>(null);
   // Commented out (not deleted) rather than the "•••" options menu it drove — replaced by the
   // "+" attach sheet's own rows (filters, quiz/flashcard generation, etc.), but kept in case
   // the menu is needed again.
@@ -367,7 +373,7 @@ export const ChatConversationScreen = () => {
           if (response.data.title) setChatTitle(response.data.title);
           pollEmbeddingStatus(response.data._id);
         } else {
-          throw new Error(response.message || 'Failed to create chat session');
+          throw new Error(response.message || t('chat.chatConversation.failedToCreateChatSession'));
         }
       }
     } catch (error: any) {
@@ -387,7 +393,7 @@ export const ChatConversationScreen = () => {
           }, 500);
         } else {
           // If it's a REAL network error (not a limit error), show the normal alert
-          showAlert('Error', error.message || 'Failed to initialize chat session');
+          showAlert(t('common.error'), error.message || t('chat.chatConversation.failedToInitializeChatSession'));
         }
       } finally {
         setIsLoadingSession(false);
@@ -466,10 +472,10 @@ export const ChatConversationScreen = () => {
           preferredLanguage: response.data.user.preferredLanguage || languageCode,
         });
       } else {
-        showAlert('Error', response.message || 'Failed to update language');
+        showAlert(t('common.error'), response.message || t('chat.chatConversation.failedToUpdateLanguage'));
       }
     } catch (error: any) {
-      showAlert('Error', error.message || 'Failed to update language');
+      showAlert(t('common.error'), error.message || t('chat.chatConversation.failedToUpdateLanguage'));
     }
   };
 
@@ -483,14 +489,14 @@ export const ChatConversationScreen = () => {
       if (!response.success) {
         setIsPinned(wasPinned); // revert
         if (!wasPinned) {
-          setToastMessage("You've reached your 3-pin limit");
+          setToastMessage(t('chat.chatConversation.youVeReachedYour3Pin'));
         } else {
-          showAlert('Error', response.message || 'Failed to update pin');
+          showAlert(t('common.error'), response.message || t('chat.chatConversation.failedToUpdatePin'));
         }
       }
     } catch {
       setIsPinned(wasPinned);
-      showAlert('Error', 'Failed to update pin');
+      showAlert(t('common.error'), t('chat.chatConversation.failedToUpdatePin'));
     } finally {
       setIsPinning(false);
     }
@@ -513,10 +519,10 @@ export const ChatConversationScreen = () => {
       : await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       showAlert(
-        'Permission Required',
+        t('chat.chatConversation.permissionRequired'),
         source === 'camera'
-          ? 'Please grant camera permission to take a photo.'
-          : 'Please grant photo library permission to upload images.'
+          ? t('chat.chatConversation.pleaseGrantCameraPermissionToTake')
+          : t('chat.chatConversation.pleaseGrantPhotoLibraryPermissionTo')
       );
       return;
     }
@@ -543,11 +549,11 @@ export const ChatConversationScreen = () => {
       if (uploadResponse.success && uploadResponse.data) {
         setPendingAttachment({ uri: image.uri, fileName, kind: 'image', fileId: uploadResponse.data.fileId, isUploading: false });
       } else {
-        throw new Error(uploadResponse.message || 'Failed to upload image');
+        throw new Error(uploadResponse.message || t('chat.chatConversation.failedToUploadImage'));
       }
     } catch (error: any) {
       setPendingAttachment(null);
-      showAlert('Upload failed', error.message || 'Failed to upload image');
+      showAlert(t('chat.chatConversation.uploadFailed'), error.message || t('chat.chatConversation.failedToUploadImage'));
     }
   };
 
@@ -582,11 +588,11 @@ export const ChatConversationScreen = () => {
       if (uploadResponse.success && uploadResponse.data) {
         setPendingAttachment({ uri: file.uri, fileName: file.name, kind: 'document', fileId: uploadResponse.data.fileId, isUploading: false });
       } else {
-        throw new Error(uploadResponse.message || 'Failed to upload document');
+        throw new Error(uploadResponse.message || t('chat.chatConversation.failedToUploadDocument'));
       }
     } catch (error: any) {
       setPendingAttachment(null);
-      showAlert('Upload failed', error.message || 'Failed to upload document');
+      showAlert(t('chat.chatConversation.uploadFailed'), error.message || t('chat.chatConversation.failedToUploadDocument'));
     }
   };
 
@@ -819,7 +825,7 @@ export const ChatConversationScreen = () => {
           if (createResponse.quotaExceeded) {
             await showInAppPaywall();
           } else {
-            showAlert('Error', createResponse.message || 'Failed to start chat from this file.');
+            showAlert(t('common.error'), createResponse.message || t('chat.chatConversation.failedToStartChatFromThis'));
           }
           setMessages((prev) => prev.filter((m) => m.id !== tempId));
           return;
@@ -828,7 +834,7 @@ export const ChatConversationScreen = () => {
         activeIsMedical = false;
         setSessionId(activeSessionId);
         setIsMedical(false);
-        setChatTitle(createResponse.data.title || (stagedAttachment.kind === 'image' ? 'Chat from image' : stagedAttachment.fileName));
+        setChatTitle(createResponse.data.title || (stagedAttachment.kind === 'image' ? t('chat.chatConversation.chatFromImage') : stagedAttachment.fileName));
         setEmbeddingStatus(createResponse.data.embeddingStatus);
         setEmbeddingProgress(createResponse.data.embeddingProgress);
         // This screen was already showing the blank/welcome state (no route param for `type`
@@ -851,7 +857,7 @@ export const ChatConversationScreen = () => {
           if (createResponse.quotaExceeded) {
             await showInAppPaywall();
           } else {
-            showAlert('Error', createResponse.message || 'Failed to start a new question. Please try again.');
+            showAlert(t('common.error'), createResponse.message || t('chat.chatConversation.failedToStartANewQuestion'));
           }
           setMessages((prev) => prev.filter((m) => m.id !== tempId));
           return;
@@ -867,7 +873,7 @@ export const ChatConversationScreen = () => {
         // Already in a chat — attach the staged file before sending the caption.
         const attachResponse = await api.attachSourceToSession(activeSessionId, { fileId: stagedAttachment.fileId });
         if (!attachResponse.success) {
-          showAlert('Error', attachResponse.message || 'Failed to attach file');
+          showAlert(t('common.error'), attachResponse.message || t('chat.chatConversation.failedToAttachFile'));
           setMessages((prev) => prev.filter((m) => m.id !== tempId));
           return;
         }
@@ -909,7 +915,7 @@ export const ChatConversationScreen = () => {
         // bubble (see streamChatResponse's onError) — no need to also pop an alert and delete
         // the user's message. Only a pre-stream failure (session creation, attach, etc.
         // throwing unexpectedly instead of returning success:false) falls through here.
-        showAlert('Error', error.message || 'Failed to send message');
+        showAlert(t('common.error'), error.message || t('chat.chatConversation.failedToSendMessage'));
         setMessages((prev) => prev.filter((m) => m.id !== tempId));
       }
     } finally {
@@ -922,19 +928,9 @@ export const ChatConversationScreen = () => {
     setMessage(question);
   };
 
-  const stripHtml = (html: string) =>
-    html
-      .replace(/<[^>]+>/g, '')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-
   const handleCopyMessage = (content: string) => {
     Clipboard.setString(stripHtml(content));
-    setToastMessage('Copied to clipboard');
+    setToastMessage(t('chat.chatConversation.copiedToClipboard'));
   };
 
   const [generatingActionId, setGeneratingActionId] = useState<string | null>(null);
@@ -955,7 +951,7 @@ export const ChatConversationScreen = () => {
     // A chat linked to a note quizzes the note itself (same as Home), so the length of the
     // conversation only matters when the transcript is the source.
     if (!noteId && getChatTranscript().length < MIN_TRANSCRIPT_CHARS) {
-      showAlert('Not enough content yet', 'Chat a bit more before generating a quiz (minimum 100 characters).');
+      showAlert(t('chat.chatConversation.notEnoughContentYet'), t('chat.chatConversation.chatABitMoreBeforeGenerating'));
       return;
     }
     // The attach sheet's own Modal is still animating closed (~200ms) at this point —
@@ -982,7 +978,7 @@ export const ChatConversationScreen = () => {
   const handleGenerateFlashcardsFromChat = () => {
     if (generatingActionId || messages.length === 0) return;
     if (getChatTranscript().length < MIN_TRANSCRIPT_CHARS) {
-      showAlert('Not enough content yet', 'Chat a bit more before generating flashcards (minimum 100 characters).');
+      showAlert(t('chat.chatConversation.notEnoughContentYet'), t('chat.chatConversation.chatABitMoreBeforeGenerating2'));
       return;
     }
     // Same attach-sheet-close collision the quiz flow works around — wait for it to
@@ -1017,10 +1013,10 @@ export const ChatConversationScreen = () => {
         setCreateFlashcardsModalVisible(false);
         await showInAppPaywall();
       } else {
-        showAlert('Error', response.message || 'Failed to generate flashcards');
+        showAlert(t('common.error'), response.message || t('chat.chatConversation.failedToGenerateFlashcards'));
       }
     } catch (error: any) {
-      showAlert('Error', error.message || 'Failed to generate flashcards');
+      showAlert(t('common.error'), error.message || t('chat.chatConversation.failedToGenerateFlashcards'));
     } finally {
       setGeneratingActionId(null);
     }
@@ -1058,7 +1054,7 @@ export const ChatConversationScreen = () => {
         // already left an inline Retry button on the failed placeholder streamChatResponse just
         // pushed onto `priorMessages`, so reverting to the pre-regenerate `messages` here would
         // wipe that out instead of letting the user retry.
-        showAlert('Error', 'Failed to regenerate response');
+        showAlert(t('common.error'), t('chat.chatConversation.failedToRegenerateResponse'));
         setMessages(messages);
       }
     } finally {
@@ -1101,7 +1097,7 @@ export const ChatConversationScreen = () => {
       if (error?.quotaExceeded) {
         await showInAppPaywall();
       } else if (!error?.isStreamFailure) {
-        showAlert('Error', 'Failed to retry response');
+        showAlert(t('common.error'), t('chat.chatConversation.failedToRetryResponse'));
       }
     } finally {
       setIsSendingMessage(false);
@@ -1119,7 +1115,7 @@ export const ChatConversationScreen = () => {
       index={index}
       isSendingMessage={isSendingMessage}
       onPreviewImage={setPreviewImage}
-      onOpenCitations={setCitationsSheetSources}
+      onOpenCitations={(sources, webSources = []) => setCitationsSheet({ sources, webSources })}
       onRegenerate={handleRegenerateResponse}
       onCopy={handleCopyMessage}
       onSelectFollowUp={handleSuggestedQuestion}
@@ -1322,8 +1318,9 @@ export const ChatConversationScreen = () => {
       />
 
       <ChatCitationsSheet
-        sources={citationsSheetSources}
-        onClose={() => setCitationsSheetSources(null)}
+        sources={citationsSheet?.sources ?? null}
+        webSources={citationsSheet?.webSources}
+        onClose={() => setCitationsSheet(null)}
       />
 
       <ChatImagePreviewModal

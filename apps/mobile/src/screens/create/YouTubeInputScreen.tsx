@@ -28,6 +28,7 @@ import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
 import { api } from "../../services/api";
 import { PoweredByFooter } from "../../components/PoweredByFooter";
+import { useTranslation } from 'react-i18next';
 
 type YouTubeInputNavigationProp = NativeStackNavigationProp<
   MainStackParamList,
@@ -44,6 +45,7 @@ interface VideoPreview {
 }
 
 export const YouTubeInputScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<YouTubeInputNavigationProp>();
   const { withAccess } = useGatedFeature();
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -100,11 +102,11 @@ export const YouTubeInputScreen = () => {
           channelTitle: response.data.channelTitle,
         });
       } else {
-        setError(response.message || "Could not fetch video information");
+        setError(response.message || t('create.youTubeInput.couldNotFetchVideoInformation'));
       }
     } catch (err: any) {
       console.error("❌ Error fetching video info:", err);
-      setError(err.message || "Failed to fetch video information");
+      setError(err.message || t('create.youTubeInput.failedToFetchVideoInformation'));
       setVideoPreview(null);
     } finally {
       setIsLoading(false);
@@ -155,17 +157,17 @@ export const YouTubeInputScreen = () => {
           </View>
 
           {/* Title */}
-          <Text style={styles.title}>Youtube Video</Text>
+          <Text style={styles.title}>{t('create.youTubeInput.youtubeVideo')}</Text>
           <Text style={styles.subtitle}>
-            Create a note from any youtube video
+           {t('create.youTubeInput.createANoteFromAnyYoutube')}
           </Text>
 
           {/* URL Input */}
           <View style={styles.inputSection}>
-            <Text style={styles.inputLabel}>Enter Youtube URL</Text>
+            <Text style={styles.inputLabel}>{t('create.youTubeInput.enterYoutubeURL')}</Text>
             <TextInput
               style={styles.input}
-              placeholder="Paste Youtube URL"
+              placeholder={t('create.youTubeInput.pasteYoutubeURL')}
               placeholderTextColor={colors.text.tertiary}
               value={youtubeUrl}
               onChangeText={handleUrlChange}
@@ -179,7 +181,7 @@ export const YouTubeInputScreen = () => {
           {isLoading && (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color={colors.primary[600]} />
-              <Text style={styles.loadingText}>Fetching video info...</Text>
+              <Text style={styles.loadingText}>{t('create.youTubeInput.fetchingVideoInfo')}</Text>
             </View>
           )}
 
@@ -236,7 +238,7 @@ export const YouTubeInputScreen = () => {
                   styles.continueButtonTextDisabled,
               ]}
             >
-              Continue
+             {t('common.continue')}
             </Text>
           </TouchableOpacity>
         </View>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import { colors, spacing, typography } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface ChatRenameModalProps {
   visible: boolean;
@@ -16,38 +17,42 @@ export const ChatRenameModal: React.FC<ChatRenameModalProps> = ({
   onChangeValue,
   onClose,
   onSave,
-}) => (
-  <Modal
-    visible={visible}
-    transparent
-    animationType="fade"
-    onRequestClose={onClose}
-  >
-    <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={onClose}>
-      <TouchableOpacity style={styles.renameModal} activeOpacity={1}>
-        <Text style={styles.renameTitle}>Rename Chat</Text>
-        <TextInput
-          style={styles.renameInput}
-          value={value}
-          onChangeText={onChangeValue}
-          autoFocus
-          selectTextOnFocus
-          maxLength={100}
-          returnKeyType="done"
-          onSubmitEditing={onSave}
-        />
-        <View style={styles.renameButtons}>
-          <TouchableOpacity style={styles.renameCancelButton} onPress={onClose}>
-            <Text style={styles.renameCancelText}>Cancel</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.renameSaveButton} onPress={onSave}>
-            <Text style={styles.renameSaveText}>Save</Text>
-          </TouchableOpacity>
-        </View>
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <Modal
+      visible={visible}
+      transparent
+      animationType="fade"
+      onRequestClose={onClose}
+    >
+      <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={onClose}>
+        <TouchableOpacity style={styles.renameModal} activeOpacity={1}>
+          <Text style={styles.renameTitle}>{t('chat.chatRename.renameChat')}</Text>
+          <TextInput
+            style={styles.renameInput}
+            value={value}
+            onChangeText={onChangeValue}
+            autoFocus
+            selectTextOnFocus
+            maxLength={100}
+            returnKeyType="done"
+            onSubmitEditing={onSave}
+          />
+          <View style={styles.renameButtons}>
+            <TouchableOpacity style={styles.renameCancelButton} onPress={onClose}>
+              <Text style={styles.renameCancelText}>{t('common.cancel')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.renameSaveButton} onPress={onSave}>
+              <Text style={styles.renameSaveText}>{t('common.save')}</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
       </TouchableOpacity>
-    </TouchableOpacity>
-  </Modal>
-);
+    </Modal>
+  );
+};
 
 const styles = StyleSheet.create({
   modalOverlay: {

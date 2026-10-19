@@ -14,7 +14,9 @@
     "next": "Suivant",
     "done": "Terminé",
     "search": "Rechercher",
-    "filter": "Filtrer"
+    "filter": "Filtrer",
+    "ok": "OK",
+    "info": "Infos"
   },
   "home": {
     "title": "Clinical Fact",
@@ -25,7 +27,7 @@
     "recentNotes": "Notes récentes",
     "seeAll": "Voir tout",
     "noNotes": "Aucune note à afficher",
-    "noNotesDesc": "Veuillez cliquer sur le bouton ci-dessus pour commencer\nà générer votre note pour clinicalfact.",
+    "noNotesDesc": "Appuyez sur le bouton ci-dessus pour commencer\nà générer votre note pour Clinical Fact.",
     "loadingNotes": "Chargement des notes..."
   },
   "profile": {
@@ -68,14 +70,23 @@
     "upgradePlan": "Mettre à niveau le forfait",
     "everyWeek": "Chaque semaine",
     "everyMonth": "Chaque mois",
-    "everyYear": "Chaque année"
+    "everyYear": "Chaque année",
+    "expired": "Expiré",
+    "reportBug": "Signaler un bug",
+    "active": "ACTIF",
+    "trial": "ESSAI"
   },
   "auth": {
-    "welcome": "Bienvenue sur Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Échec de la connexion avec Google",
+      "failedToAuthenticateWithServer": "Échec de l'authentification avec le serveur",
+      "googleSignInIsOnlyAvailable": "La connexion avec Google est uniquement disponible sur l'application native. Veuillez vous connecter par e-mail ou télécharger l'application.",
+      "code": "{{message}} (code : {{code}})"
+    },
     "getStarted": "Commencer",
     "signIn": "Se connecter",
     "signUp": "S'inscrire",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Mot de passe",
     "forgotPassword": "Mot de passe oublié ?",
     "verifyEmail": "Vérifiez votre email",
@@ -83,12 +94,316 @@
     "didntGetCode": "Vous n'avez pas reçu le code ?",
     "resendCode": "Renvoyer le code",
     "resendIn": "Renvoyer dans",
-    "enterVerificationCode": "Veuillez entrer le code de vérification complet"
+    "enterVerificationCode": "Veuillez entrer le code de vérification complet",
+    "languageSelect": {
+      "title": "Choisissez votre langue",
+      "subtitle": "Choisissez la langue que vous souhaitez utiliser dans l'application. Vous pourrez la modifier plus tard dans votre profil.",
+      "searchPlaceholder": "Rechercher une langue",
+      "noResults": "Aucune langue trouvée"
+    },
+    "buttons": {
+      "continue": "Continuer",
+      "continueWithEmail": "Continuer avec l'e-mail",
+      "continueWithGoogle": "Continuer avec Google",
+      "continueWithApple": "Continuer avec Apple",
+      "skip": "Passer",
+      "verify": "Vérifié !",
+      "next": "Suivant",
+      "tryNow": "Essayer Clinical Fact gratuitement"
+    },
+    "labels": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "username": "@nomdutilisateur",
+      "referralCode": "Code de parrainage",
+      "nameScreenTitle": "Vos prénom et nom",
+      "byAgree": "En continuant, vous acceptez nos",
+      "termsAndConditions": "Conditions générales",
+      "privacyPolicy": "politique de confidentialité",
+      "and": "et"
+    },
+    "placeholders": {
+      "enterEmail": "Entrez votre adresse e-mail",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "username": "@nomdutilisateur",
+      "referralCode": "ex. : JOHN ou TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Veuillez saisir une adresse e-mail valide",
+      "emailRequired": "Veuillez saisir votre adresse e-mail",
+      "firstLastNameRequired": "Veuillez saisir votre prénom et votre nom",
+      "usernameRequired": "Veuillez choisir un nom d'utilisateur",
+      "usernameLength": "Le nom d'utilisateur doit comporter de 3 à 20 caractères (lettres, chiffres et tirets bas uniquement)",
+      "usernameTaken": "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.",
+      "usernameCheckFailed": "Impossible de vérifier la disponibilité du nom d'utilisateur",
+      "usernameError": "Erreur lors de la vérification du nom d'utilisateur. Veuillez vérifier votre connexion.",
+      "invalidOTP": "Code non valide. Veuillez vérifier et réessayer.",
+      "otpExpired": "Code expiré. Veuillez demander un nouveau code.",
+      "otpRequired": "Veuillez saisir le code de vérification complet",
+      "referralNotFound": "Code de parrainage introuvable. Vérifiez l'orthographe et réessayez.",
+      "referralValidateFailed": "Échec de la validation du code. Veuillez réessayer.",
+      "referralApplyFailed": "Impossible d'appliquer le code de parrainage. Veuillez réessayer.",
+      "codeSendFailed": "Échec de l'envoi du code de vérification. Veuillez réessayer.",
+      "resendCodeFailed": "Échec du renvoi du code. Veuillez réessayer.",
+      "signInFailed": "Échec de la connexion",
+      "googleSignInFailed": "Échec de la connexion avec Google",
+      "googleTokenFailed": "Échec du traitement du jeton Google",
+      "googleAccessTokenFailed": "Impossible d'obtenir le jeton d'accès. Veuillez réessayer.",
+      "authTokenFailed": "Impossible d'obtenir le jeton d'authentification. Veuillez réessayer.",
+      "googleStartFailed": "Impossible de lancer la connexion Google. Veuillez réessayer.",
+      "setupRequired": "Configuration requise",
+      "googleOAuthMissing": "La connexion avec Google nécessite des identifiants client OAuth.\\n\\nVeuillez ajouter les identifiants à votre fichier .env.",
+      "youCanStillUseEmail": "Vous pouvez toujours utiliser « Continuer avec l'e-mail ».",
+      "appleSignInFailed": "Échec de la connexion avec Apple",
+      "appleTokenFailed": "Échec du traitement du jeton Apple",
+      "appleIosOnly": "La connexion avec Apple est uniquement disponible sur iOS."
+    },
+    "messages": {
+      "signingIn": "Connexion en cours...",
+      "codeValid": "✓ Code valide",
+      "signupFailed": "Échec de l'inscription",
+      "setupFailed": "Échec de la configuration. Veuillez réessayer."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact : Des fiches plus intelligentes commencent ici",
+      "tagline": "Transformez n'importe quel texte en notes parfaites",
+      "description": "Convertissez vos audios, documents ou vidéos en notes claires et consultables, et générez instantanément des quiz, des flashcards et des synthèses.",
+      "createAccountTitle": "Créer un compte",
+      "orSignUpWith": "OU S'INSCRIRE AVEC",
+      "signUpWithEmail": "S'inscrire avec une adresse e-mail",
+      "signInWithEmail": "Se connecter avec une adresse e-mail",
+      "alreadyHaveAccount": "Vous avez déjà un compte ? ",
+      "dontHaveAccount": "Vous n'avez pas de compte ? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Posez vos questions médicales. Obtenez les faits cliniques.",
+        "description": "Posez n'importe quelle question médicale et recevez une réponse étayée par des sources vérifiées : PubMed, recommandations de bonnes pratiques et littérature médicale de référence."
+      },
+      "slide2": {
+        "headline": "Chaque réponse, appuyée par une source",
+        "description": "Pas d'approximation ni d'invention : chaque réponse renvoie vers des études médicales réelles et vérifiables."
+      },
+      "slide3": {
+        "headline": "Révisez plus efficacement, réussissez vos examens",
+        "description": "Transformez toute question ou document en quiz ou en jeu de flashcards en quelques secondes, pour vous entraîner directement sur vos cours."
+      }
+    },
+    "otp": {
+      "title": "Confirmez votre adresse e-mail",
+      "subtitle": "Veuillez saisir le code de vérification envoyé à votre adresse e-mail"
+    },
+    "professionalDeclaration": {
+      "title": "Déclaration professionnelle",
+      "subtitle": "Clinical Fact est un outil pédagogique de recherche bibliographique",
+      "disclaimerIntro": "Clinical Fact est un outil informatif fondé sur l'intelligence artificielle, conçu pour aider les étudiants en soins infirmiers, en médecine et dans les autres filières de santé à accéder au savoir médical, à la littérature scientifique et à des supports de révision. L'application ne fournit aucun diagnostic médical, recommandation thérapeutique, consigne clinique ou avis médical individualisé, et ne doit en aucun cas servir de fondement à la prise en charge directe de patients ou à la décision clinique.",
+      "disclaimerHeading": "Comment Clinical Fact génère ses réponses :",
+      "disclaimerBody": "Clinical Fact extrait les informations directement depuis des sources médicales et scientifiques reconnues, notamment PubMed, Semantic Scholar et les monographies officielles de la FDA, puis utilise l'AI pour résumer et expliquer ces données en langage clair. Chaque réponse est élaborée exclusivement à partir des sources sélectionnées pour la question posée, et les citations renvoient aux documents d'origine afin que vous puissiez les vérifier par vous-même. Clinical Fact ne génère aucun fait médical de mémoire et n'invente aucune source.\n\nClinical Fact n'est pas un outil de diagnostic, une plateforme thérapeutique, un dispositif médical ni un substitut au jugement clinique des professionnels de santé, à l'enseignement agréé ou au programme officiel de votre établissement. Toute information produite par l'application — réponses, citations, quiz ou flashcards — est fournie à titre purement éducatif et pour vos révisions personnelles, et doit impérativement faire l'objet d'une vérification indépendante avant d'être utilisée dans un cadre universitaire, clinique ou professionnel.\nClinical Fact ne garantit ni l'exhaustivité, ni l'exactitude, ni la validité clinique actuelle des informations fournies. Le savoir médical évolue continuellement : recoupez toujours les éléments essentiels avec vos enseignants, vos maîtres de stage et les sources primaires actualisées.\nLorsque vous importez vos propres documents, notes ou enregistrements, Clinical Fact génère des réponses, synthèses, quiz et flashcards à partir de ces seuls contenus, sans recourir à des sources externes sauf mention explicite contraire.\n\nClinical Fact ne contrôle, n'authentifie ni ne confirme l'identité, l'inscription universitaire ou les qualifications de ses utilisateurs. L'application n'est pas destinée à être utilisée en situation d'urgence ni pour la prise de décision clinique en temps réel.\nEn continuant, vous confirmez comprendre ces conditions et acceptez d'utiliser Clinical Fact uniquement comme outil d'apprentissage et de consultation.",
+      "checkboxLabel": "Je comprends que cette application est un support éducatif uniquement et ne délivre aucun avis médical",
+      "acceptButton": "Accepter et continuer"
+    },
+    "survey": {
+      "role": "Quel profil vous décrit le mieux, {{firstName}} ?",
+      "currentMethod": "Comment trouvez-vous vos réponses médicales actuellement ?",
+      "timeDrain": "Qu'est-ce qui vous fait perdre le plus de temps ?",
+      "appExpectation": "Qu'attendez-vous de l'application médicale Clinical Fact ?",
+      "aiToolsUsed": "Quels outils d'AI avez-vous déjà utilisés pour vos recherches médicales ?",
+      "aiToolIssue": "Qu'est-ce qui vous a posé problème avec ces outils ?",
+      "aiTrustLevel": "Craignez-vous souvent qu'une réponse d'AI soit erronée ?",
+      "biggestNeed": "Quel est votre besoin prioritaire en ce moment ?",
+      "studyTimePerWeek": "Combien de temps pouvez-vous consacrer aux révisions chaque semaine ?",
+      "comingUp": "Quelle est votre prochaine échéance ?",
+      "referralSource": "Comment avez-vous découvert Clinical Fact ?"
+    },
+    "onboarding": {
+      "username": "Choisissez votre nom d'utilisateur",
+      "usernameSubtitle": "Cela permet de personnaliser votre compte",
+      "goals": "Pour quoi utilisez-vous\\nClinical Fact ?",
+      "goalsSubtitle": "Sélectionnez toutes les options pertinentes pour adapter votre expérience.",
+      "contentType": "Quel format utilisez-vous\\nle plus souvent ?",
+      "contentTypeSubtitle": "Sélectionnez tout ce qui s'applique. Cela nous aide à personnaliser l'application.",
+      "reviewStyle": "Comment préférez-vous réviser\\nvos cours ?",
+      "reviewStyleSubtitle": "Choisissez votre méthode de révision préférée.",
+      "frustration": "{{firstName}}, qu'est-ce qui vous pose le plus de difficultés dans la prise de notes ?",
+      "frustrationSubtitle": "Sélectionnez tout ce qui s'applique. Cela nous permet de mieux vous aider.",
+      "referral": "Au fait, {{firstName}},\\ncomment avez-vous connu Clinical Fact ?",
+      "referralSubtitle": "Sélectionnez une option."
+    },
+    "referralScreen": {
+      "title": "Avez-vous été parrainé(e)\\npar quelqu'un ?",
+      "subtitle": "Saisissez son code de parrainage si vous en avez un"
+    },
+    "setup": {
+      "preparingNotes": "Préparation des notes",
+      "preparingFlashcards": "Préparation des flashcards",
+      "preparingQuiz": "Préparation des modèles de quiz",
+      "preparingChat": "Préparation des assistants de discussion",
+      "title": "Configuration de votre espace\\npersonnalisé, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Merci de faire confiance à Clinical Fact",
+      "subtitle": "Vous rejoignez des milliers d'étudiants en soins infirmiers et en médecine",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Tout ce dont vous avez besoin\\npour tout maîtriser",
+      "subtitle": "Enregistrez. Explorez. Testez-vous. Maîtrisez.",
+      "everythingYouNeedToLearnAnything": "Tout ce dont vous avez besoin pour tout maîtriser",
+      "recordItResearchItQuizIt": "Enregistrez. Explorez. Testez. Maîtrisez.",
+      "tryClinicalFactNowForFree": "Essayez Clinical Fact gratuitement dès maintenant"
+    },
+    "features": {
+      "feature1": {
+        "title": "Obtenez des réponses médicales fiables et des suggestions d'approfondissement",
+        "description": "Posez vos questions médicales et bénéficiez d'explications claires assorties de questions complémentaires pertinentes, pour ne jamais rester bloqué pendant vos révisions."
+      },
+      "feature2": {
+        "title": "Chaque réponse médicale,\nappuyée par une source réelle",
+        "description": "Citations issues de PubMed, Semantic Scholar et Europe PMC : vérifiables, jamais inventées."
+      },
+      "feature3": {
+        "title": "Importez vos cours, obtenez des synthèses médicales ciblées",
+        "description": "Transformez vos diapositives, PDF ou notes en explications claires, fondées sur des sources médicales fiables."
+      },
+      "feature4": {
+        "title": "Transformez vos échanges en quiz ou flashcards pour réviser",
+        "description": "Inutile de changer d'application : générez vos questions d'entraînement directement depuis vos discussions et documents."
+      },
+      "feature5": {
+        "title": "Transformez vos échanges ou documents en flashcards d'entraînement",
+        "description": "Inutile de changer d'application : générez vos questions d'entraînement directement depuis vos discussions et documents."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Activer les notifications",
+      "thisHelpsUsStayOnTrack": "Cela nous aide à personnaliser votre compte et à vous fournir des réponses médicales plus précises"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Code de vérification invalide. Veuillez réessayer.",
+      "failedToResendCodePleaseTry": "Impossible de renvoyer le code. Veuillez réessayer.",
+      "confirmYourEmailAddress": "Confirmez votre adresse e-mail",
+      "enterCodeSentTo": "Veuillez saisir le code de vérification envoyé à {{email}}",
+      "resendCodeIn": "Renvoyer le code dans {{seconds}} s"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Avez-vous un code de parrainage ?",
+      "enterTheirReferralCodeIfYou": "Saisissez votre code de parrainage si vous en avez un",
+      "eGJOHNOrTECHBRO": "ex. : JOHN ou TECHBRO",
+      "codeIsValid": "✓ Code valide"
+    },
+    "resultsChart": {
+      "getBetterResults": "Obtenez de meilleurs résultats",
+      "over95OfClinicalfactUsersScore": "Plus de 95 % des utilisateurs de Clinical Fact obtiennent 95 % ou plus à leurs examens"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Étudiant(e) en soins infirmiers",
+        "medicalStudent": "Étudiant(e) en médecine",
+        "paPharmacyStudent": "Étudiant(e) en pharmacie ou PA",
+        "practicingNurse": "Infirmier(ère) en exercice",
+        "practicingPhysician": "Médecin en exercice",
+        "otherHealthcareProfessional": "Autre professionnel de santé"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Manuels ou cours",
+        "flashcardQuizApps": "Apps de flashcards ou de quiz",
+        "youtube": "YouTube",
+        "aiChatbots": "Chatbots AI",
+        "colleagueClassmate": "Demander à un confrère ou camarade",
+        "practiceQuestionBanks": "Banques de questions d'entraînement"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Créer des flashcards et quiz de zéro",
+        "findingTrustworthyAnswer": "Trouver rapidement une réponse fiable",
+        "reReadingNotes": "Relire des cours sans les retenir",
+        "switchingApps": "Jongler entre trop d'applications",
+        "chartingDocumentation": "Transmissions et dossiers patients"
+      },
+      "appExpectation": {
+        "noHallucination": "Une AI sans hallucinations",
+        "realCitations": "De vraies citations issues des sources",
+        "oneApp": "Une seule app au lieu de cinq abonnements",
+        "explainsWhy": "Explique le « pourquoi », pas juste la réponse"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Recherche Google",
+        "otherApps": "Autres applications"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "A inventé des réponses",
+        "notMedicalContent": "Inadapté au domaine médical",
+        "noSources": "Aucune source vérifiable",
+        "tooGeneric": "Trop générique, peu axé examens ou pratique"
+      },
+      "aiTrustLevel": {
+        "everyTime": "À chaque fois",
+        "sometimes": "Parfois",
+        "rarely": "Rarement",
+        "dontUseAi": "Je n'utilise pas encore l'AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Des réponses fiables et rapides",
+        "quizzesFlashcardsWithoutWork": "Des quiz et flashcards sans effort",
+        "rememberingStudied": "Mieux retenir ce que j'ai appris",
+        "medicalCitations": "Références et citations médicales",
+        "allOfTheAbove": "Toutes les réponses ci-dessus"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Autre"
+      },
+      "studyTime": {
+        "under5Hours": "Moins de 5 heures",
+        "510Hours": "5 à 10 heures",
+        "1020Hours": "10 à 20 heures",
+        "20PlusHours": "20 heures et plus"
+      },
+      "comingUp": {
+        "medicalExams": "Examens de médecine",
+        "clinicalRotations": "Stages cliniques",
+        "nursingExams": "Examens en soins infirmiers",
+        "otherExams": "Autres examens",
+        "staySharp": "Juste pour me maintenir à niveau"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "Transcription de la note",
+    "noteTranscript": {
+      "noteTranscript": "Transcription de la note",
+      "noNoteIDProvided": "Aucun identifiant de note fourni",
+      "noTranscriptAvailableForThisNote": "Aucune transcription disponible pour cette note.",
+      "thisNoteWasNotCreatedFrom": "Cette note n'a pas été créée à partir d'un fichier audio/vidéo et ne dispose pas de transcription.",
+      "failedToLoadNote": "Échec du chargement de la note",
+      "noteTranscript2": "Transcription de la note",
+      "loadingTranscript": "Chargement de la transcription...",
+      "goToNote": "Accéder à la note"
+    },
     "noteOptions": "Options de la note",
-    "editNote": "Modifier la note",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Veuillez saisir un titre de note",
+      "failedToUpdateNote": "Échec de la mise à jour de la note",
+      "noteUpdatedSuccessfully": "Note mise à jour avec succès",
+      "editNote": "Modifier la note",
+      "noteTitle": "Titre de la note",
+      "enterNoteTitle": "Saisir le titre de la note",
+      "noteContent": "Contenu de la note",
+      "enterNoteContent": "Saisir le contenu de la note",
+      "saveThisNote": "Enregistrer cette note",
+      "aiIsGeneratingYourNote": "L'AI génère votre note",
+      "largeAudioAndVideoFilesMay": "Le traitement des fichiers audio et vidéo volumineux peut prendre quelques minutes. Veuillez garder l'application ouverte."
+    },
     "retranscribe": "Retranscrire",
     "exportNote": "Exporter la note",
     "shareNoteLink": "Partager le lien de la note",
@@ -110,12 +425,89 @@
     "translate": "Traduire",
     "addToFolder": "Ajouter au dossier",
     "loadingNote": "Chargement de la note...",
-    "noteNotFound": "Échec du chargement de la note"
+    "noteNotFound": "Échec du chargement de la note",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Échec de la génération des flashcards",
+      "anUnexpectedErrorOccurred": "Une erreur inattendue est survenue",
+      "history": "Historique",
+      "export": "Exporter"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Échec de l'ajout de la note au dossier",
+      "folderNotFound": "Dossier introuvable",
+      "addNote": "+ Ajouter une note",
+      "noNotesInThisFolder": "Aucune note dans ce dossier",
+      "moveNotesToThisFolderTo": "Déplacez des notes dans ce dossier pour les afficher ici",
+      "addNoteToFolder": "Ajouter la note au dossier",
+      "noNotesAvailableToAdd": "Aucune note disponible à ajouter",
+      "allYourNotesAreAlreadyIn": "Toutes vos notes se trouvent déjà dans ce dossier",
+      "created": "Créé le {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Échec du chargement de la note",
+      "reTranscribeNote": "Retranscrire la note",
+      "thisWillReTranscribeTheAudio": "Cela retranscrira l'enregistrement audio et mettra à jour la note. Continuer ?",
+      "reTranscribe": "Retranscrire",
+      "noteReTranscribedSuccessfully": "Note retranscrite avec succès",
+      "info": "Infos",
+      "reTranscriptionFeatureIsComingSoon": "La fonction de retranscription sera bientôt disponible",
+      "youAreCurrentlyOfflinePleaseConnect": "Vous êtes actuellement hors ligne. Veuillez vous connecter à Internet pour effectuer cette action.",
+      "failedToDeleteNote": "Échec de la suppression de la note",
+      "failedToExportNote": "Impossible d'exporter la note",
+      "noteTranslatedSuccessfully": "Note traduite avec succès",
+      "failedToTranslateNote": "Impossible de traduire la note",
+      "noteMovedTo": "Note déplacée vers {{name}}",
+      "failedToMoveNoteToFolder": "Impossible de déplacer la note dans le dossier",
+      "summaryNotes": "Notes de synthèse",
+      "loadingNote": "Chargement de la note...",
+      "imageNote": "Note image",
+      "created": "Créée le {{dateTime}}",
+      "translate": "Traduire",
+      "transcribe": "Transcrire",
+      "editThisNote": "Modifier cette note",
+      "createFlashcards": "Créer des flashcards",
+      "createFlashcardsToImproveYourRetention": "Créez des flashcards pour améliorer votre mémorisation",
+      "createQuizQuestions": "Créer des questions de quiz",
+      "practiceYourNotesByCreatingQuestions": "Entraînez-vous en créant des questions pour maîtriser le sujet"
+    },
+    "sharedNote": {
+      "notFound": "Introuvable",
+      "thisSharedNoteLinkIsInvalid": "Ce lien de note partagée est invalide ou a expiré.",
+      "failedToLoadSharedNote": "Impossible de charger la note partagée.",
+      "saved": "Enregistré !",
+      "noteHasBeenAddedToYour": "La note a été ajoutée à votre bibliothèque.",
+      "viewInLibrary": "Voir dans la bibliothèque",
+      "stayHere": "Rester ici",
+      "failedToSaveNote": "Impossible d'enregistrer la note.",
+      "loadingSharedNote": "Chargement de la note partagée...",
+      "sharedNote": "Note partagée",
+      "sharedWithYou": "Partagée avec vous",
+      "savedToLibrary": "Enregistrée dans la bibliothèque",
+      "saveToMyLibrary": "Enregistrer dans ma bibliothèque"
+    }
   },
   "create": {
     "selectOption": "Comment souhaitez-vous créer votre note ?",
-    "recordAudio": "Enregistrer l'audio",
-    "uploadAudio": "Télécharger l'audio",
+    "recordAudio": {
+      "permissionRequired": "Autorisation requise",
+      "pleaseGrantMicrophonePermissionToRecord": "Veuillez autoriser l'accès au micro pour enregistrer l'audio.",
+      "failedToRequestMicrophonePermission": "Impossible de demander l'accès au micro",
+      "created": "Créé le {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Enregistrement audio",
+      "recordAudio": "Enregistrer un audio",
+      "createANoteFromAnyRecorded": "Créez une note à partir de tout enregistrement audio",
+      "recording": "Enregistrement en cours ({{time}})",
+      "recordAgain": "Réenregistrer"
+    },
+    "uploadAudio": {
+      "created": "Créé le {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Impossible de sélectionner le fichier audio",
+      "uploadAudio": "Importer un audio",
+      "createANoteFromAnyUploaded": "Créez une note à partir de tout fichier audio importé",
+      "dragDropFilesOrBrowse": "Glissez-déposez des fichiers ou Parcourir",
+      "supportedFormatMp4WavMp3": "Formats acceptés : mp4, wav, mp3",
+      "changeFile": "Changer de fichier"
+    },
     "youtube": "Vidéo YouTube",
     "pdfDocument": "PDF ou document",
     "customText": "Texte personnalisé",
@@ -123,7 +515,56 @@
     "uploadingFile": "Téléchargement du fichier sur le serveur...",
     "transcribing": "Conversion de la parole en texte...",
     "extractingText": "Extraction du texte...",
-    "generatingNote": "Création de notes d'étude alimentées par l'IA...",
+    "generatingNote": {
+      "uploadAudio": "Importer l'audio",
+      "uploadingAudioFileToServer": "Envoi du fichier audio au serveur...",
+      "transcribeAudio": "Transcrire l'audio",
+      "convertingSpeechToText": "Conversion de la voix en texte...",
+      "generateYourNote": "Générer votre note",
+      "creatingStudyNotes": "Création des fiches d'étude...",
+      "uploadPDF": "Importer le PDF",
+      "uploadingPDFDocumentToServer": "Envoi du document PDF au serveur...",
+      "extractText": "Extraire le texte",
+      "readingAndExtractingTextFromPDF": "Lecture et extraction du texte du PDF...",
+      "uploadImage": "Importer l'image",
+      "uploadingImageToServer": "Envoi de l'image au serveur...",
+      "extractTextOCR": "Extraire le texte (OCR)",
+      "recognizingAndExtractingTextFromImage": "Reconnaissance et extraction du texte de l'image...",
+      "fetchVideo": "Récupérer la vidéo",
+      "connectingToYouTube": "Connexion à YouTube...",
+      "extractTranscript": "Extraire la transcription",
+      "downloadingVideoTranscript": "Téléchargement de la transcription...",
+      "processText": "Traiter le texte",
+      "analyzingYourContent": "Analyse de votre contenu...",
+      "uploadFile": "Importer un fichier",
+      "uploadingToServer": "Envoi vers le serveur...",
+      "processContent": "Traiter le contenu",
+      "extractingContent": "Extraction du contenu...",
+      "noteReady": "Fiche prête !",
+      "noteGenerationFailedOnTheServer": "Échec de la génération de la fiche sur le serveur.",
+      "failedToUploadImage": "Échec de l'importation de l'image",
+      "weCouldNotReadAnythingFrom": "Impossible de lire cette image. Veuillez essayer avec une image plus nette de vos notes médicales.",
+      "preparingFile": "Préparation du fichier...",
+      "almostDone": "Presque terminé...",
+      "untitledNote": "Fiche sans titre",
+      "failedToGenerateNote": "Échec de la génération de la fiche",
+      "whoaSpeedy": "Oups, un peu trop rapide ! 🏃💨",
+      "youReGeneratingContentABit": "Vous générez du contenu un peu trop vite. Faites une pause de 60 secondes pour laisser à notre AI le temps de suivre.",
+      "gotIt": "Compris",
+      "fileTooLarge": "Fichier trop volumineux",
+      "yourFileExceedsThe15MBLimit": "Votre fichier dépasse la limite de 15 Mo pour les utilisateurs gratuits. Passez à la version PRO pour importer des cours jusqu'à 100 Mo.",
+      "upgradeToPRO": "Passer à PRO",
+      "oopsWeHitASnag": "Oups, un problème est survenu 🚧",
+      "weCouldnTGenerateThatRight": "Impossible de générer cela pour le moment. Réessayez dans un instant !",
+      "processingContent": "Traitement du contenu...",
+      "generatingYourNote": "Génération de votre fiche...",
+      "audioNote": "Note audio",
+      "failedToGenerateFlashcards": "Échec de la génération des flashcards",
+      "generatingNote": "Génération de la fiche en cours",
+      "pleaseKeepThisScreenOpenWhile": "Veuillez garder cet écran ouvert pendant la génération de votre fiche. La transcription des fichiers volumineux peut prendre quelques minutes.",
+      "goToNote": "Voir la fiche",
+      "generateNoteTranscript": "Générer la transcription de la fiche"
+    },
     "fetchingVideo": "Connexion à YouTube...",
     "processingText": "Analyse de votre contenu...",
     "uploadAudioTitle": "Télécharger l'audio",
@@ -133,7 +574,63 @@
     "fetchVideo": "Récupérer la vidéo",
     "extractTranscript": "Extraire la transcription",
     "processText": "Traiter le texte",
-    "generateNote": "Générer votre note"
+    "generateNote": "Générer votre note",
+    "customTextInput": {
+      "customText": "Texte personnalisé",
+      "createANoteFromAnyCustom": "Créer une fiche à partir de n'importe quel texte",
+      "enterText": "Saisir du texte",
+      "enterYourTextHere": "Saisissez votre texte ici..."
+    },
+    "uploadImage": {
+      "created": "Créé le {{day}} {{month}} {{year}} à {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Autorisation requise",
+      "pleaseAllowAccessToYourPhoto": "Veuillez autoriser l'accès à votre photothèque",
+      "failedToPickImage": "Échec de la sélection de l'image",
+      "uploadImage": "Importer une image",
+      "createANoteFromAnyUploaded": "Créer une fiche à partir d'une image importée",
+      "dragDropFilesOrBrowse": "Glissez-déposez des fichiers ou Parcourir",
+      "supportedFormatPngJpegHeicWebp": "Formats acceptés : png, jpeg, heic, webp",
+      "changeFile": "Changer de fichier"
+    },
+    "uploadPDF": {
+      "created": "Créé le {{day}} {{month}} {{year}} à {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Échec de la sélection du document",
+      "uploadPdf": "Importer un PDF",
+      "createANoteFromAnyUploaded": "Créer une fiche à partir d'un PDF importé",
+      "dragDropFilesOrBrowse": "Glissez-déposez des fichiers ou Parcourir",
+      "supportedFormatPdf": "Format accepté : pdf",
+      "changeFile": "Changer de fichier"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Récupération de la vidéo",
+      "gettingVideoDetails": "Récupération des détails de la vidéo",
+      "extractingTranscript": "Extraction de la transcription",
+      "convertingAudioToText": "Conversion audio en texte",
+      "generatingYourNote": "Génération de votre fiche",
+      "aiIsSummarisingTheContent": "L'AI résume le contenu",
+      "noteGenerationFailedPleaseTryAgain": "Échec de la génération de la fiche. Veuillez réessayer.",
+      "processingFailed": "Échec du traitement",
+      "goBack": "Retour",
+      "retry": "Réessayer",
+      "failedToStartNoteGeneration": "Impossible de lancer la génération de la note",
+      "failedToProcessYouTubeVideoPlease": "Échec du traitement de la vidéo YouTube. Veuillez réessayer.",
+      "cancelProcessing": "Annuler le traitement",
+      "areYouSureYouWantTo": "Voulez-vous vraiment annuler ? Votre progression sera perdue.",
+      "continueProcessing": "Poursuivre le traitement",
+      "youTubeNote": "Note YouTube",
+      "noteGenerated": "Note générée",
+      "generatingNote": "Génération de la note…",
+      "goToNote": "Voir la note"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Impossible de récupérer les informations de la vidéo",
+      "failedToFetchVideoInformation": "Échec de la récupération des informations de la vidéo",
+      "youtubeVideo": "Vidéo YouTube",
+      "createANoteFromAnyYoutube": "Créer une note à partir d'une vidéo YouTube",
+      "enterYoutubeURL": "Saisir l'URL YouTube",
+      "pasteYoutubeURL": "Coller l'URL YouTube",
+      "fetchingVideoInfo": "Récupération des infos de la vidéo…"
+    }
   },
   "library": {
     "title": "Bibliothèque",
@@ -163,7 +660,67 @@
     "almostDone": "Presque terminé...",
     "quizReady": "Quiz prêt !",
     "startQuiz": "Commencer le quiz",
-    "questionCount": "{{current}} sur {{total}}"
+    "questionCount": "{{current}} sur {{total}}",
+    "previous": "Question précédente",
+    "generatingQuiz": "Génération du quiz par l'AI...",
+    "exitTitle": "Quitter le quiz ?",
+    "exitMessage": "Votre progression sera perdue.",
+    "exit": "Quitter",
+    "errorTitle": "Oups, un problème est survenu 🚧",
+    "errorMessage": "Impossible de générer le contenu pour le moment. Réessayez dans un instant !",
+    "noQuestions": "Aucune question disponible.",
+    "reading": "Lecture de vos notes...",
+    "identifying": "Identification des concepts clés...",
+    "structuring": "Structure des questions...",
+    "almostReady": "Presque prêt...",
+    "youScored": "VOTRE SCORE",
+    "timeInSeconds": "TEMPS EN SECONDES",
+    "accuracy": "PRÉCISION",
+    "grade": "NOTE",
+    "reportsCard": "Bilan des résultats",
+    "reviewAnswers": "Revoir les réponses",
+    "correctAnswer": "Bonne réponse",
+    "yourAnswer": "Votre réponse",
+    "explanation": "Explication",
+    "questionProgress": "Question {{current}} sur {{total}}",
+    "generatingQuizWait": "Nous préparons votre quiz, merci de patienter...",
+    "goToChats": "Aller aux discussions",
+    "quizGroupDetail": {
+      "inProgress": "En cours",
+      "notStarted": "Non commencé",
+      "failedToLoadQuizHistory": "Impossible de charger l'historique des quiz",
+      "failedToLoadChatContent": "Impossible de charger le contenu de la discussion",
+      "deleteQuiz": "Supprimer le quiz",
+      "failedToDeleteQuiz": "Impossible de supprimer le quiz",
+      "created": "Créé le {{dateTime}}",
+      "lastscore": "DERNIER SCORE",
+      "bestscore": "MEILLEUR SCORE",
+      "attempts": "TENTATIVES",
+      "retakeQuiz": "Reprendre le quiz",
+      "translate": "Traduire",
+      "newQuiz": "Nouveau quiz",
+      "quizHistory": "Historique des quiz",
+      "flashcardHistory": "Historique des flashcards",
+      "score": "Score : {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Aucun jeu de flashcards pour cette source.",
+      "cards": "{{totalCards}} cartes · {{flashcardStatus}}",
+      "quizOptions": "Options du quiz",
+      "exportLatestAttempt": "Exporter la dernière tentative",
+      "questions": "{{totalQuestions}} questions · {{value}}",
+      "deleteAllAttemptsOne": "Supprimer l'unique tentative de quiz pour « {{title}} » ? Cette action est irréversible.",
+      "deleteAllAttemptsMany": "Supprimer les {{total}} tentatives de quiz pour « {{title}} » ? Cette action est irréversible.",
+      "makeFlashcards": "Créer des flashcards"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Impossible de charger le quiz : format de réponse non valide",
+      "failedToLoadQuizData": "Impossible de charger les données du quiz",
+      "noContentAvailable": "Aucun contenu disponible",
+      "goBack": "Retour",
+      "previous": "Précédent"
+    },
+    "quiz": {
+      "generationFailed": "Échec de la génération"
+    }
   },
   "flashcards": {
     "title": "Cartes mémoire",
@@ -172,10 +729,71 @@
     "previous": "Précédent",
     "shuffle": "Mélanger",
     "generating": "Génération des cartes mémoire...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Créez des flashcards pour booster votre mémorisation",
+    "howManyQuestions": "Combien de questions ?",
+    "generateButton": "Générer les flashcards",
+    "generatingEllipsis": "Génération en cours...",
+    "allDone": "Terminé !",
+    "completedReview": "Vous avez révisé toutes les cartes de ce paquet",
+    "backToNotes": "Retour aux notes",
+    "question": "Question",
+    "answer": "Réponse",
+    "noQuestionText": "(Aucun texte de question)",
+    "noAnswerText": "(Aucun texte de réponse)",
+    "enterQuestion": "Saisissez votre question",
+    "enterAnswer": "Saisissez la réponse",
+    "clickToFlip": "toucher la carte pour retourner",
+    "reading": "Lecture de vos notes...",
+    "identifying": "Identification des concepts clés...",
+    "creating": "Création des flashcards...",
+    "almostReady": "Presque prêt...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} sur {{total}}",
+    "noteIdRequired": "L'identifiant de la note est requis pour générer des flashcards",
+    "invalidCardCount": "Veuillez choisir entre 1 et 100 flashcards",
+    "flashcardGroupDetail": {
+      "inProgress": "En cours",
+      "notStarted": "Non commencé",
+      "failedToLoadFlashcardHistory": "Impossible de charger l'historique des flashcards",
+      "limitReached": "Limite atteinte",
+      "flashcardGenerationLimitReached": "Limite de génération de flashcards atteinte.",
+      "failedToGenerateFlashcards": "Impossible de générer les flashcards",
+      "failedToTranslateFlashcards": "Impossible de traduire les flashcards",
+      "deleteFlashcards": "Supprimer les flashcards",
+      "failedToDeleteFlashcards": "Impossible de supprimer les flashcards",
+      "created": "Créé le {{dateTime}}",
+      "lastprogress": "DERNIÈRE PROGRESSION",
+      "bestprogress": "MEILLEURE PROGRESSION",
+      "sets": "SÉRIES",
+      "studyNow": "Réviser maintenant",
+      "translate": "Traduire",
+      "newFlashcards": "Nouvelles flashcards",
+      "flashcardHistory": "Historique des flashcards",
+      "quizHistory": "Historique des quiz",
+      "cards": "{{totalCards}} cartes · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Aucun quiz issu de cette source pour l'instant.",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Options des flashcards",
+      "exportLatestSet": "Exporter la dernière série",
+      "questions": "{{totalQuestions}} questions · {{value}}",
+      "deleteAllSetsOne": "Supprimer la série de flashcards pour « {{title}} » ? Cette action est irréversible.",
+      "deleteAllSetsMany": "Supprimer les {{total}} séries de flashcards pour « {{title}} » ? Cette action est irréversible.",
+      "makeQuiz": "Créer un quiz",
+      "failedToLoadChatContent": "Échec du chargement du contenu du chat"
+    },
+    "flashcardReview": {
+      "unknownError": "Erreur inconnue",
+      "noFlashcardsInThisSet": "Aucune flashcard dans cette série",
+      "goBack": "Retour",
+      "allDone": "Terminé !",
+      "youHaveReviewedAllTheCards": "Vous avez révisé toutes les cartes de ce paquet",
+      "question": "Question {{value}}",
+      "questionOf": "Question {{value}} sur {{totalCards}}"
+    }
   },
   "chat": {
-    "title": "Chat",
+    "title": "Discussion",
     "typeMessage": "Tapez un message...",
     "send": "Envoyer",
     "chatWithNote": "Discuter avec la note",
@@ -183,7 +801,191 @@
     "chatWithDocument": "Discuter avec le document",
     "selectFile": "Sélectionnez un fichier pour discuter",
     "uploadFile": "Télécharger un fichier",
-    "startChatting": "Commencer à discuter"
+    "startChatting": "Commencer à discuter",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Posez une question médicale pour obtenir des précisions",
+      "askAnythingAboutThisDocument": "Posez une question sur ce document...",
+      "askAQuestionAttachmentProcessingFailed": "Poser une question — échec du traitement de la pièce jointe",
+      "extractingText": "Extraction du texte...",
+      "processingPDF": "Traitement du PDF...",
+      "upgradeToProToContinueChatting": "Passez à PRO pour continuer à discuter",
+      "queryremaining": "{{queriesRemaining}} REQUÊTE RESTANTE"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Initialisation du chat...",
+      "extractingTextFromImage": "Extraction du texte de l'image...",
+      "processingPDFDocument": "Traitement du document PDF...",
+      "analyzingYourNote": "Analyse de votre note...",
+      "thisUsuallyTakesJustAFew": "⏱️ Cela ne prend généralement que quelques secondes. Vous pourrez discuter une fois le traitement terminé.",
+      "processingFailed": "Échec du traitement",
+      "fileMightBeCorruptedOrUnreadable": "• Le fichier est peut-être corrompu ou illisible",
+      "imageQualityTooLow": "Qualité de l'image trop faible",
+      "pdfIsPasswordProtected": "Le PDF est protégé par un mot de passe",
+      "contentFormatNotSupported": "Format de contenu non pris en charge",
+      "networkConnectionIssue": "• Problème de connexion réseau",
+      "tryADifferentFile": "Essayer un autre fichier",
+      "askAnyClinicalQuestionNoUpload": "💡 Posez n'importe quelle question clinique, sans import requis. Je vous répondrai en citant la littérature médicale, avec des images pertinentes si disponibles.",
+      "readyToChat": "✓ Prêt à discuter",
+      "couldntProcessNote": "Impossible de traiter cette note. Cela peut être dû à :",
+      "couldntProcessImage": "Impossible de traiter cette image. Cela peut être dû à :",
+      "couldntProcessDocument": "Impossible de traiter ce document. Cela peut être dû à :",
+      "askMeAboutNote": "💡 Posez-moi vos questions sur cette note. Je peux résumer, expliquer des concepts ou répondre à des questions précises.",
+      "askMeAboutImage": "💡 Posez-moi vos questions sur cette image. Je peux résumer, expliquer des concepts ou répondre à des questions précises.",
+      "askMeAboutDocument": "💡 Posez-moi vos questions sur ce document. Je peux résumer, expliquer des concepts ou répondre à des questions précises."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} maîtrisées",
+      "notStarted": "Non commencé",
+      "quizGeneration": "Génération du quiz",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Génération des flashcards",
+      "questions": "{{totalCards}} questions · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} questions · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Réflexion et recherche de ressources en cours...",
+      "couldnTGenerateAResponse": "Impossible de générer une réponse.",
+      "retry": "Réessayer",
+      "alsoReferencedFromTheWeb": "Également référencé depuis le Web",
+      "followUpQuestions": "Questions complémentaires"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Posez vos questions médicales, obtenez des faits étayés par de vraies sources",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Fondé sur les preuves · Sources PubMed · Évalué par des pairs",
+      "tryOutAnyOfThisTopics": "Choisissez l'un de ces sujets pour commencer",
+      "topics": {
+        "electrolytes": {
+          "label": "Troubles électrolytiques expliqués",
+          "question": "Explique les troubles électrolytiques : causes, symptômes et traitement"
+        },
+        "ecg": {
+          "label": "Bases de l'interprétation de l'ECG",
+          "question": "Quelles sont les bases de l'interprétation de l'ECG ?"
+        },
+        "drugInteractions": {
+          "label": "Interactions médicamenteuses fréquentes",
+          "question": "Quelles sont les interactions médicamenteuses courantes et importantes à connaître ?"
+        },
+        "nclex": {
+          "label": "Entraînement type NCLEX",
+          "question": "Donne-moi une question d'entraînement type NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Notice de médicament FDA",
+      "fromYourAttachedMaterial": "Issu de vos documents joints"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Impossible de créer la session de discussion",
+      "failedToInitializeChatSession": "Impossible d'initialiser la session de discussion",
+      "failedToUpdateLanguage": "Impossible de mettre à jour la langue",
+      "youVeReachedYour3Pin": "Vous avez atteint votre limite de 3 éléments épinglés",
+      "failedToUpdatePin": "Impossible de modifier l'épingle",
+      "permissionRequired": "Autorisation requise",
+      "pleaseGrantCameraPermissionToTake": "Veuillez autoriser l'accès à l'appareil photo pour prendre une photo.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Veuillez autoriser l'accès à la galerie pour importer des images.",
+      "failedToUploadImage": "Échec de l'importation de l'image",
+      "uploadFailed": "Échec de l'importation",
+      "failedToUploadDocument": "Échec de l'importation du document",
+      "failedToStartChatFromThis": "Impossible de lancer une discussion à partir de ce fichier.",
+      "chatFromImage": "Discuter à partir d'une image",
+      "failedToStartANewQuestion": "Impossible de poser une nouvelle question. Veuillez réessayer.",
+      "failedToAttachFile": "Impossible de joindre le fichier",
+      "failedToSendMessage": "Échec de l'envoi du message",
+      "copiedToClipboard": "Copié dans le presse-papiers",
+      "notEnoughContentYet": "Pas encore assez de contenu",
+      "chatABitMoreBeforeGenerating": "Discutez encore un peu avant de générer un quiz (100 caractères minimum).",
+      "chatABitMoreBeforeGenerating2": "Discutez encore un peu avant de générer des flashcards (100 caractères minimum).",
+      "failedToGenerateFlashcards": "Échec de la génération des flashcards",
+      "failedToRegenerateResponse": "Impossible de régénérer la réponse",
+      "failedToRetryResponse": "Échec de la nouvelle tentative"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Impossible de joindre la note",
+      "folderCreatedSuccessfully": "Dossier « {{name}} » créé avec succès !",
+      "failedToCreateFolder": "Impossible de créer le dossier",
+      "failedToAttachDocument": "Impossible de joindre le document",
+      "failedToCreateChatSession": "Impossible de créer la session de discussion",
+      "failedToUploadDocument": "Échec de l'importation du document",
+      "openingCamera": "📷 Ouverture de l'appareil photo...",
+      "openingImagePicker": "🖼️ Ouverture de la galerie...",
+      "permissionRequired": "Autorisation requise",
+      "pleaseGrantCameraPermissionToTake": "Veuillez autoriser l'accès à l'appareil photo pour prendre une photo.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Veuillez autoriser l'accès à la galerie pour importer des images.",
+      "failedToAttachImage": "Impossible de joindre l'image",
+      "failedToUploadImage": "Échec de l'importation de l'image",
+      "failedToAttachAudio": "Impossible de joindre l'audio",
+      "failedToUploadAudio": "Échec de l'importation de l'audio",
+      "aNote": "{{verb}} une note",
+      "anImage": "{{verb}} une image",
+      "aDocument": "{{verb}} un document",
+      "audio": "{{verb}} un fichier audio",
+      "aFile": "{{verb}} un fichier",
+      "items": "{{itemCount}} éléments",
+      "thisFolderIsEmptyGoBack": "Ce dossier est vide. Revenez en arrière pour choisir un autre dossier.",
+      "addFolder": "Ajouter un dossier",
+      "uploadNewDocument": "Importer un document",
+      "uploadAPDFAndStartChatting": "Importez un PDF et commencez à discuter instantanément",
+      "uploadNewImage": "Importer une image",
+      "uploadAnImageAndExtractText": "Importez une image et extrayez le texte instantanément",
+      "uploadNewAudio": "Importer un fichier audio",
+      "uploadAnAudioFileAndTranscribe": "Importez un fichier audio et transcrivez-le instantanément",
+      "orselectfromlibrary": "OU SÉLECTIONNER DANS LA BIBLIOTHÈQUE",
+      "folders": "Dossiers",
+      "allNotes": "Toutes les notes",
+      "noFilesToDisplay": "Aucun fichier à afficher",
+      "noNotesToDisplay": "Aucune note à afficher",
+      "noDocumentsYet": "Vous n'avez pas encore de document PDF.\nCréez d'abord des notes, puis revenez discuter avec elles.",
+      "noImagesYet": "Vous n'avez pas encore d'image.\nCréez d'abord des notes, puis revenez discuter avec elles.",
+      "noAudioNotesYet": "Vous n'avez pas encore de note audio.\nCréez d'abord des notes, puis revenez discuter avec elles.",
+      "noNotesYet": "Vous n'avez pas encore de note.\nCréez d'abord des notes, puis revenez discuter avec elles.",
+      "attachNote": "Joindre une note",
+      "selectNote": "Sélectionner une note",
+      "attachImage": "Joindre une image",
+      "selectImage": "Sélectionner une image",
+      "attachDocument": "Joindre un document",
+      "selectDocument": "Sélectionner un document",
+      "attachAudio": "Joindre un fichier audio",
+      "selectAudio": "Sélectionner un fichier audio",
+      "attachFile": "Joindre un fichier",
+      "selectFile": "Sélectionner un fichier"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Ajouter au chat",
+      "camera": "Appareil photo",
+      "photos": "Photos",
+      "files": "Fichiers",
+      "generateQuiz": "Générer un quiz",
+      "generateFlashcards": "Générer des flashcards",
+      "searchMedicalLiterature": "Rechercher dans la littérature médicale",
+      "filterByDateSourceAndType": "Filtrer par date, source et type",
+      "pullsRealCitedSourcesIntoYour": "Intègre des sources réelles et citées dans vos réponses",
+      "trustedmedicalsourcedatabase": "BASE DE SOURCES MÉDICALES FIABLES",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Données FDA sur les médicaments et traitements"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Vérifier les citations",
+      "citations": "Citations",
+      "fromTheWeb": "Sur le Web"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Prêt · appuyer pour renommer",
+      "processing": "Traitement en cours {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Voir la source ↗"
+    },
+    "chatRename": {
+      "renameChat": "Renommer le chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Voir les sources ({{total}})"
+    }
   },
   "languages": {
     "english": "Anglais",
@@ -205,6 +1007,487 @@
     "turkish": "Turc",
     "vietnamese": "Vietnamien",
     "thai": "Thaï",
-    "indonesian": "Indonésien"
+    "indonesian": "Indonésien",
+    "englishGB": "Anglais (Royaume-Uni)",
+    "englishAU": "Anglais (Australie)",
+    "englishCA": "Anglais (Canada)",
+    "spanishMX": "Espagnol (Mexique)",
+    "frenchCA": "Français (Canada)",
+    "portuguesePT": "Portugais (Portugal)",
+    "norwegian": "Norvégien",
+    "danish": "Danois",
+    "finnish": "Finnois",
+    "czech": "Tchèque",
+    "slovak": "Slovaque",
+    "slovenian": "Slovène",
+    "croatian": "Croate",
+    "hungarian": "Hongrois",
+    "romanian": "Roumain",
+    "greek": "Grec",
+    "ukrainian": "Ukrainien",
+    "arabicAE": "Arabe (Émirats arabes unis)",
+    "arabicEG": "Arabe (Égypte)",
+    "hebrew": "Hébreu",
+    "bengali": "Bengali",
+    "tamil": "Tamoul",
+    "telugu": "Télougou",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Pendjabi",
+    "urdu": "Ourdou",
+    "malay": "Malais",
+    "catalan": "Catalan"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Ajouter un dossier",
+      "folderName": "Nom du dossier",
+      "enterFolderName": "Entrez le nom du dossier",
+      "chooseColor": "Choisir une couleur",
+      "createFolder": "Créer le dossier"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Avant de traiter votre contenu",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact utilise l'AI pour répondre à vos questions et transformer votre contenu en notes, quiz et flashcards. Voici ce que vous devez savoir :",
+      "whatDataIsSent": "Données transmises",
+      "questionsAndMessagesYouTypeIn": "Questions et messages saisis dans le chat",
+      "audioRecordingsOrUploadedAudioFiles": "Enregistrements audio ou fichiers audio importés",
+      "pdfAndTextDocumentsYouUpload": "Documents PDF et texte importés",
+      "imagesYouUpload": "Images importées",
+      "youTubeVideoURLsAndTheirTranscripts": "URL de vidéos YouTube et leurs transcriptions",
+      "customTextYouEnter": "Texte personnalisé que vous saisissez",
+      "whoReceivesYourData": "Destinataires de vos données",
+      "howItSUsed": "Utilisation de vos données",
+      "yourContentIsUsedSolelyTo": "Votre contenu est uniquement utilisé pour générer la réponse, la note, le quiz ou les flashcards demandés. Les politiques de confidentialité de chaque fournisseur s'appliquent au contenu traité via leur API. Pour plus d'informations, consultez notre Politique de confidentialité.",
+      "iAgreeContinue": "J'accepte — Continuer",
+      "noThanks": "Non merci",
+      "whoReceivesBody": "Votre contenu est transmis via nos serveurs sécurisés à <bold>Google (Gemini)</bold> (génération de fiches, quiz et flashcards ; réponses du chat ; traitement des documents et images) et à <bold>OpenAI</bold> (transcription audio). Des extraits de vos documents sont également indexés avec <bold>Google Vertex AI</bold> pour permettre au chat de retrouver les passages pertinents. Lorsque la recherche médicale en direct est activée, votre question est aussi envoyée à <bold>Tavily</bold> et à des bases de données médicales publiques (comme PubMed, Europe PMC et Semantic Scholar) afin d'extraire des sources fiables (NIH, CDC, MedlinePlus, OMS, Mayo Clinic). Ces prestataires traitent vos données uniquement pour générer votre réponse : ils ne les utilisent pas pour entraîner leurs modèles d'AI généralistes, et nous ne vendons vos données à aucun tiers."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Désépingler le chat",
+      "pinChat": "Épingler le chat",
+      "deleteChat": "Supprimer le chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Générer des flashcards",
+      "createFlashcards": "Créer des flashcards",
+      "createFlashcardsFromToImproveYour": "Créez des flashcards à partir de « {{noteTitle}} » pour améliorer votre mémorisation",
+      "createFlashcardsToImproveYourRetention": "Créez des flashcards pour améliorer votre mémorisation",
+      "howManyQuestions": "Nombre de questions",
+      "generateFlashcards2": "Générer les flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Créer depuis le chat",
+      "selectFromOneOfYourRecent": "Sélectionnez l'une de vos discussions récentes",
+      "pdfOrDocument": "PDF ou document",
+      "createFromAudio": "Créer depuis un audio",
+      "image": "Image",
+      "createFromCustomText": "Créer depuis un texte",
+      "created": "Créé le {{day}}, {{time}}",
+      "createQuizFrom": "Créer un quiz à partir de",
+      "createFlashcardsFrom": "Créer des flashcards à partir de",
+      "selectFromChat": "Sélectionner depuis le chat",
+      "noRecentChatsYet": "Aucune discussion récente pour le moment",
+      "quizFromPdf": "Créer un quiz depuis un PDF ou un document",
+      "flashcardsFromPdf": "Créer des flashcards depuis un PDF ou un document",
+      "quizFromAudio": "Créer un quiz depuis un fichier audio",
+      "flashcardsFromAudio": "Créer des flashcards depuis un fichier audio",
+      "quizFromImage": "Créer un quiz depuis une image",
+      "flashcardsFromImage": "Créer des flashcards depuis une image",
+      "quizFromText": "Créer un quiz depuis un texte",
+      "flashcardsFromText": "Créer des flashcards depuis un texte"
+    },
+    "createNote": {
+      "recordAudio": "Enregistrer un audio",
+      "generateANoteFromAnyRecorded": "Générer une note à partir d'un enregistrement audio",
+      "uploadAudio": "Importer un audio",
+      "createANoteFromAnyUploaded": "Créer une note à partir d'un fichier audio importé",
+      "youtubeVideo": "Vidéo YouTube",
+      "createANoteFromAnyYoutube": "Créer une note à partir d'une vidéo YouTube",
+      "pdfOrDocument": "PDF ou document",
+      "createANoteFromPDFOr": "Créer une note à partir d'un PDF ou d'un document",
+      "customText": "Texte libre",
+      "createANoteFromCapturedText": "Créer une note à partir d'un texte",
+      "image": "Image",
+      "createANoteFromAnyImage": "Créer une note à partir d'une image",
+      "createNote": "Créer une note"
+    },
+    "createQuiz": {
+      "generateQuiz": "Générer le quiz",
+      "createQuiz": "Créer un quiz",
+      "practiceByCreatingQuestionsThatHelp": "Entraînez-vous sur « {{noteTitle}} » en créant des questions pour maîtriser le sujet",
+      "practiceYourNotesByCreatingQuestions": "Révisez vos notes en créant des questions pour maîtriser le sujet",
+      "howManyQuestions": "Nombre de questions",
+      "timeInMinutes": "Durée (en minutes)"
+    },
+    "deleteNote": {
+      "deleteNote": "Supprimer la note",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer cette note ?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Exporter le résumé au format",
+      "exportTranscriptAs": "Exporter la transcription au format",
+      "exportAs": "Exporter au format",
+      "exportSummary": "Exporter le résumé",
+      "exportTranscript": "Exporter la transcription"
+    },
+    "exportTypeStep": {
+      "exportNote": "Exporter la note",
+      "exportSummary": "Exporter le résumé",
+      "exportTranscript": "Exporter la transcription"
+    },
+    "exportSettings": {
+      "export": "Exporter {{title}}",
+      "selectFormat": "Sélectionner le format",
+      "includeAnswers": "Inclure les réponses",
+      "answersExplanationsIncluded": "Réponses et explications incluses",
+      "questionsOnly": "Questions uniquement",
+      "export2": "Exporter"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Votre note est prête !",
+      "howDidWeDo": "Qu'en pensez-vous ?",
+      "happy": "Satisfait",
+      "sad": "Déçu",
+      "maybeLater": "Peut-être plus tard",
+      "whatWentWrong": "Qu'est-ce qui n'a pas fonctionné ?",
+      "yourFeedbackHelpsUsImprove": "Vos retours nous aident à nous améliorer.",
+      "tellUsWhatCouldBeBetter": "Dites-nous ce qui pourrait être amélioré...",
+      "submit": "Envoyer"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Aucun contenu disponible",
+      "clickCardToFlip": "Cliquer pour retourner"
+    },
+    "flashcardExport": {
+      "exportFailed": "Échec de l'exportation",
+      "unknownError": "Erreur inconnue",
+      "export": "Exporter {{setTitle}}",
+      "chooseWhatToExport": "Choisir quoi exporter",
+      "exportQuestions": "Exporter les questions",
+      "exportAnswers": "Exporter les réponses"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Supprimer le jeu de flashcards",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{setTitle}} » ?",
+      "failedToDeleteFlashcardSet": "Impossible de supprimer le jeu de flashcards",
+      "flashcardHistory": "Historique des flashcards",
+      "cards": "Cartes",
+      "reviewedMastered": "{{cardsReviewedCount}} révisées • {{percentage}} % maîtrisées"
+    },
+    "folders": {
+      "items": "{{itemCount}} éléments",
+      "enterYourFolderName": "Entrez le nom du dossier",
+      "yourFolderName": "Nom du dossier",
+      "createFolder": "Créer un dossier",
+      "folders": "Dossiers",
+      "addFolder": "Ajouter un dossier",
+      "noFoldersToDisplay": "Aucun dossier à afficher",
+      "clickTheButtonAboveToCreate": "Cliquez sur le bouton ci-dessus pour créer un dossier pour vos notes",
+      "allFolders": "Tous les dossiers",
+      "items2": "{{totalItems}} éléments"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtres de recherche médicale",
+      "howrecentdoyouwantthe": "ANCIENNETÉ DE LA SOURCE",
+      "from": "De",
+      "whatkindofsourcedoyou": "TYPE DE SOURCE RECHERCHÉ",
+      "textbooks": "Manuels médicaux",
+      "clinicalGuidelines": "Recommandations cliniques",
+      "scientificJournalArticles": "Articles de revues scientifiques",
+      "onlywiththisjournalarticles": "UNIQUEMENT CES ARTICLES DE REVUE",
+      "metaAnalyses": "Méta-analyses",
+      "reviewArticles": "Articles de synthèse",
+      "clinicalTrials": "Essais cliniques",
+      "fromYear": "Année de début",
+      "toYear": "Année de fin"
+    },
+    "noteOptions": {
+      "noteOptions": "Options de la note",
+      "editNote": "Modifier la note",
+      "reTranscribe": "Retranscrire",
+      "chatWithNote": "Discuter avec la note",
+      "exportNote": "Exporter la note",
+      "moveToFolder": "Déplacer dans un dossier",
+      "deleteNote": "Supprimer la note"
+    },
+    "onboardingTooltip": {
+      "skip": "Passer"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Supprimer le quiz",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{quizTitle}} » ?",
+      "failedToDeleteQuiz": "Impossible de supprimer le quiz",
+      "quizHistory": "Historique des quiz",
+      "questions": "Questions",
+      "correct": "{{correctAnswers}} correctes"
+    },
+    "referral": {
+      "copied": "Copié !",
+      "yourReferralCodeHasBeenCopied": "Votre code de parrainage a été copié dans le presse-papiers.",
+      "joinMeOnClinicalFactUse": "Rejoins-moi sur Clinical Fact ! Utilise mon code {{referralCode}} – {{appUrl}}",
+      "joined": "Inscrit(e) le {{joinedDate}}",
+      "referralCode": "Code de parrainage",
+      "yourReferralCode": "Votre code de parrainage",
+      "shareWithFriendsToEarnRewards": "Partagez avec vos amis pour gagner des récompenses",
+      "share": "Partager",
+      "copyCode": "Copier le code",
+      "referredFriends": "Amis parrainés",
+      "noReferralsYetShareYourCode": "Aucun parrainage pour l'instant. Partagez votre code pour commencer !",
+      "loadMore": "Afficher plus",
+      "howItWorks": "Comment ça marche",
+      "friendsUseYourCodeDuringSignup": "• Vos amis utilisent votre code lors de l'inscription",
+      "youBothEarnRewardsWhenThey": "• Vous gagnez tous les deux des récompenses lorsqu'ils rejoignent l'application",
+      "friendsReferredCount": "Amis parrainés : {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Extraction du texte...",
+      "transcribingAudio": "Transcription de l'audio...",
+      "processingPDF": "Traitement du PDF...",
+      "settingUpChat": "Préparation du chat...",
+      "uploadFailed": "Échec de l'envoi",
+      "failedToUploadFilePleaseTry": "Impossible d'importer le fichier. Veuillez réessayer.",
+      "yourFileIsReadyForChatting": "Votre fichier est prêt pour la discussion !",
+      "uploadingYourFileToTheServer": "Envoi de votre fichier au serveur...",
+      "extractingTextFromYourImage": "Extraction du texte de votre image...",
+      "transcribingYourAudio": "Transcription de votre audio...",
+      "extractingTextFromYourPDF": "Extraction du texte de votre PDF...",
+      "creatingYourChatSession": "Création de votre session de chat...",
+      "pleaseWait": "Veuillez patienter...",
+      "uploadFile": "Importer un fichier",
+      "processContent": "Traiter le contenu",
+      "createChat": "Créer un chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Consulter",
+      "export": "📤 Exporter",
+      "delete": "🗑️ Supprimer"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Propulsé par"
+    },
+    "exportFormat": {
+      "txtFile": "Fichier TXT",
+      "pdfFile": "Fichier PDF",
+      "docFile": "Fichier DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Impossible de charger les notes",
+      "failedToFetchFolders": "Impossible de charger les dossiers",
+      "failedToFetchNote": "Impossible de charger la note",
+      "failedToDeleteNote": "Impossible de supprimer la note",
+      "failedToCreateFolder": "Impossible de créer le dossier",
+      "failedToDeleteFolder": "Impossible de supprimer le dossier"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Impossible de supprimer le chat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Jeu de flashcards exporté avec succès !",
+      "failedToExportFlashcardSet": "Échec de l'exportation du jeu de flashcards."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quiz exporté avec succès !",
+      "failedToExportQuiz": "Échec de l'exportation du quiz."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Flashcards sans titre",
+      "failedToLoadFlashcards": "Impossible de charger les flashcards",
+      "failedToSyncFlashcardSet": "Échec de synchronisation du jeu de flashcards",
+      "failedToSyncCardUpdate": "Échec de synchronisation de la carte"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Créé {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Vous avez atteint votre limite de 3 épingles",
+      "failedToUpdatePin": "Impossible de modifier l'épingle",
+      "noChatsYet": "Aucun chat pour l'instant",
+      "startAChatToGetAnswers": "Lancez un chat pour obtenir des réponses basées sur des sources fiables.",
+      "createChat": "+ Créer un chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Supprimer les flashcards",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{sourceTitle}} » ?",
+      "failedToDeleteFlashcards": "Impossible de supprimer les flashcards",
+      "sets": "{{setCount}} séries",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Créer des flashcards",
+      "searchFlashcards": "Rechercher des flashcards...",
+      "noFlashcardsYet": "Aucune flashcard pour le moment",
+      "createAFlashcardSetFromA": "Créez une série de flashcards à partir d'une note pour commencer",
+      "createSet": "+ Créer une série",
+      "flashcardOptions": "Options des flashcards",
+      "view": "Voir"
+    },
+    "folder": {
+      "deleteFolder": "Supprimer le dossier",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{name}} » ? Les notes qu'il contient seront déplacées vers la racine.",
+      "failedToDeleteFolder": "Impossible de supprimer le dossier",
+      "error": "Erreur : {{message}}",
+      "noFoldersYetCreateOne": "Aucun dossier pour le moment. Créez-en un !",
+      "folders": "Dossiers"
+    },
+    "home": {
+      "created": "Créé le {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Impossible de modifier la langue",
+      "notEnoughContentYet": "Pas encore assez de contenu",
+      "chatABitMoreBeforeGenerating": "Échangez encore un peu avant de générer un quiz (100 caractères minimum).",
+      "chatABitMoreBeforeGenerating2": "Échangez encore un peu avant de générer des flashcards (100 caractères minimum).",
+      "failedToGenerateFlashcards": "Impossible de générer les flashcards",
+      "upgradeToPro": "Passer à PRO",
+      "get80DiscountWhenYouUpgrade": "Profitez de 80 % de réduction en mettant à niveau votre compte",
+      "unlockPRO": "Débloquer PRO",
+      "noMedicalChats": "Aucune discussion médicale",
+      "youHaveNotCreatedAnyMedical": "Vous n'avez pas encore de discussion médicale. Démarrez un échange pour obtenir des sources citées.",
+      "talkToClinicalfactAI": "Discuter avec Clinicalfact AI",
+      "jumpInWhereYouStopped": "Reprenez là où vous vous êtes arrêté",
+      "practiceQuiz": "Quiz d'entraînement",
+      "makeFlashcards": "Créer des flashcards",
+      "continueChatWithNote": "Continuer la discussion avec la note",
+      "continueChat": "Continuer la discussion",
+      "recentChats": "Discussions récentes",
+      "chatOptions": "Options de la discussion"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Vous êtes actuellement hors ligne. Veuillez vous connecter à Internet pour effectuer cette action.",
+      "failedToDeleteNote": "Impossible de supprimer la note",
+      "failedToMoveNote": "Impossible de déplacer la note",
+      "deleteFolder": "Supprimer le dossier ?",
+      "areYouSureNotesInsideWill": "Êtes-vous sûr ? Les notes contenues ne seront pas supprimées, mais déplacées dans Toutes les notes.",
+      "failedToDeleteFolder": "Impossible de supprimer le dossier",
+      "library": "Bibliothèque",
+      "addFolder": "Ajouter un dossier",
+      "searchForANoteFolder": "Rechercher une note ou un dossier",
+      "yourFolders": "Vos dossiers",
+      "noFoldersToDisplay": "Aucun dossier à afficher",
+      "tapAddFolderToCreateA": "Appuyez sur « + Ajouter un dossier » pour classer vos notes",
+      "allNotes": "Toutes les notes",
+      "items": "{{allNotesTotal}} éléments",
+      "items2": "{{itemCount}} éléments",
+      "yourNotes": "Vos notes",
+      "untitledNote": "Note sans titre",
+      "noResultsFor": "Aucun résultat pour « {{searchQuery}} »",
+      "noNotesInThisFolder": "Aucune note dans ce dossier",
+      "noNotesToDisplay": "Aucune note à afficher",
+      "tryADifferentSearchTerm": "Essayez un autre mot-clé",
+      "moveNotesToThisFolderTo": "Déplacez des notes dans ce dossier pour les retrouver ici",
+      "clickBelowToGenerateYourNote": "Cliquez ci-dessous pour générer votre note avec Clinical Fact",
+      "filterByType": "Filtrer par type",
+      "audio": "Audio",
+      "text2": "Texte",
+      "image": "Image",
+      "clearFilter": "Effacer le filtre"
+    },
+    "profile": {
+      "permissionRequired": "Autorisation requise",
+      "pleaseAllowAccessToYourPhoto": "Veuillez autoriser l'accès à vos photos pour définir une photo de profil.",
+      "uploadFailed": "Échec du téléchargement",
+      "couldNotUpdateProfilePicture": "Impossible de mettre à jour la photo de profil.",
+      "failedToUploadProfilePicture": "Échec du téléversement de la photo de profil.",
+      "checkOutClinicalFactAIPowered": "Découvre Clinical Fact – des fiches de révision optimisées par l'AI ! {{url}}",
+      "proSubscriber": "Abonné PRO",
+      "subscriptionExpired": "Abonnement expiré",
+      "freeSubscriber": "Abonné gratuit",
+      "tapToManageIPhoneSettingsApple": "Gérer · Réglages iPhone → Identifiant Apple → Abonnements",
+      "tapToManagePlayStoreSubscriptions": "Gérer · Play Store → Abonnements",
+      "tapToRenewYourSubscription": "Appuyez pour renouveler votre abonnement",
+      "tapToUpgradeToPro": "Passer à la version PRO",
+      "referralCode": "Code de parrainage",
+      "areYouSureYouWantTo": "Voulez-vous vraiment vous déconnecter de votre compte ?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Supprimer le quiz",
+      "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{sourceTitle}} » ?",
+      "failedToDeleteQuiz": "Échec de la suppression du quiz",
+      "correct": "{{correct}}/{{total}} correct",
+      "attempts": "{{attempts}} tentatives",
+      "quiz": "Quiz",
+      "createQuiz": "Créer un quiz",
+      "searchQuizzes": "Rechercher des quiz...",
+      "noQuizzesYet": "Aucun quiz pour le moment",
+      "createAQuizFromANote": "Créez un quiz à partir d'une fiche pour commencer",
+      "createQuiz2": "+ Créer un quiz",
+      "quizOptions": "Options du quiz",
+      "view": "Afficher"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Mise à niveau indisponible",
+      "weCouldnTOpenTheUpgrade": "Impossible d'ouvrir l'écran de mise à niveau pour l'instant. Vérifiez votre connexion et réessayez."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Le serveur a renvoyé une réponse non-JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Erreur réseau. Veuillez vérifier votre connexion.",
+      "connectionErrorPleaseTryAgain": "Erreur de connexion. Veuillez réessayer."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fichier exporté : {{filename}}",
+      "exportFailed": "Échec de l'exportation",
+      "exportFormat": "Format d'exportation",
+      "chooseFormat": "Choisir le format",
+      "text": "Texte"
+    },
+    "formatDate": {
+      "justNow": "À l'instant",
+      "minAgo": "Il y a {{diffMin}} min",
+      "hrAgo": "Il y a {{diffHr}} h",
+      "dAgo": "Il y a {{diffDay}} j",
+      "created": "Créé le {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Échec de l'envoi du code OTP",
+      "invalidOTP": "Code OTP invalide",
+      "failedToVerifyOTP": "Échec de la vérification du code OTP",
+      "googleAuthenticationFailed": "Échec de l'authentification Google",
+      "appleAuthenticationFailed": "Échec de l'authentification Apple",
+      "failedToCompleteSignup": "Impossible de finaliser l'inscription",
+      "failedToSkipSignup": "Impossible d'ignorer l'inscription"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Discussions",
+      "description": "Échangez avec vos fiches, documents ou PDF au même endroit"
+    },
+    "profileWelcome": {
+      "heading": "Bienvenue sur votre profil",
+      "description": "Voici votre profil : appuyez ici pour modifier vos infos et gérer votre abonnement"
+    },
+    "createNotes": {
+      "heading": "Créer une fiche",
+      "description": "Créez une note à partir de tout support : enregistrement, audio, vidéo, image, texte ou lien YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Changer de langue",
+      "description": "Modifiez la langue de l'application ici selon vos préférences."
+    },
+    "manageHome": {
+      "heading": "Gérer l'accueil",
+      "description": "Consultez vos notes créées et retrouvez toutes vos actions au même endroit."
+    },
+    "yourLibrary": {
+      "heading": "Votre bibliothèque",
+      "description": "Gérez toutes vos notes, créez des dossiers et bien plus encore."
+    },
+    "yourProfile": {
+      "heading": "Votre profil",
+      "description": "Consultez les informations de votre profil et modifiez vos paramètres ici."
+    }
   }
 }

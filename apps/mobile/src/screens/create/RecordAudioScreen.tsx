@@ -23,6 +23,7 @@ import {
 import { MainStackParamList } from "../../navigation/MainStackNavigator";
 import { useGatedFeature } from "../../hooks/useGatedFeature";
 import { PoweredByFooter } from "../../components/PoweredByFooter";
+import { useTranslation } from 'react-i18next';
 
 type RecordAudioNavigationProp = NativeStackNavigationProp<
   MainStackParamList,
@@ -71,6 +72,7 @@ const StopIcon = ({
 );
 
 export const RecordAudioScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<RecordAudioNavigationProp>();
   const { withAccess } = useGatedFeature();
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
@@ -121,8 +123,8 @@ export const RecordAudioScreen = () => {
 
       if (status !== "granted") {
         Alert.alert(
-          "Permission Required",
-          "Please grant microphone permission to record audio.",
+          t('create.recordAudio.permissionRequired'),
+          t('create.recordAudio.pleaseGrantMicrophonePermissionToRecord'),
           [{ text: "OK" }],
         );
       } else {
@@ -130,7 +132,7 @@ export const RecordAudioScreen = () => {
       }
     } catch (error) {
       console.error("Error requesting permissions:", error);
-      Alert.alert("Error", "Failed to request microphone permission");
+      Alert.alert(t('common.error'), t('create.recordAudio.failedToRequestMicrophonePermission'));
     }
   };
 
@@ -169,14 +171,14 @@ export const RecordAudioScreen = () => {
     const ampm = hours >= 12 ? "pm" : "am";
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes.toString().padStart(2, "0");
-    return `Created ${month} ${day}, ${year}, ${formattedHours}:${formattedMinutes}${ampm}`;
+    return t('create.recordAudio.created', { month, day, year, formattedHours, formattedMinutes, ampm });
   };
 
   const startRecording = async () => {
     if (!hasPermission) {
       Alert.alert(
-        "Permission Required",
-        "Please grant microphone permission to record audio.",
+        t('create.recordAudio.permissionRequired'),
+        t('create.recordAudio.pleaseGrantMicrophonePermissionToRecord'),
       );
       await requestPermissions();
       return;
@@ -231,7 +233,7 @@ export const RecordAudioScreen = () => {
       console.log("✅ Recording started");
     } catch (error: any) {
       console.error("Failed to start recording:", error);
-      Alert.alert("Error", "Failed to start recording: " + error.message);
+      Alert.alert(t('common.error'), "Failed to start recording: " + error.message);
     }
   };
 
@@ -247,7 +249,7 @@ export const RecordAudioScreen = () => {
       }
     } catch (error: any) {
       console.error("Failed to pause recording:", error);
-      Alert.alert("Error", "Failed to pause recording: " + error.message);
+      Alert.alert(t('common.error'), "Failed to pause recording: " + error.message);
     }
   };
 
@@ -263,7 +265,7 @@ export const RecordAudioScreen = () => {
       }
     } catch (error: any) {
       console.error("Failed to resume recording:", error);
-      Alert.alert("Error", "Failed to resume recording: " + error.message);
+      Alert.alert(t('common.error'), "Failed to resume recording: " + error.message);
     }
   };
 
@@ -307,7 +309,7 @@ export const RecordAudioScreen = () => {
       recordingRef.current = null;
     } catch (error: any) {
       console.error("Failed to stop recording:", error);
-      Alert.alert("Error", "Failed to stop recording: " + error.message);
+      Alert.alert(t('common.error'), "Failed to stop recording: " + error.message);
     }
   };
 
@@ -385,7 +387,7 @@ export const RecordAudioScreen = () => {
       }
     } catch (error: any) {
       console.error("Playback error:", error);
-      Alert.alert("Error", "Failed to play audio: " + error.message);
+      Alert.alert(t('common.error'), "Failed to play audio: " + error.message);
     }
   };
 
@@ -480,7 +482,7 @@ export const RecordAudioScreen = () => {
           <ChevronLeftIcon size={24} color={colors.slate[800]} />
         </TouchableOpacity>
         {recordingState !== "idle" && (
-          <Text style={styles.headerTitle}>Recording Audio</Text>
+          <Text style={styles.headerTitle}>{t('create.recordAudio.recordingAudio')}</Text>
         )}
         <View style={styles.headerSpacer} />
       </View>
@@ -496,9 +498,9 @@ export const RecordAudioScreen = () => {
             <View style={styles.iconContainer}>
               <RecordAudioGradientIcon size={64} />
             </View>
-            <Text style={styles.title}>Record audio</Text>
+            <Text style={styles.title}>{t('create.recordAudio.recordAudio')}</Text>
             <Text style={styles.subtitle}>
-              Create a note from any recorded audio
+             {t('create.recordAudio.createANoteFromAnyRecorded')}
             </Text>
 
             {/* Large record button */}
@@ -522,9 +524,9 @@ export const RecordAudioScreen = () => {
               <RecordAudioGradientIcon size={64} />
             </View>
 
-            <Text style={styles.title}>Record audio</Text>
+            <Text style={styles.title}>{t('create.recordAudio.recordAudio')}</Text>
             <Text style={styles.subtitle}>
-              Create a note from any recorded audio
+             {t('create.recordAudio.createANoteFromAnyRecorded')}
             </Text>
 
             {/* Waveform visualization */}
@@ -577,9 +579,9 @@ export const RecordAudioScreen = () => {
             <View style={styles.iconContainer}>
               <RecordAudioGradientIcon size={64} />
             </View>
-            <Text style={styles.title}>Record audio</Text>
+            <Text style={styles.title}>{t('create.recordAudio.recordAudio')}</Text>
             <Text style={styles.subtitle}>
-              Create a note from any recorded audio
+             {t('create.recordAudio.createANoteFromAnyRecorded')}
             </Text>
 
             {/* Preview card */}
@@ -587,7 +589,7 @@ export const RecordAudioScreen = () => {
               <AudioFilePreviewIcon size={48} />
               <View style={styles.previewInfo}>
                 <Text style={styles.previewTitle} numberOfLines={1}>
-                  Recording ({formatTime(totalDuration)})
+                 {t('create.recordAudio.recording', { time: formatTime(totalDuration) })}
                 </Text>
                 <Text style={styles.previewDate}>{formatDate()}</Text>
               </View>
@@ -595,7 +597,7 @@ export const RecordAudioScreen = () => {
                 style={styles.recordAgainButton}
                 onPress={handleRecordAgain}
               >
-                <Text style={styles.recordAgainText}>Record again</Text>
+                <Text style={styles.recordAgainText}>{t('create.recordAudio.recordAgain')}</Text>
               </TouchableOpacity>
             </View>
 
@@ -645,7 +647,7 @@ export const RecordAudioScreen = () => {
               recordingState !== "stopped" && styles.continueButtonTextDisabled,
             ]}
           >
-            Continue
+           {t('common.continue')}
           </Text>
         </TouchableOpacity>
       </View>

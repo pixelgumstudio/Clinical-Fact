@@ -14,10 +14,12 @@
     "next": "अगला",
     "done": "पूर्ण",
     "search": "खोजें",
-    "filter": "फ़िल्टर"
+    "filter": "फ़िल्टर",
+    "ok": "ठीक है",
+    "info": "जानकारी"
   },
   "home": {
-    "title": "नोटड्रिल",
+    "title": "Clinical Fact",
     "createNotes": "नोट्स बनाएं",
     "createNotesDesc": "नोट्स, क्विज़,\nफ्लैशकार्ड और अधिक बनाएं\nतेज़ी से सीखने में मदद के लिए",
     "chatWithPDF": "किसी भी PDF के साथ चैट करें",
@@ -25,7 +27,7 @@
     "recentNotes": "हाल के नोट्स",
     "seeAll": "सभी देखें",
     "noNotes": "प्रदर्शित करने के लिए कोई नोट्स नहीं",
-    "noNotesDesc": "कृपया ऊपर दिए गए बटन पर क्लिक करें\nनोटड्रिल के लिए अपना नोट बनाना शुरू करने के लिए।",
+    "noNotesDesc": "Clinical Fact के लिए अपने नोट्स बनाना शुरू करने के लिए\nकृपया ऊपर दिए गए बटन पर क्लिक करें।",
     "loadingNotes": "नोट्स लोड हो रहे हैं..."
   },
   "profile": {
@@ -41,8 +43,8 @@
     "billingStarts": "बिलिंग 2 दिनों में शुरू होगी",
     "accountStatus": "खाता स्थिति",
     "version": "संस्करण",
-    "rateApp": "नोटड्रिल को 5 स्टार रेटिंग दें",
-    "shareApp": "नोटड्रिल ऐप साझा करें",
+    "rateApp": "Clinical Fact को 5 स्टार दें",
+    "shareApp": "Clinical Fact ऐप शेयर करें",
     "changeLanguage": "भाषा बदलें",
     "chatWithUs": "हमसे चैट करें",
     "termsAndConditions": "नियम और शर्तें",
@@ -68,10 +70,19 @@
     "upgradePlan": "योजना अपग्रेड करें",
     "everyWeek": "हर सप्ताह",
     "everyMonth": "हर महीने",
-    "everyYear": "हर साल"
+    "everyYear": "हर साल",
+    "expired": "समाप्त",
+    "reportBug": "बग की रिपोर्ट करें",
+    "active": "सक्रिय",
+    "trial": "ट्रायल"
   },
   "auth": {
-    "welcome": "नोटड्रिल में आपका स्वागत है",
+    "welcome": {
+      "googleSignInFailed": "Google साइन-इन विफल रहा",
+      "failedToAuthenticateWithServer": "सर्वर से प्रमाणीकरण विफल रहा",
+      "googleSignInIsOnlyAvailable": "Google साइन-इन केवल नेटिव बिल्ड में उपलब्ध है। कृपया ईमेल प्रमाणीकरण का उपयोग करें या नेटिव ऐप डाउनलोड करें।",
+      "code": "{{message}} (कोड: {{code}})"
+    },
     "getStarted": "शुरू करें",
     "signIn": "साइन इन करें",
     "signUp": "साइन अप करें",
@@ -83,12 +94,316 @@
     "didntGetCode": "कोड नहीं मिला?",
     "resendCode": "कोड पुनः भेजें",
     "resendIn": "में पुनः भेजें",
-    "enterVerificationCode": "कृपया पूरा सत्यापन कोड दर्ज करें"
+    "enterVerificationCode": "कृपया पूरा सत्यापन कोड दर्ज करें",
+    "languageSelect": {
+      "title": "अपनी भाषा चुनें",
+      "subtitle": "ऐप में उपयोग के लिए भाषा चुनें। आप इसे बाद में अपनी प्रोफ़ाइल में बदल सकते हैं।",
+      "searchPlaceholder": "भाषा खोजें",
+      "noResults": "कोई भाषा नहीं मिली"
+    },
+    "buttons": {
+      "continue": "जारी रखें",
+      "continueWithEmail": "ईमेल के साथ जारी रखें",
+      "continueWithGoogle": "Google के साथ जारी रखें",
+      "continueWithApple": "Apple के साथ जारी रखें",
+      "skip": "छोड़ें",
+      "verify": "सत्यापित!",
+      "next": "आगे बढ़ें",
+      "tryNow": "Clinical Fact अभी मुफ़्त में आज़माएं"
+    },
+    "labels": {
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "username": "@यूज़रनेम",
+      "referralCode": "रेफ़रल कोड",
+      "nameScreenTitle": "आपका पहला और अंतिम नाम",
+      "byAgree": "जारी रखकर, आप हमारी",
+      "termsAndConditions": "नियम और शर्तें",
+      "privacyPolicy": "गोपनीयता नीति",
+      "and": "और"
+    },
+    "placeholders": {
+      "enterEmail": "अपना ईमेल पता दर्ज करें",
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "username": "@यूज़रनेम",
+      "referralCode": "उदा. JOHN या TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "कृपया एक मान्य ईमेल पता दर्ज करें",
+      "emailRequired": "कृपया अपना ईमेल पता दर्ज करें",
+      "firstLastNameRequired": "कृपया अपना पहला और अंतिम नाम दोनों दर्ज करें",
+      "usernameRequired": "कृपया एक यूज़रनेम दर्ज करें",
+      "usernameLength": "यूज़रनेम 3-20 वर्णों का होना चाहिए (केवल अक्षर, संख्याएं और अंडरस्कोर)",
+      "usernameTaken": "यह यूज़रनेम पहले से मौजूद है। कृपया कोई दूसरा चुनें।",
+      "usernameCheckFailed": "यूज़रनेम की उपलब्धता जांचने में विफल",
+      "usernameError": "यूज़रनेम जांचने में त्रुटि आई। कृपया अपना कनेक्शन जांचें।",
+      "invalidOTP": "अमान्य कोड। कृपया जांचें और पुनः प्रयास करें।",
+      "otpExpired": "कोड समाप्त हो गया है। कृपया नया कोड मांगें।",
+      "otpRequired": "कृपया पूरा सत्यापन कोड दर्ज करें",
+      "referralNotFound": "रेफ़रल कोड नहीं मिला। स्पेलिंग जांचें और पुनः प्रयास करें।",
+      "referralValidateFailed": "कोड सत्यापित करने में विफल। कृपया पुनः प्रयास करें।",
+      "referralApplyFailed": "रेफ़रल कोड लागू करने में विफल। कृपया पुनः प्रयास करें।",
+      "codeSendFailed": "सत्यापन कोड भेजने में विफल। कृपया पुनः प्रयास करें।",
+      "resendCodeFailed": "कोड दोबारा भेजने में विफल। कृपया पुनः प्रयास करें।",
+      "signInFailed": "साइन इन विफल रहा",
+      "googleSignInFailed": "Google साइन इन विफल रहा",
+      "googleTokenFailed": "Google टोकन प्रोसेस करने में विफल",
+      "googleAccessTokenFailed": "एक्सेस टोकन प्राप्त करने में विफल। कृपया पुनः प्रयास करें।",
+      "authTokenFailed": "प्रमाणीकरण टोकन प्राप्त करने में विफल। कृपया पुनः प्रयास करें।",
+      "googleStartFailed": "Google साइन-इन शुरू करने में विफल। कृपया पुनः प्रयास करें।",
+      "setupRequired": "सेटअप आवश्यक है",
+      "googleOAuthMissing": "Google साइन-इन के लिए OAuth Client IDs आवश्यक हैं।\\n\\nकृपया अपनी .env फ़ाइल में क्रेडेंशियल्स जोड़ें।",
+      "youCanStillUseEmail": "आप अभी भी \"ईमेल के साथ जारी रखें\" का उपयोग कर सकते हैं।",
+      "appleSignInFailed": "Apple साइन इन विफल रहा",
+      "appleTokenFailed": "Apple टोकन प्रोसेस करने में विफल",
+      "appleIosOnly": "Apple के साथ साइन इन केवल iOS पर उपलब्ध है।"
+    },
+    "messages": {
+      "signingIn": "साइन इन हो रहा है...",
+      "codeValid": "✓ कोड मान्य है",
+      "signupFailed": "साइनअप पूरा करने में विफल",
+      "setupFailed": "सेटअप पूरा करने में विफल। कृपया पुनः प्रयास करें।"
+    },
+    "welcomeScreen": {
+      "title": "Clinic Fact: स्मार्ट नोट्स की शुरुआत यहाँ से होती है",
+      "tagline": "किसी भी टेक्स्ट को बेहतरीन नोट्स में बदलें",
+      "description": "ऑडियो, दस्तावेज़ों या वीडियो को स्पष्ट, खोजने योग्य नोट्स में बदलें और तुरंत क्विज़, फ़्लैशकार्ड व सारांश बनाएं।",
+      "createAccountTitle": "अकाउंट बनाएं",
+      "orSignUpWith": "या इनसे साइन अप करें",
+      "signUpWithEmail": "ईमेल एड्रेस से साइन अप करें",
+      "signInWithEmail": "ईमेल एड्रेस से साइन इन करें",
+      "alreadyHaveAccount": "पहले से अकाउंट है? ",
+      "dontHaveAccount": "अकाउंट नहीं है? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "मेडिकल से जुड़ा कुछ भी पूछें। सटीक क्लीनिकल तथ्य पाएं",
+        "description": "मेडिकल का कोई भी सवाल पूछें और PubMed, क्लीनिकल गाइडलाइन्स व प्रामाणिक मेडिकल साहित्य के वास्तविक स्रोतों पर आधारित उत्तर पाएं"
+      },
+      "slide2": {
+        "headline": "हर उत्तर, प्रमाणित स्रोत के साथ",
+        "description": "कोई अनुमान नहीं, कोई मनगढ़ंत तथ्य नहीं, प्रत्येक उत्तर वास्तविक और सत्यापन योग्य मेडिकल रिसर्च से जुड़ा है।"
+      },
+      "slide3": {
+        "headline": "स्मार्ट तरीके से पढ़ें, अपनी मेडिकल परीक्षाएं पास करें",
+        "description": "किसी भी सवाल या अपलोड को सेकंडों में क्विज़ या फ़्लैशकार्ड सेट में बदलें—सीधे वही अभ्यास करें जो आप पढ़ रहे हैं।"
+      }
+    },
+    "otp": {
+      "title": "अपने ईमेल एड्रेस की पुष्टि करें",
+      "subtitle": "कृपया वह OTP कोड दर्ज करें जो हमने आपके ईमेल एड्रेस पर भेजा है"
+    },
+    "professionalDeclaration": {
+      "title": "व्यावसायिक घोषणा",
+      "subtitle": "Clinical Fact एक शैक्षणिक साहित्य खोज टूल है",
+      "disclaimerIntro": "Clinical Fact एक AI-आधारित सूचनात्मक टूल है, जिसे नर्सिंग, मेडिकल और अन्य हेल्थ साइंस के छात्रों को मेडिकल ज्ञान, शोध साहित्य और अध्ययन सामग्री तक पहुँचने में सहायता के लिए बनाया गया है। यह ऐप मेडिकल निदान, उपचार संबंधी सुझाव, क्लीनिकल निर्देश या मरीज-विशिष्ट चिकित्सकीय सलाह प्रदान नहीं करता है, और इसका उपयोग प्रत्यक्ष रोगी देखभाल या क्लीनिकल निर्णय लेने के आधार के रूप में नहीं किया जाना चाहिए।",
+      "disclaimerHeading": "Clinical Fact उत्तर कैसे तैयार करता है:",
+      "disclaimerBody": "Clinical Fact स्थापित मेडिकल और वैज्ञानिक स्रोतों से सीधे जानकारी प्राप्त करता है, जिसमें PubMed, Semantic Scholar और आधिकारिक FDA ड्रग लेबलिंग शामिल हैं, और उस सामग्री को सरल भाषा में संक्षेप और स्पष्ट करने के लिए AI का उपयोग करता है। प्रत्येक उत्तर केवल उस विशिष्ट प्रश्न के लिए प्राप्त स्रोतों से ही तैयार किया जाता है, और संदर्भ (citations) मूल सामग्री से जुड़े होते हैं ताकि आप स्वयं इसकी पुष्टि कर सकें। Clinical Fact अपनी स्मृति से मेडिकल तथ्य नहीं बनाता और न ही मनगढ़ंत स्रोत प्रस्तुत करता है।\n\nClinical Fact कोई नैदानिक टूल, उपचार प्लेटफ़ॉर्म, मेडिकल डिवाइस या पेशेवर मेडिकल निर्णय, लाइसेंस प्राप्त निर्देश अथवा आपके संस्थान के पाठ्यक्रम का विकल्प नहीं है। ऐप द्वारा उत्पन्न कोई भी जानकारी, जिसमें उत्तर, संदर्भ, क्विज़ और फ़्लैशकार्ड शामिल हैं, केवल सामान्य शैक्षणिक और अध्ययन उद्देश्यों के लिए प्रदान की जाती है और किसी भी शैक्षणिक, क्लीनिकल या व्यावसायिक संदर्भ में उपयोग करने से पहले उपयोगकर्ता द्वारा इसकी स्वतंत्र रूप से पुष्टि की जानी चाहिए।\nClinical Fact प्रदान की गई किसी भी जानकारी की पूर्णता, सटीकता या वर्तमान क्लीनिकल प्रासंगिकता की गारंटी नहीं देता है। मेडिकल ज्ञान निरंतर विकसित होता रहता है—महत्वपूर्ण जानकारी की हमेशा अपने शिक्षकों, क्लीनिकल सुपरवाइज़रों और अद्यतन प्राथमिक स्रोतों से पुष्टि करें।\nजब आप अपने दस्तावेज़, नोट्स या रिकॉर्डिंग अपलोड करते हैं, तो Clinical Fact केवल उसी अपलोड की गई सामग्री के आधार पर उत्तर, सारांश, क्विज़ और फ़्लैशकार्ड तैयार करता है, बाहरी स्रोतों के आधार पर नहीं—जब तक कि बाहरी स्रोत स्पष्ट रूप से इसके साथ न दिखाए गए हों।\n\nClinical Fact अपने उपयोगकर्ताओं की पहचान, नामांकन स्थिति या योग्यताओं की पुष्टि या प्रमाणीकरण नहीं करता है। यह ऐप आपातकालीन स्थितियों में उपयोग करने या वास्तविक समय में क्लीनिकल निर्णय लेने के लिए नहीं है।\nजारी रखकर, आप स्वीकार करते हैं कि आप इन शर्तों को समझते हैं और Clinical Fact का उपयोग केवल एक अध्ययन और संदर्भ सहायता के रूप में करने के लिए सहमत हैं।",
+      "checkboxLabel": "मैं समझता/समझती हूँ कि यह ऐप केवल शैक्षणिक संदर्भ के लिए है और कोई मेडिकल सलाह प्रदान नहीं करता है",
+      "acceptButton": "स्वीकार करें और आगे बढ़ें"
+    },
+    "survey": {
+      "role": "{{firstName}}, आपके बारे में सबसे उपयुक्त क्या है?",
+      "currentMethod": "वर्तमान में आप मेडिकल सवालों के जवाब आमतौर पर कैसे खोजते हैं?",
+      "timeDrain": "आपका सबसे ज़्यादा समय किसमें जाता है?",
+      "appExpectation": "आपको हमारे Clinical Fact मेडिकल ऐप से क्या उम्मीदें हैं?",
+      "aiToolsUsed": "अपनी मेडिकल रिसर्च के लिए आपने अब तक किन AI टूल्स का उपयोग किया है?",
+      "aiToolIssue": "उन टूल्स के साथ क्या समस्या आई?",
+      "aiTrustLevel": "आपको कितनी बार यह चिंता होती है कि AI का उत्तर गलत हो सकता है?",
+      "biggestNeed": "अभी आपको सबसे ज़्यादा किस चीज़ की ज़रूरत है?",
+      "studyTimePerWeek": "आपके पास हर हफ़्ते पढ़ाई के लिए कितना समय होता है?",
+      "comingUp": "आगे आपके लिए क्या आने वाला है?",
+      "referralSource": "आपको Clinical Fact के बारे में कहाँ से पता चला?"
+    },
+    "onboarding": {
+      "username": "अपना यूज़रनेम चुनें",
+      "usernameSubtitle": "इससे आपके अकाउंट को वैयक्तिकृत बनाने में मदद मिलती है",
+      "goals": "आप Clinical Fact का उपयोग\\nकिस सहायता के लिए करना चाहते हैं",
+      "goalsSubtitle": "लागू होने वाले सभी विकल्प चुनें। हम आपके अनुसार अनुभव तैयार करेंगे।",
+      "contentType": "आप मुख्य रूप से किस प्रकार\\nकी सामग्री का उपयोग करते हैं",
+      "contentTypeSubtitle": "लागू होने वाले सभी विकल्प चुनें। इससे हमें आपका अनुभव अनुकूलित करने में मदद मिलती है।",
+      "reviewStyle": "आप जो सीख चुके हैं उसका\\nरिवीजन कैसे करना पसंद करते हैं",
+      "reviewStyleSubtitle": "अपनी पसंदीदा रिवीजन विधि चुनें।",
+      "frustration": "{{firstName}}, नोट्स बनाते समय आपको सबसे ज़्यादा परेशानी किस बात से होती है?",
+      "frustrationSubtitle": "लागू होने वाले सभी विकल्प चुनें। इससे हमें आपकी समस्याओं को हल करने में मदद मिलती है।",
+      "referral": "बस जानने के लिए\\n{{firstName}},\\nआपको Clinical Fact के बारे में कहाँ से पता चला?",
+      "referralSubtitle": "एक विकल्प चुनें।"
+    },
+    "referralScreen": {
+      "title": "क्या आपको किसी ने\\nरेफ़र किया था?",
+      "subtitle": "यदि आपके पास रेफ़रल कोड है तो उसे यहाँ दर्ज करें"
+    },
+    "setup": {
+      "preparingNotes": "नोट्स तैयार किए जा रहे हैं",
+      "preparingFlashcards": "फ़्लैशकार्ड तैयार किए जा रहे हैं",
+      "preparingQuiz": "क्विज़ टेम्पलेट्स तैयार किए जा रहे हैं",
+      "preparingChat": "चैट असिस्टेंट्स तैयार किए जा रहे हैं",
+      "title": "आपका पर्सनलाइज़्ड वर्कस्पेस\\nतैयार किया जा रहा है, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Clinical Fact पर भरोसा करने के लिए धन्यवाद",
+      "subtitle": "आप हज़ारों नर्सिंग और मेडिकल छात्रों के साथ जुड़ रहे हैं",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "कुछ भी सीखने के लिए\\nजो चाहिए, सब यहाँ है",
+      "subtitle": "रिकॉर्ड करें। रिसर्च करें। क्विज़ लें। महारत हासिल करें।",
+      "everythingYouNeedToLearnAnything": "कुछ भी सीखने के लिए जो आपको चाहिए, वह सब यहाँ है",
+      "recordItResearchItQuizIt": "रिकॉर्ड करें। रिसर्च करें। क्विज़ लें। महारत हासिल करें।",
+      "tryClinicalFactNowForFree": "Clinical Fact अभी मुफ़्त में आज़माएं"
+    },
+    "features": {
+      "feature1": {
+        "title": "सटीक मेडिकल उत्तर और फ़ॉलो-अप प्रश्न प्राप्त करें",
+        "description": "कोई भी मेडिकल सवाल पूछें और स्पष्ट व्याख्या के साथ स्मार्ट फ़ॉलो-अप प्रश्न पाएं, ताकि पढ़ाई के बीच में आपकी समझ कभी न रुके।"
+      },
+      "feature2": {
+        "title": "हर मेडिकल उत्तर,\nप्रमाणित स्रोतों पर आधारित",
+        "description": "PubMed, Semantic Scholar और Europe PMC से लिए गए संदर्भ—जिन्हें जाँचा जा सके, मनगढ़ंत नहीं।"
+      },
+      "feature3": {
+        "title": "अपने नोट्स अपलोड करें, अपनी सामग्री पर मेडिकल समरी पाएं",
+        "description": "किसी भी लेक्चर स्लाइड, PDF या नोट को विश्वसनीय मेडिकल स्रोतों पर आधारित स्पष्ट व्याख्या में बदलें।"
+      },
+      "feature4": {
+        "title": "अभ्यास के लिए किसी भी चैट को क्विज़ या फ़्लैशकार्ड में बदलें",
+        "description": "पढ़ाई के लिए अलग ऐप की ज़रूरत नहीं, अपनी चैट और अपलोड से सीधे अभ्यास प्रश्न तैयार करें।"
+      },
+      "feature5": {
+        "title": "अभ्यास के लिए किसी भी चैट या दस्तावेज़ को फ़्लैशकार्ड प्रश्नों में बदलें",
+        "description": "पढ़ाई के लिए अलग ऐप की ज़रूरत नहीं, अपनी चैट और अपलोड से सीधे अभ्यास प्रश्न तैयार करें।"
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "सूचनाएं चालू करें",
+      "thisHelpsUsStayOnTrack": "यह आपके खाते को मनमुताबिक बनाने और मेडिकल उत्तर तेज़ी से ढूंढने में हमारी मदद करता है"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "अमान्य सत्यापन कोड। कृपया पुनः प्रयास करें।",
+      "failedToResendCodePleaseTry": "कोड पुनः भेजने में विफल। कृपया पुनः प्रयास करें।",
+      "confirmYourEmailAddress": "अपने ईमेल पते की पुष्टि करें",
+      "enterCodeSentTo": "कृपया आपके ईमेल पते {{email}} पर भेजा गया OTP कोड दर्ज करें",
+      "resendCodeIn": "{{seconds}} सेकंड में कोड पुनः भेजें"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "क्या आपको किसी ने रेफ़र किया था?",
+      "enterTheirReferralCodeIfYou": "यदि आपके पास रेफ़रल कोड है, तो उसे दर्ज करें",
+      "eGJOHNOrTECHBRO": "उदा. JOHN या TECHBRO",
+      "codeIsValid": "✓ कोड मान्य है"
+    },
+    "resultsChart": {
+      "getBetterResults": "बेहतर परिणाम प्राप्त करें",
+      "over95OfClinicalfactUsersScore": "Clinical Fact के 95% से अधिक यूज़र्स अपने टेस्ट और परीक्षा में 95% या उससे अधिक अंक लाते हैं"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "नर्सिंग छात्र",
+        "medicalStudent": "मेडिकल छात्र",
+        "paPharmacyStudent": "PA या फ़ार्मेसी छात्र",
+        "practicingNurse": "प्रैक्टिसिंग नर्स",
+        "practicingPhysician": "प्रैक्टिसिंग डॉक्टर",
+        "otherHealthcareProfessional": "अन्य स्वास्थ्य सेवा पेशेवर"
+      },
+      "currentMethod": {
+        "textbooksNotes": "पाठ्यपुस्तकें या क्लास नोट्स",
+        "flashcardQuizApps": "फ़्लैशकार्ड या क्विज़ ऐप्स",
+        "youtube": "YouTube",
+        "aiChatbots": "AI चैटबॉट",
+        "colleagueClassmate": "सहकर्मी या सहपाठी से पूछना",
+        "practiceQuestionBanks": "अभ्यास प्रश्न बैंक"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "शुरुआत से फ़्लैशकार्ड और क्विज़ बनाना",
+        "findingTrustworthyAnswer": "भरोसेमंद उत्तर तेज़ी से खोजना",
+        "reReadingNotes": "जो नोट्स याद नहीं रहे उन्हें बार-बार पढ़ना",
+        "switchingApps": "बहुत सारे ऐप्स के बीच स्विच करना",
+        "chartingDocumentation": "चार्टिंग और दस्तावेज़ीकरण"
+      },
+      "appExpectation": {
+        "noHallucination": "ऐसा AI जो गलत जानकारी न दे",
+        "realCitations": "मूल स्रोत से प्रामाणिक संदर्भ",
+        "oneApp": "पाँच सब्सक्रिप्शन के बदले केवल एक ऐप",
+        "explainsWhy": "सिर्फ़ उत्तर ही नहीं, \"कारण\" भी समझाए"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google खोज",
+        "otherApps": "अन्य ऐप्स"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "गलत या मनगढ़ंत बातें बनाईं",
+        "notMedicalContent": "मेडिकल कंटेंट के लिए उपयुक्त नहीं",
+        "noSources": "सत्यापन के लिए कोई स्रोत नहीं",
+        "tooGeneric": "काफ़ी सामान्य, परीक्षा या प्रैक्टिस पर केंद्रित नहीं"
+      },
+      "aiTrustLevel": {
+        "everyTime": "हर बार",
+        "sometimes": "कभी-कभी",
+        "rarely": "शायद ही कभी",
+        "dontUseAi": "मैं अभी AI का उपयोग नहीं करता/करती"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "तेज़ और भरोसेमंद उत्तर",
+        "quizzesFlashcardsWithoutWork": "बिना मेहनत के क्विज़ और फ़्लैशकार्ड",
+        "rememberingStudied": "जो पढ़ा है उसे याद रखने में मदद",
+        "medicalCitations": "मेडिकल संदर्भ (Citations)",
+        "allOfTheAbove": "उपरोक्त सभी"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "न्यूज़लेटर",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "अन्य"
+      },
+      "studyTime": {
+        "under5Hours": "5 घंटे से कम",
+        "510Hours": "5–10 घंटे",
+        "1020Hours": "10–20 घंटे",
+        "20PlusHours": "20+ घंटे"
+      },
+      "comingUp": {
+        "medicalExams": "मेडिकल परीक्षाएं",
+        "clinicalRotations": "क्लिनिकल रोटेशन",
+        "nursingExams": "नर्सिंग परीक्षाएं",
+        "otherExams": "अन्य परीक्षाएं",
+        "staySharp": "बस अपनी तैयारी बनाए रखनी है"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "नोट ट्रांसक्रिप्ट",
+    "noteTranscript": {
+      "noteTranscript": "नोट ट्रांसक्रिप्ट",
+      "noNoteIDProvided": "कोई नोट ID नहीं मिली",
+      "noTranscriptAvailableForThisNote": "इस नोट के लिए कोई ट्रांसक्रिप्ट उपलब्ध नहीं है।",
+      "thisNoteWasNotCreatedFrom": "यह नोट ऑडियो/वीडियो से नहीं बनाया गया था और इसमें कोई ट्रांसक्रिप्ट नहीं है।",
+      "failedToLoadNote": "नोट लोड करने में विफल",
+      "noteTranscript2": "नोट ट्रांसक्रिप्ट",
+      "loadingTranscript": "ट्रांसक्रिप्ट लोड हो रही है...",
+      "goToNote": "नोट पर जाएं"
+    },
     "noteOptions": "नोट विकल्प",
-    "editNote": "नोट संपादित करें",
+    "editNote": {
+      "pleaseEnterANoteTitle": "कृपया नोट का शीर्षक दर्ज करें",
+      "failedToUpdateNote": "नोट अपडेट करने में विफल",
+      "noteUpdatedSuccessfully": "नोट सफलतापूर्वक अपडेट किया गया",
+      "editNote": "नोट संपादित करें",
+      "noteTitle": "नोट का शीर्षक",
+      "enterNoteTitle": "नोट का शीर्षक दर्ज करें",
+      "noteContent": "नोट की सामग्री",
+      "enterNoteContent": "नोट की सामग्री दर्ज करें",
+      "saveThisNote": "यह नोट सहेजें",
+      "aiIsGeneratingYourNote": "AI आपका नोट तैयार कर रहा है",
+      "largeAudioAndVideoFilesMay": "बड़ी ऑडियो और वीडियो फ़ाइलों को प्रोसेस होने में कुछ मिनट लग सकते हैं। कृपया ऐप खुला रखें।"
+    },
     "retranscribe": "पुनः ट्रांसक्राइब करें",
     "exportNote": "नोट निर्यात करें",
     "shareNoteLink": "नोट लिंक साझा करें",
@@ -110,12 +425,89 @@
     "translate": "अनुवाद करें",
     "addToFolder": "फ़ोल्डर में जोड़ें",
     "loadingNote": "नोट लोड हो रहा है...",
-    "noteNotFound": "नोट लोड करने में विफल"
+    "noteNotFound": "नोट लोड करने में विफल",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "फ़्लैशकार्ड बनाने में विफल",
+      "anUnexpectedErrorOccurred": "एक अप्रत्याशित गड़बड़ी हुई",
+      "history": "इतिहास",
+      "export": "एक्सपोर्ट"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "फ़ोल्डर में नोट जोड़ने में विफल",
+      "folderNotFound": "फ़ोल्डर नहीं मिला",
+      "addNote": "+ नोट जोड़ें",
+      "noNotesInThisFolder": "इस फ़ोल्डर में कोई नोट नहीं है",
+      "moveNotesToThisFolderTo": "उन्हें यहाँ देखने के लिए नोट्स को इस फ़ोल्डर में ले जाएँ",
+      "addNoteToFolder": "फ़ोल्डर में नोट जोड़ें",
+      "noNotesAvailableToAdd": "जोड़ने के लिए कोई नोट उपलब्ध नहीं है",
+      "allYourNotesAreAlreadyIn": "आपके सभी नोट्स पहले से ही इस फ़ोल्डर में हैं",
+      "created": "{{value}} को बनाया गया"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "नोट लोड करने में विफल",
+      "reTranscribeNote": "नोट को फिर से ट्रांसक्राइब करें",
+      "thisWillReTranscribeTheAudio": "यह ऑडियो को फिर से ट्रांसक्राइब करेगा और नोट को अपडेट करेगा। क्या आप जारी रखना चाहते हैं?",
+      "reTranscribe": "फिर से ट्रांसक्राइब करें",
+      "noteReTranscribedSuccessfully": "नोट सफलतापूर्वक फिर से ट्रांसक्राइब किया गया",
+      "info": "जानकारी",
+      "reTranscriptionFeatureIsComingSoon": "पुनः ट्रांसक्रिप्शन की सुविधा जल्द आ रही है",
+      "youAreCurrentlyOfflinePleaseConnect": "आप अभी ऑफ़लाइन हैं। यह क्रिया करने के लिए कृपया इंटरनेट से कनेक्ट करें।",
+      "failedToDeleteNote": "नोट हटाने में विफल",
+      "failedToExportNote": "नोट एक्सपोर्ट करने में विफल",
+      "noteTranslatedSuccessfully": "नोट का अनुवाद सफलतापूर्वक हो गया",
+      "failedToTranslateNote": "नोट का अनुवाद करने में विफल",
+      "noteMovedTo": "नोट को {{name}} में ले जाया गया",
+      "failedToMoveNoteToFolder": "नोट को फ़ोल्डर में ले जाने में विफल",
+      "summaryNotes": "सारांश नोट्स",
+      "loadingNote": "नोट लोड हो रहा है...",
+      "imageNote": "इमेज नोट",
+      "created": "बनाया गया: {{dateTime}}",
+      "translate": "अनुवाद करें",
+      "transcribe": "ट्रांसक्राइब करें",
+      "editThisNote": "इस नोट को एडिट करें",
+      "createFlashcards": "फ़्लैशकार्ड बनाएं",
+      "createFlashcardsToImproveYourRetention": "याद रखने की क्षमता बढ़ाने के लिए फ़्लैशकार्ड बनाएं",
+      "createQuizQuestions": "क्विज़ प्रश्न बनाएं",
+      "practiceYourNotesByCreatingQuestions": "विषय में महारत हासिल करने के लिए प्रश्न बनाकर अभ्यास करें"
+    },
+    "sharedNote": {
+      "notFound": "नहीं मिला",
+      "thisSharedNoteLinkIsInvalid": "यह शेयर किया गया नोट लिंक अमान्य है या समाप्त हो चुका है।",
+      "failedToLoadSharedNote": "शेयर किया गया नोट लोड करने में विफल।",
+      "saved": "सहेजा गया!",
+      "noteHasBeenAddedToYour": "नोट आपकी लाइब्रेरी में जोड़ दिया गया है।",
+      "viewInLibrary": "लाइब्रेरी में देखें",
+      "stayHere": "यहीं रहें",
+      "failedToSaveNote": "नोट सहेजने में विफल।",
+      "loadingSharedNote": "शेयर किया गया नोट लोड हो रहा है...",
+      "sharedNote": "शेयर किया गया नोट",
+      "sharedWithYou": "आपके साथ शेयर किया गया",
+      "savedToLibrary": "लाइब्रेरी में सहेजा गया",
+      "saveToMyLibrary": "मेरी लाइब्रेरी में सहेजें"
+    }
   },
   "create": {
     "selectOption": "आप अपना नोट कैसे बनाना चाहेंगे?",
-    "recordAudio": "ऑडियो रिकॉर्ड करें",
-    "uploadAudio": "ऑडियो अपलोड करें",
+    "recordAudio": {
+      "permissionRequired": "अनुमति आवश्यक है",
+      "pleaseGrantMicrophonePermissionToRecord": "ऑडियो रिकॉर्ड करने के लिए कृपया माइक्रोफ़ोन की अनुमति दें।",
+      "failedToRequestMicrophonePermission": "माइक्रोफ़ोन अनुमति का अनुरोध करने में विफल",
+      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "ऑडियो रिकॉर्ड हो रहा है",
+      "recordAudio": "ऑडियो रिकॉर्ड करें",
+      "createANoteFromAnyRecorded": "किसी भी रिकॉर्ड किए गए ऑडियो से नोट बनाएं",
+      "recording": "रिकॉर्डिंग जारी है ({{time}})",
+      "recordAgain": "फिर से रिकॉर्ड करें"
+    },
+    "uploadAudio": {
+      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "ऑडियो फ़ाइल चुनने में विफल",
+      "uploadAudio": "ऑडियो अपलोड करें",
+      "createANoteFromAnyUploaded": "किसी भी अपलोड किए गए ऑडियो से नोट बनाएं",
+      "dragDropFilesOrBrowse": "फ़ाइलें ड्रैग और ड्रॉप करें या ब्राउज़ करें",
+      "supportedFormatMp4WavMp3": "समर्थित फ़ॉर्मेट: mp4, wav, mp3",
+      "changeFile": "फ़ाइल बदलें"
+    },
     "youtube": "यूट्यूब वीडियो",
     "pdfDocument": "PDF या दस्तावेज़",
     "customText": "कस्टम टेक्स्ट",
@@ -123,7 +515,56 @@
     "uploadingFile": "सर्वर पर फ़ाइल अपलोड हो रही है...",
     "transcribing": "भाषण को टेक्स्ट में परिवर्तित किया जा रहा है...",
     "extractingText": "टेक्स्ट निकाला जा रहा है...",
-    "generatingNote": "AI-संचालित अध्ययन नोट्स बनाए जा रहे हैं...",
+    "generatingNote": {
+      "uploadAudio": "ऑडियो अपलोड करें",
+      "uploadingAudioFileToServer": "सर्वर पर ऑडियो फ़ाइल अपलोड हो रही है...",
+      "transcribeAudio": "ऑडियो ट्रांसक्राइब करें",
+      "convertingSpeechToText": "ऑडियो को टेक्स्ट में बदला जा रहा है...",
+      "generateYourNote": "अपना नोट बनाएं",
+      "creatingStudyNotes": "स्टडी नोट्स बनाए जा रहे हैं...",
+      "uploadPDF": "PDF अपलोड करें",
+      "uploadingPDFDocumentToServer": "सर्वर पर PDF दस्तावेज़ अपलोड हो रहा है...",
+      "extractText": "टेक्स्ट निकालें",
+      "readingAndExtractingTextFromPDF": "PDF से टेक्स्ट पढ़ा और निकाला जा रहा है...",
+      "uploadImage": "इमेज अपलोड करें",
+      "uploadingImageToServer": "सर्वर पर इमेज अपलोड हो रही है...",
+      "extractTextOCR": "टेक्स्ट निकालें (OCR)",
+      "recognizingAndExtractingTextFromImage": "इमेज से टेक्स्ट पहचाना और निकाला जा रहा है...",
+      "fetchVideo": "वीडियो लाएं",
+      "connectingToYouTube": "YouTube से कनेक्ट हो रहा है...",
+      "extractTranscript": "ट्रांसक्रिप्ट निकालें",
+      "downloadingVideoTranscript": "वीडियो ट्रांसक्रिप्ट डाउनलोड हो रही है...",
+      "processText": "टेक्स्ट प्रोसेस करें",
+      "analyzingYourContent": "कंटेंट का विश्लेषण किया जा रहा है...",
+      "uploadFile": "फ़ाइल अपलोड करें",
+      "uploadingToServer": "सर्वर पर अपलोड हो रहा है...",
+      "processContent": "कंटेंट प्रोसेस करें",
+      "extractingContent": "कंटेंट निकाला जा रहा है...",
+      "noteReady": "नोट तैयार है!",
+      "noteGenerationFailedOnTheServer": "सर्वर पर नोट जनरेट नहीं हो सका।",
+      "failedToUploadImage": "इमेज अपलोड नहीं हो सकी",
+      "weCouldNotReadAnythingFrom": "इस इमेज से कुछ भी पढ़ा नहीं जा सका। कृपया अपने मेडिकल नोट्स की साफ़ इमेज अपलोड करें।",
+      "preparingFile": "फ़ाइल तैयार की जा रही है...",
+      "almostDone": "बस हो ही गया...",
+      "untitledNote": "बिना शीर्षक वाला नोट",
+      "failedToGenerateNote": "नोट जनरेट नहीं हो सका",
+      "whoaSpeedy": "अरे, इतनी जल्दी! 🏃💨",
+      "youReGeneratingContentABit": "आप बहुत तेज़ी से कंटेंट जनरेट कर रहे हैं। दोबारा प्रयास करने से पहले 60 सेकंड का ब्रेक लें ताकि हमारा AI सिंक हो सके।",
+      "gotIt": "समझ गए",
+      "fileTooLarge": "फ़ाइल बहुत बड़ी है",
+      "yourFileExceedsThe15MBLimit": "आपकी फ़ाइल मुफ़्त उपयोगकर्ताओं के लिए तय 15MB की सीमा से अधिक है। 100MB तक के लेक्चर्स अपलोड करने के लिए PRO में अपग्रेड करें।",
+      "upgradeToPRO": "PRO में अपग्रेड करें",
+      "oopsWeHitASnag": "ओह, कोई समस्या आ गई 🚧",
+      "weCouldnTGenerateThatRight": "हम इसे अभी जनरेट नहीं कर सके। कृपया कुछ देर बाद फिर प्रयास करें!",
+      "processingContent": "कंटेंट प्रोसेस हो रहा है...",
+      "generatingYourNote": "आपका नोट जनरेट हो रहा है...",
+      "audioNote": "ऑडियो नोट",
+      "failedToGenerateFlashcards": "फ़्लैशकार्ड जनरेट नहीं हो सके",
+      "generatingNote": "नोट जनरेट हो रहा है",
+      "pleaseKeepThisScreenOpenWhile": "नोट जनरेट होने तक कृपया इस स्क्रीन को खुला रखें। बड़ी फ़ाइलों को ट्रांसक्राइब करने में कुछ मिनट लग सकते हैं।",
+      "goToNote": "नोट देखें",
+      "generateNoteTranscript": "नोट ट्रांसक्रिप्ट जनरेट करें"
+    },
     "fetchingVideo": "YouTube से कनेक्ट हो रहा है...",
     "processingText": "आपकी सामग्री का विश्लेषण किया जा रहा है...",
     "uploadAudioTitle": "ऑडियो अपलोड करें",
@@ -133,7 +574,63 @@
     "fetchVideo": "वीडियो प्राप्त करें",
     "extractTranscript": "ट्रांसक्रिप्ट निकालें",
     "processText": "टेक्स्ट प्रोसेस करें",
-    "generateNote": "अपना नोट जेनरेट करें"
+    "generateNote": "अपना नोट जेनरेट करें",
+    "customTextInput": {
+      "customText": "कस्टम टेक्स्ट",
+      "createANoteFromAnyCustom": "किसी भी कस्टम टेक्स्ट से नोट बनाएं",
+      "enterText": "टेक्स्ट दर्ज करें",
+      "enterYourTextHere": "यहाँ अपना टेक्स्ट दर्ज करें..."
+    },
+    "uploadImage": {
+      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "अनुमति आवश्यक है",
+      "pleaseAllowAccessToYourPhoto": "कृपया अपनी फ़ोटो लाइब्रेरी का एक्सेस दें",
+      "failedToPickImage": "इमेज चुनी नहीं जा सकी",
+      "uploadImage": "इमेज अपलोड करें",
+      "createANoteFromAnyUploaded": "अपलोड की गई किसी भी इमेज से नोट बनाएं",
+      "dragDropFilesOrBrowse": "फ़ाइलें ड्रैग और ड्रॉप करें या ब्राउज़ करें",
+      "supportedFormatPngJpegHeicWebp": "समर्थित फ़ॉर्मेट: png, jpeg, heic, webp",
+      "changeFile": "फ़ाइल बदलें"
+    },
+    "uploadPDF": {
+      "created": "बनाया गया: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "दस्तावेज़ चुना नहीं जा सका",
+      "uploadPdf": "PDF अपलोड करें",
+      "createANoteFromAnyUploaded": "अपलोड की गई किसी भी PDF से नोट बनाएं",
+      "dragDropFilesOrBrowse": "फ़ाइलें ड्रैग और ड्रॉप करें या ब्राउज़ करें",
+      "supportedFormatPdf": "समर्थित फ़ॉर्मेट: pdf",
+      "changeFile": "फ़ाइल बदलें"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "वीडियो फ़ेच किया जा रहा है",
+      "gettingVideoDetails": "वीडियो का विवरण लाया जा रहा है",
+      "extractingTranscript": "ट्रांसक्रिप्ट निकाली जा रही है",
+      "convertingAudioToText": "ऑडियो को टेक्स्ट में बदला जा रहा है",
+      "generatingYourNote": "आपका नोट जनरेट हो रहा है",
+      "aiIsSummarisingTheContent": "AI सामग्री का सारांश तैयार कर रहा है",
+      "noteGenerationFailedPleaseTryAgain": "नोट जनरेट नहीं हो सका। कृपया पुनः प्रयास करें।",
+      "processingFailed": "प्रोसेसिंग विफल रही",
+      "goBack": "वापस जाएं",
+      "retry": "पुनः प्रयास करें",
+      "failedToStartNoteGeneration": "नोट जनरेशन शुरू नहीं हो सका",
+      "failedToProcessYouTubeVideoPlease": "YouTube वीडियो प्रोसेस करने में विफल। कृपया पुन: प्रयास करें।",
+      "cancelProcessing": "प्रोसेसिंग रद्द करें",
+      "areYouSureYouWantTo": "क्या आप वाकई रद्द करना चाहते हैं? आपकी प्रगति खो जाएगी।",
+      "continueProcessing": "प्रोसेसिंग जारी रखें",
+      "youTubeNote": "YouTube नोट",
+      "noteGenerated": "नोट जनरेट हो गया",
+      "generatingNote": "नोट जनरेट हो रहा है",
+      "goToNote": "नोट पर जाएं"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "वीडियो की जानकारी नहीं मिल सकी",
+      "failedToFetchVideoInformation": "वीडियो की जानकारी लोड करने में विफल",
+      "youtubeVideo": "YouTube वीडियो",
+      "createANoteFromAnyYoutube": "किसी भी YouTube वीडियो से नोट बनाएं",
+      "enterYoutubeURL": "YouTube URL दर्ज करें",
+      "pasteYoutubeURL": "YouTube URL पेस्ट करें",
+      "fetchingVideoInfo": "वीडियो की जानकारी लोड हो रही है..."
+    }
   },
   "library": {
     "title": "लाइब्रेरी",
@@ -163,7 +660,67 @@
     "almostDone": "लगभग हो गया...",
     "quizReady": "क्विज़ तैयार है!",
     "startQuiz": "क्विज़ शुरू करें",
-    "questionCount": "{{total}} में से {{current}}"
+    "questionCount": "{{total}} में से {{current}}",
+    "previous": "पिछला प्रश्न",
+    "generatingQuiz": "AI से क्विज़ तैयार किया जा रहा है...",
+    "exitTitle": "क्विज़ से बाहर निकलें?",
+    "exitMessage": "आपकी प्रगति खो जाएगी।",
+    "exit": "बाहर निकलें",
+    "errorTitle": "ओह, कुछ गड़बड़ हो गई 🚧",
+    "errorMessage": "हम इसे अभी जनरेट नहीं कर सके। कृपया कुछ देर बाद फिर प्रयास करें!",
+    "noQuestions": "कोई प्रश्न उपलब्ध नहीं है।",
+    "reading": "आपके नोट्स पढ़े जा रहे हैं...",
+    "identifying": "मुख्य कॉन्सेप्ट पहचाने जा रहे हैं...",
+    "structuring": "प्रश्न तैयार किए जा रहे हैं...",
+    "almostReady": "बस तैयार ही है...",
+    "youScored": "आपका स्कोर",
+    "timeInSeconds": "समय (सेकंड में)",
+    "accuracy": "सटीकता",
+    "grade": "ग्रेड",
+    "reportsCard": "रिपोर्ट कार्ड",
+    "reviewAnswers": "उत्तरों की समीक्षा करें",
+    "correctAnswer": "सही उत्तर",
+    "yourAnswer": "आपका उत्तर",
+    "explanation": "व्याख्या",
+    "questionProgress": "प्रश्न {{current}} / {{total}}",
+    "generatingQuizWait": "हम आपके लिए क्विज़ तैयार कर रहे हैं, कृपया पूरा होने तक प्रतीक्षा करें...",
+    "goToChats": "चैट पर जाएं",
+    "quizGroupDetail": {
+      "inProgress": "प्रगति पर है",
+      "notStarted": "शुरू नहीं हुआ",
+      "failedToLoadQuizHistory": "क्विज़ इतिहास लोड करने में विफल",
+      "failedToLoadChatContent": "चैट सामग्री लोड करने में विफल",
+      "deleteQuiz": "क्विज़ हटाएं",
+      "failedToDeleteQuiz": "क्विज़ हटाने में विफल",
+      "created": "{{dateTime}} को बनाया गया",
+      "lastscore": "पिछला स्कोर",
+      "bestscore": "सर्वश्रेष्ठ स्कोर",
+      "attempts": "प्रयास",
+      "retakeQuiz": "क्विज़ दोबारा दें",
+      "translate": "अनुवाद करें",
+      "newQuiz": "नई क्विज़",
+      "quizHistory": "क्विज़ इतिहास",
+      "flashcardHistory": "फ्लैशकार्ड इतिहास",
+      "score": "स्कोर {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "इस स्रोत से अभी तक कोई फ्लैशकार्ड सेट नहीं है।",
+      "cards": "{{totalCards}} कार्ड · {{flashcardStatus}}",
+      "quizOptions": "क्विज़ विकल्प",
+      "exportLatestAttempt": "नवीनतम प्रयास निर्यात करें",
+      "questions": "{{totalQuestions}} प्रश्न · {{value}}",
+      "deleteAllAttemptsOne": "\"{{title}}\" के लिए 1 क्विज़ प्रयास हटाएं? इसे पूर्ववत नहीं किया जा सकता।",
+      "deleteAllAttemptsMany": "\"{{title}}\" के सभी {{total}} क्विज़ प्रयास हटाएं? इसे पूर्ववत नहीं किया जा सकता।",
+      "makeFlashcards": "फ़्लैशकार्ड बनाएं"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "क्विज़ डेटा लोड करने में विफल - अमान्य प्रतिक्रिया प्रारूप",
+      "failedToLoadQuizData": "क्विज़ डेटा लोड करने में विफल",
+      "noContentAvailable": "कोई सामग्री उपलब्ध नहीं है",
+      "goBack": "वापस जाएं",
+      "previous": "पिछला"
+    },
+    "quiz": {
+      "generationFailed": "जनरेशन विफल रहा"
+    }
   },
   "flashcards": {
     "title": "फ्लैशकार्ड",
@@ -172,7 +729,68 @@
     "previous": "पिछला",
     "shuffle": "शफल करें",
     "generating": "फ्लैशकार्ड जेनरेट हो रहे हैं...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "याद रखने की क्षमता बेहतर बनाने के लिए फ़्लैशकार्ड बनाएं",
+    "howManyQuestions": "कितने प्रश्न?",
+    "generateButton": "फ़्लैशकार्ड बनाएं",
+    "generatingEllipsis": "जनरेट हो रहा है...",
+    "allDone": "सब पूरा हो गया!",
+    "completedReview": "आपने इस डेक के सभी कार्ड देख लिए हैं",
+    "backToNotes": "नोट्स पर वापस जाएं",
+    "question": "प्रश्न",
+    "answer": "उत्तर",
+    "noQuestionText": "(कोई प्रश्न टेक्स्ट नहीं)",
+    "noAnswerText": "(कोई उत्तर टेक्स्ट नहीं)",
+    "enterQuestion": "अपना प्रश्न दर्ज करें",
+    "enterAnswer": "उत्तर दर्ज करें",
+    "clickToFlip": "पलटने के लिए कार्ड पर टैप करें",
+    "reading": "आपके नोट्स पढ़े जा रहे हैं...",
+    "identifying": "मुख्य कॉन्सेप्ट पहचाने जा रहे हैं...",
+    "creating": "फ़्लैशकार्ड बनाए जा रहे हैं...",
+    "almostReady": "बस तैयार ही है...",
+    "headerTitle": "फ़्लैशकार्ड",
+    "progressFormat": "फ़्लैशकार्ड {{current}} / {{total}}",
+    "noteIdRequired": "फ़्लैशकार्ड बनाने के लिए नोट ID आवश्यक है",
+    "invalidCardCount": "कृपया 1 से 100 के बीच फ़्लैशकार्ड चुनें",
+    "flashcardGroupDetail": {
+      "inProgress": "प्रगति पर है",
+      "notStarted": "शुरू नहीं हुआ",
+      "failedToLoadFlashcardHistory": "फ्लैशकार्ड इतिहास लोड करने में विफल",
+      "limitReached": "सीमा समाप्त",
+      "flashcardGenerationLimitReached": "फ्लैशकार्ड जनरेशन की सीमा समाप्त हो गई है।",
+      "failedToGenerateFlashcards": "फ्लैशकार्ड जनरेट करने में विफल",
+      "failedToTranslateFlashcards": "फ्लैशकार्ड अनुवाद करने में विफल",
+      "deleteFlashcards": "फ्लैशकार्ड हटाएं",
+      "failedToDeleteFlashcards": "फ्लैशकार्ड हटाने में विफल",
+      "created": "{{dateTime}} को बनाया गया",
+      "lastprogress": "पिछली प्रगति",
+      "bestprogress": "सर्वश्रेष्ठ प्रगति",
+      "sets": "सेट्स",
+      "studyNow": "अभी पढ़ें",
+      "translate": "अनुवाद करें",
+      "newFlashcards": "नए फ्लैशकार्ड्स",
+      "flashcardHistory": "फ्लैशकार्ड इतिहास",
+      "quizHistory": "क्विज़ इतिहास",
+      "cards": "{{totalCards}} कार्ड्स · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "इस स्रोत से अभी तक कोई क्विज़ नहीं है।",
+      "score": "स्कोर {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "फ्लैशकार्ड विकल्प",
+      "exportLatestSet": "नवीनतम सेट एक्सपोर्ट करें",
+      "questions": "{{totalQuestions}} प्रश्न · {{value}}",
+      "deleteAllSetsOne": "\"{{title}}\" के लिए सभी 1 फ्लैशकार्ड सेट हटाएं? इसे पहले जैसा नहीं किया जा सकता।",
+      "deleteAllSetsMany": "\"{{title}}\" के लिए सभी {{total}} फ्लैशकार्ड सेट हटाएं? इसे पहले जैसा नहीं किया जा सकता।",
+      "makeQuiz": "क्विज़ बनाएं",
+      "failedToLoadChatContent": "चैट सामग्री लोड नहीं हो सकी"
+    },
+    "flashcardReview": {
+      "unknownError": "अज्ञात त्रुटि",
+      "noFlashcardsInThisSet": "इस सेट में कोई फ्लैशकार्ड नहीं है",
+      "goBack": "वापस जाएं",
+      "allDone": "सब पूरा हुआ",
+      "youHaveReviewedAllTheCards": "आपने इस डेक के सभी कार्ड्स देख लिए हैं",
+      "question": "प्रश्न {{value}}",
+      "questionOf": "प्रश्न {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "चैट",
@@ -183,7 +801,186 @@
     "chatWithDocument": "दस्तावेज़ के साथ चैट करें",
     "selectFile": "चैट करने के लिए एक फ़ाइल चुनें",
     "uploadFile": "फ़ाइल अपलोड करें",
-    "startChatting": "चैट करना शुरू करें"
+    "startChatting": "चैट करना शुरू करें",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "बेहतर स्पष्टीकरण के लिए कोई मेडिकल प्रश्न पूछें",
+      "askAnythingAboutThisDocument": "इस दस्तावेज़ के बारे में कुछ भी पूछें...",
+      "askAQuestionAttachmentProcessingFailed": "प्रश्न पूछें — अटैचमेंट प्रोसेस नहीं हो सका",
+      "extractingText": "टेक्स्ट निकाला जा रहा है...",
+      "processingPDF": "PDF प्रोसेस किया जा रहा है...",
+      "upgradeToProToContinueChatting": "चैट जारी रखने के लिए PRO में अपग्रेड करें",
+      "queryremaining": "{{queriesRemaining}} प्रश्न शेष"
+    },
+    "chatEmptyState": {
+      "initializingChat": "चैट शुरू की जा रही है...",
+      "extractingTextFromImage": "इमेज से टेक्स्ट निकाला जा रहा है...",
+      "processingPDFDocument": "PDF दस्तावेज़ प्रोसेस किया जा रहा है...",
+      "analyzingYourNote": "आपके नोट्स का विश्लेषण किया जा रहा है...",
+      "thisUsuallyTakesJustAFew": "⏱️ इसमें आमतौर पर कुछ ही सेकंड लगते हैं। प्रोसेसिंग पूरी होने के बाद आप चैट कर सकेंगे।",
+      "processingFailed": "प्रोसेसिंग विफल",
+      "fileMightBeCorruptedOrUnreadable": "• फ़ाइल करप्ट हो सकती है या पढ़ने योग्य नहीं है",
+      "imageQualityTooLow": "इमेज की क्वालिटी बहुत कम है",
+      "pdfIsPasswordProtected": "PDF पासवर्ड सुरक्षित है",
+      "contentFormatNotSupported": "कंटेंट फ़ॉर्मैट समर्थित नहीं है",
+      "networkConnectionIssue": "• नेटवर्क कनेक्शन की समस्या",
+      "tryADifferentFile": "दूसरी फ़ाइल आज़माएं",
+      "askAnyClinicalQuestionNoUpload": "💡 कोई भी क्लिनिकल प्रश्न पूछें — कुछ भी अपलोड करने की आवश्यकता नहीं है। मैं जहां उपलब्ध हो वहां संबंधित छवियों के साथ, प्रमाणित मेडिकल संदर्भों से उत्तर दूंगा।",
+      "readyToChat": "✓ चैट के लिए तैयार",
+      "couldntProcessNote": "हम इस नोट को प्रोसेस नहीं कर सके। इसके निम्नलिखित कारण हो सकते हैं:",
+      "couldntProcessImage": "हम इस इमेज को प्रोसेस नहीं कर सके। इसके निम्नलिखित कारण हो सकते हैं:",
+      "couldntProcessDocument": "हम इस दस्तावेज़ को प्रोसेस नहीं कर सके। इसके निम्नलिखित कारण हो सकते हैं:",
+      "askMeAboutNote": "💡 इस नोट के बारे में मुझसे कुछ भी पूछें। मैं सारांश दे सकता हूँ, कॉन्सेप्ट्स समझा सकता हूँ या विशिष्ट प्रश्नों के उत्तर दे सकता हूँ।",
+      "askMeAboutImage": "💡 इस इमेज के बारे में मुझसे कुछ भी पूछें। मैं सारांश दे सकता हूँ, कॉन्सेप्ट्स समझा सकता हूँ या विशिष्ट प्रश्नों के उत्तर दे सकता हूँ।",
+      "askMeAboutDocument": "💡 इस दस्तावेज़ के बारे में मुझसे कुछ भी पूछें। मैं सारांश दे सकता हूँ, कॉन्सेप्ट्स समझा सकता हूँ या विशिष्ट प्रश्नों के उत्तर दे सकता हूँ।"
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} सिद्ध किए गए",
+      "notStarted": "शुरू नहीं हुआ",
+      "quizGeneration": "क्विज़ जनरेशन",
+      "score": "स्कोर {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "फ्लैशकार्ड्स जनरेशन",
+      "questions": "{{totalCards}} प्रश्न · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} प्रश्न · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "सोच रहा हूँ और आपके लिए स्रोत खोज रहा हूँ...",
+      "couldnTGenerateAResponse": "उत्तर जनरेट नहीं किया जा सका।",
+      "retry": "पुनः प्रयास करें",
+      "alsoReferencedFromTheWeb": "वेब से भी संदर्भित",
+      "followUpQuestions": "आगे के प्रश्न"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "मेडिकल से जुड़ा कुछ भी पूछें, प्रामाणिक स्रोतों से सत्यापित तथ्य पाएं",
+      "evidenceBasedPubMedSourcesPeerReviewed": "साक्ष्य-आधारित · PubMed स्रोत · पीयर-रिव्यूड",
+      "tryOutAnyOfThisTopics": "शुरू करने के लिए इनमें से कोई भी विषय चुनें",
+      "topics": {
+        "electrolytes": {
+          "label": "इलेक्ट्रोलाइट असंतुलन (Electrolyte Imbalance) की व्याख्या",
+          "question": "इलेक्ट्रोलाइट असंतुलन समझाएं — कारण, लक्षण और उपचार"
+        },
+        "ecg": {
+          "label": "ECG इंटरप्रिटेशन की बुनियादी बातें",
+          "question": "ECG इंटरप्रिटेशन के मूल सिद्धांत क्या हैं?"
+        },
+        "drugInteractions": {
+          "label": "महत्वपूर्ण ड्रग इंटरैक्शन",
+          "question": "मुझे कौन-कौन से सामान्य और महत्वपूर्ण ड्रग इंटरैक्शन पता होने चाहिए?"
+        },
+        "nclex": {
+          "label": "NCLEX-स्टाइल अभ्यास विषय",
+          "question": "मुझे एक NCLEX-स्टाइल अभ्यास प्रश्न दें"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA ड्रग लेबल",
+      "fromYourAttachedMaterial": "आपकी संलग्न सामग्री से"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "चैट सत्र शुरू करने में विफल",
+      "failedToInitializeChatSession": "चैट सत्र इनिशियलाइज़ करने में विफल",
+      "failedToUpdateLanguage": "भाषा अपडेट करने में विफल",
+      "youVeReachedYour3Pin": "आपकी 3 पिन की सीमा समाप्त हो चुकी है",
+      "failedToUpdatePin": "पिन अपडेट करने में विफल",
+      "permissionRequired": "अनुमति आवश्यक है",
+      "pleaseGrantCameraPermissionToTake": "फ़ोटो लेने के लिए कृपया कैमरा एक्सेस की अनुमति दें।",
+      "pleaseGrantPhotoLibraryPermissionTo": "फ़ोटो अपलोड करने के लिए कृपया फ़ोटो लाइब्रेरी की अनुमति दें।",
+      "failedToUploadImage": "इमेज अपलोड करने में विफल",
+      "uploadFailed": "अपलोड विफल रहा",
+      "failedToUploadDocument": "दस्तावेज़ अपलोड करने में विफल",
+      "failedToStartChatFromThis": "इस फ़ाइल से चैट शुरू करने में विफल।",
+      "chatFromImage": "इमेज से चैट करें",
+      "failedToStartANewQuestion": "नया प्रश्न शुरू करने में विफल। कृपया पुन: प्रयास करें।",
+      "failedToAttachFile": "फ़ाइल अटैच करने में विफल",
+      "failedToSendMessage": "संदेश भेजने में विफल",
+      "copiedToClipboard": "क्लिपबोर्ड पर कॉपी किया गया",
+      "notEnoughContentYet": "अभी पर्याप्त सामग्री नहीं है",
+      "chatABitMoreBeforeGenerating": "क्विज़ बनाने से पहले थोड़ी और चैट करें (कम से कम 100 वर्ण)।",
+      "chatABitMoreBeforeGenerating2": "फ़्लैशकार्ड बनाने से पहले थोड़ी और चैट करें (कम से कम 100 वर्ण)।",
+      "failedToGenerateFlashcards": "फ़्लैशकार्ड जनरेट करने में विफल",
+      "failedToRegenerateResponse": "उत्तर दोबारा जनरेट करने में विफल",
+      "failedToRetryResponse": "उत्तर पुन: प्रयास करने में विफल"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "नोट अटैच करने में विफल",
+      "folderCreatedSuccessfully": "फ़ोल्डर \"{{name}}\" सफलतापूर्वक बनाया गया!",
+      "failedToCreateFolder": "फ़ोल्डर बनाने में विफल",
+      "failedToAttachDocument": "दस्तावेज़ अटैच करने में विफल",
+      "failedToCreateChatSession": "चैट सत्र शुरू करने में विफल",
+      "failedToUploadDocument": "दस्तावेज़ अपलोड करने में विफल",
+      "openingCamera": "📷 कैमरा खोला जा रहा है...",
+      "openingImagePicker": "🖼️ इमेज पिकर खोला जा रहा है...",
+      "permissionRequired": "अनुमति आवश्यक है",
+      "pleaseGrantCameraPermissionToTake": "फ़ोटो लेने के लिए कृपया कैमरा एक्सेस की अनुमति दें।",
+      "pleaseGrantPhotoLibraryPermissionTo": "फ़ोटो अपलोड करने के लिए कृपया फ़ोटो लाइब्रेरी की अनुमति दें।",
+      "failedToAttachImage": "इमेज अटैच करने में विफल",
+      "failedToUploadImage": "इमेज अपलोड करने में विफल",
+      "failedToAttachAudio": "ऑडियो अटैच करने में विफल",
+      "failedToUploadAudio": "ऑडियो अपलोड करने में विफल",
+      "items": "{{itemCount}} आइटम",
+      "thisFolderIsEmptyGoBack": "यह फ़ोल्डर खाली है। दूसरा फ़ोल्डर चुनने के लिए वापस जाएं।",
+      "addFolder": "फ़ोल्डर जोड़ें",
+      "uploadNewDocument": "नया दस्तावेज़ अपलोड करें",
+      "uploadAPDFAndStartChatting": "PDF अपलोड करें और तुरंत चैट शुरू करें",
+      "uploadNewImage": "नई इमेज अपलोड करें",
+      "uploadAnImageAndExtractText": "इमेज अपलोड करें और तुरंत टेक्स्ट निकालें",
+      "uploadNewAudio": "नया ऑडियो अपलोड करें",
+      "uploadAnAudioFileAndTranscribe": "ऑडियो फ़ाइल अपलोड करें और तुरंत ट्रांसक्राइब करें",
+      "orselectfromlibrary": "या लाइब्रेरी से चुनें",
+      "folders": "फ़ोल्डर्स",
+      "allNotes": "सभी नोट्स",
+      "noFilesToDisplay": "दिखाने के लिए कोई फ़ाइल नहीं है",
+      "noNotesToDisplay": "दिखाने के लिए कोई नोट्स नहीं हैं",
+      "noDocumentsYet": "आपके पास अभी कोई PDF दस्तावेज़ नहीं हैं।\nपहले कुछ नोट्स बनाएं, फिर उनसे चैट करने के लिए वापस आएं।",
+      "noImagesYet": "आपके पास अभी कोई इमेज नहीं हैं।\nपहले कुछ नोट्स बनाएं, फिर उनसे चैट करने के लिए वापस आएं।",
+      "noAudioNotesYet": "आपके पास अभी कोई ऑडियो नोट्स नहीं हैं।\nपहले कुछ नोट्स बनाएं, फिर उनसे चैट करने के लिए वापस आएं।",
+      "noNotesYet": "आपके पास अभी कोई नोट्स नहीं हैं।\nपहले कुछ नोट्स बनाएं, फिर उनसे चैट करने के लिए वापस आएं।",
+      "attachNote": "नोट जोड़ें",
+      "selectNote": "नोट चुनें",
+      "attachImage": "इमेज जोड़ें",
+      "selectImage": "इमेज चुनें",
+      "attachDocument": "दस्तावेज़ जोड़ें",
+      "selectDocument": "दस्तावेज़ चुनें",
+      "attachAudio": "ऑडियो जोड़ें",
+      "selectAudio": "ऑडियो चुनें",
+      "attachFile": "फ़ाइल जोड़ें",
+      "selectFile": "फ़ाइल चुनें"
+    },
+    "chatAttachSheet": {
+      "addToChat": "चैट में जोड़ें",
+      "camera": "कैमरा",
+      "photos": "फ़ोटो",
+      "files": "फ़ाइलें",
+      "generateQuiz": "क्विज़ बनाएं",
+      "generateFlashcards": "फ़्लैशकार्ड्स बनाएं",
+      "searchMedicalLiterature": "मेडिकल लिटरेचर खोजें",
+      "filterByDateSourceAndType": "तारीख, स्रोत और प्रकार के अनुसार फ़िल्टर करें",
+      "pullsRealCitedSourcesIntoYour": "आपके जवाबों में वास्तविक, संदर्भ-सहित स्रोत शामिल करता है",
+      "trustedmedicalsourcedatabase": "विश्वसनीय मेडिकल स्रोतों का डेटाबेस",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA ड्रग और उपचार डेटा"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "साइटेशन (Citations) देखें",
+      "citations": "संदर्भ",
+      "fromTheWeb": "वेब से"
+    },
+    "chatHeader": {
+      "readyTapToRename": "तैयार · नाम बदलने के लिए टैप करें",
+      "processing": "प्रोसेसिंग {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "स्रोत देखें ↗"
+    },
+    "chatRename": {
+      "renameChat": "चैट का नाम बदलें"
+    },
+    "sourcesRow": {
+      "viewSources": "स्रोत देखें ({{total}})"
+    }
   },
   "languages": {
     "english": "अंग्रेज़ी",
@@ -205,6 +1002,487 @@
     "turkish": "तुर्की",
     "vietnamese": "वियतनामी",
     "thai": "थाई",
-    "indonesian": "इंडोनेशियाई"
+    "indonesian": "इंडोनेशियाई",
+    "englishGB": "अंग्रेज़ी (UK)",
+    "englishAU": "अंग्रेज़ी (ऑस्ट्रेलिया)",
+    "englishCA": "अंग्रेज़ी (कनाडा)",
+    "spanishMX": "स्पैनिश (मेक्सिको)",
+    "frenchCA": "फ़्रेंच (कनाडा)",
+    "portuguesePT": "पुर्तगाली (पुर्तगाल)",
+    "norwegian": "नॉर्वेजियन",
+    "danish": "डेनिश",
+    "finnish": "फिनिश",
+    "czech": "चेक",
+    "slovak": "स्लोवाक",
+    "slovenian": "स्लोवेनियाई",
+    "croatian": "क्रोएशियाई",
+    "hungarian": "हंगेरियन",
+    "romanian": "रोमानियाई",
+    "greek": "ग्रीक",
+    "ukrainian": "यूक्रेनी",
+    "arabicAE": "अरबी (यूएई)",
+    "arabicEG": "अरबी (मिस्र)",
+    "hebrew": "हिब्रू",
+    "bengali": "बंगाली",
+    "tamil": "तमिल",
+    "telugu": "तेलुगु",
+    "kannada": "कन्नड़",
+    "malayalam": "मलयालम",
+    "marathi": "मराठी",
+    "gujarati": "गुजराती",
+    "punjabi": "पंजाबी",
+    "urdu": "उर्दू",
+    "malay": "मलय",
+    "catalan": "कैटलन"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "फ़ोल्डर जोड़ें",
+      "folderName": "फ़ोल्डर का नाम",
+      "enterFolderName": "फ़ोल्डर का नाम दर्ज करें",
+      "chooseColor": "रंग चुनें",
+      "createFolder": "फ़ोल्डर बनाएं"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "हम आपके कंटेंट को प्रोसेस करें, उससे पहले",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact आपके सवालों के जवाब देने और आपके कंटेंट को नोट्स, क्विज़ और फ़्लैशकार्ड्स में बदलने के लिए AI का उपयोग करता है। आपको यह जानना आवश्यक है:",
+      "whatDataIsSent": "कौन-सा डेटा भेजा जाता है",
+      "questionsAndMessagesYouTypeIn": "चैट में आपके द्वारा टाइप किए गए सवाल और मैसेज",
+      "audioRecordingsOrUploadedAudioFiles": "ऑडियो रिकॉर्डिंग या अपलोड की गई ऑडियो फ़ाइलें",
+      "pdfAndTextDocumentsYouUpload": "आपके द्वारा अपलोड किए गए PDF और टेक्स्ट दस्तावेज़",
+      "imagesYouUpload": "आपके द्वारा अपलोड की गई इमेज",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube वीडियो के URL और उनके ट्रांसक्रिप्ट",
+      "customTextYouEnter": "आपके द्वारा दर्ज किया गया कस्टम टेक्स्ट",
+      "whoReceivesYourData": "आपका डेटा किसे मिलता है",
+      "howItSUsed": "इसका उपयोग कैसे किया जाता है",
+      "yourContentIsUsedSolelyTo": "आपके कंटेंट का उपयोग केवल आपके द्वारा मांगे गए जवाब, नोट, क्विज़ या फ़्लैशकार्ड्स बनाने के लिए किया जाता है। उनके API के माध्यम से प्रोसेस किए गए कंटेंट पर प्रत्येक प्रोवाइडर की अपनी डेटा उपयोग नीतियां लागू होती हैं। अधिक जानकारी के लिए हमारी प्राइवेसी पॉलिसी देखें।",
+      "iAgreeContinue": "मैं सहमत हूँ — आगे बढ़ें",
+      "noThanks": "रहने दें",
+      "whoReceivesBody": "आपका कंटेंट हमारे सुरक्षित बैकएंड सर्वर के ज़रिए <bold>Google (Gemini)</bold> (नोट्स, क्विज़, और फ़्लैशकार्ड जनरेशन; चैट रिस्पॉन्स; दस्तावेज़ और इमेज प्रोसेसिंग) और <bold>OpenAI</bold> (ऑडियो ट्रांसक्रिप्शन) को भेजा जाता है। आपके दस्तावेज़ों के अंशों को <bold>Google Vertex AI</bold> के साथ भी इंडेक्स किया जाता है ताकि चैट काम के हिस्से ढूंढ सके। लाइव मेडिकल सर्च का इस्तेमाल करते समय, NIH, CDC, MedlinePlus, WHO और Mayo Clinic जैसे भरोसेमंद स्रोतों से संदर्भ ढूंढने के लिए आपका सवाल <bold>Tavily</bold> और सार्वजनिक मेडिकल लिटरेचर डेटाबेस (जैसे PubMed, Europe PMC और Semantic Scholar) को भी भेजा जाता है। ये प्रोवाइडर आपके डेटा को केवल आपका जवाब तैयार करने के लिए प्रोसेस करते हैं — वे इसका इस्तेमाल अपने सामान्य-उद्देश्यीय AI मॉडल को ट्रेन करने के लिए नहीं करते हैं, और हम आपका डेटा किसी भी थर्ड पार्टी को नहीं बेचते हैं।"
+    },
+    "chatActionSheet": {
+      "unpinChat": "चैट अनपिन करें",
+      "pinChat": "चैट पिन करें",
+      "deleteChat": "चैट हटाएं"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "फ़्लैशकार्ड बनाएं",
+      "createFlashcards": "फ़्लैशकार्ड बनाएं",
+      "createFlashcardsFromToImproveYour": "याद रखने की क्षमता बढ़ाने के लिए \"{{noteTitle}}\" से फ़्लैशकार्ड बनाएं",
+      "createFlashcardsToImproveYourRetention": "याद रखने की क्षमता बेहतर करने के लिए फ़्लैशकार्ड बनाएं",
+      "howManyQuestions": "प्रश्नों की संख्या",
+      "generateFlashcards2": "फ़्लैशकार्ड बनाएं"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "चैट से बनाएं",
+      "selectFromOneOfYourRecent": "अपनी हाल की चैट में से चुनें",
+      "pdfOrDocument": "PDF या दस्तावेज़",
+      "createFromAudio": "ऑडियो से बनाएं",
+      "image": "इमेज",
+      "createFromCustomText": "कस्टम टेक्स्ट से बनाएं",
+      "created": "बनाया गया: {{day}}, {{time}}",
+      "createQuizFrom": "क्विज़ बनाएं इससे:",
+      "createFlashcardsFrom": "फ़्लैशकार्ड बनाएं इससे:",
+      "selectFromChat": "चैट से चुनें",
+      "noRecentChatsYet": "अभी कोई हालिया चैट नहीं है",
+      "quizFromPdf": "PDF या दस्तावेज़ से क्विज़ बनाएं",
+      "flashcardsFromPdf": "PDF या दस्तावेज़ से फ़्लैशकार्ड सेट बनाएं",
+      "quizFromAudio": "अपलोड किए गए ऑडियो से क्विज़ बनाएं",
+      "flashcardsFromAudio": "अपलोड किए गए ऑडियो से फ़्लैशकार्ड सेट बनाएं",
+      "quizFromImage": "किसी भी इमेज से क्विज़ बनाएं",
+      "flashcardsFromImage": "किसी भी इमेज से फ़्लैशकार्ड सेट बनाएं",
+      "quizFromText": "कैप्चर किए गए टेक्स्ट से क्विज़ बनाएं",
+      "flashcardsFromText": "कैप्चर किए गए टेक्स्ट से फ़्लैशकार्ड सेट बनाएं"
+    },
+    "createNote": {
+      "recordAudio": "ऑडियो रिकॉर्ड करें",
+      "generateANoteFromAnyRecorded": "रिकॉर्ड किए गए किसी भी ऑडियो से नोट बनाएं",
+      "uploadAudio": "ऑडियो अपलोड करें",
+      "createANoteFromAnyUploaded": "अपलोड किए गए किसी भी ऑडियो से नोट बनाएं",
+      "youtubeVideo": "YouTube वीडियो",
+      "createANoteFromAnyYoutube": "किसी भी YouTube वीडियो से नोट बनाएं",
+      "pdfOrDocument": "PDF या दस्तावेज़",
+      "createANoteFromPDFOr": "PDF या दस्तावेज़ से नोट बनाएं",
+      "customText": "कस्टम टेक्स्ट",
+      "createANoteFromCapturedText": "कैप्चर किए गए टेक्स्ट से नोट बनाएं",
+      "image": "इमेज",
+      "createANoteFromAnyImage": "किसी भी इमेज से नोट बनाएं",
+      "createNote": "नोट बनाएं"
+    },
+    "createQuiz": {
+      "generateQuiz": "क्विज़ जनरेट करें",
+      "createQuiz": "क्विज़ बनाएं",
+      "practiceByCreatingQuestionsThatHelp": "टॉपिक पर पकड़ मजबूत करने के लिए \"{{noteTitle}}\" से प्रश्न बनाकर अभ्यास करें",
+      "practiceYourNotesByCreatingQuestions": "टॉपिक पर पकड़ मजबूत करने के लिए अपने नोट्स से प्रश्न बनाकर अभ्यास करें",
+      "howManyQuestions": "प्रश्नों की संख्या",
+      "timeInMinutes": "समय (मिनटों में)"
+    },
+    "deleteNote": {
+      "deleteNote": "नोट हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई यह नोट हटाना चाहते हैं?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "सारांश इस रूप में एक्सपोर्ट करें",
+      "exportTranscriptAs": "ट्रांसक्रिप्ट इस रूप में एक्सपोर्ट करें",
+      "exportAs": "इस रूप में एक्सपोर्ट करें",
+      "exportSummary": "सारांश एक्सपोर्ट करें",
+      "exportTranscript": "ट्रांसक्रिप्ट एक्सपोर्ट करें"
+    },
+    "exportTypeStep": {
+      "exportNote": "नोट एक्सपोर्ट करें",
+      "exportSummary": "सारांश एक्सपोर्ट करें",
+      "exportTranscript": "ट्रांसक्रिप्ट एक्सपोर्ट करें"
+    },
+    "exportSettings": {
+      "export": "{{title}} एक्सपोर्ट करें",
+      "selectFormat": "फ़ॉर्मेट चुनें",
+      "includeAnswers": "उत्तर शामिल करें",
+      "answersExplanationsIncluded": "उत्तर और व्याख्याएं शामिल हैं",
+      "questionsOnly": "केवल प्रश्न",
+      "export2": "एक्सपोर्ट करें"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "आपका नोट तैयार है!",
+      "howDidWeDo": "हमारा काम कैसा रहा?",
+      "happy": "संतुष्ट",
+      "sad": "असंतुष्ट",
+      "maybeLater": "शायद बाद में",
+      "whatWentWrong": "क्या समस्या हुई?",
+      "yourFeedbackHelpsUsImprove": "आपकी प्रतिक्रिया हमें बेहतर बनाने में मदद करती है।",
+      "tellUsWhatCouldBeBetter": "बताएं कि क्या बेहतर हो सकता है...",
+      "submit": "सबमिट करें"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "कोई सामग्री उपलब्ध नहीं है",
+      "clickCardToFlip": "पलटने के लिए कार्ड पर टैप करें"
+    },
+    "flashcardExport": {
+      "exportFailed": "एक्सपोर्ट विफल रहा",
+      "unknownError": "अज्ञात त्रुटि",
+      "export": "{{setTitle}} एक्सपोर्ट करें",
+      "chooseWhatToExport": "चुनें कि क्या एक्सपोर्ट करना है",
+      "exportQuestions": "प्रश्न एक्सपोर्ट करें",
+      "exportAnswers": "उत्तर एक्सपोर्ट करें"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "फ्लैशकार्ड सेट हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई \"{{setTitle}}\" को हटाना चाहते हैं?",
+      "failedToDeleteFlashcardSet": "फ्लैशकार्ड सेट हटाने में विफल",
+      "flashcardHistory": "फ्लैशकार्ड इतिहास",
+      "cards": "कार्ड",
+      "reviewedMastered": "{{cardsReviewedCount}} दोहराए गए • {{percentage}}% याद हुए"
+    },
+    "folders": {
+      "items": "{{itemCount}} आइटम्स",
+      "enterYourFolderName": "फ़ोल्डर का नाम दर्ज करें",
+      "yourFolderName": "फ़ोल्डर का नाम",
+      "createFolder": "फ़ोल्डर बनाएं",
+      "folders": "फ़ोल्डर",
+      "addFolder": "फ़ोल्डर जोड़ें",
+      "noFoldersToDisplay": "दिखाने के लिए कोई फ़ोल्डर नहीं है",
+      "clickTheButtonAboveToCreate": "अपने नोट्स के लिए फ़ोल्डर बनाने के लिए ऊपर दिए गए बटन पर टैप करें",
+      "allFolders": "सभी फ़ोल्डर",
+      "items2": "{{totalItems}} आइटम्स"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "मेडिकल रिसर्च फ़िल्टर्स",
+      "howrecentdoyouwantthe": "सोर्स कितना नया होना चाहिए",
+      "from": "से",
+      "whatkindofsourcedoyou": "आपको किस प्रकार का सोर्स चाहिए",
+      "textbooks": "पाठ्यपुस्तकें (Textbooks)",
+      "clinicalGuidelines": "क्लिनिकल गाइडलाइन्स",
+      "scientificJournalArticles": "वैज्ञानिक जर्नल आर्टिकल्स",
+      "onlywiththisjournalarticles": "केवल इन जर्नल आर्टिकल्स के साथ",
+      "metaAnalyses": "मेटा-एनालिसिस (Meta-analyses)",
+      "reviewArticles": "रिव्यू आर्टिकल्स",
+      "clinicalTrials": "क्लिनिकल ट्रायल्स",
+      "fromYear": "इस वर्ष से",
+      "toYear": "इस वर्ष तक"
+    },
+    "noteOptions": {
+      "noteOptions": "नोट विकल्प",
+      "editNote": "नोट एडिट करें",
+      "reTranscribe": "फिर से ट्रांसक्राइब करें",
+      "chatWithNote": "नोट के साथ चैट करें",
+      "exportNote": "नोट एक्सपोर्ट करें",
+      "moveToFolder": "फ़ोल्डर में ले जाएं",
+      "deleteNote": "नोट हटाएं"
+    },
+    "onboardingTooltip": {
+      "skip": "छोड़ें"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "क्विज़ हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई \"{{quizTitle}}\" को हटाना चाहते हैं?",
+      "failedToDeleteQuiz": "क्विज़ हटाने में विफल",
+      "quizHistory": "क्विज़ इतिहास",
+      "questions": "प्रश्न",
+      "correct": "{{correctAnswers}} सही"
+    },
+    "referral": {
+      "copied": "कॉपी हो गया!",
+      "yourReferralCodeHasBeenCopied": "आपका रेफरल कोड क्लिपबोर्ड पर कॉपी कर लिया गया है।",
+      "joinMeOnClinicalFactUse": "Clinical Fact पर मेरे साथ जुड़ें! मेरा कोड {{referralCode}} इस्तेमाल करें – {{appUrl}}",
+      "joined": "{{joinedDate}} को शामिल हुए",
+      "referralCode": "रेफरल कोड",
+      "yourReferralCode": "आपका रेफरल कोड",
+      "shareWithFriendsToEarnRewards": "रिवॉर्ड पाने के लिए दोस्तों के साथ शेयर करें",
+      "share": "शेयर करें",
+      "copyCode": "कोड कॉपी करें",
+      "referredFriends": "रेफर किए गए दोस्त",
+      "noReferralsYetShareYourCode": "अभी तक कोई रेफरल नहीं। शुरू करने के लिए अपना कोड शेयर करें!",
+      "loadMore": "और लोड करें",
+      "howItWorks": "यह कैसे काम करता है",
+      "friendsUseYourCodeDuringSignup": "• दोस्त साइनअप के दौरान आपके कोड का उपयोग करें",
+      "youBothEarnRewardsWhenThey": "• उनके जुड़ने पर आप दोनों को रिवॉर्ड मिलेंगे",
+      "friendsReferredCount": "रेफर किए गए दोस्त: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "टेक्स्ट निकाला जा रहा है...",
+      "transcribingAudio": "ऑडियो ट्रांसक्राइब किया जा रहा है...",
+      "processingPDF": "PDF प्रोसेस की जा रही है...",
+      "settingUpChat": "चैट सेट की जा रही है...",
+      "uploadFailed": "अपलोड विफल रहा",
+      "failedToUploadFilePleaseTry": "फ़ाइल अपलोड करने में विफल। कृपया पुन: प्रयास करें।",
+      "yourFileIsReadyForChatting": "आपकी फ़ाइल चैट के लिए तैयार है!",
+      "uploadingYourFileToTheServer": "आपकी फ़ाइल सर्वर पर अपलोड की जा रही है...",
+      "extractingTextFromYourImage": "आपकी इमेज से टेक्स्ट निकाला जा रहा है...",
+      "transcribingYourAudio": "आपके ऑडियो को ट्रांसक्राइब किया जा रहा है...",
+      "extractingTextFromYourPDF": "आपकी PDF से टेक्स्ट निकाला जा रहा है...",
+      "creatingYourChatSession": "आपका चैट सेशन शुरू किया जा रहा है...",
+      "pleaseWait": "कृपया प्रतीक्षा करें...",
+      "uploadFile": "फ़ाइल अपलोड करें",
+      "processContent": "कंटेंट प्रोसेस करें",
+      "createChat": "चैट बनाएं"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ देखें",
+      "export": "📤 एक्सपोर्ट करें",
+      "delete": "🗑️ हटाएं"
+    },
+    "poweredByFooter": {
+      "poweredBy": "संचालित द्वारा"
+    },
+    "exportFormat": {
+      "txtFile": "TXT फ़ाइल",
+      "pdfFile": "PDF फ़ाइल",
+      "docFile": "Doc फ़ाइल"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "नोट्स लोड करने में विफल",
+      "failedToFetchFolders": "फ़ोल्डर्स लोड करने में विफल",
+      "failedToFetchNote": "नोट लोड करने में विफल",
+      "failedToDeleteNote": "नोट हटाने में विफल",
+      "failedToCreateFolder": "फ़ोल्डर बनाने में विफल",
+      "failedToDeleteFolder": "फ़ोल्डर हटाने में विफल"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "चैट हटाने में विफल"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "फ़्लैशकार्ड सेट सफलतापूर्वक एक्सपोर्ट हो गया!",
+      "failedToExportFlashcardSet": "फ़्लैशकार्ड सेट एक्सपोर्ट करने में विफल।"
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "क्विज़ सफलतापूर्वक एक्सपोर्ट हो गई!",
+      "failedToExportQuiz": "क्विज़ एक्सपोर्ट करने में विफल।"
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "बिना शीर्षक के फ़्लैशकार्ड",
+      "failedToLoadFlashcards": "फ़्लैशकार्ड लोड करने में विफल",
+      "failedToSyncFlashcardSet": "फ़्लैशकार्ड सेट सिंक करने में विफल",
+      "failedToSyncCardUpdate": "कार्ड अपडेट सिंक करने में विफल"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "क्विज़"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "{{day}}, {{time}} को बनाया गया",
+      "youVeReachedYour3Pin": "आपकी 3 पिन की सीमा पूरी हो चुकी है",
+      "failedToUpdatePin": "पिन अपडेट करने में विफल",
+      "noChatsYet": "अभी कोई चैट नहीं है",
+      "startAChatToGetAnswers": "प्रामाणिक स्रोतों पर आधारित उत्तर पाने के लिए चैट शुरू करें।",
+      "createChat": "+ चैट बनाएं"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "फ़्लैशकार्ड हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई \"{{sourceTitle}}\" को हटाना चाहते हैं?",
+      "failedToDeleteFlashcards": "फ़्लैशकार्ड हटाए नहीं जा सके",
+      "sets": "{{setCount}} सेट्स",
+      "flashcards": "फ़्लैशकार्ड्स",
+      "createFlashcards": "फ़्लैशकार्ड बनाएं",
+      "searchFlashcards": "फ़्लैशकार्ड खोजें...",
+      "noFlashcardsYet": "अभी कोई फ़्लैशकार्ड नहीं है",
+      "createAFlashcardSetFromA": "शुरू करने के लिए किसी नोट से फ़्लैशकार्ड सेट बनाएं",
+      "createSet": "+ सेट बनाएं",
+      "flashcardOptions": "फ़्लैशकार्ड विकल्प",
+      "view": "देखें"
+    },
+    "folder": {
+      "deleteFolder": "फ़ोल्डर हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई \"{{name}}\" को हटाना चाहते हैं? इसके अंदर के नोट्स मुख्य सूची में स्थानांतरित कर दिए जाएंगे।",
+      "failedToDeleteFolder": "फ़ोल्डर हटाया नहीं जा सका",
+      "error": "त्रुटि: {{message}}",
+      "noFoldersYetCreateOne": "अभी कोई फ़ोल्डर नहीं है। एक नया बनाएं!",
+      "folders": "फ़ोल्डर्स"
+    },
+    "home": {
+      "created": "{{day}}, {{time}} को बनाया गया",
+      "failedToUpdateLanguage": "भाषा अपडेट करने में विफल",
+      "notEnoughContentYet": "अभी पर्याप्त सामग्री नहीं है",
+      "chatABitMoreBeforeGenerating": "क्विज़ बनाने से पहले थोड़ी और चैट करें (कम से कम 100 वर्ण)।",
+      "chatABitMoreBeforeGenerating2": "फ़्लैशकार्ड बनाने से पहले थोड़ी और चैट करें (कम से कम 100 वर्ण)।",
+      "failedToGenerateFlashcards": "फ़्लैशकार्ड जनरेट करने में विफल",
+      "upgradeToPro": "PRO में अपग्रेड करें",
+      "get80DiscountWhenYouUpgrade": "अपना खाता अपग्रेड करने पर 80% की छूट पाएं",
+      "unlockPRO": "PRO अनलॉक करें",
+      "noMedicalChats": "कोई मेडिकल चैट नहीं",
+      "youHaveNotCreatedAnyMedical": "आपने कोई मेडिकल चैट नहीं बनाई है, कृपया नई चैट शुरू करें और प्रामाणिक स्रोत प्राप्त करें",
+      "talkToClinicalfactAI": "Clinical Fact AI से बात करें",
+      "jumpInWhereYouStopped": "वहीं से जारी रखें जहां छोड़ा था",
+      "practiceQuiz": "अभ्यास क्विज़",
+      "makeFlashcards": "फ़्लैशकार्ड बनाएं",
+      "continueChatWithNote": "नोट के साथ चैट जारी रखें",
+      "continueChat": "चैट जारी रखें",
+      "recentChats": "हाल की चैट्स",
+      "chatOptions": "चैट विकल्प"
+    },
+    "library": {
+      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "आप अभी ऑफ़लाइन हैं। यह क्रिया करने के लिए कृपया इंटरनेट से जुड़ें।",
+      "failedToDeleteNote": "नोट हटाया नहीं जा सका",
+      "failedToMoveNote": "नोट स्थानांतरित नहीं किया जा सका",
+      "deleteFolder": "फ़ोल्डर हटाएं?",
+      "areYouSureNotesInsideWill": "क्या आप सुनिश्चित हैं? अंदर के नोट्स हटाए नहीं जाएंगे, बस 'सभी नोट्स' में ले जाए जाएंगे।",
+      "failedToDeleteFolder": "फ़ोल्डर हटाया नहीं जा सका",
+      "library": "लाइब्रेरी",
+      "addFolder": "फ़ोल्डर जोड़ें",
+      "searchForANoteFolder": "नोट / फ़ोल्डर खोजें",
+      "yourFolders": "आपके फ़ोल्डर्स",
+      "noFoldersToDisplay": "दिखाने के लिए कोई फ़ोल्डर नहीं है",
+      "tapAddFolderToCreateA": "अपने नोट्स व्यवस्थित करने के लिए \"+ फ़ोल्डर जोड़ें\" पर टैप करें",
+      "allNotes": "सभी नोट्स",
+      "items": "{{allNotesTotal}} आइटम्स",
+      "items2": "{{itemCount}} आइटम्स",
+      "yourNotes": "आपके नोट्स",
+      "untitledNote": "शीर्षकहीन नोट",
+      "noResultsFor": "\"{{searchQuery}}\" के लिए कोई परिणाम नहीं मिला",
+      "noNotesInThisFolder": "इस फ़ोल्डर में कोई नोट नहीं है",
+      "noNotesToDisplay": "दिखाने के लिए कोई नोट्स नहीं हैं",
+      "tryADifferentSearchTerm": "कोई अन्य शब्द खोजें",
+      "moveNotesToThisFolderTo": "नोट्स को यहाँ देखने के लिए इस फ़ोल्डर में ले जाएँ",
+      "clickBelowToGenerateYourNote": "Clinical Fact के साथ अपना नोट बनाने के लिए नीचे क्लिक करें",
+      "filterByType": "प्रकार के अनुसार फ़िल्टर करें",
+      "audio": "ऑडियो",
+      "text2": "टेक्स्ट",
+      "image": "इमेज",
+      "clearFilter": "फ़िल्टर हटाएं"
+    },
+    "profile": {
+      "permissionRequired": "अनुमति आवश्यक है",
+      "pleaseAllowAccessToYourPhoto": "प्रोफ़ाइल फ़ोटो सेट करने के लिए कृपया अपनी फ़ोटो लाइब्रेरी का एक्सेस दें।",
+      "uploadFailed": "अपलोड विफल रहा",
+      "couldNotUpdateProfilePicture": "प्रोफ़ाइल फ़ोटो अपडेट नहीं की जा सकी।",
+      "failedToUploadProfilePicture": "प्रोफ़ाइल फ़ोटो अपलोड करने में विफल।",
+      "checkOutClinicalFactAIPowered": "Clinical Fact आज़माएं – AI-संचालित स्टडी नोट्स! {{url}}",
+      "proSubscriber": "PRO सदस्य",
+      "subscriptionExpired": "सब्सक्रिप्शन समाप्त हो गया",
+      "freeSubscriber": "निःशुल्क सदस्य",
+      "tapToManageIPhoneSettingsApple": "प्रबंधित करने के लिए टैप करें · iPhone सेटिंग्स → Apple ID → सब्सक्रिप्शन",
+      "tapToManagePlayStoreSubscriptions": "प्रबंधित करने के लिए टैप करें · Play Store → सब्सक्रिप्शन",
+      "tapToRenewYourSubscription": "अपना सब्सक्रिप्शन रिन्यू करने के लिए टैप करें",
+      "tapToUpgradeToPro": "PRO में अपग्रेड करने के लिए टैप करें",
+      "referralCode": "रेफ़रल कोड",
+      "areYouSureYouWantTo": "क्या आप वाकई अपने खाते से साइन आउट करना चाहते हैं?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "क्विज़ हटाएं",
+      "areYouSureYouWantTo": "क्या आप वाकई \"{{sourceTitle}}\" को हटाना चाहते हैं?",
+      "failedToDeleteQuiz": "क्विज़ हटाने में विफल",
+      "correct": "{{correct}}/{{total}} सही",
+      "attempts": "{{attempts}} प्रयास",
+      "quiz": "क्विज़",
+      "createQuiz": "क्विज़ बनाएं",
+      "searchQuizzes": "क्विज़ खोजें...",
+      "noQuizzesYet": "अभी कोई क्विज़ नहीं है",
+      "createAQuizFromANote": "शुरू करने के लिए किसी नोट से क्विज़ बनाएं",
+      "createQuiz2": "+ क्विज़ बनाएं",
+      "quizOptions": "क्विज़ विकल्प",
+      "view": "देखें"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "अपग्रेड उपलब्ध नहीं है",
+      "weCouldnTOpenTheUpgrade": "हम अभी अपग्रेड स्क्रीन नहीं खोल सके। कृपया अपना कनेक्शन जांचें और पुनः प्रयास करें।"
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "सर्वर से नॉन-JSON रिस्पॉन्स मिला ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "नेटवर्क त्रुटि। कृपया अपना इंटरनेट कनेक्शन जांचें।",
+      "connectionErrorPleaseTryAgain": "कनेक्शन त्रुटि। कृपया पुनः प्रयास करें।"
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "फ़ाइल एक्सपोर्ट हो गई: {{filename}}",
+      "exportFailed": "एक्सपोर्ट विफल रहा",
+      "exportFormat": "एक्सपोर्ट फ़ॉर्मैट",
+      "chooseFormat": "फ़ॉर्मैट चुनें",
+      "text": "टेक्स्ट"
+    },
+    "formatDate": {
+      "justNow": "अभी-अभी",
+      "minAgo": "{{diffMin}} मिनट पहले",
+      "hrAgo": "{{diffHr}} घंटे पहले",
+      "dAgo": "{{diffDay}} दिन पहले",
+      "created": "{{day}}, {{time}} को बनाया गया"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "OTP भेजने में विफल",
+      "invalidOTP": "अमान्य OTP",
+      "failedToVerifyOTP": "OTP सत्यापित करने में विफल",
+      "googleAuthenticationFailed": "Google प्रमाणीकरण विफल रहा",
+      "appleAuthenticationFailed": "Apple प्रमाणीकरण विफल रहा",
+      "failedToCompleteSignup": "साइन अप पूरा करने में विफल",
+      "failedToSkipSignup": "साइन अप छोड़ने में विफल"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "चैट्स",
+      "description": "किसी भी नोट्स, दस्तावेज़ या PDF के साथ एक ही जगह चैट करें"
+    },
+    "profileWelcome": {
+      "heading": "आपकी प्रोफाइल में आपका स्वागत है",
+      "description": "यह आपकी प्रोफाइल है, इसमें बदलाव करने और सब्सक्रिप्शन स्थिति देखने के लिए यहाँ टैप करें"
+    },
+    "createNotes": {
+      "heading": "नोट्स बनाएँ",
+      "description": "किसी भी माध्यम से नोट्स बनाएँ: रिकॉर्डिंग, ऑडियो, वीडियो, इमेज, टेक्स्ट और YouTube लिंक"
+    },
+    "changeLanguage": {
+      "heading": "भाषा बदलें",
+      "description": "यहाँ से ऐप की भाषा अपनी पसंदीदा भाषा में बदलें"
+    },
+    "manageHome": {
+      "heading": "होम मैनेज करें",
+      "description": "अपने बनाए गए सभी नोट्स देखें और अपनी सारी एक्टिविटी एक ही जगह पाएँ"
+    },
+    "yourLibrary": {
+      "heading": "आपकी लाइब्रेरी",
+      "description": "अपने सभी नोट्स मैनेज करें, उनके लिए फ़ोल्डर बनाएँ और भी बहुत कुछ"
+    },
+    "yourProfile": {
+      "heading": "आपकी प्रोफाइल",
+      "description": "अपनी प्रोफाइल से जुड़ी हर जानकारी देखें और यहाँ से सेटिंग्स में बदलाव करें"
+    }
   }
 }

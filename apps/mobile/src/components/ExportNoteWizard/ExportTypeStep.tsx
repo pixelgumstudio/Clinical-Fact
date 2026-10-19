@@ -17,6 +17,7 @@ import {
   ChevronRightIcon,
 } from '@clinicalfact/design-system';
 import type { ExportType } from './ExportNoteWizardModal';
+import { useTranslation } from 'react-i18next';
 
 interface ExportTypeStepProps {
   visible: boolean;
@@ -43,6 +44,7 @@ export const ExportTypeStep: React.FC<ExportTypeStepProps> = ({
   onClose,
   onSelectExportType,
 }) => {
+  const { t } = useTranslation();
   return (
     <Modal
       visible={visible}
@@ -59,7 +61,7 @@ export const ExportTypeStep: React.FC<ExportTypeStepProps> = ({
 
               {/* Header */}
               <View style={styles.header}>
-                <Text style={styles.headerTitle}>Export note</Text>
+                <Text style={styles.headerTitle}>{t('components.exportTypeStep.exportNote')}</Text>
                 <TouchableOpacity
                   onPress={onClose}
                   style={styles.closeButton}
@@ -73,12 +75,12 @@ export const ExportTypeStep: React.FC<ExportTypeStepProps> = ({
               <View style={styles.optionsList}>
                 <ExportOption
                   icon={<ExportSummaryIcon size={40} />}
-                  label="Export summary"
+                  label={t('components.exportTypeStep.exportSummary')}
                   onPress={() => onSelectExportType('summary')}
                 />
                 <ExportOption
                   icon={<ExportTranscriptIcon size={40} />}
-                  label="Export Transcript"
+                  label={t('components.exportTypeStep.exportTranscript')}
                   onPress={() => onSelectExportType('transcript')}
                 />
               </View>

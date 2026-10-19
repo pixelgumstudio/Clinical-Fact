@@ -14,7 +14,9 @@
     "next": "ถัดไป",
     "done": "เสร็จสิ้น",
     "search": "ค้นหา",
-    "filter": "กรอง"
+    "filter": "กรอง",
+    "ok": "ตกลง",
+    "info": "ข้อมูล"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "อัปเกรดแผน",
     "everyWeek": "ทุกสัปดาห์",
     "everyMonth": "ทุกเดือน",
-    "everyYear": "ทุกปี"
+    "everyYear": "ทุกปี",
+    "expired": "หมดอายุ",
+    "reportBug": "รายงานปัญหา",
+    "active": "ใช้งานอยู่",
+    "trial": "ทดลองใช้"
   },
   "auth": {
-    "welcome": "ยินดีต้อนรับสู่ Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "ลงชื่อเข้าใช้ด้วย Google ไม่สำเร็จ",
+      "failedToAuthenticateWithServer": "ยืนยันตัวตนกับเซิร์ฟเวอร์ไม่สำเร็จ",
+      "googleSignInIsOnlyAvailable": "การลงชื่อเข้าใช้ด้วย Google ใช้ได้เฉพาะบนแอปเท่านั้น โปรดยืนยันตัวตนด้วยอีเมลหรือดาวน์โหลดแอป",
+      "code": "{{message}} (รหัส: {{code}})"
+    },
     "getStarted": "เริ่มต้นใช้งาน",
     "signIn": "เข้าสู่ระบบ",
     "signUp": "สมัครสมาชิก",
@@ -83,12 +94,316 @@
     "didntGetCode": "ไม่ได้รับรหัส?",
     "resendCode": "ส่งรหัสอีกครั้ง",
     "resendIn": "ส่งอีกครั้งใน",
-    "enterVerificationCode": "กรุณาป้อนรหัสยืนยันให้ครบถ้วน"
+    "enterVerificationCode": "กรุณาป้อนรหัสยืนยันให้ครบถ้วน",
+    "languageSelect": {
+      "title": "เลือกภาษาของคุณ",
+      "subtitle": "เลือกภาษาที่คุณต้องการใช้งานในแอป คุณสามารถเปลี่ยนได้ในภายหลังที่หน้าโปรไฟล์",
+      "searchPlaceholder": "ค้นหาภาษา",
+      "noResults": "ไม่พบภาษา"
+    },
+    "buttons": {
+      "continue": "ดำเนินการต่อ",
+      "continueWithEmail": "ดำเนินการต่อด้วยอีเมล",
+      "continueWithGoogle": "ดำเนินการต่อด้วย Google",
+      "continueWithApple": "ดำเนินการต่อด้วย Apple",
+      "skip": "ข้าม",
+      "verify": "ยืนยันแล้ว!",
+      "next": "ถัดไป",
+      "tryNow": "ทดลองใช้ Clinical Fact ฟรีทันที"
+    },
+    "labels": {
+      "firstName": "ชื่อจริง",
+      "lastName": "นามสกุล",
+      "username": "@ชื่อผู้ใช้",
+      "referralCode": "รหัสแนะนำ",
+      "nameScreenTitle": "ชื่อและนามสกุลของคุณ",
+      "byAgree": "การดำเนินการต่อแสดงว่าคุณยอมรับ",
+      "termsAndConditions": "ข้อกำหนดและเงื่อนไข",
+      "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+      "and": "และ"
+    },
+    "placeholders": {
+      "enterEmail": "กรอกที่อยู่อีเมลของคุณ",
+      "firstName": "ชื่อจริง",
+      "lastName": "นามสกุล",
+      "username": "@ชื่อผู้ใช้",
+      "referralCode": "เช่น JOHN หรือ TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "โปรดกรอกที่อยู่อีเมลที่ถูกต้อง",
+      "emailRequired": "โปรดกรอกที่อยู่อีเมลของคุณ",
+      "firstLastNameRequired": "โปรดกรอกทั้งชื่อและนามสกุลของคุณ",
+      "usernameRequired": "โปรดกรอกชื่อผู้ใช้",
+      "usernameLength": "ชื่อผู้ใช้ต้องมีความยาว 3-20 ตัวอักษร (ใช้อักษร ตัวเลข และ _ เท่านั้น)",
+      "usernameTaken": "ชื่อผู้ใช้นี้ถูกใช้งานแล้ว โปรดลองใช้ชื่ออื่น",
+      "usernameCheckFailed": "ตรวจสอบชื่อผู้ใช้ไม่สำเร็จ",
+      "usernameError": "เกิดข้อผิดพลาดในการตรวจสอบชื่อผู้ใช้ โปรดตรวจสอบการเชื่อมต่อของคุณ",
+      "invalidOTP": "รหัสไม่ถูกต้อง โปรดตรวจสอบและลองอีกครั้ง",
+      "otpExpired": "รหัสหมดอายุแล้ว โปรดขอรหัสใหม่",
+      "otpRequired": "โปรดกรอกรหัสยืนยันให้ครบถ้วน",
+      "referralNotFound": "ไม่พบรหัสแนะนำ โปรดตรวจสอบตัวสะกดและลองอีกครั้ง",
+      "referralValidateFailed": "ตรวจสอบรหัสไม่สำเร็จ โปรดลองอีกครั้ง",
+      "referralApplyFailed": "ใช้รหัสแนะนำไม่สำเร็จ โปรดลองอีกครั้ง",
+      "codeSendFailed": "ส่งรหัสยืนยันไม่สำเร็จ โปรดลองอีกครั้ง",
+      "resendCodeFailed": "ส่งรหัสอีกครั้งไม่สำเร็จ โปรดลองอีกครั้ง",
+      "signInFailed": "เข้าสู่ระบบไม่สำเร็จ",
+      "googleSignInFailed": "เข้าสู่ระบบด้วย Google ไม่สำเร็จ",
+      "googleTokenFailed": "ประมวลผลโทเคน Google ไม่สำเร็จ",
+      "googleAccessTokenFailed": "รับโทเคนการเข้าถึงไม่สำเร็จ โปรดลองอีกครั้ง",
+      "authTokenFailed": "รับโทเคนยืนยันตัวตนไม่สำเร็จ โปรดลองอีกครั้ง",
+      "googleStartFailed": "เริ่มต้นการเข้าสู่ระบบด้วย Google ไม่สำเร็จ โปรดลองอีกครั้ง",
+      "setupRequired": "จำเป็นต้องตั้งค่า",
+      "googleOAuthMissing": "การเข้าสู่ระบบด้วย Google ต้องใช้ OAuth Client IDs\\n\\nโปรดเพิ่มข้อมูลรับรองลงในไฟล์ .env ของคุณ",
+      "youCanStillUseEmail": "คุณยังคงสามารถเลือก \"ดำเนินการต่อด้วยอีเมล\" ได้",
+      "appleSignInFailed": "เข้าสู่ระบบด้วย Apple ไม่สำเร็จ",
+      "appleTokenFailed": "ประมวลผลโทเคน Apple ไม่สำเร็จ",
+      "appleIosOnly": "การเข้าสู่ระบบด้วย Apple ใช้งานได้บน iOS เท่านั้น"
+    },
+    "messages": {
+      "signingIn": "กำลังเข้าสู่ระบบ...",
+      "codeValid": "✓ รหัสถูกต้อง",
+      "signupFailed": "ลงทะเบียนไม่สำเร็จ",
+      "setupFailed": "ตั้งค่าไม่สำเร็จ โปรดลองอีกครั้ง"
+    },
+    "welcomeScreen": {
+      "title": "Clinic Fact: สรุปโน้ตที่ชาญฉลาดกว่า เริ่มต้นที่นี่",
+      "tagline": "เปลี่ยนทุกเนื้อหาให้เป็นสรุปโน้ตที่สมบูรณ์แบบ",
+      "description": "แปลงเสียง เอกสาร หรือวิดีโอเป็นโน้ตที่ค้นหาง่ายและชัดเจน พร้อมสร้างควิซ แฟลชการ์ด และบทสรุปได้ทันที",
+      "createAccountTitle": "สร้างบัญชี",
+      "orSignUpWith": "หรือลงทะเบียนด้วย",
+      "signUpWithEmail": "ลงทะเบียนด้วยอีเมล",
+      "signInWithEmail": "เข้าสู่ระบบด้วยอีเมล",
+      "alreadyHaveAccount": "มีบัญชีอยู่แล้ว? ",
+      "dontHaveAccount": "ยังไม่มีบัญชี? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "ถามได้ทุกเรื่องการแพทย์ รับคำตอบตาม Clinical Fact",
+        "description": "ถามคำถามทางการแพทย์ได้ทุกข้อ พร้อมรับคำตอบที่มีการอ้างอิงแหล่งข้อมูลจริงจาก PubMed แนวทางเวชปฏิบัติ และเอกสารทางการแพทย์ที่เชื่อถือได้"
+      },
+      "slide2": {
+        "headline": "ทุกคำตอบ มีแหล่งอ้างอิงรองรับ",
+        "description": "ไม่เดา ไม่แต่งข้อมูล ทุกคำตอบเชื่อมโยงไปยังงานวิจัยทางการแพทย์จริงที่ตรวจสอบได้"
+      },
+      "slide3": {
+        "headline": "เรียนอย่างชาญฉลาด สอบผ่านทุกการสอบทางการแพทย์",
+        "description": "เปลี่ยนทุกคำถามหรือไฟล์ที่อัปโหลดเป็นควิซหรือชุดแฟลชการ์ดได้ในไม่กี่วินาที พร้อมฝึกฝนจากสิ่งที่คุณกำลังเรียนได้ทันที"
+      }
+    },
+    "otp": {
+      "title": "ยืนยันที่อยู่อีเมลของคุณ",
+      "subtitle": "โปรดป้อนรหัส OTP ที่เราส่งไปยังที่อยู่อีเมลของคุณ"
+    },
+    "professionalDeclaration": {
+      "title": "คำประกาศทางวิชาชีพ",
+      "subtitle": "Clinical Fact คือเครื่องมือสืบค้นวรรณกรรมเพื่อการศึกษา",
+      "disclaimerIntro": "Clinical Fact เป็นเครื่องมือให้ข้อมูลที่ทำงานด้วย AI ซึ่งออกแบบมาเพื่อสนับสนุนนักศึกษาพยาบาล แพทย์ และวิทยาศาสตร์สุขภาพในการเข้าถึงความรู้ทางการแพทย์ วรรณกรรมวิจัย และสื่อการเรียนรู้ แอปพลิเคชันนี้ไม่ได้ให้การวินิจฉัยโรค คำแนะนำในการรักษา คำสั่งทางคลินิก หรือคำแนะนำทางการแพทย์สำหรับผู้ป่วยเฉพาะราย และต้องไม่นำไปใช้เป็นเกณฑ์ในการดูแลผู้ป่วยโดยตรงหรือการตัดสินใจทางคลินิก",
+      "disclaimerHeading": "Clinical Fact สร้างคำตอบอย่างไร:",
+      "disclaimerBody": "Clinical Fact ดึงข้อมูลโดยตรงจากแหล่งข้อมูลทางการแพทย์และวิทยาศาสตร์ที่เป็นที่ยอมรับ รวมถึง PubMed, Semantic Scholar และเอกสารกำกับยาอย่างเป็นทางการของ FDA พร้อมใช้ AI สรุปและอธิบายเนื้อหาดังกล่าวด้วยภาษาที่เข้าใจง่าย ทุกคำตอบสร้างขึ้นจากแหล่งข้อมูลที่สืบค้นได้สำหรับคำถามนั้นๆ เท่านั้น และมีการระบุแหล่งอ้างอิงที่เชื่อมโยงไปยังต้นฉบับเพื่อให้คุณตรวจสอบได้ด้วยตนเอง Clinical Fact ไม่สร้างข้อเท็จจริงทางการแพทย์ขึ้นมาเองจากความจำหรือกุแหล่งอ้างอิงขึ้นมา\n\nClinical Fact ไม่ใช่เครื่องมือวินิจฉัยโรค แพลตฟอร์มการรักษา อุปกรณ์ทางการแพทย์ หรือสิ่งทดแทนการใช้วิจารณญาณทางการแพทย์ของผู้ประกอบวิชาชีพ การสอนจากผู้ได้รับใบอนุญาต หรือหลักสูตรของสถาบันของคุณ ข้อมูลใดๆ ที่สร้างโดยแอป รวมถึงคำตอบ แหล่งอ้างอิง ควิซ และแฟลชการ์ด มีไว้เพื่อการศึกษาและการเรียนรู้ทั่วไปเท่านั้น และผู้ใช้ต้องตรวจสอบความถูกต้องด้วยตนเองก่อนนำไปใช้อ้างอิงในบริบททางวิชาการ คลินิก หรือวิชาชีพใดๆ\nClinical Fact ไม่รับประกันความสมบูรณ์ ความถูกต้อง หรือความทันสมัยทางคลินิกของข้อมูลใดๆ ที่ให้ไว้ ความรู้ทางการแพทย์มีการพัฒนาอย่างต่อเนื่อง โปรดตรวจสอบข้อมูลสำคัญร่วมกับอาจารย์ผู้สอน ผู้ควบคุมดูแลทางคลินิก และแหล่งข้อมูลปฐมภูมิที่เป็นปัจจุบันเสมอ\nเมื่อคุณอัปโหลดเอกสาร โน้ต หรือไฟล์บันทึกเสียงของคุณเอง Clinical Fact จะสร้างคำตอบ บทสรุป ควิซ และแฟลชการ์ดจากเนื้อหาที่คุณอัปโหลดเท่านั้น ไม่รวมแหล่งข้อมูลภายนอก เว้นแต่จะมีการระบุแหล่งข้อมูลภายนอกควบคู่กันไว้อย่างชัดเจน\n\nClinical Fact ไม่ได้ตรวจสอบ รับรอง หรือยืนยันตัวตน สถานะการศึกษา หรือคุณวุฒิของผู้ใช้ แอปนี้ไม่ได้มีไว้สำหรับใช้ในสถานการณ์ฉุกเฉินหรือใช้เพื่อการตัดสินใจทางคลินิกแบบเรียลไทม์\nการดำเนินการต่อแสดงว่าคุณเข้าใจข้อกำหนดเหล่านี้และตกลงที่จะใช้ Clinical Fact เพื่อเป็นเพียงตัวช่วยในการศึกษาและค้นคว้าอ้างอิงเท่านั้น",
+      "checkboxLabel": "ฉันเข้าใจว่าแอปนี้มีไว้เพื่อใช้อ้างอิงทางการศึกษาเท่านั้น และไม่ได้ให้คำแนะนำทางการแพทย์",
+      "acceptButton": "ยอมรับและดำเนินการต่อ"
+    },
+    "survey": {
+      "role": "ข้อใดอธิบายตัวตนของคุณได้ดีที่สุด, {{firstName}}?",
+      "currentMethod": "ปัจจุบันคุณมักค้นหาคำตอบสำหรับคำถามทางการแพทย์ด้วยวิธีใด?",
+      "timeDrain": "สิ่งใดที่ทำให้คุณเสียเวลามากที่สุด?",
+      "appExpectation": "คุณคาดหวังอะไรจากแอปทางการแพทย์ Clinical Fact ของเรา?",
+      "aiToolsUsed": "ที่ผ่านมา คุณเคยใช้เครื่องมือ AI ใดบ้างสำหรับการค้นคว้าทางการแพทย์?",
+      "aiToolIssue": "เครื่องมือเหล่านั้นมีปัญหาอย่างไรบ้าง?",
+      "aiTrustLevel": "คุณกังวลบ่อยแค่ไหนว่าคำตอบจาก AI อาจไม่ถูกต้อง?",
+      "biggestNeed": "ตอนนี้คุณต้องการอะไรมากที่สุด?",
+      "studyTimePerWeek": "ในแต่ละสัปดาห์ คุณมีเวลาเรียนหรืออ่านหนังสือมากเท่าใด?",
+      "comingUp": "สิ่งสำคัญที่กำลังจะมาถึงสำหรับคุณคืออะไร?",
+      "referralSource": "คุณรู้จัก Clinical Fact จากที่ไหน?"
+    },
+    "onboarding": {
+      "username": "มาตั้งชื่อผู้ใช้ของคุณกัน",
+      "usernameSubtitle": "ช่วยให้บัญชีของคุณมีความเป็นตัวคุณมากยิ่งขึ้น",
+      "goals": "คุณต้องการให้ Clinical Fact\\nช่วยในเรื่องใด",
+      "goalsSubtitle": "เลือกข้อที่ตรงกับคุณทั้งหมด เราจะปรับแต่งประสบการณ์ให้เหมาะกับคุณ",
+      "contentType": "คุณมักใช้เนื้อหา\\nประเภทใดมากที่สุด",
+      "contentTypeSubtitle": "เลือกข้อที่ตรงกับคุณทั้งหมด เพื่อช่วยเราปรับแต่งประสบการณ์ให้เหมาะกับคุณ",
+      "reviewStyle": "คุณชอบทบทวน\\nสิ่งที่เรียนรู้อย่างไร",
+      "reviewStyleSubtitle": "เลือกวิธีทบทวนที่คุณต้องการ",
+      "frustration": "{{firstName}} อะไรคือปัญหาที่น่าหงุดหงิดใจที่สุดสำหรับคุณในการจดโน้ต?",
+      "frustrationSubtitle": "เลือกข้อที่ตรงกับคุณทั้งหมด เพื่อช่วยเราแก้ปัญหาให้คุณได้ตรงจุด",
+      "referral": "ถามหน่อยสิ\\n{{firstName}}\\nคุณรู้จัก Clinical Fact ได้อย่างไร?",
+      "referralSubtitle": "เลือกหนึ่งตัวเลือก"
+    },
+    "referralScreen": {
+      "title": "มีใครแนะนำ\\nคุณมาหรือไม่?",
+      "subtitle": "ใส่รหัสแนะนำหากคุณมี"
+    },
+    "setup": {
+      "preparingNotes": "กำลังเตรียมโน้ต",
+      "preparingFlashcards": "กำลังเตรียมแฟลชการ์ด",
+      "preparingQuiz": "กำลังเตรียมเทมเพลตควิซ",
+      "preparingChat": "กำลังเตรียมผู้ช่วยแชท",
+      "title": "กำลังตั้งค่าพื้นที่ทำงานส่วนตัว\\nสำหรับคุณ, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "ขอบคุณที่ไว้วางใจ Clinical Fact",
+      "subtitle": "คุณได้เข้าร่วมกับนักศึกษาพยาบาลและแพทย์อีกหลายพันคนแล้ว",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "ครบทุกสิ่งที่คุณต้องการ\\nเพื่อเรียนรู้ได้ทุกเรื่อง",
+      "subtitle": "บันทึก ค้นคว้า ทำควิซ พิชิตทุกเนื้อหา",
+      "everythingYouNeedToLearnAnything": "ครบทุกสิ่งที่คุณต้องการ เพื่อเรียนรู้ทุกเนื้อหา",
+      "recordItResearchItQuizIt": "บันทึก ค้นคว้า ทำควิซ พิชิตทุกเนื้อหา",
+      "tryClinicalFactNowForFree": "ทดลองใช้ Clinical Fact ฟรีทันที"
+    },
+    "features": {
+      "feature1": {
+        "title": "รับคำตอบทางการแพทย์ที่แท้จริง พร้อมคำถามต่อเนื่อง",
+        "description": "ถามคำถามทางการแพทย์ได้ทุกเรื่อง พร้อมรับคำอธิบายที่ชัดเจนและคำถามต่อเนื่องที่ชาญฉลาด เพื่อให้การเรียนของคุณไม่มีสะดุด"
+      },
+      "feature2": {
+        "title": "ทุกคำตอบทางการแพทย์\nอ้างอิงจากแหล่งข้อมูลจริง",
+        "description": "ดึงข้อมูลอ้างอิงจาก PubMed, Semantic Scholar และ Europe PMC ตรวจสอบได้จริง ไม่ได้แต่งขึ้นเอง"
+      },
+      "feature3": {
+        "title": "อัปโหลดโน้ต รับสรุปทางการแพทย์จากเนื้อหาของคุณ",
+        "description": "เปลี่ยนสไลด์เรียน PDF หรือเลกเชอร์ให้เป็นคำอธิบายที่เข้าใจง่าย พร้อมแหล่งอ้างอิงทางการแพทย์ที่เชื่อถือได้"
+      },
+      "feature4": {
+        "title": "เปลี่ยนแชทให้เป็นควิซหรือแฟลชการ์ดสำหรับฝึกทำโจทย์",
+        "description": "ไม่ต้องสลับแอปอ่านหนังสือ สร้างแบบฝึกหัดได้ทันทีจากแชทและไฟล์ที่คุณอัปโหลด"
+      },
+      "feature5": {
+        "title": "เปลี่ยนแชทหรือเอกสารให้เป็นแฟลชการ์ดสำหรับทบทวน",
+        "description": "ไม่ต้องสลับแอปอ่านหนังสือ สร้างแบบฝึกหัดได้ทันทีจากแชทและไฟล์ที่คุณอัปโหลด"
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "เปิดการแจ้งเตือน",
+      "thisHelpsUsStayOnTrack": "ช่วยให้เราปรับแต่งบัญชีของคุณได้ตรงจุด และช่วยให้คุณค้นหาคำตอบทางการแพทย์ได้ดียิ่งขึ้น"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "รหัสยืนยันไม่ถูกต้อง โปรดลองอีกครั้ง",
+      "failedToResendCodePleaseTry": "ส่งรหัสอีกครั้งไม่สำเร็จ โปรดลองใหม่",
+      "confirmYourEmailAddress": "ยืนยันที่อยู่อีเมลของคุณ",
+      "enterCodeSentTo": "โปรดกรอกรหัส OTP ที่ส่งไปยังอีเมล {{email}}",
+      "resendCodeIn": "ส่งรหัสใหม่ได้ใน {{seconds}} วินาที"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "มีผู้แนะนำคุณมาหรือไม่?",
+      "enterTheirReferralCodeIfYou": "กรอกรหัสผู้แนะนำของคุณ (ถ้ามี)",
+      "eGJOHNOrTECHBRO": "เช่น JOHN หรือ TECHBRO",
+      "codeIsValid": "✓ ใช้งานรหัสนี้ได้"
+    },
+    "resultsChart": {
+      "getBetterResults": "ยกระดับผลการเรียนรู้",
+      "over95OfClinicalfactUsersScore": "ผู้ใช้ Clinical Fact กว่า 95% ทำคะแนนสอบได้ 95% ขึ้นไป"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "นักศึกษาพยาบาล",
+        "medicalStudent": "นักศึกษาแพทย์",
+        "paPharmacyStudent": "นักศึกษา PA หรือเภสัชศาสตร์",
+        "practicingNurse": "พยาบาลวิชาชีพ",
+        "practicingPhysician": "แพทย์เวชปฏิบัติ",
+        "otherHealthcareProfessional": "บุคลากรทางการแพทย์อื่นๆ"
+      },
+      "currentMethod": {
+        "textbooksNotes": "ตำราเรียนหรือเลกเชอร์",
+        "flashcardQuizApps": "แอปแฟลชการ์ดหรือแอปควิซ",
+        "youtube": "YouTube",
+        "aiChatbots": "แชตบอต AI",
+        "colleagueClassmate": "ถามเพื่อนร่วมงานหรือเพื่อนร่วมชั้น",
+        "practiceQuestionBanks": "คลังข้อสอบฝึกทำ"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "เสียเวลาทำแฟลชการ์ดและควิซเองตั้งแต่เริ่ม",
+        "findingTrustworthyAnswer": "หาคำตอบที่เชื่อถือได้แบบเร่งด่วน",
+        "reReadingNotes": "ต้องกลับมาอ่านสรุปเดิมซ้ำๆ เพราะลืม",
+        "switchingApps": "สลับใช้งานหลายแอปไปมา",
+        "chartingDocumentation": "การเขียนชาร์ตและบันทึกข้อมูล"
+      },
+      "appExpectation": {
+        "noHallucination": "AI ที่ไม่มั่วข้อมูล (No hallucination)",
+        "realCitations": "มีการอ้างอิงแหล่งที่มาจริง",
+        "oneApp": "ครบจบในแอปเดียว ไม่ต้องจ่ายหลายแอป",
+        "explainsWhy": "อธิบายเหตุผล ไม่ใช่แค่บอกคำตอบ"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google Search",
+        "otherApps": "แอปอื่นๆ"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "แต่งเรื่องหรือสร้างข้อมูลเท็จ",
+        "notMedicalContent": "ไม่ได้ออกแบบมาสำหรับเนื้อหาทางการแพทย์",
+        "noSources": "ไม่มีแหล่งอ้างอิงให้ตรวจสอบ",
+        "tooGeneric": "คำตอบกว้างเกินไป ไม่ตรงจุดสำหรับการสอบหรือการทำงานจริง"
+      },
+      "aiTrustLevel": {
+        "everyTime": "ทุกครั้ง",
+        "sometimes": "บางครั้ง",
+        "rarely": "แทบไม่เคย",
+        "dontUseAi": "ยังไม่เคยใช้ AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "คำตอบที่รวดเร็วและเชื่อถือได้",
+        "quizzesFlashcardsWithoutWork": "ควิซและแฟลชการ์ดพร้อมใช้ ไม่ต้องสร้างเอง",
+        "rememberingStudied": "ตัวช่วยจำเนื้อหาที่เคยอ่านไปแล้ว",
+        "medicalCitations": "แหล่งอ้างอิงทางการแพทย์",
+        "allOfTheAbove": "ทุกข้อที่กล่าวมา"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "จดหมายข่าว",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "อื่นๆ"
+      },
+      "studyTime": {
+        "under5Hours": "น้อยกว่า 5 ชั่วโมง",
+        "510Hours": "5–10 ชั่วโมง",
+        "1020Hours": "10–20 ชั่วโมง",
+        "20PlusHours": "20+ ชั่วโมง"
+      },
+      "comingUp": {
+        "medicalExams": "สอบแพทย์/ใบประกอบวิชาชีพ",
+        "clinicalRotations": "ขึ้นวอร์ด/ฝึกงานคลินิก",
+        "nursingExams": "สอบพยาบาล/สภาการพยาบาล",
+        "otherExams": "การสอบอื่นๆ",
+        "staySharp": "ต้องการทบทวนความรู้อย่างต่อเนื่อง"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "การถอดความบันทึก",
+    "noteTranscript": {
+      "noteTranscript": "ข้อความถอดเสียงของโน้ต",
+      "noNoteIDProvided": "ไม่พบรหัสโน้ต",
+      "noTranscriptAvailableForThisNote": "ไม่มีข้อความถอดเสียงสำหรับโน้ตนี้",
+      "thisNoteWasNotCreatedFrom": "โน้ตนี้ไม่ได้สร้างจากเสียง/วิดีโอ จึงไม่มีข้อความถอดเสียง",
+      "failedToLoadNote": "โหลดโน้ตไม่สำเร็จ",
+      "noteTranscript2": "ข้อความถอดเสียง",
+      "loadingTranscript": "กำลังโหลดข้อความถอดเสียง...",
+      "goToNote": "ไปยังโน้ต"
+    },
     "noteOptions": "ตัวเลือกบันทึก",
-    "editNote": "แก้ไขบันทึก",
+    "editNote": {
+      "pleaseEnterANoteTitle": "โปรดระบุหัวข้อโน้ต",
+      "failedToUpdateNote": "อัปเดตโน้ตไม่สำเร็จ",
+      "noteUpdatedSuccessfully": "อัปเดตโน้ตเรียบร้อยแล้ว",
+      "editNote": "แก้ไขโน้ต",
+      "noteTitle": "หัวข้อโน้ต",
+      "enterNoteTitle": "พิมพ์หัวข้อโน้ต",
+      "noteContent": "เนื้อหาโน้ต",
+      "enterNoteContent": "พิมพ์เนื้อหาโน้ต",
+      "saveThisNote": "บันทึกโน้ตนี้",
+      "aiIsGeneratingYourNote": "AI กำลังสร้างโน้ตของคุณ",
+      "largeAudioAndVideoFilesMay": "ไฟล์เสียงและวิดีโอขนาดใหญ่อาจใช้เวลาประมวลผลสักครู่ โปรดเปิดแอปทิ้งไว้"
+    },
     "retranscribe": "ถอดความใหม่",
     "exportNote": "ส่งออกบันทึก",
     "shareNoteLink": "แชร์ลิงก์บันทึก",
@@ -110,12 +425,89 @@
     "translate": "แปล",
     "addToFolder": "เพิ่มไปยังโฟลเดอร์",
     "loadingNote": "กำลังโหลดบันทึก...",
-    "noteNotFound": "โหลดบันทึกไม่สำเร็จ"
+    "noteNotFound": "โหลดบันทึกไม่สำเร็จ",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "สร้างแฟลชการ์ดไม่สำเร็จ",
+      "anUnexpectedErrorOccurred": "เกิดข้อผิดพลาดที่ไม่คาดคิด",
+      "history": "ประวัติ",
+      "export": "ส่งออก"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "เพิ่มโน้ตลงโฟลเดอร์ไม่สำเร็จ",
+      "folderNotFound": "ไม่พบโฟลเดอร์",
+      "addNote": "+ เพิ่มโน้ต",
+      "noNotesInThisFolder": "ไม่มีโน้ตในโฟลเดอร์นี้",
+      "moveNotesToThisFolderTo": "ย้ายโน้ตมาที่โฟลเดอร์นี้เพื่อดูรายการ",
+      "addNoteToFolder": "เพิ่มโน้ตลงโฟลเดอร์",
+      "noNotesAvailableToAdd": "ไม่มีโน้ตที่สามารถเพิ่มได้",
+      "allYourNotesAreAlreadyIn": "โน้ตทั้งหมดของคุณอยู่ในโฟลเดอร์นี้แล้ว",
+      "created": "สร้างเมื่อ {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "โหลดโน้ตไม่สำเร็จ",
+      "reTranscribeNote": "ถอดเสียงโน้ตใหม่อีกครั้ง",
+      "thisWillReTranscribeTheAudio": "ระบบจะถอดเสียงใหม่และอัปเดตโน้ตนี้ ต้องการดำเนินการต่อหรือไม่?",
+      "reTranscribe": "ถอดเสียงใหม่",
+      "noteReTranscribedSuccessfully": "ถอดเสียงโน้ตใหม่เรียบร้อยแล้ว",
+      "info": "ข้อมูล",
+      "reTranscriptionFeatureIsComingSoon": "ฟีเจอร์ถอดเสียงใหม่กำลังจะเปิดให้ใช้งานเร็วๆ นี้",
+      "youAreCurrentlyOfflinePleaseConnect": "คุณกำลังออฟไลน์ โปรดเชื่อมต่ออินเทอร์เน็ตเพื่อดำเนินการ",
+      "failedToDeleteNote": "ลบโน้ตไม่สำเร็จ",
+      "failedToExportNote": "ส่งออกโน้ตไม่สำเร็จ",
+      "noteTranslatedSuccessfully": "แปลโน้ตสำเร็จแล้ว",
+      "failedToTranslateNote": "แปลโน้ตไม่สำเร็จ",
+      "noteMovedTo": "ย้ายโน้ตไปยัง {{name}} แล้ว",
+      "failedToMoveNoteToFolder": "ย้ายโน้ตไปยังโฟลเดอร์ไม่สำเร็จ",
+      "summaryNotes": "สรุปเนื้อหา",
+      "loadingNote": "กำลังโหลดโน้ต...",
+      "imageNote": "โน้ตจากรูปภาพ",
+      "created": "สร้างเมื่อ {{dateTime}}",
+      "translate": "แปลภาษา",
+      "transcribe": "ถอดเสียง",
+      "editThisNote": "แก้ไขโน้ตนี้",
+      "createFlashcards": "สร้างแฟลชการ์ด",
+      "createFlashcardsToImproveYourRetention": "สร้างแฟลชการ์ดเพื่อช่วยเพิ่มความจำระยะยาว",
+      "createQuizQuestions": "สร้างคำถามควิซ",
+      "practiceYourNotesByCreatingQuestions": "ทบทวนโน้ตด้วยการสร้างคำถามเพื่อฝึกฝนให้แม่นยำยิ่งขึ้น"
+    },
+    "sharedNote": {
+      "notFound": "ไม่พบข้อมูล",
+      "thisSharedNoteLinkIsInvalid": "ลิงก์โน้ตที่แชร์ไม่ถูกต้องหรือหมดอายุแล้ว",
+      "failedToLoadSharedNote": "โหลดโน้ตที่แชร์ไม่สำเร็จ",
+      "saved": "บันทึกแล้ว!",
+      "noteHasBeenAddedToYour": "เพิ่มโน้ตลงในคลังของคุณแล้ว",
+      "viewInLibrary": "ดูในคลัง",
+      "stayHere": "อยู่ที่นี่",
+      "failedToSaveNote": "บันทึกโน้ตไม่สำเร็จ",
+      "loadingSharedNote": "กำลังโหลดโน้ตที่แชร์...",
+      "sharedNote": "โน้ตที่แชร์",
+      "sharedWithYou": "แชร์กับคุณ",
+      "savedToLibrary": "บันทึกลงในคลังแล้ว",
+      "saveToMyLibrary": "บันทึกลงในคลังของฉัน"
+    }
   },
   "create": {
     "selectOption": "คุณต้องการสร้างบันทึกอย่างไร?",
-    "recordAudio": "บันทึกเสียง",
-    "uploadAudio": "อัปโหลดเสียง",
+    "recordAudio": {
+      "permissionRequired": "ต้องได้รับอนุญาตการเข้าถึง",
+      "pleaseGrantMicrophonePermissionToRecord": "โปรดอนุญาตให้เข้าถึงไมโครโฟนเพื่อบันทึกเสียง",
+      "failedToRequestMicrophonePermission": "ขอสิทธิ์เข้าถึงไมโครโฟนไม่สำเร็จ",
+      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "กำลังบันทึกเสียง",
+      "recordAudio": "บันทึกเสียง",
+      "createANoteFromAnyRecorded": "สร้างโน้ตจากเสียงที่บันทึกไว้",
+      "recording": "กำลังบันทึก ({{time}})",
+      "recordAgain": "บันทึกใหม่"
+    },
+    "uploadAudio": {
+      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "เลือกไฟล์เสียงไม่สำเร็จ",
+      "uploadAudio": "อัปโหลดเสียง",
+      "createANoteFromAnyUploaded": "สร้างโน้ตจากไฟล์เสียงที่อัปโหลด",
+      "dragDropFilesOrBrowse": "ลากและวางไฟล์ที่นี่ หรือเลือกดูไฟล์",
+      "supportedFormatMp4WavMp3": "รูปแบบไฟล์ที่รองรับ: mp4, wav, mp3",
+      "changeFile": "เปลี่ยนไฟล์"
+    },
     "youtube": "วิดีโอ YouTube",
     "pdfDocument": "PDF หรือเอกสาร",
     "customText": "ข้อความที่กำหนดเอง",
@@ -123,7 +515,56 @@
     "uploadingFile": "กำลังอัปโหลดไฟล์ไปยังเซิร์ฟเวอร์...",
     "transcribing": "กำลังแปลงเสียงพูดเป็นข้อความ...",
     "extractingText": "กำลังแยกข้อความ...",
-    "generatingNote": "กำลังสร้างบันทึกการเรียนด้วย AI...",
+    "generatingNote": {
+      "uploadAudio": "อัปโหลดเสียง",
+      "uploadingAudioFileToServer": "กำลังอัปโหลดไฟล์เสียงไปยังเซิร์ฟเวอร์...",
+      "transcribeAudio": "ถอดเสียง",
+      "convertingSpeechToText": "กำลังแปลงเสียงเป็นข้อความ...",
+      "generateYourNote": "สร้างโน้ตของคุณ",
+      "creatingStudyNotes": "กำลังสร้างโน้ตสรุปสำหรับอ่านทบทวน...",
+      "uploadPDF": "อัปโหลด PDF",
+      "uploadingPDFDocumentToServer": "กำลังอัปโหลดเอกสาร PDF ไปยังเซิร์ฟเวอร์...",
+      "extractText": "ดึงข้อความ",
+      "readingAndExtractingTextFromPDF": "กำลังอ่านและดึงข้อความจาก PDF...",
+      "uploadImage": "อัปโหลดรูปภาพ",
+      "uploadingImageToServer": "กำลังอัปโหลดรูปภาพไปยังเซิร์ฟเวอร์...",
+      "extractTextOCR": "ดึงข้อความ (OCR)",
+      "recognizingAndExtractingTextFromImage": "กำลังตรวจหาและดึงข้อความจากรูปภาพ...",
+      "fetchVideo": "ดึงข้อมูลวิดีโอ",
+      "connectingToYouTube": "กำลังเชื่อมต่อไปยัง YouTube...",
+      "extractTranscript": "ถอดข้อความ",
+      "downloadingVideoTranscript": "กำลังดาวน์โหลดข้อความถอดเสียงจากวิดีโอ...",
+      "processText": "ประมวลผลข้อความ",
+      "analyzingYourContent": "กำลังวิเคราะห์เนื้อหาของคุณ...",
+      "uploadFile": "อัปโหลดไฟล์",
+      "uploadingToServer": "กำลังอัปโหลดไปยังเซิร์ฟเวอร์...",
+      "processContent": "ประมวลผลเนื้อหา",
+      "extractingContent": "กำลังดึงเนื้อหา...",
+      "noteReady": "โน้ตพร้อมแล้ว!",
+      "noteGenerationFailedOnTheServer": "การสร้างโน้ตบนเซิร์ฟเวอร์ล้มเหลว",
+      "failedToUploadImage": "อัปโหลดรูปภาพไม่สำเร็จ",
+      "weCouldNotReadAnythingFrom": "ไม่สามารถอ่านข้อความจากภาพนี้ได้ โปรดลองใช้รูปภาพสรุปโน้ตทางการแพทย์ที่มีความคมชัดกว่านี้",
+      "preparingFile": "กำลังเตรียมไฟล์...",
+      "almostDone": "ใกล้เสร็จแล้ว...",
+      "untitledNote": "โน้ตไม่มีชื่อ",
+      "failedToGenerateNote": "สร้างโน้ตไม่สำเร็จ",
+      "whoaSpeedy": "ใจเย็นๆ ก่อนนะ! 🏃💨",
+      "youReGeneratingContentABit": "คุณสร้างเนื้อหาเร็วเกินไปเล็กน้อย กรุณารอสัก 60 วินาทีเพื่อให้ AI ของเราประมวลผลทันก่อนลองใหม่อีกครั้ง",
+      "gotIt": "เข้าใจแล้ว",
+      "fileTooLarge": "ไฟล์มีขนาดใหญ่เกินไป",
+      "yourFileExceedsThe15MBLimit": "ไฟล์ของคุณมีขนาดเกินขีดจำกัด 15MB สำหรับผู้ใช้ฟรี อัปเกรดเป็น PRO เพื่ออัปโหลดไฟล์เลกเชอร์ได้สูงสุดถึง 100MB",
+      "upgradeToPRO": "อัปเกรดเป็น PRO",
+      "oopsWeHitASnag": "อุ๊ย เกิดข้อผิดพลาดขึ้น 🚧",
+      "weCouldnTGenerateThatRight": "ไม่สามารถสร้างเนื้อหานี้ได้ในขณะนี้ กรุณารอสักครู่แล้วลองใหม่อีกครั้ง!",
+      "processingContent": "กำลังประมวลผลเนื้อหา...",
+      "generatingYourNote": "กำลังสร้างโน้ตของคุณ...",
+      "audioNote": "โน้ตเสียง",
+      "failedToGenerateFlashcards": "สร้างแฟลชการ์ดไม่สำเร็จ",
+      "generatingNote": "กำลังสร้างโน้ต",
+      "pleaseKeepThisScreenOpenWhile": "โปรดเปิดหน้าจอนี้ค้างไว้ขณะกำลังสร้างโน้ต ไฟล์ขนาดใหญ่อาจใช้เวลาถอดเสียงสักครู่",
+      "goToNote": "ไปที่โน้ต",
+      "generateNoteTranscript": "สร้างโน้ตจากข้อความถอดเสียง"
+    },
     "fetchingVideo": "กำลังเชื่อมต่อกับ YouTube...",
     "processingText": "กำลังวิเคราะห์เนื้อหาของคุณ...",
     "uploadAudioTitle": "อัปโหลดเสียง",
@@ -133,7 +574,63 @@
     "fetchVideo": "ดึงวิดีโอ",
     "extractTranscript": "แยกการถอดความ",
     "processText": "ประมวลผลข้อความ",
-    "generateNote": "สร้างบันทึกของคุณ"
+    "generateNote": "สร้างบันทึกของคุณ",
+    "customTextInput": {
+      "customText": "ข้อความกำหนดเอง",
+      "createANoteFromAnyCustom": "สร้างโน้ตจากข้อความที่คุณต้องการ",
+      "enterText": "ใส่ข้อความ",
+      "enterYourTextHere": "พิมพ์ข้อความของคุณที่นี่..."
+    },
+    "uploadImage": {
+      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "จำเป็นต้องได้รับอนุญาต",
+      "pleaseAllowAccessToYourPhoto": "โปรดอนุญาตให้เข้าถึงคลังรูปภาพของคุณ",
+      "failedToPickImage": "เลือกรูปภาพไม่สำเร็จ",
+      "uploadImage": "อัปโหลดรูปภาพ",
+      "createANoteFromAnyUploaded": "สร้างโน้ตจากรูปภาพที่อัปโหลด",
+      "dragDropFilesOrBrowse": "ลากและวางไฟล์ หรือเลือกดูไฟล์",
+      "supportedFormatPngJpegHeicWebp": "รูปแบบที่รองรับ: png, jpeg, heic, webp",
+      "changeFile": "เปลี่ยนไฟล์"
+    },
+    "uploadPDF": {
+      "created": "สร้างเมื่อ {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "เลือกเอกสารไม่สำเร็จ",
+      "uploadPdf": "อัปโหลด PDF",
+      "createANoteFromAnyUploaded": "สร้างโน้ตจากไฟล์ PDF ที่อัปโหลด",
+      "dragDropFilesOrBrowse": "ลากและวางไฟล์ หรือเลือกดูไฟล์",
+      "supportedFormatPdf": "รูปแบบที่รองรับ: pdf",
+      "changeFile": "เปลี่ยนไฟล์"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "กำลังดึงข้อมูลวิดีโอ",
+      "gettingVideoDetails": "กำลังรับรายละเอียดวิดีโอ",
+      "extractingTranscript": "กำลังถอดข้อความเสียง",
+      "convertingAudioToText": "กำลังแปลงเสียงเป็นข้อความ",
+      "generatingYourNote": "กำลังสร้างโน้ตของคุณ",
+      "aiIsSummarisingTheContent": "AI กำลังสรุปเนื้อหา",
+      "noteGenerationFailedPleaseTryAgain": "สร้างโน้ตไม่สำเร็จ กรุณาลองใหม่อีกครั้ง",
+      "processingFailed": "การประมวลผลล้มเหลว",
+      "goBack": "ย้อนกลับ",
+      "retry": "ลองใหม่",
+      "failedToStartNoteGeneration": "ไม่สามารถเริ่มสร้างโน้ตได้",
+      "failedToProcessYouTubeVideoPlease": "ประมวลผลวิดีโอ YouTube ไม่สำเร็จ โปรดลองอีกครั้ง",
+      "cancelProcessing": "ยกเลิกการประมวลผล",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการยกเลิก? ความคืบหน้าจะหายไป",
+      "continueProcessing": "ประมวลผลต่อ",
+      "youTubeNote": "โน้ตจาก YouTube",
+      "noteGenerated": "สร้างโน้ตเรียบร้อยแล้ว",
+      "generatingNote": "กำลังสร้างโน้ต...",
+      "goToNote": "ไปที่โน้ต"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "ไม่สามารถดึงข้อมูลวิดีโอได้",
+      "failedToFetchVideoInformation": "ดึงข้อมูลวิดีโอไม่สำเร็จ",
+      "youtubeVideo": "วิดีโอ YouTube",
+      "createANoteFromAnyYoutube": "สร้างโน้ตจากวิดีโอ YouTube ใดก็ได้",
+      "enterYoutubeURL": "ป้อน URL ของ YouTube",
+      "pasteYoutubeURL": "วาง URL ของ YouTube",
+      "fetchingVideoInfo": "กำลังดึงข้อมูลวิดีโอ..."
+    }
   },
   "library": {
     "title": "ห้องสมุด",
@@ -163,7 +660,67 @@
     "almostDone": "เกือบเสร็จแล้ว...",
     "quizReady": "แบบทดสอบพร้อมแล้ว!",
     "startQuiz": "เริ่มแบบทดสอบ",
-    "questionCount": "{{current}} จาก {{total}}"
+    "questionCount": "{{current}} จาก {{total}}",
+    "previous": "ข้อก่อนหน้า",
+    "generatingQuiz": "กำลังสร้างควิซด้วย AI...",
+    "exitTitle": "ออกจากควิซหรือไม่?",
+    "exitMessage": "ความคืบหน้าของคุณจะหายไป",
+    "exit": "ออก",
+    "errorTitle": "ขออภัย เกิดข้อผิดพลาด 🚧",
+    "errorMessage": "ไม่สามารถสร้างเนื้อหาได้ในขณะนี้ กรุณารอสักครู่แล้วลองใหม่อีกครั้ง!",
+    "noQuestions": "ไม่มีคำถามในขณะนี้",
+    "reading": "กำลังอ่านโน้ตของคุณ...",
+    "identifying": "กำลังจับใจความสำคัญ...",
+    "structuring": "กำลังจัดโครงสร้างคำถาม...",
+    "almostReady": "ใกล้เสร็จแล้ว...",
+    "youScored": "คะแนนของคุณ",
+    "timeInSeconds": "เวลา (วินาที)",
+    "accuracy": "ความแม่นยำ",
+    "grade": "ผลการประเมิน",
+    "reportsCard": "รายงานผลคะแนน",
+    "reviewAnswers": "ตรวจคำตอบ",
+    "correctAnswer": "คำตอบที่ถูกต้อง",
+    "yourAnswer": "คำตอบของคุณ",
+    "explanation": "คำอธิบาย",
+    "questionProgress": "คำถามที่ {{current}} จาก {{total}}",
+    "generatingQuizWait": "กำลังสร้างควิซให้คุณ โปรดรอสักครู่...",
+    "goToChats": "ไปที่แชท",
+    "quizGroupDetail": {
+      "inProgress": "กำลังทำ",
+      "notStarted": "ยังไม่เริ่ม",
+      "failedToLoadQuizHistory": "โหลดประวัติควิซไม่สำเร็จ",
+      "failedToLoadChatContent": "โหลดเนื้อหาแชทไม่สำเร็จ",
+      "deleteQuiz": "ลบควิซ",
+      "failedToDeleteQuiz": "ลบควิซไม่สำเร็จ",
+      "created": "สร้างเมื่อ {{dateTime}}",
+      "lastscore": "คะแนนล่าสุด",
+      "bestscore": "คะแนนสูงสุด",
+      "attempts": "จำนวนครั้งที่ทำ",
+      "retakeQuiz": "ทำควิซอีกครั้ง",
+      "translate": "แปลภาษา",
+      "newQuiz": "ควิซใหม่",
+      "quizHistory": "ประวัติควิซ",
+      "flashcardHistory": "ประวัติแฟลชการ์ด",
+      "score": "คะแนน {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "ยังไม่มีชุดแฟลชการ์ดจากแหล่งข้อมูลนี้",
+      "cards": "{{totalCards}} ใบ · {{flashcardStatus}}",
+      "quizOptions": "ตัวเลือกควิซ",
+      "exportLatestAttempt": "ส่งออกผลการทำครั้งล่าสุด",
+      "questions": "{{totalQuestions}} ข้อ · {{value}}",
+      "deleteAllAttemptsOne": "ลบประวัติการทำควิซ 1 ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
+      "deleteAllAttemptsMany": "ลบประวัติการทำควิซทั้งหมด {{total}} ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
+      "makeFlashcards": "สร้างแฟลชการ์ด"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "โหลดข้อมูลควิซไม่สำเร็จ - รูปแบบการตอบกลับไม่ถูกต้อง",
+      "failedToLoadQuizData": "โหลดข้อมูลควิซไม่สำเร็จ",
+      "noContentAvailable": "ไม่มีเนื้อหา",
+      "goBack": "ย้อนกลับ",
+      "previous": "ก่อนหน้า"
+    },
+    "quiz": {
+      "generationFailed": "การสร้างล้มเหลว"
+    }
   },
   "flashcards": {
     "title": "บัตรคำ",
@@ -172,7 +729,68 @@
     "previous": "ก่อนหน้า",
     "shuffle": "สลับ",
     "generating": "กำลังสร้างบัตรคำ...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "สร้างแฟลชการ์ดเพื่อเพิ่มประสิทธิภาพการจดจำ",
+    "howManyQuestions": "ต้องการกี่ข้อ?",
+    "generateButton": "สร้างแฟลชการ์ด",
+    "generatingEllipsis": "กำลังสร้าง...",
+    "allDone": "เสร็จสิ้น!",
+    "completedReview": "คุณทบทวนการ์ดในชุดนี้ครบแล้ว",
+    "backToNotes": "กลับไปที่โน้ต",
+    "question": "คำถาม",
+    "answer": "คำตอบ",
+    "noQuestionText": "(ไม่มีข้อความคำถาม)",
+    "noAnswerText": "(ไม่มีข้อความคำตอบ)",
+    "enterQuestion": "พิมพ์คำถามของคุณ",
+    "enterAnswer": "พิมพ์คำตอบ",
+    "clickToFlip": "แตะการ์ดเพื่อพลิกดู",
+    "reading": "กำลังอ่านโน้ตของคุณ...",
+    "identifying": "กำลังจับใจความสำคัญ...",
+    "creating": "กำลังสร้างแฟลชการ์ด...",
+    "almostReady": "ใกล้เสร็จแล้ว...",
+    "headerTitle": "แฟลชการ์ด",
+    "progressFormat": "แฟลชการ์ดที่ {{current}} จาก {{total}}",
+    "noteIdRequired": "ต้องระบุ Note ID เพื่อสร้างแฟลชการ์ด",
+    "invalidCardCount": "โปรดเลือกจำนวนแฟลชการ์ดระหว่าง 1 ถึง 100 ใบ",
+    "flashcardGroupDetail": {
+      "inProgress": "กำลังเรียน",
+      "notStarted": "ยังไม่เริ่ม",
+      "failedToLoadFlashcardHistory": "โหลดประวัติแฟลชการ์ดไม่สำเร็จ",
+      "limitReached": "ถึงขีดจำกัดแล้ว",
+      "flashcardGenerationLimitReached": "ถึงขีดจำกัดการสร้างแฟลชการ์ดแล้ว",
+      "failedToGenerateFlashcards": "สร้างแฟลชการ์ดไม่สำเร็จ",
+      "failedToTranslateFlashcards": "แปลแฟลชการ์ดไม่สำเร็จ",
+      "deleteFlashcards": "ลบแฟลชการ์ด",
+      "failedToDeleteFlashcards": "ลบแฟลชการ์ดไม่สำเร็จ",
+      "created": "สร้างเมื่อ {{dateTime}}",
+      "lastprogress": "ความคืบหน้าล่าสุด",
+      "bestprogress": "ความคืบหน้าสูงสุด",
+      "sets": "ชุดการ์ด",
+      "studyNow": "เริ่มทบทวน",
+      "translate": "แปลภาษา",
+      "newFlashcards": "แฟลชการ์ดใหม่",
+      "flashcardHistory": "ประวัติแฟลชการ์ด",
+      "quizHistory": "ประวัติแบบทดสอบ",
+      "cards": "{{totalCards}} ใบ · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "ยังไม่มีแบบทดสอบจากแหล่งข้อมูลนี้",
+      "score": "คะแนน {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "ตัวเลือกแฟลชการ์ด",
+      "exportLatestSet": "ส่งออกชุดล่าสุด",
+      "questions": "{{totalQuestions}} ข้อ · {{value}}",
+      "deleteAllSetsOne": "ต้องการลบแฟลชการ์ด 1 ชุดของ \"{{title}}\" หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+      "deleteAllSetsMany": "ต้องการลบแฟลชการ์ดทั้งหมด {{total}} ชุดของ \"{{title}}\" หรือไม่? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+      "makeQuiz": "สร้างแบบทดสอบ",
+      "failedToLoadChatContent": "โหลดเนื้อหาแชตไม่สำเร็จ"
+    },
+    "flashcardReview": {
+      "unknownError": "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ",
+      "noFlashcardsInThisSet": "ไม่มีแฟลชการ์ดในชุดนี้",
+      "goBack": "ย้อนกลับ",
+      "allDone": "เสร็จสิ้น",
+      "youHaveReviewedAllTheCards": "คุณทบทวนการ์ดทั้งหมดในสำรับนี้ครบแล้ว",
+      "question": "คำถาม {{value}}",
+      "questionOf": "คำถาม {{value}} จาก {{totalCards}}"
+    }
   },
   "chat": {
     "title": "แชท",
@@ -183,7 +801,191 @@
     "chatWithDocument": "แชทกับเอกสาร",
     "selectFile": "เลือกไฟล์เพื่อแชท",
     "uploadFile": "อัปโหลดไฟล์",
-    "startChatting": "เริ่มแชท"
+    "startChatting": "เริ่มแชท",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "ถามคำถามทางการแพทย์เพื่อรับคำอธิบายเพิ่มเติม",
+      "askAnythingAboutThisDocument": "ถามอะไรก็ได้เกี่ยวกับเอกสารนี้...",
+      "askAQuestionAttachmentProcessingFailed": "ถามคำถาม — การประมวลผลไฟล์แนบล้มเหลว",
+      "extractingText": "กำลังแยกข้อความ...",
+      "processingPDF": "กำลังประมวลผล PDF...",
+      "upgradeToProToContinueChatting": "อัปเกรดเป็น PRO เพื่อแชทต่อ",
+      "queryremaining": "เหลือคำถามอีก {{queriesRemaining}} ข้อ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "กำลังเริ่มระบบแชท...",
+      "extractingTextFromImage": "กำลังแยกข้อความจากรูปภาพ...",
+      "processingPDFDocument": "กำลังประมวลผลเอกสาร PDF...",
+      "analyzingYourNote": "กำลังวิเคราะห์โน้ตของคุณ...",
+      "thisUsuallyTakesJustAFew": "⏱️ ขั้นตอนนี้ใช้เวลาเพียงไม่กี่วินาที คุณสามารถเริ่มแชทได้ทันทีหลังประมวลผลเสร็จสิ้น",
+      "processingFailed": "การประมวลผลล้มเหลว",
+      "fileMightBeCorruptedOrUnreadable": "• ไฟล์อาจเสียหายหรือไม่สามารถอ่านได้",
+      "imageQualityTooLow": "คุณภาพของรูปภาพต่ำเกินไป",
+      "pdfIsPasswordProtected": "PDF ติดรหัสผ่าน",
+      "contentFormatNotSupported": "รูปแบบเนื้อหาไม่รองรับ",
+      "networkConnectionIssue": "• เกิดปัญหาการเชื่อมต่อเครือข่าย",
+      "tryADifferentFile": "ลองใช้ไฟล์อื่น",
+      "askAnyClinicalQuestionNoUpload": "💡 ถามคำถามทางคลินิกได้ทันทีโดยไม่ต้องอัปโหลดไฟล์ พร้อมตอบโดยอ้างอิงจากวรรณกรรมทางการแพทย์และรูปภาพที่เกี่ยวข้อง",
+      "readyToChat": "✓ พร้อมแชทแล้ว",
+      "couldntProcessNote": "ไม่สามารถประมวลผลโน้ตนี้ได้ อาจเกิดจาก:",
+      "couldntProcessImage": "ไม่สามารถประมวลผลรูปภาพนี้ได้ อาจเกิดจาก:",
+      "couldntProcessDocument": "ไม่สามารถประมวลผลเอกสารนี้ได้ อาจเกิดจาก:",
+      "askMeAboutNote": "💡 ถามอะไรก็ได้เกี่ยวกับโน้ตนี้ ไม่ว่าจะสรุป อธิบายแนวคิด หรือตอบคำถามเฉพาะเจาะจง",
+      "askMeAboutImage": "💡 ถามอะไรก็ได้เกี่ยวกับรูปภาพนี้ ไม่ว่าจะสรุป อธิบายแนวคิด หรือตอบคำถามเฉพาะเจาะจง",
+      "askMeAboutDocument": "💡 ถามอะไรก็ได้เกี่ยวกับเอกสารนี้ ไม่ว่าจะสรุป อธิบายแนวคิด หรือตอบคำถามเฉพาะเจาะจง"
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "จำได้แม่นยำ {{masteredCards}}/{{totalCards}} ใบ",
+      "notStarted": "ยังไม่ได้เริ่ม",
+      "quizGeneration": "การสร้างแบบทดสอบ",
+      "score": "คะแนน {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "การสร้างแฟลชการ์ด",
+      "questions": "{{totalCards}} ข้อ · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} ข้อ · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "กำลังคิดและค้นหาแหล่งข้อมูลให้คุณ...",
+      "couldnTGenerateAResponse": "ไม่สามารถสร้างคำตอบได้",
+      "retry": "ลองใหม่",
+      "alsoReferencedFromTheWeb": "อ้างอิงเพิ่มเติมจากเว็บไซต์",
+      "followUpQuestions": "คำถามต่อเนื่องที่เกี่ยวข้อง"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "ถามเรื่องการแพทย์ได้ทุกเรื่อง พร้อมข้อมูลอ้างอิงจากแหล่งที่เชื่อถือได้จริง",
+      "evidenceBasedPubMedSourcesPeerReviewed": "อิงหลักฐานเชิงประจักษ์ · แหล่งข้อมูล PubMed · ผ่านการตรวจสอบโดยผู้ทรงคุณวุฒิ",
+      "tryOutAnyOfThisTopics": "ลองเลือกหัวข้อเหล่านี้เพื่อเริ่มต้น",
+      "topics": {
+        "electrolytes": {
+          "label": "สรุปเรื่อง Electrolyte imbalance",
+          "question": "ช่วยอธิบายภาวะ electrolyte imbalance ทั้งสาเหตุ อาการ และการรักษา"
+        },
+        "ecg": {
+          "label": "พื้นฐานการอ่าน ECG",
+          "question": "หลักการพื้นฐานในการแปลผล ECG มีอะไรบ้าง?"
+        },
+        "drugInteractions": {
+          "label": "ปฏิกิริยาระหว่างยาที่พบบ่อย",
+          "question": "Drug interactions ที่พบบ่อยและสำคัญที่ควรรู้มีอะไรบ้าง?"
+        },
+        "nclex": {
+          "label": "แนวข้อสอบแบบ NCLEX",
+          "question": "ขอตัวอย่างข้อสอบฝึกทำแนว NCLEX สักข้อ"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "ฉลากยากำกับโดย FDA",
+      "fromYourAttachedMaterial": "จากเอกสารแนบของคุณ"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "สร้างเซสชันการแชทไม่สำเร็จ",
+      "failedToInitializeChatSession": "เริ่มต้นเซสชันการแชทไม่สำเร็จ",
+      "failedToUpdateLanguage": "อัปเดตภาษาไม่สำเร็จ",
+      "youVeReachedYour3Pin": "คุณปักหมุดครบโควตา 3 รายการแล้ว",
+      "failedToUpdatePin": "อัปเดตการปักหมุดไม่สำเร็จ",
+      "permissionRequired": "ต้องได้รับอนุญาต",
+      "pleaseGrantCameraPermissionToTake": "โปรดอนุญาตให้เข้าถึงกล้องเพื่อถ่ายภาพ",
+      "pleaseGrantPhotoLibraryPermissionTo": "โปรดอนุญาตให้เข้าถึงคลังรูปภาพเพื่ออัปโหลดภาพ",
+      "failedToUploadImage": "อัปโหลดรูปภาพไม่สำเร็จ",
+      "uploadFailed": "อัปโหลดไม่สำเร็จ",
+      "failedToUploadDocument": "อัปโหลดเอกสารไม่สำเร็จ",
+      "failedToStartChatFromThis": "เริ่มแชทจากไฟล์นี้ไม่สำเร็จ",
+      "chatFromImage": "แชทจากรูปภาพ",
+      "failedToStartANewQuestion": "เริ่มคำถามใหม่ไม่สำเร็จ โปรดลองอีกครั้ง",
+      "failedToAttachFile": "แนบไฟล์ไม่สำเร็จ",
+      "failedToSendMessage": "ส่งข้อความไม่สำเร็จ",
+      "copiedToClipboard": "คัดลอกไปยังคลิปบอร์ดแล้ว",
+      "notEnoughContentYet": "เนื้อหายังไม่เพียงพอ",
+      "chatABitMoreBeforeGenerating": "คุยเพิ่มเติมอีกนิดก่อนสร้างแบบทดสอบ (ขั้นต่ำ 100 ตัวอักษร)",
+      "chatABitMoreBeforeGenerating2": "คุยเพิ่มเติมอีกนิดก่อนสร้างแฟลชการ์ด (ขั้นต่ำ 100 ตัวอักษร)",
+      "failedToGenerateFlashcards": "สร้างแฟลชการ์ดไม่สำเร็จ",
+      "failedToRegenerateResponse": "สร้างคำตอบใหม่ไม่สำเร็จ",
+      "failedToRetryResponse": "ลองตอบใหม่อีกครั้งไม่สำเร็จ"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "แนบโน้ตไม่สำเร็จ",
+      "folderCreatedSuccessfully": "สร้างโฟลเดอร์ \"{{name}}\" สำเร็จแล้ว!",
+      "failedToCreateFolder": "สร้างโฟลเดอร์ไม่สำเร็จ",
+      "failedToAttachDocument": "แนบเอกสารไม่สำเร็จ",
+      "failedToCreateChatSession": "สร้างเซสชันการแชทไม่สำเร็จ",
+      "failedToUploadDocument": "อัปโหลดเอกสารไม่สำเร็จ",
+      "openingCamera": "📷 กำลังเปิดกล้อง...",
+      "openingImagePicker": "🖼️ กำลังเปิดคลังรูปภาพ...",
+      "permissionRequired": "ต้องได้รับอนุญาต",
+      "pleaseGrantCameraPermissionToTake": "โปรดอนุญาตให้เข้าถึงกล้องเพื่อถ่ายภาพ",
+      "pleaseGrantPhotoLibraryPermissionTo": "โปรดอนุญาตให้เข้าถึงคลังรูปภาพเพื่ออัปโหลดภาพ",
+      "failedToAttachImage": "แนบรูปภาพไม่สำเร็จ",
+      "failedToUploadImage": "อัปโหลดรูปภาพไม่สำเร็จ",
+      "failedToAttachAudio": "แนบไฟล์เสียงไม่สำเร็จ",
+      "failedToUploadAudio": "อัปโหลดไฟล์เสียงไม่สำเร็จ",
+      "items": "{{itemCount}} รายการ",
+      "thisFolderIsEmptyGoBack": "โฟลเดอร์นี้ว่างเปล่า ย้อนกลับเพื่อเลือกโฟลเดอร์อื่น",
+      "addFolder": "เพิ่มโฟลเดอร์",
+      "uploadNewDocument": "อัปโหลดเอกสารใหม่",
+      "uploadAPDFAndStartChatting": "อัปโหลด PDF แล้วเริ่มคุยได้ทันที",
+      "uploadNewImage": "อัปโหลดรูปภาพใหม่",
+      "uploadAnImageAndExtractText": "อัปโหลดรูปภาพเพื่อดึงข้อความได้ทันที",
+      "uploadNewAudio": "อัปโหลดไฟล์เสียงใหม่",
+      "uploadAnAudioFileAndTranscribe": "อัปโหลดไฟล์เสียงและถอดความทันที",
+      "orselectfromlibrary": "หรือเลือกจากคลัง",
+      "folders": "โฟลเดอร์",
+      "allNotes": "โน้ตทั้งหมด",
+      "noFilesToDisplay": "ไม่มีไฟล์ที่จะแสดง",
+      "noNotesToDisplay": "ไม่มีโน้ตที่จะแสดง",
+      "noDocumentsYet": "คุณยังไม่มีเอกสาร PDF\nสร้างโน้ตก่อน แล้วกลับมาคุยกับเนื้อหาได้ที่นี่",
+      "noImagesYet": "คุณยังไม่มีรูปภาพ\nสร้างโน้ตก่อน แล้วกลับมาคุยกับเนื้อหาได้ที่นี่",
+      "noAudioNotesYet": "คุณยังไม่มีโน้ตเสียง\nสร้างโน้ตก่อน แล้วกลับมาคุยกับเนื้อหาได้ที่นี่",
+      "noNotesYet": "คุณยังไม่มีโน้ต\nสร้างโน้ตก่อน แล้วกลับมาคุยกับเนื้อหาได้ที่นี่",
+      "attachNote": "แนบโน้ต",
+      "selectNote": "เลือกโน้ต",
+      "attachImage": "แนบรูปภาพ",
+      "selectImage": "เลือกรูปภาพ",
+      "attachDocument": "แนบเอกสาร",
+      "selectDocument": "เลือกเอกสาร",
+      "attachAudio": "แนบไฟล์เสียง",
+      "selectAudio": "เลือกไฟล์เสียง",
+      "attachFile": "แนบไฟล์",
+      "selectFile": "เลือกไฟล์",
+      "aNote": "{{verb}}โน้ต",
+      "anImage": "{{verb}}รูปภาพ",
+      "aDocument": "{{verb}}เอกสาร",
+      "audio": "{{verb}}ไฟล์เสียง",
+      "aFile": "{{verb}}ไฟล์"
+    },
+    "chatAttachSheet": {
+      "addToChat": "เพิ่มไปยังแชท",
+      "camera": "กล้องถ่ายรูป",
+      "photos": "รูปภาพ",
+      "files": "ไฟล์",
+      "generateQuiz": "สร้างแบบทดสอบ",
+      "generateFlashcards": "สร้างแฟลชการ์ด",
+      "searchMedicalLiterature": "ค้นหาวรรณกรรมทางการแพทย์",
+      "filterByDateSourceAndType": "กรองตามวันที่ แหล่งที่มา และประเภท",
+      "pullsRealCitedSourcesIntoYour": "ดึงแหล่งอ้างอิงจริงที่น่าเชื่อถือมาไว้ในคำตอบของคุณ",
+      "trustedmedicalsourcedatabase": "ฐานข้อมูลแหล่งอ้างอิงทางการแพทย์ที่เชื่อถือได้",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "หอสมุดการแพทย์แห่งชาติสหรัฐฯ (NLM)",
+      "fdaDrugTreatmentData": "ข้อมูลยาและการรักษาจาก FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "ตรวจสอบการอ้างอิง",
+      "citations": "การอ้างอิง",
+      "fromTheWeb": "จากเว็บไซต์"
+    },
+    "chatHeader": {
+      "readyTapToRename": "พร้อมแล้ว · แตะเพื่อเปลี่ยนชื่อ",
+      "processing": "กำลังประมวลผล {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "ดูแหล่งที่มา ↗"
+    },
+    "chatRename": {
+      "renameChat": "เปลี่ยนชื่อแชท"
+    },
+    "sourcesRow": {
+      "viewSources": "ดูแหล่งข้อมูล ({{total}})"
+    }
   },
   "languages": {
     "english": "อังกฤษ",
@@ -205,6 +1007,487 @@
     "turkish": "ตุรกี",
     "vietnamese": "เวียดนาม",
     "thai": "ไทย",
-    "indonesian": "อินโดนีเซีย"
+    "indonesian": "อินโดนีเซีย",
+    "englishGB": "อังกฤษ (สหราชอาณาจักร)",
+    "englishAU": "อังกฤษ (ออสเตรเลีย)",
+    "englishCA": "อังกฤษ (แคนาดา)",
+    "spanishMX": "สเปน (เม็กซิโก)",
+    "frenchCA": "ฝรั่งเศส (แคนาดา)",
+    "portuguesePT": "โปรตุเกส (โปรตุเกส)",
+    "norwegian": "นอร์เวย์",
+    "danish": "เดนมาร์ก",
+    "finnish": "ฟินแลนด์",
+    "czech": "เช็ก",
+    "slovak": "สโลวัก",
+    "slovenian": "สโลวีเนีย",
+    "croatian": "โครเอเชีย",
+    "hungarian": "ฮังการี",
+    "romanian": "โรมาเนีย",
+    "greek": "กรีก",
+    "ukrainian": "ยูเครน",
+    "arabicAE": "อาหรับ (สหรัฐอาหรับเอมิเรตส์)",
+    "arabicEG": "อาหรับ (อียิปต์)",
+    "hebrew": "ฮีบรู",
+    "bengali": "เบงกาลี",
+    "tamil": "ทมิฬ",
+    "telugu": "เตลูกู",
+    "kannada": "กันนาดา",
+    "malayalam": "มลยาฬัม",
+    "marathi": "มราฐี",
+    "gujarati": "คุชราต",
+    "punjabi": "ปัญจาบ",
+    "urdu": "อูรดู",
+    "malay": "มลายู",
+    "catalan": "คาตาลัน"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "เพิ่มโฟลเดอร์",
+      "folderName": "ชื่อโฟลเดอร์",
+      "enterFolderName": "ป้อนชื่อโฟลเดอร์",
+      "chooseColor": "เลือกสี",
+      "createFolder": "สร้างโฟลเดอร์"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "ก่อนที่เราจะประมวลผลเนื้อหาของคุณ",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact ใช้ AI ในการตอบคำถามและแปลงเนื้อหาของคุณให้เป็นโน้ต แบบทดสอบ และแฟลชการ์ด ข้อมูลสำคัญที่คุณควรทราบมีดังนี้:",
+      "whatDataIsSent": "ข้อมูลใดบ้างที่จะถูกส่ง",
+      "questionsAndMessagesYouTypeIn": "คำถามและข้อความที่คุณพิมพ์ในแชท",
+      "audioRecordingsOrUploadedAudioFiles": "ไฟล์บันทึกเสียงหรือไฟล์เสียงที่คุณอัปโหลด",
+      "pdfAndTextDocumentsYouUpload": "เอกสาร PDF และข้อความที่คุณอัปโหลด",
+      "imagesYouUpload": "รูปภาพที่คุณอัปโหลด",
+      "youTubeVideoURLsAndTheirTranscripts": "URL วิดีโอ YouTube และข้อความถอดเสียง",
+      "customTextYouEnter": "ข้อความที่คุณกำหนดเอง",
+      "whoReceivesYourData": "ใครเป็นผู้ได้รับข้อมูลของคุณ",
+      "howItSUsed": "นำไปใช้งานอย่างไร",
+      "yourContentIsUsedSolelyTo": "เนื้อหาของคุณจะถูกนำไปใช้เพื่อสร้างคำตอบ โน้ต แบบทดสอบ หรือแฟลชการ์ดตามที่คุณร้องขอเท่านั้น นโยบายการใช้ข้อมูลของผู้ให้บริการแต่ละรายจะกำกับดูแลเนื้อหาที่ประมวลผลผ่าน API ของตน ดูรายละเอียดเพิ่มเติมได้ที่นโยบายความเป็นส่วนตัวของเรา",
+      "iAgreeContinue": "ยินยอม — ดำเนินการต่อ",
+      "noThanks": "ไม่ ยินยอม",
+      "whoReceivesBody": "เนื้อหาของคุณจะถูกส่งไปยัง <bold>Google (Gemini)</bold> (การสร้างโน้ต, ควิซ, แฟลชการ์ด, คำตอบในแชต รวมถึงการประมวลผลเอกสารและรูปภาพ) และ <bold>OpenAI</bold> (การถอดเสียงเป็นข้อความ) ผ่านเซิร์ฟเวอร์แบ็กเอนด์ที่ปลอดภัยของเรา ข้อความบางส่วนจากเอกสารของคุณจะถูกทำดัชนีด้วย <bold>Google Vertex AI</bold> เพื่อให้ระบบแชตค้นหาเนื้อหาที่เกี่ยวข้องได้ เมื่อใช้การค้นหาข้อมูลทางการแพทย์แบบเรียลไทม์ คำถามของคุณจะถูกส่งไปยัง <bold>Tavily</bold> และฐานข้อมูลวรรณกรรมทางการแพทย์สาธารณะ (เช่น PubMed, Europe PMC และ Semantic Scholar) เพื่อค้นหาแหล่งอ้างอิงที่เชื่อถือได้ เช่น NIH, CDC, MedlinePlus, WHO และ Mayo Clinic ผู้ให้บริการเหล่านี้ประมวลผลข้อมูลของคุณเพื่อสร้างคำตอบเท่านั้น โดยไม่มีการนำข้อมูลไปใช้เทรนโมเดล AI ทั่วไปของตนเอง และเราจะไม่ขายข้อมูลของคุณให้แก่บุคคลที่สามโดยเด็ดขาด"
+    },
+    "chatActionSheet": {
+      "unpinChat": "เลิกปักหมุดแชท",
+      "pinChat": "ปักหมุดแชท",
+      "deleteChat": "ลบแชท"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "สร้างแฟลชการ์ด",
+      "createFlashcards": "สร้างแฟลชการ์ด",
+      "createFlashcardsFromToImproveYour": "สร้างแฟลชการ์ดจาก \"{{noteTitle}}\" เพื่อช่วยให้จำแม่นยำยิ่งขึ้น",
+      "createFlashcardsToImproveYourRetention": "สร้างแฟลชการ์ดเพื่อช่วยให้จำแม่นยำยิ่งขึ้น",
+      "howManyQuestions": "จำนวนคำถาม",
+      "generateFlashcards2": "สร้างแฟลชการ์ด"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "สร้างจากแชท",
+      "selectFromOneOfYourRecent": "เลือกจากแชทล่าสุดของคุณ",
+      "pdfOrDocument": "PDF หรือเอกสาร",
+      "createFromAudio": "สร้างจากไฟล์เสียง",
+      "image": "รูปภาพ",
+      "createFromCustomText": "สร้างจากข้อความที่กำหนดเอง",
+      "created": "สร้างเมื่อ {{day}}, {{time}}",
+      "createQuizFrom": "สร้างควิซจาก",
+      "createFlashcardsFrom": "สร้างแฟลชการ์ดจาก",
+      "selectFromChat": "เลือกจากแชท",
+      "noRecentChatsYet": "ยังไม่มีแชทล่าสุด",
+      "quizFromPdf": "สร้างควิซจาก PDF หรือเอกสาร",
+      "flashcardsFromPdf": "สร้างชุดแฟลชการ์ดจาก PDF หรือเอกสาร",
+      "quizFromAudio": "สร้างควิซจากไฟล์เสียงที่อัปโหลด",
+      "flashcardsFromAudio": "สร้างชุดแฟลชการ์ดจากไฟล์เสียงที่อัปโหลด",
+      "quizFromImage": "สร้างควิซจากรูปภาพ",
+      "flashcardsFromImage": "สร้างชุดแฟลชการ์ดจากรูปภาพ",
+      "quizFromText": "สร้างควิซจากข้อความที่คัดลอกมา",
+      "flashcardsFromText": "สร้างชุดแฟลชการ์ดจากข้อความที่คัดลอกมา"
+    },
+    "createNote": {
+      "recordAudio": "บันทึกเสียง",
+      "generateANoteFromAnyRecorded": "สร้างโน้ตจากเสียงที่บันทึกไว้",
+      "uploadAudio": "อัปโหลดไฟล์เสียง",
+      "createANoteFromAnyUploaded": "สร้างโน้ตจากไฟล์เสียงที่อัปโหลด",
+      "youtubeVideo": "วิดีโอ YouTube",
+      "createANoteFromAnyYoutube": "สร้างโน้ตจากวิดีโอ YouTube",
+      "pdfOrDocument": "PDF หรือเอกสาร",
+      "createANoteFromPDFOr": "สร้างโน้ตจาก PDF หรือเอกสาร",
+      "customText": "ข้อความที่กำหนดเอง",
+      "createANoteFromCapturedText": "สร้างโน้ตจากข้อความที่คัดลอกมา",
+      "image": "รูปภาพ",
+      "createANoteFromAnyImage": "สร้างโน้ตจากรูปภาพ",
+      "createNote": "สร้างโน้ต"
+    },
+    "createQuiz": {
+      "generateQuiz": "สร้างควิซ",
+      "createQuiz": "สร้างควิซ",
+      "practiceByCreatingQuestionsThatHelp": "ฝึกฝนเนื้อหา \"{{noteTitle}}\" ด้วยคำถามที่ช่วยให้คุณเข้าใจอย่างแม่นยำ",
+      "practiceYourNotesByCreatingQuestions": "ฝึกฝนจากโน้ตของคุณด้วยคำถามที่ช่วยให้คุณเข้าใจอย่างแม่นยำ",
+      "howManyQuestions": "จำนวนคำถาม",
+      "timeInMinutes": "เวลา (นาที)"
+    },
+    "deleteNote": {
+      "deleteNote": "ลบโน้ต",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบโน้ตนี้?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "ส่งออกสรุปเป็น",
+      "exportTranscriptAs": "ส่งออกข้อความถอดเสียงเป็น",
+      "exportAs": "ส่งออกเป็น",
+      "exportSummary": "ส่งออกสรุป",
+      "exportTranscript": "ส่งออกข้อความถอดเสียง"
+    },
+    "exportTypeStep": {
+      "exportNote": "ส่งออกโน้ต",
+      "exportSummary": "ส่งออกสรุป",
+      "exportTranscript": "ส่งออกข้อความถอดเสียง"
+    },
+    "exportSettings": {
+      "export": "ส่งออก {{title}}",
+      "selectFormat": "เลือกรูปแบบไฟล์",
+      "includeAnswers": "รวมเฉลย",
+      "answersExplanationsIncluded": "รวมเฉลยและคำอธิบายแล้ว",
+      "questionsOnly": "เฉพาะคำถาม",
+      "export2": "ส่งออก"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "โน้ตของคุณพร้อมแล้ว!",
+      "howDidWeDo": "ผลลัพธ์เป็นอย่างไรบ้าง?",
+      "happy": "พอใจ",
+      "sad": "ไม่พอใจ",
+      "maybeLater": "ไว้คราวหลัง",
+      "whatWentWrong": "พบปัญหาอะไรหรือไม่?",
+      "yourFeedbackHelpsUsImprove": "ความคิดเห็นของคุณช่วยให้เราพัฒนาขึ้น",
+      "tellUsWhatCouldBeBetter": "บอกเราว่าควรปรับปรุงอะไรเพิ่มเติม...",
+      "submit": "ส่งความคิดเห็น"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "ไม่มีเนื้อหา",
+      "clickCardToFlip": "แตะการ์ดเพื่อพลิก"
+    },
+    "flashcardExport": {
+      "exportFailed": "ส่งออกไม่สำเร็จ",
+      "unknownError": "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ",
+      "export": "ส่งออก {{setTitle}}",
+      "chooseWhatToExport": "เลือกสิ่งที่ต้องการส่งออก",
+      "exportQuestions": "ส่งออกคำถาม",
+      "exportAnswers": "ส่งออกคำตอบ"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "ลบชุดแฟลชการ์ด",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "ลบชุดแฟลชการ์ดไม่สำเร็จ",
+      "flashcardHistory": "ประวัติแฟลชการ์ด",
+      "cards": "การ์ด",
+      "reviewedMastered": "ทบทวนแล้ว {{cardsReviewedCount}} ใบ • แม่นยำ {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} รายการ",
+      "enterYourFolderName": "ป้อนชื่อโฟลเดอร์",
+      "yourFolderName": "ชื่อโฟลเดอร์",
+      "createFolder": "สร้างโฟลเดอร์",
+      "folders": "โฟลเดอร์",
+      "addFolder": "เพิ่มโฟลเดอร์",
+      "noFoldersToDisplay": "ไม่มีโฟลเดอร์ที่จะแสดง",
+      "clickTheButtonAboveToCreate": "แตะปุ่มด้านบนเพื่อสร้างโฟลเดอร์สำหรับโน้ตของคุณ",
+      "allFolders": "โฟลเดอร์ทั้งหมด",
+      "items2": "{{totalItems}} รายการ"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "ตัวกรองงานวิจัยทางการแพทย์",
+      "howrecentdoyouwantthe": "ความใหม่ของแหล่งข้อมูล",
+      "from": "จาก",
+      "whatkindofsourcedoyou": "ประเภทของแหล่งข้อมูลที่ต้องการ",
+      "textbooks": "ตำราเรียน (Textbooks)",
+      "clinicalGuidelines": "แนวทางเวชปฏิบัติ (Clinical guidelines)",
+      "scientificJournalArticles": "บทความวารสารทางวิทยาศาสตร์",
+      "onlywiththisjournalarticles": "เฉพาะบทความวารสารประเภทนี้",
+      "metaAnalyses": "การวิเคราะห์อภิมาน (Meta-analyses)",
+      "reviewArticles": "บทความปริทัศน์ (Review articles)",
+      "clinicalTrials": "การทดลองทางคลินิก (Clinical trials)",
+      "fromYear": "จากปี",
+      "toYear": "ถึงปี"
+    },
+    "noteOptions": {
+      "noteOptions": "ตัวเลือกโน้ต",
+      "editNote": "แก้ไขโน้ต",
+      "reTranscribe": "ถอดความอีกครั้ง",
+      "chatWithNote": "แช็ตกับโน้ต",
+      "exportNote": "ส่งออกโน้ต",
+      "moveToFolder": "ย้ายไปที่โฟลเดอร์",
+      "deleteNote": "ลบโน้ต"
+    },
+    "onboardingTooltip": {
+      "skip": "ข้าม"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "ลบควิซ",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "ลบควิซไม่สำเร็จ",
+      "quizHistory": "ประวัติควิซ",
+      "questions": "ข้อ",
+      "correct": "ถูก {{correctAnswers}} ข้อ"
+    },
+    "referral": {
+      "copied": "คัดลอกแล้ว!",
+      "yourReferralCodeHasBeenCopied": "คัดลอกรหัสแนะนำของคุณไปยังคลิปบอร์ดแล้ว",
+      "joinMeOnClinicalFactUse": "มาเรียนด้วยกันบน Clinical Fact! ใช้รหัสของฉัน {{referralCode}} – {{appUrl}}",
+      "joined": "เข้าร่วมเมื่อ {{joinedDate}}",
+      "referralCode": "รหัสแนะนำ",
+      "yourReferralCode": "รหัสแนะนำของคุณ",
+      "shareWithFriendsToEarnRewards": "แชร์ให้เพื่อนเพื่อรับรางวัล",
+      "share": "แชร์",
+      "copyCode": "คัดลอกรหัส",
+      "referredFriends": "เพื่อนที่แนะนำ",
+      "noReferralsYetShareYourCode": "ยังไม่มีการแนะนำ แชร์รหัสของคุณเพื่อเริ่มต้นเลย!",
+      "loadMore": "โหลดเพิ่มเติม",
+      "howItWorks": "วิธีใช้งาน",
+      "friendsUseYourCodeDuringSignup": "• เพื่อนใช้รหัสของคุณตอนลงทะเบียน",
+      "youBothEarnRewardsWhenThey": "• รับรางวัลทั้งคู่เมื่อเพื่อนเข้าร่วม",
+      "friendsReferredCount": "เพื่อนที่แนะนำแล้ว: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "กำลังแยกข้อความ...",
+      "transcribingAudio": "กำลังแปลงเสียงเป็นข้อความ...",
+      "processingPDF": "กำลังประมวลผล PDF...",
+      "settingUpChat": "กำลังเตรียมแชท...",
+      "uploadFailed": "อัปโหลดไม่สำเร็จ",
+      "failedToUploadFilePleaseTry": "อัปโหลดไฟล์ไม่สำเร็จ โปรดลองอีกครั้ง",
+      "yourFileIsReadyForChatting": "ไฟล์ของคุณพร้อมสำหรับการแชทแล้ว!",
+      "uploadingYourFileToTheServer": "กำลังอัปโหลดไฟล์ไปยังเซิร์ฟเวอร์...",
+      "extractingTextFromYourImage": "กำลังแยกข้อความจากรูปภาพของคุณ...",
+      "transcribingYourAudio": "กำลังแปลงเสียงของคุณเป็นข้อความ...",
+      "extractingTextFromYourPDF": "กำลังแยกข้อความจาก PDF ของคุณ...",
+      "creatingYourChatSession": "กำลังสร้างเซสชันการแชท...",
+      "pleaseWait": "โปรดรอสักครู่...",
+      "uploadFile": "อัปโหลดไฟล์",
+      "processContent": "ประมวลผลเนื้อหา",
+      "createChat": "สร้างแชท"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ ดู",
+      "export": "📤 ส่งออก",
+      "delete": "🗑️ ลบ"
+    },
+    "poweredByFooter": {
+      "poweredBy": "ขับเคลื่อนโดย"
+    },
+    "exportFormat": {
+      "txtFile": "ไฟล์ TXT",
+      "pdfFile": "ไฟล์ PDF",
+      "docFile": "ไฟล์ Doc"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "ไม่สามารถโหลดโน้ตได้",
+      "failedToFetchFolders": "ไม่สามารถโหลดโฟลเดอร์ได้",
+      "failedToFetchNote": "ไม่สามารถโหลดโน้ตได้",
+      "failedToDeleteNote": "ไม่สามารถลบโน้ตได้",
+      "failedToCreateFolder": "ไม่สามารถสร้างโฟลเดอร์ได้",
+      "failedToDeleteFolder": "ไม่สามารถลบโฟลเดอร์ได้"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "ไม่สามารถลบแชทได้"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "ส่งออกชุดแฟลชการ์ดสำเร็จแล้ว!",
+      "failedToExportFlashcardSet": "ไม่สามารถส่งออกชุดแฟลชการ์ดได้"
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "ส่งออกควิซสำเร็จแล้ว!",
+      "failedToExportQuiz": "ไม่สามารถส่งออกควิซได้"
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "แฟลชการ์ดไม่มีชื่อ",
+      "failedToLoadFlashcards": "ไม่สามารถโหลดแฟลชการ์ดได้",
+      "failedToSyncFlashcardSet": "ไม่สามารถซิงค์ชุดแฟลชการ์ดได้",
+      "failedToSyncCardUpdate": "ไม่สามารถซิงค์การอัปเดตการ์ดได้"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "ควิซ"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "สร้างเมื่อ {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "คุณปักหมุดครบโควตา 3 รายการแล้ว",
+      "failedToUpdatePin": "ไม่สามารถอัปเดตการปักหมุดได้",
+      "noChatsYet": "ยังไม่มีแชท",
+      "startAChatToGetAnswers": "เริ่มแชทเพื่อรับคำตอบที่อ้างอิงจากแหล่งข้อมูลจริง",
+      "createChat": "+ สร้างแชท"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "ลบแฟลชการ์ด",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "ลบแฟลชการ์ดไม่สำเร็จ",
+      "sets": "{{setCount}} ชุด",
+      "flashcards": "แฟลชการ์ด",
+      "createFlashcards": "สร้างแฟลชการ์ด",
+      "searchFlashcards": "ค้นหาแฟลชการ์ด...",
+      "noFlashcardsYet": "ยังไม่มีแฟลชการ์ด",
+      "createAFlashcardSetFromA": "สร้างชุดแฟลชการ์ดจากโน้ตเพื่อเริ่มต้น",
+      "createSet": "+ สร้างชุดการ์ด",
+      "flashcardOptions": "ตัวเลือกแฟลชการ์ด",
+      "view": "ดู"
+    },
+    "folder": {
+      "deleteFolder": "ลบโฟลเดอร์",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{name}}\"? โน้ตด้านในจะถูกย้ายไปยังหน้าหลัก",
+      "failedToDeleteFolder": "ลบโฟลเดอร์ไม่สำเร็จ",
+      "error": "เกิดข้อผิดพลาด: {{message}}",
+      "noFoldersYetCreateOne": "ยังไม่มีโฟลเดอร์ สร้างเลย!",
+      "folders": "โฟลเดอร์"
+    },
+    "home": {
+      "created": "สร้างเมื่อ {{day}}, {{time}}",
+      "failedToUpdateLanguage": "อัปเดตภาษาไม่สำเร็จ",
+      "notEnoughContentYet": "เนื้อหายังไม่เพียงพอ",
+      "chatABitMoreBeforeGenerating": "คุยเพิ่มเติมอีกนิดก่อนสร้างควิซ (ขั้นต่ำ 100 ตัวอักษร)",
+      "chatABitMoreBeforeGenerating2": "คุยเพิ่มเติมอีกนิดก่อนสร้างแฟลชการ์ด (ขั้นต่ำ 100 ตัวอักษร)",
+      "failedToGenerateFlashcards": "สร้างแฟลชการ์ดไม่สำเร็จ",
+      "upgradeToPro": "อัปเกรดเป็น PRO",
+      "get80DiscountWhenYouUpgrade": "รับส่วนลด 80% เมื่ออัปเกรดบัญชีของคุณ",
+      "unlockPRO": "ปลดล็อก PRO",
+      "noMedicalChats": "ไม่มีประวัติการแชท",
+      "youHaveNotCreatedAnyMedical": "คุณยังไม่ได้เริ่มการแชททางการแพทย์ เริ่มแชทใหม่เพื่อรับคำตอบพร้อมแหล่งอ้างอิง",
+      "talkToClinicalfactAI": "คุยกับ Clinical Fact AI",
+      "jumpInWhereYouStopped": "เรียนต่อจากจุดที่ค้างไว้",
+      "practiceQuiz": "ทำแบบฝึกหัด",
+      "makeFlashcards": "สร้างแฟลชการ์ด",
+      "continueChatWithNote": "แชทต่อด้วยโน้ตนี้",
+      "continueChat": "แชทต่อ",
+      "recentChats": "แชทล่าสุด",
+      "chatOptions": "ตัวเลือกแชท"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}} {{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "คุณกำลังออฟไลน์ โปรดเชื่อมต่ออินเทอร์เน็ตเพื่อดำเนินการ",
+      "failedToDeleteNote": "ลบโน้ตไม่สำเร็จ",
+      "failedToMoveNote": "ย้ายโน้ตไม่สำเร็จ",
+      "deleteFolder": "ลบโฟลเดอร์หรือไม่?",
+      "areYouSureNotesInsideWill": "คุณแน่ใจหรือไม่? โน้ตด้านในจะไม่ถูกลบ แต่จะย้ายไปที่ \"โน้ตทั้งหมด\"",
+      "failedToDeleteFolder": "ลบโฟลเดอร์ไม่สำเร็จ",
+      "library": "คลังเนื้อหา",
+      "addFolder": "เพิ่มโฟลเดอร์",
+      "searchForANoteFolder": "ค้นหาโน้ต / โฟลเดอร์",
+      "yourFolders": "โฟลเดอร์ของคุณ",
+      "noFoldersToDisplay": "ไม่มีโฟลเดอร์ที่จะแสดง",
+      "tapAddFolderToCreateA": "แตะ \"+ เพิ่มโฟลเดอร์\" เพื่อจัดระเบียบโน้ตของคุณ",
+      "allNotes": "โน้ตทั้งหมด",
+      "items": "{{allNotesTotal}} รายการ",
+      "items2": "{{itemCount}} รายการ",
+      "yourNotes": "โน้ตของคุณ",
+      "untitledNote": "โน้ตไม่มีชื่อ",
+      "noResultsFor": "ไม่พบผลลัพธ์สำหรับ \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "ไม่มีโน้ตในโฟลเดอร์นี้",
+      "noNotesToDisplay": "ไม่มีโน้ตที่จะแสดง",
+      "tryADifferentSearchTerm": "ลองค้นหาด้วยคำอื่น",
+      "moveNotesToThisFolderTo": "ย้ายโน้ตมาที่โฟลเดอร์นี้เพื่อดูโน้ตที่นี่",
+      "clickBelowToGenerateYourNote": "แตะด้านล่างเพื่อสร้างโน้ตด้วย Clinical Fact",
+      "filterByType": "กรองตามประเภท",
+      "audio": "เสียง",
+      "text2": "ข้อความ",
+      "image": "รูปภาพ",
+      "clearFilter": "ล้างตัวกรอง"
+    },
+    "profile": {
+      "permissionRequired": "ต้องได้รับอนุญาต",
+      "pleaseAllowAccessToYourPhoto": "โปรดอนุญาตให้เข้าถึงคลังรูปภาพเพื่อตั้งรูปโปรไฟล์",
+      "uploadFailed": "อัปโหลดไม่สำเร็จ",
+      "couldNotUpdateProfilePicture": "ไม่สามารถอัปเดตรูปโปรไฟล์ได้",
+      "failedToUploadProfilePicture": "อัปโหลดรูปโปรไฟล์ไม่สำเร็จ",
+      "checkOutClinicalFactAIPowered": "ลองใช้ Clinical Fact – โน้ตสรุปสำหรับอ่านหนังสือด้วยพลัง AI! {{url}}",
+      "proSubscriber": "สมาชิก PRO",
+      "subscriptionExpired": "การสมัครสมาชิกหมดอายุแล้ว",
+      "freeSubscriber": "สมาชิกแบบฟรี",
+      "tapToManageIPhoneSettingsApple": "แตะเพื่อจัดการ · การตั้งค่า iPhone → Apple ID → การสมัครรับ",
+      "tapToManagePlayStoreSubscriptions": "แตะเพื่อจัดการ · Play Store → การชำระเงินและการสมัครใช้บริการ",
+      "tapToRenewYourSubscription": "แตะเพื่อต่ออายุการสมัครสมาชิก",
+      "tapToUpgradeToPro": "แตะเพื่ออัปเกรดเป็น PRO",
+      "referralCode": "รหัสแนะนำ",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการออกจากระบบ?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "ลบควิซ",
+      "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "ลบควิซไม่สำเร็จ",
+      "correct": "ถูกต้อง {{correct}}/{{total}}",
+      "attempts": "ทำแบบทดสอบ {{attempts}} ครั้ง",
+      "quiz": "ควิซ",
+      "createQuiz": "สร้างควิซ",
+      "searchQuizzes": "ค้นหาควิซ...",
+      "noQuizzesYet": "ยังไม่มีควิซ",
+      "createAQuizFromANote": "สร้างควิซจากโน้ตเพื่อเริ่มต้น",
+      "createQuiz2": "+ สร้างควิซ",
+      "quizOptions": "ตัวเลือกควิซ",
+      "view": "ดู"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "ไม่สามารถอัปเกรดได้ในขณะนี้",
+      "weCouldnTOpenTheUpgrade": "ไม่สามารถเปิดหน้าจออัปเกรดได้ในขณะนี้ โปรดตรวจสอบการเชื่อมต่อแล้วลองใหม่อีกครั้ง"
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "เซิร์ฟเวอร์ส่งการตอบกลับที่ไม่ใช่ JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "ข้อผิดพลาดของเครือข่าย โปรดตรวจสอบการเชื่อมต่อของคุณ",
+      "connectionErrorPleaseTryAgain": "การเชื่อมต่อขัดข้อง โปรดลองใหม่อีกครั้ง"
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "ส่งออกไฟล์แล้ว: {{filename}}",
+      "exportFailed": "ส่งออกไม่สำเร็จ",
+      "exportFormat": "รูปแบบการส่งออก",
+      "chooseFormat": "เลือกรูปแบบ",
+      "text": "ข้อความ"
+    },
+    "formatDate": {
+      "justNow": "เมื่อสักครู่",
+      "minAgo": "{{diffMin}} นาทีที่แล้ว",
+      "hrAgo": "{{diffHr}} ชม. ที่แล้ว",
+      "dAgo": "{{diffDay}} วันที่แล้ว",
+      "created": "สร้างเมื่อ {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "ส่งรหัส OTP ไม่สำเร็จ",
+      "invalidOTP": "รหัส OTP ไม่ถูกต้อง",
+      "failedToVerifyOTP": "ยืนยันรหัส OTP ไม่สำเร็จ",
+      "googleAuthenticationFailed": "การยืนยันตัวตนด้วย Google ไม่สำเร็จ",
+      "appleAuthenticationFailed": "การยืนยันตัวตนด้วย Apple ไม่สำเร็จ",
+      "failedToCompleteSignup": "ลงทะเบียนไม่สำเร็จ",
+      "failedToSkipSignup": "ข้ามการลงทะเบียนไม่สำเร็จ"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "แชต",
+      "description": "แชทถาม-ตอบกับโน้ต เอกสาร หรือไฟล์ PDF ทั้งหมดได้ในที่เดียว"
+    },
+    "profileWelcome": {
+      "heading": "ยินดีต้อนรับสู่โปรไฟล์ของคุณ",
+      "description": "นี่คือโปรไฟล์ของคุณ แตะที่นี่เพื่อแก้ไขข้อมูลส่วนตัวและสถานะการสมัครสมาชิก"
+    },
+    "createNotes": {
+      "heading": "สร้างโน้ต",
+      "description": "สร้างโน้ตได้จากทุกอย่าง ทั้งเสียงบันทึก ไฟล์เสียง วิดีโอ รูปภาพ ข้อความ และลิงก์ YouTube"
+    },
+    "changeLanguage": {
+      "heading": "เปลี่ยนภาษา",
+      "description": "เปลี่ยนภาษาของแอปเป็นภาษาที่คุณต้องการได้จากที่นี่"
+    },
+    "manageHome": {
+      "heading": "จัดการหน้าหลัก",
+      "description": "ดูโน้ตทั้งหมดที่คุณสร้าง และติดตามทุกกิจกรรมของคุณได้ในที่เดียว"
+    },
+    "yourLibrary": {
+      "heading": "คลังของคุณ",
+      "description": "จัดการโน้ตทั้งหมดที่คุณสร้าง สร้างโฟลเดอร์สำหรับจัดเก็บโน้ต และอื่นๆ"
+    },
+    "yourProfile": {
+      "heading": "โปรไฟล์ของคุณ",
+      "description": "ดูข้อมูลโปรไฟล์ทั้งหมดและปรับแต่งการตั้งค่าโปรไฟล์ของคุณได้จากที่นี่"
+    }
   }
 }

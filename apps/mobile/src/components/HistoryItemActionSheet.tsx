@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { colors, spacing, typography } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface HistoryItemActionSheetProps {
   visible: boolean;
@@ -25,39 +26,43 @@ export const HistoryItemActionSheet: React.FC<HistoryItemActionSheetProps> = ({
   onExport,
   onDelete,
   onCancel,
-}) => (
-  <Modal
-    visible={visible}
-    transparent
-    animationType="slide"
-    onRequestClose={onCancel}
-  >
-    <TouchableWithoutFeedback onPress={onCancel}>
-      <View style={styles.menuModalOverlay}>
-        <TouchableWithoutFeedback>
-          <View style={styles.menuModalContainer}>
-            <View style={styles.menuHandleBar} />
-            <TouchableOpacity style={styles.menuModalOption} onPress={onView}>
-              <Text style={styles.menuModalOptionText}>👁️ View</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuModalOption} onPress={onExport}>
-              <Text style={styles.menuModalOptionText}>📤 Export</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.menuModalOption, styles.menuModalOptionDelete]}
-              onPress={onDelete}
-            >
-              <Text style={styles.menuModalOptionTextDelete}>🗑️ Delete</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuModalCancel} onPress={onCancel}>
-              <Text style={styles.menuModalCancelText}>Cancel</Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
-    </TouchableWithoutFeedback>
-  </Modal>
-);
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <Modal
+      visible={visible}
+      transparent
+      animationType="slide"
+      onRequestClose={onCancel}
+    >
+      <TouchableWithoutFeedback onPress={onCancel}>
+        <View style={styles.menuModalOverlay}>
+          <TouchableWithoutFeedback>
+            <View style={styles.menuModalContainer}>
+              <View style={styles.menuHandleBar} />
+              <TouchableOpacity style={styles.menuModalOption} onPress={onView}>
+                <Text style={styles.menuModalOptionText}>{t('components.historyItemActionSheet.view')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.menuModalOption} onPress={onExport}>
+                <Text style={styles.menuModalOptionText}>{t('components.historyItemActionSheet.export')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.menuModalOption, styles.menuModalOptionDelete]}
+                onPress={onDelete}
+              >
+                <Text style={styles.menuModalOptionTextDelete}>{t('components.historyItemActionSheet.delete')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.menuModalCancel} onPress={onCancel}>
+                <Text style={styles.menuModalCancelText}>{t('common.cancel')}</Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      </TouchableWithoutFeedback>
+    </Modal>
+  );
+};
 
 const styles = StyleSheet.create({
   menuModalOverlay: {

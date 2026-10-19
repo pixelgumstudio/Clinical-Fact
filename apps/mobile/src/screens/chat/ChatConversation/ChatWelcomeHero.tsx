@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, TouchableOpacity, Animated, Image, StyleSheet } from 'react-native';
 import { Icon, theme } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 // Confirmed 2026-07-29 — replaces the old Gemini-style "Hi, what's on your mind?"
 // greeting with the branded hero + starter-topic cards shown when a new chat is
 // created with no session yet.
 const CHAT_WELCOME_TOPICS = [
-  { emoji: '🔋', label: 'Electrolyte imbalance explained', question: 'Explain electrolyte imbalance — causes, symptoms, and treatment' },
-  { emoji: '🩵', label: 'ECG interpretation basics', question: 'What are the basics of ECG interpretation?' },
-  { emoji: '💊', label: 'Common drug interactions to know', question: 'What are some common and important drug interactions I should know?' },
-  { emoji: '🫀', label: 'NCLEX-style practice topics', question: 'Give me an NCLEX-style practice question' },
+  { emoji: '🔋', labelKey: 'chat.chatWelcomeHero.topics.electrolytes.label', questionKey: 'chat.chatWelcomeHero.topics.electrolytes.question' },
+  { emoji: '🩵', labelKey: 'chat.chatWelcomeHero.topics.ecg.label', questionKey: 'chat.chatWelcomeHero.topics.ecg.question' },
+  { emoji: '💊', labelKey: 'chat.chatWelcomeHero.topics.drugInteractions.label', questionKey: 'chat.chatWelcomeHero.topics.drugInteractions.question' },
+  { emoji: '🫀', labelKey: 'chat.chatWelcomeHero.topics.nclex.label', questionKey: 'chat.chatWelcomeHero.topics.nclex.question' },
 ];
 
 interface ChatWelcomeHeroProps {
@@ -17,6 +18,7 @@ interface ChatWelcomeHeroProps {
 }
 
 export const ChatWelcomeHero: React.FC<ChatWelcomeHeroProps> = ({ onSelectTopic }) => {
+  const { t } = useTranslation();
   const opacity = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(0.92)).current;
 
@@ -36,17 +38,17 @@ export const ChatWelcomeHero: React.FC<ChatWelcomeHeroProps> = ({ onSelectTopic 
         accessibilityLabel="Clinicalfact"
       />
       <Text style={styles.welcomeTagline}>
-        Ask anything medical, Get the{'\n'}Cited fact backed by real sources
+       {t('chat.chatWelcomeHero.askAnythingMedicalGetTheCited')}
       </Text>
-      <Text style={styles.welcomeSubtitle}>Evidence-based · PubMed sources · Peer-reviewed</Text>
+      <Text style={styles.welcomeSubtitle}>{t('chat.chatWelcomeHero.evidenceBasedPubMedSourcesPeerReviewed')}</Text>
 
-      <Text style={styles.welcomeTopicsLabel}>Try out any of this topics to get started</Text>
+      <Text style={styles.welcomeTopicsLabel}>{t('chat.chatWelcomeHero.tryOutAnyOfThisTopics')}</Text>
       <View style={styles.welcomeTopicsList}>
         {CHAT_WELCOME_TOPICS.map((topic) => (
           <TouchableOpacity
-            key={topic.label}
+            key={topic.labelKey}
             style={styles.welcomeTopicCard}
-            onPress={() => onSelectTopic(topic.question)}
+            onPress={() => onSelectTopic(t(topic.questionKey))}
             activeOpacity={0.7}
           >
             <View style={styles.welcomeTopicTop}>
@@ -55,7 +57,7 @@ export const ChatWelcomeHero: React.FC<ChatWelcomeHeroProps> = ({ onSelectTopic 
               </View>
               <Icon name="foward" size={16} color={theme.colors.grey[200]} />
             </View>
-            <Text style={styles.welcomeTopicText}>{topic.label}</Text>
+            <Text style={styles.welcomeTopicText}>{t(topic.labelKey)}</Text>
           </TouchableOpacity>
         ))}
       </View>

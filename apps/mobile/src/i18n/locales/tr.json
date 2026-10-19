@@ -14,7 +14,9 @@
     "next": "İleri",
     "done": "Tamam",
     "search": "Ara",
-    "filter": "Filtrele"
+    "filter": "Filtrele",
+    "ok": "Tamam",
+    "info": "Bilgi"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,10 +70,19 @@
     "upgradePlan": "Planı yükselt",
     "everyWeek": "Her hafta",
     "everyMonth": "Her ay",
-    "everyYear": "Her yıl"
+    "everyYear": "Her yıl",
+    "expired": "Süresi Doldu",
+    "reportBug": "Hata bildir",
+    "active": "AKTİF",
+    "trial": "DENEME"
   },
   "auth": {
-    "welcome": "Clinical Fact'e hoş geldiniz",
+    "welcome": {
+      "googleSignInFailed": "Google ile giriş yapılamadı",
+      "failedToAuthenticateWithServer": "Sunucu doğrulaması başarısız oldu",
+      "googleSignInIsOnlyAvailable": "Google ile giriş yalnızca yerel uygulamada kullanılabilir. Lütfen e-posta ile giriş yapın veya uygulamayı indirin.",
+      "code": "{{message}} (kod: {{code}})"
+    },
     "getStarted": "Başla",
     "signIn": "Giriş yap",
     "signUp": "Kayıt ol",
@@ -83,12 +94,316 @@
     "didntGetCode": "Kod almadınız mı?",
     "resendCode": "Kodu yeniden gönder",
     "resendIn": "Yeniden gönder",
-    "enterVerificationCode": "Lütfen tam doğrulama kodunu girin"
+    "enterVerificationCode": "Lütfen tam doğrulama kodunu girin",
+    "languageSelect": {
+      "title": "Dilinizi seçin",
+      "subtitle": "Uygulamada kullanmak istediğiniz dili seçin. Daha sonra profilinizden değiştirebilirsiniz.",
+      "searchPlaceholder": "Dil ara",
+      "noResults": "Dil bulunamadı"
+    },
+    "buttons": {
+      "continue": "Devam Et",
+      "continueWithEmail": "E-posta ile Devam Et",
+      "continueWithGoogle": "Google ile Devam Et",
+      "continueWithApple": "Apple ile Devam Et",
+      "skip": "Atla",
+      "verify": "Doğrulandı!",
+      "next": "İleri",
+      "tryNow": "Clinical Fact'i şimdi ücretsiz deneyin"
+    },
+    "labels": {
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "username": "@kullaniciadi",
+      "referralCode": "Referans kodu",
+      "nameScreenTitle": "Adınız ve soyadınız",
+      "byAgree": "Devam ederek şunları kabul etmiş olursunuz:",
+      "termsAndConditions": "Kullanım koşulları",
+      "privacyPolicy": "gizlilik politikası",
+      "and": "ve"
+    },
+    "placeholders": {
+      "enterEmail": "E-posta adresinizi girin",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "username": "@kullaniciadi",
+      "referralCode": "ör. AHMET veya DOKTOR"
+    },
+    "errors": {
+      "invalidEmail": "Lütfen geçerli bir e-posta adresi girin",
+      "emailRequired": "Lütfen e-posta adresinizi girin",
+      "firstLastNameRequired": "Lütfen hem adınızı hem de soyadınızı girin",
+      "usernameRequired": "Lütfen bir kullanıcı adı girin",
+      "usernameLength": "Kullanıcı adı 3-20 karakter olmalıdır (yalnızca harf, rakam ve alt çizgi)",
+      "usernameTaken": "Bu kullanıcı adı zaten alınmış. Lütfen başka bir tane deneyin.",
+      "usernameCheckFailed": "Kullanıcı adı kontrol edilemedi",
+      "usernameError": "Kullanıcı adı kontrol edilirken hata oluştu. Lütfen bağlantınızı kontrol edin.",
+      "invalidOTP": "Geçersiz kod. Lütfen kontrol edip tekrar deneyin.",
+      "otpExpired": "Kodun süresi doldu. Lütfen yeni bir kod isteyin.",
+      "otpRequired": "Lütfen doğrulama kodunun tamamını girin",
+      "referralNotFound": "Referans kodu bulunamadı. Yazımı kontrol edip tekrar deneyin.",
+      "referralValidateFailed": "Kod doğrulanamadı. Lütfen tekrar deneyin.",
+      "referralApplyFailed": "Referans kodu uygulanamadı. Lütfen tekrar deneyin.",
+      "codeSendFailed": "Doğrulama kodu gönderilemedi. Lütfen tekrar deneyin.",
+      "resendCodeFailed": "Kod yeniden gönderilemedi. Lütfen tekrar deneyin.",
+      "signInFailed": "Giriş Başarısız",
+      "googleSignInFailed": "Google ile Giriş Başarısız",
+      "googleTokenFailed": "Google belirteci işlenemedi",
+      "googleAccessTokenFailed": "Erişim belirteci alınamadı. Lütfen tekrar deneyin.",
+      "authTokenFailed": "Kimlik doğrulama belirteci alınamadı. Lütfen tekrar deneyin.",
+      "googleStartFailed": "Google ile giriş başlatılamadı. Lütfen tekrar deneyin.",
+      "setupRequired": "Kurulum Gerekli",
+      "googleOAuthMissing": "Google ile Giriş için OAuth İstemci Kimlikleri gereklidir.\\n\\nLütfen kimlik bilgilerini .env dosyanıza ekleyin.",
+      "youCanStillUseEmail": "Yine de \"E-posta ile Devam Et\" seçeneğini kullanabilirsiniz.",
+      "appleSignInFailed": "Apple ile Giriş Başarısız",
+      "appleTokenFailed": "Apple belirteci işlenemedi",
+      "appleIosOnly": "Apple ile Giriş yalnızca iOS cihazlarda kullanılabilir."
+    },
+    "messages": {
+      "signingIn": "Giriş yapılıyor...",
+      "codeValid": "✓ Kod geçerli",
+      "signupFailed": "Kayıt işlemi tamamlanamadı",
+      "setupFailed": "Kurulum tamamlanamadı. Lütfen tekrar deneyin."
+    },
+    "welcomeScreen": {
+      "title": "Clinic Fact: Daha akıllı notlar burada başlar",
+      "tagline": "Her metni kusursuz notlara dönüştürün",
+      "description": "Ses kayıtlarını, belgeleri veya videoları net, aranabilir notlara dönüştürün; anında testler, bilgi kartları ve özetler oluşturun.",
+      "createAccountTitle": "Hesap oluştur",
+      "orSignUpWith": "VEYA ŞUNUNLA KAYDOL",
+      "signUpWithEmail": "E-posta ile Kaydol",
+      "signInWithEmail": "E-posta ile Giriş Yap",
+      "alreadyHaveAccount": "Zaten hesabın var mı? ",
+      "dontHaveAccount": "Hesabın yok mu? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Tıpla ilgili her şeyi sor. Klinik gerçeklere ulaş",
+        "description": "Tıbbi bir soru sor; PubMed, klinik kılavuzlar ve güvenilir tıp literatüründen doğrulanmış ve kaynaklı yanıtlar al."
+      },
+      "slide2": {
+        "headline": "Her Yanıt Bir Kaynağa Dayanır",
+        "description": "Tahmin yok, uydurma bilgi yok. Her yanıt doğrulanabilir, gerçek tıbbi araştırmalara bağlanır."
+      },
+      "slide3": {
+        "headline": "Daha Akıllıca Çalış, Tıp Sınavlarını Geç",
+        "description": "Herhangi bir soruyu veya yüklediğin içeriği saniyeler içinde teste veya bilgi kartı setine dönüştür; doğrudan öğrendiklerinle pratik yap."
+      }
+    },
+    "otp": {
+      "title": "E-posta adresini doğrula",
+      "subtitle": "Lütfen e-posta adresine gönderdiğimiz doğrulama kodunu gir"
+    },
+    "professionalDeclaration": {
+      "title": "Mesleki Beyan",
+      "subtitle": "Clinical Fact, eğitsel bir literatür tarama aracıdır",
+      "disclaimerIntro": "Clinical Fact; hemşirelik, tıp ve diğer sağlık bilimleri öğrencilerinin tıbbi bilgiye, araştırma literatürüne ve ders çalışma materyallerine erişimini desteklemek amacıyla tasarlanmış AI tabanlı bir bilgilendirme aracıdır. Uygulama tıbbi teşhis, tedavi önerisi, klinik talimat veya hastaya özel tıbbi tavsiye sunmaz; doğrudan hasta bakımı veya klinik karar verme süreçlerinde dayanak olarak kullanılmamalıdır.",
+      "disclaimerHeading": "Clinical Fact yanıtları nasıl üretir:",
+      "disclaimerBody": "Clinical Fact; PubMed, Semantic Scholar ve resmi FDA ilaç prospektüsleri de dahil olmak üzere köklü tıbbi ve bilimsel kaynaklardan doğrudan bilgi alır ve bu içeriği yalın bir dille özetleyip açıklamak için AI kullanır. Her yanıt, yalnızca söz konusu soruya özel olarak taranan kaynaklardan üretilir ve alıntılar, kendiniz doğrulayabilmeniz için orijinal materyale yönlendirir. Clinical Fact ezberden tıbbi bilgiler üretmez veya kaynak uydurmaz.\n\nClinical Fact; bir tanı aracı, tedavi platformu, tıbbi cihaz veya profesyonel tıbbi muhakemenin, yetkili eğitimin ya da kurumunuzun müfredatının alternatifi değildir. Uygulama tarafından üretilen yanıtlar, alıntılar, testler ve bilgi kartları dahil her türlü bilgi yalnızca genel eğitim ve çalışma amaçlıdır; herhangi bir akademik, klinik veya profesyonel bağlamda güvenilmeden önce kullanıcı tarafından bağımsız olarak doğrulanmalıdır.\nClinical Fact, sağlanan hiçbir bilginin eksiksizliğini, doğruluğunu veya güncel klinik geçerliliğini garanti etmez. Tıbbi bilgiler sürekli gelişmektedir; kritik bilgileri her zaman eğitmenleriniz, klinik danışmanlarınız ve güncel birincil kaynaklarla karşılaştırın.\nKendi belgelerinizi, notlarınızı veya kayıtlarınızı yüklediğinizde Clinical Fact, harici kaynaklar yanında açıkça belirtilmediği sürece yanıtları, özetleri, testleri ve bilgi kartlarını yalnızca yüklenen içeriğe dayalı olarak üretir.\n\nClinical Fact, kullanıcılarının kimliğini, öğrenim durumunu veya uzmanlık belgelerini doğrulamaz, onaylamaz veya teyit etmez. Uygulama acil durumlarda veya gerçek zamanlı klinik kararlar almak için tasarlanmamıştır.\nDevam ederek bu şartları anladığınızı ve Clinical Fact'i yalnızca bir çalışma ve başvuru kaynağı olarak kullanmayı kabul ettiğinizi beyan edersiniz.",
+      "checkboxLabel": "Bu uygulamanın yalnızca eğitsel referans amaçlı olduğunu ve tıbbi tavsiye sunmadığını anlıyorum",
+      "acceptButton": "Kabul et ve devam et"
+    },
+    "survey": {
+      "role": "Seni en iyi ne tanımlıyor, {{firstName}}?",
+      "currentMethod": "Şu anda tıbbi sorularına genellikle nasıl yanıt buluyorsun?",
+      "timeDrain": "En çok ne zamanını alıyor?",
+      "appExpectation": "Clinical Fact tıp uygulamasından beklentin nedir?",
+      "aiToolsUsed": "Tıbbi araştırmaların için şimdiye kadar hangi AI araçlarını kullandın?",
+      "aiToolIssue": "Bu araçlarda yaşadığın sorun neydi?",
+      "aiTrustLevel": "Bir AI yanıtının yanlış olabileceğinden ne sıklıkla endişeleniyorsun?",
+      "biggestNeed": "Şu anda en çok neye ihtiyacın var?",
+      "studyTimePerWeek": "Her hafta ders çalışmaya ne kadar vakit ayırabiliyorsun?",
+      "comingUp": "Yakın zamanda seni ne bekliyor?",
+      "referralSource": "Clinical Fact'i nereden duydun?"
+    },
+    "onboarding": {
+      "username": "Kullanıcı adını belirleyelim",
+      "usernameSubtitle": "Hesabını daha kişisel hale getirmene yardımcı olur",
+      "goals": "Clinical Fact'in sana hangi konuda\\nyardımcı olmasını istersin",
+      "goalsSubtitle": "Uygun olanların tümünü seç. Deneyimi sana göre özelleştireceğiz.",
+      "contentType": "Ağırlıklı olarak hangi tür\\niçerikleri kullanıyorsun",
+      "contentTypeSubtitle": "Uygun olanların tümünü seç. Bu, deneyimini kişiselleştirmemize yardımcı olur.",
+      "reviewStyle": "Öğrendiklerini nasıl tekrar\\netmeyi tercih edersin",
+      "reviewStyleSubtitle": "Tercih ettiğin tekrar yöntemini seç.",
+      "frustration": "{{firstName}}, not alırken seni en çok zorlayan şey nedir?",
+      "frustrationSubtitle": "Uygun olanların tümünü seç. Bu, sorunlarını çözmemize yardımcı olur.",
+      "referral": "Merak ettik de {{firstName}},\\nClinical Fact'i nereden duydun?",
+      "referralSubtitle": "Bir seçenek belirle."
+    },
+    "referralScreen": {
+      "title": "Seni biri mi\\nönerdi?",
+      "subtitle": "Varsa davet kodunu gir"
+    },
+    "setup": {
+      "preparingNotes": "Notlar hazırlanıyor",
+      "preparingFlashcards": "Bilgi kartları hazırlanıyor",
+      "preparingQuiz": "Test şablonları hazırlanıyor",
+      "preparingChat": "Sohbet asistanları hazırlanıyor",
+      "title": "Kişiselleştirilmiş çalışma alanın\\nhazırlanıyor, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Clinical Fact'e güvendiğin için teşekkürler",
+      "subtitle": "Binlerce hemşirelik ve tıp öğrencisinin arasına katılıyorsun",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "İstediğin konuyu öğrenmek için\\nihtiyacın olan her şey",
+      "subtitle": "Kaydet. Araştır. Test et. Uzmanlaş.",
+      "everythingYouNeedToLearnAnything": "Öğrenmek istediğin her şey için tek adres",
+      "recordItResearchItQuizIt": "Kaydet. Araştır. Test et. Uzmanlaş.",
+      "tryClinicalFactNowForFree": "Clinical Fact'i şimdi ücretsiz dene"
+    },
+    "features": {
+      "feature1": {
+        "title": "Gerçek tıbbi yanıtlar ve takip soruları al",
+        "description": "Herhangi bir tıbbi soru sor; net bir açıklamanın yanı sıra akıllı takip soruları al, böylece çalışırken asla tıkanıp kalma."
+      },
+      "feature2": {
+        "title": "Her tıbbi yanıt,\ngerçek bir kaynağa dayalı",
+        "description": "PubMed, Semantic Scholar ve Europe PMC kaynaklı atıflar; uydurma değil, doğrulanabilir."
+      },
+      "feature3": {
+        "title": "Notlarını yükle, materyallerinin tıbbi özetlerini al",
+        "description": "Ders slaytlarını, PDF'leri veya notları güvenilir tıbbi kaynaklarla desteklenen net açıklamalara dönüştür."
+      },
+      "feature4": {
+        "title": "Sohbetleri pratik yapmak için Quiz'e veya bilgi kartlarına dönüştür",
+        "description": "Çalışmak için ayrı bir uygulamaya gerek yok; doğrudan sohbetlerinden ve yüklemelerinden pratik soruları oluştur."
+      },
+      "feature5": {
+        "title": "Sohbetleri veya belgeleri pratik için bilgi kartı sorularına dönüştür",
+        "description": "Çalışmak için ayrı bir uygulamaya gerek yok; doğrudan sohbetlerinden ve yüklemelerinden pratik soruları oluştur."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Bildirimleri aç",
+      "thisHelpsUsStayOnTrack": "Bu, hesabını kişiselleştirmemize ve tıbbi bilgilere daha hızlı ulaşmana yardımcı olur"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Geçersiz doğrulama kodu. Lütfen tekrar dene.",
+      "failedToResendCodePleaseTry": "Kod tekrar gönderilemedi. Lütfen tekrar dene.",
+      "confirmYourEmailAddress": "E-posta adresini doğrula",
+      "enterCodeSentTo": "Lütfen {{email}} adresine gönderdiğimiz tek kullanımlık doğrulama kodunu gir",
+      "resendCodeIn": "Kodu tekrar gönder ({{seconds}} sn)"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Seni biri mi önerdi?",
+      "enterTheirReferralCodeIfYou": "Varsa referans kodunu gir",
+      "eGJOHNOrTECHBRO": "örn. AHMET veya DOKTOR",
+      "codeIsValid": "✓ Kod geçerli"
+    },
+    "resultsChart": {
+      "getBetterResults": "Daha iyi sonuçlar elde et",
+      "over95OfClinicalfactUsersScore": "Clinical Fact kullanıcılarının %95'inden fazlası test ve sınavlarda %95 üzeri puan alıyor"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Hemşirelik öğrencisi",
+        "medicalStudent": "Tıp öğrencisi",
+        "paPharmacyStudent": "Eczacılık öğrencisi",
+        "practicingNurse": "Çalışan hemşire",
+        "practicingPhysician": "Çalışan hekim",
+        "otherHealthcareProfessional": "Diğer sağlık çalışanı"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Ders kitapları veya ders notları",
+        "flashcardQuizApps": "Flaş kart veya soru uygulamaları",
+        "youtube": "YouTube",
+        "aiChatbots": "AI sohbet botları",
+        "colleagueClassmate": "Meslektaşa veya sınıf arkadaşına sorma",
+        "practiceQuestionBanks": "Soru bankaları"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Sıfırdan kart ve test hazırlamak",
+        "findingTrustworthyAnswer": "Hızlıca güvenilir yanıt bulmak",
+        "reReadingNotes": "Hatırlamadığım notları tekrar okumak",
+        "switchingApps": "Sürekli farklı uygulamalar arasında geçiş yapmak",
+        "chartingDocumentation": "Hasta kaydı ve dokümantasyon"
+      },
+      "appExpectation": {
+        "noHallucination": "Uydurmayan (halüsinasyon görmeyen) bir AI",
+        "realCitations": "Kaynak gösteren gerçek referanslar",
+        "oneApp": "Beş farklı abonelik yerine tek uygulama",
+        "explainsWhy": "Yalnızca yanıtı değil, mantığını da açıklayan içerik"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google Arama",
+        "otherApps": "Diğer Uygulamalar"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Yanlış bilgi uydurdu",
+        "notMedicalContent": "Tıbbi içerik için tasarlanmamış",
+        "noSources": "Doğrulamak için kaynak yok",
+        "tooGeneric": "Çok genel; sınava veya pratiğe yönelik değil"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Her zaman",
+        "sometimes": "Bazen",
+        "rarely": "Nadiren",
+        "dontUseAi": "Henüz AI kullanmıyorum"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Güvenebileceğim hızlı yanıtlar",
+        "quizzesFlashcardsWithoutWork": "Uğraştırmayan testler ve flaş kartlar",
+        "rememberingStudied": "Çalıştıklarımı aklımda tutma desteği",
+        "medicalCitations": "Tıbbi kaynak ve atıflar",
+        "allOfTheAbove": "Yukarıdakilerin hepsi"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Bülten",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Diğer"
+      },
+      "studyTime": {
+        "under5Hours": "5 saatten az",
+        "510Hours": "5–10 saat",
+        "1020Hours": "10–20 saat",
+        "20PlusHours": "20+ saat"
+      },
+      "comingUp": {
+        "medicalExams": "Tıp sınavları",
+        "clinicalRotations": "Klinik stajlar",
+        "nursingExams": "Hemşirelik sınavları",
+        "otherExams": "Diğer sınavlar",
+        "staySharp": "Bilgilerimi taze tutmak istiyorum"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "Not transkripti",
+    "noteTranscript": {
+      "noteTranscript": "Not Transkripti",
+      "noNoteIDProvided": "Not kimliği belirtilmedi",
+      "noTranscriptAvailableForThisNote": "Bu not için transkript bulunmuyor.",
+      "thisNoteWasNotCreatedFrom": "Bu not ses/video kaydından oluşturulmadı ve transkripti yok.",
+      "failedToLoadNote": "Not yüklenemedi",
+      "noteTranscript2": "Not transkripti",
+      "loadingTranscript": "Transkript yükleniyor...",
+      "goToNote": "Nota git"
+    },
     "noteOptions": "Not seçenekleri",
-    "editNote": "Notu düzenle",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Lütfen bir not başlığı girin",
+      "failedToUpdateNote": "Not güncellenemedi",
+      "noteUpdatedSuccessfully": "Not başarıyla güncellendi",
+      "editNote": "Notu düzenle",
+      "noteTitle": "Not başlığı",
+      "enterNoteTitle": "Not başlığı girin",
+      "noteContent": "Not içeriği",
+      "enterNoteContent": "Not içeriğini girin",
+      "saveThisNote": "Bu notu kaydet",
+      "aiIsGeneratingYourNote": "AI notunuzu oluşturuyor",
+      "largeAudioAndVideoFilesMay": "Büyük ses ve video dosyalarının işlenmesi birkaç dakika sürebilir. Lütfen uygulamayı açık tutun."
+    },
     "retranscribe": "Yeniden transkrip et",
     "exportNote": "Notu dışa aktar",
     "shareNoteLink": "Not bağlantısını paylaş",
@@ -110,12 +425,89 @@
     "translate": "Çevir",
     "addToFolder": "Klasöre ekle",
     "loadingNote": "Not yükleniyor...",
-    "noteNotFound": "Not yüklenemedi"
+    "noteNotFound": "Not yüklenemedi",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Flashcard'lar oluşturulamadı",
+      "anUnexpectedErrorOccurred": "Beklenmeyen bir hata oluştu",
+      "history": "Geçmiş",
+      "export": "Dışa aktar"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Not klasöre eklenemedi",
+      "folderNotFound": "Klasör bulunamadı",
+      "addNote": "+ Not ekle",
+      "noNotesInThisFolder": "Bu klasörde not yok",
+      "moveNotesToThisFolderTo": "Notları burada görmek için bu klasöre taşıyın",
+      "addNoteToFolder": "Klasöre not ekle",
+      "noNotesAvailableToAdd": "Eklenebilecek not yok",
+      "allYourNotesAreAlreadyIn": "Tüm notlarınız zaten bu klasörde",
+      "created": "Oluşturulma: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Not yüklenemedi",
+      "reTranscribeNote": "Notu Yeniden Deşifre Et",
+      "thisWillReTranscribeTheAudio": "Bu işlem sesi yeniden deşifre edecek ve notu güncelleyecektir. Devam edilsin mi?",
+      "reTranscribe": "Yeniden Deşifre Et",
+      "noteReTranscribedSuccessfully": "Not başarıyla yeniden deşifre edildi",
+      "info": "Bilgi",
+      "reTranscriptionFeatureIsComingSoon": "Yeniden deşifre etme özelliği çok yakında",
+      "youAreCurrentlyOfflinePleaseConnect": "Şu anda çevrimdışısınız. Bu işlemi gerçekleştirmek için lütfen internete bağlanın.",
+      "failedToDeleteNote": "Not silinemedi",
+      "failedToExportNote": "Not dışa aktarılamadı",
+      "noteTranslatedSuccessfully": "Not başarıyla çevrildi",
+      "failedToTranslateNote": "Not çevrilemedi",
+      "noteMovedTo": "Not {{name}} klasörüne taşındı",
+      "failedToMoveNoteToFolder": "Not klasöre taşınamadı",
+      "summaryNotes": "Özet Notlar",
+      "loadingNote": "Not yükleniyor...",
+      "imageNote": "Görsel Notu",
+      "created": "Oluşturulma: {{dateTime}}",
+      "translate": "Çevir",
+      "transcribe": "Metne Dönüştür",
+      "editThisNote": "Bu notu düzenle",
+      "createFlashcards": "Flaş kart oluştur",
+      "createFlashcardsToImproveYourRetention": "Bilgileri daha iyi akılda tutmak için flaş kartlar oluştur",
+      "createQuizQuestions": "Test soruları oluştur",
+      "practiceYourNotesByCreatingQuestions": "Konuyu pekiştiren sorular oluşturarak notlarını tekrar et"
+    },
+    "sharedNote": {
+      "notFound": "Bulunamadı",
+      "thisSharedNoteLinkIsInvalid": "Bu paylaşılan not bağlantısı geçersiz veya süresi dolmuş.",
+      "failedToLoadSharedNote": "Paylaşılan not yüklenemedi.",
+      "saved": "Kaydedildi!",
+      "noteHasBeenAddedToYour": "Not kitaplığına eklendi.",
+      "viewInLibrary": "Kitaplıkta Görüntüle",
+      "stayHere": "Burada kal",
+      "failedToSaveNote": "Not kaydedilemedi.",
+      "loadingSharedNote": "Paylaşılan not yükleniyor...",
+      "sharedNote": "Paylaşılan Not",
+      "sharedWithYou": "Seninle paylaşıldı",
+      "savedToLibrary": "Kitaplığa kaydedildi",
+      "saveToMyLibrary": "Kitaplığıma kaydet"
+    }
   },
   "create": {
     "selectOption": "Notunuzu nasıl oluşturmak istersiniz?",
-    "recordAudio": "Ses kaydet",
-    "uploadAudio": "Ses yükle",
+    "recordAudio": {
+      "permissionRequired": "İzin Gerekli",
+      "pleaseGrantMicrophonePermissionToRecord": "Ses kaydetmek için lütfen mikrofon izni ver.",
+      "failedToRequestMicrophonePermission": "Mikrofon izni istenemedi",
+      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Ses Kaydediliyor",
+      "recordAudio": "Ses kaydet",
+      "createANoteFromAnyRecorded": "Kaydedilen herhangi bir sesten not oluştur",
+      "recording": "Kaydediliyor ({{time}})",
+      "recordAgain": "Yeniden kaydet"
+    },
+    "uploadAudio": {
+      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Ses dosyası seçilemedi",
+      "uploadAudio": "Ses yükle",
+      "createANoteFromAnyUploaded": "Yüklenen herhangi bir ses dosyasından not oluştur",
+      "dragDropFilesOrBrowse": "Dosyaları sürükleyip bırak veya Göz at",
+      "supportedFormatMp4WavMp3": "Desteklenen formatlar: mp4, wav, mp3",
+      "changeFile": "Dosyayı değiştir"
+    },
     "youtube": "YouTube videosu",
     "pdfDocument": "PDF veya belge",
     "customText": "Özel metin",
@@ -123,7 +515,56 @@
     "uploadingFile": "Dosya sunucuya yükleniyor...",
     "transcribing": "Konuşma metne dönüştürülüyor...",
     "extractingText": "Metin çıkarılıyor...",
-    "generatingNote": "AI destekli çalışma notları oluşturuluyor...",
+    "generatingNote": {
+      "uploadAudio": "Ses yükle",
+      "uploadingAudioFileToServer": "Ses dosyası sunucuya yükleniyor...",
+      "transcribeAudio": "Sesi metne dönüştür",
+      "convertingSpeechToText": "Konuşma metne dönüştürülüyor...",
+      "generateYourNote": "Notunu oluştur",
+      "creatingStudyNotes": "Ders notları oluşturuluyor...",
+      "uploadPDF": "PDF yükle",
+      "uploadingPDFDocumentToServer": "PDF belgesi sunucuya yükleniyor...",
+      "extractText": "Metni ayıkla",
+      "readingAndExtractingTextFromPDF": "PDF okunuyor ve metin ayıklanıyor...",
+      "uploadImage": "Görsel yükle",
+      "uploadingImageToServer": "Görsel sunucuya yükleniyor...",
+      "extractTextOCR": "Metni ayıkla (OCR)",
+      "recognizingAndExtractingTextFromImage": "Görsel tanınıyor ve metin ayıklanıyor...",
+      "fetchVideo": "Videoyu getir",
+      "connectingToYouTube": "YouTube'a bağlanılıyor...",
+      "extractTranscript": "Transkripti çıkar",
+      "downloadingVideoTranscript": "Video transkripti indiriliyor...",
+      "processText": "Metni işle",
+      "analyzingYourContent": "İçeriğin analiz ediliyor...",
+      "uploadFile": "Dosya yükle",
+      "uploadingToServer": "Sunucuya yükleniyor...",
+      "processContent": "İçeriği işle",
+      "extractingContent": "İçerik ayıklanıyor...",
+      "noteReady": "Not hazır!",
+      "noteGenerationFailedOnTheServer": "Sunucuda not oluşturulamadı.",
+      "failedToUploadImage": "Görsel yüklenemedi",
+      "weCouldNotReadAnythingFrom": "Bu görselden hiçbir şey okunamadı. Lütfen klinik notlarının daha net bir görselini dene.",
+      "preparingFile": "Dosya hazırlanıyor...",
+      "almostDone": "Neredeyse bitti...",
+      "untitledNote": "Başlıksız Not",
+      "failedToGenerateNote": "Not oluşturulamadı",
+      "whoaSpeedy": "Sakin ol şampiyon! 🏃💨",
+      "youReGeneratingContentABit": "Çok hızlı içerik oluşturuyorsun. AI sistemimizin sana yetişebilmesi için lütfen 60 saniye kadar bekle.",
+      "gotIt": "Anladım",
+      "fileTooLarge": "Dosya Çok Büyük",
+      "yourFileExceedsThe15MBLimit": "Dosyan ücretsiz kullanıcılar için geçerli 15 MB sınırını aşıyor. 100 MB'a kadar ders kayıtları yüklemek için PRO sürüme geç.",
+      "upgradeToPRO": "PRO'ya Yükselt",
+      "oopsWeHitASnag": "Hay aksi, bir sorun çıktı 🚧",
+      "weCouldnTGenerateThatRight": "Şu anda bunu oluşturamadık. Lütfen biraz bekleyip tekrar dene!",
+      "processingContent": "İçerik işleniyor...",
+      "generatingYourNote": "Notun oluşturuluyor...",
+      "audioNote": "Sesli Not",
+      "failedToGenerateFlashcards": "Flaş kartlar oluşturulamadı",
+      "generatingNote": "Not oluşturuluyor",
+      "pleaseKeepThisScreenOpenWhile": "Notun oluşturulurken lütfen bu ekranı açık tut. Büyük dosyaların yazıya dökülmesi birkaç dakika sürebilir.",
+      "goToNote": "Nota git",
+      "generateNoteTranscript": "Not transkripti oluştur"
+    },
     "fetchingVideo": "YouTube'a bağlanılıyor...",
     "processingText": "İçeriğiniz analiz ediliyor...",
     "uploadAudioTitle": "Ses yükle",
@@ -133,7 +574,63 @@
     "fetchVideo": "Video al",
     "extractTranscript": "Transkript çıkar",
     "processText": "Metni işle",
-    "generateNote": "Notunuzu oluştur"
+    "generateNote": "Notunuzu oluştur",
+    "customTextInput": {
+      "customText": "Özel metin",
+      "createANoteFromAnyCustom": "Herhangi bir özel metinden not oluştur",
+      "enterText": "Metin Gir",
+      "enterYourTextHere": "Metnini buraya gir..."
+    },
+    "uploadImage": {
+      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "İzin Gerekli",
+      "pleaseAllowAccessToYourPhoto": "Lütfen fotoğraf kitaplığına erişim izni ver",
+      "failedToPickImage": "Görsel seçilemedi",
+      "uploadImage": "Görsel yükle",
+      "createANoteFromAnyUploaded": "Yüklenen herhangi bir görselden not oluştur",
+      "dragDropFilesOrBrowse": "Dosyaları sürükleyip bırak veya Seç",
+      "supportedFormatPngJpegHeicWebp": "Desteklenen formatlar: png, jpeg, heic, webp",
+      "changeFile": "Dosyayı değiştir"
+    },
+    "uploadPDF": {
+      "created": "Oluşturulma: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Belge seçilemedi",
+      "uploadPdf": "PDF yükle",
+      "createANoteFromAnyUploaded": "Yüklenen herhangi bir PDF'ten not oluştur",
+      "dragDropFilesOrBrowse": "Dosyaları sürükleyip bırak veya Seç",
+      "supportedFormatPdf": "Desteklenen format: pdf",
+      "changeFile": "Dosyayı değiştir"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Video alınıyor",
+      "gettingVideoDetails": "Video ayrıntıları alınıyor",
+      "extractingTranscript": "Transkript çıkarılıyor",
+      "convertingAudioToText": "Ses metne dönüştürülüyor",
+      "generatingYourNote": "Notun oluşturuluyor",
+      "aiIsSummarisingTheContent": "AI içeriği özetliyor",
+      "noteGenerationFailedPleaseTryAgain": "Not oluşturulamadı. Lütfen tekrar dene.",
+      "processingFailed": "İşlem Başarısız Oldu",
+      "goBack": "Geri Dön",
+      "retry": "Tekrar Dene",
+      "failedToStartNoteGeneration": "Not oluşturma başlatılamadı",
+      "failedToProcessYouTubeVideoPlease": "YouTube videosu işlenemedi. Lütfen tekrar deneyin.",
+      "cancelProcessing": "İşlemi İptal Et",
+      "areYouSureYouWantTo": "İptal etmek istediğinize emin misiniz? İlerlemeniz kaybolacak.",
+      "continueProcessing": "İşleme Devam Et",
+      "youTubeNote": "YouTube Notu",
+      "noteGenerated": "Not Oluşturuldu",
+      "generatingNote": "Not oluşturuluyor",
+      "goToNote": "Nota Git"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Video bilgileri alınamadı",
+      "failedToFetchVideoInformation": "Video bilgileri alınamadı",
+      "youtubeVideo": "YouTube Videosu",
+      "createANoteFromAnyYoutube": "Herhangi bir YouTube videosundan not oluşturun",
+      "enterYoutubeURL": "YouTube bağlantısını girin",
+      "pasteYoutubeURL": "YouTube bağlantısını yapıştırın",
+      "fetchingVideoInfo": "Video bilgileri alınıyor..."
+    }
   },
   "library": {
     "title": "Kütüphane",
@@ -163,7 +660,67 @@
     "almostDone": "Neredeyse bitti...",
     "quizReady": "Sınav hazır!",
     "startQuiz": "Sınavı başlat",
-    "questionCount": "{{total}} sorunun {{current}}. sorusu"
+    "questionCount": "{{total}} sorunun {{current}}. sorusu",
+    "previous": "Önceki soru",
+    "generatingQuiz": "AI ile quiz oluşturuluyor...",
+    "exitTitle": "Quiz'den Çıkılsın mı?",
+    "exitMessage": "İlerlemen kaybolacak.",
+    "exit": "Çık",
+    "errorTitle": "Hay aksi, bir sorun çıktı 🚧",
+    "errorMessage": "Şu anda oluşturulamadı. Lütfen birazdan tekrar dene!",
+    "noQuestions": "Soru bulunamadı.",
+    "reading": "Notların okunuyor...",
+    "identifying": "Temel kavramlar belirleniyor...",
+    "structuring": "Sorular yapılandırılıyor...",
+    "almostReady": "Neredeyse hazır...",
+    "youScored": "PUANIN",
+    "timeInSeconds": "SÜRE (SANİYE)",
+    "accuracy": "DOĞRULUK",
+    "grade": "DERECE",
+    "reportsCard": "Sonuç karnesi",
+    "reviewAnswers": "Cevapları incele",
+    "correctAnswer": "Doğru cevap",
+    "yourAnswer": "Senin cevabın",
+    "explanation": "Açıklama",
+    "questionProgress": "Soru {{current}} / {{total}}",
+    "generatingQuizWait": "Quiz'in hazırlanıyor, lütfen tamamlanana kadar bekle...",
+    "goToChats": "Sohbetlere git",
+    "quizGroupDetail": {
+      "inProgress": "Devam Ediyor",
+      "notStarted": "Başlanmadı",
+      "failedToLoadQuizHistory": "Test geçmişi yüklenemedi",
+      "failedToLoadChatContent": "Sohbet içeriği yüklenemedi",
+      "deleteQuiz": "Testi Sil",
+      "failedToDeleteQuiz": "Test silinemedi",
+      "created": "Oluşturulma: {{dateTime}}",
+      "lastscore": "SON PUAN",
+      "bestscore": "EN İYİ PUAN",
+      "attempts": "DENEME",
+      "retakeQuiz": "Testi Tekrar Çöz",
+      "translate": "Çevir",
+      "newQuiz": "Yeni Test",
+      "quizHistory": "Test geçmişi",
+      "flashcardHistory": "Bilgi kartı geçmişi",
+      "score": "Puan: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Bu kaynaktan henüz bilgi kartı seti yok.",
+      "cards": "{{totalCards}} kart · {{flashcardStatus}}",
+      "quizOptions": "Test seçenekleri",
+      "exportLatestAttempt": "Son denemeyi dışa aktar",
+      "questions": "{{totalQuestions}} soru · {{value}}",
+      "deleteAllAttemptsOne": "\"{{title}}\" için yapılan 1 test denemesi silinsin mi? Bu işlem geri alınamaz.",
+      "deleteAllAttemptsMany": "\"{{title}}\" için yapılan toplam {{total}} test denemesi silinsin mi? Bu işlem geri alınamaz.",
+      "makeFlashcards": "Bilgi kartları oluştur"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Test verileri yüklenemedi - geçersiz yanıt biçimi",
+      "failedToLoadQuizData": "Test verileri yüklenemedi",
+      "noContentAvailable": "İçerik bulunamadı",
+      "goBack": "Geri Dön",
+      "previous": "Önceki"
+    },
+    "quiz": {
+      "generationFailed": "Oluşturma başarısız oldu"
+    }
   },
   "flashcards": {
     "title": "Flash kartlar",
@@ -172,7 +729,68 @@
     "previous": "Önceki",
     "shuffle": "Karıştır",
     "generating": "Flash kartlar oluşturuluyor...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Akılda kalıcılığı artırmak için bilgi kartları oluştur",
+    "howManyQuestions": "Kaç soru olsun?",
+    "generateButton": "Bilgi kartları oluştur",
+    "generatingEllipsis": "Oluşturuluyor...",
+    "allDone": "Tümü Tamamlandı!",
+    "completedReview": "Bu destedeki tüm kartları gözden geçirdin",
+    "backToNotes": "Notlara dön",
+    "question": "Soru",
+    "answer": "Cevap",
+    "noQuestionText": "(Soru metni yok)",
+    "noAnswerText": "(Cevap metni yok)",
+    "enterQuestion": "Sorunu gir",
+    "enterAnswer": "Cevabı gir",
+    "clickToFlip": "çevirmek için karta dokun",
+    "reading": "Notların okunuyor...",
+    "identifying": "Temel kavramlar belirleniyor...",
+    "creating": "Bilgi kartları oluşturuluyor...",
+    "almostReady": "Neredeyse hazır...",
+    "headerTitle": "Bilgi Kartı",
+    "progressFormat": "Bilgi Kartı {{current}} / {{total}}",
+    "noteIdRequired": "Bilgi kartı oluşturmak için not kimliği gereklidir",
+    "invalidCardCount": "Lütfen 1 ile 100 arasında bilgi kartı seç",
+    "flashcardGroupDetail": {
+      "inProgress": "Devam Ediyor",
+      "notStarted": "Başlanmadı",
+      "failedToLoadFlashcardHistory": "Bilgi kartı geçmişi yüklenemedi",
+      "limitReached": "Limite ulaşıldı",
+      "flashcardGenerationLimitReached": "Bilgi kartı oluşturma limitine ulaşıldı.",
+      "failedToGenerateFlashcards": "Bilgi kartları oluşturulamadı",
+      "failedToTranslateFlashcards": "Bilgi kartları çevrilemedi",
+      "deleteFlashcards": "Bilgi Kartlarını Sil",
+      "failedToDeleteFlashcards": "Bilgi kartları silinemedi",
+      "created": "Oluşturulma: {{dateTime}}",
+      "lastprogress": "SON İLERLEME",
+      "bestprogress": "EN İYİ İLERLEME",
+      "sets": "SETLER",
+      "studyNow": "Şimdi Çalış",
+      "translate": "Çevir",
+      "newFlashcards": "Yeni Bilgi Kartları",
+      "flashcardHistory": "Bilgi kartı geçmişi",
+      "quizHistory": "Quiz geçmişi",
+      "cards": "{{totalCards}} kart · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Bu kaynaktan henüz quiz yok.",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Bilgi kartı seçenekleri",
+      "exportLatestSet": "En son seti dışa aktar",
+      "questions": "{{totalQuestions}} soru · {{value}}",
+      "deleteAllSetsOne": "\"{{title}}\" için 1 bilgi kartı seti silinsin mi? Bu işlem geri alınamaz.",
+      "deleteAllSetsMany": "\"{{title}}\" için {{total}} bilgi kartı seti silinsin mi? Bu işlem geri alınamaz.",
+      "makeQuiz": "Quiz oluştur",
+      "failedToLoadChatContent": "Sohbet içeriği yüklenemedi"
+    },
+    "flashcardReview": {
+      "unknownError": "Bilinmeyen hata",
+      "noFlashcardsInThisSet": "Bu sette bilgi kartı yok",
+      "goBack": "Geri Dön",
+      "allDone": "Hepsi tamamlandı",
+      "youHaveReviewedAllTheCards": "Bu destedeki tüm kartları gözden geçirdin",
+      "question": "Soru {{value}}",
+      "questionOf": "Soru {{value}} / {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Sohbet",
@@ -183,7 +801,191 @@
     "chatWithDocument": "Belge ile sohbet et",
     "selectFile": "Sohbet etmek için bir dosya seç",
     "uploadFile": "Dosya yükle",
-    "startChatting": "Sohbete başla"
+    "startChatting": "Sohbete başla",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Ayrıntılı bilgi için tıbbi bir soru sor",
+      "askAnythingAboutThisDocument": "Bu belge hakkında her şeyi sorabilirsin...",
+      "askAQuestionAttachmentProcessingFailed": "Bir soru sor — ek işlenemedi",
+      "extractingText": "Metin ayıklanıyor...",
+      "processingPDF": "PDF işleniyor...",
+      "upgradeToProToContinueChatting": "Sohbete devam etmek için PRO'ya yükselt",
+      "queryremaining": "{{queriesRemaining}} SORU HAKKI KALDI"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Sohbet başlatılıyor...",
+      "extractingTextFromImage": "Görselden metin ayıklanıyor...",
+      "processingPDFDocument": "PDF belgesi işleniyor...",
+      "analyzingYourNote": "Notun analiz ediliyor...",
+      "thisUsuallyTakesJustAFew": "⏱️ Bu işlem genellikle sadece birkaç saniye sürer. İşlem bittiğinde sohbete başlayabilirsin.",
+      "processingFailed": "İşleme Başarısız",
+      "fileMightBeCorruptedOrUnreadable": "• Dosya bozuk veya okunamıyor olabilir",
+      "imageQualityTooLow": "Görsel kalitesi çok düşük",
+      "pdfIsPasswordProtected": "PDF parola korumalı",
+      "contentFormatNotSupported": "İçerik formatı desteklenmiyor",
+      "networkConnectionIssue": "• Ağ bağlantısı sorunu",
+      "tryADifferentFile": "Farklı Bir Dosya Dene",
+      "askAnyClinicalQuestionNoUpload": "💡 İstediğin klinik soruyu sor — yükleme yapmana gerek yok. Kaynak gösterilen tıbbi literatürle ve uygun olduğunda ilgili görsellerle yanıtlayacağım.",
+      "readyToChat": "✓ Sohbete hazır",
+      "couldntProcessNote": "Bu notu işleyemedik. Nedeni şunlar olabilir:",
+      "couldntProcessImage": "Bu görseli işleyemedik. Nedeni şunlar olabilir:",
+      "couldntProcessDocument": "Bu belgeyi işleyemedik. Nedeni şunlar olabilir:",
+      "askMeAboutNote": "💡 Bu not hakkında bana her şeyi sorabilirsin. Özetleyebilir, kavramları açıklayabilir veya sorularını yanıtlayabilirim.",
+      "askMeAboutImage": "💡 Bu görsel hakkında bana her şeyi sorabilirsin. Özetleyebilir, kavramları açıklayabilir veya sorularını yanıtlayabilirim.",
+      "askMeAboutDocument": "💡 Bu belge hakkında bana her şeyi sorabilirsin. Özetleyebilir, kavramları açıklayabilir veya sorularını yanıtlayabilirim."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} öğrenildi",
+      "notStarted": "Başlanmadı",
+      "quizGeneration": "Quiz oluşturma",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Bilgi kartı oluşturma",
+      "questions": "{{totalCards}} soru · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} soru · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Düşünüyor ve senin için kaynaklar arıyor...",
+      "couldnTGenerateAResponse": "Yanıt oluşturulamadı.",
+      "retry": "Tekrar Dene",
+      "alsoReferencedFromTheWeb": "Ayrıca web'den kaynak gösterildi",
+      "followUpQuestions": "Takip soruları"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Tıbbi konularda dilediğini sor, güvenilir kaynaklarla desteklenen doğrulanmış bilgiye ulaş",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Kanıta dayalı · PubMed kaynakları · Hakemli",
+      "tryOutAnyOfThisTopics": "Başlamak için bu konulardan birini dene",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolit dengesizliği açıklaması",
+          "question": "Elektrolit dengesizliklerini açıkla: nedenleri, belirtileri ve tedavisi"
+        },
+        "ecg": {
+          "label": "Temel EKG yorumlama",
+          "question": "EKG yorumlamanın temel ilkeleri nelerdir?"
+        },
+        "drugInteractions": {
+          "label": "Önemli ilaç etkileşimleri",
+          "question": "Bilmem gereken yaygın ve önemli ilaç etkileşimleri nelerdir?"
+        },
+        "nclex": {
+          "label": "NCLEX tarzı pratik konuları",
+          "question": "Bana NCLEX tarzında bir pratik sorusu ver"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA ilaç prospektüsü",
+      "fromYourAttachedMaterial": "Eklediğin materyallerden"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Sohbet oturumu oluşturulamadı",
+      "failedToInitializeChatSession": "Sohbet oturumu başlatılamadı",
+      "failedToUpdateLanguage": "Dil güncellenemedi",
+      "youVeReachedYour3Pin": "3 sabitleme sınırına ulaştın",
+      "failedToUpdatePin": "Sabitleme güncellenemedi",
+      "permissionRequired": "İzin Gerekli",
+      "pleaseGrantCameraPermissionToTake": "Fotoğraf çekmek için lütfen kamera izni ver.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Görsel yüklemek için lütfen fotoğraf kitaplığı izni ver.",
+      "failedToUploadImage": "Görsel yüklenemedi",
+      "uploadFailed": "Yükleme başarısız",
+      "failedToUploadDocument": "Belge yüklenemedi",
+      "failedToStartChatFromThis": "Bu dosyayla sohbet başlatılamadı.",
+      "chatFromImage": "Görselle sohbet et",
+      "failedToStartANewQuestion": "Yeni bir soru başlatılamadı. Lütfen tekrar dene.",
+      "failedToAttachFile": "Dosya eklenemedi",
+      "failedToSendMessage": "Mesaj gönderilemedi",
+      "copiedToClipboard": "Panoya kopyalandı",
+      "notEnoughContentYet": "Henüz yeterli içerik yok",
+      "chatABitMoreBeforeGenerating": "Test oluşturmadan önce biraz daha sohbet et (en az 100 karakter).",
+      "chatABitMoreBeforeGenerating2": "Flashcard oluşturmadan önce biraz daha sohbet et (en az 100 karakter).",
+      "failedToGenerateFlashcards": "Flashcard'lar oluşturulamadı",
+      "failedToRegenerateResponse": "Yanıt yeniden oluşturulamadı",
+      "failedToRetryResponse": "Yanıt tekrar denenemedi"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Not eklenemedi",
+      "folderCreatedSuccessfully": "\"{{name}}\" klasörü başarıyla oluşturuldu!",
+      "failedToCreateFolder": "Klasör oluşturulamadı",
+      "failedToAttachDocument": "Belge eklenemedi",
+      "failedToCreateChatSession": "Sohbet oturumu oluşturulamadı",
+      "failedToUploadDocument": "Belge yüklenemedi",
+      "openingCamera": "📷 Kamera açılıyor...",
+      "openingImagePicker": "🖼️ Görsel seçici açılıyor...",
+      "permissionRequired": "İzin Gerekli",
+      "pleaseGrantCameraPermissionToTake": "Fotoğraf çekmek için lütfen kamera izni ver.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Görsel yüklemek için lütfen fotoğraf kitaplığı izni ver.",
+      "failedToAttachImage": "Görsel eklenemedi",
+      "failedToUploadImage": "Görsel yüklenemedi",
+      "failedToAttachAudio": "Ses dosyası eklenemedi",
+      "failedToUploadAudio": "Ses dosyası yüklenemedi",
+      "items": "{{itemCount}} öge",
+      "thisFolderIsEmptyGoBack": "Bu klasör boş. Başka bir klasör seçmek için geri dön.",
+      "addFolder": "Klasör ekle",
+      "uploadNewDocument": "Yeni belge yükle",
+      "uploadAPDFAndStartChatting": "Bir PDF yükle ve anında sohbete başla",
+      "uploadNewImage": "Yeni görsel yükle",
+      "uploadAnImageAndExtractText": "Görsel yükle ve metni anında çıkar",
+      "uploadNewAudio": "Yeni ses kaydı yükle",
+      "uploadAnAudioFileAndTranscribe": "Bir ses dosyası yükleyin ve anında yazıya dökün",
+      "orselectfromlibrary": "VEYA KİTAPLIKTAN SEÇİN",
+      "folders": "Klasörler",
+      "allNotes": "Tüm Notlar",
+      "noFilesToDisplay": "Görüntülenecek dosya yok",
+      "noNotesToDisplay": "Görüntülenecek not yok",
+      "noDocumentsYet": "Henüz PDF belgeniz yok.\nÖnce birkaç not oluşturun, ardından onlarla sohbet etmek için buraya dönün.",
+      "noImagesYet": "Henüz görseliniz yok.\nÖnce birkaç not oluşturun, ardından onlarla sohbet etmek için buraya dönün.",
+      "noAudioNotesYet": "Henüz sesli notunuz yok.\nÖnce birkaç not oluşturun, ardından onlarla sohbet etmek için buraya dönün.",
+      "noNotesYet": "Henüz notunuz yok.\nÖnce birkaç not oluşturun, ardından onlarla sohbet etmek için buraya dönün.",
+      "attachNote": "Not ekle",
+      "selectNote": "Not seç",
+      "attachImage": "Görsel ekle",
+      "selectImage": "Görsel seç",
+      "attachDocument": "Belge ekle",
+      "selectDocument": "Belge seç",
+      "attachAudio": "Ses ekle",
+      "selectAudio": "Ses seç",
+      "attachFile": "Dosya ekle",
+      "selectFile": "Dosya seç",
+      "aNote": "Bir not {{verb}}",
+      "anImage": "Bir görsel {{verb}}",
+      "aDocument": "Bir belge {{verb}}",
+      "audio": "Ses {{verb}}",
+      "aFile": "Bir dosya {{verb}}"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Sohbete ekle",
+      "camera": "Kamera",
+      "photos": "Fotoğraflar",
+      "files": "Dosyalar",
+      "generateQuiz": "Test Oluştur",
+      "generateFlashcards": "Bilgi Kartı Oluştur",
+      "searchMedicalLiterature": "Tıbbi Literatürde Ara",
+      "filterByDateSourceAndType": "Tarih, Kaynak ve Türe Göre Filtrele",
+      "pullsRealCitedSourcesIntoYour": "Cevaplarınıza gerçek, kaynak gösterilmiş referanslar ekler",
+      "trustedmedicalsourcedatabase": "GÜVENİLİR TIBBİ KAYNAK VERİ TABANI",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA İlaç ve Tedavi Verileri"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Kaynakları kontrol et",
+      "citations": "Kaynaklar",
+      "fromTheWeb": "Web'den"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Hazır · yeniden adlandırmak için dokun",
+      "processing": "İşleniyor %{{embeddingProgress}}"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Kaynağı görüntüle ↗"
+    },
+    "chatRename": {
+      "renameChat": "Sohbeti Yeniden Adlandır"
+    },
+    "sourcesRow": {
+      "viewSources": "Kaynakları gör ({{total}})"
+    }
   },
   "languages": {
     "english": "İngilizce",
@@ -205,6 +1007,487 @@
     "turkish": "Türkçe",
     "vietnamese": "Vietnamca",
     "thai": "Tayca",
-    "indonesian": "Endonezce"
+    "indonesian": "Endonezce",
+    "englishGB": "İngilizce (Birleşik Krallık)",
+    "englishAU": "İngilizce (Avustralya)",
+    "englishCA": "İngilizce (Kanada)",
+    "spanishMX": "İspanyolca (Meksika)",
+    "frenchCA": "Fransızca (Kanada)",
+    "portuguesePT": "Portekizce (Portekiz)",
+    "norwegian": "Norveççe",
+    "danish": "Danca",
+    "finnish": "Fince",
+    "czech": "Çekçe",
+    "slovak": "Slovakça",
+    "slovenian": "Slovence",
+    "croatian": "Hırvatça",
+    "hungarian": "Macarca",
+    "romanian": "Rumence",
+    "greek": "Yunanca",
+    "ukrainian": "Ukraynaca",
+    "arabicAE": "Arapça (BAE)",
+    "arabicEG": "Arapça (Mısır)",
+    "hebrew": "İbranice",
+    "bengali": "Bengalce",
+    "tamil": "Tamilce",
+    "telugu": "Teluguca",
+    "kannada": "Kannadaca",
+    "malayalam": "Malayalamca",
+    "marathi": "Marathice",
+    "gujarati": "Güceratça",
+    "punjabi": "Pencapça",
+    "urdu": "Urduca",
+    "malay": "Malayca",
+    "catalan": "Katalanca"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Klasör ekle",
+      "folderName": "Klasör adı",
+      "enterFolderName": "Klasör adını girin",
+      "chooseColor": "Renk seç",
+      "createFolder": "Klasör oluştur"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "İçeriğinizi işlemeden önce",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact, sorularınızı yanıtlamak ve içeriğinizi notlara, testlere ve bilgi kartlarına dönüştürmek için AI kullanır. Bilmeniz gerekenler şunlardır:",
+      "whatDataIsSent": "Hangi veriler gönderilir?",
+      "questionsAndMessagesYouTypeIn": "Sohbette yazdığınız sorular ve mesajlar",
+      "audioRecordingsOrUploadedAudioFiles": "Ses kayıtları veya yüklenen ses dosyaları",
+      "pdfAndTextDocumentsYouUpload": "Yüklediğiniz PDF ve metin belgeleri",
+      "imagesYouUpload": "Yüklediğiniz görseller",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube video bağlantıları ve bunların transkriptleri",
+      "customTextYouEnter": "Girdiğiniz özel metinler",
+      "whoReceivesYourData": "Verilerinizi kimler alır?",
+      "howItSUsed": "Nasıl kullanılır?",
+      "yourContentIsUsedSolelyTo": "İçeriğiniz yalnızca talep ettiğiniz yanıtı, notu, testi veya bilgi kartlarını oluşturmak için kullanılır. API'leri aracılığıyla işlenen içerikler için her sağlayıcının kendi veri kullanım politikaları geçerlidir. Daha fazla ayrıntı için Gizlilik Politikamıza göz atın.",
+      "iAgreeContinue": "Kabul Ediyorum — Devam Et",
+      "noThanks": "Hayır, Teşekkürler",
+      "whoReceivesBody": "İçeriğiniz, güvenli arka uç sunucularımız aracılığıyla <bold>Google (Gemini)</bold>'a (not, test ve bilgi kartı oluşturma; sohbet yanıtları; belge ve görsel işleme) ve <bold>OpenAI</bold>'a (ses transkripsiyonu) gönderilir. Belgelerinizden alınan bölümler, sohbetin ilgili kısımları bulabilmesi için <bold>Google Vertex AI</bold> ile de dizine eklenir. Canlı tıbbi arama kullanıldığında sorunuz; NIH, CDC, MedlinePlus, WHO ve Mayo Clinic gibi güvenilir kaynaklardan alıntılar bulmak üzere <bold>Tavily</bold>'ye ve herkese açık tıbbi literatür veri tabanlarına (PubMed, Europe PMC ve Semantic Scholar gibi) da iletilir. Bu sağlayıcılar verilerinizi yalnızca yanıtınızı oluşturmak için işler; kendi genel amaçlı AI modellerini eğitmek için kullanmazlar ve verileriniz hiçbir üçüncü tarafa satılmaz."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Sohbeti sabitlemekten vazgeç",
+      "pinChat": "Sohbeti sabitle",
+      "deleteChat": "Sohbeti sil"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Flaş kartlar oluştur",
+      "createFlashcards": "Flaş Kart Oluştur",
+      "createFlashcardsFromToImproveYour": "Bilgilerini pekiştirmek için \"{{noteTitle}}\" notundan flaş kartlar oluştur",
+      "createFlashcardsToImproveYourRetention": "Bilgilerini pekiştirmek için flaş kartlar oluştur",
+      "howManyQuestions": "Soru sayısı",
+      "generateFlashcards2": "Flaş Kartlar Oluştur"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Sohbetten oluştur",
+      "selectFromOneOfYourRecent": "Son sohbetlerinden birini seç",
+      "pdfOrDocument": "PDF veya Belge",
+      "createFromAudio": "Sesten oluştur",
+      "image": "Görsel",
+      "createFromCustomText": "Özel metinden oluştur",
+      "created": "{{day}}, {{time}} tarihinde oluşturuldu",
+      "createQuizFrom": "Şundan Quiz Oluştur:",
+      "createFlashcardsFrom": "Şundan Flaş Kart Oluştur:",
+      "selectFromChat": "Sohbetten seç",
+      "noRecentChatsYet": "Henüz geçmiş sohbet yok",
+      "quizFromPdf": "PDF veya belgeden quiz oluştur",
+      "flashcardsFromPdf": "PDF veya belgeden flaş kart seti oluştur",
+      "quizFromAudio": "Yüklenen sesten quiz oluştur",
+      "flashcardsFromAudio": "Yüklenen sesten flaş kart seti oluştur",
+      "quizFromImage": "Herhangi bir görselden quiz oluştur",
+      "flashcardsFromImage": "Herhangi bir görselden flaş kart seti oluştur",
+      "quizFromText": "Alınan metinden quiz oluştur",
+      "flashcardsFromText": "Alınan metinden flaş kart seti oluştur"
+    },
+    "createNote": {
+      "recordAudio": "Ses kaydet",
+      "generateANoteFromAnyRecorded": "Kaydedilen herhangi bir sesten not oluştur",
+      "uploadAudio": "Ses yükle",
+      "createANoteFromAnyUploaded": "Yüklenen herhangi bir ses dosyasından not oluştur",
+      "youtubeVideo": "YouTube videosu",
+      "createANoteFromAnyYoutube": "Herhangi bir YouTube videosundan not oluştur",
+      "pdfOrDocument": "PDF veya Belge",
+      "createANoteFromPDFOr": "PDF veya belgeden not oluştur",
+      "customText": "Özel metin",
+      "createANoteFromCapturedText": "Girilen metinden not oluştur",
+      "image": "Görsel",
+      "createANoteFromAnyImage": "Herhangi bir görselden not oluştur",
+      "createNote": "Not oluştur"
+    },
+    "createQuiz": {
+      "generateQuiz": "Quiz Oluştur",
+      "createQuiz": "Quiz Oluştur",
+      "practiceByCreatingQuestionsThatHelp": "Konuyu kavramana yardımcı olacak sorular oluşturarak \"{{noteTitle}}\" üzerinde pratik yap",
+      "practiceYourNotesByCreatingQuestions": "Konuya hakim olmanı sağlayacak sorular oluşturarak notlarını pekiştir",
+      "howManyQuestions": "Soru sayısı",
+      "timeInMinutes": "Süre (dakika)"
+    },
+    "deleteNote": {
+      "deleteNote": "Notu sil",
+      "areYouSureYouWantTo": "Bu notu silmek istediğinden emin misin?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Özeti farklı dışa aktar:",
+      "exportTranscriptAs": "Dökümü farklı dışa aktar:",
+      "exportAs": "Farklı dışa aktar:",
+      "exportSummary": "Özeti dışa aktar",
+      "exportTranscript": "Dökümü dışa aktar"
+    },
+    "exportTypeStep": {
+      "exportNote": "Notu dışa aktar",
+      "exportSummary": "Özeti dışa aktar",
+      "exportTranscript": "Dökümü Dışa Aktar"
+    },
+    "exportSettings": {
+      "export": "{{title}} dosyasını dışa aktar",
+      "selectFormat": "Format seç",
+      "includeAnswers": "Cevapları dahil et",
+      "answersExplanationsIncluded": "Cevaplar ve açıklamalar dahil",
+      "questionsOnly": "Yalnızca sorular",
+      "export2": "Dışa aktar"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Notun hazır!",
+      "howDidWeDo": "Nasıl buldun?",
+      "happy": "Memnunum",
+      "sad": "Memnun değilim",
+      "maybeLater": "Belki daha sonra",
+      "whatWentWrong": "Sorun neydi?",
+      "yourFeedbackHelpsUsImprove": "Geri bildirimlerin gelişmemize yardımcı olur.",
+      "tellUsWhatCouldBeBetter": "Neleri geliştirebileceğimizi bize anlat...",
+      "submit": "Gönder"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "İçerik bulunamadı",
+      "clickCardToFlip": "çevirmek için karta dokun"
+    },
+    "flashcardExport": {
+      "exportFailed": "Dışa Aktarma Başarısız",
+      "unknownError": "Bilinmeyen hata",
+      "export": "{{setTitle}} setini dışa aktar",
+      "chooseWhatToExport": "Nelerin dışa aktarılacağını seç",
+      "exportQuestions": "Soruları Dışa Aktar",
+      "exportAnswers": "Cevapları Dışa Aktar"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Bilgi Kartı Setini Sil",
+      "areYouSureYouWantTo": "\"{{setTitle}}\" setini silmek istediğinden emin misin?",
+      "failedToDeleteFlashcardSet": "Bilgi kartı seti silinemedi",
+      "flashcardHistory": "Bilgi Kartı Geçmişi",
+      "cards": "Kart",
+      "reviewedMastered": "{{cardsReviewedCount}} tekrar edildi • %{{percentage}} öğrenildi"
+    },
+    "folders": {
+      "items": "{{itemCount}} öge",
+      "enterYourFolderName": "Klasör adını gir",
+      "yourFolderName": "Klasör adın",
+      "createFolder": "Klasör oluştur",
+      "folders": "Klasörler",
+      "addFolder": "Klasör ekle",
+      "noFoldersToDisplay": "Görüntülenecek klasör yok",
+      "clickTheButtonAboveToCreate": "Notların için bir klasör oluşturmak üzere yukarıdaki butona tıkla",
+      "allFolders": "Tüm klasörler",
+      "items2": "{{totalItems}} öge"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Tıbbi araştırma filtreleri",
+      "howrecentdoyouwantthe": "KAYNAK NE KADAR GÜNCEL OLMALI",
+      "from": "Başlangıç",
+      "whatkindofsourcedoyou": "NE TÜR BİR KAYNAĞA İHTİYACIN VAR",
+      "textbooks": "Ders kitapları",
+      "clinicalGuidelines": "Klinik kılavuzlar",
+      "scientificJournalArticles": "Bilimsel dergi makaleleri",
+      "onlywiththisjournalarticles": "YALNIZCA BU DERGİ MAKALELERİ İLE",
+      "metaAnalyses": "Meta-analizler",
+      "reviewArticles": "Derleme makaleler",
+      "clinicalTrials": "Klinik araştırmalar",
+      "fromYear": "Başlangıç yılı",
+      "toYear": "Bitiş yılı"
+    },
+    "noteOptions": {
+      "noteOptions": "Not seçenekleri",
+      "editNote": "Notu düzenle",
+      "reTranscribe": "Yeniden metne dönüştür",
+      "chatWithNote": "Not ile sohbet et",
+      "exportNote": "Notu dışa aktar",
+      "moveToFolder": "Klasöre taşı",
+      "deleteNote": "Notu sil"
+    },
+    "onboardingTooltip": {
+      "skip": "Atla"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Testi Sil",
+      "areYouSureYouWantTo": "\"{{quizTitle}}\" testini silmek istediğinden emin misin?",
+      "failedToDeleteQuiz": "Test silinemedi",
+      "quizHistory": "Test Geçmişi",
+      "questions": "Sorular",
+      "correct": "{{correctAnswers}} doğru"
+    },
+    "referral": {
+      "copied": "Kopyalandı!",
+      "yourReferralCodeHasBeenCopied": "Davet kodun panoya kopyalandı.",
+      "joinMeOnClinicalFactUse": "Clinical Fact'te bana katıl! Kodumu kullan: {{referralCode}} – {{appUrl}}",
+      "joined": "Katılma tarihi: {{joinedDate}}",
+      "referralCode": "Davet kodu",
+      "yourReferralCode": "Davet Kodun",
+      "shareWithFriendsToEarnRewards": "Ödül kazanmak için arkadaşlarınla paylaş",
+      "share": "Paylaş",
+      "copyCode": "Kodu Kopyala",
+      "referredFriends": "Davet edilen arkadaşlar",
+      "noReferralsYetShareYourCode": "Henüz davet yok. Başlamak için kodunu paylaş!",
+      "loadMore": "Daha fazla yükle",
+      "howItWorks": "Nasıl çalışır?",
+      "friendsUseYourCodeDuringSignup": "• Arkadaşların kayıt olurken kodunu kullanır",
+      "youBothEarnRewardsWhenThey": "• Katıldıklarında ikiniz de ödül kazanırsınız",
+      "friendsReferredCount": "Davet edilen arkadaşlar: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Metin ayıklanıyor...",
+      "transcribingAudio": "Ses yazıya dökülüyor...",
+      "processingPDF": "PDF işleniyor...",
+      "settingUpChat": "Sohbet hazırlanıyor...",
+      "uploadFailed": "Yükleme Başarısız",
+      "failedToUploadFilePleaseTry": "Dosya yüklenemedi. Lütfen tekrar dene.",
+      "yourFileIsReadyForChatting": "Dosyan sohbet için hazır!",
+      "uploadingYourFileToTheServer": "Dosyan sunucuya yükleniyor...",
+      "extractingTextFromYourImage": "Görselden metin ayıklanıyor...",
+      "transcribingYourAudio": "Ses kaydın yazıya dökülüyor...",
+      "extractingTextFromYourPDF": "PDF'inden metin ayıklanıyor...",
+      "creatingYourChatSession": "Sohbet oturumun oluşturuluyor...",
+      "pleaseWait": "Lütfen bekle...",
+      "uploadFile": "Dosya yükle",
+      "processContent": "İçeriği işle",
+      "createChat": "Sohbet oluştur"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Görüntüle",
+      "export": "📤 Dışa Aktar",
+      "delete": "🗑️ Sil"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Destekleyen:"
+    },
+    "exportFormat": {
+      "txtFile": "TXT dosyası",
+      "pdfFile": "PDF dosyası",
+      "docFile": "DOC dosyası"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Notlar alınamadı",
+      "failedToFetchFolders": "Klasörler alınamadı",
+      "failedToFetchNote": "Not alınamadı",
+      "failedToDeleteNote": "Not silinemedi",
+      "failedToCreateFolder": "Klasör oluşturulamadı",
+      "failedToDeleteFolder": "Klasör silinemedi"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Sohbet silinemedi"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Flaş kart seti başarıyla dışa aktarıldı!",
+      "failedToExportFlashcardSet": "Flaş kart seti dışa aktarılamadı."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quiz başarıyla dışa aktarıldı!",
+      "failedToExportQuiz": "Quiz dışa aktarılamadı."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Başlıksız Flaş Kartlar",
+      "failedToLoadFlashcards": "Flaş kartlar yüklenemedi",
+      "failedToSyncFlashcardSet": "Flaş kart seti eşitlenemedi",
+      "failedToSyncCardUpdate": "Kart güncellemesi eşitlenemedi"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Oluşturulma: {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "3 sabitleme sınırına ulaştın",
+      "failedToUpdatePin": "Sabitleme güncellenemedi",
+      "noChatsYet": "Henüz sohbet yok",
+      "startAChatToGetAnswers": "Güvenilir kaynaklara dayalı yanıtlar almak için bir sohbet başlat.",
+      "createChat": "+ Sohbet başlat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Bilgi Kartlarını Sil",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\" kartını silmek istediğinden emin misin?",
+      "failedToDeleteFlashcards": "Bilgi kartları silinemedi",
+      "sets": "{{setCount}} set",
+      "flashcards": "Bilgi Kartları",
+      "createFlashcards": "Bilgi Kartı Oluştur",
+      "searchFlashcards": "Bilgi kartlarında ara...",
+      "noFlashcardsYet": "Henüz bilgi kartı yok",
+      "createAFlashcardSetFromA": "Başlamak için bir nottan bilgi kartı seti oluştur",
+      "createSet": "+ Set Oluştur",
+      "flashcardOptions": "Bilgi kartı seçenekleri",
+      "view": "Görüntüle"
+    },
+    "folder": {
+      "deleteFolder": "Klasörü Sil",
+      "areYouSureYouWantTo": "\"{{name}}\" klasörünü silmek istediğinden emin misin? İçindeki notlar ana dizine taşınacak.",
+      "failedToDeleteFolder": "Klasör silinemedi",
+      "error": "Hata: {{message}}",
+      "noFoldersYetCreateOne": "Henüz klasör yok. Hemen oluştur!",
+      "folders": "Klasörler"
+    },
+    "home": {
+      "created": "{{day}}, {{time}} tarihinde oluşturuldu",
+      "failedToUpdateLanguage": "Dil güncellenemedi",
+      "notEnoughContentYet": "Henüz yeterli içerik yok",
+      "chatABitMoreBeforeGenerating": "Test oluşturmadan önce sohbete biraz daha devam et (en az 100 karakter).",
+      "chatABitMoreBeforeGenerating2": "Bilgi kartı oluşturmadan önce sohbete biraz daha devam et (en az 100 karakter).",
+      "failedToGenerateFlashcards": "Bilgi kartları oluşturulamadı",
+      "upgradeToPro": "PRO'ya yükselt",
+      "get80DiscountWhenYouUpgrade": "Hesabını yükselttiğinde %80 indirim kazan",
+      "unlockPRO": "PRO'nun Kilidini Aç",
+      "noMedicalChats": "Tıbbi sohbet yok",
+      "youHaveNotCreatedAnyMedical": "Henüz bir tıbbi sohbet başlatmadın. Kaynaklı yanıtlar almak için yeni bir sohbet başlat.",
+      "talkToClinicalfactAI": "Clinical Fact AI ile Konuş",
+      "jumpInWhereYouStopped": "Kaldığın yerden devam et",
+      "practiceQuiz": "Aıştırma Testi",
+      "makeFlashcards": "Bilgi kartı oluştur",
+      "continueChatWithNote": "Not ile sohbete devam et",
+      "continueChat": "Sohbete devam et",
+      "recentChats": "Son sohbetler",
+      "chatOptions": "Sohbet seçenekleri"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Şu anda çevrimdışısın. Bu işlemi gerçekleştirmek için lütfen internete bağlan.",
+      "failedToDeleteNote": "Not silinemedi",
+      "failedToMoveNote": "Not taşınamadı",
+      "deleteFolder": "Klasör Silinsin mi?",
+      "areYouSureNotesInsideWill": "Emin misin? İçindeki notlar silinmeyecek, Tüm Notlar bölümüne taşınacak.",
+      "failedToDeleteFolder": "Klasör silinemedi",
+      "library": "Kütüphane",
+      "addFolder": "Klasör ekle",
+      "searchForANoteFolder": "Not veya klasör ara",
+      "yourFolders": "Klasörlerin",
+      "noFoldersToDisplay": "Görüntülenecek klasör yok",
+      "tapAddFolderToCreateA": "Notların için bir klasör oluşturmak üzere \"+ Klasör ekle\"ye dokun",
+      "allNotes": "Tüm Notlar",
+      "items": "{{allNotesTotal}} öge",
+      "items2": "{{itemCount}} öge",
+      "yourNotes": "Notların",
+      "untitledNote": "Başlıksız Not",
+      "noResultsFor": "\"{{searchQuery}}\" için sonuç bulunamadı",
+      "noNotesInThisFolder": "Bu klasörde not yok",
+      "noNotesToDisplay": "Görüntülenecek not yok",
+      "tryADifferentSearchTerm": "Farklı bir arama terimi deneyin",
+      "moveNotesToThisFolderTo": "Notları burada görmek için bu klasöre taşıyın",
+      "clickBelowToGenerateYourNote": "Clinical Fact ile notunuzu oluşturmak için aşağıya dokunun",
+      "filterByType": "Türe göre filtrele",
+      "audio": "Ses",
+      "text2": "Metin",
+      "image": "Görsel",
+      "clearFilter": "Filtreyi temizle"
+    },
+    "profile": {
+      "permissionRequired": "İzin Gerekli",
+      "pleaseAllowAccessToYourPhoto": "Profil resmi ayarlamak için lütfen fotoğraf arşivinize erişim izni verin.",
+      "uploadFailed": "Yükleme Başarısız",
+      "couldNotUpdateProfilePicture": "Profil resmi güncellenemedi.",
+      "failedToUploadProfilePicture": "Profil resmi yüklenemedi.",
+      "checkOutClinicalFactAIPowered": "Clinical Fact'e göz at – AI destekli çalışma notları! {{url}}",
+      "proSubscriber": "PRO Abone",
+      "subscriptionExpired": "Abonelik süresi doldu",
+      "freeSubscriber": "Ücretsiz Abone",
+      "tapToManageIPhoneSettingsApple": "Yönetmek için dokun · iPhone Ayarları → Apple ID → Abonelikler",
+      "tapToManagePlayStoreSubscriptions": "Yönetmek için dokun · Play Store → Abonelikler",
+      "tapToRenewYourSubscription": "Aboneliği yenilemek için dokun",
+      "tapToUpgradeToPro": "PRO'ya yükseltmek için dokun",
+      "referralCode": "Davet kodu",
+      "areYouSureYouWantTo": "Hesabınızdan çıkış yapmak istediğinize emin misiniz?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Testi Sil",
+      "areYouSureYouWantTo": "\"{{sourceTitle}}\" testini silmek istediğinize emin misiniz?",
+      "failedToDeleteQuiz": "Test silinemedi",
+      "correct": "{{correct}}/{{total}} doğru",
+      "attempts": "{{attempts}} deneme",
+      "quiz": "Test",
+      "createQuiz": "Test Oluştur",
+      "searchQuizzes": "Testlerde ara...",
+      "noQuizzesYet": "Henüz test yok",
+      "createAQuizFromANote": "Başlamak için bir nottan test oluşturun",
+      "createQuiz2": "+ Test Oluştur",
+      "quizOptions": "Test seçenekleri",
+      "view": "Görüntüle"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Yükseltme kullanılamıyor",
+      "weCouldnTOpenTheUpgrade": "Yükseltme ekranı şu anda açılamadı. Lütfen bağlantınızı kontrol edip tekrar deneyin."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Sunucu JSON olmayan bir yanıt döndürdü ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+      "connectionErrorPleaseTryAgain": "Bağlantı hatası. Lütfen tekrar deneyin."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Dosya dışa aktarıldı: {{filename}}",
+      "exportFailed": "Dışa Aktarma Başarısız",
+      "exportFormat": "Dışa Aktarma Formatı",
+      "chooseFormat": "Format seçin",
+      "text": "Metin"
+    },
+    "formatDate": {
+      "justNow": "Az önce",
+      "minAgo": "{{diffMin}} dk önce",
+      "hrAgo": "{{diffHr}} sa önce",
+      "dAgo": "{{diffDay}} gün önce",
+      "created": "Oluşturulma: {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Doğrulama kodu gönderilemedi",
+      "invalidOTP": "Geçersiz doğrulama kodu",
+      "failedToVerifyOTP": "Doğrulama kodu doğrulanamadı",
+      "googleAuthenticationFailed": "Google ile giriş başarısız",
+      "appleAuthenticationFailed": "Apple ile giriş başarısız",
+      "failedToCompleteSignup": "Kayıt tamamlanamadı",
+      "failedToSkipSignup": "Kayıt atlanamadı"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Sohbetler",
+      "description": "Tüm notlarınız, belgeleriniz veya PDF'lerinizle tek bir yerden sohbet edin"
+    },
+    "profileWelcome": {
+      "heading": "Profiline Hoş Geldin",
+      "description": "Burası senin profilin; profilinde ve abonelik durumunda değişiklik yapmak için buraya dokun"
+    },
+    "createNotes": {
+      "heading": "Not oluştur",
+      "description": "Her kaynaktan not oluşturun: Ses kaydı, Ses, Video, Görsel, Metin ve YouTube bağlantıları"
+    },
+    "changeLanguage": {
+      "heading": "Dili değiştir",
+      "description": "Uygulamanın dilini buradan istediğiniz dille değiştirin"
+    },
+    "manageHome": {
+      "heading": "Ana sayfayı yönet",
+      "description": "Oluşturduğun tüm notları ve tüm işlemlerini tek bir yerden gör"
+    },
+    "yourLibrary": {
+      "heading": "Kütüphanen",
+      "description": "Oluşturduğun tüm notları yönet, notların için klasörler oluştur ve daha fazlasını yap"
+    },
+    "yourProfile": {
+      "heading": "Profilin",
+      "description": "Profilinle ilgili her şeyi görüntüle ve profil ayarlarını buradan düzenle"
+    }
   }
 }

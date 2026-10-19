@@ -17,6 +17,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
+import { useTranslation } from 'react-i18next';
 
 type UploadImageNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadImage'>;
 type UploadImageRouteProp = RouteProp<MainStackParamList, 'UploadImage'>;
@@ -31,6 +32,7 @@ interface UploadedImage {
 const MAX_IMAGE_WIDTH = 2048;
 
 export const UploadImageScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<UploadImageNavigationProp>();
   const route = useRoute<UploadImageRouteProp>();
   const { withAccess } = useGatedFeature();
@@ -50,7 +52,7 @@ export const UploadImageScreen = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes.toString().padStart(2, '0');
-    return `Created ${month} ${day}, ${year}, ${formattedHours}:${formattedMinutes}${ampm}`;
+    return t('create.uploadImage.created', { month, day, year, formattedHours, formattedMinutes, ampm });
   };
 
   const handlePickImage = async () => {
@@ -58,7 +60,7 @@ export const UploadImageScreen = () => {
       const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
       if (!permissionResult.granted) {
-        Alert.alert('Permission Required', 'Please allow access to your photo library');
+        Alert.alert(t('create.uploadImage.permissionRequired'), t('create.uploadImage.pleaseAllowAccessToYourPhoto'));
         return;
       }
 
@@ -100,7 +102,7 @@ export const UploadImageScreen = () => {
         });
       }
     } catch (error) {
-      Alert.alert('Error', 'Failed to pick image');
+      Alert.alert(t('common.error'), t('create.uploadImage.failedToPickImage'));
     }
   };
 
@@ -153,8 +155,8 @@ export const UploadImageScreen = () => {
         </View>
 
         {/* Title */}
-        <Text style={styles.title}>Upload image</Text>
-        <Text style={styles.subtitle}>Create a note from any uploaded image</Text>
+        <Text style={styles.title}>{t('create.uploadImage.uploadImage')}</Text>
+        <Text style={styles.subtitle}>{t('create.uploadImage.createANoteFromAnyUploaded')}</Text>
 
         {!uploadedImage ? (
           /* Upload Area */
@@ -162,8 +164,8 @@ export const UploadImageScreen = () => {
             <View style={styles.uploadAreaIcon}>
               <Icon name="imageFill" size={24} color={theme.colors.yale[900]} />
             </View>
-            <Text style={styles.uploadTitle}>Drag & drop files or Browse</Text>
-            <Text style={styles.uploadSubtitle}>Supported format : png, jpeg, heic, webp</Text>
+            <Text style={styles.uploadTitle}>{t('create.uploadImage.dragDropFilesOrBrowse')}</Text>
+            <Text style={styles.uploadSubtitle}>{t('create.uploadImage.supportedFormatPngJpegHeicWebp')}</Text>
           </TouchableOpacity>
         ) : (
           /* Uploaded Image Display */
@@ -183,7 +185,7 @@ export const UploadImageScreen = () => {
 
         {uploadedImage && (
           <TouchableOpacity style={styles.changeFileButton} onPress={handleChangeFile} activeOpacity={0.7}>
-            <Text style={styles.changeFileText}>Change file</Text>
+            <Text style={styles.changeFileText}>{t('create.uploadImage.changeFile')}</Text>
           </TouchableOpacity>
         )}
       </ScrollView>
@@ -197,7 +199,7 @@ export const UploadImageScreen = () => {
           disabled={!uploadedImage}
           activeOpacity={0.8}
         >
-          <Text style={styles.continueButtonText}>Continue</Text>
+          <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

@@ -15,10 +15,11 @@
     "done": "Готово",
     "search": "Пошук",
     "filter": "Фільтр",
-    "ok": "Гаразд"
+    "ok": "Гаразд",
+    "info": "Інформація"
   },
   "home": {
-    "title": "Нотатки",
+    "title": "Clinical Fact",
     "createNotes": "Створювати нотатки",
     "createNotesDesc": "Створюйте нотатки, тести, картки та багато іншого, щоб допомогти вам швидше навчатися",
     "chatWithPDF": "Спілкуйтеся з будь-яким PDF-файлом",
@@ -26,7 +27,7 @@
     "recentNotes": "Недавні нотатки",
     "seeAll": "Дивитися все",
     "noNotes": "Немає нотаток для відображення",
-    "noNotesDesc": "Будь ласка, натисніть кнопку вище, щоб розпочати створення нотатки для clinicalfact.",
+    "noNotesDesc": "Натисніть кнопку вище, щоб розпочати\nстворення нотатки для Clinical Fact.",
     "loadingNotes": "Завантаження нотаток..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "План оновлення",
     "everyWeek": "Щотижня",
     "everyMonth": "Щомісяця",
-    "everyYear": "Щороку"
+    "everyYear": "Щороку",
+    "reportBug": "Повідомити про помилку"
   },
   "auth": {
-    "welcome": "Ласкаво просимо до Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Помилка входу через Google",
+      "failedToAuthenticateWithServer": "Не вдалося автентифікуватися на сервері",
+      "googleSignInIsOnlyAvailable": "Вхід через Google доступний лише в нативному додатку. Скористайтеся входом за email або завантажте додаток.",
+      "code": "{{message}} (код: {{code}})"
+    },
     "getStarted": "Почати",
     "signIn": "Увійти",
     "signUp": "Зареєструватися",
@@ -94,7 +101,8 @@
       "skip": "Пропустити",
       "verify": "Перевірено!",
       "next": "Далі",
-      "tryNow": "Спробуйте Clinical Fact зараз безкоштовно"
+      "tryNow": "Спробуйте Clinical Fact зараз безкоштовно",
+      "continueWithApple": "Продовжити з Apple"
     },
     "labels": {
       "firstName": "Ім'я",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Не вдалося розпочати вхід у Google. Спробуйте ще раз.",
       "setupRequired": "Потрібне налаштування",
       "googleOAuthMissing": "Для входу в Google потрібні ідентифікатори клієнтів OAuth.\\n\\nБудь ласка, додайте облікові дані до свого файлу .env.",
-      "youCanStillUseEmail": "Ви все ще можете скористатися опцією «Продовжити з електронною поштою»."
+      "youCanStillUseEmail": "Ви все ще можете скористатися опцією «Продовжити з електронною поштою».",
+      "appleSignInFailed": "Не вдалося увійти через Apple",
+      "appleTokenFailed": "Помилка обробки токена Apple",
+      "appleIosOnly": "Вхід через Apple доступний лише на iOS."
     },
     "messages": {
       "signingIn": "Вхід...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nРозумніші нотатки. Почніть тут.",
       "tagline": "Перетворіть будь-який текст на ідеальні нотатки",
-      "description": "Перетворюйте аудіо, документи чи відео на зрозумілі нотатки з можливістю пошуку та миттєво створюйте вікторини, картки та конспекти."
+      "description": "Перетворюйте аудіо, документи чи відео на зрозумілі нотатки з можливістю пошуку та миттєво створюйте вікторини, картки та конспекти.",
+      "createAccountTitle": "Створити акаунт",
+      "orSignUpWith": "АБО ЗАРЕЄСТРУЙТЕСЯ ЧЕРЕЗ",
+      "signUpWithEmail": "Зареєструватися через Email",
+      "signInWithEmail": "Увійти через Email",
+      "alreadyHaveAccount": "Вже маєте акаунт? ",
+      "dontHaveAccount": "Не маєте акаунта? "
     },
     "otp": {
       "title": "Підтвердьте свою адресу електронної пошти",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Все, що вам потрібно, щоб навчитися чого завгодно",
-      "subtitle": "Запишіть це. Дослідіть це. Перевірте це. Опануйте це."
+      "subtitle": "Запишіть це. Дослідіть це. Перевірте це. Опануйте це.",
+      "everythingYouNeedToLearnAnything": "Усе необхідне для навчання",
+      "recordItResearchItQuizIt": "Записуй. Досліджуй. Тестуй. Опановуй.",
+      "tryClinicalFactNowForFree": "Спробувати Clinical Fact безкоштовно"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Навчайтеся швидше за допомогою вікторин та карток",
         "description": "Перетворіть нотатки на тести та картки.\\nНавчайтеся швидше та запам'ятовуйте більше."
+      },
+      "feature1": {
+        "title": "Точні медичні відповіді та супутні запитання",
+        "description": "Ставте будь-яке клінічне запитання та отримуйте чітке пояснення з доречними додатковими запитаннями, щоб не зупинятися під час навчання."
+      },
+      "feature2": {
+        "title": "Кожна медична відповідь\nпідтверджена джерелом",
+        "description": "Посилання на PubMed, Semantic Scholar та Europe PMC: перевірені, а не вигадані."
+      },
+      "feature3": {
+        "title": "Завантажуйте матеріали, отримуйте структуровані медичні підсумки",
+        "description": "Перетворюйте слайди лекцій, PDF чи конспекти на зрозумілі пояснення, підкріплені надійними медичними джерелами."
+      },
+      "feature4": {
+        "title": "Перетворюйте будь-який чат на тести або картки",
+        "description": "Без сторонніх додатків: створюйте тренувальні завдання безпосередньо зі своїх чатів і файлів."
+      },
+      "feature5": {
+        "title": "Створюйте картки з запитаннями з будь-якого чату чи документа",
+        "description": "Без сторонніх додатків: генеруйте практичні картки для повторення прямо з діалогів і завантажених файлів."
+      }
+    },
+    "languageSelect": {
+      "title": "Оберіть мову",
+      "subtitle": "Оберіть мову, якою хочете користуватися в додатку. Ви зможете змінити її пізніше в профілі.",
+      "searchPlaceholder": "Пошук мови",
+      "noResults": "Мов не знайдено"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Запитуйте що завгодно з медицини. Отримуйте клінічні факти",
+        "description": "Ставте будь-які медичні запитання та отримуйте відповіді з посиланнями на PubMed, клінічні настанови й авторитетну наукову літературу."
+      },
+      "slide2": {
+        "headline": "Кожна відповідь підтверджена джерелом",
+        "description": "Жодних здогадок чи вигадок: кожна відповідь містить посилання на реальні медичні дослідження, які можна перевірити."
+      },
+      "slide3": {
+        "headline": "Вчіться розумніше, складайте медичні іспити",
+        "description": "Перетворюйте будь-яке запитання чи файл на тест або картки за лічені секунди — тренуйтеся за матеріалом, який вивчаєте."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Професійна декларація",
+      "subtitle": "Clinical Fact — навчальний інструмент для пошуку літератури",
+      "disclaimerIntro": "Clinical Fact — це інформаційний інструмент на основі AI, розроблений для допомоги студентам медсестринства, медицини та інших галузей охорони здоров'я в доступі до медичних знань, наукової літератури та навчальних матеріалів. Додаток не встановлює медичні діагнози, не надає рекомендацій щодо лікування, клінічних вказівок або персональних медичних порад і не повинен використовуватися як підґрунтя для ведення пацієнтів чи ухвалення клінічних рішень.",
+      "disclaimerHeading": "Як Clinical Fact генерує відповіді:",
+      "disclaimerBody": "Clinical Fact знаходить інформацію безпосередньо у визнаних медичних і наукових джерелах, зокрема PubMed, Semantic Scholar та офіційних інструкціях до препаратів FDA, і використовує AI для зрозумілого викладу та пояснення знайденого матеріалу. Кожна відповідь формується виключно на основі джерел, знайдених під конкретний запит, а посилання ведуть до першоджерел, щоб ви могли перевірити їх особисто. Clinical Fact не вигадує медичні факти чи посилання.\n\nClinical Fact не є діагностичним інструментом, платформою лікування, медичним виробом чи заміною фахового медичного судження, викладання або навчальної програми вашого закладу. Будь-яка створена додатком інформація, включно з відповідями, цитуваннями, тестами та картками, надається лише для освітніх і навчальних цілей та має бути самостійно перевірена користувачем перед використанням в академічному, клінічному чи професійному контексті.\nClinical Fact не гарантує повноти, точності чи актуальної клінічної значущості наданої інформації. Медичні знання постійно оновлюються — завжди звіряйте критичні дані з викладачами, клінічними керівниками та свіжими першоджерелами.\nКоли ви завантажуєте власні документи, нотатки чи аудіозаписи, Clinical Fact генерує відповіді, підсумки, тести та картки виключно на основі цього завантаженого вмісту, а не зовнішніх джерел (якщо вони окремо не наведені поруч).\n\nClinical Fact не перевіряє та не підтверджує особу, статус навчання або кваліфікацію користувачів. Додаток не призначений для використання в невідкладних станах або для ухвалення клінічних рішень у реальному часі.\nПродовжуючи, ви підтверджуєте, що розумієте ці умови та погоджуєтеся використовувати Clinical Fact суто як допоміжний навчальний і довідковий інструмент.",
+      "checkboxLabel": "Я розумію, що цей додаток призначений лише для навчання та не надає медичних порад",
+      "acceptButton": "Прийняти та продовжити"
+    },
+    "survey": {
+      "role": "Що найкраще описує ваш статус, {{firstName}}?",
+      "currentMethod": "Як ви зазвичай шукаєте відповіді на медичні запитання зараз?",
+      "timeDrain": "На що у вас іде найбільше часу?",
+      "appExpectation": "Чого ви очікуєте від медичного додатка Clinical Fact?",
+      "aiToolsUsed": "Якими інструментами AI ви вже користувалися для медичного навчання чи досліджень?",
+      "aiToolIssue": "З якими проблемами ви зіткнулися під час роботи з ними?",
+      "aiTrustLevel": "Як часто ви сумніваєтеся в правильності відповідей AI?",
+      "biggestNeed": "Що вам найбільше потрібно просто зараз?",
+      "studyTimePerWeek": "Скільки часу на навчання ви маєте щотижня?",
+      "comingUp": "Що вас чекає найближчим часом?",
+      "referralSource": "Звідки ви дізналися про Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Увімкнути сповіщення",
+      "thisHelpsUsStayOnTrack": "Це допоможе нам персоналізувати ваш профіль і швидше знаходити медичні відповіді"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Недійсний код підтвердження. Спробуйте ще раз.",
+      "failedToResendCodePleaseTry": "Не вдалося надіслати код повторно. Спробуйте ще раз.",
+      "confirmYourEmailAddress": "Підтвердьте вашу email-адресу",
+      "enterCodeSentTo": "Введіть код підтвердження, надісланий на {{email}}",
+      "resendCodeIn": "Надіслати код повторно через {{seconds}} с"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "У вас є запрошення?",
+      "enterTheirReferralCodeIfYou": "Введіть реферальний код, якщо він у вас є",
+      "eGJOHNOrTECHBRO": "наприклад, IVAN або MEDSTUDENT",
+      "codeIsValid": "✓ Код дійсний"
+    },
+    "resultsChart": {
+      "getBetterResults": "Досягайте кращих результатів",
+      "over95OfClinicalfactUsersScore": "Понад 95% користувачів Clinical Fact складають тести та іспити на 95% і вище"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Студент медсестринства",
+        "medicalStudent": "Студент-медик",
+        "paPharmacyStudent": "Студент фармації або фельдшер",
+        "practicingNurse": "Практикуюча медсестра / медбрат",
+        "practicingPhysician": "Практикуючий лікар",
+        "otherHealthcareProfessional": "Інший медичний працівник"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Підручники або конспекти лекцій",
+        "flashcardQuizApps": "Додатки з картками або тестами",
+        "youtube": "YouTube",
+        "aiChatbots": "Чат-боти з AI",
+        "colleagueClassmate": "Запитую в колег чи одногрупників",
+        "practiceQuestionBanks": "Банки тестових завдань (Qbank)"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Створення карток і тестів з нуля",
+        "findingTrustworthyAnswer": "Швидкий пошук достовірної відповіді",
+        "reReadingNotes": "Перечитування забутих конспектів",
+        "switchingApps": "Перемикання між безліччю додатків",
+        "chartingDocumentation": "Заповнення медичної документації"
+      },
+      "appExpectation": {
+        "noHallucination": "AI, який не вигадує факти",
+        "realCitations": "Реальні посилання на першоджерела",
+        "oneApp": "Один додаток замість п’яти підписок",
+        "explainsWhy": "Пояснення причини, а не лише відповідь"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Пошук Google",
+        "otherApps": "Інші додатки"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Вигадує неіснуючі факти",
+        "notMedicalContent": "Не адаптовано для медицини",
+        "noSources": "Немає джерел для перевірки",
+        "tooGeneric": "Надто абстрактно, без фокусу на іспитах чи практиці"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Завжди",
+        "sometimes": "Іноді",
+        "rarely": "Рідко",
+        "dontUseAi": "Ще не користуюся AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Швидкі відповіді, яким можна довіряти",
+        "quizzesFlashcardsWithoutWork": "Тести й картки без зайвих зусиль",
+        "rememberingStudied": "Допомога в запам’ятовуванні матеріалу",
+        "medicalCitations": "Посилання на медичні джерела",
+        "allOfTheAbove": "Усе перелічене"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Розсилка",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Інше"
+      },
+      "studyTime": {
+        "under5Hours": "До 5 годин",
+        "510Hours": "5–10 годин",
+        "1020Hours": "10–20 годин",
+        "20PlusHours": "Понад 20 годин"
+      },
+      "comingUp": {
+        "medicalExams": "Медичні іспити",
+        "clinicalRotations": "Клінічна практика (ротації)",
+        "nursingExams": "Сестринські іспити",
+        "otherExams": "Інші іспити",
+        "staySharp": "Просто тримати себе у формі"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Розшифровка нотатки",
+    "noteTranscript": {
+      "noteTranscript": "Транскрипт нотатки",
+      "noNoteIDProvided": "ID нотатки не вказано",
+      "noTranscriptAvailableForThisNote": "Для цієї нотатки немає транскрипту.",
+      "thisNoteWasNotCreatedFrom": "Цю нотатку створено не з аудіо чи відео, тому вона не має транскрипту.",
+      "failedToLoadNote": "Не вдалося завантажити нотатку",
+      "noteTranscript2": "Транскрипт нотатки",
+      "loadingTranscript": "Завантаження транскрипту...",
+      "goToNote": "Перейти до нотатки"
+    },
     "noteOptions": "Параметри нотаток",
-    "editNote": "Редагувати нотатку",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Будь ласка, введіть назву нотатки",
+      "failedToUpdateNote": "Не вдалося оновити нотатку",
+      "noteUpdatedSuccessfully": "Нотатку успішно оновлено",
+      "editNote": "Редагувати нотатку",
+      "noteTitle": "Назва нотатки",
+      "enterNoteTitle": "Введіть назву нотатки",
+      "noteContent": "Вміст нотатки",
+      "enterNoteContent": "Введіть вміст нотатки",
+      "saveThisNote": "Зберегти нотатку",
+      "aiIsGeneratingYourNote": "AI створює вашу нотатку",
+      "largeAudioAndVideoFilesMay": "Обробка великих аудіо- та відеофайлів може тривати кілька хвилин. Будь ласка, не закривайте застосунок."
+    },
     "retranscribe": "Перетранскрибувати",
     "exportNote": "Експортувати примітку",
     "shareNoteLink": "Посилання для поширення нотатки",
@@ -237,12 +443,89 @@
     "translate": "Перекласти",
     "addToFolder": "Додати до папки",
     "loadingNote": "Завантаження нотатки...",
-    "noteNotFound": "Не вдалося завантажити нотатку"
+    "noteNotFound": "Не вдалося завантажити нотатку",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Не вдалося створити флешкартки",
+      "anUnexpectedErrorOccurred": "Сталася неочікувана помилка",
+      "history": "Історія",
+      "export": "Експорт"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Не вдалося додати нотатку до папки",
+      "folderNotFound": "Папку не знайдено",
+      "addNote": "+ Додати нотатку",
+      "noNotesInThisFolder": "У цій папці немає нотаток",
+      "moveNotesToThisFolderTo": "Перемістіть нотатки до цієї папки, щоб побачити їх тут",
+      "addNoteToFolder": "Додати нотатку до папки",
+      "noNotesAvailableToAdd": "Немає доступних нотаток для додавання",
+      "allYourNotesAreAlreadyIn": "Усі ваші нотатки вже в цій папці",
+      "created": "Створено: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Не вдалося завантажити нотатку",
+      "reTranscribeNote": "Повторно транскрибувати нотатку",
+      "thisWillReTranscribeTheAudio": "Аудіо буде повторно транскрибовано, а нотатку — оновлено. Продовжити?",
+      "reTranscribe": "Транскрибувати знову",
+      "noteReTranscribedSuccessfully": "Нотатку успішно транскрибовано знову",
+      "info": "Інформація",
+      "reTranscriptionFeatureIsComingSoon": "Повторна транскрипція з'явиться незабаром",
+      "youAreCurrentlyOfflinePleaseConnect": "Ви зараз офлайн. Підключіться до інтернету, щоб виконати цю дію.",
+      "failedToDeleteNote": "Не вдалося видалити нотатку",
+      "failedToExportNote": "Не вдалося експортувати нотатку",
+      "noteTranslatedSuccessfully": "Нотатку успішно перекладено",
+      "failedToTranslateNote": "Не вдалося перекласти нотатку",
+      "noteMovedTo": "Нотатку переміщено до {{name}}",
+      "failedToMoveNoteToFolder": "Не вдалося перемістити нотатку до папки",
+      "summaryNotes": "Короткий зміст",
+      "loadingNote": "Завантаження нотатки...",
+      "imageNote": "Нотатка із зображення",
+      "created": "Створено {{dateTime}}",
+      "translate": "Перекласти",
+      "transcribe": "Транскрибувати",
+      "editThisNote": "Редагувати цю нотатку",
+      "createFlashcards": "Створити флешкартки",
+      "createFlashcardsToImproveYourRetention": "Створюйте флешкартки для кращого запам'ятовування",
+      "createQuizQuestions": "Створити тести",
+      "practiceYourNotesByCreatingQuestions": "Закріплюйте матеріал, створюючи питання для засвоєння теми"
+    },
+    "sharedNote": {
+      "notFound": "Не знайдено",
+      "thisSharedNoteLinkIsInvalid": "Це посилання на спільну нотатку недійсне або застаріло.",
+      "failedToLoadSharedNote": "Не вдалося завантажити спільну нотатку.",
+      "saved": "Збережено!",
+      "noteHasBeenAddedToYour": "Нотатку додано до вашої бібліотеки.",
+      "viewInLibrary": "Переглянути в бібліотеці",
+      "stayHere": "Залишитися тут",
+      "failedToSaveNote": "Не вдалося зберегти нотатку.",
+      "loadingSharedNote": "Завантаження спільної нотатки...",
+      "sharedNote": "Спільна нотатка",
+      "sharedWithYou": "Поділилися з вами",
+      "savedToLibrary": "Збережено в бібліотеці",
+      "saveToMyLibrary": "Зберегти до моєї бібліотеки"
+    }
   },
   "create": {
     "selectOption": "Як би ви хотіли створити свою нотатку?",
-    "recordAudio": "Запис аудіо",
-    "uploadAudio": "Завантажити аудіо",
+    "recordAudio": {
+      "permissionRequired": "Потрібен дозвіл",
+      "pleaseGrantMicrophonePermissionToRecord": "Будь ласка, надайте доступ до мікрофона для запису аудіо.",
+      "failedToRequestMicrophonePermission": "Не вдалося отримати дозвіл на використання мікрофона",
+      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Запис аудіо",
+      "recordAudio": "Записати аудіо",
+      "createANoteFromAnyRecorded": "Створюйте нотатки з будь-якого записаного аудіо",
+      "recording": "Запис ({{time}})",
+      "recordAgain": "Записати знову"
+    },
+    "uploadAudio": {
+      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Не вдалося вибрати аудіофайл",
+      "uploadAudio": "Завантажити аудіо",
+      "createANoteFromAnyUploaded": "Створюйте нотатки з будь-якого завантаженого аудіо",
+      "dragDropFilesOrBrowse": "Перетягніть файли сюди або виберіть",
+      "supportedFormatMp4WavMp3": "Підтримувані формати: mp4, wav, mp3",
+      "changeFile": "Змінити файл"
+    },
     "youtube": "Відео на YouTube",
     "pdfDocument": "PDF або документ",
     "customText": "Власний текст",
@@ -250,7 +533,56 @@
     "uploadingFile": "Завантаження файлу на сервер...",
     "transcribing": "Перетворення мовлення на текст...",
     "extractingText": "Видобування тексту...",
-    "generatingNote": "Створення навчальних нотаток за допомогою штучного інтелекту...",
+    "generatingNote": {
+      "uploadAudio": "Завантаження аудіо",
+      "uploadingAudioFileToServer": "Завантаження аудіофайлу на сервер...",
+      "transcribeAudio": "Транскрибування аудіо",
+      "convertingSpeechToText": "Перетворення мовлення на текст...",
+      "generateYourNote": "Створення нотатки",
+      "creatingStudyNotes": "Формування навчальних нотаток...",
+      "uploadPDF": "Завантаження PDF",
+      "uploadingPDFDocumentToServer": "Завантаження PDF-документа на сервер...",
+      "extractText": "Вилучення тексту",
+      "readingAndExtractingTextFromPDF": "Зчитування та вилучення тексту з PDF...",
+      "uploadImage": "Завантаження зображення",
+      "uploadingImageToServer": "Завантаження зображення на сервер...",
+      "extractTextOCR": "Розпізнавання тексту (OCR)",
+      "recognizingAndExtractingTextFromImage": "Розпізнавання та вилучення тексту із зображення...",
+      "fetchVideo": "Отримання відео",
+      "connectingToYouTube": "Підключення до YouTube...",
+      "extractTranscript": "Вилучити стенограму",
+      "downloadingVideoTranscript": "Завантаження стенограми відео...",
+      "processText": "Обробити текст",
+      "analyzingYourContent": "Аналізуємо ваш контент...",
+      "uploadFile": "Завантажити файл",
+      "uploadingToServer": "Завантаження на сервер...",
+      "processContent": "Обробити контент",
+      "extractingContent": "Вилучення контенту...",
+      "noteReady": "Нотатка готова!",
+      "noteGenerationFailedOnTheServer": "Помилка створення нотатки на сервері.",
+      "failedToUploadImage": "Не вдалося завантажити зображення",
+      "weCouldNotReadAnythingFrom": "Не вдалося розпізнати текст на зображенні. Будь ласка, спробуйте завантажити чіткіше фото медичних нотаток.",
+      "preparingFile": "Підготовка файлу...",
+      "almostDone": "Майже готово...",
+      "untitledNote": "Нотатка без назви",
+      "failedToGenerateNote": "Не вдалося створити нотатку",
+      "whoaSpeedy": "Ого, як швидко! 🏃💨",
+      "youReGeneratingContentABit": "Ви створюєте контент занадто швидко. Зачекайте приблизно 60 секунд перед наступною спробою, щоб наш AI встиг усе опрацювати.",
+      "gotIt": "Зрозуміло",
+      "fileTooLarge": "Файл завеликий",
+      "yourFileExceedsThe15MBLimit": "Розмір файлу перевищує ліміт у 15 МБ для безкоштовного тарифу. Перейдіть на PRO, щоб завантажувати лекції до 100 МБ.",
+      "upgradeToPRO": "Оновити до PRO",
+      "oopsWeHitASnag": "Ой, щось пішло не так 🚧",
+      "weCouldnTGenerateThatRight": "Зараз не вдалося це створити. Зачекайте трохи та спробуйте знову!",
+      "processingContent": "Обробка контенту...",
+      "generatingYourNote": "Створюємо вашу нотатку...",
+      "audioNote": "Аудіонотатка",
+      "failedToGenerateFlashcards": "Не вдалося створити флешкартки",
+      "generatingNote": "Створення нотатки",
+      "pleaseKeepThisScreenOpenWhile": "Будь ласка, не закривайте цей екран, поки створюється нотатка. Розшифрування великих файлів може зайняти кілька хвилин.",
+      "goToNote": "Перейти до нотатки",
+      "generateNoteTranscript": "Згенерувати стенограму нотатки"
+    },
     "fetchingVideo": "Підключення до YouTube...",
     "processingText": "Аналіз вашого контенту...",
     "uploadAudioTitle": "Завантажити аудіо",
@@ -260,7 +592,63 @@
     "fetchVideo": "Отримати відео",
     "extractTranscript": "Витягнути стенограму",
     "processText": "Текст процесу",
-    "generateNote": "Згенеруйте свою нотатку"
+    "generateNote": "Згенеруйте свою нотатку",
+    "customTextInput": {
+      "customText": "Власний текст",
+      "createANoteFromAnyCustom": "Створіть нотатку з будь-якого тексту",
+      "enterText": "Введіть текст",
+      "enterYourTextHere": "Введіть текст тут..."
+    },
+    "uploadImage": {
+      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Потрібен дозвіл",
+      "pleaseAllowAccessToYourPhoto": "Будь ласка, надайте доступ до вашої фотогалереї",
+      "failedToPickImage": "Не вдалося вибрати зображення",
+      "uploadImage": "Завантажити зображення",
+      "createANoteFromAnyUploaded": "Створіть нотатку з будь-якого завантаженого зображення",
+      "dragDropFilesOrBrowse": "Перетягніть файли або Оберіть",
+      "supportedFormatPngJpegHeicWebp": "Підтримувані формати: png, jpeg, heic, webp",
+      "changeFile": "Змінити файл"
+    },
+    "uploadPDF": {
+      "created": "Створено: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Не вдалося вибрати документ",
+      "uploadPdf": "Завантажити PDF",
+      "createANoteFromAnyUploaded": "Створіть нотатку з будь-якого завантаженого PDF",
+      "dragDropFilesOrBrowse": "Перетягніть файли або Оберіть",
+      "supportedFormatPdf": "Підтримуваний формат: pdf",
+      "changeFile": "Змінити файл"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Отримання відео",
+      "gettingVideoDetails": "Завантаження деталей відео",
+      "extractingTranscript": "Вилучення стенограми",
+      "convertingAudioToText": "Перетворення аудіо на текст",
+      "generatingYourNote": "Створення вашої нотатки",
+      "aiIsSummarisingTheContent": "AI узагальнює зміст",
+      "noteGenerationFailedPleaseTryAgain": "Не вдалося створити нотатку. Будь ласка, спробуйте знову.",
+      "processingFailed": "Помилка обробки",
+      "goBack": "Назад",
+      "retry": "Повторити",
+      "failedToStartNoteGeneration": "Не вдалося розпочати створення конспекту",
+      "failedToProcessYouTubeVideoPlease": "Не вдалося обробити відео YouTube. Спробуйте ще раз.",
+      "cancelProcessing": "Скасувати обробку",
+      "areYouSureYouWantTo": "Справді скасувати? Весь прогрес буде втрачено.",
+      "continueProcessing": "Продовжити обробку",
+      "youTubeNote": "Конспект із YouTube",
+      "noteGenerated": "Конспект створено",
+      "generatingNote": "Створення конспекту",
+      "goToNote": "Перейти до конспекту"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Не вдалося отримати дані відео",
+      "failedToFetchVideoInformation": "Не вдалося завантажити дані відео",
+      "youtubeVideo": "Відео YouTube",
+      "createANoteFromAnyYoutube": "Створи конспект із будь-якого відео YouTube",
+      "enterYoutubeURL": "Введіть URL YouTube",
+      "pasteYoutubeURL": "Вставити URL YouTube",
+      "fetchingVideoInfo": "Отримання інформації про відео..."
+    }
   },
   "library": {
     "title": "Бібліотека",
@@ -292,7 +680,7 @@
     "almostDone": "Майже готово...",
     "quizReady": "Вікторина готова!",
     "startQuiz": "Розпочати вікторину",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} з {{total}}",
     "exitTitle": "Вийти з вікторини?",
     "exitMessage": "Ваш прогрес буде втрачено.",
     "exit": "Вихід",
@@ -312,7 +700,45 @@
     "correctAnswer": "Правильна відповідь",
     "yourAnswer": "Ваша відповідь",
     "explanation": "Пояснення",
-    "questionProgress": "Запитання {{current}} з {{total}}"
+    "questionProgress": "Запитання {{current}} з {{total}}",
+    "generatingQuizWait": "Створюємо тест для вас, зачекайте хвилинку...",
+    "goToChats": "До чатів",
+    "quizGroupDetail": {
+      "inProgress": "У процесі",
+      "notStarted": "Не розпочато",
+      "failedToLoadQuizHistory": "Не вдалося завантажити історію тестів",
+      "failedToLoadChatContent": "Не вдалося завантажити вміст чату",
+      "deleteQuiz": "Видалити тест",
+      "failedToDeleteQuiz": "Не вдалося видалити тест",
+      "created": "Створено: {{dateTime}}",
+      "lastscore": "ОСТАННІЙ РЕЗУЛЬТАТ",
+      "bestscore": "КРАЩИЙ РЕЗУЛЬТАТ",
+      "attempts": "СПРОБИ",
+      "retakeQuiz": "Пройти ще раз",
+      "translate": "Перекласти",
+      "newQuiz": "Новий тест",
+      "quizHistory": "Історія тестів",
+      "flashcardHistory": "Історія карток",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Для цього джерела ще немає наборів карток.",
+      "cards": "Карток: {{totalCards}} · {{flashcardStatus}}",
+      "quizOptions": "Параметри тесту",
+      "exportLatestAttempt": "Експортувати останню спробу",
+      "questions": "Питань: {{totalQuestions}} · {{value}}",
+      "deleteAllAttemptsOne": "Видалити 1 спробу тесту «{{title}}»? Цю дію не можна скасувати.",
+      "deleteAllAttemptsMany": "Видалити всі спроби ({{total}}) тесту «{{title}}»? Цю дію не можна скасувати.",
+      "makeFlashcards": "Створити картки"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Не вдалося завантажити дані тесту: неправильний формат відповіді",
+      "failedToLoadQuizData": "Не вдалося завантажити дані тесту",
+      "noContentAvailable": "Немає доступного вмісту",
+      "goBack": "Назад",
+      "previous": "Назад"
+    },
+    "quiz": {
+      "generationFailed": "Помилка генерації"
+    }
   },
   "flashcards": {
     "title": "Флеш-картки",
@@ -343,7 +769,46 @@
     "headerTitle": "Флеш-картка",
     "progressFormat": "Флеш-картка {{current}} з {{total}}",
     "noteIdRequired": "Для створення карток потрібен ідентифікатор нотатки",
-    "invalidCardCount": "Будь ласка, виберіть від 1 до 100 карток"
+    "invalidCardCount": "Будь ласка, виберіть від 1 до 100 карток",
+    "flashcardGroupDetail": {
+      "inProgress": "У процесі",
+      "notStarted": "Не розпочато",
+      "failedToLoadFlashcardHistory": "Не вдалося завантажити історію карток",
+      "limitReached": "Ліміт вичерпано",
+      "flashcardGenerationLimitReached": "Вичерпано ліміт генерації карток.",
+      "failedToGenerateFlashcards": "Не вдалося згенерувати картки",
+      "failedToTranslateFlashcards": "Не вдалося перекласти картки",
+      "deleteFlashcards": "Видалити картки",
+      "failedToDeleteFlashcards": "Не вдалося видалити картки",
+      "created": "Створено: {{dateTime}}",
+      "lastprogress": "ОСТАННІЙ ПРОГРЕС",
+      "bestprogress": "КРАЩИЙ ПРОГРЕС",
+      "sets": "НАБОРИ",
+      "studyNow": "Вчити зараз",
+      "translate": "Перекласти",
+      "newFlashcards": "Нові картки",
+      "flashcardHistory": "Історія карток",
+      "quizHistory": "Історія тестів",
+      "cards": "Карток: {{totalCards}} · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "З цього джерела ще немає тестів.",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Параметри карток",
+      "exportLatestSet": "Експортувати останній набір",
+      "questions": "Питань: {{totalQuestions}} · {{value}}",
+      "deleteAllSetsOne": "Видалити 1 набір карток для «{{title}}»? Цю дію не можна скасувати.",
+      "deleteAllSetsMany": "Видалити всі набори карток ({{total}}) для «{{title}}»? Цю дію не можна скасувати.",
+      "makeQuiz": "Створити тест",
+      "failedToLoadChatContent": "Не вдалося завантажити вміст чату"
+    },
+    "flashcardReview": {
+      "unknownError": "Невідома помилка",
+      "noFlashcardsInThisSet": "У цьому наборі немає карток",
+      "goBack": "Назад",
+      "allDone": "Все готово",
+      "youHaveReviewedAllTheCards": "Ви переглянули всі картки в цій колоді",
+      "question": "Питання {{value}}",
+      "questionOf": "Питання {{value}} з {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Чат",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Чат із документом",
     "selectFile": "Виберіть файл для чату",
     "uploadFile": "Завантажити файл",
-    "startChatting": "Почати чат"
+    "startChatting": "Почати чат",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Поставте медичне запитання для уточнення",
+      "askAnythingAboutThisDocument": "Запитайте будь-що про цей документ...",
+      "askAQuestionAttachmentProcessingFailed": "Поставте запитання — не вдалося обробити вкладення",
+      "extractingText": "Вилучення тексту...",
+      "processingPDF": "Обробка PDF...",
+      "upgradeToProToContinueChatting": "Перейдіть на PRO, щоб продовжити спілкування",
+      "queryremaining": "ЗАЛИШИЛОСЯ ЗАПИТІВ: {{queriesRemaining}}"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Ініціалізація чату...",
+      "extractingTextFromImage": "Вилучення тексту із зображення...",
+      "processingPDFDocument": "Обробка PDF-документа...",
+      "analyzingYourNote": "Аналіз вашої нотатки...",
+      "thisUsuallyTakesJustAFew": "⏱️ Зазвичай це займає кілька секунд. Ви зможете почати чат одразу після завершення обробки.",
+      "processingFailed": "Збій обробки",
+      "fileMightBeCorruptedOrUnreadable": "• Файл може бути пошкодженим або нечитабельним",
+      "imageQualityTooLow": "Якість зображення занизька",
+      "pdfIsPasswordProtected": "PDF захищено паролем",
+      "contentFormatNotSupported": "Формат вмісту не підтримується",
+      "networkConnectionIssue": "• Проблема з підключенням до мережі",
+      "tryADifferentFile": "Спробувати інший файл",
+      "askAnyClinicalQuestionNoUpload": "💡 Ставте будь-яке клінічне запитання — завантажувати файл не потрібно. Я відповім на основі авторитетної медичної літератури та додам відповідні зображення, якщо вони доступні.",
+      "readyToChat": "✓ Готовий до спілкування",
+      "couldntProcessNote": "Не вдалося обробити цю нотатку. Можливі причини:",
+      "couldntProcessImage": "Не вдалося обробити це зображення. Можливі причини:",
+      "couldntProcessDocument": "Не вдалося обробити цей документ. Можливі причини:",
+      "askMeAboutNote": "💡 Запитуйте мене про що завгодно щодо цієї нотатки. Я можу зробити підсумок, пояснити концепції чи відповісти на конкретні запитання.",
+      "askMeAboutImage": "💡 Запитуйте мене про що завгодно щодо цього зображення. Я можу зробити підсумок, пояснити концепції чи відповісти на конкретні запитання.",
+      "askMeAboutDocument": "💡 Запитуйте мене про що завгодно щодо цього документа. Я можу зробити підсумок, пояснити концепції чи відповісти на конкретні запитання."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "Засвоєно {{masteredCards}}/{{totalCards}}",
+      "notStarted": "Не розпочато",
+      "quizGeneration": "Створення тесту",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Створення карток",
+      "questions": "Питань: {{totalCards}} · {{flashcardStatus}}",
+      "questions2": "Питань: {{totalQuestions}} · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Думаю та шукаю ресурси для вас...",
+      "couldnTGenerateAResponse": "Не вдалося згенерувати відповідь.",
+      "retry": "Повторити",
+      "alsoReferencedFromTheWeb": "Також використано джерела з інтернету",
+      "followUpQuestions": "Пов'язані запитання"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Запитуйте будь-що з медицини й отримуйте факти з авторитетних джерел",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Доказова медицина · Джерела PubMed · Рецензовано фахівцями",
+      "tryOutAnyOfThisTopics": "Оберіть будь-яку з цих тем, щоб розпочати",
+      "topics": {
+        "electrolytes": {
+          "label": "Електролітний дисбаланс: детально",
+          "question": "Поясни електролітний дисбаланс: причини, симптоми та лікування"
+        },
+        "ecg": {
+          "label": "Основи інтерпретації ЕКГ",
+          "question": "Які базові правила інтерпретації ЕКГ?"
+        },
+        "drugInteractions": {
+          "label": "Поширені взаємодії ліків",
+          "question": "Які поширені й важливі взаємодії ліків мені варто знати?"
+        },
+        "nclex": {
+          "label": "Тематичні завдання у стилі NCLEX",
+          "question": "Дай мені практичне завдання у стилі NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Інструкція до препарату FDA",
+      "fromYourAttachedMaterial": "З прикріплених матеріалів"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Не вдалося створити сесію чату",
+      "failedToInitializeChatSession": "Не вдалося ініціалізувати сесію чату",
+      "failedToUpdateLanguage": "Не вдалося змінити мову",
+      "youVeReachedYour3Pin": "Досягнуто ліміту закріплень (максимум 3)",
+      "failedToUpdatePin": "Не вдалося оновити закріплення",
+      "permissionRequired": "Потрібен дозвіл",
+      "pleaseGrantCameraPermissionToTake": "Будь ласка, надайте доступ до камери, щоб зробити фото.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Будь ласка, надайте доступ до фотографій, щоб завантажити зображення.",
+      "failedToUploadImage": "Не вдалося завантажити зображення",
+      "uploadFailed": "Помилка завантаження",
+      "failedToUploadDocument": "Не вдалося завантажити документ",
+      "failedToStartChatFromThis": "Не вдалося почати чат із цього файлу.",
+      "chatFromImage": "Чат за зображенням",
+      "failedToStartANewQuestion": "Не вдалося створити нове запитання. Спробуйте ще раз.",
+      "failedToAttachFile": "Не вдалося прикріпити файл",
+      "failedToSendMessage": "Не вдалося надіслати повідомлення",
+      "copiedToClipboard": "Скопійовано в буфер обміну",
+      "notEnoughContentYet": "Ще недостатньо вмісту",
+      "chatABitMoreBeforeGenerating": "Поспілкуйтеся ще трохи, щоб створити тест (мінімум 100 символів).",
+      "chatABitMoreBeforeGenerating2": "Поспілкуйтеся ще трохи, щоб створити картки (мінімум 100 символів).",
+      "failedToGenerateFlashcards": "Не вдалося створити картки",
+      "failedToRegenerateResponse": "Не вдалося повторно згенерувати відповідь",
+      "failedToRetryResponse": "Не вдалося повторити спробу відповіді"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Не вдалося прикріпити нотатку",
+      "folderCreatedSuccessfully": "Папку «{{name}}» успішно створено!",
+      "failedToCreateFolder": "Не вдалося створити папку",
+      "failedToAttachDocument": "Не вдалося прикріпити документ",
+      "failedToCreateChatSession": "Не вдалося створити сесію чату",
+      "failedToUploadDocument": "Не вдалося завантажити документ",
+      "openingCamera": "📷 Відкриваємо камеру...",
+      "openingImagePicker": "🖼️ Відкриваємо галерею...",
+      "permissionRequired": "Потрібен дозвіл",
+      "pleaseGrantCameraPermissionToTake": "Будь ласка, надайте доступ до камери, щоб зробити фото.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Будь ласка, надайте доступ до фотографій, щоб завантажити зображення.",
+      "failedToAttachImage": "Не вдалося прикріпити зображення",
+      "failedToUploadImage": "Не вдалося завантажити зображення",
+      "failedToAttachAudio": "Не вдалося прикріпити аудіо",
+      "failedToUploadAudio": "Не вдалося завантажити аудіо",
+      "items": "Елементів: {{itemCount}}",
+      "thisFolderIsEmptyGoBack": "Ця папка порожня. Поверніться назад, щоб вибрати іншу.",
+      "addFolder": "Додати папку",
+      "uploadNewDocument": "Завантажити новий документ",
+      "uploadAPDFAndStartChatting": "Завантажте PDF і миттєво розпочніть чат",
+      "uploadNewImage": "Завантажити нове зображення",
+      "uploadAnImageAndExtractText": "Завантажте зображення та миттєво розпізнайте текст",
+      "uploadNewAudio": "Завантажити новий аудіофайл",
+      "uploadAnAudioFileAndTranscribe": "Завантажте аудіофайл і миттєво транскрибуйте його",
+      "orselectfromlibrary": "АБО ОБЕРІТЬ З БІБЛІОТЕКИ",
+      "folders": "Папки",
+      "allNotes": "Усі нотатки",
+      "noFilesToDisplay": "Немає файлів для відображення",
+      "noNotesToDisplay": "Немає нотаток для відображення",
+      "noDocumentsYet": "У вас ще немає документів PDF.\nСпочатку створіть кілька нотаток, а потім поверніться до чату з ними.",
+      "noImagesYet": "У вас ще немає зображень.\nСпочатку створіть кілька нотаток, а потім поверніться до чату з ними.",
+      "noAudioNotesYet": "У вас ще немає аудіонотаток.\nСпочатку створіть кілька нотаток, а потім поверніться до чату з ними.",
+      "noNotesYet": "У вас ще немає нотаток.\nСпочатку створіть кілька нотаток, а потім поверніться до чату з ними.",
+      "attachNote": "Прикріпити нотатку",
+      "selectNote": "Обрати нотатку",
+      "attachImage": "Прикріпити зображення",
+      "selectImage": "Обрати зображення",
+      "attachDocument": "Прикріпити документ",
+      "selectDocument": "Обрати документ",
+      "attachAudio": "Прикріпити аудіо",
+      "selectAudio": "Обрати аудіо",
+      "attachFile": "Прикріпити файл",
+      "selectFile": "Обрати файл",
+      "aNote": "{{verb}} нотатку",
+      "anImage": "{{verb}} зображення",
+      "aDocument": "{{verb}} документ",
+      "audio": "{{verb}} аудіо",
+      "aFile": "{{verb}} файл"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Додати до чату",
+      "camera": "Камера",
+      "photos": "Фотографії",
+      "files": "Файли",
+      "generateQuiz": "Створити тест",
+      "generateFlashcards": "Створити флешкартки",
+      "searchMedicalLiterature": "Пошук у медичній літературі",
+      "filterByDateSourceAndType": "Фільтр за датою, джерелом і типом",
+      "pullsRealCitedSourcesIntoYour": "Додає перевірені цитовані джерела до ваших відповідей",
+      "trustedmedicalsourcedatabase": "БАЗА ПЕРЕВІРЕНИХ МЕДИЧНИХ ДЖЕРЕЛ",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Дані FDA щодо препаратів і лікування"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Перевірити джерела",
+      "citations": "Джерела",
+      "fromTheWeb": "З інтернету"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Готово · натисніть, щоб перейменувати",
+      "processing": "Обробка {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Переглянути джерело ↗"
+    },
+    "chatRename": {
+      "renameChat": "Перейменувати чат"
+    },
+    "sourcesRow": {
+      "viewSources": "Переглянути джерела ({{total}})"
+    }
   },
   "languages": {
     "english": "Англійська",
@@ -408,5 +1057,455 @@
     "malay": "Малайська",
     "indonesian": "Індонезійська",
     "catalan": "Каталонська"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Додати папку",
+      "folderName": "Назва папки",
+      "enterFolderName": "Введіть назву папки",
+      "chooseColor": "Оберіть колір",
+      "createFolder": "Створити папку"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Перед обробкою ваших матеріалів",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact використовує AI, щоб відповідати на ваші запитання та перетворювати ваші матеріали на нотатки, тести й флешкартки. Ось що вам потрібно знати:",
+      "whatDataIsSent": "Які дані надсилаються",
+      "questionsAndMessagesYouTypeIn": "Запитання та повідомлення, які ви вводите в чаті",
+      "audioRecordingsOrUploadedAudioFiles": "Аудіозаписи або завантажені аудіофайли",
+      "pdfAndTextDocumentsYouUpload": "PDF та текстові документи, які ви завантажуєте",
+      "imagesYouUpload": "Зображення, які ви завантажуєте",
+      "youTubeVideoURLsAndTheirTranscripts": "Посилання на відео з YouTube та їхні транскрипти",
+      "customTextYouEnter": "Введений вами текст",
+      "whoReceivesYourData": "Хто отримує ваші дані",
+      "howItSUsed": "Як це використовується",
+      "yourContentIsUsedSolelyTo": "Ваші матеріали використовуються виключно для генерації запитаної відповіді, нотатки, тесту чи флешкарток. До матеріалів, що обробляються через API кожного постачальника, застосовуються їхні власні політики використання даних. Докладніше див. у нашій Політиці конфіденційності.",
+      "iAgreeContinue": "Погоджуюся — Продовжити",
+      "noThanks": "Ні, дякую",
+      "whoReceivesBody": "Ваш контент надсилається до <bold>Google (Gemini)</bold> (генерація конспектів, тестів і карток; відповіді в чаті; обробка документів і зображень) та до <bold>OpenAI</bold> (транскрипція аудіо) через наші захищені сервери. Фрагменти ваших документів також індексуються за допомогою <bold>Google Vertex AI</bold>, щоб чат міг знаходити потрібні частини. Під час використання медичного пошуку в реальному часі ваш запит також надсилається до <bold>Tavily</bold> та публічних баз даних медичної літератури (таких як PubMed, Europe PMC і Semantic Scholar) для пошуку цитат із перевірених джерел, зокрема NIH, CDC, MedlinePlus, ВООЗ і Mayo Clinic. Ці сервіси обробляють ваші дані виключно для генерації відповіді — вони не використовують їх для навчання власних загальних моделей AI, а ми не продаємо ваші дані третім особам."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Відкріпити чат",
+      "pinChat": "Закріпити чат",
+      "deleteChat": "Видалити чат"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Згенерувати флешкартки",
+      "createFlashcards": "Створити флешкартки",
+      "createFlashcardsFromToImproveYour": "Створіть флешкартки з «{{noteTitle}}», щоб краще засвоїти матеріал",
+      "createFlashcardsToImproveYourRetention": "Створіть флешкартки, щоб краще засвоїти матеріал",
+      "howManyQuestions": "Кількість запитань",
+      "generateFlashcards2": "Згенерувати флешкартки"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Створити з чату",
+      "selectFromOneOfYourRecent": "Виберіть з нещодавніх чатів",
+      "pdfOrDocument": "PDF або документ",
+      "createFromAudio": "Створити з аудіо",
+      "image": "Зображення",
+      "createFromCustomText": "Створити з власного тексту",
+      "created": "Створено: {{day}}, {{time}}",
+      "createQuizFrom": "Створити тест із",
+      "createFlashcardsFrom": "Створити флешкартки з",
+      "selectFromChat": "Вибрати з чату",
+      "noRecentChatsYet": "Нещодавніх чатів ще немає",
+      "quizFromPdf": "Створити тест із PDF або документа",
+      "flashcardsFromPdf": "Створити флешкартки з PDF або документа",
+      "quizFromAudio": "Створити тест із завантаженого аудіо",
+      "flashcardsFromAudio": "Створити флешкартки із завантаженого аудіо",
+      "quizFromImage": "Створити тест із зображення",
+      "flashcardsFromImage": "Створити флешкартки із зображення",
+      "quizFromText": "Створити тест із введеного тексту",
+      "flashcardsFromText": "Створити флешкартки з введеного тексту"
+    },
+    "createNote": {
+      "recordAudio": "Записати аудіо",
+      "generateANoteFromAnyRecorded": "Створити нотатку із записаного аудіо",
+      "uploadAudio": "Завантажити аудіо",
+      "createANoteFromAnyUploaded": "Створити нотатку із завантаженого аудіо",
+      "youtubeVideo": "Відео з YouTube",
+      "createANoteFromAnyYoutube": "Створити нотатку з відео YouTube",
+      "pdfOrDocument": "PDF або документ",
+      "createANoteFromPDFOr": "Створити нотатку з PDF або документа",
+      "customText": "Власний текст",
+      "createANoteFromCapturedText": "Створити нотатку з введеного тексту",
+      "image": "Зображення",
+      "createANoteFromAnyImage": "Створити нотатку із зображення",
+      "createNote": "Створити нотатку"
+    },
+    "createQuiz": {
+      "generateQuiz": "Згенерувати тест",
+      "createQuiz": "Створити тест",
+      "practiceByCreatingQuestionsThatHelp": "Закріпіть «{{noteTitle}}», створивши запитання для кращого засвоєння теми",
+      "practiceYourNotesByCreatingQuestions": "Повторюйте матеріал нотаток, створивши запитання для закріплення теми",
+      "howManyQuestions": "Кількість запитань",
+      "timeInMinutes": "Час (у хвилинах)"
+    },
+    "deleteNote": {
+      "deleteNote": "Видалити нотатку",
+      "areYouSureYouWantTo": "Ви дійсно бажаєте видалити цю нотатку?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Експортувати підсумок як",
+      "exportTranscriptAs": "Експортувати стенограму як",
+      "exportAs": "Експортувати як",
+      "exportSummary": "Експортувати підсумок",
+      "exportTranscript": "Експортувати стенограму"
+    },
+    "exportTypeStep": {
+      "exportNote": "Експортувати нотатку",
+      "exportSummary": "Експортувати підсумок",
+      "exportTranscript": "Експортувати стенограму"
+    },
+    "exportSettings": {
+      "export": "Експортувати {{title}}",
+      "selectFormat": "Виберіть формат",
+      "includeAnswers": "Включити відповіді",
+      "answersExplanationsIncluded": "Відповіді та пояснення включено",
+      "questionsOnly": "Лише запитання",
+      "export2": "Експортувати"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Ваша нотатка готова!",
+      "howDidWeDo": "Як ваші враження?",
+      "happy": "Чудово",
+      "sad": "Погано",
+      "maybeLater": "Може, пізніше",
+      "whatWentWrong": "Що пішло не так?",
+      "yourFeedbackHelpsUsImprove": "Ваш відгук допомагає нам ставати кращими.",
+      "tellUsWhatCouldBeBetter": "Розкажіть, що можна покращити...",
+      "submit": "Надіслати"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Вміст недоступний",
+      "clickCardToFlip": "натисніть на картку, щоб перевернути"
+    },
+    "flashcardExport": {
+      "exportFailed": "Помилка експорту",
+      "unknownError": "Невідома помилка",
+      "export": "Експортувати «{{setTitle}}»",
+      "chooseWhatToExport": "Виберіть, що експортувати",
+      "exportQuestions": "Експортувати запитання",
+      "exportAnswers": "Експортувати відповіді"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Видалити набір карток",
+      "areYouSureYouWantTo": "Справді видалити «{{setTitle}}»?",
+      "failedToDeleteFlashcardSet": "Не вдалося видалити набір карток",
+      "flashcardHistory": "Історія карток",
+      "cards": "Картки",
+      "reviewedMastered": "Переглянуто: {{cardsReviewedCount}} • Засвоєно: {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} шт.",
+      "enterYourFolderName": "Введіть назву папки",
+      "yourFolderName": "Назва папки",
+      "createFolder": "Створити папку",
+      "folders": "Папки",
+      "addFolder": "Додати папку",
+      "noFoldersToDisplay": "Немає папок для показу",
+      "clickTheButtonAboveToCreate": "Натисніть кнопку вище, щоб створити папку для нотаток",
+      "allFolders": "Усі папки",
+      "items2": "{{totalItems}} шт."
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Фільтри наукових джерел",
+      "howrecentdoyouwantthe": "АКТУАЛЬНІСТЬ ДЖЕРЕЛА",
+      "from": "Від",
+      "whatkindofsourcedoyou": "ЯКИЙ ТИП ДЖЕРЕЛА ВАМ ПОТРІБЕН",
+      "textbooks": "Підручники",
+      "clinicalGuidelines": "Клінічні настанови",
+      "scientificJournalArticles": "Статті з наукових журналів",
+      "onlywiththisjournalarticles": "ЛИШЕ З ТАКИМИ СТАТТЯМИ ЖУРНАЛІВ",
+      "metaAnalyses": "Метааналізи",
+      "reviewArticles": "Оглядові статті",
+      "clinicalTrials": "Клінічні дослідження",
+      "fromYear": "З року",
+      "toYear": "По рік"
+    },
+    "noteOptions": {
+      "noteOptions": "Опції нотатки",
+      "editNote": "Редагувати нотатку",
+      "reTranscribe": "Транскрибувати повторно",
+      "chatWithNote": "Чат із нотаткою",
+      "exportNote": "Експортувати нотатку",
+      "moveToFolder": "Перемістити в папку",
+      "deleteNote": "Видалити нотатку"
+    },
+    "onboardingTooltip": {
+      "skip": "Пропустити"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Видалити тест",
+      "areYouSureYouWantTo": "Справді видалити «{{quizTitle}}»?",
+      "failedToDeleteQuiz": "Не вдалося видалити тест",
+      "quizHistory": "Історія тестів",
+      "questions": "Питання",
+      "correct": "{{correctAnswers}} правильних"
+    },
+    "referral": {
+      "copied": "Скопійовано!",
+      "yourReferralCodeHasBeenCopied": "Ваш реферальний код скопійовано в буфер обміну.",
+      "joinMeOnClinicalFactUse": "Приєднуйся до мене в Clinical Fact! Використовуй мій код {{referralCode}} – {{appUrl}}",
+      "joined": "Приєднався(-лася) {{joinedDate}}",
+      "referralCode": "Реферальний код",
+      "yourReferralCode": "Ваш реферальний код",
+      "shareWithFriendsToEarnRewards": "Діліться з друзями, щоб отримувати винагороди",
+      "share": "Поділитися",
+      "copyCode": "Скопіювати код",
+      "referredFriends": "Запрошені друзі",
+      "noReferralsYetShareYourCode": "Запрошень поки немає. Поділіться кодом, щоб розпочати!",
+      "loadMore": "Завантажити ще",
+      "howItWorks": "Як це працює",
+      "friendsUseYourCodeDuringSignup": "• Друзі вказують ваш код під час реєстрації",
+      "youBothEarnRewardsWhenThey": "• Ви обоє отримуєте бонуси після їхньої реєстрації",
+      "friendsReferredCount": "Запрошено друзів: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Вилучення тексту...",
+      "transcribingAudio": "Транскрибування аудіо...",
+      "processingPDF": "Обробка PDF...",
+      "settingUpChat": "Налаштування чату...",
+      "uploadFailed": "Помилка завантаження",
+      "failedToUploadFilePleaseTry": "Не вдалося завантажити файл. Спробуйте ще раз.",
+      "yourFileIsReadyForChatting": "Файл готовий до обговорення!",
+      "uploadingYourFileToTheServer": "Завантаження файлу на сервер...",
+      "extractingTextFromYourImage": "Вилучення тексту із зображення...",
+      "transcribingYourAudio": "Транскрибування вашого аудіо...",
+      "extractingTextFromYourPDF": "Вилучення тексту з вашого PDF...",
+      "creatingYourChatSession": "Створення чат-сесії...",
+      "pleaseWait": "Зачекайте, будь ласка...",
+      "uploadFile": "Завантажити файл",
+      "processContent": "Обробити вміст",
+      "createChat": "Створити чат"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Переглянути",
+      "export": "📤 Експортувати",
+      "delete": "🗑️ Видалити"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Працює на базі"
+    },
+    "exportFormat": {
+      "txtFile": "Файл TXT",
+      "pdfFile": "Файл PDF",
+      "docFile": "Файл DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Не вдалося завантажити нотатки",
+      "failedToFetchFolders": "Не вдалося завантажити папки",
+      "failedToFetchNote": "Не вдалося завантажити нотатку",
+      "failedToDeleteNote": "Не вдалося видалити нотатку",
+      "failedToCreateFolder": "Не вдалося створити папку",
+      "failedToDeleteFolder": "Не вдалося видалити папку"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Не вдалося видалити чат"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Набір карток успішно експортовано!",
+      "failedToExportFlashcardSet": "Не вдалося експортувати набір карток."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Тест успішно експортовано!",
+      "failedToExportQuiz": "Не вдалося експортувати тест."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Картки без назви",
+      "failedToLoadFlashcards": "Не вдалося завантажити картки",
+      "failedToSyncFlashcardSet": "Не вдалося синхронізувати набір карток",
+      "failedToSyncCardUpdate": "Не вдалося синхронізувати оновлення картки"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Тести"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Створено: {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Ви досягли ліміту в 3 закріплені чати",
+      "failedToUpdatePin": "Не вдалося змінити статус закріплення",
+      "noChatsYet": "Чатів ще немає",
+      "startAChatToGetAnswers": "Почніть чат, щоб отримати відповіді з перевірених джерел.",
+      "createChat": "+ Новий чат"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Видалити флешкартки",
+      "areYouSureYouWantTo": "Ви дійсно бажаєте видалити «{{sourceTitle}}»?",
+      "failedToDeleteFlashcards": "Не вдалося видалити флешкартки",
+      "sets": "Наборів: {{setCount}}",
+      "flashcards": "Флешкартки",
+      "createFlashcards": "Створити флешкартки",
+      "searchFlashcards": "Пошук флешкарток...",
+      "noFlashcardsYet": "Флешкарток ще немає",
+      "createAFlashcardSetFromA": "Створіть набір флешкарток із нотатки, щоб почати",
+      "createSet": "+ Створити набір",
+      "flashcardOptions": "Параметри флешкарток",
+      "view": "Переглянути"
+    },
+    "folder": {
+      "deleteFolder": "Видалити папку",
+      "areYouSureYouWantTo": "Ви дійсно бажаєте видалити «{{name}}»? Нотатки з неї буде переміщено в корінь.",
+      "failedToDeleteFolder": "Не вдалося видалити папку",
+      "error": "Помилка: {{message}}",
+      "noFoldersYetCreateOne": "Папок ще немає. Створіть першу!",
+      "folders": "Папки"
+    },
+    "home": {
+      "created": "Створено: {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Не вдалося оновити мову",
+      "notEnoughContentYet": "Ще недостатньо даних",
+      "chatABitMoreBeforeGenerating": "Поспілкуйтеся ще трохи, щоб згенерувати тест (мінімум 100 символів).",
+      "chatABitMoreBeforeGenerating2": "Поспілкуйтеся ще трохи, щоб створити флешкартки (мінімум 100 символів).",
+      "failedToGenerateFlashcards": "Не вдалося згенерувати флешкартки",
+      "upgradeToPro": "Перейти на PRO",
+      "get80DiscountWhenYouUpgrade": "Отримайте знижку 80% під час оновлення акаунта",
+      "unlockPRO": "Відкрити доступ до PRO",
+      "noMedicalChats": "Немає медичних чатів",
+      "youHaveNotCreatedAnyMedical": "Ви ще не створили жодного медичного чату. Почніть діалог та отримуйте посилання на джерела",
+      "talkToClinicalfactAI": "Поспілкуватися з Clinical Fact AI",
+      "jumpInWhereYouStopped": "Продовжити з місця зупинки",
+      "practiceQuiz": "Пройти тест",
+      "makeFlashcards": "Створити картки",
+      "continueChatWithNote": "Продовжити чат за нотаткою",
+      "continueChat": "Продовжити чат",
+      "recentChats": "Нещодавні чати",
+      "chatOptions": "Опції чату"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Ви офлайн. Підключіться до інтернету, щоб виконати цю дію.",
+      "failedToDeleteNote": "Не вдалося видалити нотатку",
+      "failedToMoveNote": "Не вдалося перемістити нотатку",
+      "deleteFolder": "Видалити папку?",
+      "areYouSureNotesInsideWill": "Ви впевнені? Нотатки всередині не видаляться, а перемістяться до розділу «Усі нотатки».",
+      "failedToDeleteFolder": "Не вдалося видалити папку",
+      "library": "Бібліотека",
+      "addFolder": "Додати папку",
+      "searchForANoteFolder": "Пошук нотатки / папки",
+      "yourFolders": "Ваші папки",
+      "noFoldersToDisplay": "Немає папок для відображення",
+      "tapAddFolderToCreateA": "Торкніться «+ Додати папку», щоб упорядкувати нотатки",
+      "allNotes": "Усі нотатки",
+      "items": "Елементів: {{allNotesTotal}}",
+      "items2": "Елементів: {{itemCount}}",
+      "yourNotes": "Ваші нотатки",
+      "untitledNote": "Нотатка без назви",
+      "noResultsFor": "Нічого не знайдено за запитом «{{searchQuery}}»",
+      "noNotesInThisFolder": "У цій папці немає нотаток",
+      "noNotesToDisplay": "Немає нотаток для відображення",
+      "tryADifferentSearchTerm": "Спробуйте інший пошуковий запит",
+      "moveNotesToThisFolderTo": "Перемістіть нотатки до цієї папки, щоб бачити їх тут",
+      "clickBelowToGenerateYourNote": "Натисніть нижче, щоб створити нотатку за допомогою Clinical Fact",
+      "filterByType": "Фільтр за типом",
+      "audio": "Аудіо",
+      "text2": "Текст",
+      "image": "Зображення",
+      "clearFilter": "Очистити фільтр"
+    },
+    "profile": {
+      "permissionRequired": "Потрібен дозвіл",
+      "pleaseAllowAccessToYourPhoto": "Будь ласка, надайте доступ до фотографій, щоб встановити фото профілю.",
+      "uploadFailed": "Помилка завантаження",
+      "couldNotUpdateProfilePicture": "Не вдалося оновити фото профілю.",
+      "failedToUploadProfilePicture": "Не вдалося завантажити фото профілю.",
+      "checkOutClinicalFactAIPowered": "Спробуй Clinical Fact — навчальні конспекти на базі AI! {{url}}",
+      "proSubscriber": "Передплатник PRO",
+      "subscriptionExpired": "Термін передплати минув",
+      "freeSubscriber": "Безкоштовний план",
+      "tapToManageIPhoneSettingsApple": "Керувати · Параметри iPhone → Apple ID → Передплати",
+      "tapToManagePlayStoreSubscriptions": "Керувати · Play Store → Передплати",
+      "tapToRenewYourSubscription": "Торкніться, щоб поновити передплату",
+      "tapToUpgradeToPro": "Торкніться, щоб перейти на PRO",
+      "referralCode": "Реферальний код",
+      "areYouSureYouWantTo": "Ви дійсно бажаєте вийти з облікового запису?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Видалити тест",
+      "areYouSureYouWantTo": "Ви дійсно бажаєте видалити «{{sourceTitle}}»?",
+      "failedToDeleteQuiz": "Не вдалося видалити тест",
+      "correct": "Правильно: {{correct}}/{{total}}",
+      "attempts": "Спроб: {{attempts}}",
+      "quiz": "Тест",
+      "createQuiz": "Створити тест",
+      "searchQuizzes": "Пошук тестів...",
+      "noQuizzesYet": "Тестів ще немає",
+      "createAQuizFromANote": "Створіть тест на основі нотатки, щоб почати",
+      "createQuiz2": "+ Створити тест",
+      "quizOptions": "Параметри тесту",
+      "view": "Переглянути"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Оновлення недоступне",
+      "weCouldnTOpenTheUpgrade": "Не вдалося відкрити екран передплати. Перевірте з'єднання з інтернетом і спробуйте знову."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Сервер повернув відповідь не у форматі JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Помилка мережі. Будь ласка, перевірте з'єднання.",
+      "connectionErrorPleaseTryAgain": "Помилка з'єднання. Будь ласка, спробуйте знову."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Файл експортовано: {{filename}}",
+      "exportFailed": "Помилка експорту",
+      "exportFormat": "Формат експорту",
+      "chooseFormat": "Оберіть формат",
+      "text": "Текст"
+    },
+    "formatDate": {
+      "justNow": "Щойно",
+      "minAgo": "{{diffMin}} хв тому",
+      "hrAgo": "{{diffHr}} год тому",
+      "dAgo": "{{diffDay}} дн. тому",
+      "created": "Створено: {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Не вдалося надіслати одноразовий код",
+      "invalidOTP": "Недійсний одноразовий код",
+      "failedToVerifyOTP": "Не вдалося перевірити одноразовий код",
+      "googleAuthenticationFailed": "Помилка автентифікації через Google",
+      "appleAuthenticationFailed": "Помилка автентифікації через Apple",
+      "failedToCompleteSignup": "Не вдалося завершити реєстрацію",
+      "failedToSkipSignup": "Не вдалося пропустити реєстрацію"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Чати",
+      "description": "Спілкуйтеся в чаті з будь-якими нотатками, документами чи PDF в одному місці"
+    },
+    "profileWelcome": {
+      "heading": "Ласкаво просимо до вашого профілю",
+      "description": "Це ваш профіль. Натисніть тут, щоб змінити особисті дані або статус підписки"
+    },
+    "createNotes": {
+      "heading": "Створити нотатку",
+      "description": "Створюйте нотатки будь-якого типу: із записів, аудіо, відео, зображень, тексту чи посилань на YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Змінити мову",
+      "description": "Тут ви можете вибрати потрібну мову додатка"
+    },
+    "manageHome": {
+      "heading": "Керування головною",
+      "description": "Переглядайте всі створені нотатки та відстежуйте свої дії в одному місці"
+    },
+    "yourLibrary": {
+      "heading": "Ваша бібліотека",
+      "description": "Керуйте всіма створеними нотатками, групуйте їх за папками та багато іншого"
+    },
+    "yourProfile": {
+      "heading": "Ваш профіль",
+      "description": "Переглядайте всю інформацію про профіль та змінюйте його налаштування тут"
+    }
   }
 }

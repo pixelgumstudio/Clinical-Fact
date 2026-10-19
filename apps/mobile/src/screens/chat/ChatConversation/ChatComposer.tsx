@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Pressable, Image, ActivityIndicator, StyleSheet } from 'react-native';
 import { colors, spacing, typography, Icon, theme } from '@clinicalfact/design-system';
 import { PendingAttachment } from './types';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../i18n';
 
 type ChatSourceType = 'note' | 'image' | 'document' | 'pdf' | 'audio' | 'medical_qa' | undefined;
 
@@ -30,11 +32,11 @@ interface ChatComposerProps {
 }
 
 const getPlaceholder = (sessionId: string | null, embeddingStatus: string, type: ChatSourceType) => {
-  if (!sessionId) return 'Ask a medical question to get more clarifications';
-  if (embeddingStatus === 'completed') return 'Ask anything about this document...';
-  if (embeddingStatus === 'failed') return 'Ask a question — attachment processing failed';
-  if (type === 'image') return 'Extracting text...';
-  if (type === 'document') return 'Processing PDF...';
+  if (!sessionId) return i18n.t('chat.chatComposer.askAMedicalQuestionToGet');
+  if (embeddingStatus === 'completed') return i18n.t('chat.chatComposer.askAnythingAboutThisDocument');
+  if (embeddingStatus === 'failed') return i18n.t('chat.chatComposer.askAQuestionAttachmentProcessingFailed');
+  if (type === 'image') return i18n.t('chat.chatComposer.extractingText');
+  if (type === 'document') return i18n.t('chat.chatComposer.processingPDF');
   return 'Processing...';
 };
 
@@ -60,10 +62,11 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
   onSend,
   onStopGenerating,
 }) => {
+  const { t } = useTranslation();
   if (isLocked) {
     return (
       <Pressable onPress={onUpgrade} style={[styles.lockedContainer, { marginBottom: insetsBottom > 0 ? insetsBottom : 16 }]}>
-        <Text style={styles.lockedText}>Upgrade to Pro to continue chatting</Text>
+        <Text style={styles.lockedText}>{t('chat.chatComposer.upgradeToProToContinueChatting')}</Text>
       </Pressable>
     );
   }
@@ -87,7 +90,7 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
       <View style={[styles.inputRow]}>
         {queriesRemaining !== null && (
           <View style={styles.creditsHeader}>
-            <Text style={styles.creditsHeaderText}>{queriesRemaining} QUERY REMAINING</Text>
+            <Text style={styles.creditsHeaderText}>{t('chat.chatComposer.queryremaining', { queriesRemaining })}</Text>
           </View>
         )}
         <View style={styles.inputBody}>

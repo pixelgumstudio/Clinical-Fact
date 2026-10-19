@@ -15,7 +15,8 @@
     "done": "Færdig",
     "search": "Søge",
     "filter": "Filter",
-    "ok": "Okay"
+    "ok": "Okay",
+    "info": "Info"
   },
   "home": {
     "title": "Clinical Fact",
@@ -26,7 +27,7 @@
     "recentNotes": "Seneste noter",
     "seeAll": "Se alle",
     "noNotes": "Ingen noter at vise",
-    "noNotesDesc": "Klik venligst på knappen ovenfor for at begynde at generere din note til clinicalfact.",
+    "noNotesDesc": "Tryk på knappen ovenfor for at begynde\nat generere din note til Clinical Fact.",
     "loadingNotes": "Indlæser noter..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "Opgraderingsplan",
     "everyWeek": "Hver uge",
     "everyMonth": "Hver måned",
-    "everyYear": "Hvert år"
+    "everyYear": "Hvert år",
+    "reportBug": "Rapportér en fejl"
   },
   "auth": {
-    "welcome": "Velkommen til Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Google-login mislykkedes",
+      "failedToAuthenticateWithServer": "Servergodkendelse mislykkedes",
+      "googleSignInIsOnlyAvailable": "Google-login er kun tilgængeligt i den native app. Brug venligst e-mailgodkendelse, eller download appen.",
+      "code": "{{message}} (kode: {{code}})"
+    },
     "getStarted": "Kom i gang",
     "signIn": "Log ind",
     "signUp": "Tilmeld dig",
@@ -94,7 +101,8 @@
       "skip": "Springe",
       "verify": "Bekræftet!",
       "next": "Næste",
-      "tryNow": "Prøv Clinical Fact gratis nu"
+      "tryNow": "Prøv Clinical Fact gratis nu",
+      "continueWithApple": "Fortsæt med Apple"
     },
     "labels": {
       "firstName": "Fornavn",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Kunne ikke starte Google-login. Prøv igen.",
       "setupRequired": "Opsætning påkrævet",
       "googleOAuthMissing": "Google Login kræver OAuth-klient-id'er.\\n\\nTilføj venligst loginoplysninger til din .env-fil.",
-      "youCanStillUseEmail": "Du kan stadig bruge \"Fortsæt med e-mail\"."
+      "youCanStillUseEmail": "Du kan stadig bruge \"Fortsæt med e-mail\".",
+      "appleSignInFailed": "Apple-login mislykkedes",
+      "appleTokenFailed": "Kunne ikke behandle Apple-token",
+      "appleIosOnly": "Log ind med Apple er kun tilgængeligt på iOS."
     },
     "messages": {
       "signingIn": "Logerer ind...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact: Smartere noter Start her",
       "tagline": "Forvandl enhver tekst til perfekte noter",
-      "description": "Lav lyd, dokumenter eller videoer om til tydelige, søgbare noter, og opret øjeblikkeligt quizzer, flashcards og resuméer."
+      "description": "Lav lyd, dokumenter eller videoer om til tydelige, søgbare noter, og opret øjeblikkeligt quizzer, flashcards og resuméer.",
+      "createAccountTitle": "Opret en konto",
+      "orSignUpWith": "ELLER OPRET DIG MED",
+      "signUpWithEmail": "Opret konto med e-mailadresse",
+      "signInWithEmail": "Log ind med e-mailadresse",
+      "alreadyHaveAccount": "Har du allerede en konto? ",
+      "dontHaveAccount": "Har du ikke en konto? "
     },
     "otp": {
       "title": "Bekræft din e-mailadresse",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Alt du behøver for at lære hvad som helst",
-      "subtitle": "Optag det. Undersøg det. Test det. Mestre det."
+      "subtitle": "Optag det. Undersøg det. Test det. Mestre det.",
+      "everythingYouNeedToLearnAnything": "Alt, hvad du skal bruge for at lære hvad som helst",
+      "recordItResearchItQuizIt": "Optag det. Undersøg det. Quiz det. Mestér det.",
+      "tryClinicalFactNowForFree": "Prøv Clinical Fact gratis nu"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Lær hurtigere med quiz og flashcards",
         "description": "Lav noter om til quizzer og flashcards. Lær hurtigere og husk mere."
+      },
+      "feature1": {
+        "title": "Få reelle medicinske svar og opfølgende spørgsmål",
+        "description": "Stil ethvert medicinsk spørgsmål og få en klar forklaring samt intelligente opfølgende spørgsmål, så du aldrig går i stå midt i læsningen."
+      },
+      "feature2": {
+        "title": "Hvert medicinske svar,\nunderstøttet af en reel kilde",
+        "description": "Kildehenvisninger hentet fra PubMed, Semantic Scholar og Europe PMC – verificerbare, ikke opdigtede."
+      },
+      "feature3": {
+        "title": "Upload dine noter, få medicinske resuméer af dit materiale",
+        "description": "Omdan ethvert forelæsningsslide, PDF eller notat til en klar forklaring bakket op af pålidelige medicinske kilder."
+      },
+      "feature4": {
+        "title": "Gør enhver chat til en quiz eller flashcards til repetition",
+        "description": "Ingen separat studie-app – generér øvelsesspørgsmål direkte fra dine chats og uploads."
+      },
+      "feature5": {
+        "title": "Gør enhver chat eller ethvert dokument til flashcard-spørgsmål til repetition",
+        "description": "Ingen separat studie-app – generér øvelsesspørgsmål direkte fra dine chats og uploads."
+      }
+    },
+    "languageSelect": {
+      "title": "Vælg dit sprog",
+      "subtitle": "Vælg det sprog, du vil bruge i appen. Du kan altid ændre det senere i din profil.",
+      "searchPlaceholder": "Søg efter sprog",
+      "noResults": "Ingen sprog fundet"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Spørg om alt medicinsk. Få kliniske fakta",
+        "description": "Stil ethvert medicinsk spørgsmål, og få et svar bakket op af kilder fra PubMed, kliniske retningslinjer og anerkendt faglitteratur"
+      },
+      "slide2": {
+        "headline": "Hvert svar understøttet af en kilde",
+        "description": "Ingen gætterier, ingen opdigtede fakta – hvert svar linker tilbage til reel, verificerbar medicinsk forskning."
+      },
+      "slide3": {
+        "headline": "Læs smartere, bestå dine eksamener",
+        "description": "Omdan ethvert spørgsmål eller upload til en quiz eller et sæt flashcards på få sekunder – øvelser bygget direkte på det, du lærer."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Faglig erklæring",
+      "subtitle": "Clinical Fact er et uddannelsesværktøj til litteratursøgning",
+      "disclaimerIntro": "Clinical Fact er et AI-baseret informationsværktøj beregnet til at støtte sygepleje-, medicin- og andre sundhedsvidenskabelige studerende i at tilgå medicinsk viden, forskningslitteratur og studiematerialer. Appen stiller ikke medicinske diagnoser, behandlingsanbefalinger, kliniske instruktioner eller patientspecifik lægefaglig rådgivning, og må ikke bruges som grundlag for direkte patientbehandling eller klinisk beslutningstagning.",
+      "disclaimerHeading": "Sådan genererer Clinical Fact svar:",
+      "disclaimerBody": "Clinical Fact henter oplysninger direkte fra anerkendte medicinske og videnskabelige kilder, herunder PubMed, Semantic Scholar og officiel FDA-lægemiddelinformation, og bruger AI til at opsummere og forklare dette indhold i et klart sprog. Hvert svar genereres udelukkende ud fra de kilder, der findes til det specifikke spørgsmål, og kildehenvisningerne linker tilbage til det originale materiale, så du selv kan verificere det. Clinical Fact genererer ikke medicinske fakta ud fra hukommelsen og opfinder ikke kilder.\n\nClinical Fact er ikke et diagnostisk værktøj, en behandlingsplatform, medicinsk udstyr eller en erstatning for professionel lægefaglig vurdering, autoriseret undervisning eller din uddannelsesinstitutions pensum. Enhver oplysning, der genereres af appen, herunder svar, kildehenvisninger, quizzer og flashcards, stilles udelukkende til rådighed til generelle uddannelses- og studieformål og skal verificeres uafhængigt af brugeren, før den anvendes i en akademisk, klinisk eller faglig sammenhæng.\nClinical Fact garanterer ikke for fuldstændigheden, nøjagtigheden eller den aktuelle kliniske relevans af de leverede oplysninger. Medicinsk viden udvikler sig løbende – hold altid kritiske oplysninger op mod dine undervisere, kliniske vejledere og opdaterede primærkilder.\nNår du uploader dine egne dokumenter, noter eller optagelser, genererer Clinical Fact svar, resuméer, quizzer og flashcards udelukkende baseret på det uploadede indhold, ikke eksterne kilder, medmindre eksterne kilder udtrykkeligt vises ved siden af.\n\nClinical Fact verificerer, godkender eller bekræfter ikke brugernes identitet, indskrivningsstatus eller autorisation. Appen er ikke beregnet til brug i akutte situationer eller til klinisk beslutningstagning i realtid.\nVed at fortsætte bekræfter du, at du forstår disse vilkår og accepterer udelukkende at bruge Clinical Fact som et studie- og opslagsværktøj.",
+      "checkboxLabel": "Jeg forstår, at denne app kun er til uddannelsesmæssig reference og ikke yder medicinsk rådgivning",
+      "acceptButton": "Acceptér og fortsæt"
+    },
+    "survey": {
+      "role": "Hvad beskriver dig bedst, {{firstName}}?",
+      "currentMethod": "Hvordan finder du normalt svar på medicinske spørgsmål i dag?",
+      "timeDrain": "Hvad sluger mest af din tid?",
+      "appExpectation": "Hvad forventer du af vores Clinical Fact-medicinske app?",
+      "aiToolsUsed": "Hvilke AI-værktøjer har du hidtil brugt til medicinsk research?",
+      "aiToolIssue": "Hvad fungerede ikke med de værktøjer?",
+      "aiTrustLevel": "Hvor ofte er du bekymret for, om et AI-svar kan være forkert?",
+      "biggestNeed": "Hvad har du mest brug for lige nu?",
+      "studyTimePerWeek": "Hvor meget tid har du til at studere hver uge?",
+      "comingUp": "Hvad venter forude for dig?",
+      "referralSource": "Hvor hørte du om Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Slå notifikationer til",
+      "thisHelpsUsStayOnTrack": "Dette hjælper os med at tilpasse din oplevelse og gøre det nemmere for dig at finde medicinske svar"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Ugyldig bekræftelseskode. Prøv igen.",
+      "failedToResendCodePleaseTry": "Kunne ikke gensende koden. Prøv igen.",
+      "confirmYourEmailAddress": "Bekræft din e-mailadresse",
+      "enterCodeSentTo": "Indtast venligst den engangskode, vi har sendt til din e-mailadresse {{email}}",
+      "resendCodeIn": "Gensend kode om {{seconds}} sek."
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Blev du henvist af nogen?",
+      "enterTheirReferralCodeIfYou": "Indtast deres henvisningskode, hvis du har en",
+      "eGJOHNOrTECHBRO": "f.eks. JOHN eller TECHBRO",
+      "codeIsValid": "✓ Koden er gyldig"
+    },
+    "resultsChart": {
+      "getBetterResults": "Få bedre resultater",
+      "over95OfClinicalfactUsersScore": "Over 95 % af Clinical Fact-brugere opnår 95 % eller mere i deres prøver og eksamener"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Sygeplejestuderende",
+        "medicalStudent": "Medicinstuderende",
+        "paPharmacyStudent": "PA- eller farmacistuderende",
+        "practicingNurse": "Uddannet sygeplejerske",
+        "practicingPhysician": "Uddannet læge",
+        "otherHealthcareProfessional": "Anden sundhedsfaglig"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Lærebøger eller noter",
+        "flashcardQuizApps": "Flashcard- eller quiz-apps",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chatbots",
+        "colleagueClassmate": "Spørger en kollega eller medstuderende",
+        "practiceQuestionBanks": "Spørgsmålsbanker til øvelse"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "At lave flashcards og quizzer fra bunden",
+        "findingTrustworthyAnswer": "At finde et pålideligt svar hurtigt",
+        "reReadingNotes": "At genlæse noter, jeg ikke kan huske",
+        "switchingApps": "At skifte mellem for mange apps",
+        "chartingDocumentation": "Journalføring og dokumentation"
+      },
+      "appExpectation": {
+        "noHallucination": "En AI, der ikke hallucinerer",
+        "realCitations": "Rigtige kildehenvisninger",
+        "oneApp": "Én app i stedet for fem abonnementer",
+        "explainsWhy": "Forklarer \"hvorfor\" og ikke bare svaret"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google-søgning",
+        "otherApps": "Andre apps"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Fandt på ting",
+        "notMedicalContent": "Ikke skabt til medicinsk indhold",
+        "noSources": "Ingen kilder at verificere med",
+        "tooGeneric": "For generisk, ikke eksamens- eller praksisfokuseret"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Hver gang",
+        "sometimes": "Nogle gange",
+        "rarely": "Sjældent",
+        "dontUseAi": "Jeg bruger ikke AI endnu"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Hurtige svar, jeg kan stole på",
+        "quizzesFlashcardsWithoutWork": "Quizzer og flashcards uden besvær",
+        "rememberingStudied": "Hjælp til at huske det, jeg har læst",
+        "medicalCitations": "Medicinske kildehenvisninger",
+        "allOfTheAbove": "Alt det ovenstående"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Nyhedsbrev",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Andet"
+      },
+      "studyTime": {
+        "under5Hours": "Under 5 timer",
+        "510Hours": "5–10 timer",
+        "1020Hours": "10–20 timer",
+        "20PlusHours": "20+ timer"
+      },
+      "comingUp": {
+        "medicalExams": "Medicinske eksamener",
+        "clinicalRotations": "Klinikophold",
+        "nursingExams": "Sygeplejeeksamener",
+        "otherExams": "Andre eksamener",
+        "staySharp": "Vil bare holde mig skarp"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Notetransskription",
+    "noteTranscript": {
+      "noteTranscript": "Notattransskription",
+      "noNoteIDProvided": "Intet notat-id angivet",
+      "noTranscriptAvailableForThisNote": "Ingen transskription tilgængelig for dette notat.",
+      "thisNoteWasNotCreatedFrom": "Dette notat blev ikke oprettet ud fra lyd/video og har ingen transskription.",
+      "failedToLoadNote": "Kunne ikke indlæse notat",
+      "noteTranscript2": "Notattransskription",
+      "loadingTranscript": "Indlæser transskription...",
+      "goToNote": "Gå til notat"
+    },
     "noteOptions": "Noteindstillinger",
-    "editNote": "Rediger note",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Indtast venligst en notattitel",
+      "failedToUpdateNote": "Kunne ikke opdatere notat",
+      "noteUpdatedSuccessfully": "Notatet blev opdateret",
+      "editNote": "Rediger notat",
+      "noteTitle": "Notattitel",
+      "enterNoteTitle": "Indtast notattitel",
+      "noteContent": "Notatindhold",
+      "enterNoteContent": "Indtast notatindhold",
+      "saveThisNote": "Gem dette notat",
+      "aiIsGeneratingYourNote": "AI genererer dit notat",
+      "largeAudioAndVideoFilesMay": "Store lyd- og videofiler kan tage et par minutter at behandle. Hold venligst appen åben."
+    },
     "retranscribe": "Gentranskriber",
     "exportNote": "Eksportér note",
     "shareNoteLink": "Del notelink",
@@ -237,12 +443,89 @@
     "translate": "Oversætte",
     "addToFolder": "Tilføj til mappe",
     "loadingNote": "Indlæser note...",
-    "noteNotFound": "Kunne ikke indlæse noten"
+    "noteNotFound": "Kunne ikke indlæse noten",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "anUnexpectedErrorOccurred": "Der opstod en uventet fejl",
+      "history": "Historik",
+      "export": "Eksportér"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Kunne ikke føje notat til mappe",
+      "folderNotFound": "Mappen blev ikke fundet",
+      "addNote": "+ Tilføj notat",
+      "noNotesInThisFolder": "Ingen notater i denne mappe",
+      "moveNotesToThisFolderTo": "Flyt notater til denne mappe for at se dem her",
+      "addNoteToFolder": "Tilføj notat til mappe",
+      "noNotesAvailableToAdd": "Ingen tilgængelige notater at tilføje",
+      "allYourNotesAreAlreadyIn": "Alle dine notater er allerede i denne mappe",
+      "created": "Oprettet {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Kunne ikke indlæse notat",
+      "reTranscribeNote": "Transskribér notat igen",
+      "thisWillReTranscribeTheAudio": "Dette vil transskribere lyden igen og opdatere notatet. Vil du fortsætte?",
+      "reTranscribe": "Transskribér igen",
+      "noteReTranscribedSuccessfully": "Notatet blev transskriberet igen",
+      "info": "Info",
+      "reTranscriptionFeatureIsComingSoon": "Gentransskribering kommer snart",
+      "youAreCurrentlyOfflinePleaseConnect": "Du er i øjeblikket offline. Opret venligst forbindelse til internettet for at udføre denne handling.",
+      "failedToDeleteNote": "Kunne ikke slette notat",
+      "failedToExportNote": "Kunne ikke eksportere notat",
+      "noteTranslatedSuccessfully": "Notatet blev oversat",
+      "failedToTranslateNote": "Kunne ikke oversætte notat",
+      "noteMovedTo": "Notat flyttet til {{name}}",
+      "failedToMoveNoteToFolder": "Kunne ikke flytte notat til mappe",
+      "summaryNotes": "Opsummeringsnoter",
+      "loadingNote": "Indlæser notat...",
+      "imageNote": "Billednotat",
+      "created": "Oprettet {{dateTime}}",
+      "translate": "Oversæt",
+      "transcribe": "Transskriber",
+      "editThisNote": "Rediger dette notat",
+      "createFlashcards": "Opret flashcards",
+      "createFlashcardsToImproveYourRetention": "Opret flashcards for at styrke din indlæring",
+      "createQuizQuestions": "Opret quizspørgsmål",
+      "practiceYourNotesByCreatingQuestions": "Øv dine noter ved at oprette spørgsmål, der hjælper dig med at mestre emnet"
+    },
+    "sharedNote": {
+      "notFound": "Ikke fundet",
+      "thisSharedNoteLinkIsInvalid": "Dette delte notatlink er ugyldigt eller udløbet.",
+      "failedToLoadSharedNote": "Kunne ikke indlæse delt notat.",
+      "saved": "Gemt!",
+      "noteHasBeenAddedToYour": "Notatet er blevet føjet til dit bibliotek.",
+      "viewInLibrary": "Vis i bibliotek",
+      "stayHere": "Bliv her",
+      "failedToSaveNote": "Kunne ikke gemme notat.",
+      "loadingSharedNote": "Indlæser delt notat...",
+      "sharedNote": "Delt notat",
+      "sharedWithYou": "Delt med dig",
+      "savedToLibrary": "Gemt i bibliotek",
+      "saveToMyLibrary": "Gem i mit bibliotek"
+    }
   },
   "create": {
     "selectOption": "Hvordan vil du gerne oprette din note?",
-    "recordAudio": "Optag lyd",
-    "uploadAudio": "Upload lyd",
+    "recordAudio": {
+      "permissionRequired": "Tilladelse påkrævet",
+      "pleaseGrantMicrophonePermissionToRecord": "Giv venligst tilladelse til mikrofonen for at optage lyd.",
+      "failedToRequestMicrophonePermission": "Kunne ikke anmode om mikrofontilladelse",
+      "created": "Oprettet {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Optager lyd",
+      "recordAudio": "Optag lyd",
+      "createANoteFromAnyRecorded": "Opret et notat fra enhver lydoptagelse",
+      "recording": "Optager ({{time}})",
+      "recordAgain": "Optag igen"
+    },
+    "uploadAudio": {
+      "created": "Oprettet {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Kunne ikke vælge lydfil",
+      "uploadAudio": "Upload lyd",
+      "createANoteFromAnyUploaded": "Opret et notat fra enhver uploadet lydfil",
+      "dragDropFilesOrBrowse": "Træk og slip filer, eller gennemse",
+      "supportedFormatMp4WavMp3": "Understøttede formater: mp4, wav, mp3",
+      "changeFile": "Skift fil"
+    },
     "youtube": "YouTube-video",
     "pdfDocument": "PDF eller dokument",
     "customText": "Brugerdefineret tekst",
@@ -250,7 +533,56 @@
     "uploadingFile": "Uploader fil til server...",
     "transcribing": "Konverterer tale til tekst...",
     "extractingText": "Udtrækker tekst...",
-    "generatingNote": "Oprettelse af AI-drevne studienotater...",
+    "generatingNote": {
+      "uploadAudio": "Upload lyd",
+      "uploadingAudioFileToServer": "Uploader lydfil til serveren...",
+      "transcribeAudio": "Transskriber lyd",
+      "convertingSpeechToText": "Konverterer tale til tekst...",
+      "generateYourNote": "Generer dit notat",
+      "creatingStudyNotes": "Opretter studienoter...",
+      "uploadPDF": "Upload PDF",
+      "uploadingPDFDocumentToServer": "Uploader PDF-dokument til serveren...",
+      "extractText": "Udtræk tekst",
+      "readingAndExtractingTextFromPDF": "Læser og udtrækker tekst fra PDF...",
+      "uploadImage": "Upload billede",
+      "uploadingImageToServer": "Uploader billede til serveren...",
+      "extractTextOCR": "Udtræk tekst (OCR)",
+      "recognizingAndExtractingTextFromImage": "Genkender og udtrækker tekst fra billede...",
+      "fetchVideo": "Hent video",
+      "connectingToYouTube": "Opretter forbindelse til YouTube...",
+      "extractTranscript": "Uddrag transskription",
+      "downloadingVideoTranscript": "Downloader videotransskription...",
+      "processText": "Behandl tekst",
+      "analyzingYourContent": "Analyserer dit indhold...",
+      "uploadFile": "Upload fil",
+      "uploadingToServer": "Uploader til serveren...",
+      "processContent": "Behandl indhold",
+      "extractingContent": "Uddrager indhold...",
+      "noteReady": "Notatet er klar!",
+      "noteGenerationFailedOnTheServer": "Generering af notat mislykkedes på serveren.",
+      "failedToUploadImage": "Kunne ikke uploade billede",
+      "weCouldNotReadAnythingFrom": "Vi kunne ikke læse noget fra det billede. Prøv venligst med et tydeligere billede af dine medicinske notater.",
+      "preparingFile": "Klargør fil...",
+      "almostDone": "Næsten færdig...",
+      "untitledNote": "Uden titel",
+      "failedToGenerateNote": "Kunne ikke generere notat",
+      "whoaSpeedy": "Rolig nu, det går stærkt! 🏃💨",
+      "youReGeneratingContentABit": "Du genererer indhold lidt for hurtigt. Tag en pause på 60 sekunder, så vores AI kan følge med.",
+      "gotIt": "Forstået",
+      "fileTooLarge": "Filen er for stor",
+      "yourFileExceedsThe15MBLimit": "Din fil overskrider grænsen på 15 MB for gratis brugere. Opgrader til PRO for at uploade forelæsninger på op til 100 MB.",
+      "upgradeToPRO": "Opgrader til PRO",
+      "oopsWeHitASnag": "Ups, der opstod et problem 🚧",
+      "weCouldnTGenerateThatRight": "Vi kunne ikke generere det lige nu. Vent et øjeblik, og prøv igen!",
+      "processingContent": "Behandler indhold...",
+      "generatingYourNote": "Genererer dit notat...",
+      "audioNote": "Lydnotat",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "generatingNote": "Genererer notat",
+      "pleaseKeepThisScreenOpenWhile": "Hold venligst denne skærm åben, mens dit notat genereres. Store filer kan tage et par minutter at transskribere.",
+      "goToNote": "Gå til notat",
+      "generateNoteTranscript": "Generer transskription af notat"
+    },
     "fetchingVideo": "Forbinder til YouTube...",
     "processingText": "Analyserer dit indhold...",
     "uploadAudioTitle": "Upload lyd",
@@ -260,7 +592,63 @@
     "fetchVideo": "Hent video",
     "extractTranscript": "Uddrag af transkription",
     "processText": "Procestekst",
-    "generateNote": "Generer din note"
+    "generateNote": "Generer din note",
+    "customTextInput": {
+      "customText": "Valgfri tekst",
+      "createANoteFromAnyCustom": "Opret et notat ud fra enhver tekst",
+      "enterText": "Indtast tekst",
+      "enterYourTextHere": "Skriv din tekst her..."
+    },
+    "uploadImage": {
+      "created": "Oprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Tilladelse påkrævet",
+      "pleaseAllowAccessToYourPhoto": "Giv venligst adgang til dit fotobibliotek",
+      "failedToPickImage": "Kunne ikke vælge billede",
+      "uploadImage": "Upload billede",
+      "createANoteFromAnyUploaded": "Opret et notat ud fra et uploadet billede",
+      "dragDropFilesOrBrowse": "Træk og slip filer, eller Vælg",
+      "supportedFormatPngJpegHeicWebp": "Understøttede formater: png, jpeg, heic, webp",
+      "changeFile": "Skift fil"
+    },
+    "uploadPDF": {
+      "created": "Oprettet {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Kunne ikke vælge dokument",
+      "uploadPdf": "Upload PDF",
+      "createANoteFromAnyUploaded": "Opret et notat ud fra en uploadet PDF",
+      "dragDropFilesOrBrowse": "Træk og slip filer, eller Vælg",
+      "supportedFormatPdf": "Understøttet format: pdf",
+      "changeFile": "Skift fil"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Henter video",
+      "gettingVideoDetails": "Henter videooplysninger",
+      "extractingTranscript": "Uddrager transskription",
+      "convertingAudioToText": "Konverterer lyd til tekst",
+      "generatingYourNote": "Genererer dit notat",
+      "aiIsSummarisingTheContent": "AI opsummerer indholdet",
+      "noteGenerationFailedPleaseTryAgain": "Generering af notat mislykkedes. Prøv venligst igen.",
+      "processingFailed": "Behandling mislykkedes",
+      "goBack": "Gå tilbage",
+      "retry": "Prøv igen",
+      "failedToStartNoteGeneration": "Kunne ikke starte generering af note",
+      "failedToProcessYouTubeVideoPlease": "Kunne ikke behandle YouTube-videoen. Prøv igen.",
+      "cancelProcessing": "Annuller behandling",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil annullere? Dine fremskridt går tabt.",
+      "continueProcessing": "Fortsæt behandling",
+      "youTubeNote": "YouTube-note",
+      "noteGenerated": "Note genereret",
+      "generatingNote": "Genererer note",
+      "goToNote": "Gå til note"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Kunne ikke hente videooplysninger",
+      "failedToFetchVideoInformation": "Kunne ikke hente videooplysninger",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Opret en note fra en hvilken som helst YouTube-video",
+      "enterYoutubeURL": "Indtast YouTube-URL",
+      "pasteYoutubeURL": "Indsæt YouTube-URL",
+      "fetchingVideoInfo": "Henter videooplysninger..."
+    }
   },
   "library": {
     "title": "Bibliotek",
@@ -292,7 +680,7 @@
     "almostDone": "Næsten færdig...",
     "quizReady": "Quiz klar!",
     "startQuiz": "Start quiz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} af {{total}}",
     "exitTitle": "Afslut quizzen?",
     "exitMessage": "Dine fremskridt vil gå tabt.",
     "exit": "Udgang",
@@ -312,7 +700,45 @@
     "correctAnswer": "Korrekt svar",
     "yourAnswer": "Dit svar",
     "explanation": "Forklaring",
-    "questionProgress": "Spørgsmål {{nuværende}} af {{total}}"
+    "questionProgress": "Spørgsmål {{current}} af {{total}}",
+    "generatingQuizWait": "Vi opretter din quiz til dig, vent venligst et øjeblik...",
+    "goToChats": "Gå til chats",
+    "quizGroupDetail": {
+      "inProgress": "I gang",
+      "notStarted": "Ikke startet",
+      "failedToLoadQuizHistory": "Kunne ikke indlæse quizhistorik",
+      "failedToLoadChatContent": "Kunne ikke indlæse chatindhold",
+      "deleteQuiz": "Slet quiz",
+      "failedToDeleteQuiz": "Kunne ikke slette quiz",
+      "created": "Oprettet {{dateTime}}",
+      "lastscore": "SENESTE SCORE",
+      "bestscore": "BEDSTE SCORE",
+      "attempts": "FORSØG",
+      "retakeQuiz": "Tag quizzen igen",
+      "translate": "Oversæt",
+      "newQuiz": "Ny quiz",
+      "quizHistory": "Quizhistorik",
+      "flashcardHistory": "Flashcard-historik",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Ingen flashcard-sæt fra denne kilde endnu.",
+      "cards": "{{totalCards}} kort · {{flashcardStatus}}",
+      "quizOptions": "Quizindstillinger",
+      "exportLatestAttempt": "Eksportér seneste forsøg",
+      "questions": "{{totalQuestions}} spørgsmål · {{value}}",
+      "deleteAllAttemptsOne": "Vil du slette 1 quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "deleteAllAttemptsMany": "Vil du slette alle {{total}} quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "makeFlashcards": "Opret vendekort"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Kunne ikke indlæse quizdata – ugyldigt svarformat",
+      "failedToLoadQuizData": "Kunne ikke indlæse quizdata",
+      "noContentAvailable": "Intet indhold tilgængeligt",
+      "goBack": "Gå tilbage",
+      "previous": "Forrige"
+    },
+    "quiz": {
+      "generationFailed": "Generering mislykkedes"
+    }
   },
   "flashcards": {
     "title": "Flashcards",
@@ -343,7 +769,46 @@
     "headerTitle": "Flashkort",
     "progressFormat": "Flashkort {{current}} af {{total}}",
     "noteIdRequired": "Note-ID er påkrævet for at generere flashcards",
-    "invalidCardCount": "Vælg venligst mellem 1 og 100 flashcards"
+    "invalidCardCount": "Vælg venligst mellem 1 og 100 flashcards",
+    "flashcardGroupDetail": {
+      "inProgress": "I gang",
+      "notStarted": "Ikke startet",
+      "failedToLoadFlashcardHistory": "Kunne ikke indlæse flashcard-historik",
+      "limitReached": "Grænse nået",
+      "flashcardGenerationLimitReached": "Grænsen for oprettelse af flashcards er nået.",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "failedToTranslateFlashcards": "Kunne ikke oversætte flashcards",
+      "deleteFlashcards": "Slet flashcards",
+      "failedToDeleteFlashcards": "Kunne ikke slette flashcards",
+      "created": "Oprettet {{dateTime}}",
+      "lastprogress": "SENESTE FREMSKRIDT",
+      "bestprogress": "BEDSTE FREMSKRIDT",
+      "sets": "SÆT",
+      "studyNow": "Øv nu",
+      "translate": "Oversæt",
+      "newFlashcards": "Nye flashcards",
+      "flashcardHistory": "Flashcard-historik",
+      "quizHistory": "Quizhistorik",
+      "cards": "{{totalCards}} kort · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Ingen quizzer fra denne kilde endnu.",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Valgmuligheder for flashcards",
+      "exportLatestSet": "Eksportér seneste sæt",
+      "questions": "{{totalQuestions}} spørgsmål · {{value}}",
+      "deleteAllSetsOne": "Vil du slette 1 flashcardsæt for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "deleteAllSetsMany": "Vil du slette alle {{total}} flashcardsæt for \"{{title}}\"? Dette kan ikke fortrydes.",
+      "makeQuiz": "Opret en quiz",
+      "failedToLoadChatContent": "Kunne ikke indlæse chatindhold"
+    },
+    "flashcardReview": {
+      "unknownError": "Ukendt fejl",
+      "noFlashcardsInThisSet": "Ingen flashcards i dette sæt",
+      "goBack": "Gå tilbage",
+      "allDone": "Færdig",
+      "youHaveReviewedAllTheCards": "Du har gennemgået alle kort i dette sæt",
+      "question": "Spørgsmål {{value}}",
+      "questionOf": "Spørgsmål {{value}} af {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Snak",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Chat med dokument",
     "selectFile": "Vælg en fil at chatte med",
     "uploadFile": "Upload fil",
-    "startChatting": "Begynd at chatte"
+    "startChatting": "Begynd at chatte",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Stil et medicinsk spørgsmål for at få uddybet",
+      "askAnythingAboutThisDocument": "Spørg om hvad som helst i dette dokument...",
+      "askAQuestionAttachmentProcessingFailed": "Stil et spørgsmål – behandling af vedhæftning mislykkedes",
+      "extractingText": "Udtrækker tekst...",
+      "processingPDF": "Behandler PDF...",
+      "upgradeToProToContinueChatting": "Opgrader til PRO for at fortsætte med at chatte",
+      "queryremaining": "{{queriesRemaining}} SPØRGSMÅL TILBAGE"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Gør chatten klar...",
+      "extractingTextFromImage": "Udtrækker tekst fra billede...",
+      "processingPDFDocument": "Behandler PDF-dokument...",
+      "analyzingYourNote": "Analyserer dit notat...",
+      "thisUsuallyTakesJustAFew": "⏱️ Dette tager normalt kun et øjeblik. Du kan chatte, så snart behandlingen er færdig.",
+      "processingFailed": "Behandling mislykkedes",
+      "fileMightBeCorruptedOrUnreadable": "• Filen er muligvis beskadiget eller ulæselig",
+      "imageQualityTooLow": "Billedkvaliteten er for lav",
+      "pdfIsPasswordProtected": "PDF'en er beskyttet med adgangskode",
+      "contentFormatNotSupported": "Filformatet understøttes ikke",
+      "networkConnectionIssue": "• Problem med netværksforbindelsen",
+      "tryADifferentFile": "Prøv en anden fil",
+      "askAnyClinicalQuestionNoUpload": "💡 Stil et hvilket som helst klinisk spørgsmål – upload er ikke nødvendigt. Jeg svarer ud fra citeret medicinsk litteratur, med relevante billeder hvor det er muligt.",
+      "readyToChat": "✓ Klar til chat",
+      "couldntProcessNote": "Vi kunne ikke behandle dette notat. Det kan skyldes:",
+      "couldntProcessImage": "Vi kunne ikke behandle dette billede. Det kan skyldes:",
+      "couldntProcessDocument": "Vi kunne ikke behandle dette dokument. Det kan skyldes:",
+      "askMeAboutNote": "💡 Spørg mig om hvad som helst i dette notat. Jeg kan opsummere, forklare begreber eller besvare specifikke spørgsmål.",
+      "askMeAboutImage": "💡 Spørg mig om hvad som helst vedrørende dette billede. Jeg kan opsummere, forklare begreber eller besvare specifikke spørgsmål.",
+      "askMeAboutDocument": "💡 Spørg mig om hvad som helst i dette dokument. Jeg kan opsummere, forklare begreber eller besvare specifikke spørgsmål."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} mestret",
+      "notStarted": "Ikke startet",
+      "quizGeneration": "Quizoprettelse",
+      "score": "Score {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Flashcard-oprettelse",
+      "questions": "{{totalCards}} spørgsmål · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} spørgsmål · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Tænker og finder kilder til dig...",
+      "couldnTGenerateAResponse": "Kunne ikke generere et svar.",
+      "retry": "Prøv igen",
+      "alsoReferencedFromTheWeb": "Også henvist fra nettet",
+      "followUpQuestions": "Opfølgende spørgsmål"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Spørg om alt medicinsk, og få fakta bakket op af kilder",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Evidensbaseret · PubMed-kilder · Fagfællebedømt",
+      "tryOutAnyOfThisTopics": "Prøv et af disse emner for at komme i gang",
+      "topics": {
+        "electrolytes": {
+          "label": "Forstå elektrolytforstyrrelser",
+          "question": "Forklar elektrolytforstyrrelser – årsager, symptomer og behandling"
+        },
+        "ecg": {
+          "label": "Grundlæggende EKG-tolkning",
+          "question": "Hvad er de grundlæggende principper for EKG-tolkning?"
+        },
+        "drugInteractions": {
+          "label": "Vigtige lægemiddelinteraktioner",
+          "question": "Hvilke almindelige og vigtige lægemiddelinteraktioner bør jeg kende?"
+        },
+        "nclex": {
+          "label": "NCLEX-øvelsesspørgsmål",
+          "question": "Giv mig et øvelsesspørgsmål i NCLEX-stil"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA-produktresumé",
+      "fromYourAttachedMaterial": "Fra dit vedhæftede materiale"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Kunne ikke oprette chatsession",
+      "failedToInitializeChatSession": "Kunne ikke initialisere chatsession",
+      "failedToUpdateLanguage": "Kunne ikke opdatere sprog",
+      "youVeReachedYour3Pin": "Du har nået grænsen på 3 fastgjorte chats",
+      "failedToUpdatePin": "Kunne ikke opdatere fastgørelse",
+      "permissionRequired": "Tilladelse påkrævet",
+      "pleaseGrantCameraPermissionToTake": "Giv venligst adgang til kameraet for at tage et billede.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Giv venligst adgang til fotobiblioteket for at uploade billeder.",
+      "failedToUploadImage": "Kunne ikke uploade billede",
+      "uploadFailed": "Upload mislykkedes",
+      "failedToUploadDocument": "Kunne ikke uploade dokument",
+      "failedToStartChatFromThis": "Kunne ikke starte chat ud fra denne fil.",
+      "chatFromImage": "Chat ud fra billede",
+      "failedToStartANewQuestion": "Kunne ikke starte et nyt spørgsmål. Prøv igen.",
+      "failedToAttachFile": "Kunne ikke vedhæfte fil",
+      "failedToSendMessage": "Kunne ikke sende besked",
+      "copiedToClipboard": "Kopieret til udklipsholder",
+      "notEnoughContentYet": "Ikke nok indhold endnu",
+      "chatABitMoreBeforeGenerating": "Chat lidt mere, før du opretter en quiz (mindst 100 tegn).",
+      "chatABitMoreBeforeGenerating2": "Chat lidt mere, før du opretter vendekort (mindst 100 tegn).",
+      "failedToGenerateFlashcards": "Kunne ikke oprette vendekort",
+      "failedToRegenerateResponse": "Kunne ikke regenerere svar",
+      "failedToRetryResponse": "Kunne ikke prøve svaret igen"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Kunne ikke vedhæfte note",
+      "folderCreatedSuccessfully": "Mappen \"{{name}}\" blev oprettet!",
+      "failedToCreateFolder": "Kunne ikke oprette mappe",
+      "failedToAttachDocument": "Kunne ikke vedhæfte dokument",
+      "failedToCreateChatSession": "Kunne ikke oprette chatsession",
+      "failedToUploadDocument": "Kunne ikke uploade dokument",
+      "openingCamera": "📷 Åbner kamera...",
+      "openingImagePicker": "🖼️ Åbner billedvælger...",
+      "permissionRequired": "Tilladelse påkrævet",
+      "pleaseGrantCameraPermissionToTake": "Giv venligst adgang til kameraet for at tage et billede.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Giv venligst adgang til fotobiblioteket for at uploade billeder.",
+      "failedToAttachImage": "Kunne ikke vedhæfte billede",
+      "failedToUploadImage": "Kunne ikke uploade billede",
+      "failedToAttachAudio": "Kunne ikke vedhæfte lydfil",
+      "failedToUploadAudio": "Kunne ikke uploade lydfil",
+      "aNote": "{{verb}} en note",
+      "anImage": "{{verb}} et billede",
+      "aDocument": "{{verb}} et dokument",
+      "audio": "{{verb}} lyd",
+      "aFile": "{{verb}} en fil",
+      "items": "{{itemCount}} elementer",
+      "thisFolderIsEmptyGoBack": "Denne mappe er tom. Gå tilbage for at vælge en anden mappe.",
+      "addFolder": "Tilføj mappe",
+      "uploadNewDocument": "Upload nyt dokument",
+      "uploadAPDFAndStartChatting": "Upload en PDF, og start chatten med det samme",
+      "uploadNewImage": "Upload nyt billede",
+      "uploadAnImageAndExtractText": "Upload et billede, og udtræk tekst med det samme",
+      "uploadNewAudio": "Upload ny lydfil",
+      "uploadAnAudioFileAndTranscribe": "Upload en lydfil, og få den transskriberet med det samme",
+      "orselectfromlibrary": "ELLER VÆLG FRA BIBLIOTEK",
+      "folders": "Mapper",
+      "allNotes": "Alle noter",
+      "noFilesToDisplay": "Ingen filer at vise",
+      "noNotesToDisplay": "Ingen noter at vise",
+      "noDocumentsYet": "Du har ingen PDF-dokumenter endnu.\nOpret nogle noter først, og vend så tilbage for at chatte med dem.",
+      "noImagesYet": "Du har ingen billeder endnu.\nOpret nogle noter først, og vend så tilbage for at chatte med dem.",
+      "noAudioNotesYet": "Du har ingen lydnoter endnu.\nOpret nogle noter først, og vend så tilbage for at chatte med dem.",
+      "noNotesYet": "Du har ingen noter endnu.\nOpret nogle noter først, og vend så tilbage for at chatte med dem.",
+      "attachNote": "Vedhæft en note",
+      "selectNote": "Vælg en note",
+      "attachImage": "Vedhæft et billede",
+      "selectImage": "Vælg et billede",
+      "attachDocument": "Vedhæft et dokument",
+      "selectDocument": "Vælg et dokument",
+      "attachAudio": "Vedhæft lyd",
+      "selectAudio": "Vælg lyd",
+      "attachFile": "Vedhæft en fil",
+      "selectFile": "Vælg en fil"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Føj til chat",
+      "camera": "Kamera",
+      "photos": "Billeder",
+      "files": "Filer",
+      "generateQuiz": "Generer quiz",
+      "generateFlashcards": "Generer flashcards",
+      "searchMedicalLiterature": "Søg i medicinsk litteratur",
+      "filterByDateSourceAndType": "Filtrer efter dato, kilde og type",
+      "pullsRealCitedSourcesIntoYour": "Henter reelle, citerede kilder ind i dine svar",
+      "trustedmedicalsourcedatabase": "DATABASE MED PÅLIDELIGE MEDICINSKE KILDER",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA-data om lægemidler og behandling"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Tjek kildehenvisninger",
+      "citations": "Kildehenvisninger",
+      "fromTheWeb": "Fra internettet"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Klar · tryk for at omdøbe",
+      "processing": "Behandler {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Se kilde ↗"
+    },
+    "chatRename": {
+      "renameChat": "Omdøb chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Se kilder ({{total}})"
+    }
   },
   "languages": {
     "english": "Engelsk",
@@ -408,5 +1057,455 @@
     "malay": "Malayisk",
     "indonesian": "Indonesisk",
     "catalan": "Catalansk"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Tilføj mappe",
+      "folderName": "Mappenavn",
+      "enterFolderName": "Indtast mappenavn",
+      "chooseColor": "Vælg farve",
+      "createFolder": "Opret mappe"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Før vi behandler dit indhold",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact bruger AI til at besvare dine spørgsmål og omdanne dit indhold til noter, quizzer og flashcards. Her er hvad du bør vide:",
+      "whatDataIsSent": "Hvilke data sendes",
+      "questionsAndMessagesYouTypeIn": "Spørgsmål og beskeder, du skriver i chatten",
+      "audioRecordingsOrUploadedAudioFiles": "Lydoptagelser eller uploadede lydfiler",
+      "pdfAndTextDocumentsYouUpload": "PDF- og tekstdokumenter, du uploader",
+      "imagesYouUpload": "Billeder, du uploader",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube-video-URL'er og deres transskriptioner",
+      "customTextYouEnter": "Brugerdefineret tekst, du indtaster",
+      "whoReceivesYourData": "Hvem modtager dine data",
+      "howItSUsed": "Hvordan det anvendes",
+      "yourContentIsUsedSolelyTo": "Dit indhold bruges udelukkende til at generere det svar, den note, den quiz eller de flashcards, du har anmodet om. Hver udbyders egne datapolitikker gælder for indhold, der behandles via deres API. Se vores privatlivspolitik for flere oplysninger.",
+      "iAgreeContinue": "Jeg accepterer – Fortsæt",
+      "noThanks": "Nej tak",
+      "whoReceivesBody": "Dit indhold sendes til <bold>Google (Gemini)</bold> (generering af noter, quizzer og flashcards, chatsvar samt dokument- og billedbehandling) og til <bold>OpenAI</bold> (lydtransskription) via vores sikre backend-servere. Uddrag fra dine dokumenter indekseres også med <bold>Google Vertex AI</bold>, så chatten kan finde de relevante dele. Når der bruges medicinsk live-søgning, sendes dit spørgsmål desuden til <bold>Tavily</bold> og til offentlige medicinske litteraturdatabaser (f.eks. PubMed, Europe PMC og Semantic Scholar) for at finde kildehenvisninger fra pålidelige kilder som NIH, CDC, MedlinePlus, WHO og Mayo Clinic. Disse udbydere behandler udelukkende dine data for at generere dit svar – de bruger dem ikke til at træne deres egne generelle AI-modeller, og vi sælger aldrig dine data til tredjepart."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Frigør chat",
+      "pinChat": "Fastgør chat",
+      "deleteChat": "Slet chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Generer flashcards",
+      "createFlashcards": "Opret flashcards",
+      "createFlashcardsFromToImproveYour": "Opret flashcards fra \"{{noteTitle}}\" for at styrke din indlæring",
+      "createFlashcardsToImproveYourRetention": "Opret flashcards for at styrke din indlæring",
+      "howManyQuestions": "Hvor mange spørgsmål",
+      "generateFlashcards2": "Generer flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Opret fra chat",
+      "selectFromOneOfYourRecent": "Vælg fra en af dine seneste chats",
+      "pdfOrDocument": "PDF eller dokument",
+      "createFromAudio": "Opret fra lyd",
+      "image": "Billede",
+      "createFromCustomText": "Opret fra egen tekst",
+      "created": "Oprettet {{day}}, {{time}}",
+      "createQuizFrom": "Opret quiz fra",
+      "createFlashcardsFrom": "Opret flashcards fra",
+      "selectFromChat": "Vælg fra chat",
+      "noRecentChatsYet": "Ingen seneste chats endnu",
+      "quizFromPdf": "Opret en quiz fra PDF eller dokument",
+      "flashcardsFromPdf": "Opret et sæt flashcards fra PDF eller dokument",
+      "quizFromAudio": "Opret en quiz fra uploadet lyd",
+      "flashcardsFromAudio": "Opret et sæt flashcards fra uploadet lyd",
+      "quizFromImage": "Opret en quiz fra et billede",
+      "flashcardsFromImage": "Opret et sæt flashcards fra et billede",
+      "quizFromText": "Opret en quiz fra indtastet tekst",
+      "flashcardsFromText": "Opret et sæt flashcards fra indtastet tekst"
+    },
+    "createNote": {
+      "recordAudio": "Optag lyd",
+      "generateANoteFromAnyRecorded": "Generer en note fra en lydoptagelse",
+      "uploadAudio": "Upload lyd",
+      "createANoteFromAnyUploaded": "Opret en note fra uploadet lyd",
+      "youtubeVideo": "YouTube-video",
+      "createANoteFromAnyYoutube": "Opret en note fra en YouTube-video",
+      "pdfOrDocument": "PDF eller dokument",
+      "createANoteFromPDFOr": "Opret en note fra PDF eller dokument",
+      "customText": "Egen tekst",
+      "createANoteFromCapturedText": "Opret en note fra indtastet tekst",
+      "image": "Billede",
+      "createANoteFromAnyImage": "Opret en note fra et billede",
+      "createNote": "Opret note"
+    },
+    "createQuiz": {
+      "generateQuiz": "Generer quiz",
+      "createQuiz": "Opret quiz",
+      "practiceByCreatingQuestionsThatHelp": "Øv dig på \"{{noteTitle}}\" ved at oprette spørgsmål, der hjælper dig med at mestre emnet",
+      "practiceYourNotesByCreatingQuestions": "Øv dig på dine noter ved at oprette spørgsmål, der hjælper dig med at mestre emnet",
+      "howManyQuestions": "Hvor mange spørgsmål",
+      "timeInMinutes": "Tid (i minutter)"
+    },
+    "deleteNote": {
+      "deleteNote": "Slet note",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette denne note?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Eksporter resumé som",
+      "exportTranscriptAs": "Eksporter transskription som",
+      "exportAs": "Eksporter som",
+      "exportSummary": "Eksporter resumé",
+      "exportTranscript": "Eksporter transskription"
+    },
+    "exportTypeStep": {
+      "exportNote": "Eksporter note",
+      "exportSummary": "Eksporter resumé",
+      "exportTranscript": "Eksporter transskription"
+    },
+    "exportSettings": {
+      "export": "Eksporter {{title}}",
+      "selectFormat": "Vælg format",
+      "includeAnswers": "Inkluder svar",
+      "answersExplanationsIncluded": "Svar og forklaringer inkluderet",
+      "questionsOnly": "Kun spørgsmål",
+      "export2": "Eksporter"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Din note er klar!",
+      "howDidWeDo": "Hvordan klarede vi det?",
+      "happy": "Tilfreds",
+      "sad": "Trist",
+      "maybeLater": "Måske senere",
+      "whatWentWrong": "Hvad gik galt?",
+      "yourFeedbackHelpsUsImprove": "Din feedback hjælper os med at blive bedre.",
+      "tellUsWhatCouldBeBetter": "Fortæl os, hvad der kan forbedres...",
+      "submit": "Indsend"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Intet indhold tilgængeligt",
+      "clickCardToFlip": "tryk på kortet for at vende"
+    },
+    "flashcardExport": {
+      "exportFailed": "Eksport mislykkedes",
+      "unknownError": "Ukendt fejl",
+      "export": "Eksportér {{setTitle}}",
+      "chooseWhatToExport": "Vælg hvad der skal eksporteres",
+      "exportQuestions": "Eksportér spørgsmål",
+      "exportAnswers": "Eksportér svar"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Slet flashcard-sæt",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Kunne ikke slette flashcard-sættet",
+      "flashcardHistory": "Flashcard-historik",
+      "cards": "Kort",
+      "reviewedMastered": "{{cardsReviewedCount}} gennemgået • {{percentage}}% mestret"
+    },
+    "folders": {
+      "items": "{{itemCount}} elementer",
+      "enterYourFolderName": "Indtast mappenavn",
+      "yourFolderName": "Dit mappenavn",
+      "createFolder": "Opret mappe",
+      "folders": "Mapper",
+      "addFolder": "Tilføj mappe",
+      "noFoldersToDisplay": "Ingen mapper at vise",
+      "clickTheButtonAboveToCreate": "Tryk på knappen ovenfor for at oprette en mappe til dine noter",
+      "allFolders": "Alle mapper",
+      "items2": "{{totalItems}} elementer"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Medicinske forskningsfiltre",
+      "howrecentdoyouwantthe": "HVOR NY SKAL KILDEN VÆRE",
+      "from": "Fra",
+      "whatkindofsourcedoyou": "HVILKEN TYPE KILDE HAR DU BRUG FOR",
+      "textbooks": "Lærebøger",
+      "clinicalGuidelines": "Kliniske retningslinjer",
+      "scientificJournalArticles": "Videnskabelige tidsskriftartikler",
+      "onlywiththisjournalarticles": "KUN MED DISSE TIDSSKRIFTARTIKLER",
+      "metaAnalyses": "Metaanalyser",
+      "reviewArticles": "Oversigtsartikler",
+      "clinicalTrials": "Kliniske forsøg",
+      "fromYear": "Fra år",
+      "toYear": "Til år"
+    },
+    "noteOptions": {
+      "noteOptions": "Valgmuligheder for note",
+      "editNote": "Rediger note",
+      "reTranscribe": "Transskribér igen",
+      "chatWithNote": "Chat med note",
+      "exportNote": "Eksportér note",
+      "moveToFolder": "Flyt til mappe",
+      "deleteNote": "Slet note"
+    },
+    "onboardingTooltip": {
+      "skip": "Spring over"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Slet quiz",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Kunne ikke slette quizzen",
+      "quizHistory": "Quizhistorik",
+      "questions": "Spørgsmål",
+      "correct": "{{correctAnswers}} rigtige"
+    },
+    "referral": {
+      "copied": "Kopieret!",
+      "yourReferralCodeHasBeenCopied": "Din henvisningskode er kopieret til udklipsholderen.",
+      "joinMeOnClinicalFactUse": "Vær med på Clinical Fact! Brug min kode {{referralCode}} – {{appUrl}}",
+      "joined": "Tilmeldt {{joinedDate}}",
+      "referralCode": "Henvisningskode",
+      "yourReferralCode": "Din henvisningskode",
+      "shareWithFriendsToEarnRewards": "Del med venner for at optjene belønninger",
+      "share": "Del",
+      "copyCode": "Kopiér kode",
+      "referredFriends": "Henviste venner",
+      "noReferralsYetShareYourCode": "Ingen henvisninger endnu. Del din kode for at komme i gang!",
+      "loadMore": "Indlæs mere",
+      "howItWorks": "Sådan fungerer det",
+      "friendsUseYourCodeDuringSignup": "• Venner bruger din kode ved tilmelding",
+      "youBothEarnRewardsWhenThey": "• I optjener begge belønninger, når de tilmelder sig",
+      "friendsReferredCount": "Henviste venner: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Udtrækker tekst...",
+      "transcribingAudio": "Transskriberer lyd...",
+      "processingPDF": "Behandler PDF...",
+      "settingUpChat": "Klargør chat...",
+      "uploadFailed": "Upload mislykkedes",
+      "failedToUploadFilePleaseTry": "Kunne ikke uploade filen. Prøv igen.",
+      "yourFileIsReadyForChatting": "Din fil er klar til chat!",
+      "uploadingYourFileToTheServer": "Uploader din fil til serveren...",
+      "extractingTextFromYourImage": "Udtrækker tekst fra dit billede...",
+      "transcribingYourAudio": "Transskriberer din lyd...",
+      "extractingTextFromYourPDF": "Udtrækker tekst fra din PDF...",
+      "creatingYourChatSession": "Opretter din chatsession...",
+      "pleaseWait": "Vent venligst...",
+      "uploadFile": "Upload fil",
+      "processContent": "Behandl indhold",
+      "createChat": "Opret chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Vis",
+      "export": "📤 Eksportér",
+      "delete": "🗑️ Slet"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Drevet af"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-fil",
+      "pdfFile": "PDF-fil",
+      "docFile": "Doc-fil"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Kunne ikke hente noter",
+      "failedToFetchFolders": "Kunne ikke hente mapper",
+      "failedToFetchNote": "Kunne ikke hente note",
+      "failedToDeleteNote": "Kunne ikke slette note",
+      "failedToCreateFolder": "Kunne ikke oprette mappe",
+      "failedToDeleteFolder": "Kunne ikke slette mappe"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Kunne ikke slette chat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Flashcard-sæt blev eksporteret!",
+      "failedToExportFlashcardSet": "Kunne ikke eksportere flashcard-sæt."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Quizzen blev eksporteret!",
+      "failedToExportQuiz": "Kunne ikke eksportere quiz."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Uden titel",
+      "failedToLoadFlashcards": "Kunne ikke indlæse flashcards",
+      "failedToSyncFlashcardSet": "Kunne ikke synkronisere flashcard-sæt",
+      "failedToSyncCardUpdate": "Kunne ikke synkronisere kortopdatering"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Oprettet {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Du har nået din grænse på 3 fastgørelser",
+      "failedToUpdatePin": "Kunne ikke opdatere fastgørelse",
+      "noChatsYet": "Ingen chats endnu",
+      "startAChatToGetAnswers": "Start en chat for at få svar baseret på reelle kilder.",
+      "createChat": "+ Opret chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Slet flashcards",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Kunne ikke slette flashcards",
+      "sets": "{{setCount}} sæt",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Opret flashcards",
+      "searchFlashcards": "Søg i flashcards...",
+      "noFlashcardsYet": "Ingen flashcards endnu",
+      "createAFlashcardSetFromA": "Opret et flashcard-sæt ud fra en note for at komme i gang",
+      "createSet": "+ Opret sæt",
+      "flashcardOptions": "Valgmuligheder for flashcards",
+      "view": "Vis"
+    },
+    "folder": {
+      "deleteFolder": "Slet mappe",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{name}}\"? Noter i mappen flyttes til roden.",
+      "failedToDeleteFolder": "Kunne ikke slette mappen",
+      "error": "Fejl: {{message}}",
+      "noFoldersYetCreateOne": "Ingen mapper endnu. Opret en!",
+      "folders": "Mapper"
+    },
+    "home": {
+      "created": "Oprettet {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Kunne ikke opdatere sprog",
+      "notEnoughContentYet": "Ikke nok indhold endnu",
+      "chatABitMoreBeforeGenerating": "Chat lidt mere, før du opretter en quiz (mindst 100 tegn).",
+      "chatABitMoreBeforeGenerating2": "Chat lidt mere, før du opretter flashcards (mindst 100 tegn).",
+      "failedToGenerateFlashcards": "Kunne ikke generere flashcards",
+      "upgradeToPro": "Opgrader til PRO",
+      "get80DiscountWhenYouUpgrade": "Få 80 % rabat, når du opgraderer din konto",
+      "unlockPRO": "Lås op for PRO",
+      "noMedicalChats": "Ingen medicinske chats",
+      "youHaveNotCreatedAnyMedical": "Du har ikke oprettet nogen medicinske chats endnu. Start en ny chat og få kildehenvisninger",
+      "talkToClinicalfactAI": "Tal med Clinical Fact AI",
+      "jumpInWhereYouStopped": "Fortsæt, hvor du slap",
+      "practiceQuiz": "Øvelsesquiz",
+      "makeFlashcards": "Lav flashcards",
+      "continueChatWithNote": "Fortsæt chat med note",
+      "continueChat": "Fortsæt chat",
+      "recentChats": "Seneste chats",
+      "chatOptions": "Chatindstillinger"
+    },
+    "library": {
+      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Du er offline i øjeblikket. Opret forbindelse til internettet for at udføre denne handling.",
+      "failedToDeleteNote": "Kunne ikke slette noten",
+      "failedToMoveNote": "Kunne ikke flytte noten",
+      "deleteFolder": "Slet mappe?",
+      "areYouSureNotesInsideWill": "Er du sikker? Noter i mappen slettes ikke, men flyttes til Alle noter.",
+      "failedToDeleteFolder": "Kunne ikke slette mappen",
+      "library": "Bibliotek",
+      "addFolder": "Tilføj mappe",
+      "searchForANoteFolder": "Søg efter en note/mappe",
+      "yourFolders": "Dine mapper",
+      "noFoldersToDisplay": "Ingen mapper at vise",
+      "tapAddFolderToCreateA": "Tryk på \"+ Tilføj mappe\" for at oprette en mappe til dine noter",
+      "allNotes": "Alle noter",
+      "items": "{{allNotesTotal}} elementer",
+      "items2": "{{itemCount}} elementer",
+      "yourNotes": "Dine noter",
+      "untitledNote": "Unavngivet note",
+      "noResultsFor": "Ingen resultater for \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Ingen noter i denne mappe",
+      "noNotesToDisplay": "Ingen noter at vise",
+      "tryADifferentSearchTerm": "Prøv et andet søgeord",
+      "moveNotesToThisFolderTo": "Flyt noter til denne mappe for at se dem her",
+      "clickBelowToGenerateYourNote": "Tryk nedenfor for at oprette din note med Clinical Fact",
+      "filterByType": "Filtrer efter type",
+      "audio": "Lyd",
+      "text2": "Tekst",
+      "image": "Billede",
+      "clearFilter": "Ryd filter"
+    },
+    "profile": {
+      "permissionRequired": "Tilladelse påkrævet",
+      "pleaseAllowAccessToYourPhoto": "Giv venligst adgang til dit fotobibliotek for at vælge et profilbillede.",
+      "uploadFailed": "Upload mislykkedes",
+      "couldNotUpdateProfilePicture": "Profilbilledet kunne ikke opdateres.",
+      "failedToUploadProfilePicture": "Kunne ikke uploade profilbillede.",
+      "checkOutClinicalFactAIPowered": "Tjek Clinical Fact ud – AI-drevne studienoter! {{url}}",
+      "proSubscriber": "Pro-abonnent",
+      "subscriptionExpired": "Abonnement udløbet",
+      "freeSubscriber": "Gratis abonnent",
+      "tapToManageIPhoneSettingsApple": "Tryk for at administrere · iPhone-indstillinger → Apple-id → Abonnementer",
+      "tapToManagePlayStoreSubscriptions": "Tryk for at administrere · Play Butik → Abonnementer",
+      "tapToRenewYourSubscription": "Tryk for at forny dit abonnement",
+      "tapToUpgradeToPro": "Tryk for at opgradere til Pro",
+      "referralCode": "Henvisningskode",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil logge ud af din konto?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Slet quiz",
+      "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Kunne ikke slette quizzen",
+      "correct": "{{correct}}/{{total}} rigtige",
+      "attempts": "{{attempts}} forsøg",
+      "quiz": "Quiz",
+      "createQuiz": "Opret quiz",
+      "searchQuizzes": "Søg i quizzer...",
+      "noQuizzesYet": "Ingen quizzer endnu",
+      "createAQuizFromANote": "Opret en quiz ud fra en note for at komme i gang",
+      "createQuiz2": "+ Opret quiz",
+      "quizOptions": "Quizindstillinger",
+      "view": "Vis"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Opgradering ikke tilgængelig",
+      "weCouldnTOpenTheUpgrade": "Vi kunne ikke åbne opgraderingsskærmen lige nu. Tjek venligst din internetforbindelse og prøv igen."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Serveren returnerede et svar, der ikke er JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Netværksfejl. Tjek venligst din internetforbindelse.",
+      "connectionErrorPleaseTryAgain": "Forbindelsesfejl. Prøv venligst igen."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fil eksporteret: {{filename}}",
+      "exportFailed": "Eksport mislykkedes",
+      "exportFormat": "Eksportformat",
+      "chooseFormat": "Vælg format",
+      "text": "Tekst"
+    },
+    "formatDate": {
+      "justNow": "Lige nu",
+      "minAgo": "{{diffMin}} min. siden",
+      "hrAgo": "{{diffHr}} t. siden",
+      "dAgo": "{{diffDay}} d. siden",
+      "created": "Oprettet {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Kunne ikke sende engangskode",
+      "invalidOTP": "Ugyldig engangskode",
+      "failedToVerifyOTP": "Kunne ikke bekræfte engangskode",
+      "googleAuthenticationFailed": "Google-godkendelse mislykkedes",
+      "appleAuthenticationFailed": "Apple-godkendelse mislykkedes",
+      "failedToCompleteSignup": "Kunne ikke fuldføre oprettelsen",
+      "failedToSkipSignup": "Kunne ikke springe oprettelsen over"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Chats",
+      "description": "Chat med dine noter, dokumenter eller PDF'er samlet ét sted"
+    },
+    "profileWelcome": {
+      "heading": "Velkommen til din profil",
+      "description": "Dette er din profil. Tryk her for at ændre profiloplysninger og abonnementsstatus"
+    },
+    "createNotes": {
+      "heading": "Opret note",
+      "description": "Opret noter ud fra hvad som helst: optagelser, lyd, video, billeder, tekst og YouTube-links"
+    },
+    "changeLanguage": {
+      "heading": "Skift sprog",
+      "description": "Skift appens sprog til dit ønskede sprog lige her"
+    },
+    "manageHome": {
+      "heading": "Administrer Hjem",
+      "description": "Se alle dine oprettede noter, og få overblik over alle dine aktiviteter ét sted"
+    },
+    "yourLibrary": {
+      "heading": "Dit bibliotek",
+      "description": "Administrer alle dine oprettede noter, opret mapper til dine noter og meget mere"
+    },
+    "yourProfile": {
+      "heading": "Din profil",
+      "description": "Se alt om din profil, og rediger dine profilindstillinger herfra"
+    }
   }
 }

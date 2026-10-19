@@ -152,7 +152,7 @@ export const QuizScreen = () => {
       }, 600);
     } 
     else {
-      throw Object.assign(new Error(response.message || 'Generation failed'), {
+      throw Object.assign(new Error(response.message || t('quiz.quiz.generationFailed')), {
         code: (response as any).code,
       });
     }

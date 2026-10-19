@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView, Linking, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native';
 import { colors, spacing, typography, RegenerateIcon, Icon, theme } from '@clinicalfact/design-system';
-import { MedicalChatImage, MedicalChatSource } from '../../../services/api';
+import { MedicalChatGroundingSource, MedicalChatImage, MedicalChatSource } from '../../../services/api';
 import { RichText } from '../../../components/RichText';
 import { Message } from './types';
 import { stripCitationMarkers, citationsForBlock } from './citationHelpers';
 import { CitationPillsRow } from './CitationPillsRow';
+import { SourcesRow } from './SourcesRow';
+import { useTranslation } from 'react-i18next';
 
 interface ChatMessageBubbleProps {
   item: Message;
   index: number;
   isSendingMessage: boolean;
   onPreviewImage: (image: MedicalChatImage) => void;
-  onOpenCitations: (sources: MedicalChatSource[]) => void;
+  onOpenCitations: (sources: MedicalChatSource[], webSources?: MedicalChatGroundingSource[]) => void;
   onRegenerate: (index: number) => void;
   onCopy: (content: string) => void;
   onSelectFollowUp: (question: string) => void;
@@ -30,9 +32,11 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
   onSelectFollowUp,
   onRetryMessage,
 }) => {
+  const { t } = useTranslation();
   const isUser = item.role === 'user';
   const isFailed = item.status === 'failed';
 
+  const hasAnySources = !!item.sources?.length || !!item.groundingSources?.length;
   return (
     <View style={[styles.messageContainer, isUser && styles.userMessageContainer]}>
       {isUser ? (
@@ -63,11 +67,11 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
             {!isFailed && (
               <TouchableOpacity
                 style={styles.thinkingRow}
-                onPress={() => item.sources?.length && onOpenCitations(item.sources)}
-                activeOpacity={item.sources?.length ? 0.7 : 1}
+                onPress={() => hasAnySources && onOpenCitations(item.sources ?? [], item.groundingSources)}
+                activeOpacity={hasAnySources ? 0.7 : 1}
               >
                 <Icon name="ai" size={24} color={theme.colors.grey[400]} />
-                <Text style={styles.thinkingText}>Thinking and finding resources for you...</Text>
+                <Text style={styles.thinkingText}>{t('chat.chatMessageBubble.thinkingAndFindingResourcesForYou')}</Text>
                 <Icon name="foward" size={16} color={theme.colors.grey[400]} style={{ transform: [{ rotate: '90deg' }] }} />
               </TouchableOpacity>
             )}
@@ -93,7 +97,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
 
             {isFailed && (
               <View style={styles.failedBlock}>
-                <Text style={styles.failedText}>Couldn't generate a response.</Text>
+                <Text style={styles.failedText}>{t('chat.chatMessageBubble.couldnTGenerateAResponse')}</Text>
                 <TouchableOpacity
                   style={styles.retryButton}
                   onPress={() => onRetryMessage(index)}
@@ -101,7 +105,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
                   disabled={isSendingMessage}
                 >
                   <RegenerateIcon size={18} color={theme.colors.white} />
-                  <Text style={styles.retryButtonText}>Retry</Text>
+                  <Text style={styles.retryButtonText}>{t('chat.chatMessageBubble.retry')}</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -129,40 +133,12 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
             </ScrollView>
           )}
 
-          {/* Per-block pills above already surface most sources in context — this is just a
-              compact "see everything" trigger, not another grouped pill row. */}
-          {!!item.sources?.length && (
-            <TouchableOpacity
-              style={styles.allSourcesPill}
-              onPress={() => onOpenCitations(item.sources!)}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.allSourcesPillText}>
-                {item.sources.length} {item.sources.length === 1 ? 'source' : 'sources'}
-              </Text>
-            </TouchableOpacity>
-          )}
-
-          {!!item.groundingSources?.length && (
-            <View style={styles.groundingContainer}>
-              <Text style={styles.groundingHeader}>Also referenced from the web</Text>
-              {item.groundingSources.map((source, i) => (
-                <TouchableOpacity
-                  key={`${item.id}-grounding-${i}`}
-                  style={styles.groundingCard}
-                  onPress={() => Linking.openURL(source.uri)}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.groundingTitle} numberOfLines={2}>{source.title}</Text>
-                  <Text style={styles.sourceLinkArrow}>↗</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          )}
+          {/* Compact sources card: first three by name, then +N; opens the full list (citations and web). */}
+          <SourcesRow sources={item.sources} webSources={item.groundingSources} onOpen={onOpenCitations} />
 
           {!!item.followUpQuestions?.length && (
             <View style={styles.followUpSection}>
-              <Text style={styles.followUpHeader}>Follow up questions</Text>
+              <Text style={styles.followUpHeader}>{t('chat.chatMessageBubble.followUpQuestions')}</Text>
               <View style={styles.followUpCard}>
                 {item.followUpQuestions.map((question, i) => (
                   <TouchableOpacity
@@ -272,60 +248,6 @@ const styles = StyleSheet.create({
   blockCitationPillsRow: {
     marginTop: theme.spacing[1], // 4 — sits right under its own block, not the whole message
     marginBottom: theme.spacing[2], // 8
-  },
-  allSourcesPill: {
-    alignSelf: 'flex-start',
-    backgroundColor: theme.colors.white,
-    borderWidth: 1,
-    borderColor: theme.colors.grey[50],
-    borderRadius: theme.borderRadius.full,
-    paddingHorizontal: theme.spacing[3], // 12
-    paddingVertical: theme.spacing[2], // 8
-    marginTop: theme.spacing[4], // 16
-  },
-  allSourcesPillText: {
-    fontFamily: theme.typography.fontFamily.interRegular,
-    fontWeight: '500',
-    fontSize: 12,
-    lineHeight: 14,
-    color: theme.colors.grey[700],
-  },
-  sourceLinkArrow: {
-    fontSize: 16,
-    color: colors.text.tertiary,
-    marginTop: 2,
-  },
-  groundingContainer: {
-    marginTop: spacing[3],
-    paddingLeft: spacing[2],
-    paddingTop: spacing[3],
-    borderTopWidth: 1,
-    borderTopColor: colors.border.light,
-    gap: spacing[2],
-  },
-  groundingHeader: {
-    fontSize: typography.fontSize.xs,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.tertiary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: spacing[1],
-  },
-  groundingCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing[3],
-    backgroundColor: colors.background.secondary,
-    borderRadius: 12,
-    paddingVertical: spacing[2],
-    paddingHorizontal: spacing[3],
-  },
-  groundingTitle: {
-    flex: 1,
-    fontSize: typography.fontSize.sm,
-    color: colors.text.primary,
-    lineHeight: 18,
   },
   failedBlock: {
     marginTop: theme.spacing[2], // 8

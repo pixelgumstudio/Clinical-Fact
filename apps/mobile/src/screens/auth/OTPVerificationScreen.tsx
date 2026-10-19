@@ -14,10 +14,12 @@ import { Button, OTPInput, Icon, theme } from '@clinicalfact/design-system';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
+import { useTranslation } from 'react-i18next';
 
 type OTPScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'OTPVerification'>;
 
 export const OTPVerificationScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<OTPScreenNavigationProp>();
   const {
     data,
@@ -88,7 +90,7 @@ export const OTPVerificationScreen = () => {
         } else if (otpError.message?.includes('invalid')) {
           setError('Invalid code. Please check and try again.');
         } else {
-          setError(otpError.message || 'Invalid verification code. Please try again.');
+          setError(otpError.message || t('auth.otpVerification.invalidVerificationCodePleaseTryAgain'));
         }
         isVerifyingRef.current = false;
         return;
@@ -99,7 +101,7 @@ export const OTPVerificationScreen = () => {
       setVerificationSuccess(true);
     } catch (err: any) {
       console.error('OTP verification error:', err);
-      setError(err.message || 'Invalid verification code. Please try again.');
+      setError(err.message || t('auth.otpVerification.invalidVerificationCodePleaseTryAgain'));
       isVerifyingRef.current = false;
     } finally {
       setVerifyingOtp(false);
@@ -117,7 +119,7 @@ export const OTPVerificationScreen = () => {
 
     const { error: resendError } = await sendOtp(data.email);
     if (resendError) {
-      setError(resendError.message || 'Failed to resend code. Please try again.');
+      setError(resendError.message || t('auth.otpVerification.failedToResendCodePleaseTry'));
       setCanResend(true);
     }
   };
@@ -164,10 +166,9 @@ export const OTPVerificationScreen = () => {
         {/* Content */}
         <View style={styles.content}>
           <View style={styles.titleSection}>
-            <Text style={styles.title}>Confirm your Email address</Text>
+            <Text style={styles.title}>{t('auth.otpVerification.confirmYourEmailAddress')}</Text>
             <Text style={styles.subtitle}>
-              {'Please enter the OTP code we sent to your email address '}
-              {maskEmail(data.email)}
+              {t('auth.otpVerification.enterCodeSentTo', { email: maskEmail(data.email) })}
             </Text>
           </View>
 
@@ -197,11 +198,11 @@ export const OTPVerificationScreen = () => {
           <View style={styles.resendSection}>
             {canResend ? (
               <Pressable onPress={handleResend}>
-                <Text style={styles.resendLink}>{"Didn't get code?"}</Text>
+                <Text style={styles.resendLink}>{t('auth.didntGetCode')}</Text>
               </Pressable>
             ) : (
               <Text style={styles.resendText}>
-                {`Resend code in ${resendTimer} Sec`}
+                {t('auth.otpVerification.resendCodeIn', { seconds: resendTimer })}
               </Text>
             )}
           </View>

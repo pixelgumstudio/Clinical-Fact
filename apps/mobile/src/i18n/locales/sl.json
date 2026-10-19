@@ -15,7 +15,8 @@
     "done": "Končano",
     "search": "Iskanje",
     "filter": "Filter",
-    "ok": "V redu"
+    "ok": "V redu",
+    "info": "Informacije"
   },
   "home": {
     "title": "Clinical Fact",
@@ -26,7 +27,7 @@
     "recentNotes": "Nedavne opombe",
     "seeAll": "Prikaži vse",
     "noNotes": "Ni zapiskov za prikaz",
-    "noNotesDesc": "Kliknite zgornji gumb, da začnete ustvarjati opombo za clinicalfact.",
+    "noNotesDesc": "Kliknite zgornji gumb, da začnete\nz ustvarjanjem zapiskov za Clinical Fact.",
     "loadingNotes": "Nalaganje zapiskov ..."
   },
   "profile": {
@@ -71,10 +72,16 @@
     "upgradePlan": "Nadgradni načrt",
     "everyWeek": "Vsak teden",
     "everyMonth": "Vsak mesec",
-    "everyYear": "Vsako leto"
+    "everyYear": "Vsako leto",
+    "reportBug": "Prijavi napako"
   },
   "auth": {
-    "welcome": "Dobrodošli v Clinical Factu",
+    "welcome": {
+      "googleSignInFailed": "Prijava z računom Google ni uspela",
+      "failedToAuthenticateWithServer": "Preverjanje pristnosti s strežnikom ni uspelo",
+      "googleSignInIsOnlyAvailable": "Prijava z računom Google je na voljo le v mobilni aplikaciji. Uporabi prijavo z e-pošto ali prenesi aplikacijo.",
+      "code": "{{message}} (koda: {{code}})"
+    },
     "getStarted": "Začnite",
     "signIn": "Prijava",
     "signUp": "Prijavi se",
@@ -94,7 +101,8 @@
       "skip": "Preskoči",
       "verify": "Preverjeno!",
       "next": "Naprej",
-      "tryNow": "Preizkusite Clinical Fact zdaj brezplačno"
+      "tryNow": "Preizkusite Clinical Fact zdaj brezplačno",
+      "continueWithApple": "Nadaljuj z Apple"
     },
     "labels": {
       "firstName": "Ime",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Prijava v Google ni uspela. Poskusite znova.",
       "setupRequired": "Zahtevana nastavitev",
       "googleOAuthMissing": "Prijava z Googlom zahteva ID-je odjemalcev OAuth.\\n\\nDodajte poverilnice v datoteko .env.",
-      "youCanStillUseEmail": "Še vedno lahko uporabite možnost »Nadaljuj z e-pošto«."
+      "youCanStillUseEmail": "Še vedno lahko uporabite možnost »Nadaljuj z e-pošto«.",
+      "appleSignInFailed": "Prijava z Apple ni uspela",
+      "appleTokenFailed": "Obdelava žetona Apple ni uspela",
+      "appleIosOnly": "Prijava z Apple je na voljo samo v sistemu iOS."
     },
     "messages": {
       "signingIn": "Prijava ...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nPametnejše zapiske Začnite tukaj",
       "tagline": "Spremenite katero koli besedilo v popolne zapiske",
-      "description": "Zvok, dokumente ali videoposnetke spremenite v jasne, iskalne zapiske in v trenutku ustvarite kvize, kartice in povzetke."
+      "description": "Zvok, dokumente ali videoposnetke spremenite v jasne, iskalne zapiske in v trenutku ustvarite kvize, kartice in povzetke.",
+      "createAccountTitle": "Ustvari račun",
+      "orSignUpWith": "ALI SE REGISTRIRAJ Z",
+      "signUpWithEmail": "Registracija z e-poštnim naslovom",
+      "signInWithEmail": "Prijava z e-poštnim naslovom",
+      "alreadyHaveAccount": "Že imaš račun? ",
+      "dontHaveAccount": "Še nimaš računa? "
     },
     "otp": {
       "title": "Potrdite svoj e-poštni naslov",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Vse, kar potrebujete za učenje česar koli",
-      "subtitle": "Zapišite si. Raziščite. Preizkusite. Obvladajte."
+      "subtitle": "Zapišite si. Raziščite. Preizkusite. Obvladajte.",
+      "everythingYouNeedToLearnAnything": "Vse, kar potrebuješ za učenje",
+      "recordItResearchItQuizIt": "Posnemi. Razišči. Preveri znanje. Obvladaj.",
+      "tryClinicalFactNowForFree": "Preizkusi Clinical Fact brezplačno"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Hitrejše učenje s kvizom in karticami",
         "description": "Spremenite zapiske v kvize in kartice za učenje.\\nUčite se hitreje in si zapomnite več."
+      },
+      "feature1": {
+        "title": "Pridobi prave medicinske odgovore in dodatna vprašanja",
+        "description": "Zastavi poljubno medicinsko vprašanje in prejmi jasno razlago ter pametna podvprašanja, da med študijem nikoli ne zaideš v slepo ulico."
+      },
+      "feature2": {
+        "title": "Vsak medicinski odgovor,\npodprt z resničnim virom",
+        "description": "Citirani viri iz baz PubMed, Semantic Scholar in Europe PMC – preverljivi, ne izmišljeni."
+      },
+      "feature3": {
+        "title": "Naloži zapiske, pridobi medicinske povzetke svojih gradiv",
+        "description": "Pretvori prosojnice s predavanj, PDF ali zapiske v jasno razlago, podprto z zaupanja vrednimi medicinskimi viri."
+      },
+      "feature4": {
+        "title": "Pretvori kateri koli klepet v kviz ali kartice za vajo",
+        "description": "Brez posebne aplikacije za učenje – ustvari vprašanja za vajo neposredno iz svojih klepetov in naloženih gradiv."
+      },
+      "feature5": {
+        "title": "Pretvori kateri koli klepet ali dokument v kartice za vajo",
+        "description": "Brez posebne aplikacije za učenje – ustvari vprašanja za vajo neposredno iz svojih klepetov in naloženih gradiv."
+      }
+    },
+    "languageSelect": {
+      "title": "Izberi jezik",
+      "subtitle": "Izberi jezik, ki ga želiš uporabljati v aplikaciji. Pozneje ga lahko spremeniš v svojem profilu.",
+      "searchPlaceholder": "Išči jezike",
+      "noResults": "Ni najdenih jezikov"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Vprašaj karkoli o medicini. Pridobi klinična dejstva",
+        "description": "Zastavi poljubno medicinsko vprašanje in prejmi odgovor, podprt z verodostojnimi, citiranimi viri iz baze PubMed, kliničnih smernic in zanesljive medicinske literature."
+      },
+      "slide2": {
+        "headline": "Vsak odgovor, podprt z virom",
+        "description": "Brez ugibanja in brez izmišljenih dejstev – vsak odgovor vodi do resničnih, preverljivih medicinskih raziskav."
+      },
+      "slide3": {
+        "headline": "Študiraj pametneje, opravi medicinske izpite",
+        "description": "Pretvori poljubno vprašanje ali naloženo gradivo v kviz ali komplet kartic v nekaj sekundah – vaja, ustvarjena neposredno iz tvoje snovi."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Strokovna izjava",
+      "subtitle": "Clinical Fact je izobraževalno orodje za iskanje literature",
+      "disclaimerIntro": "Clinical Fact je informacijsko orodje, ki temelji na umetni inteligenci (AI) in je namenjeno podpori študentom zdravstvene nege, medicine ter drugih zdravstvenih ved pri dostopanju do medicinskega znanja, raziskovalne literature in študijskega gradiva. Aplikacija ne ponuja zdravstvenih diagnoz, priporočil za zdravljenje, kliničnih navodil ali zdravstvenih nasvetov za posamezne paciente ter se ne sme uporabljati kot osnova za neposredno oskrbo pacientov ali sprejemanje kliničnih odločitev.",
+      "disclaimerHeading": "Kako Clinical Fact ustvarja odgovore:",
+      "disclaimerBody": "Clinical Fact pridobiva informacije neposredno iz uveljavljenih medicinskih in znanstvenih virov, vključno s PubMed, Semantic Scholar in uradnimi podatki FDA o zdravilih, ter uporablja AI za povzemanje in razlago teh vsebin v razumljivem jeziku. Vsak odgovor je ustvarjen izključno iz virov, pridobljenih za dotično vprašanje, citati pa vodijo do izvirnega gradiva, tako da ga lahko sam preveriš. Clinical Fact ne ustvarja medicinskih dejstev iz pomnilnika in si ne izmišljuje virov.\n\nClinical Fact ni diagnostično orodje, platforma za zdravljenje, medicinski pripomoček ali nadomestilo za strokovno zdravniško presojo, pooblaščeni pouk ali učni načrt tvoje ustanove. Vse informacije, ki jih ustvari aplikacija, vključno z odgovori, citati, kvizi in karticami, so namenjene izključno splošnemu izobraževanju in študiju, uporabnik pa jih mora pred zanašanjem nanje v kakršnem koli akademskem, kliničnem ali strokovnem kontekstu neodvisno preveriti.\nClinical Fact ne jamči za popolnost, točnost ali trenutno klinično ustreznost posredovanih informacij. Medicinsko znanje se nenehno razvija – ključne informacije vedno preveri pri svojih predavateljih, kliničnih mentorjih in posodobljenih primarnih virih.\nKo naložiš lastne dokumente, zapiske ali posnetke, Clinical Fact ustvari odgovore, povzetke, kvize in kartice izključno na podlagi te naložene vsebine, ne pa zunanjih virov, razen če so zunanji viri izrecno prikazani poleg nje.\n\nClinical Fact ne preverja, potrjuje ali ugotavlja identitete, statusa vpisa ali strokovnih nazivov svojih uporabnikov. Aplikacija ni namenjena uporabi v nujnih primerih ali sprejemanju kliničnih odločitev v realnem času.\nZ nadaljevanjem potrjuješ, da razumeš te pogoje in se strinjaš z uporabo aplikacije Clinical Fact izključno kot pripomočka za študij in referenco.",
+      "checkboxLabel": "Razumem, da je ta aplikacija namenjena le izobraževalni rabi in ne ponuja medicinskih nasvetov",
+      "acceptButton": "Sprejmi in nadaljuj"
+    },
+    "survey": {
+      "role": "Kaj te najbolje opisuje, {{firstName}}?",
+      "currentMethod": "Kako običajno trenutno iščeš odgovore na medicinska vprašanja?",
+      "timeDrain": "Kaj ti vzame največ časa?",
+      "appExpectation": "Kaj pričakuješ od medicinske aplikacije Clinical Fact?",
+      "aiToolsUsed": "Katera orodja AI si do zdaj uporabil za medicinsko raziskovanje?",
+      "aiToolIssue": "Kaj je šlo pri teh orodjih narobe?",
+      "aiTrustLevel": "Kako pogosto te skrbi, da bi bil odgovor AI napačen?",
+      "biggestNeed": "Kaj trenutno najbolj potrebuješ?",
+      "studyTimePerWeek": "Koliko časa na teden imaš za študij?",
+      "comingUp": "Kaj te čaka v kratkem?",
+      "referralSource": "Kje si izvedel za Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Vklopi obvestila",
+      "thisHelpsUsStayOnTrack": "Tako lažje prilagodimo tvoj račun in ti pomagamo hitreje najti medicinske odgovore"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Neveljavna potrditvena koda. Poskusi znova.",
+      "failedToResendCodePleaseTry": "Kode ni bilo mogoče znova poslati. Poskusi znova.",
+      "confirmYourEmailAddress": "Potrdi svoj e-poštni naslov",
+      "enterCodeSentTo": "Vnesi kodo OTP, ki smo jo poslali na e-poštni naslov {{email}}",
+      "resendCodeIn": "Ponovno pošlji kodo čez {{seconds}} s"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Te je kdo povabil?",
+      "enterTheirReferralCodeIfYou": "Vnesi promocijsko kodo, če jo imaš",
+      "eGJOHNOrTECHBRO": "npr. LUKA ali MEDPRO",
+      "codeIsValid": "✓ Koda je veljavna"
+    },
+    "resultsChart": {
+      "getBetterResults": "Dosezi boljše rezultate",
+      "over95OfClinicalfactUsersScore": "Več kot 95 % uporabnikov aplikacije Clinical Fact doseže 95 % ali več na kolokvijih in izpitih"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Študent/-ka zdravstvene nege",
+        "medicalStudent": "Študent/-ka medicine",
+        "paPharmacyStudent": "Študent/-ka farmacije",
+        "practicingNurse": "Diplomirana medicinska sestra / tehnik",
+        "practicingPhysician": "Zdravnik/-ca",
+        "otherHealthcareProfessional": "Drug zdravstveni delavec"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Učbeniki ali zapiski s predavanj",
+        "flashcardQuizApps": "Aplikacije z vadbenimi karticami ali kvizi",
+        "youtube": "YouTube",
+        "aiChatbots": "Klepetalniki AI",
+        "colleagueClassmate": "Vprašam sošolca ali kolega",
+        "practiceQuestionBanks": "Zbirke izpitnih vprašanj"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Izdelava kartic in kvizov iz nič",
+        "findingTrustworthyAnswer": "Iskanje zanesljivih odgovorov v kratkem času",
+        "reReadingNotes": "Ponovno branje zapiskov, ki jih pozabim",
+        "switchingApps": "Preklapljanje med preveč aplikacijami",
+        "chartingDocumentation": "Vodenje dokumentacije in zapiski"
+      },
+      "appExpectation": {
+        "noHallucination": "AI, ki si ne izmišljuje podatkov",
+        "realCitations": "Pravi viri in citati",
+        "oneApp": "Ena aplikacija namesto petih naročnin",
+        "explainsWhy": "Razlaga ozadje (\"zakaj\"), ne le odgovora"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Iskalnik Google",
+        "otherApps": "Druge aplikacije"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Izmišljevanje podatkov",
+        "notMedicalContent": "Ni prilagojeno za medicinske vsebine",
+        "noSources": "Brez navedenih virov za preverjanje",
+        "tooGeneric": "Presplošno, neosredotočeno na izpite ali prakso"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Vedno",
+        "sometimes": "Včasih",
+        "rarely": "Redko",
+        "dontUseAi": "Orodij AI še ne uporabljam"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Hitri in zanesljivi odgovori",
+        "quizzesFlashcardsWithoutWork": "Kvizi in kartice brez dodatnega dela",
+        "rememberingStudied": "Pomoč pri pomnjenju preštudiranega",
+        "medicalCitations": "Navajanje medicinskih virov",
+        "allOfTheAbove": "Vse zgoraj našteto"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "E-novice",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Drugo"
+      },
+      "studyTime": {
+        "under5Hours": "Manj kot 5 ur",
+        "510Hours": "5–10 ur",
+        "1020Hours": "10–20 ur",
+        "20PlusHours": "20+ ur"
+      },
+      "comingUp": {
+        "medicalExams": "Medicinski izpiti",
+        "clinicalRotations": "Klinične rotacije (vaje)",
+        "nursingExams": "Izpiti iz zdravstvene nege",
+        "otherExams": "Drugi izpiti",
+        "staySharp": "Želim le ohranjati znanje"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Prepis zapiska",
+    "noteTranscript": {
+      "noteTranscript": "Prepis zapiska",
+      "noNoteIDProvided": "ID zapiska ni naveden",
+      "noTranscriptAvailableForThisNote": "Za ta zapisek ni na voljo prepisa.",
+      "thisNoteWasNotCreatedFrom": "Ta zapisek ni bil ustvarjen iz zvočnega/video posnetka in nima prepisa.",
+      "failedToLoadNote": "Nalaganje zapiska ni uspelo",
+      "noteTranscript2": "Prepis zapiska",
+      "loadingTranscript": "Nalaganje prepisa ...",
+      "goToNote": "Pojdi na zapisek"
+    },
     "noteOptions": "Možnosti zapiskov",
-    "editNote": "Uredi opombo",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Vnesi naslov zapiska",
+      "failedToUpdateNote": "Posodabljanje zapiska ni uspelo",
+      "noteUpdatedSuccessfully": "Zapis je bil uspešno posodobljen",
+      "editNote": "Uredi zapisek",
+      "noteTitle": "Naslov zapiska",
+      "enterNoteTitle": "Vnesi naslov zapiska",
+      "noteContent": "Vsebina zapiska",
+      "enterNoteContent": "Vnesi vsebino zapiska",
+      "saveThisNote": "Shrani ta zapisek",
+      "aiIsGeneratingYourNote": "AI ustvarja tvoj zapisek",
+      "largeAudioAndVideoFilesMay": "Obdelava večjih zvočnih in video datotek lahko traja nekaj minut. Prosimo, pusti aplikacijo odprto."
+    },
     "retranscribe": "Ponovno prepiši",
     "exportNote": "Izvozi opombo",
     "shareNoteLink": "Deli povezavo do zapiska",
@@ -237,12 +443,89 @@
     "translate": "Prevedi",
     "addToFolder": "Dodaj v mapo",
     "loadingNote": "Nalaganje zapiska ...",
-    "noteNotFound": "Nalaganje zapiska ni uspelo"
+    "noteNotFound": "Nalaganje zapiska ni uspelo",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Ustvarjanje kartic z vprašanji ni uspelo",
+      "anUnexpectedErrorOccurred": "Prišlo je do nepričakovane napake",
+      "history": "Zgodovina",
+      "export": "Izvozi"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Dodajanje zapiska v mapo ni uspelo",
+      "folderNotFound": "Mape ni mogoče najti",
+      "addNote": "+ Dodaj zapisek",
+      "noNotesInThisFolder": "V tej mapi ni zapiskov",
+      "moveNotesToThisFolderTo": "Premakni zapiske v to mapo, da jih vidiš tukaj",
+      "addNoteToFolder": "Dodaj zapisek v mapo",
+      "noNotesAvailableToAdd": "Na voljo ni nobenega zapiska za dodajanje",
+      "allYourNotesAreAlreadyIn": "Vsi tvoji zapiski so že v tej mapi",
+      "created": "Ustvarjeno: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Nalaganje zapiska ni uspelo",
+      "reTranscribeNote": "Ponovno prepiši zapisek",
+      "thisWillReTranscribeTheAudio": "S tem bo posnetek znova prepisan in zapisek posodobljen. Želiš nadaljevati?",
+      "reTranscribe": "Ponovno prepiši",
+      "noteReTranscribedSuccessfully": "Zapis je bil uspešno ponovno prepisan",
+      "info": "Informacije",
+      "reTranscriptionFeatureIsComingSoon": "Funkcija ponovnega prepisa bo na voljo kmalu",
+      "youAreCurrentlyOfflinePleaseConnect": "Trenutno nimaš internetne povezave. Za to dejanje se poveži z internetom.",
+      "failedToDeleteNote": "Brisanje zapiska ni uspelo",
+      "failedToExportNote": "Izvoz zapiska ni uspel",
+      "noteTranslatedSuccessfully": "Zapiski so bili uspešno prevedeni",
+      "failedToTranslateNote": "Prevajanje zapiska ni uspelo",
+      "noteMovedTo": "Zapiski premaknjeni v {{name}}",
+      "failedToMoveNoteToFolder": "Premik zapiska v mapo ni uspel",
+      "summaryNotes": "Povzetek zapiska",
+      "loadingNote": "Nalaganje zapiska...",
+      "imageNote": "Slikovni zapisek",
+      "created": "Ustvarjeno {{dateTime}}",
+      "translate": "Prevedi",
+      "transcribe": "Prepiši",
+      "editThisNote": "Uredi ta zapisek",
+      "createFlashcards": "Ustvari kartice",
+      "createFlashcardsToImproveYourRetention": "Ustvari kartice za boljše pomnjenje",
+      "createQuizQuestions": "Ustvari vprašanja za kviz",
+      "practiceYourNotesByCreatingQuestions": "Utrdi snov z ustvarjanjem vprašanj, ki ti pomagajo osvojiti temo"
+    },
+    "sharedNote": {
+      "notFound": "Ni najdeno",
+      "thisSharedNoteLinkIsInvalid": "Ta povezava do deljenega zapiska je neveljavna ali je potekla.",
+      "failedToLoadSharedNote": "Nalaganje deljenega zapiska ni uspelo.",
+      "saved": "Shranjeno!",
+      "noteHasBeenAddedToYour": "Zapisek je bil dodan v tvojo knjižnico.",
+      "viewInLibrary": "Prikaži v knjižnici",
+      "stayHere": "Ostani tukaj",
+      "failedToSaveNote": "Shranjevanje zapiska ni uspelo.",
+      "loadingSharedNote": "Nalaganje deljenega zapiska...",
+      "sharedNote": "Deljen zapisek",
+      "sharedWithYou": "Deljeno s teboj",
+      "savedToLibrary": "Shranjeno v knjižnico",
+      "saveToMyLibrary": "Shrani v mojo knjižnico"
+    }
   },
   "create": {
     "selectOption": "Kako želite ustvariti svojo opombo?",
-    "recordAudio": "Snemanje zvoka",
-    "uploadAudio": "Naloži zvok",
+    "recordAudio": {
+      "permissionRequired": "Zahtevano je dovoljenje",
+      "pleaseGrantMicrophonePermissionToRecord": "Za snemanje zvoka omogoči dostop do mikrofona.",
+      "failedToRequestMicrophonePermission": "Zahteve za dovoljenje za mikrofon ni bilo mogoče poslati",
+      "created": "Ustvarjeno {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Snemanje zvoka",
+      "recordAudio": "Posnemi zvok",
+      "createANoteFromAnyRecorded": "Ustvari zapisek iz posnetega zvoka",
+      "recording": "Snemanje ({{time}})",
+      "recordAgain": "Ponovno posnemi"
+    },
+    "uploadAudio": {
+      "created": "Ustvarjeno {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Izbira zvočne datoteke ni uspela",
+      "uploadAudio": "Naloži zvok",
+      "createANoteFromAnyUploaded": "Ustvari zapisek iz naložene zvočne datoteke",
+      "dragDropFilesOrBrowse": "Povleci in spusti datoteke ali Prebrskaj",
+      "supportedFormatMp4WavMp3": "Podprti formati: mp4, wav, mp3",
+      "changeFile": "Zamenjaj datoteko"
+    },
     "youtube": "Videoposnetek na YouTubu",
     "pdfDocument": "PDF ali dokument",
     "customText": "Besedilo po meri",
@@ -250,7 +533,56 @@
     "uploadingFile": "Nalaganje datoteke na strežnik ...",
     "transcribing": "Pretvarjanje govora v besedilo ...",
     "extractingText": "Izvleček besedila ...",
-    "generatingNote": "Ustvarjanje študijskih zapiskov z umetno inteligenco ...",
+    "generatingNote": {
+      "uploadAudio": "Naloži zvok",
+      "uploadingAudioFileToServer": "Nalaganje zvočne datoteke na strežnik...",
+      "transcribeAudio": "Prepiši zvok",
+      "convertingSpeechToText": "Pretvarjanje govora v besedilo...",
+      "generateYourNote": "Ustvari zapisek",
+      "creatingStudyNotes": "Ustvarjanje zapiskov za učenje...",
+      "uploadPDF": "Naloži PDF",
+      "uploadingPDFDocumentToServer": "Nalaganje dokumenta PDF na strežnik...",
+      "extractText": "Izvozi besedilo",
+      "readingAndExtractingTextFromPDF": "Branje in ekstrakcija besedila iz PDF-ja...",
+      "uploadImage": "Naloži sliko",
+      "uploadingImageToServer": "Nalaganje slike na strežnik...",
+      "extractTextOCR": "Prepoznaj besedilo (OCR)",
+      "recognizingAndExtractingTextFromImage": "Prepoznavanje in ekstrakcija besedila s slike...",
+      "fetchVideo": "Pridobi videoposnetek",
+      "connectingToYouTube": "Povezovanje z YouTubom...",
+      "extractTranscript": "Izvozi prepis",
+      "downloadingVideoTranscript": "Prenašanje prepisa videoposnetka...",
+      "processText": "Obdelaj besedilo",
+      "analyzingYourContent": "Analiziranje vsebine...",
+      "uploadFile": "Naloži datoteko",
+      "uploadingToServer": "Nalaganje na strežnik...",
+      "processContent": "Obdelaj vsebino",
+      "extractingContent": "Ekstrakcija vsebine...",
+      "noteReady": "Zapisnik je pripravljen!",
+      "noteGenerationFailedOnTheServer": "Ustvarjanje zapiska na strežniku ni uspelo.",
+      "failedToUploadImage": "Nalaganje slike ni uspelo",
+      "weCouldNotReadAnythingFrom": "S te slike nismo mogli prebrati ničesar. Poskusi z jasnejšo sliko svojih kliničnih zapiskov.",
+      "preparingFile": "Priprava datoteke...",
+      "almostDone": "Skoraj končano...",
+      "untitledNote": "Neimenovan zapisek",
+      "failedToGenerateNote": "Ustvarjanje zapiska ni uspelo",
+      "whoaSpeedy": "Opa, počasi! 🏃💨",
+      "youReGeneratingContentABit": "Vsebino ustvarjaš malo prehitro. Počakaj 60 sekund, da te naš AI lahko dohiti.",
+      "gotIt": "Razumem",
+      "fileTooLarge": "Prevelika datoteka",
+      "yourFileExceedsThe15MBLimit": "Tvoja datoteka presega omejitev 15 MB za brezplačne uporabnike. Nadgradi na PRO za nalaganje predavanj do 100 MB.",
+      "upgradeToPRO": "Nadgradi na PRO",
+      "oopsWeHitASnag": "Ups, nekaj se je zataknilo 🚧",
+      "weCouldnTGenerateThatRight": "Tega trenutno ni bilo mogoče ustvariti. Počakaj trenutek in poskusi znova!",
+      "processingContent": "Obdelava vsebine...",
+      "generatingYourNote": "Ustvarjanje tvojega zapiska...",
+      "audioNote": "Zvočni zapisek",
+      "failedToGenerateFlashcards": "Ustvarjanje kartic ni uspelo",
+      "generatingNote": "Ustvarjanje zapiska",
+      "pleaseKeepThisScreenOpenWhile": "Prosimo, pusti ta zaslon odprt, medtem ko se ustvarja zapisek. Prepisi večjih datotek lahko trajajo nekaj minut.",
+      "goToNote": "Pojdi na zapisek",
+      "generateNoteTranscript": "Ustvari prepis zapiska"
+    },
     "fetchingVideo": "Povezovanje z YouTubom ...",
     "processingText": "Analiziranje vaše vsebine ...",
     "uploadAudioTitle": "Naloži zvok",
@@ -260,7 +592,63 @@
     "fetchVideo": "Pridobi video",
     "extractTranscript": "Izvleček prepisa",
     "processText": "Obdelajte besedilo",
-    "generateNote": "Ustvarite svojo opombo"
+    "generateNote": "Ustvarite svojo opombo",
+    "customTextInput": {
+      "customText": "Poljubno besedilo",
+      "createANoteFromAnyCustom": "Ustvari zapisek iz poljubnega besedila",
+      "enterText": "Vnesi besedilo",
+      "enterYourTextHere": "Tukaj vnesi svoje besedilo..."
+    },
+    "uploadImage": {
+      "created": "Ustvarjeno: {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Zahtevano je dovoljenje",
+      "pleaseAllowAccessToYourPhoto": "Dovoli dostop do knjižnice fotografij",
+      "failedToPickImage": "Izbira slike ni uspela",
+      "uploadImage": "Naloži sliko",
+      "createANoteFromAnyUploaded": "Ustvari zapisek iz naložene slike",
+      "dragDropFilesOrBrowse": "Povleci in spusti datoteke ali Prebrskaj",
+      "supportedFormatPngJpegHeicWebp": "Podprte oblike: png, jpeg, heic, webp",
+      "changeFile": "Zamenjaj datoteko"
+    },
+    "uploadPDF": {
+      "created": "Ustvarjeno: {{day}}. {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Izbira dokumenta ni uspela",
+      "uploadPdf": "Naloži PDF",
+      "createANoteFromAnyUploaded": "Ustvari zapisek iz naloženega PDF-ja",
+      "dragDropFilesOrBrowse": "Povleci in spusti datoteke ali Prebrskaj",
+      "supportedFormatPdf": "Podprta oblika: pdf",
+      "changeFile": "Zamenjaj datoteko"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Pridobivanje videoposnetka",
+      "gettingVideoDetails": "Pridobivanje podrobnosti videoposnetka",
+      "extractingTranscript": "Ekstrakcija prepisa",
+      "convertingAudioToText": "Pretvarjanje zvoka v besedilo",
+      "generatingYourNote": "Ustvarjanje tvojega zapiska",
+      "aiIsSummarisingTheContent": "AI pripravlja povzetek vsebine",
+      "noteGenerationFailedPleaseTryAgain": "Ustvarjanje zapiska ni uspelo. Poskusi znova.",
+      "processingFailed": "Obdelava ni uspela",
+      "goBack": "Nazaj",
+      "retry": "Poskusi znova",
+      "failedToStartNoteGeneration": "Ustvarjanja zapiskov ni bilo mogoče začeti",
+      "failedToProcessYouTubeVideoPlease": "Obdelava videoposnetka YouTube ni uspela. Poskusi znova.",
+      "cancelProcessing": "Prekliči obdelavo",
+      "areYouSureYouWantTo": "Ali res želiš preklicati? Napredek bo izgubljen.",
+      "continueProcessing": "Nadaljuj z obdelavo",
+      "youTubeNote": "Zapiski iz YouTuba",
+      "noteGenerated": "Zapiski so ustvarjeni",
+      "generatingNote": "Ustvarjanje zapiskov",
+      "goToNote": "Pojdi na zapiske"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Podatkov o videoposnetku ni bilo mogoče pridobiti",
+      "failedToFetchVideoInformation": "Pridobivanje podatkov o videoposnetku ni uspelo",
+      "youtubeVideo": "Videoposnetek YouTube",
+      "createANoteFromAnyYoutube": "Ustvari zapiske iz kateregakoli videoposnetka YouTube",
+      "enterYoutubeURL": "Vnesi povezavo do videoposnetka YouTube",
+      "pasteYoutubeURL": "Prilepi povezavo do videoposnetka YouTube",
+      "fetchingVideoInfo": "Pridobivanje podatkov o videoposnetku ..."
+    }
   },
   "library": {
     "title": "Knjižnica",
@@ -292,7 +680,7 @@
     "almostDone": "Skoraj končano ...",
     "quizReady": "Kviz pripravljen!",
     "startQuiz": "Začni kviz",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} od {{total}}",
     "exitTitle": "Zapustiti kviz?",
     "exitMessage": "Vaš napredek bo izgubljen.",
     "exit": "Izhod",
@@ -312,7 +700,45 @@
     "correctAnswer": "Pravilen odgovor",
     "yourAnswer": "Vaš odgovor",
     "explanation": "Razlaga",
-    "questionProgress": "Vprašanje {{current}} od {{total}}"
+    "questionProgress": "Vprašanje {{current}} od {{total}}",
+    "generatingQuizWait": "Pripravljamo tvoj kviz, prosimo počakaj trenutek ...",
+    "goToChats": "Pojdi na klepete",
+    "quizGroupDetail": {
+      "inProgress": "V teku",
+      "notStarted": "Ni začeto",
+      "failedToLoadQuizHistory": "Zgodovine kvizov ni bilo mogoče naložiti",
+      "failedToLoadChatContent": "Vsebine klepeta ni bilo mogoče naložiti",
+      "deleteQuiz": "Izbriši kviz",
+      "failedToDeleteQuiz": "Kviza ni bilo mogoče izbrisati",
+      "created": "Ustvarjeno: {{dateTime}}",
+      "lastscore": "ZADNJI REZULTAT",
+      "bestscore": "NAJBOLJŠI REZULTAT",
+      "attempts": "POSKUSI",
+      "retakeQuiz": "Ponovno reši kviz",
+      "translate": "Prevedi",
+      "newQuiz": "Nov kviz",
+      "quizHistory": "Zgodovina kvizov",
+      "flashcardHistory": "Zgodovina kartic",
+      "score": "Rezultat {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Iz tega vira še ni kompletov kartic.",
+      "cards": "{{totalCards}} kartic · {{flashcardStatus}}",
+      "quizOptions": "Možnosti kviza",
+      "exportLatestAttempt": "Izvozi zadnji poskus",
+      "questions": "{{totalQuestions}} vprašanj · {{value}}",
+      "deleteAllAttemptsOne": "Želiš izbrisati 1 poskus kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "deleteAllAttemptsMany": "Želiš izbrisati vseh {{total}} poskusov kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "makeFlashcards": "Ustvari kartice"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Podatkov o kvizu ni bilo mogoče naložiti – neveljavna oblika odgovora",
+      "failedToLoadQuizData": "Podatkov o kvizu ni bilo mogoče naložiti",
+      "noContentAvailable": "Ni razpoložljive vsebine",
+      "goBack": "Nazaj",
+      "previous": "Prejšnje"
+    },
+    "quiz": {
+      "generationFailed": "Ustvarjanje ni uspelo"
+    }
   },
   "flashcards": {
     "title": "Kartice",
@@ -343,7 +769,46 @@
     "headerTitle": "Kartica za učenje",
     "progressFormat": "Kartica {{current}} od {{total}}",
     "noteIdRequired": "Za ustvarjanje kartic je potreben ID opombe",
-    "invalidCardCount": "Izberite med 1 in 100 kartic"
+    "invalidCardCount": "Izberite med 1 in 100 kartic",
+    "flashcardGroupDetail": {
+      "inProgress": "V teku",
+      "notStarted": "Ni začeto",
+      "failedToLoadFlashcardHistory": "Zgodovine kartic ni bilo mogoče naložiti",
+      "limitReached": "Omejitev dosežena",
+      "flashcardGenerationLimitReached": "Dosežena je omejitev ustvarjanja kartic.",
+      "failedToGenerateFlashcards": "Kartic ni bilo mogoče ustvariti",
+      "failedToTranslateFlashcards": "Kartic ni bilo mogoče prevesti",
+      "deleteFlashcards": "Izbriši kartice",
+      "failedToDeleteFlashcards": "Kartic ni bilo mogoče izbrisati",
+      "created": "Ustvarjeno: {{dateTime}}",
+      "lastprogress": "ZADNJI NAPREDEK",
+      "bestprogress": "NAJBOLJŠI NAPREDEK",
+      "sets": "KOMPLETI",
+      "studyNow": "Uči se zdaj",
+      "translate": "Prevedi",
+      "newFlashcards": "Nove kartice",
+      "flashcardHistory": "Zgodovina kartic",
+      "quizHistory": "Zgodovina kvizov",
+      "cards": "{{totalCards}} kartic · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Iz tega vira še ni kvizov.",
+      "score": "Rezultat {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Možnosti kartic",
+      "exportLatestSet": "Izvozi zadnji komplet",
+      "questions": "{{totalQuestions}} vprašanj · {{value}}",
+      "deleteAllSetsOne": "Želiš izbrisati 1 komplet kartic za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "deleteAllSetsMany": "Želiš izbrisati vseh {{total}} kompletov kartic za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
+      "makeQuiz": "Ustvari kviz",
+      "failedToLoadChatContent": "Nalaganje vsebine klepeta ni uspelo"
+    },
+    "flashcardReview": {
+      "unknownError": "Neznana napaka",
+      "noFlashcardsInThisSet": "V tem kompletu ni kartic",
+      "goBack": "Nazaj",
+      "allDone": "Vse končano",
+      "youHaveReviewedAllTheCards": "Pregledal/-a si vse kartice v tem kompletu",
+      "question": "Vprašanje {{value}}",
+      "questionOf": "Vprašanje {{value}} od {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Klepet",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Klepet z dokumentom",
     "selectFile": "Izberite datoteko za klepet",
     "uploadFile": "Naloži datoteko",
-    "startChatting": "Začni klepet"
+    "startChatting": "Začni klepet",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Zastavi medicinsko vprašanje za podrobnejšo razlago",
+      "askAnythingAboutThisDocument": "Vprašaj karkoli o tem dokumentu ...",
+      "askAQuestionAttachmentProcessingFailed": "Zastavi vprašanje – obdelava priponke ni uspela",
+      "extractingText": "Pretvarjanje besedila ...",
+      "processingPDF": "Obdelava PDF-ja ...",
+      "upgradeToProToContinueChatting": "Za nadaljevanje klepeta nadgradi na PRO",
+      "queryremaining": "PREOSTALA VPRAŠANJA: {{queriesRemaining}}"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Priprava klepeta ...",
+      "extractingTextFromImage": "Pretvarjanje besedila iz slike ...",
+      "processingPDFDocument": "Obdelava dokumenta PDF ...",
+      "analyzingYourNote": "Analiziranje zapiska ...",
+      "thisUsuallyTakesJustAFew": "⏱️ To običajno traja le nekaj sekund. Klepet bo na voljo takoj po končani obdelavi.",
+      "processingFailed": "Obdelava ni uspela",
+      "fileMightBeCorruptedOrUnreadable": "• Datoteka je morda poškodovana ali neberljiva",
+      "imageQualityTooLow": "Kakovost slike je prenizka",
+      "pdfIsPasswordProtected": "PDF je zaščiten z geslom",
+      "contentFormatNotSupported": "Oblika vsebine ni podprta",
+      "networkConnectionIssue": "• Težava z internetno povezavo",
+      "tryADifferentFile": "Poskusi z drugo datoteko",
+      "askAnyClinicalQuestionNoUpload": "💡 Zastavi poljubno klinično vprašanje – brez nalaganja datotek. Odgovoril bom na podlagi citirane medicinske literature in dodal ustrezne slike, kjer so na voljo.",
+      "readyToChat": "✓ Pripravljen na klepet",
+      "couldntProcessNote": "Tega zapiska nismo mogli obdelati. Možni razlogi:",
+      "couldntProcessImage": "Te slike nismo mogli obdelati. Možni razlogi:",
+      "couldntProcessDocument": "Tega dokumenta nismo mogli obdelati. Možni razlogi:",
+      "askMeAboutNote": "💡 Vprašaj me karkoli o tem zapisku. Lahko ga povzamem, razložim koncepte ali odgovorim na specifična vprašanja.",
+      "askMeAboutImage": "💡 Vprašaj me karkoli o tej sliki. Lahko jo povzamem, razložim koncepte ali odgovorim na specifična vprašanja.",
+      "askMeAboutDocument": "💡 Vprašaj me karkoli o tem dokumentu. Lahko ga povzamem, razložim koncepte ali odgovorim na specifična vprašanja."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} osvojenih",
+      "notStarted": "Ni začeto",
+      "quizGeneration": "Ustvarjanje kviza",
+      "score": "Rezultat {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Ustvarjanje kartic",
+      "questions": "{{totalCards}} vprašanj · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} vprašanj · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Razmišljam in iščem vire zate ...",
+      "couldnTGenerateAResponse": "Odgovora ni bilo mogoče ustvariti.",
+      "retry": "Poskusi znova",
+      "alsoReferencedFromTheWeb": "Navedeno tudi s spleta",
+      "followUpQuestions": "Nadaljnja vprašanja"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Vprašaj karkoli medicinskega in prejmi navedena dejstva iz zanesljivih virov",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Temelji na dokazih · Viri PubMed · Strokovno recenzirano",
+      "tryOutAnyOfThisTopics": "Za začetek izberite eno od teh tem",
+      "topics": {
+        "electrolytes": {
+          "label": "Razlaga elektrolitskega neravnovesja",
+          "question": "Pojasni elektrolitsko neravnovesje – vzroke, simptome in zdravljenje"
+        },
+        "ecg": {
+          "label": "Osnove interpretacije EKG",
+          "question": "Katere so osnove interpretacije EKG-ja?"
+        },
+        "drugInteractions": {
+          "label": "Pogoste interakcije med zdravili",
+          "question": "Katere so pogoste in pomembne interakcije med zdravili, ki bi jih moral poznati?"
+        },
+        "nclex": {
+          "label": "Vprašanja za vajo v slogu NCLEX",
+          "question": "Zastavi mi vprašanje za vajo v slogu NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Navodilo za zdravilo (FDA)",
+      "fromYourAttachedMaterial": "Iz vašega priloženega gradiva"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Ustvarjanje klepeta ni uspelo",
+      "failedToInitializeChatSession": "Inicializacija klepeta ni uspela",
+      "failedToUpdateLanguage": "Posodobitev jezika ni uspela",
+      "youVeReachedYour3Pin": "Dosegli ste omejitev 3 pripetih sporočil",
+      "failedToUpdatePin": "Pripenjanja ni bilo mogoče posodobiti",
+      "permissionRequired": "Zahtevano je dovoljenje",
+      "pleaseGrantCameraPermissionToTake": "Za fotografiranje omogočite dostop do kamere.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Za nalaganje slik omogočite dostop do knjižnice fotografij.",
+      "failedToUploadImage": "Nalaganje slike ni uspelo",
+      "uploadFailed": "Nalaganje ni uspelo",
+      "failedToUploadDocument": "Nalaganje dokumenta ni uspelo",
+      "failedToStartChatFromThis": "Iz te datoteke ni bilo mogoče začeti klepeta.",
+      "chatFromImage": "Klepet iz slike",
+      "failedToStartANewQuestion": "Novega vprašanja ni bilo mogoče začeti. Poskusite znova.",
+      "failedToAttachFile": "Pripenjanje datoteke ni uspelo",
+      "failedToSendMessage": "Pošiljanje sporočila ni uspelo",
+      "copiedToClipboard": "Kopirano v odložišče",
+      "notEnoughContentYet": "Premalo vsebine",
+      "chatABitMoreBeforeGenerating": "Pred ustvarjanjem kviza še malo poklepetajte (vsaj 100 znakov).",
+      "chatABitMoreBeforeGenerating2": "Pred ustvarjanjem kartic še malo poklepetajte (vsaj 100 znakov).",
+      "failedToGenerateFlashcards": "Ustvarjanje kartic ni uspelo",
+      "failedToRegenerateResponse": "Ponovno ustvarjanje odgovora ni uspelo",
+      "failedToRetryResponse": "Ponovni poskus odgovora ni uspel"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Pripenjanje zapisa ni uspelo",
+      "folderCreatedSuccessfully": "Mapa »{{name}}« je bila uspešno ustvarjena!",
+      "failedToCreateFolder": "Ustvarjanje mape ni uspelo",
+      "failedToAttachDocument": "Pripenjanje dokumenta ni uspelo",
+      "failedToCreateChatSession": "Ustvarjanje klepeta ni uspelo",
+      "failedToUploadDocument": "Nalaganje dokumenta ni uspelo",
+      "openingCamera": "📷 Odpiranje kamere...",
+      "openingImagePicker": "🖼️ Odpiranje izbirnika slik...",
+      "permissionRequired": "Zahtevano je dovoljenje",
+      "pleaseGrantCameraPermissionToTake": "Za fotografiranje omogočite dostop do kamere.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Za nalaganje slik omogočite dostop do knjižnice fotografij.",
+      "failedToAttachImage": "Pripenjanje slike ni uspelo",
+      "failedToUploadImage": "Nalaganje slike ni uspelo",
+      "failedToAttachAudio": "Pripenjanje zvočnega posnetka ni uspelo",
+      "failedToUploadAudio": "Nalaganje zvočnega posnetka ni uspelo",
+      "items": "{{itemCount}} elementov",
+      "thisFolderIsEmptyGoBack": "Ta mapa je prazna. Pojdite nazaj in izberite drugo mapo.",
+      "addFolder": "Dodaj mapo",
+      "uploadNewDocument": "Naloži nov dokument",
+      "uploadAPDFAndStartChatting": "Naložite PDF in takoj začnite klepet",
+      "uploadNewImage": "Naloži novo sliko",
+      "uploadAnImageAndExtractText": "Naložite sliko in takoj pridobite besedilo",
+      "uploadNewAudio": "Naloži nov zvočni posnetek",
+      "uploadAnAudioFileAndTranscribe": "Naloži zvočno datoteko in jo takoj prepiši",
+      "orselectfromlibrary": "ALI IZBERI IZ KNJIŽNICE",
+      "folders": "Mape",
+      "allNotes": "Vsi zapiski",
+      "noFilesToDisplay": "Ni datotek za prikaz",
+      "noNotesToDisplay": "Ni zapiskov za prikaz",
+      "noDocumentsYet": "Nimaš še nobenih dokumentov PDF.\nNajprej ustvari nekaj zapiskov, nato pa se vrni na klepet z njimi.",
+      "noImagesYet": "Nimaš še nobenih slik.\nNajprej ustvari nekaj zapiskov, nato pa se vrni na klepet z njimi.",
+      "noAudioNotesYet": "Nimaš še nobenih zvočnih zapiskov.\nNajprej ustvari nekaj zapiskov, nato pa se vrni na klepet z njimi.",
+      "noNotesYet": "Nimaš še nobenih zapiskov.\nNajprej ustvari nekaj zapiskov, nato pa se vrni na klepet z njimi.",
+      "attachNote": "Pripni za­pi­sek",
+      "selectNote": "Izberi za­pi­sek",
+      "attachImage": "Pripni sliko",
+      "selectImage": "Izberi sliko",
+      "attachDocument": "Pripni dokument",
+      "selectDocument": "Izberi dokument",
+      "attachAudio": "Pripni zvočni posnetek",
+      "selectAudio": "Izberi zvočni posnetek",
+      "attachFile": "Pripni datoteko",
+      "selectFile": "Izberi datoteko",
+      "aNote": "{{verb}} zapisek",
+      "anImage": "{{verb}} sliko",
+      "aDocument": "{{verb}} dokument",
+      "audio": "{{verb}} zvok",
+      "aFile": "{{verb}} datoteko"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Dodaj v klepet",
+      "camera": "Kamera",
+      "photos": "Fotografije",
+      "files": "Datoteke",
+      "generateQuiz": "Ustvari kviz",
+      "generateFlashcards": "Ustvari kartice",
+      "searchMedicalLiterature": "Išči po medicinski literaturi",
+      "filterByDateSourceAndType": "Filtriraj po datumu, viru in vrsti",
+      "pullsRealCitedSourcesIntoYour": "V tvoje odgovore vključi resnične, navedene vire",
+      "trustedmedicalsourcedatabase": "ZANESLJIVA ZBIRKA MEDICINSKIH VIROV",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Podatki FDA o zdravilih in zdravljenju"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Preveri navedbe virov",
+      "citations": "Viri",
+      "fromTheWeb": "S spleta"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Pripravljeno · tapni za preimenovanje",
+      "processing": "Obdelava: {{embeddingProgress}} %"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Ogled vira ↗"
+    },
+    "chatRename": {
+      "renameChat": "Preimenuj klepet"
+    },
+    "sourcesRow": {
+      "viewSources": "Prikaži vire ({{total}})"
+    }
   },
   "languages": {
     "english": "Angleščina",
@@ -392,8 +1041,8 @@
     "hindi": "Ne",
     "bengali": "Bengalščina",
     "tamil": "Tamilščina",
-    "telugu": "Telugu",
-    "kannada": "Kannada",
+    "telugu": "Teluščina",
+    "kannada": "Kanadščina",
     "malayalam": "Malajalamščina",
     "marathi": "Maratščina",
     "gujarati": "gudžaratščina",
@@ -408,5 +1057,455 @@
     "malay": "Malajščina",
     "indonesian": "Indonezijščina",
     "catalan": "Katalonski"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Dodaj mapo",
+      "folderName": "Ime mape",
+      "enterFolderName": "Vnesi ime mape",
+      "chooseColor": "Izberi barvo",
+      "createFolder": "Ustvari mapo"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Preden obdelamo vašo vsebino",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact uporablja AI za odgovarjanje na vaša vprašanja in pretvorbo vaše vsebine v zapiske, kvize ter kartice. Tukaj je tisto, kar morate vedeti:",
+      "whatDataIsSent": "Kateri podatki se pošiljajo",
+      "questionsAndMessagesYouTypeIn": "Vprašanja in sporočila, ki jih vnesete v klepet",
+      "audioRecordingsOrUploadedAudioFiles": "Zvočni posnetki ali naložene zvočne datoteke",
+      "pdfAndTextDocumentsYouUpload": "Dokumenti PDF in besedilni dokumenti, ki jih naložite",
+      "imagesYouUpload": "Slike, ki jih naložite",
+      "youTubeVideoURLsAndTheirTranscripts": "Povezave do videoposnetkov YouTube in njihovi prepisi",
+      "customTextYouEnter": "Poljubno besedilo, ki ga vnesete",
+      "whoReceivesYourData": "Kdo prejme vaše podatke",
+      "howItSUsed": "Kako se uporabljajo",
+      "yourContentIsUsedSolelyTo": "Vaša vsebina se uporablja izključno za ustvarjanje odgovora, zapiska, kviza ali kartic, ki ste jih zahtevali. Za vsebino, obdelano prek vmesnikov API ponudnikov, veljajo njihovi lastni pravilniki o uporabi podatkov. Za več podrobnosti si oglejte naš Pravilnik o zasebnosti.",
+      "iAgreeContinue": "Se strinjam — Nadaljuj",
+      "noThanks": "Ne, hvala",
+      "whoReceivesBody": "Vaša vsebina se prek naših varnih zalednih strežnikov pošilja ponudniku <bold>Google (Gemini)</bold> (ustvarjanje zapiskov, kvizov in kartic; odgovori v klepetu; obdelava dokumentov in slik) ter ponudniku <bold>OpenAI</bold> (prepis zvoka). Odlomki iz vaših dokumentov se indeksirajo tudi z orodjem <bold>Google Vertex AI</bold>, da lahko klepet poišče ustrezne dele. Pri uporabi medicinskega iskanja v živo se vaše vprašanje pošlje tudi storitvi <bold>Tavily</bold> in javnim podatkovnim zbirkam medicinske literature (kot so PubMed, Europe PMC in Semantic Scholar), da poišče navedbe iz zanesljivih virov, kot so NIH, CDC, MedlinePlus, WHO in Mayo Clinic. Ti ponudniki vaše podatke obdelujejo izključno za pripravo vašega odgovora – ne uporabljajo jih za urjenje svojih splošnih modelov AI, mi pa vaših podatkov ne prodajamo nobeni tretji osebi."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Odpni klepet",
+      "pinChat": "Pripni klepet",
+      "deleteChat": "Izbriši klepet"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Ustvari kartice",
+      "createFlashcards": "Ustvari kartice",
+      "createFlashcardsFromToImproveYour": "Ustvari kartice iz »{{noteTitle}}« za boljši priklic znanja",
+      "createFlashcardsToImproveYourRetention": "Ustvari kartice za boljši priklic znanja",
+      "howManyQuestions": "Število vprašanj",
+      "generateFlashcards2": "Ustvari kartice"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Ustvari iz klepeta",
+      "selectFromOneOfYourRecent": "Izberi izmed nedavnih klepetov",
+      "pdfOrDocument": "PDF ali dokument",
+      "createFromAudio": "Ustvari iz posnetka",
+      "image": "Slika",
+      "createFromCustomText": "Ustvari iz lastnega besedila",
+      "created": "Ustvarjeno {{day}}, {{time}}",
+      "createQuizFrom": "Ustvari kviz iz",
+      "createFlashcardsFrom": "Ustvari kartice iz",
+      "selectFromChat": "Izberi iz klepeta",
+      "noRecentChatsYet": "Ni nedavnih klepetov",
+      "quizFromPdf": "Ustvari kviz iz PDF-ja ali dokumenta",
+      "flashcardsFromPdf": "Ustvari komplet kartic iz PDF-ja ali dokumenta",
+      "quizFromAudio": "Ustvari kviz iz naloženega posnetka",
+      "flashcardsFromAudio": "Ustvari komplet kartic iz naloženega posnetka",
+      "quizFromImage": "Ustvari kviz iz katere koli slike",
+      "flashcardsFromImage": "Ustvari komplet kartic iz katere koli slike",
+      "quizFromText": "Ustvari kviz iz zajetega besedila",
+      "flashcardsFromText": "Ustvari komplet kartic iz zajetega besedila"
+    },
+    "createNote": {
+      "recordAudio": "Posnemi zvok",
+      "generateANoteFromAnyRecorded": "Ustvari zapisek iz posnetega zvoka",
+      "uploadAudio": "Naloži posnetek",
+      "createANoteFromAnyUploaded": "Ustvari zapisek iz naloženega posnetka",
+      "youtubeVideo": "Videoposnetek YouTube",
+      "createANoteFromAnyYoutube": "Ustvari zapisek iz videoposnetka YouTube",
+      "pdfOrDocument": "PDF ali dokument",
+      "createANoteFromPDFOr": "Ustvari zapisek iz PDF-ja ali dokumenta",
+      "customText": "Lastno besedilo",
+      "createANoteFromCapturedText": "Ustvari zapisek iz zajetega besedila",
+      "image": "Slika",
+      "createANoteFromAnyImage": "Ustvari zapisek iz katere koli slike",
+      "createNote": "Ustvari zapisek"
+    },
+    "createQuiz": {
+      "generateQuiz": "Ustvari kviz",
+      "createQuiz": "Ustvari kviz",
+      "practiceByCreatingQuestionsThatHelp": "Utrdi »{{noteTitle}}« z vprašanji, ki ti pomagajo usvojiti snov",
+      "practiceYourNotesByCreatingQuestions": "Utrdi svoje zapiske z vprašanji, ki ti pomagajo usvojiti snov",
+      "howManyQuestions": "Število vprašanj",
+      "timeInMinutes": "Čas (v minutah)"
+    },
+    "deleteNote": {
+      "deleteNote": "Izbriši zapisek",
+      "areYouSureYouWantTo": "Ali res želiš izbrisati ta zapisek?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Izvozi povzetek kot",
+      "exportTranscriptAs": "Izvozi prepis kot",
+      "exportAs": "Izvozi kot",
+      "exportSummary": "Izvozi povzetek",
+      "exportTranscript": "Izvozi prepis"
+    },
+    "exportTypeStep": {
+      "exportNote": "Izvozi zapisek",
+      "exportSummary": "Izvozi povzetek",
+      "exportTranscript": "Izvozi prepis"
+    },
+    "exportSettings": {
+      "export": "Izvozi {{title}}",
+      "selectFormat": "Izberi obliko",
+      "includeAnswers": "Vključi odgovore",
+      "answersExplanationsIncluded": "Odgovori in razlage so vključeni",
+      "questionsOnly": "Samo vprašanja",
+      "export2": "Izvozi"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Tvoji zapiski so pripravljeni!",
+      "howDidWeDo": "Kako smo se odrezali?",
+      "happy": "Zadovoljen/-na",
+      "sad": "Nezadovoljen/-na",
+      "maybeLater": "Morda kasneje",
+      "whatWentWrong": "Kaj je šlo narobe?",
+      "yourFeedbackHelpsUsImprove": "Tvoje povratne informacije nam pomagajo pri izboljšavah.",
+      "tellUsWhatCouldBeBetter": "Povej nam, kaj bi lahko bilo boljše ...",
+      "submit": "Pošlji"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Ni razpoložljive vsebine",
+      "clickCardToFlip": "klikni kartico za obrat"
+    },
+    "flashcardExport": {
+      "exportFailed": "Izvoz ni uspel",
+      "unknownError": "Neznana napaka",
+      "export": "Izvozi {{setTitle}}",
+      "chooseWhatToExport": "Izberi, kaj želiš izvoziti",
+      "exportQuestions": "Izvozi vprašanja",
+      "exportAnswers": "Izvozi odgovore"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Izbriši komplet kartic",
+      "areYouSureYouWantTo": "Ali res želiš izbrisati »{{setTitle}}«?",
+      "failedToDeleteFlashcardSet": "Brisanje kompleta kartic ni uspelo",
+      "flashcardHistory": "Zgodovina kartic",
+      "cards": "Kartice",
+      "reviewedMastered": "Pregledano: {{cardsReviewedCount}} • Osvojeno: {{percentage}} %"
+    },
+    "folders": {
+      "items": "{{itemCount}} elem.",
+      "enterYourFolderName": "Vnesi ime mape",
+      "yourFolderName": "Ime mape",
+      "createFolder": "Ustvari mapo",
+      "folders": "Mape",
+      "addFolder": "Dodaj mapo",
+      "noFoldersToDisplay": "Ni map za prikaz",
+      "clickTheButtonAboveToCreate": "Klikni zgornji gumb, da ustvariš mapo za svoje zapiske",
+      "allFolders": "Vse mape",
+      "items2": "{{totalItems}} elem."
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtri medicinskih raziskav",
+      "howrecentdoyouwantthe": "KAKO NOVI NAJ BODO VIRI",
+      "from": "Od",
+      "whatkindofsourcedoyou": "KAKŠNO VRSTO VIRA POTREBUJEŠ",
+      "textbooks": "Učbeniki",
+      "clinicalGuidelines": "Klinične smernice",
+      "scientificJournalArticles": "Članki iz znanstvenih revij",
+      "onlywiththisjournalarticles": "SAMO S TEMI VRSTAMI ČLANKOV",
+      "metaAnalyses": "Metaanalize",
+      "reviewArticles": "Pregledni članki",
+      "clinicalTrials": "Klinične raziskave",
+      "fromYear": "Od leta",
+      "toYear": "Do leta"
+    },
+    "noteOptions": {
+      "noteOptions": "Možnosti zapiskov",
+      "editNote": "Uredi zapiske",
+      "reTranscribe": "Ponovno prepiši",
+      "chatWithNote": "Klepetaj z zapiski",
+      "exportNote": "Izvozi zapiske",
+      "moveToFolder": "Premakni v mapo",
+      "deleteNote": "Izbriši zapiske"
+    },
+    "onboardingTooltip": {
+      "skip": "Preskoči"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Izbriši kviz",
+      "areYouSureYouWantTo": "Ali res želiš izbrisati »{{quizTitle}}«?",
+      "failedToDeleteQuiz": "Brisanje kviza ni uspelo",
+      "quizHistory": "Zgodovina kvizov",
+      "questions": "Vprašanja",
+      "correct": "{{correctAnswers}} pravilno"
+    },
+    "referral": {
+      "copied": "Kopirano!",
+      "yourReferralCodeHasBeenCopied": "Tvoja koda za priporočilo je kopirana v odložišče.",
+      "joinMeOnClinicalFactUse": "Pridruži se mi na Clinical Fact! Uporabi mojo kodo {{referralCode}} – {{appUrl}}",
+      "joined": "Pridružen/-a {{joinedDate}}",
+      "referralCode": "Koda za priporočilo",
+      "yourReferralCode": "Tvoja koda za priporočilo",
+      "shareWithFriendsToEarnRewards": "Deli s prijatelji in si prisluži nagrade",
+      "share": "Deli",
+      "copyCode": "Kopiraj kodo",
+      "referredFriends": "Povabljeni prijatelji",
+      "noReferralsYetShareYourCode": "Zaenkrat še ni priporočil. Deli svojo kodo in začni!",
+      "loadMore": "Naloži več",
+      "howItWorks": "Kako deluje",
+      "friendsUseYourCodeDuringSignup": "• Prijatelji uporabijo tvojo kodo ob registraciji",
+      "youBothEarnRewardsWhenThey": "• Ob njihovem vpisu oba prejmeta nagrado",
+      "friendsReferredCount": "Povabljenih prijateljev: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Prepoznavanje besedila...",
+      "transcribingAudio": "Prepisovanje zvoka...",
+      "processingPDF": "Obdelava PDF-ja...",
+      "settingUpChat": "Priprava klepeta...",
+      "uploadFailed": "Prenos ni uspel",
+      "failedToUploadFilePleaseTry": "Datoteke ni bilo mogoče naložiti. Poskusi znova.",
+      "yourFileIsReadyForChatting": "Datoteka je pripravljena za klepet!",
+      "uploadingYourFileToTheServer": "Nalaganje datoteke na strežnik...",
+      "extractingTextFromYourImage": "Prepoznavanje besedila s slike...",
+      "transcribingYourAudio": "Prepisovanje posnetka...",
+      "extractingTextFromYourPDF": "Prepoznavanje besedila iz PDF-ja...",
+      "creatingYourChatSession": "Ustvarjanje seje klepeta...",
+      "pleaseWait": "Prosimo, počakaj...",
+      "uploadFile": "Naloži datoteko",
+      "processContent": "Obdelaj vsebino",
+      "createChat": "Ustvari klepet"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Ogled",
+      "export": "📤 Izvozi",
+      "delete": "🗑️ Izbriši"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Poganja"
+    },
+    "exportFormat": {
+      "txtFile": "Datoteka TXT",
+      "pdfFile": "Datoteka PDF",
+      "docFile": "Datoteka DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Zapiskov ni bilo mogoče pridobiti",
+      "failedToFetchFolders": "Map ni bilo mogoče pridobiti",
+      "failedToFetchNote": "Zapiska ni bilo mogoče pridobiti",
+      "failedToDeleteNote": "Zapiska ni bilo mogoče izbrisati",
+      "failedToCreateFolder": "Mape ni bilo mogoče ustvariti",
+      "failedToDeleteFolder": "Mape ni bilo mogoče izbrisati"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Klepeta ni bilo mogoče izbrisati"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Komplet kartic je bil uspešno izvožen!",
+      "failedToExportFlashcardSet": "Izvoz kompleta kartic ni uspel."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Kviz je bil uspešno izvožen!",
+      "failedToExportQuiz": "Izvoz kviza ni uspel."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Neimenovane kartice",
+      "failedToLoadFlashcards": "Kartic ni bilo mogoče naložiti",
+      "failedToSyncFlashcardSet": "Kompleta kartic ni bilo mogoče sinhronizirati",
+      "failedToSyncCardUpdate": "Posodobitve kartice ni bilo mogoče sinhronizirati"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Kviz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Ustvarjeno {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Dosežena je omejitev 3 pripetih klepetov",
+      "failedToUpdatePin": "Pripenjanja ni bilo mogoče posodobiti",
+      "noChatsYet": "Ni še klepetov",
+      "startAChatToGetAnswers": "Začnite klepet za odgovore, podprte z verodostojnimi viri.",
+      "createChat": "+ Nov klepet"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Izbriši kartice",
+      "areYouSureYouWantTo": "Ali ste prepričani, da želite izbrisati »{{sourceTitle}}«?",
+      "failedToDeleteFlashcards": "Brisanje kartic ni uspelo",
+      "sets": "{{setCount}} kompletov",
+      "flashcards": "Kartice",
+      "createFlashcards": "Ustvari kartice",
+      "searchFlashcards": "Išči kartice ...",
+      "noFlashcardsYet": "Ni še kartic",
+      "createAFlashcardSetFromA": "Za začetek ustvarite komplet kartic iz zapiskov",
+      "createSet": "+ Ustvari komplet",
+      "flashcardOptions": "Možnosti kartic",
+      "view": "Ogled"
+    },
+    "folder": {
+      "deleteFolder": "Izbriši mapo",
+      "areYouSureYouWantTo": "Ali ste prepričani, da želite izbrisati »{{name}}«? Zapiski bodo premaknjeni v korensko mapo.",
+      "failedToDeleteFolder": "Brisanje mape ni uspelo",
+      "error": "Napaka: {{message}}",
+      "noFoldersYetCreateOne": "Ni še map. Ustvarite jo!",
+      "folders": "Mape"
+    },
+    "home": {
+      "created": "Ustvarjeno: {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Posodobitev jezika ni uspela",
+      "notEnoughContentYet": "Premalo vsebine",
+      "chatABitMoreBeforeGenerating": "Pred ustvarjanjem kviza še malo poklepetajte (vsaj 100 znakov).",
+      "chatABitMoreBeforeGenerating2": "Pred ustvarjanjem kartic še malo poklepetajte (vsaj 100 znakov).",
+      "failedToGenerateFlashcards": "Ustvarjanje kartic ni uspelo",
+      "upgradeToPro": "Nadgradi v PRO",
+      "get80DiscountWhenYouUpgrade": "Zagotovite si 80-% popust ob nadgradnji računa",
+      "unlockPRO": "Odkleni PRO",
+      "noMedicalChats": "Ni medicinskih klepetov",
+      "youHaveNotCreatedAnyMedical": "Nimate še nobenega medicinskega klepeta. Začnite nov klepet in pridobite citirane vire.",
+      "talkToClinicalfactAI": "Klepetajte s Clinical Fact AI",
+      "jumpInWhereYouStopped": "Nadaljujte, kjer ste ostali",
+      "practiceQuiz": "Kviz za vajo",
+      "makeFlashcards": "Ustvari kartice",
+      "continueChatWithNote": "Nadaljuj klepet z zapiskom",
+      "continueChat": "Nadaljuj klepet",
+      "recentChats": "Nedavni klepeti",
+      "chatOptions": "Možnosti klepeta"
+    },
+    "library": {
+      "text": "{{day}}. {{month}} {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Trenutno niste povezani v splet. Za to dejanje se povežite z internetom.",
+      "failedToDeleteNote": "Brisanje zapiska ni uspelo",
+      "failedToMoveNote": "Premikanje zapiska ni uspelo",
+      "deleteFolder": "Izbrišem mapo?",
+      "areYouSureNotesInsideWill": "Ali ste prepričani? Zapiski v mapi ne bodo izbrisani, ampak prestavljeni med Vse zapiske.",
+      "failedToDeleteFolder": "Brisanje mape ni uspelo",
+      "library": "Knjižnica",
+      "addFolder": "Dodaj mapo",
+      "searchForANoteFolder": "Išči zapiske ali mape",
+      "yourFolders": "Vaše mape",
+      "noFoldersToDisplay": "Ni map za prikaz",
+      "tapAddFolderToCreateA": "Pritisnite »+ Dodaj mapo«, da ustvarite mapo za zapiske",
+      "allNotes": "Vsi zapiski",
+      "items": "{{allNotesTotal}} elementov",
+      "items2": "{{itemCount}} elementov",
+      "yourNotes": "Vaši zapiski",
+      "untitledNote": "Neimenovan zapisek",
+      "noResultsFor": "Ni rezultatov za »{{searchQuery}}«",
+      "noNotesInThisFolder": "V tej mapi ni zapiskov",
+      "noNotesToDisplay": "Ni zapiskov za prikaz",
+      "tryADifferentSearchTerm": "Poskusi z drugim iskalnim nizom",
+      "moveNotesToThisFolderTo": "Premakni zapiske v to mapo, da jih vidiš tukaj",
+      "clickBelowToGenerateYourNote": "Klikni spodaj za ustvarjanje zapiska s Clinical Fact",
+      "filterByType": "Filtriraj po vrsti",
+      "audio": "Zvok",
+      "text2": "Besedilo",
+      "image": "Slika",
+      "clearFilter": "Počisti filter"
+    },
+    "profile": {
+      "permissionRequired": "Zahtevano dovoljenje",
+      "pleaseAllowAccessToYourPhoto": "Za nastavitev profilne slike omogoči dostop do fotografij.",
+      "uploadFailed": "Prenos ni uspel",
+      "couldNotUpdateProfilePicture": "Profilne slike ni bilo mogoče posodobiti.",
+      "failedToUploadProfilePicture": "Nalaganje profilne slike ni uspelo.",
+      "checkOutClinicalFactAIPowered": "Preizkusi Clinical Fact – študijski zapiski s podporo AI! {{url}}",
+      "proSubscriber": "Naročnik PRO",
+      "subscriptionExpired": "Naročnina je potekla",
+      "freeSubscriber": "Brezplačni uporabnik",
+      "tapToManageIPhoneSettingsApple": "Tapni za upravljanje · Nastavitve iPhone → Apple ID → Naročnine",
+      "tapToManagePlayStoreSubscriptions": "Tapni za upravljanje · Trgovina Play → Naročnine",
+      "tapToRenewYourSubscription": "Tapni za podaljšanje naročnine",
+      "tapToUpgradeToPro": "Tapni za nadgradnjo v PRO",
+      "referralCode": "Priporočilna koda",
+      "areYouSureYouWantTo": "Se res želiš odjaviti iz svojega računa?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Izbriši kviz",
+      "areYouSureYouWantTo": "Res želiš izbrisati »{{sourceTitle}}«?",
+      "failedToDeleteQuiz": "Kviza ni bilo mogoče izbrisati",
+      "correct": "Pravilno: {{correct}}/{{total}}",
+      "attempts": "Poskusi: {{attempts}}",
+      "quiz": "Kviz",
+      "createQuiz": "Ustvari kviz",
+      "searchQuizzes": "Išči med kvizi...",
+      "noQuizzesYet": "Ni še kvizov",
+      "createAQuizFromANote": "Za začetek ustvari kviz iz zapiska",
+      "createQuiz2": "+ Ustvari kviz",
+      "quizOptions": "Možnosti kviza",
+      "view": "Ogled"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Nadgradnja ni na voljo",
+      "weCouldnTOpenTheUpgrade": "Zaslona za nadgradnjo trenutno ni bilo mogoče odpreti. Preveri povezavo in poskusi znova."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Strežnik je vrnil odgovor, ki ni JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Omrežna napaka. Preveri internetno povezavo.",
+      "connectionErrorPleaseTryAgain": "Napaka pri povezavi. Poskusi znova."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Datoteka izvožena: {{filename}}",
+      "exportFailed": "Izvoz ni uspel",
+      "exportFormat": "Oblika izvoza",
+      "chooseFormat": "Izberi obliko",
+      "text": "Besedilo"
+    },
+    "formatDate": {
+      "justNow": "Pravkar",
+      "minAgo": "Pred {{diffMin}} min",
+      "hrAgo": "Pred {{diffHr}} h",
+      "dAgo": "Pred {{diffDay}} d",
+      "created": "Ustvarjeno: {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Pošiljanje kode OTP ni uspelo",
+      "invalidOTP": "Neveljavna koda OTP",
+      "failedToVerifyOTP": "Preverjanje kode OTP ni uspelo",
+      "googleAuthenticationFailed": "Prijava z računom Google ni uspela",
+      "appleAuthenticationFailed": "Prijava z računom Apple ni uspela",
+      "failedToCompleteSignup": "Registracije ni bilo mogoče dokončati",
+      "failedToSkipSignup": "Preskok registracije ni uspel"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Klepeti",
+      "description": "Klepetajte z zapisi, dokumenti ali datotekami PDF na enem mestu"
+    },
+    "profileWelcome": {
+      "heading": "Dobrodošli v svojem profilu",
+      "description": "To je vaš profil. Dotaknite se tukaj za urejanje profila in stanja naročnine."
+    },
+    "createNotes": {
+      "heading": "Ustvarite zapisek",
+      "description": "Ustvarite zapiske iz posnetkov, zvoka, videa, slik, besedila ali povezav YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Spremenite jezik",
+      "description": "Tukaj lahko spremenite jezik aplikacije v želeni jezik"
+    },
+    "manageHome": {
+      "heading": "Upravljajte začetni zaslon",
+      "description": "Preglejte vse ustvarjene zapiske in dejanja na enem mestu"
+    },
+    "yourLibrary": {
+      "heading": "Vaša knjižnica",
+      "description": "Upravljajte vse ustvarjene zapiske, ustvarjajte mape in še več"
+    },
+    "yourProfile": {
+      "heading": "Vaš profil",
+      "description": "Oglejte si podatke o svojem profilu in tukaj urejajte nastavitve"
+    }
   }
 }

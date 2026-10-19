@@ -29,6 +29,7 @@ import {
 import { useFolders, useNotes, useInvalidateNotes } from '../../hooks/queries';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
+import { useTranslation } from 'react-i18next';
 
 type FolderDetailRouteProp = RouteProp<MainStackParamList, 'FolderDetail'>;
 type FolderDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FolderDetail'>;
@@ -57,27 +58,32 @@ interface NoteItemProps {
   onPress: () => void;
 }
 
-const NoteItem: React.FC<NoteItemProps> = ({ note, onPress }) => (
-  <TouchableOpacity
-    style={styles.noteItem}
-    onPress={onPress}
-    activeOpacity={0.7}
-  >
-    <View style={styles.noteIconContainer}>
-      {getNoteIcon(note.sourceType || note.type)}
-    </View>
-    <View style={styles.noteContent}>
-      <Text style={styles.noteTitle} numberOfLines={1}>
-        {note.title}
-      </Text>
-      <Text style={styles.noteDate}>
-        Created {new Date(note.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-      </Text>
-    </View>
-  </TouchableOpacity>
-);
+const NoteItem: React.FC<NoteItemProps> = ({ note, onPress }) => {
+  const { t } = useTranslation();
+
+  return (
+    <TouchableOpacity
+      style={styles.noteItem}
+      onPress={onPress}
+      activeOpacity={0.7}
+    >
+      <View style={styles.noteIconContainer}>
+        {getNoteIcon(note.sourceType || note.type)}
+      </View>
+      <View style={styles.noteContent}>
+        <Text style={styles.noteTitle} numberOfLines={1}>
+          {note.title}
+        </Text>
+        <Text style={styles.noteDate}>
+         {t('notes.folderDetail.created', { value: new Date(note.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) })}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export const FolderDetailScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<FolderDetailNavigationProp>();
   const route = useRoute<FolderDetailRouteProp>();
   const { folderId } = route.params;
@@ -129,10 +135,10 @@ export const FolderDetailScreen = () => {
         setPickerVisible(false);
         invalidateNotes(); // bust cache so all screens reflect the move
       } else {
-        Alert.alert('Error', response.message || 'Failed to add note to folder');
+        Alert.alert(t('common.error'), response.message || t('notes.folderDetail.failedToAddNoteToFolder'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to add note to folder');
+      Alert.alert(t('common.error'), error.message || t('notes.folderDetail.failedToAddNoteToFolder'));
     }
   };
 
@@ -147,7 +153,7 @@ export const FolderDetailScreen = () => {
           >
             <ChevronLeftIcon size={24} color={colors.grey[900]} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Folder not found</Text>
+          <Text style={styles.headerTitle}>{t('notes.folderDetail.folderNotFound')}</Text>
           <View style={styles.placeholder} />
         </View>
       </SafeAreaView>
@@ -172,7 +178,7 @@ export const FolderDetailScreen = () => {
           onPress={handleAddNote}
           activeOpacity={0.7}
         >
-          <Text style={styles.addButtonText}>+ Add note</Text>
+          <Text style={styles.addButtonText}>{t('notes.folderDetail.addNote')}</Text>
         </TouchableOpacity>
       </View>
 
@@ -182,9 +188,9 @@ export const FolderDetailScreen = () => {
         </View>
       ) : notes.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyTitle}>No notes in this folder</Text>
+          <Text style={styles.emptyTitle}>{t('notes.folderDetail.noNotesInThisFolder')}</Text>
           <Text style={styles.emptyDescription}>
-            Move notes to this folder to see them here
+           {t('notes.folderDetail.moveNotesToThisFolderTo')}
           </Text>
         </View>
       ) : (
@@ -212,7 +218,7 @@ export const FolderDetailScreen = () => {
               <View style={styles.pickerContainer}>
                 <View style={styles.pickerHandleBar} />
                 <View style={styles.pickerHeader}>
-                  <Text style={styles.pickerTitle}>Add note to folder</Text>
+                  <Text style={styles.pickerTitle}>{t('notes.folderDetail.addNoteToFolder')}</Text>
                   <TouchableOpacity onPress={() => setPickerVisible(false)} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                     <CloseIcon size={22} color={colors.slate[500]} />
                   </TouchableOpacity>
@@ -224,8 +230,8 @@ export const FolderDetailScreen = () => {
                   </View>
                 ) : allNotes.length === 0 ? (
                   <View style={styles.pickerEmpty}>
-                    <Text style={styles.pickerEmptyText}>No notes available to add</Text>
-                    <Text style={styles.pickerEmptySubtext}>All your notes are already in this folder</Text>
+                    <Text style={styles.pickerEmptyText}>{t('notes.folderDetail.noNotesAvailableToAdd')}</Text>
+                    <Text style={styles.pickerEmptySubtext}>{t('notes.folderDetail.allYourNotesAreAlreadyIn')}</Text>
                   </View>
                 ) : (
                   <FlatList

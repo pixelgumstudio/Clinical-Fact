@@ -15,7 +15,8 @@
     "done": "Kész",
     "search": "Keresés",
     "filter": "Szűrő",
-    "ok": "RENDBEN"
+    "ok": "RENDBEN",
+    "info": "Infó"
   },
   "home": {
     "title": "Clinical Fact",
@@ -26,7 +27,7 @@
     "recentNotes": "Legutóbbi jegyzetek",
     "seeAll": "Összes megtekintése",
     "noNotes": "Nincsenek megjelenítendő jegyzetek",
-    "noNotesDesc": "Kérjük, kattintson a fenti gombra a clinicalfact számára létrehozott jegyzet létrehozásához.",
+    "noNotesDesc": "Kattints a fenti gombra a jegyzeted\ngenerálásának megkezdéséhez a Clinical Facthez.",
     "loadingNotes": "Jegyzetek betöltése..."
   },
   "profile": {
@@ -71,14 +72,20 @@
     "upgradePlan": "Frissítési csomag",
     "everyWeek": "Minden héten",
     "everyMonth": "Minden hónapban",
-    "everyYear": "Minden évben"
+    "everyYear": "Minden évben",
+    "reportBug": "Hiba bejelentése"
   },
   "auth": {
-    "welcome": "Üdvözöljük a Clinical Factben",
+    "welcome": {
+      "googleSignInFailed": "Sikertelen Google-bejelentkezés",
+      "failedToAuthenticateWithServer": "Nem sikerült hitelesíteni a szerverrel",
+      "googleSignInIsOnlyAvailable": "A Google-bejelentkezés csak a natív alkalmazásban érhető el. Kérjük, használj e-mailes hitelesítést, vagy töltsd le az appot.",
+      "code": "{{message}} (kód: {{code}})"
+    },
     "getStarted": "Kezdés",
     "signIn": "Bejelentkezés",
     "signUp": "Regisztráció",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Jelszó",
     "forgotPassword": "Elfelejtett jelszó?",
     "verifyEmail": "E-mail cím ellenőrzése",
@@ -94,7 +101,8 @@
       "skip": "Kihagyás",
       "verify": "Ellenőrizve!",
       "next": "Következő",
-      "tryNow": "Próbálja ki a Clinical Fact-t most ingyenesen"
+      "tryNow": "Próbálja ki a Clinical Fact-t most ingyenesen",
+      "continueWithApple": "Folytatás az Apple-lel"
     },
     "labels": {
       "firstName": "Keresztnév",
@@ -139,7 +147,10 @@
       "googleStartFailed": "Nem sikerült elindítani a Google-bejelentkezést. Próbáld újra.",
       "setupRequired": "Beállítás szükséges",
       "googleOAuthMissing": "A Google-bejelentkezéshez OAuth kliensazonosítók szükségesek.\\n\\nKérjük, adja hozzá a hitelesítő adatokat az .env fájlhoz.",
-      "youCanStillUseEmail": "Továbbra is használhatod a „Folytatás e-mailben” lehetőséget."
+      "youCanStillUseEmail": "Továbbra is használhatod a „Folytatás e-mailben” lehetőséget.",
+      "appleSignInFailed": "Sikertelen Apple-bejelentkezés",
+      "appleTokenFailed": "Nem sikerült feldolgozni az Apple-tokent",
+      "appleIosOnly": "Az Apple-fiókkal történő bejelentkezés csak iOS-en érhető el."
     },
     "messages": {
       "signingIn": "Bejelentkezés...",
@@ -150,7 +161,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nOkos jegyzetek Kezdje itt",
       "tagline": "Bármilyen szöveget tökéletes jegyzetekké alakíthat",
-      "description": "Alakítson át hanganyagokat, dokumentumokat vagy videókat áttekinthető, kereshető jegyzetekké, és azonnal készítsen kvízeket, flash kártyákat és összefoglalókat."
+      "description": "Alakítson át hanganyagokat, dokumentumokat vagy videókat áttekinthető, kereshető jegyzetekké, és azonnal készítsen kvízeket, flash kártyákat és összefoglalókat.",
+      "createAccountTitle": "Fiók létrehozása",
+      "orSignUpWith": "VAGY REGISZTRÁCIÓ EZZEL",
+      "signUpWithEmail": "Regisztráció e-mail-címmel",
+      "signInWithEmail": "Bejelentkezés e-mail-címmel",
+      "alreadyHaveAccount": "Már van fiókod? ",
+      "dontHaveAccount": "Még nincs fiókod? "
     },
     "otp": {
       "title": "Erősítse meg e-mail címét",
@@ -188,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Minden, amire szükséged van ahhoz, hogy bármit is megtanulj",
-      "subtitle": "Vedd fel. Kutasd fel. Teszteld. Sajátítsd el."
+      "subtitle": "Vedd fel. Kutasd fel. Teszteld. Sajátítsd el.",
+      "everythingYouNeedToLearnAnything": "Minden, amire a tanuláshoz szükséged van",
+      "recordItResearchItQuizIt": "Rögzítsd. Kutass. Teszteld. Sajátítsd el.",
+      "tryClinicalFactNowForFree": "Próbáld ki a Clinical Fact-et most ingyen"
     },
     "features": {
       "transcribe": {
@@ -209,13 +229,199 @@
       "quiz": {
         "title": "Tanulj gyorsabban kvízzel és\\ntanulókártyákkal",
         "description": "Alakítsa jegyzeteit kvízekké és flash kártyákká. Tanuljon gyorsabban és jegyezzen meg többet."
+      },
+      "feature1": {
+        "title": "Valódi orvosi válaszok és pontosító kérdések",
+        "description": "Kérdezz bármit orvosi témában, és kapj világos magyarázatot, valamint hasznos követő kérdéseket, hogy sose akadj el tanulás közben."
+      },
+      "feature2": {
+        "title": "Minden orvosi válasz\nvalódi forrással alátámasztva",
+        "description": "PubMed-, Semantic Scholar- és Europe PMC-hivatkozások – ellenőrizhető, nem kitalált forrásokból."
+      },
+      "feature3": {
+        "title": "Töltsd fel a jegyzeteidet, és kérj orvosi összefoglalót az anyagaidról",
+        "description": "Alakíts bármilyen előadásdiát, PDF-et vagy jegyzetet világos, megbízható forrásokkal alátámasztott magyarázattá."
+      },
+      "feature4": {
+        "title": "Alakíts bármilyen beszélgetést kvízzé vagy tanulókártyává a gyakorláshoz",
+        "description": "Nincs szükség külön tanulóappra: hozz létre gyakorlófeladatokat közvetlenül a csevegésekből és feltöltött anyagokból."
+      },
+      "feature5": {
+        "title": "Alakíts bármilyen beszélgetést vagy fájlt tanulókártyás kérdésekké a gyakorláshoz",
+        "description": "Nincs szükség külön tanulóappra: hozz létre gyakorlófeladatokat közvetlenül a csevegésekből és feltöltött anyagokból."
+      }
+    },
+    "languageSelect": {
+      "title": "Válassz nyelvet",
+      "subtitle": "Válaszd ki az alkalmazásban használni kívánt nyelvet. Később a profilodban módosíthatod.",
+      "searchPlaceholder": "Nyelv keresése",
+      "noResults": "Nem található nyelv"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Kérdezz orvosi témákban. Kérd a klinikai tényeket.",
+        "description": "Tegyél fel bármilyen orvosi kérdést, és kapj hiteles, a PubMedből, klinikai irányelvekből és megbízható orvosi szakirodalomból származó, forrásmegjelöléssel ellátott választ."
+      },
+      "slide2": {
+        "headline": "Minden válasz forrással alátámasztva",
+        "description": "Nincs találgatás vagy kitalált tény: minden válasz valódi, ellenőrizhető orvosi kutatásokra mutat."
+      },
+      "slide3": {
+        "headline": "Tanulj okosabban, menj át az orvosi vizsgákon",
+        "description": "Alakíts bármilyen kérdést vagy feltöltött fájlt kvízzé vagy tanulókártya-csomaggá másodpercek alatt – gyakorolj közvetlenül a saját tananyagodból."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Szakmai nyilatkozat",
+      "subtitle": "A Clinical Fact egy oktatási célú szakirodalom-kereső eszköz",
+      "disclaimerIntro": "A Clinical Fact egy mesterséges intelligencián alapuló információs eszköz, amelynek célja az ápoló-, orvos- és egyéb egészségtudományi hallgatók támogatása az orvosi ismeretek, kutatási irodalmak és tananyagok elérésében. Az applikáció nem ad orvosi diagnózist, kezelési javaslatot, klinikai utasítást vagy személyre szabott orvosi tanácsot, és tilos közvetlen betegellátás vagy klinikai döntéshozatal alapjaként használni.",
+      "disclaimerHeading": "Hogyan állítja elő a válaszokat a Clinical Fact:",
+      "disclaimerBody": "A Clinical Fact közvetlenül elismert orvosi és tudományos forrásokból nyeri ki az információkat – többek között a PubMed, a Semantic Scholar és a hivatalos FDA-gyógyszerleírások adatbázisából –, és AI segítségével, érthető nyelvezettel összegzi és magyarázza el azokat. Minden válasz kizárólag az adott kérdéshez lekért forrásokból készül, és a hivatkozások az eredeti anyagra mutatnak, így te magad is ellenőrizheted őket. A Clinical Fact nem emlékezetből állít elő orvosi tényeket, és nem talál ki forrásokat.\n\nA Clinical Fact nem diagnosztikai eszköz, nem terápiás felület, nem minősül orvostechnikai eszköznek, és nem helyettesíti a szakorvosi megítélést, az akkreditált oktatást vagy az intézményed tantervét. Az applikáció által generált bármely információ – beleértve a válaszokat, hivatkozásokat, kvízeket és tanulókártyákat – kizárólag általános oktatási és tanulási célt szolgál, és a felhasználónak független forrásból kötelező ellenőriznie, mielőtt bármilyen tanulmányi, klinikai vagy szakmai helyzetben hivatkozna rá.\nA Clinical Fact nem garantálja a közölt információk teljességét, pontosságát vagy aktuális klinikai relevanciáját. Az orvostudomány folyamatosan fejlődik – a kritikus információkat mindig vesd össze oktatóiddal, klinikai gyakorlatvezetőiddel és a naprakész elsődleges forrásokkal.\nHa saját dokumentumokat, jegyzeteket vagy felvételeket töltesz fel, a Clinical Fact kizárólag a feltöltött tartalom alapján hoz létre válaszokat, összefoglalókat, kvízeket és tanulókártyákat, külső forrásokat csak akkor vesz figyelembe, ha azok kifejezetten megjelennek a tartalom mellett.\n\nA Clinical Fact nem hitelesíti és nem ellenőrzi a felhasználók személyazonosságát, hallgatói jogviszonyát vagy képesítését. Az applikáció nem alkalmas vészhelyzeti alkalmazásra vagy valós idejű klinikai döntéshozatalra.\nA folytatással kijelented, hogy megértetted ezeket a feltételeket, és elfogadod, hogy a Clinical Fact alkalmazást kizárólag tanulási és tájékozódási segédeszközként használod.",
+      "checkboxLabel": "Tudomásul veszem, hogy az alkalmazás kizárólag oktatási célokat szolgál, és nem nyújt orvosi tanácsot",
+      "acceptButton": "Elfogadás és folytatás"
+    },
+    "survey": {
+      "role": "Mi ír le a legjobban, {{firstName}}?",
+      "currentMethod": "Jelenleg hogyan szoktál választ találni az orvosi kérdéseidre?",
+      "timeDrain": "Mivel megy el a legtöbb időd?",
+      "appExpectation": "Mit vársz a Clinical Fact orvosi apptól?",
+      "aiToolsUsed": "Milyen AI-eszközöket használtál eddig az orvosi kutatómunkáidhoz?",
+      "aiToolIssue": "Milyen problémákat tapasztaltál ezen eszközök használatakor?",
+      "aiTrustLevel": "Milyen gyakran aggódsz amiatt, hogy az AI válasza téves lehet?",
+      "biggestNeed": "Mire van most a legnagyobb szükséged?",
+      "studyTimePerWeek": "Hetente mennyi időd jut a tanulásra?",
+      "comingUp": "Milyen megmérettetés áll előtted?",
+      "referralSource": "Hol hallottál a Clinical Factről?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Értesítések bekapcsolása",
+      "thisHelpsUsStayOnTrack": "Így személyre szabhatjuk a fiókodat, és segíthetünk gyorsabban megbízható orvosi válaszokat találni"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Érvénytelen ellenőrző kód. Kérjük, próbáld újra.",
+      "failedToResendCodePleaseTry": "Nem sikerült újraküldeni a kódot. Kérjük, próbáld újra.",
+      "confirmYourEmailAddress": "Erősítsd meg az e-mail-címed",
+      "enterCodeSentTo": "Kérjük, add meg a(z) {{email}} e-mail-címre küldött egyszeri kódot",
+      "resendCodeIn": "Kód újraküldése: {{seconds}} mp"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Ajánlotta valaki az appot?",
+      "enterTheirReferralCodeIfYou": "Add meg az ajánlókódját, ha van",
+      "eGJOHNOrTECHBRO": "pl. JOHN vagy TECHBRO",
+      "codeIsValid": "✓ Érvényes kód"
+    },
+    "resultsChart": {
+      "getBetterResults": "Érj el jobb eredményeket",
+      "over95OfClinicalfactUsersScore": "A Clinical Fact-felhasználók több mint 95%-a legalább 95%-os eredményt ér el a teszteken és vizsgákon"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Ápolóhallgató",
+        "medicalStudent": "Orvostanhallgató",
+        "paPharmacyStudent": "PA- vagy gyógyszerészhallgató",
+        "practicingNurse": "Gyakorló ápoló",
+        "practicingPhysician": "Gyakorló orvos",
+        "otherHealthcareProfessional": "Egyéb egészségügyi szakember"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Tankönyvek vagy órai jegyzetek",
+        "flashcardQuizApps": "Tanulókártya- vagy kvízappok",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-chatbotok",
+        "colleagueClassmate": "Kolléga vagy szaktárs megkérdezése",
+        "practiceQuestionBanks": "Tesztkérdés-gyűjtemények"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Tanulókártyák és kvízek készítése a nulláról",
+        "findingTrustworthyAnswer": "Megbízható válasz gyors felkutatása",
+        "reReadingNotes": "Elfelejtett jegyzetek újraolvasása",
+        "switchingApps": "Váltogatás túl sok app között",
+        "chartingDocumentation": "Adminisztráció és dokumentáció"
+      },
+      "appExpectation": {
+        "noHallucination": "Egy AI, ami nem hallucinál",
+        "realCitations": "Valós forráshivatkozások",
+        "oneApp": "Egy app öt előfizetés helyett",
+        "explainsWhy": "Elmagyarázza a „miértet” is, nem csak a választ"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google-keresés",
+        "otherApps": "Egyéb appok"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Kitalált dolgokat",
+        "notMedicalContent": "Nem orvosi tartalomra készült",
+        "noSources": "Nincsenek ellenőrizhető források",
+        "tooGeneric": "Túl általános, nem vizsga- vagy gyakorlatorientált"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Mindig",
+        "sometimes": "Néha",
+        "rarely": "Ritkán",
+        "dontUseAi": "Még nem használok AI-t"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Gyors, megbízható válaszok",
+        "quizzesFlashcardsWithoutWork": "Kvízek és tanulókártyák felesleges munka nélkül",
+        "rememberingStudied": "Segítség a tanultak megjegyzésében",
+        "medicalCitations": "Orvosi források és hivatkozások",
+        "allOfTheAbove": "A fentiek mindegyike"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Hírlevél",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Egyéb"
+      },
+      "studyTime": {
+        "under5Hours": "Kevesebb mint 5 óra",
+        "510Hours": "5–10 óra",
+        "1020Hours": "10–20 óra",
+        "20PlusHours": "20+ óra"
+      },
+      "comingUp": {
+        "medicalExams": "Orvosi vizsgák",
+        "clinicalRotations": "Klinikai gyakorlatok",
+        "nursingExams": "Ápolói vizsgák",
+        "otherExams": "Egyéb vizsgák",
+        "staySharp": "Csak szinten szeretném tartani a tudásom"
       }
     }
   },
   "notes": {
-    "noteTranscript": "Jegyzetátirat",
+    "noteTranscript": {
+      "noteTranscript": "Jegyzet átirata",
+      "noNoteIDProvided": "Nincs megadva jegyzetazonosító",
+      "noTranscriptAvailableForThisNote": "Ehhez a jegyzethez nem érhető el átirat.",
+      "thisNoteWasNotCreatedFrom": "Ez a jegyzet nem hang- vagy videófelvételből készült, így nincs átirata.",
+      "failedToLoadNote": "A jegyzet betöltése sikertelen",
+      "noteTranscript2": "Jegyzet átirata",
+      "loadingTranscript": "Átirat betöltése...",
+      "goToNote": "Ugrás a jegyzethez"
+    },
     "noteOptions": "Jegyzetbeállítások",
-    "editNote": "Jegyzet szerkesztése",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Kérlek, adj meg egy jegyzetcímet",
+      "failedToUpdateNote": "A jegyzet frissítése sikertelen",
+      "noteUpdatedSuccessfully": "Jegyzet sikeresen frissítve",
+      "editNote": "Jegyzet szerkesztése",
+      "noteTitle": "Jegyzet címe",
+      "enterNoteTitle": "Add meg a jegyzet címét",
+      "noteContent": "Jegyzet tartalma",
+      "enterNoteContent": "Írd be a jegyzet tartalmát",
+      "saveThisNote": "Jegyzet mentése",
+      "aiIsGeneratingYourNote": "Az AI épp generálja a jegyzetedet",
+      "largeAudioAndVideoFilesMay": "A nagyobb hang- és videófájlok feldolgozása néhány percig is eltarthat. Kérlek, hagyd nyitva az alkalmazást."
+    },
     "retranscribe": "Újraírás",
     "exportNote": "Export jegyzet",
     "shareNoteLink": "Jegyzet megosztása link",
@@ -237,12 +443,89 @@
     "translate": "Fordítás",
     "addToFolder": "Hozzáadás mappához",
     "loadingNote": "Jegyzet betöltése...",
-    "noteNotFound": "Nem sikerült betölteni a jegyzetet"
+    "noteNotFound": "Nem sikerült betölteni a jegyzetet",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "A tanulókártyák létrehozása sikertelen",
+      "anUnexpectedErrorOccurred": "Váratlan hiba történt",
+      "history": "Előzmények",
+      "export": "Exportálás"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "A jegyzet mappához adása sikertelen",
+      "folderNotFound": "A mappa nem található",
+      "addNote": "+ Jegyzet hozzáadása",
+      "noNotesInThisFolder": "Nincsenek jegyzetek ebben a mappában",
+      "moveNotesToThisFolderTo": "Helyezz át ide jegyzeteket, hogy megjelenjenek",
+      "addNoteToFolder": "Jegyzet hozzáadása a mappához",
+      "noNotesAvailableToAdd": "Nincs hozzáadható jegyzet",
+      "allYourNotesAreAlreadyIn": "Már az összes jegyzeted ebben a mappában van",
+      "created": "Létrehozva: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "A jegyzet betöltése sikertelen",
+      "reTranscribeNote": "Jegyzet újraátírása",
+      "thisWillReTranscribeTheAudio": "Ez újra átírja a hanganyagot, és frissíti a jegyzetet. Folytatod?",
+      "reTranscribe": "Újraátírás",
+      "noteReTranscribedSuccessfully": "Jegyzet sikeresen újraátírva",
+      "info": "Infó",
+      "reTranscriptionFeatureIsComingSoon": "Az újraátírás funkció hamarosan elérhető lesz",
+      "youAreCurrentlyOfflinePleaseConnect": "Jelenleg offline vagy. A művelet elvégzéséhez kérlek, csatlakozz az internetre.",
+      "failedToDeleteNote": "A jegyzet törlése sikertelen",
+      "failedToExportNote": "Nem sikerült exportálni a jegyzetet",
+      "noteTranslatedSuccessfully": "A jegyzet sikeresen lefordítva",
+      "failedToTranslateNote": "Nem sikerült lefordítani a jegyzetet",
+      "noteMovedTo": "Jegyzet áthelyezve ide: {{name}}",
+      "failedToMoveNoteToFolder": "Nem sikerült a jegyzetet a mappába helyezni",
+      "summaryNotes": "Összefoglaló jegyzetek",
+      "loadingNote": "Jegyzet betöltése...",
+      "imageNote": "Képes jegyzet",
+      "created": "Létrehozva: {{dateTime}}",
+      "translate": "Fordítás",
+      "transcribe": "Átírás",
+      "editThisNote": "Jegyzet szerkesztése",
+      "createFlashcards": "Tanulókártyák készítése",
+      "createFlashcardsToImproveYourRetention": "Készíts tanulókártyákat a tananyag hatékonyabb elmélyítéséhez",
+      "createQuizQuestions": "Kvízkérdések készítése",
+      "practiceYourNotesByCreatingQuestions": "Gyakorold a tananyagot olyan kérdésekkel, amelyek segítenek a téma elsajátításában"
+    },
+    "sharedNote": {
+      "notFound": "Nem található",
+      "thisSharedNoteLinkIsInvalid": "A megosztott jegyzet linkje érvénytelen vagy lejárt.",
+      "failedToLoadSharedNote": "Nem sikerült betölteni a megosztott jegyzetet.",
+      "saved": "Mentve!",
+      "noteHasBeenAddedToYour": "A jegyzet hozzáadva a könyvtáradhoz.",
+      "viewInLibrary": "Megtekintés a könyvtárban",
+      "stayHere": "Maradás itt",
+      "failedToSaveNote": "Nem sikerült menteni a jegyzetet.",
+      "loadingSharedNote": "Megosztott jegyzet betöltése...",
+      "sharedNote": "Megosztott jegyzet",
+      "sharedWithYou": "Megosztva veled",
+      "savedToLibrary": "Mentve a könyvtárba",
+      "saveToMyLibrary": "Mentés a könyvtáramba"
+    }
   },
   "create": {
     "selectOption": "Hogyan szeretnéd létrehozni a jegyzetedet?",
-    "recordAudio": "Hangfelvétel",
-    "uploadAudio": "Hanganyag feltöltése",
+    "recordAudio": {
+      "permissionRequired": "Engedély szükséges",
+      "pleaseGrantMicrophonePermissionToRecord": "Kérjük, engedélyezd a mikrofon használatát a hangfelvételhez.",
+      "failedToRequestMicrophonePermission": "Nem sikerült kérni a mikrofonhozzáférést",
+      "created": "Létrehozva: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Hangfelvétel",
+      "recordAudio": "Hang felvétele",
+      "createANoteFromAnyRecorded": "Készíts jegyzetet bármilyen rögzített hanganyagból",
+      "recording": "Felvétel ({{time}})",
+      "recordAgain": "Újrafelvétel"
+    },
+    "uploadAudio": {
+      "created": "Létrehozva: {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Nem sikerült kiválasztani a hangfájlt",
+      "uploadAudio": "Hang feltöltése",
+      "createANoteFromAnyUploaded": "Készíts jegyzetet bármilyen feltöltött hangfájlból",
+      "dragDropFilesOrBrowse": "Húzd ide a fájlokat, vagy Tallózás",
+      "supportedFormatMp4WavMp3": "Támogatott formátumok: mp4, wav, mp3",
+      "changeFile": "Fájl módosítása"
+    },
     "youtube": "YouTube-videó",
     "pdfDocument": "PDF vagy dokumentum",
     "customText": "Egyéni szöveg",
@@ -250,7 +533,56 @@
     "uploadingFile": "Fájl feltöltése a szerverre...",
     "transcribing": "Beszéd szöveggé alakítása...",
     "extractingText": "Szöveg kinyerése...",
-    "generatingNote": "Mesterséges intelligencia által vezérelt tanulmányi jegyzetek létrehozása...",
+    "generatingNote": {
+      "uploadAudio": "Hang feltöltése",
+      "uploadingAudioFileToServer": "Hangfájl feltöltése a szerverre...",
+      "transcribeAudio": "Hang átírása",
+      "convertingSpeechToText": "Beszéd átalakítása szöveggé...",
+      "generateYourNote": "Jegyzet generálása",
+      "creatingStudyNotes": "Tanulójegyzetek készítése...",
+      "uploadPDF": "PDF feltöltése",
+      "uploadingPDFDocumentToServer": "PDF-dokumentum feltöltése a szerverre...",
+      "extractText": "Szöveg kinyerése",
+      "readingAndExtractingTextFromPDF": "Szöveg beolvasása és kinyerése a PDF-ből...",
+      "uploadImage": "Kép feltöltése",
+      "uploadingImageToServer": "Kép feltöltése a szerverre...",
+      "extractTextOCR": "Szöveg kinyerése (OCR)",
+      "recognizingAndExtractingTextFromImage": "Szöveg felismerése és kinyerése a képből...",
+      "fetchVideo": "Videó lekérése",
+      "connectingToYouTube": "Kapcsolódás a YouTube-hoz...",
+      "extractTranscript": "Átirat kinyerése",
+      "downloadingVideoTranscript": "Videó átiratának letöltése...",
+      "processText": "Szöveg feldolgozása",
+      "analyzingYourContent": "Tartalom elemzése...",
+      "uploadFile": "Fájl feltöltése",
+      "uploadingToServer": "Feltöltés a szerverre...",
+      "processContent": "Tartalom feldolgozása",
+      "extractingContent": "Tartalom kinyerése...",
+      "noteReady": "A jegyzet elkészült!",
+      "noteGenerationFailedOnTheServer": "A jegyzet létrehozása sikertelen volt a szerveren.",
+      "failedToUploadImage": "Nem sikerült feltölteni a képet",
+      "weCouldNotReadAnythingFrom": "Nem sikerült semmit kiolvasni a képből. Kérlek, próbáld újra egy élesebb képpel az orvosi jegyzeteidről.",
+      "preparingFile": "Fájl előkészítése...",
+      "almostDone": "Mindjárt kész...",
+      "untitledNote": "Névtelen jegyzet",
+      "failedToGenerateNote": "Nem sikerült létrehozni a jegyzetet",
+      "whoaSpeedy": "Hú, de gyors! 🏃💨",
+      "youReGeneratingContentABit": "Túl gyorsan generálsz tartalmat. Tarts egy 60 másodperces szünetet az újabb próbálkozás előtt, hogy az AI utolérje magát.",
+      "gotIt": "Értem",
+      "fileTooLarge": "A fájl túl nagy",
+      "yourFileExceedsThe15MBLimit": "A fájlod meghaladja az ingyenes felhasználókra érvényes 15 MB-os korlátot. Válts PRO csomagra, ha akár 100 MB-os előadásokat is fel szeretnél tölteni.",
+      "upgradeToPRO": "Váltás PRO-ra",
+      "oopsWeHitASnag": "Hoppá, elakadtunk 🚧",
+      "weCouldnTGenerateThatRight": "Ezt most nem sikerült létrehozni. Várj egy kicsit, és próbáld újra!",
+      "processingContent": "Tartalom feldolgozása...",
+      "generatingYourNote": "Jegyzet létrehozása...",
+      "audioNote": "Hangjegyzet",
+      "failedToGenerateFlashcards": "Nem sikerült létrehozni a tanulókártyákat",
+      "generatingNote": "Jegyzet létrehozása",
+      "pleaseKeepThisScreenOpenWhile": "Kérlek, hagyd nyitva ezt a képernyőt, amíg a jegyzet készül. Nagyobb fájlok átírása néhány percig is eltarthat.",
+      "goToNote": "Ugrás a jegyzethez",
+      "generateNoteTranscript": "Jegyzet átiratának létrehozása"
+    },
     "fetchingVideo": "Kapcsolódás a YouTube-hoz...",
     "processingText": "A tartalom elemzése...",
     "uploadAudioTitle": "Hanganyag feltöltése",
@@ -260,7 +592,63 @@
     "fetchVideo": "Videó lekérése",
     "extractTranscript": "Átirat kivonat",
     "processText": "Folyamat szövege",
-    "generateNote": "Jegyzet létrehozása"
+    "generateNote": "Jegyzet létrehozása",
+    "customTextInput": {
+      "customText": "Egyéni szöveg",
+      "createANoteFromAnyCustom": "Jegyzet létrehozása tetszőleges szövegből",
+      "enterText": "Szöveg megadása",
+      "enterYourTextHere": "Írd ide a szöveget..."
+    },
+    "uploadImage": {
+      "created": "Létrehozva: {{year}}. {{month}} {{day}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Engedély szükséges",
+      "pleaseAllowAccessToYourPhoto": "Kérlek, engedélyezd a hozzáférést a fotókönyvtáradhoz",
+      "failedToPickImage": "Nem sikerült kiválasztani a képet",
+      "uploadImage": "Kép feltöltése",
+      "createANoteFromAnyUploaded": "Jegyzet létrehozása feltöltött képből",
+      "dragDropFilesOrBrowse": "Húzd ide a fájlokat vagy Tallózás",
+      "supportedFormatPngJpegHeicWebp": "Támogatott formátumok: png, jpeg, heic, webp",
+      "changeFile": "Fájl cseréje"
+    },
+    "uploadPDF": {
+      "created": "Létrehozva: {{year}}. {{month}} {{day}}., {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Nem sikerült kiválasztani a dokumentumot",
+      "uploadPdf": "PDF feltöltése",
+      "createANoteFromAnyUploaded": "Jegyzet létrehozása feltöltött PDF-ből",
+      "dragDropFilesOrBrowse": "Húzd ide a fájlokat vagy Tallózás",
+      "supportedFormatPdf": "Támogatott formátum: pdf",
+      "changeFile": "Fájl cseréje"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Videó lekérése",
+      "gettingVideoDetails": "Videó részleteinek betöltése",
+      "extractingTranscript": "Átirat kinyerése",
+      "convertingAudioToText": "Hang átalakítása szöveggé",
+      "generatingYourNote": "Jegyzet létrehozása",
+      "aiIsSummarisingTheContent": "Az AI összegzi a tartalmat",
+      "noteGenerationFailedPleaseTryAgain": "Nem sikerült létrehozni a jegyzetet. Kérlek, próbáld újra.",
+      "processingFailed": "A feldolgozás sikertelen",
+      "goBack": "Vissza",
+      "retry": "Újra",
+      "failedToStartNoteGeneration": "Nem sikerült elindítani a jegyzetkészítést",
+      "failedToProcessYouTubeVideoPlease": "Nem sikerült feldolgozni a YouTube-videót. Kérjük, próbáld újra.",
+      "cancelProcessing": "Feldolgozás megszakítása",
+      "areYouSureYouWantTo": "Biztosan megszakítod? A folyamat elveszik.",
+      "continueProcessing": "Feldolgozás folytatása",
+      "youTubeNote": "YouTube-jegyzet",
+      "noteGenerated": "Jegyzet elkészült",
+      "generatingNote": "Jegyzet készítése...",
+      "goToNote": "Ugrás a jegyzethez"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "A videóadatok nem tölthetők be",
+      "failedToFetchVideoInformation": "Nem sikerült lekérni a videó információit",
+      "youtubeVideo": "YouTube-videó",
+      "createANoteFromAnyYoutube": "Készíts jegyzetet bármelyik YouTube-videóból",
+      "enterYoutubeURL": "Add meg a YouTube URL-t",
+      "pasteYoutubeURL": "YouTube URL beillesztése",
+      "fetchingVideoInfo": "Videóadatok lekérése..."
+    }
   },
   "library": {
     "title": "Könyvtár",
@@ -292,7 +680,7 @@
     "almostDone": "Majdnem kész...",
     "quizReady": "Kvíz kész!",
     "startQuiz": "Kvíz indítása",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} / {{total}}",
     "exitTitle": "Kilépés a kvízből?",
     "exitMessage": "Az előrehaladásod elveszik.",
     "exit": "Kijárat",
@@ -312,7 +700,45 @@
     "correctAnswer": "Helyes válasz",
     "yourAnswer": "A válaszod",
     "explanation": "Magyarázat",
-    "questionProgress": "{{current}}. kérdés a {{total}}-ból"
+    "questionProgress": "{{current}}. kérdés a {{total}}-ból",
+    "generatingQuizWait": "A kvíz összeállítása folyamatban van, kérjük, várj egy pillanatot...",
+    "goToChats": "Ugrás a csevegésekhez",
+    "quizGroupDetail": {
+      "inProgress": "Folyamatban",
+      "notStarted": "Nincs elkezdve",
+      "failedToLoadQuizHistory": "Nem sikerült betölteni a kvízelőzményeket",
+      "failedToLoadChatContent": "Nem sikerült betölteni a csevegést",
+      "deleteQuiz": "Kvíz törlése",
+      "failedToDeleteQuiz": "Nem sikerült törölni a kvízt",
+      "created": "Létrehozva: {{dateTime}}",
+      "lastscore": "LEGUTÓBBI EREDMÉNY",
+      "bestscore": "LEGJOBB EREDMÉNY",
+      "attempts": "PRÓBÁLKOZÁSOK",
+      "retakeQuiz": "Kvíz újrakezdése",
+      "translate": "Fordítás",
+      "newQuiz": "Új kvíz",
+      "quizHistory": "Kvízelőzmények",
+      "flashcardHistory": "Tanulókártya-előzmények",
+      "score": "Eredmény: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Még nincs tanulókártya ebből a forrásból.",
+      "cards": "{{totalCards}} kártya · {{flashcardStatus}}",
+      "quizOptions": "Kvízbeállítások",
+      "exportLatestAttempt": "Legutóbbi próbálkozás exportálása",
+      "questions": "{{totalQuestions}} kérdés · {{value}}",
+      "deleteAllAttemptsOne": "Törlöd ezt az 1 kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "deleteAllAttemptsMany": "Törlöd mind a(z) {{total}} kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "makeFlashcards": "Tanulókártyák készítése"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Nem sikerült betölteni a kvízadatokat – érvénytelen válaszformátum",
+      "failedToLoadQuizData": "Nem sikerült betölteni a kvízadatokat",
+      "noContentAvailable": "Nincs elérhető tartalom",
+      "goBack": "Vissza",
+      "previous": "Előző"
+    },
+    "quiz": {
+      "generationFailed": "A létrehozás sikertelen"
+    }
   },
   "flashcards": {
     "title": "Flash kártyák",
@@ -343,7 +769,46 @@
     "headerTitle": "Tanulókártya",
     "progressFormat": "{{current}} / {{total}} kártya",
     "noteIdRequired": "Jegyzetazonosító szükséges a flash kártyák létrehozásához",
-    "invalidCardCount": "Válasszon 1 és 100 kártya közül"
+    "invalidCardCount": "Válasszon 1 és 100 kártya közül",
+    "flashcardGroupDetail": {
+      "inProgress": "Folyamatban",
+      "notStarted": "Nincs elkezdve",
+      "failedToLoadFlashcardHistory": "Nem sikerült betölteni a kártyaelőzményeket",
+      "limitReached": "Korlát elérve",
+      "flashcardGenerationLimitReached": "Elérted a tanulókártya-készítési korlátot.",
+      "failedToGenerateFlashcards": "Nem sikerült létrehozni a tanulókártyákat",
+      "failedToTranslateFlashcards": "Nem sikerült lefordítani a tanulókártyákat",
+      "deleteFlashcards": "Tanulókártyák törlése",
+      "failedToDeleteFlashcards": "Nem sikerült törölni a tanulókártyákat",
+      "created": "Létrehozva: {{dateTime}}",
+      "lastprogress": "LEGUTÓBBI HALADÁS",
+      "bestprogress": "LEGJOBB HALADÁS",
+      "sets": "KÉSZLETEK",
+      "studyNow": "Tanulás most",
+      "translate": "Fordítás",
+      "newFlashcards": "Új tanulókártyák",
+      "flashcardHistory": "Kártyaelőzmények",
+      "quizHistory": "Kvízelőzmények",
+      "cards": "{{totalCards}} kártya · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Még nincs kvíz ebből a forrásból.",
+      "score": "Eredmény: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Tanulókártya-beállítások",
+      "exportLatestSet": "Legújabb készlet exportálása",
+      "questions": "{{totalQuestions}} kérdés · {{value}}",
+      "deleteAllSetsOne": "Törlöd az 1 kártyakészletet a következőhöz: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "deleteAllSetsMany": "Törlöd mind a(z) {{total}} kártyakészletet a következőhöz: „{{title}}”? Ez a művelet nem vonható vissza.",
+      "makeQuiz": "Kvíz készítése",
+      "failedToLoadChatContent": "Nem sikerült betölteni a csevegés tartalmát"
+    },
+    "flashcardReview": {
+      "unknownError": "Ismeretlen hiba",
+      "noFlashcardsInThisSet": "Nincsenek kártyák ebben a készletben",
+      "goBack": "Vissza",
+      "allDone": "Kész!",
+      "youHaveReviewedAllTheCards": "Átismételted a pakli összes kártyáját",
+      "question": "{{value}}. kérdés",
+      "questionOf": "{{value}} / {{totalCards}}. kérdés"
+    }
   },
   "chat": {
     "title": "Csevegés",
@@ -354,7 +819,191 @@
     "chatWithDocument": "Csevegés a dokumentummal",
     "selectFile": "Válasszon ki egy fájlt a csevegéshez",
     "uploadFile": "Fájl feltöltése",
-    "startChatting": "Csevegés indítása"
+    "startChatting": "Csevegés indítása",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Tegyél fel egy orvosi kérdést a részletekért",
+      "askAnythingAboutThisDocument": "Kérdezz bármit erről a dokumentumról...",
+      "askAQuestionAttachmentProcessingFailed": "Tegyél fel egy kérdést – a melléklet feldolgozása sikertelen",
+      "extractingText": "Szöveg kinyerése...",
+      "processingPDF": "PDF feldolgozása...",
+      "upgradeToProToContinueChatting": "Válts PRO csomagra a beszélgetés folytatásához",
+      "queryremaining": "{{queriesRemaining}} KÉRDÉS MARADT"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Csevegés indítása...",
+      "extractingTextFromImage": "Szöveg kinyerése a képből...",
+      "processingPDFDocument": "PDF-dokumentum feldolgozása...",
+      "analyzingYourNote": "Jegyzet elemzése...",
+      "thisUsuallyTakesJustAFew": "⏱️ Ez általában csak néhány másodpercet vesz igénybe. A feldolgozás befejezése után indulhat a csevegés.",
+      "processingFailed": "Sikertelen feldolgozás",
+      "fileMightBeCorruptedOrUnreadable": "• A fájl sérült vagy olvashatatlan lehet",
+      "imageQualityTooLow": "A képminőség túl gyenge",
+      "pdfIsPasswordProtected": "A PDF jelszóval védett",
+      "contentFormatNotSupported": "Nem támogatott formátum",
+      "networkConnectionIssue": "• Hálózati kapcsolati hiba",
+      "tryADifferentFile": "Próbálj meg egy másik fájlt",
+      "askAnyClinicalQuestionNoUpload": "💡 Tegyél fel bármilyen klinikai kérdést – feltöltés sem szükséges. Hivatkozott orvosi szakirodalom és releváns képek alapján válaszolok.",
+      "readyToChat": "✓ Készen áll a beszélgetésre",
+      "couldntProcessNote": "Nem sikerült feldolgozni a jegyzetet. Ennek lehetséges okai:",
+      "couldntProcessImage": "Nem sikerült feldolgozni a képet. Ennek lehetséges okai:",
+      "couldntProcessDocument": "Nem sikerült feldolgozni a dokumentumot. Ennek lehetséges okai:",
+      "askMeAboutNote": "💡 Kérdezz bármit erről a jegyzetről! Összegzem a lényeget, elmagyarázom a fogalmakat, vagy válaszolok a konkrét kérdéseidre.",
+      "askMeAboutImage": "💡 Kérdezz bármit erről a képről! Összegzem a lényeget, elmagyarázom a fogalmakat, vagy válaszolok a konkrét kérdéseidre.",
+      "askMeAboutDocument": "💡 Kérdezz bármit erről a dokumentumról! Összegzem a lényeget, elmagyarázom a fogalmakat, vagy válaszolok a konkrét kérdéseidre."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} elsajátítva",
+      "notStarted": "Nincs elkezdve",
+      "quizGeneration": "Kvíz létrehozása",
+      "score": "Eredmény: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Tanulókártyák létrehozása",
+      "questions": "{{totalCards}} kérdés · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} kérdés · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Gondolkodom és forrásokat keresek neked...",
+      "couldnTGenerateAResponse": "Nem sikerült választ generálni.",
+      "retry": "Újra",
+      "alsoReferencedFromTheWeb": "Internetes források alapján is",
+      "followUpQuestions": "Kapcsolódó kérdések"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Kérdezz bármit orvosi témában, hiteles forrásokkal alátámasztva",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Bizonyítékokon alapuló · PubMed-források · Lektorált",
+      "tryOutAnyOfThisTopics": "Próbáld ki az alábbi témák egyikét a kezdéshez",
+      "topics": {
+        "electrolytes": {
+          "label": "Elektrolitzavarok áttekintése",
+          "question": "Magyarázd el az elektrolitzavarokat – okok, tünetek és kezelés"
+        },
+        "ecg": {
+          "label": "Az EKG-értelmezés alapjai",
+          "question": "Melyek az EKG-értelmezés legfontosabb alapjai?"
+        },
+        "drugInteractions": {
+          "label": "Gyakori gyógyszerkölcsönhatások",
+          "question": "Melyek a leggyakoribb és legfontosabb gyógyszer-interakciók?"
+        },
+        "nclex": {
+          "label": "NCLEX-típusú gyakorlófeladatok",
+          "question": "Adj egy NCLEX-típusú gyakorlókérdést"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "FDA gyógyszerleírás",
+      "fromYourAttachedMaterial": "A csatolt anyagod alapján"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Nem sikerült létrehozni a beszélgetést",
+      "failedToInitializeChatSession": "Nem sikerült elindítani a beszélgetést",
+      "failedToUpdateLanguage": "Nem sikerült módosítani a nyelvet",
+      "youVeReachedYour3Pin": "Elérted a legfeljebb 3 rögzítéses korlátot",
+      "failedToUpdatePin": "Nem sikerült módosítani a rögzítést",
+      "permissionRequired": "Engedély szükséges",
+      "pleaseGrantCameraPermissionToTake": "Kérjük, engedélyezd a kamerahozzáférést a fotózáshoz.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Kérjük, engedélyezd a galéria-hozzáférést a képek feltöltéséhez.",
+      "failedToUploadImage": "Nem sikerült feltölteni a képet",
+      "uploadFailed": "Sikertelen feltöltés",
+      "failedToUploadDocument": "Nem sikerült feltölteni a dokumentumot",
+      "failedToStartChatFromThis": "Nem sikerült beszélgetést indítani ebből a fájlból.",
+      "chatFromImage": "Beszélgetés kép alapján",
+      "failedToStartANewQuestion": "Nem sikerült új kérdést indítani. Kérjük, próbáld újra.",
+      "failedToAttachFile": "Nem sikerült csatolni a fájlt",
+      "failedToSendMessage": "Nem sikerült elküldeni az üzenetet",
+      "copiedToClipboard": "Vágólapra másolva",
+      "notEnoughContentYet": "Még nincs elég tartalom",
+      "chatABitMoreBeforeGenerating": "Beszélgess még egy kicsit a kvíz létrehozása előtt (legalább 100 karakter szükséges).",
+      "chatABitMoreBeforeGenerating2": "Beszélgess még egy kicsit a tanulókártyák létrehozása előtt (legalább 100 karakter szükséges).",
+      "failedToGenerateFlashcards": "Nem sikerült létrehozni a tanulókártyákat",
+      "failedToRegenerateResponse": "Nem sikerült újragenerálni a választ",
+      "failedToRetryResponse": "Nem sikerült újrapróbálni a választ"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Nem sikerült csatolni a jegyzetet",
+      "folderCreatedSuccessfully": "A(z) „{{name}}” mappa sikeresen létrejött!",
+      "failedToCreateFolder": "Nem sikerült létrehozni a mappát",
+      "failedToAttachDocument": "Nem sikerült csatolni a dokumentumot",
+      "failedToCreateChatSession": "Nem sikerült létrehozni a beszélgetést",
+      "failedToUploadDocument": "Nem sikerült feltölteni a dokumentumot",
+      "openingCamera": "📷 Kamera megnyitása...",
+      "openingImagePicker": "🖼️ Képválasztó megnyitása...",
+      "permissionRequired": "Engedély szükséges",
+      "pleaseGrantCameraPermissionToTake": "Kérjük, engedélyezd a kamerahozzáférést a fotózáshoz.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Kérjük, engedélyezd a galéria-hozzáférést a képek feltöltéséhez.",
+      "failedToAttachImage": "Nem sikerült csatolni a képet",
+      "failedToUploadImage": "Nem sikerült feltölteni a képet",
+      "failedToAttachAudio": "Nem sikerült csatolni a hanganyagot",
+      "failedToUploadAudio": "Nem sikerült feltölteni a hanganyagot",
+      "aNote": "{{verb}} jegyzet",
+      "anImage": "{{verb}} kép",
+      "aDocument": "{{verb}} dokumentum",
+      "audio": "{{verb}} hangfájl",
+      "aFile": "{{verb}} fájl",
+      "items": "{{itemCount}} elem",
+      "thisFolderIsEmptyGoBack": "Ez a mappa üres. Lépj vissza egy másik mappa kiválasztásához.",
+      "addFolder": "Mappa hozzáadása",
+      "uploadNewDocument": "Új dokumentum feltöltése",
+      "uploadAPDFAndStartChatting": "Tölts fel egy PDF-et, és kezdj azonnal csevegni vele",
+      "uploadNewImage": "Új kép feltöltése",
+      "uploadAnImageAndExtractText": "Tölts fel egy képet, és nyerd ki a szöveget azonnal",
+      "uploadNewAudio": "Új hangfájl feltöltése",
+      "uploadAnAudioFileAndTranscribe": "Tölts fel egy hangfájlt az azonnali átíráshoz",
+      "orselectfromlibrary": "VAGY VÁLASSZ A KÖNYVTÁRBÓL",
+      "folders": "Mappák",
+      "allNotes": "Összes jegyzet",
+      "noFilesToDisplay": "Nincsenek megjeleníthető fájlok",
+      "noNotesToDisplay": "Nincsenek megjeleníthető jegyzetek",
+      "noDocumentsYet": "Még nincsenek PDF-dokumentumaid.\nElőbb hozz létre jegyzeteket, majd térj vissza csevegni velük.",
+      "noImagesYet": "Még nincsenek képeid.\nElőbb hozz létre jegyzeteket, majd térj vissza csevegni velük.",
+      "noAudioNotesYet": "Még nincsenek hangjegyzeteid.\nElőbb hozz létre jegyzeteket, majd térj vissza csevegni velük.",
+      "noNotesYet": "Még nincsenek jegyzeteid.\nElőbb hozz létre jegyzeteket, majd térj vissza csevegni velük.",
+      "attachNote": "Jegyzet csatolása",
+      "selectNote": "Jegyzet kiválasztása",
+      "attachImage": "Kép csatolása",
+      "selectImage": "Kép kiválasztása",
+      "attachDocument": "Dokumentum csatolása",
+      "selectDocument": "Dokumentum kiválasztása",
+      "attachAudio": "Hangfájl csatolása",
+      "selectAudio": "Hangfájl kiválasztása",
+      "attachFile": "Fájl csatolása",
+      "selectFile": "Fájl kiválasztása"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Hozzáadás a csevegéshez",
+      "camera": "Kamera",
+      "photos": "Fotók",
+      "files": "Fájlok",
+      "generateQuiz": "Kvíz generálása",
+      "generateFlashcards": "Tanulókártyák generálása",
+      "searchMedicalLiterature": "Orvosi szakirodalom keresése",
+      "filterByDateSourceAndType": "Szűrés dátum, forrás és típus szerint",
+      "pullsRealCitedSourcesIntoYour": "Valódi, hivatkozott forrásokat illeszt a válaszokba",
+      "trustedmedicalsourcedatabase": "HITELES ORVOSI FORRÁSOK ADATBÁZISA",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "FDA gyógyszer- és kezelési adatok"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Hivatkozások ellenőrzése",
+      "citations": "Hivatkozások",
+      "fromTheWeb": "Internetes források"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Kész · koppints az átnevezéshez",
+      "processing": "Feldolgozás: {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Forrás megtekintése ↗"
+    },
+    "chatRename": {
+      "renameChat": "Csevegés átnevezése"
+    },
+    "sourcesRow": {
+      "viewSources": "Források megtekintése ({{total}})"
+    }
   },
   "languages": {
     "english": "angol",
@@ -408,5 +1057,455 @@
     "malay": "maláj",
     "indonesian": "indonéz",
     "catalan": "katalán"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Mappa hozzáadása",
+      "folderName": "Mappa neve",
+      "enterFolderName": "Add meg a mappa nevét",
+      "chooseColor": "Szín kiválasztása",
+      "createFolder": "Mappa létrehozása"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Mielőtt feldolgoznánk a tartalmadat",
+      "clinicalFactUsesAIToAnswer": "A Clinical Fact AI segítségével válaszol a kérdéseidre, és alakítja át tartalmaidat jegyzetekké, kvízekké és tanulókártyákká. Amit erről tudnod kell:",
+      "whatDataIsSent": "Milyen adatokat továbbítunk",
+      "questionsAndMessagesYouTypeIn": "A csevegésben megadott kérdések és üzenetek",
+      "audioRecordingsOrUploadedAudioFiles": "Hangfelvételek és feltöltött hangfájlok",
+      "pdfAndTextDocumentsYouUpload": "Általad feltöltött PDF- és szöveges dokumentumok",
+      "imagesYouUpload": "Általad feltöltött képek",
+      "youTubeVideoURLsAndTheirTranscripts": "YouTube-videók linkjei és azok átiratai",
+      "customTextYouEnter": "Általad megadott egyéni szövegek",
+      "whoReceivesYourData": "Ki kapja meg az adataidat",
+      "howItSUsed": "Hogyan használjuk fel",
+      "yourContentIsUsedSolelyTo": "Tartalmadat kizárólag a kért válasz, jegyzet, kvíz vagy tanulókártya előállításához használjuk fel. Az API-kon keresztül feldolgozott tartalmakra a szolgáltatók saját adatkezelési szabályzatai vonatkoznak. További részletekért lásd az Adatvédelmi szabályzatunkat.",
+      "iAgreeContinue": "Elfogadom — Folytatás",
+      "noThanks": "Köszönöm, nem",
+      "whoReceivesBody": "Tartalmait biztonságos háttérkiszolgálóinkon keresztül a <bold>Google (Gemini)</bold> (jegyzet-, kvíz- és tanulókártya-készítés; csevegési válaszok; dokumentum- és képfeldolgozás) és az <bold>OpenAI</bold> (hang leiratozása) rendszereinek továbbítjuk. A dokumentumaiból származó részleteket a <bold>Google Vertex AI</bold> indexeli, hogy a csevegés megtalálhassa a releváns részeket. Élő orvosi keresés használatakor a kérdést a <bold>Tavily</bold> és nyilvános orvosi szakirodalmi adatbázisok (például PubMed, Europe PMC és Semantic Scholar) is megkapják, hogy megbízható forrásokból (mint az NIH, CDC, MedlinePlus, WHO és Mayo Clinic) keressenek hivatkozásokat. Ezek a szolgáltatók kizárólag a válasz generálására használják adatait – nem használják fel saját, általános célú AI-modelljeik tanítására, és adatait semmilyen harmadik félnek nem adjuk el."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Csevegés rögzítésének feloldása",
+      "pinChat": "Csevegés rögzítése",
+      "deleteChat": "Csevegés törlése"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Tanulókártyák generálása",
+      "createFlashcards": "Tanulókártyák készítése",
+      "createFlashcardsFromToImproveYour": "Készíts tanulókártyákat a(z) „{{noteTitle}}” jegyzetből az ismeretek jobb elmélyítéséhez",
+      "createFlashcardsToImproveYourRetention": "Készíts tanulókártyákat a tanultak hatékonyabb elmélyítéséhez",
+      "howManyQuestions": "Kérdések száma",
+      "generateFlashcards2": "Tanulókártyák generálása"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Létrehozás csevegésből",
+      "selectFromOneOfYourRecent": "Válassz egy korábbi csevegést",
+      "pdfOrDocument": "PDF vagy dokumentum",
+      "createFromAudio": "Létrehozás hanganyagból",
+      "image": "Kép",
+      "createFromCustomText": "Létrehozás egyéni szövegből",
+      "created": "Létrehozva: {{day}}, {{time}}",
+      "createQuizFrom": "Kvíz létrehozása ebből:",
+      "createFlashcardsFrom": "Tanulókártyák létrehozása ebből:",
+      "selectFromChat": "Kiválasztás csevegésből",
+      "noRecentChatsYet": "Még nincsenek korábbi csevegések",
+      "quizFromPdf": "Kvíz készítése PDF-ből vagy dokumentumból",
+      "flashcardsFromPdf": "Tanulókártyák készítése PDF-ből vagy dokumentumból",
+      "quizFromAudio": "Kvíz készítése feltöltött hanganyagból",
+      "flashcardsFromAudio": "Tanulókártyák készítése feltöltött hanganyagból",
+      "quizFromImage": "Kvíz készítése bármilyen képből",
+      "flashcardsFromImage": "Tanulókártyák készítése bármilyen képből",
+      "quizFromText": "Kvíz készítése rögzített szövegből",
+      "flashcardsFromText": "Tanulókártyák készítése rögzített szövegből"
+    },
+    "createNote": {
+      "recordAudio": "Hangfelvétel készítése",
+      "generateANoteFromAnyRecorded": "Jegyzet készítése bármilyen hangfelvételből",
+      "uploadAudio": "Hangfájl feltöltése",
+      "createANoteFromAnyUploaded": "Jegyzet készítése bármilyen feltöltött hanganyagból",
+      "youtubeVideo": "YouTube-videó",
+      "createANoteFromAnyYoutube": "Jegyzet készítése bármilyen YouTube-videóból",
+      "pdfOrDocument": "PDF vagy dokumentum",
+      "createANoteFromPDFOr": "Jegyzet készítése PDF-ből vagy dokumentumból",
+      "customText": "Egyéni szöveg",
+      "createANoteFromCapturedText": "Jegyzet készítése rögzített szövegből",
+      "image": "Kép",
+      "createANoteFromAnyImage": "Jegyzet készítése bármilyen képből",
+      "createNote": "Jegyzet létrehozása"
+    },
+    "createQuiz": {
+      "generateQuiz": "Kvíz generálása",
+      "createQuiz": "Kvíz létrehozása",
+      "practiceByCreatingQuestionsThatHelp": "Gyakorold a(z) „{{noteTitle}}” témakört a tananyag elmélyítését segítő kérdésekkel",
+      "practiceYourNotesByCreatingQuestions": "Gyakorold a jegyzeteidet a tananyag elmélyítését segítő kérdésekkel",
+      "howManyQuestions": "Kérdések száma",
+      "timeInMinutes": "Idő (percben)"
+    },
+    "deleteNote": {
+      "deleteNote": "Jegyzet törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd ezt a jegyzetet?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Összefoglaló exportálása másként:",
+      "exportTranscriptAs": "Átirat exportálása másként:",
+      "exportAs": "Exportálás másként:",
+      "exportSummary": "Összefoglaló exportálása",
+      "exportTranscript": "Átirat exportálása"
+    },
+    "exportTypeStep": {
+      "exportNote": "Jegyzet exportálása",
+      "exportSummary": "Összefoglaló exportálása",
+      "exportTranscript": "Átirat exportálása"
+    },
+    "exportSettings": {
+      "export": "{{title}} exportálása",
+      "selectFormat": "Formátum kiválasztása",
+      "includeAnswers": "Válaszok belefoglalása",
+      "answersExplanationsIncluded": "Válaszokkal és magyarázatokkal együtt",
+      "questionsOnly": "Csak kérdések",
+      "export2": "Exportálás"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "A jegyzeted elkészült!",
+      "howDidWeDo": "Mennyire vagy elégedett?",
+      "happy": "Elégedett",
+      "sad": "Szomorú",
+      "maybeLater": "Talán később",
+      "whatWentWrong": "Mi ment félre?",
+      "yourFeedbackHelpsUsImprove": "A visszajelzésed segít a fejlődésben.",
+      "tellUsWhatCouldBeBetter": "Írd meg, miben javulhatnánk...",
+      "submit": "Küldés"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Nincs elérhető tartalom",
+      "clickCardToFlip": "kattints a kártya megfordításához"
+    },
+    "flashcardExport": {
+      "exportFailed": "Sikertelen exportálás",
+      "unknownError": "Ismeretlen hiba",
+      "export": "{{setTitle}} exportálása",
+      "chooseWhatToExport": "Válaszd ki, mit szeretnél exportálni",
+      "exportQuestions": "Kérdések exportálása",
+      "exportAnswers": "Válaszok exportálása"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Kártyacsomag törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd a következőt: \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "A kártyacsomag törlése nem sikerült",
+      "flashcardHistory": "Kártyaelőzmények",
+      "cards": "Kártyák",
+      "reviewedMastered": "{{cardsReviewedCount}} átismételve • {{percentage}}% elsajátítva"
+    },
+    "folders": {
+      "items": "{{itemCount}} elem",
+      "enterYourFolderName": "Add meg a mappa nevét",
+      "yourFolderName": "Mappa neve",
+      "createFolder": "Mappa létrehozása",
+      "folders": "Mappák",
+      "addFolder": "Mappa hozzáadása",
+      "noFoldersToDisplay": "Nincsenek megjeleníthető mappák",
+      "clickTheButtonAboveToCreate": "Kattints a fenti gombra jegyzetmappa létrehozásához",
+      "allFolders": "Összes mappa",
+      "items2": "{{totalItems}} elem"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Orvosi kutatási szűrők",
+      "howrecentdoyouwantthe": "MENNYIRE LEGYEN FRISS A FORRÁS",
+      "from": "Ettől",
+      "whatkindofsourcedoyou": "MILYEN TÍPUSÚ FORRÁSRA VAN SZÜKSÉGED",
+      "textbooks": "Tankönyvek",
+      "clinicalGuidelines": "Klinikai irányelvek",
+      "scientificJournalArticles": "Tudományos folyóiratcikkek",
+      "onlywiththisjournalarticles": "CSAK EZEKKEL A FOLYÓIRATCIKKEKKEL",
+      "metaAnalyses": "Metaanalízisek",
+      "reviewArticles": "Áttekintő közlemények",
+      "clinicalTrials": "Klinikai vizsgálatok",
+      "fromYear": "Kezdő év",
+      "toYear": "Záró év"
+    },
+    "noteOptions": {
+      "noteOptions": "Jegyzet beállításai",
+      "editNote": "Jegyzet szerkesztése",
+      "reTranscribe": "Újraátírás",
+      "chatWithNote": "Csevegés a jegyzettel",
+      "exportNote": "Jegyzet exportálása",
+      "moveToFolder": "Áthelyezés mappába",
+      "deleteNote": "Jegyzet törlése"
+    },
+    "onboardingTooltip": {
+      "skip": "Kihagyás"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Kvíz törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd a következőt: \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "A kvíz törlése nem sikerült",
+      "quizHistory": "Kvízelőzmények",
+      "questions": "Kérdések",
+      "correct": "{{correctAnswers}} helyes"
+    },
+    "referral": {
+      "copied": "Másolva!",
+      "yourReferralCodeHasBeenCopied": "Az ajánlókódodat a vágólapra másoltuk.",
+      "joinMeOnClinicalFactUse": "Csatlakozz hozzám a Clinical Facten! Használd a kódomat: {{referralCode}} – {{appUrl}}",
+      "joined": "Csatlakozott: {{joinedDate}}",
+      "referralCode": "Ajánlókód",
+      "yourReferralCode": "Saját ajánlókódod",
+      "shareWithFriendsToEarnRewards": "Oszd meg ismerőseiddel, és szerezz jutalmakat",
+      "share": "Megosztás",
+      "copyCode": "Kód másolása",
+      "referredFriends": "Meghívott ismerősök",
+      "noReferralsYetShareYourCode": "Még nincs meghívottad. Oszd meg a kódodat a kezdéshez!",
+      "loadMore": "Több betöltése",
+      "howItWorks": "Hogyan működik?",
+      "friendsUseYourCodeDuringSignup": "• Ismerőseid használják a kódodat a regisztráció során",
+      "youBothEarnRewardsWhenThey": "• Mindketten jutalmat kaptok, amikor csatlakoznak",
+      "friendsReferredCount": "Meghívott ismerősök: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Szöveg kinyerése...",
+      "transcribingAudio": "Hang átírása...",
+      "processingPDF": "PDF feldolgozása...",
+      "settingUpChat": "Csevegés előkészítése...",
+      "uploadFailed": "Sikertelen feltöltés",
+      "failedToUploadFilePleaseTry": "Nem sikerült feltölteni a fájlt. Kérlek, próbáld újra.",
+      "yourFileIsReadyForChatting": "A fájl készen áll a csevegésre!",
+      "uploadingYourFileToTheServer": "Fájl feltöltése a szerverre...",
+      "extractingTextFromYourImage": "Szöveg kinyerése a képből...",
+      "transcribingYourAudio": "Hangfelvétel átírása...",
+      "extractingTextFromYourPDF": "Szöveg kinyerése a PDF-ből...",
+      "creatingYourChatSession": "Csevegés létrehozása...",
+      "pleaseWait": "Kérlek, várj...",
+      "uploadFile": "Fájl feltöltése",
+      "processContent": "Tartalom feldolgozása",
+      "createChat": "Csevegés indítása"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Megtekintés",
+      "export": "📤 Exportálás",
+      "delete": "🗑️ Törlés"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Működteti:"
+    },
+    "exportFormat": {
+      "txtFile": "TXT-fájl",
+      "pdfFile": "PDF-fájl",
+      "docFile": "DOC-fájl"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Nem sikerült lekérni a jegyzeteket",
+      "failedToFetchFolders": "Nem sikerült lekérni a mappákat",
+      "failedToFetchNote": "Nem sikerült lekérni a jegyzetet",
+      "failedToDeleteNote": "Nem sikerült törölni a jegyzetet",
+      "failedToCreateFolder": "Nem sikerült létrehozni a mappát",
+      "failedToDeleteFolder": "Nem sikerült törölni a mappát"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Nem sikerült törölni a csevegést"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Tanulókártya-csomag sikeresen exportálva!",
+      "failedToExportFlashcardSet": "Nem sikerült exportálni a tanulókártya-csomagot."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Kvíz sikeresen exportálva!",
+      "failedToExportQuiz": "Nem sikerült exportálni a kvízt."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Névtelen tanulókártyák",
+      "failedToLoadFlashcards": "Nem sikerült betölteni a tanulókártyákat",
+      "failedToSyncFlashcardSet": "Nem sikerült szinkronizálni a tanulókártya-csomagot",
+      "failedToSyncCardUpdate": "Nem sikerült szinkronizálni a kártya frissítését"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Kvíz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Létrehozva: {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Elérted a legfeljebb 3 kitűzött elem limitjét",
+      "failedToUpdatePin": "Nem sikerült frissíteni a kitűzést",
+      "noChatsYet": "Még nincsenek csevegések",
+      "startAChatToGetAnswers": "Indíts csevegést, hogy hiteles forrásokon alapuló válaszokat kapj.",
+      "createChat": "+ Új csevegés"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Tanulókártyák törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd a következőt: \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Nem sikerült törölni a tanulókártyákat",
+      "sets": "{{setCount}} készlet",
+      "flashcards": "Tanulókártyák",
+      "createFlashcards": "Tanulókártyák létrehozása",
+      "searchFlashcards": "Keresés a tanulókártyák között...",
+      "noFlashcardsYet": "Még nincsenek tanulókártyák",
+      "createAFlashcardSetFromA": "Kezdésként hozz létre egy kártyakészletet egy jegyzetből",
+      "createSet": "+ Készlet létrehozása",
+      "flashcardOptions": "Tanulókártya-beállítások",
+      "view": "Megtekintés"
+    },
+    "folder": {
+      "deleteFolder": "Mappa törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd a(z) „{{name}}” mappát? A benne lévő jegyzetek a gyökérmappába kerülnek.",
+      "failedToDeleteFolder": "Nem sikerült törölni a mappát",
+      "error": "Hiba: {{message}}",
+      "noFoldersYetCreateOne": "Még nincsenek mappák. Hozz létre egyet!",
+      "folders": "Mappák"
+    },
+    "home": {
+      "created": "Létrehozva: {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Nem sikerült frissíteni a nyelvet",
+      "notEnoughContentYet": "Még nincs elég tartalom",
+      "chatABitMoreBeforeGenerating": "Beszélgess még egy kicsit a kvíz létrehozása előtt (legalább 100 karakter szükséges).",
+      "chatABitMoreBeforeGenerating2": "Beszélgess még egy kicsit a tanulókártyák létrehozása előtt (legalább 100 karakter szükséges).",
+      "failedToGenerateFlashcards": "Nem sikerült létrehozni a tanulókártyákat",
+      "upgradeToPro": "Váltás PRO csomagra",
+      "get80DiscountWhenYouUpgrade": "Szerezz 80% kedvezményt a fiókod frissítésekor",
+      "unlockPRO": "PRO feloldása",
+      "noMedicalChats": "Nincsenek orvosi beszélgetések",
+      "youHaveNotCreatedAnyMedical": "Még nem indítottál orvosi beszélgetést. Indíts egy újat a hivatkozott források eléréséhez!",
+      "talkToClinicalfactAI": "Beszélgess a Clinical Fact AI-val",
+      "jumpInWhereYouStopped": "Folytasd ott, ahol abbahagytad",
+      "practiceQuiz": "Gyakorló kvíz",
+      "makeFlashcards": "Tanulókártyák készítése",
+      "continueChatWithNote": "Beszélgetés folytatása a jegyzettel",
+      "continueChat": "Beszélgetés folytatása",
+      "recentChats": "Legutóbbi beszélgetések",
+      "chatOptions": "Beszélgetés beállításai"
+    },
+    "library": {
+      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Jelenleg offline módban vagy. Kérjük, csatlakozz az internethez a művelet elvégzéséhez.",
+      "failedToDeleteNote": "Nem sikerült törölni a jegyzetet",
+      "failedToMoveNote": "Nem sikerült áthelyezni a jegyzetet",
+      "deleteFolder": "Törlöd a mappát?",
+      "areYouSureNotesInsideWill": "Biztos vagy benne? A benne lévő jegyzetek nem törlődnek, csak átkerülnek az Összes jegyzet mappába.",
+      "failedToDeleteFolder": "Nem sikerült törölni a mappát",
+      "library": "Könyvtár",
+      "addFolder": "Mappa hozzáadása",
+      "searchForANoteFolder": "Keresés a jegyzetek és mappák között",
+      "yourFolders": "Mappáid",
+      "noFoldersToDisplay": "Nincsenek megjeleníthető mappák",
+      "tapAddFolderToCreateA": "Koppints a „+ Mappa hozzáadása” gombra egy új mappa létrehozásához",
+      "allNotes": "Összes jegyzet",
+      "items": "{{allNotesTotal}} elem",
+      "items2": "{{itemCount}} elem",
+      "yourNotes": "Jegyzeteid",
+      "untitledNote": "Névtelen jegyzet",
+      "noResultsFor": "Nincs találat erre: „{{searchQuery}}”",
+      "noNotesInThisFolder": "Nincsenek jegyzetek ebben a mappában",
+      "noNotesToDisplay": "Nincsenek megjeleníthető jegyzetek",
+      "tryADifferentSearchTerm": "Próbálkozz más keresési kifejezéssel",
+      "moveNotesToThisFolderTo": "Helyezz át jegyzeteket ide, hogy megjelenjenek ebben a mappában",
+      "clickBelowToGenerateYourNote": "Kattints az alábbi gombra a jegyzet létrehozásához a Clinical Fact segítségével",
+      "filterByType": "Szűrés típus szerint",
+      "audio": "Hanganyag",
+      "text2": "Szöveg",
+      "image": "Kép",
+      "clearFilter": "Szűrő törlése"
+    },
+    "profile": {
+      "permissionRequired": "Engedély szükséges",
+      "pleaseAllowAccessToYourPhoto": "A profilkép beállításához kérjük, engedélyezd a hozzáférést a fotóidhoz.",
+      "uploadFailed": "Sikertelen feltöltés",
+      "couldNotUpdateProfilePicture": "Nem sikerült frissíteni a profilképet.",
+      "failedToUploadProfilePicture": "Nem sikerült feltölteni a profilképet.",
+      "checkOutClinicalFactAIPowered": "Próbáld ki a Clinical Factet – AI-alapú tanulási jegyzetek! {{url}}",
+      "proSubscriber": "PRO előfizető",
+      "subscriptionExpired": "Az előfizetés lejárt",
+      "freeSubscriber": "Ingyenes felhasználó",
+      "tapToManageIPhoneSettingsApple": "Koppints a kezeléshez · iPhone Beállítások → Apple ID → Előfizetések",
+      "tapToManagePlayStoreSubscriptions": "Koppints a kezeléshez · Play Áruház → Előfizetések",
+      "tapToRenewYourSubscription": "Koppints az előfizetés megújításához",
+      "tapToUpgradeToPro": "Koppints a PRO-ra váltáshoz",
+      "referralCode": "Ajánlókód",
+      "areYouSureYouWantTo": "Biztosan ki szeretnél jelentkezni a fiókodból?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Kvíz törlése",
+      "areYouSureYouWantTo": "Biztosan törölni szeretnéd a(z) „{{sourceTitle}}” kvízt?",
+      "failedToDeleteQuiz": "Nem sikerült törölni a kvízt",
+      "correct": "{{correct}}/{{total}} helyes",
+      "attempts": "{{attempts}} próbálkozás",
+      "quiz": "Kvíz",
+      "createQuiz": "Kvíz létrehozása",
+      "searchQuizzes": "Kvízek keresése...",
+      "noQuizzesYet": "Még nincsenek kvízek",
+      "createAQuizFromANote": "Kezdésként hozz létre egy kvízt egy jegyzetből",
+      "createQuiz2": "+ Kvíz létrehozása",
+      "quizOptions": "Kvízbeállítások",
+      "view": "Megtekintés"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "A csomagváltás nem érhető el",
+      "weCouldnTOpenTheUpgrade": "Jelenleg nem sikerült megnyitni a csomagváltási felületet. Kérjük, ellenőrizd az internetkapcsolatot, és próbáld újra."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "A szerver nem JSON formátumú választ adott ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Hálózati hiba. Kérjük, ellenőrizd az internetkapcsolatot.",
+      "connectionErrorPleaseTryAgain": "Kapcsolódási hiba. Kérjük, próbáld újra."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fájl exportálva: {{filename}}",
+      "exportFailed": "Sikertelen exportálás",
+      "exportFormat": "Exportálási formátum",
+      "chooseFormat": "Formátum kiválasztása",
+      "text": "Szöveg"
+    },
+    "formatDate": {
+      "justNow": "Épp most",
+      "minAgo": "{{diffMin}} perce",
+      "hrAgo": "{{diffHr}} órája",
+      "dAgo": "{{diffDay}} napja",
+      "created": "Létrehozva: {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Nem sikerült elküldeni az egyszeri kódot",
+      "invalidOTP": "Érvénytelen kód",
+      "failedToVerifyOTP": "Nem sikerült ellenőrizni a kódot",
+      "googleAuthenticationFailed": "A Google-hitelesítés sikertelen",
+      "appleAuthenticationFailed": "Az Apple-hitelesítés sikertelen",
+      "failedToCompleteSignup": "Nem sikerült befejezni a regisztrációt",
+      "failedToSkipSignup": "Nem sikerült kihagyni a regisztrációt"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Csevegések",
+      "description": "Beszélgess bármelyik jegyzeteddel, dokumentumoddal vagy PDF-eddel egy helyen"
+    },
+    "profileWelcome": {
+      "heading": "Üdvözlünk a profilodban!",
+      "description": "Ez a profilod; koppints ide a profiladatok és az előfizetési állapot módosításához"
+    },
+    "createNotes": {
+      "heading": "Jegyzet létrehozása",
+      "description": "Készíts bármilyen típusú jegyzetet hangfelvételből, audióból, videóból, képből, szövegből vagy YouTube-linkből"
+    },
+    "changeLanguage": {
+      "heading": "Nyelvváltás",
+      "description": "Itt állíthatod át az alkalmazás nyelvét a kívánt nyelvre."
+    },
+    "manageHome": {
+      "heading": "Kezdőlap kezelése",
+      "description": "Tekintsd meg a létrehozott jegyzeteidet, és kövesd nyomon az összes tevékenységedet egy helyen."
+    },
+    "yourLibrary": {
+      "heading": "Saját könyvtár",
+      "description": "Kezeld az összes jegyzetedet, hozz létre mappákat, és még sok más."
+    },
+    "yourProfile": {
+      "heading": "Saját profil",
+      "description": "Tekintsd meg a profilodat, és módosítsd a profilbeállításaidat innen."
+    }
   }
 }

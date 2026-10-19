@@ -14,7 +14,9 @@
     "next": "Далее",
     "done": "Готово",
     "search": "Поиск",
-    "filter": "Фильтр"
+    "filter": "Фильтр",
+    "ok": "ОК",
+    "info": "Инфо"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,14 +70,23 @@
     "upgradePlan": "Улучшить план",
     "everyWeek": "Каждую неделю",
     "everyMonth": "Каждый месяц",
-    "everyYear": "Каждый год"
+    "everyYear": "Каждый год",
+    "expired": "Истёк",
+    "reportBug": "Сообщить об ошибке",
+    "active": "АКТИВЕН",
+    "trial": "ПРОБНЫЙ ПЕРИОД"
   },
   "auth": {
-    "welcome": "Добро пожаловать в Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Не удалось войти через Google",
+      "failedToAuthenticateWithServer": "Ошибка аутентификации на сервере",
+      "googleSignInIsOnlyAvailable": "Вход через Google доступен только в нативном приложении. Войдите по email или установите приложение.",
+      "code": "{{message}} (код: {{code}})"
+    },
     "getStarted": "Начать",
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
-    "email": "Email",
+    "email": "Эл. почта",
     "password": "Пароль",
     "forgotPassword": "Забыли пароль?",
     "verifyEmail": "Подтвердите ваш email",
@@ -83,12 +94,316 @@
     "didntGetCode": "Не получили код?",
     "resendCode": "Отправить код повторно",
     "resendIn": "Повторная отправка через",
-    "enterVerificationCode": "Пожалуйста, введите полный код подтверждения"
+    "enterVerificationCode": "Пожалуйста, введите полный код подтверждения",
+    "languageSelect": {
+      "title": "Выберите язык",
+      "subtitle": "Выберите язык, который хотите использовать в приложении. Его всегда можно изменить в профиле.",
+      "searchPlaceholder": "Поиск языка",
+      "noResults": "Ничего не найдено"
+    },
+    "buttons": {
+      "continue": "Продолжить",
+      "continueWithEmail": "Продолжить через Email",
+      "continueWithGoogle": "Продолжить с Google",
+      "continueWithApple": "Продолжить с Apple",
+      "skip": "Пропустить",
+      "verify": "Подтверждено!",
+      "next": "Далее",
+      "tryNow": "Попробовать Clinical Fact бесплатно"
+    },
+    "labels": {
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "username": "@имя_пользователя",
+      "referralCode": "Реферальный код",
+      "nameScreenTitle": "Ваше имя и фамилия",
+      "byAgree": "Продолжая, вы соглашаетесь с",
+      "termsAndConditions": "Условиями использования",
+      "privacyPolicy": "политикой конфиденциальности",
+      "and": "и"
+    },
+    "placeholders": {
+      "enterEmail": "Введите адрес эл. почты",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "username": "@имя_пользователя",
+      "referralCode": "например, JOHN или TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Пожалуйста, введите корректный адрес эл. почты",
+      "emailRequired": "Пожалуйста, введите адрес эл. почты",
+      "firstLastNameRequired": "Пожалуйста, укажите имя и фамилию",
+      "usernameRequired": "Пожалуйста, выберите имя пользователя",
+      "usernameLength": "Имя пользователя должно содержать от 3 до 20 символов (только буквы, цифры и подчёркивания)",
+      "usernameTaken": "Это имя пользователя уже занято. Попробуйте другое.",
+      "usernameCheckFailed": "Не удалось проверить доступность имени пользователя",
+      "usernameError": "Ошибка проверки имени пользователя. Проверьте подключение к сети.",
+      "invalidOTP": "Неверный код. Проверьте его и повторите попытку.",
+      "otpExpired": "Срок действия кода истёк. Запросите новый код.",
+      "otpRequired": "Пожалуйста, введите код подтверждения полностью",
+      "referralNotFound": "Реферальный код не найден. Проверьте правильность ввода и повторите попытку.",
+      "referralValidateFailed": "Не удалось проверить код. Повторите попытку.",
+      "referralApplyFailed": "Не удалось применить реферальный код. Повторите попытку.",
+      "codeSendFailed": "Не удалось отправить код подтверждения. Повторите попытку.",
+      "resendCodeFailed": "Не удалось повторно отправить код. Повторите попытку.",
+      "signInFailed": "Ошибка входа",
+      "googleSignInFailed": "Ошибка входа через Google",
+      "googleTokenFailed": "Не удалось обработать токен Google",
+      "googleAccessTokenFailed": "Не удалось получить токен доступа. Повторите попытку.",
+      "authTokenFailed": "Не удалось получить токен аутентификации. Повторите попытку.",
+      "googleStartFailed": "Не удалось запустить вход через Google. Повторите попытку.",
+      "setupRequired": "Требуется настройка",
+      "googleOAuthMissing": "Для входа через Google требуются OAuth Client ID.\\n\\nПожалуйста, добавьте учетные данные в файл .env.",
+      "youCanStillUseEmail": "Вы по-прежнему можете использовать «Продолжить через Email».",
+      "appleSignInFailed": "Ошибка входа через Apple",
+      "appleTokenFailed": "Не удалось обработать токен Apple",
+      "appleIosOnly": "Вход через Apple доступен только на iOS."
+    },
+    "messages": {
+      "signingIn": "Выполняется вход...",
+      "codeValid": "✓ Код подтверждён",
+      "signupFailed": "Не удалось завершить регистрацию",
+      "setupFailed": "Не удалось завершить настройку. Повторите попытку."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: эффективные конспекты начинаются здесь",
+      "tagline": "Превращайте любой текст в идеальные конспекты",
+      "description": "Преобразуйте аудио, документы и видео в понятные конспекты с поиском. Мгновенно создавайте тесты, карточки и краткие выжимки.",
+      "createAccountTitle": "Создать аккаунт",
+      "orSignUpWith": "ИЛИ ЗАРЕГИСТРИРУЙТЕСЬ ЧЕРЕЗ",
+      "signUpWithEmail": "Зарегистрироваться через эл. почту",
+      "signInWithEmail": "Войти через эл. почту",
+      "alreadyHaveAccount": "Уже есть аккаунт? ",
+      "dontHaveAccount": "Нет аккаунта? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Спросите о медицине. Узнайте клинический факт",
+        "description": "Задайте любой медицинский вопрос и получите ответ со ссылками на PubMed, клинические рекомендации и авторитетную медицинскую литературу"
+      },
+      "slide2": {
+        "headline": "Каждый ответ подкреплен источником",
+        "description": "Никаких догадок и выдумок: каждый ответ ссылается на реальные, проверяемые медицинские исследования."
+      },
+      "slide3": {
+        "headline": "Учитесь эффективнее, сдавайте экзамены на отлично",
+        "description": "За секунды превращайте вопросы и загруженные материалы в тесты и карточки для повторения прямо по вашей программе."
+      }
+    },
+    "otp": {
+      "title": "Подтвердите адрес эл. почты",
+      "subtitle": "Пожалуйста, введите код подтверждения, отправленный на вашу эл. почту"
+    },
+    "professionalDeclaration": {
+      "title": "Профессиональное заявление",
+      "subtitle": "Clinical Fact — инструмент для поиска учебной и научной литературы",
+      "disclaimerIntro": "Clinical Fact — это информационный инструмент на базе искусственного интеллекта, предназначенный для студентов медицинских вузов, колледжей и смежных специальностей для доступа к медицинским знаниям, научной литературе и учебным материалам. Приложение не ставит медицинские диагнозы, не дает рекомендаций по лечению, клинических указаний или индивидуальных медицинских консультаций, а также не должно использоваться в качестве основы для непосредственного ведения пациентов или принятия клинических решений.",
+      "disclaimerHeading": "Как Clinical Fact формирует ответы:",
+      "disclaimerBody": "Clinical Fact получает информацию напрямую из проверенных медицинских и научных источников, включая PubMed, Semantic Scholar и официальные инструкции к препаратам FDA, и использует AI для обобщения и понятного изложения найденного материала. Каждый ответ формируется исключительно на основе источников, найденных по конкретному вопросу, а ссылки ведут к первоисточникам, чтобы вы могли проверить их самостоятельно. Clinical Fact не генерирует медицинские факты по памяти и не выдумывает источники.\n\nClinical Fact не является диагностическим инструментом, платформой для лечения, медицинским изделием или заменой профессионального врачебного суждения, сертифицированного обучения или учебной программы вашего учреждения. Любая информация, сгенерированная приложением, включая ответы, цитаты, тесты и карточки, предоставляется исключительно в общих образовательных и учебных целях и должна быть независимо проверена пользователем перед использованием в академическом, клиническом или профессиональном контексте.\nClinical Fact не гарантирует полноту, точность или актуальную клиническую применимость предоставляемой информации. Медицинские знания постоянно обновляются — всегда сверяйте важную информацию с преподавателями, клиническими наставниками и актуальными первоисточниками.\nКогда вы загружаете собственные документы, конспекты или записи, Clinical Fact формирует ответы, выжимки, тесты и карточки только на основе этих загруженных материалов, без обращения к внешним источникам, если они прямо не указаны рядом.\n\nClinical Fact не проверяет и не подтверждает личность, статус обучения или квалификацию своих пользователей. Приложение не предназначено для использования в экстренных ситуациях или для принятия клинических решений в реальном времени.\nПродолжая, вы подтверждаете, что понимаете эти условия и соглашаетесь использовать Clinical Fact исключительно как учебное и справочное пособие.",
+      "checkboxLabel": "Я понимаю, что это приложение предназначено только для учебных и справочных целей и не дает медицинских рекомендаций",
+      "acceptButton": "Принять и продолжить"
+    },
+    "survey": {
+      "role": "Что лучше всего описывает ваш статус, {{firstName}}?",
+      "currentMethod": "Как вы обычно ищете ответы на медицинские вопросы сейчас?",
+      "timeDrain": "На что у вас уходит больше всего времени?",
+      "appExpectation": "Чего вы ждете от медицинского приложения Clinical Fact?",
+      "aiToolsUsed": "Какие AI-инструменты вы уже использовали для медицинского поиска и учебы?",
+      "aiToolIssue": "С какими проблемами вы сталкивались в этих инструментах?",
+      "aiTrustLevel": "Как часто вы сомневаетесь в правильности ответа AI?",
+      "biggestNeed": "В чем вы больше всего нуждаетесь прямо сейчас?",
+      "studyTimePerWeek": "Сколько времени в неделю вы можете уделять учебе?",
+      "comingUp": "Что вам предстоит в ближайшее время?",
+      "referralSource": "Откуда вы узнали о Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Придумайте имя пользователя",
+      "usernameSubtitle": "Так ваш профиль станет более персонализированным",
+      "goals": "Для чего вам нужен\\nClinical Fact?",
+      "goalsSubtitle": "Выберите все подходящие варианты. Мы настроим приложение под вас.",
+      "contentType": "С какими материалами вы\\nчаще всего работаете?",
+      "contentTypeSubtitle": "Выберите подходящие варианты. Это поможет персонализировать приложение.",
+      "reviewStyle": "Как вам удобнее повторять\\nпройденный материал?",
+      "reviewStyleSubtitle": "Выберите предпочтительный способ повторения.",
+      "frustration": "{{firstName}}, что больше всего раздражает вас в ведении конспектов?",
+      "frustrationSubtitle": "Выберите подходящие варианты. Мы поможем с этим справиться.",
+      "referral": "Просто интересно,\\n{{firstName}},\\nоткуда вы узнали о Clinical Fact?",
+      "referralSubtitle": "Выберите один вариант."
+    },
+    "referralScreen": {
+      "title": "Вас кто-то\\nпригласил?",
+      "subtitle": "Введите реферальный код, если он у вас есть"
+    },
+    "setup": {
+      "preparingNotes": "Подготовка конспектов",
+      "preparingFlashcards": "Подготовка карточек",
+      "preparingQuiz": "Подготовка шаблонов тестов",
+      "preparingChat": "Подготовка чат-ассистентов",
+      "title": "Настраиваем ваше рабочее\\nпространство, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Спасибо за доверие к Clinical Fact",
+      "subtitle": "Вы присоединяетесь к тысячам студентов-медиков",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Все необходимое\\nдля учебы в одном месте",
+      "subtitle": "Записывайте. Исследуйте. Тестируйте. Осваивайте.",
+      "everythingYouNeedToLearnAnything": "Всё, что нужно для эффективной учебы",
+      "recordItResearchItQuizIt": "Записывайте. Изучайте. Тестируйте. Осваивайте.",
+      "tryClinicalFactNowForFree": "Попробуйте Clinical Fact бесплатно"
+    },
+    "features": {
+      "feature1": {
+        "title": "Точные медицинские ответы и наводящие вопросы",
+        "description": "Задайте любой медицинский вопрос и получите понятное объяснение с уточняющими вопросами, чтобы ничто не тормозило вашу учебу."
+      },
+      "feature2": {
+        "title": "Каждый медицинский ответ —\nс надежным источником",
+        "description": "Ссылки на PubMed, Semantic Scholar и Europe PMC: все можно проверить, ничего не выдумано."
+      },
+      "feature3": {
+        "title": "Загружайте конспекты, получайте выжимки по своим материалам",
+        "description": "Превращайте слайды лекций, PDF и конспекты в понятные объяснения со ссылками на авторитетные медицинские источники."
+      },
+      "feature4": {
+        "title": "Превращайте любой чат в тест или карточки для практики",
+        "description": "Не нужно других приложений: создавайте практические вопросы прямо из чатов и файлов."
+      },
+      "feature5": {
+        "title": "Превращайте чаты и документы в карточки для повторения",
+        "description": "Не нужно других приложений: создавайте практические вопросы прямо из чатов и файлов."
+      }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Включить уведомления",
+      "thisHelpsUsStayOnTrack": "Это поможет персонализировать профиль и быстрее находить медицинские ответы"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Неверный код подтверждения. Попробуйте еще раз.",
+      "failedToResendCodePleaseTry": "Не удалось отправить код повторно. Попробуйте еще раз.",
+      "confirmYourEmailAddress": "Подтвердите email",
+      "enterCodeSentTo": "Введите код подтверждения, отправленный на {{email}}",
+      "resendCodeIn": "Отправить повторно через {{seconds}} сек"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "У вас есть реферальный код?",
+      "enterTheirReferralCodeIfYou": "Введите код приглашения, если он у вас есть",
+      "eGJOHNOrTECHBRO": "например, JOHN или TECHBRO",
+      "codeIsValid": "✓ Код действителен"
+    },
+    "resultsChart": {
+      "getBetterResults": "Улучшайте результаты",
+      "over95OfClinicalfactUsersScore": "Более 95% пользователей Clinicalfact сдают зачеты и экзамены на 95% и выше"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Студент сестринского дела",
+        "medicalStudent": "Студент-медик",
+        "paPharmacyStudent": "Студент фарм. или фельдшерского фак-та",
+        "practicingNurse": "Практикующая медсестра / медбрат",
+        "practicingPhysician": "Практикующий врач",
+        "otherHealthcareProfessional": "Другой медицинский специалист"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Учебники или конспекты",
+        "flashcardQuizApps": "Приложения с карточками и тестами",
+        "youtube": "YouTube",
+        "aiChatbots": "AI-чат-боты",
+        "colleagueClassmate": "Помощь коллег или однокурсников",
+        "practiceQuestionBanks": "Банки тестовых заданий"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Создание карточек и тестов с нуля",
+        "findingTrustworthyAnswer": "Поиск надежного ответа на скорую руку",
+        "reReadingNotes": "Перечитывание забытых конспектов",
+        "switchingApps": "Постоянное переключение между приложениями",
+        "chartingDocumentation": "Заполнение историй и документации"
+      },
+      "appExpectation": {
+        "noHallucination": "AI без галлюцинаций",
+        "realCitations": "Реальные ссылки на источники",
+        "oneApp": "Одно приложение вместо пяти подписок",
+        "explainsWhy": "Объясняет «почему», а не просто дает ответ"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Поиск Google",
+        "otherApps": "Другие приложения"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Выдумывает факты",
+        "notMedicalContent": "Не адаптирован под медицину",
+        "noSources": "Нет источников для проверки",
+        "tooGeneric": "Слишком абстрактно, не под экзамены и практику"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Всегда",
+        "sometimes": "Иногда",
+        "rarely": "Редко",
+        "dontUseAi": "Пока не использую AI"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Быстрые и надежные ответы",
+        "quizzesFlashcardsWithoutWork": "Тесты и карточки без лишних усилий",
+        "rememberingStudied": "Помощь в запоминании материала",
+        "medicalCitations": "Ссылки на медицинские источники",
+        "allOfTheAbove": "Всё вышеперечисленное"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Email-рассылка",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Другое"
+      },
+      "studyTime": {
+        "under5Hours": "Менее 5 часов",
+        "510Hours": "5–10 часов",
+        "1020Hours": "10–20 часов",
+        "20PlusHours": "Более 20 часов"
+      },
+      "comingUp": {
+        "medicalExams": "Экзамены по медицине",
+        "clinicalRotations": "Клиническая практика",
+        "nursingExams": "Экзамены по сестринскому делу",
+        "otherExams": "Другие экзамены",
+        "staySharp": "Для поддержания знаний"
+      }
+    }
   },
   "notes": {
-    "noteTranscript": "Расшифровка заметки",
+    "noteTranscript": {
+      "noteTranscript": "Транскрипт заметки",
+      "noNoteIDProvided": "ID заметки не указан",
+      "noTranscriptAvailableForThisNote": "Для этой заметки нет транскрипта.",
+      "thisNoteWasNotCreatedFrom": "Эта заметка создана не из аудио/видео, поэтому у неё нет транскрипта.",
+      "failedToLoadNote": "Не удалось загрузить заметку",
+      "noteTranscript2": "Транскрипт заметки",
+      "loadingTranscript": "Загрузка транскрипта...",
+      "goToNote": "К заметке"
+    },
     "noteOptions": "Параметры заметки",
-    "editNote": "Редактировать заметку",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Пожалуйста, введите название заметки",
+      "failedToUpdateNote": "Не удалось обновить заметку",
+      "noteUpdatedSuccessfully": "Заметка успешно обновлена",
+      "editNote": "Редактировать заметку",
+      "noteTitle": "Название заметки",
+      "enterNoteTitle": "Введите название заметки",
+      "noteContent": "Текст заметки",
+      "enterNoteContent": "Введите текст заметки",
+      "saveThisNote": "Сохранить заметку",
+      "aiIsGeneratingYourNote": "AI создает вашу заметку",
+      "largeAudioAndVideoFilesMay": "Обработка больших аудио- и видеофайлов может занять несколько минут. Не закрывайте приложение."
+    },
     "retranscribe": "Перерасшифровать",
     "exportNote": "Экспортировать заметку",
     "shareNoteLink": "Поделиться ссылкой на заметку",
@@ -110,12 +425,89 @@
     "translate": "Перевести",
     "addToFolder": "Добавить в папку",
     "loadingNote": "Загрузка заметки...",
-    "noteNotFound": "Не удалось загрузить заметку"
+    "noteNotFound": "Не удалось загрузить заметку",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Не удалось создать карточки",
+      "anUnexpectedErrorOccurred": "Произошла непредвиденная ошибка",
+      "history": "История",
+      "export": "Экспорт"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Не удалось добавить заметку в папку",
+      "folderNotFound": "Папка не найдена",
+      "addNote": "+ Добавить заметку",
+      "noNotesInThisFolder": "В этой папке нет заметок",
+      "moveNotesToThisFolderTo": "Переместите заметки в эту папку, чтобы увидеть их здесь",
+      "addNoteToFolder": "Добавить заметку в папку",
+      "noNotesAvailableToAdd": "Нет заметок для добавления",
+      "allYourNotesAreAlreadyIn": "Все ваши заметки уже в этой папке",
+      "created": "Создано {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Не удалось загрузить заметку",
+      "reTranscribeNote": "Повторная расшифровка",
+      "thisWillReTranscribeTheAudio": "Аудиозапись будет расшифрована заново, а заметка обновлена. Продолжить?",
+      "reTranscribe": "Расшифровать заново",
+      "noteReTranscribedSuccessfully": "Заметка успешно расшифрована заново",
+      "info": "Инфо",
+      "reTranscriptionFeatureIsComingSoon": "Повторная расшифровка скоро будет доступна",
+      "youAreCurrentlyOfflinePleaseConnect": "Вы не в сети. Подключитесь к интернету для выполнения этого действия.",
+      "failedToDeleteNote": "Не удалось удалить заметку",
+      "failedToExportNote": "Не удалось экспортировать заметку",
+      "noteTranslatedSuccessfully": "Заметка успешно переведена",
+      "failedToTranslateNote": "Не удалось перевести заметку",
+      "noteMovedTo": "Заметка перемещена в «{{name}}»",
+      "failedToMoveNoteToFolder": "Не удалось переместить заметку в папку",
+      "summaryNotes": "Краткий конспект",
+      "loadingNote": "Загрузка заметки...",
+      "imageNote": "Заметка с изображением",
+      "created": "Создано: {{dateTime}}",
+      "translate": "Перевести",
+      "transcribe": "Расшифровать",
+      "editThisNote": "Редактировать заметку",
+      "createFlashcards": "Создать карточки",
+      "createFlashcardsToImproveYourRetention": "Создавайте карточки для лучшего запоминания материала",
+      "createQuizQuestions": "Создать тест",
+      "practiceYourNotesByCreatingQuestions": "Закрепляйте материал заметок с помощью тренировочных вопросов"
+    },
+    "sharedNote": {
+      "notFound": "Не найдено",
+      "thisSharedNoteLinkIsInvalid": "Ссылка на заметку недействительна или устарела.",
+      "failedToLoadSharedNote": "Не удалось загрузить общую заметку.",
+      "saved": "Сохранено!",
+      "noteHasBeenAddedToYour": "Заметка добавлена в вашу библиотеку.",
+      "viewInLibrary": "Открыть в библиотеке",
+      "stayHere": "Остаться здесь",
+      "failedToSaveNote": "Не удалось сохранить заметку.",
+      "loadingSharedNote": "Загрузка общей заметки...",
+      "sharedNote": "Общая заметка",
+      "sharedWithYou": "Доступно вам",
+      "savedToLibrary": "Сохранено в библиотеку",
+      "saveToMyLibrary": "Сохранить в мою библиотеку"
+    }
   },
   "create": {
     "selectOption": "Как вы хотите создать заметку?",
-    "recordAudio": "Записать аудио",
-    "uploadAudio": "Загрузить аудио",
+    "recordAudio": {
+      "permissionRequired": "Требуется разрешение",
+      "pleaseGrantMicrophonePermissionToRecord": "Пожалуйста, предоставьте доступ к микрофону для записи аудио.",
+      "failedToRequestMicrophonePermission": "Не удалось запросить доступ к микрофону",
+      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Запись аудио",
+      "recordAudio": "Записать аудио",
+      "createANoteFromAnyRecorded": "Создать заметку из аудиозаписи",
+      "recording": "Запись ({{time}})",
+      "recordAgain": "Записать заново"
+    },
+    "uploadAudio": {
+      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Не удалось выбрать аудиофайл",
+      "uploadAudio": "Загрузить аудио",
+      "createANoteFromAnyUploaded": "Создать заметку из загруженного аудио",
+      "dragDropFilesOrBrowse": "Перетащите файлы сюда или выберите на устройстве",
+      "supportedFormatMp4WavMp3": "Поддерживаемые форматы: mp4, wav, mp3",
+      "changeFile": "Изменить файл"
+    },
     "youtube": "Видео YouTube",
     "pdfDocument": "PDF или документ",
     "customText": "Пользовательский текст",
@@ -123,7 +515,56 @@
     "uploadingFile": "Загрузка файла на сервер...",
     "transcribing": "Преобразование речи в текст...",
     "extractingText": "Извлечение текста...",
-    "generatingNote": "Создание учебных заметок с помощью ИИ...",
+    "generatingNote": {
+      "uploadAudio": "Загрузить аудио",
+      "uploadingAudioFileToServer": "Загрузка аудиофайла на сервер...",
+      "transcribeAudio": "Расшифровать аудио",
+      "convertingSpeechToText": "Преобразование речи в текст...",
+      "generateYourNote": "Создать заметку",
+      "creatingStudyNotes": "Создание учебных заметок...",
+      "uploadPDF": "Загрузить PDF",
+      "uploadingPDFDocumentToServer": "Загрузка PDF-документа на сервер...",
+      "extractText": "Извлечь текст",
+      "readingAndExtractingTextFromPDF": "Чтение и извлечение текста из PDF...",
+      "uploadImage": "Загрузить изображение",
+      "uploadingImageToServer": "Загрузка изображения на сервер...",
+      "extractTextOCR": "Распознать текст (OCR)",
+      "recognizingAndExtractingTextFromImage": "Распознавание и извлечение текста из изображения...",
+      "fetchVideo": "Получить видео",
+      "connectingToYouTube": "Подключение к YouTube...",
+      "extractTranscript": "Извлечь субтитры",
+      "downloadingVideoTranscript": "Загрузка субтитров видео...",
+      "processText": "Обработать текст",
+      "analyzingYourContent": "Анализ контента...",
+      "uploadFile": "Загрузить файл",
+      "uploadingToServer": "Загрузка на сервер...",
+      "processContent": "Обработать материалы",
+      "extractingContent": "Извлечение содержимого...",
+      "noteReady": "Конспект готов!",
+      "noteGenerationFailedOnTheServer": "Ошибка сервера при создании конспекта.",
+      "failedToUploadImage": "Не удалось загрузить изображение",
+      "weCouldNotReadAnythingFrom": "Не удалось распознать текст на изображении. Пожалуйста, загрузите более четкое фото ваших медицинских записей.",
+      "preparingFile": "Подготовка файла...",
+      "almostDone": "Почти готово...",
+      "untitledNote": "Конспект без названия",
+      "failedToGenerateNote": "Не удалось создать конспект",
+      "whoaSpeedy": "Ого, помедленнее! 🏃💨",
+      "youReGeneratingContentABit": "Вы создаете контент слишком быстро. Сделайте перерыв на 60 секунд, чтобы наш AI успел все обработать.",
+      "gotIt": "Понятно",
+      "fileTooLarge": "Файл слишком большой",
+      "yourFileExceedsThe15MBLimit": "Размер файла превышает лимит 15 МБ для бесплатной версии. Перейдите на PRO, чтобы загружать лекции до 100 МБ.",
+      "upgradeToPRO": "Перейти на PRO",
+      "oopsWeHitASnag": "Ой, что-то пошло не так 🚧",
+      "weCouldnTGenerateThatRight": "Не удалось создать конспект прямо сейчас. Пожалуйста, попробуйте еще раз через минуту!",
+      "processingContent": "Обработка материалов...",
+      "generatingYourNote": "Создаем ваш конспект...",
+      "audioNote": "Аудиоконспект",
+      "failedToGenerateFlashcards": "Не удалось создать карточки",
+      "generatingNote": "Создание конспекта",
+      "pleaseKeepThisScreenOpenWhile": "Пожалуйста, не закрывайте этот экран, пока создается конспект. Расшифровка больших файлов может занять несколько минут.",
+      "goToNote": "Перейти к конспекту",
+      "generateNoteTranscript": "Расшифровать в конспект"
+    },
     "fetchingVideo": "Подключение к YouTube...",
     "processingText": "Анализ вашего контента...",
     "uploadAudioTitle": "Загрузить аудио",
@@ -133,7 +574,63 @@
     "fetchVideo": "Получить видео",
     "extractTranscript": "Извлечь расшифровку",
     "processText": "Обработать текст",
-    "generateNote": "Создать вашу заметку"
+    "generateNote": "Создать вашу заметку",
+    "customTextInput": {
+      "customText": "Свой текст",
+      "createANoteFromAnyCustom": "Создать конспект из любого текста",
+      "enterText": "Введите текст",
+      "enterYourTextHere": "Введите ваш текст здесь..."
+    },
+    "uploadImage": {
+      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Требуется разрешение",
+      "pleaseAllowAccessToYourPhoto": "Пожалуйста, разрешите доступ к вашей медиатеке",
+      "failedToPickImage": "Не удалось выбрать изображение",
+      "uploadImage": "Загрузить изображение",
+      "createANoteFromAnyUploaded": "Создать конспект из загруженного изображения",
+      "dragDropFilesOrBrowse": "Перетащите файлы сюда или выберите на устройстве",
+      "supportedFormatPngJpegHeicWebp": "Поддерживаемые форматы: png, jpeg, heic, webp",
+      "changeFile": "Выбрать другой файл"
+    },
+    "uploadPDF": {
+      "created": "Создано: {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Не удалось выбрать документ",
+      "uploadPdf": "Загрузить PDF",
+      "createANoteFromAnyUploaded": "Создать конспект из загруженного PDF",
+      "dragDropFilesOrBrowse": "Перетащите файлы сюда или выберите на устройстве",
+      "supportedFormatPdf": "Поддерживаемый формат: pdf",
+      "changeFile": "Выбрать другой файл"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Получение видео",
+      "gettingVideoDetails": "Загрузка информации о видео",
+      "extractingTranscript": "Извлечение субтитров",
+      "convertingAudioToText": "Преобразование аудио в текст",
+      "generatingYourNote": "Создание вашего конспекта",
+      "aiIsSummarisingTheContent": "AI составляет краткое содержание",
+      "noteGenerationFailedPleaseTryAgain": "Не удалось создать конспект. Пожалуйста, попробуйте снова.",
+      "processingFailed": "Ошибка обработки",
+      "goBack": "Назад",
+      "retry": "Повторить",
+      "failedToStartNoteGeneration": "Не удалось запустить создание конспекта",
+      "failedToProcessYouTubeVideoPlease": "Не удалось обработать видео с YouTube. Попробуйте снова.",
+      "cancelProcessing": "Отменить обработку",
+      "areYouSureYouWantTo": "Вы уверены, что хотите отменить? Прогресс будет потерян.",
+      "continueProcessing": "Продолжить обработку",
+      "youTubeNote": "Конспект из YouTube",
+      "noteGenerated": "Конспект создан",
+      "generatingNote": "Создание конспекта...",
+      "goToNote": "Перейти к конспекту"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Не удалось получить данные о видео",
+      "failedToFetchVideoInformation": "Ошибка загрузки данных о видео",
+      "youtubeVideo": "Видео с YouTube",
+      "createANoteFromAnyYoutube": "Создать конспект из любого видео на YouTube",
+      "enterYoutubeURL": "Введите ссылку на YouTube",
+      "pasteYoutubeURL": "Вставить ссылку на YouTube",
+      "fetchingVideoInfo": "Загрузка информации о видео..."
+    }
   },
   "library": {
     "title": "Библиотека",
@@ -163,7 +660,67 @@
     "almostDone": "Почти готово...",
     "quizReady": "Тест готов!",
     "startQuiz": "Начать тест",
-    "questionCount": "{{current}} из {{total}}"
+    "questionCount": "{{current}} из {{total}}",
+    "previous": "Предыдущий вопрос",
+    "generatingQuiz": "Создаем тест с помощью AI...",
+    "exitTitle": "Выйти из теста?",
+    "exitMessage": "Ваш прогресс будет потерян.",
+    "exit": "Выйти",
+    "errorTitle": "Ой, что-то пошло не так 🚧",
+    "errorMessage": "Не удалось создать тест прямо сейчас. Пожалуйста, подождите и попробуйте снова!",
+    "noQuestions": "Нет доступных вопросов.",
+    "reading": "Читаем ваши конспекты...",
+    "identifying": "Выделяем ключевые понятия...",
+    "structuring": "Формируем вопросы...",
+    "almostReady": "Почти готово...",
+    "youScored": "ВАШ РЕЗУЛЬТАТ",
+    "timeInSeconds": "ВРЕМЯ В СЕКУНДАХ",
+    "accuracy": "ТОЧНОСТЬ",
+    "grade": "ОЦЕНКА",
+    "reportsCard": "Карточка результатов",
+    "reviewAnswers": "Посмотреть ответы",
+    "correctAnswer": "Правильный ответ",
+    "yourAnswer": "Ваш ответ",
+    "explanation": "Объяснение",
+    "questionProgress": "Вопрос {{current}} из {{total}}",
+    "generatingQuizWait": "Мы создаем для вас тест, пожалуйста, подождите завершения...",
+    "goToChats": "Перейти к чатам",
+    "quizGroupDetail": {
+      "inProgress": "В процессе",
+      "notStarted": "Не начато",
+      "failedToLoadQuizHistory": "Не удалось загрузить историю тестов",
+      "failedToLoadChatContent": "Не удалось загрузить чат",
+      "deleteQuiz": "Удалить тест",
+      "failedToDeleteQuiz": "Не удалось удалить тест",
+      "created": "Создано {{dateTime}}",
+      "lastscore": "ПОСЛЕДНИЙ РЕЗУЛЬТАТ",
+      "bestscore": "ЛУЧШИЙ РЕЗУЛЬТАТ",
+      "attempts": "ПОПЫТКИ",
+      "retakeQuiz": "Пройти снова",
+      "translate": "Перевести",
+      "newQuiz": "Новый тест",
+      "quizHistory": "История тестов",
+      "flashcardHistory": "История карточек",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Для этого источника карточек пока нет.",
+      "cards": "Карточек: {{totalCards}} · {{flashcardStatus}}",
+      "quizOptions": "Параметры теста",
+      "exportLatestAttempt": "Экспорт последней попытки",
+      "questions": "Вопросов: {{totalQuestions}} · {{value}}",
+      "deleteAllAttemptsOne": "Удалить 1 попытку прохождения теста «{{title}}»? Это действие нельзя отменить.",
+      "deleteAllAttemptsMany": "Удалить все попытки ({{total}}) прохождения теста «{{title}}»? Это действие нельзя отменить.",
+      "makeFlashcards": "Создать карточки"
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Не удалось загрузить тест: неверный формат данных",
+      "failedToLoadQuizData": "Не удалось загрузить тест",
+      "noContentAvailable": "Контент недоступен",
+      "goBack": "Назад",
+      "previous": "Назад"
+    },
+    "quiz": {
+      "generationFailed": "Ошибка генерации"
+    }
   },
   "flashcards": {
     "title": "Карточки",
@@ -172,7 +729,68 @@
     "previous": "Предыдущая",
     "shuffle": "Перемешать",
     "generating": "Создание карточек...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Создавайте карточки для лучшего запоминания материала",
+    "howManyQuestions": "Сколько вопросов?",
+    "generateButton": "Создать карточки",
+    "generatingEllipsis": "Создание...",
+    "allDone": "Все готово!",
+    "completedReview": "Вы просмотрели все карточки в этой колоде",
+    "backToNotes": "Назад к конспектам",
+    "question": "Вопрос",
+    "answer": "Ответ",
+    "noQuestionText": "(Текст вопроса отсутствует)",
+    "noAnswerText": "(Текст ответа отсутствует)",
+    "enterQuestion": "Введите вопрос",
+    "enterAnswer": "Введите ответ",
+    "clickToFlip": "нажмите на карточку, чтобы перевернуть",
+    "reading": "Читаем ваши конспекты...",
+    "identifying": "Выделяем ключевые понятия...",
+    "creating": "Создаем карточки...",
+    "almostReady": "Почти готово...",
+    "headerTitle": "Карточка",
+    "progressFormat": "Карточка {{current}} из {{total}}",
+    "noteIdRequired": "Для создания карточек требуется ID конспекта",
+    "invalidCardCount": "Пожалуйста, выберите от 1 до 100 карточек",
+    "flashcardGroupDetail": {
+      "inProgress": "В процессе",
+      "notStarted": "Не начато",
+      "failedToLoadFlashcardHistory": "Не удалось загрузить историю карточек",
+      "limitReached": "Лимит исчерпан",
+      "flashcardGenerationLimitReached": "Достигнут лимит на создание карточек.",
+      "failedToGenerateFlashcards": "Не удалось создать карточки",
+      "failedToTranslateFlashcards": "Не удалось перевести карточки",
+      "deleteFlashcards": "Удалить карточки",
+      "failedToDeleteFlashcards": "Не удалось удалить карточки",
+      "created": "Создано {{dateTime}}",
+      "lastprogress": "ПОСЛЕДНИЙ ПРОГРЕСС",
+      "bestprogress": "ЛУЧШИЙ ПРОГРЕСС",
+      "sets": "НАБОРЫ",
+      "studyNow": "Учить сейчас",
+      "translate": "Перевести",
+      "newFlashcards": "Новые карточки",
+      "flashcardHistory": "История карточек",
+      "quizHistory": "История тестов",
+      "cards": "Карточек: {{totalCards}} · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "По этому источнику тестов пока нет.",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Параметры карточек",
+      "exportLatestSet": "Экспортировать последний набор",
+      "questions": "Вопросов: {{totalQuestions}} · {{value}}",
+      "deleteAllSetsOne": "Удалить 1 набор карточек для «{{title}}»? Это действие нельзя отменить.",
+      "deleteAllSetsMany": "Удалить все наборы карточек ({{total}}) для «{{title}}»? Это действие нельзя отменить.",
+      "makeQuiz": "Создать тест",
+      "failedToLoadChatContent": "Не удалось загрузить содержимое чата"
+    },
+    "flashcardReview": {
+      "unknownError": "Неизвестная ошибка",
+      "noFlashcardsInThisSet": "В этом наборе нет карточек",
+      "goBack": "Назад",
+      "allDone": "Все готово",
+      "youHaveReviewedAllTheCards": "Вы просмотрели все карточки в этой колоде",
+      "question": "Вопрос {{value}}",
+      "questionOf": "Вопрос {{value}} из {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Чат",
@@ -183,7 +801,191 @@
     "chatWithDocument": "Чат с документом",
     "selectFile": "Выберите файл для чата",
     "uploadFile": "Загрузить файл",
-    "startChatting": "Начать чат"
+    "startChatting": "Начать чат",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Задайте медицинский вопрос для пояснений",
+      "askAnythingAboutThisDocument": "Спросите что угодно по этому документу...",
+      "askAQuestionAttachmentProcessingFailed": "Задать вопрос (не удалось обработать файл)",
+      "extractingText": "Извлечение текста...",
+      "processingPDF": "Обработка PDF...",
+      "upgradeToProToContinueChatting": "Перейдите на PRO, чтобы продолжить чат",
+      "queryremaining": "ОСТАЛСЯ ЗАПРОС: {{queriesRemaining}}"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Инициализация чата...",
+      "extractingTextFromImage": "Извлечение текста из изображения...",
+      "processingPDFDocument": "Обработка PDF-документа...",
+      "analyzingYourNote": "Анализ заметки...",
+      "thisUsuallyTakesJustAFew": "⏱️ Обычно это занимает пару секунд. Чат будет доступен после завершения обработки.",
+      "processingFailed": "Сбой обработки",
+      "fileMightBeCorruptedOrUnreadable": "• Файл поврежден или не читается",
+      "imageQualityTooLow": "Слишком низкое качество изображения",
+      "pdfIsPasswordProtected": "PDF защищен паролем",
+      "contentFormatNotSupported": "Формат контента не поддерживается",
+      "networkConnectionIssue": "• Проблема с подключением к сети",
+      "tryADifferentFile": "Выбрать другой файл",
+      "askAnyClinicalQuestionNoUpload": "💡 Задайте любой клинический вопрос — загружать файлы не нужно. Я отвечу со ссылками на медицинскую литературу и иллюстрациями, если они есть.",
+      "readyToChat": "✓ Готов к общению",
+      "couldntProcessNote": "Не удалось обработать эту заметку. Возможные причины:",
+      "couldntProcessImage": "Не удалось обработать это изображение. Возможные причины:",
+      "couldntProcessDocument": "Не удалось обработать этот документ. Возможные причины:",
+      "askMeAboutNote": "💡 Спросите меня что угодно по этой заметке. Я могу составить краткую выжимку, объяснить понятия или ответить на вопросы.",
+      "askMeAboutImage": "💡 Спросите меня что угодно по этому изображению. Я могу составить краткую выжимку, объяснить понятия или ответить на вопросы.",
+      "askMeAboutDocument": "💡 Спросите меня что угодно по этому документу. Я могу составить краткую выжимку, объяснить понятия или ответить на вопросы."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "Освоено: {{masteredCards}}/{{totalCards}}",
+      "notStarted": "Не начато",
+      "quizGeneration": "Генерация теста",
+      "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Генерация карточек",
+      "questions": "Вопросов: {{totalCards}} · {{flashcardStatus}}",
+      "questions2": "Вопросов: {{totalQuestions}} · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Думаю и подбираю источники...",
+      "couldnTGenerateAResponse": "Не удалось сформировать ответ.",
+      "retry": "Повторить",
+      "alsoReferencedFromTheWeb": "Другие источники из сети",
+      "followUpQuestions": "Связанные вопросы"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Задайте любой медицинский вопрос и получите проверенный факт со ссылками на источники",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Доказательная медицина · Источники PubMed · Рецензируемые статьи",
+      "tryOutAnyOfThisTopics": "Выберите тему, чтобы начать",
+      "topics": {
+        "electrolytes": {
+          "label": "Электролитные нарушения",
+          "question": "Расскажи об электролитных нарушениях: причины, симптомы и лечение"
+        },
+        "ecg": {
+          "label": "Основы интерпретации ЭКГ",
+          "question": "Каковы основы анализа и расшифровки ЭКГ?"
+        },
+        "drugInteractions": {
+          "label": "Основные лекарственные взаимодействия",
+          "question": "О каких частых и важных лекарственных взаимодействиях нужно знать?"
+        },
+        "nclex": {
+          "label": "Практика в формате NCLEX",
+          "question": "Дай мне практический вопрос в стиле NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Инструкция FDA к препарату",
+      "fromYourAttachedMaterial": "Из вашего прикрепленного материала"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Не удалось создать чат",
+      "failedToInitializeChatSession": "Не удалось инициализировать чат",
+      "failedToUpdateLanguage": "Не удалось изменить язык",
+      "youVeReachedYour3Pin": "Вы достигли лимита: максимум 3 закрепа",
+      "failedToUpdatePin": "Не удалось обновить закрепление",
+      "permissionRequired": "Требуется разрешение",
+      "pleaseGrantCameraPermissionToTake": "Предоставьте доступ к камере, чтобы сделать снимок.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Предоставьте доступ к галерее, чтобы загружать изображения.",
+      "failedToUploadImage": "Не удалось загрузить изображение",
+      "uploadFailed": "Сбой загрузки",
+      "failedToUploadDocument": "Не удалось загрузить документ",
+      "failedToStartChatFromThis": "Не удалось начать чат на основе этого файла.",
+      "chatFromImage": "Чат по изображению",
+      "failedToStartANewQuestion": "Не удалось отправить новый вопрос. Попробуйте еще раз.",
+      "failedToAttachFile": "Не удалось прикрепить файл",
+      "failedToSendMessage": "Не удалось отправить сообщение",
+      "copiedToClipboard": "Скопировано в буфер обмена",
+      "notEnoughContentYet": "Недостаточно данных",
+      "chatABitMoreBeforeGenerating": "Напишите чуть больше перед генерацией теста (минимум 100 символов).",
+      "chatABitMoreBeforeGenerating2": "Напишите чуть больше перед генерацией карточек (минимум 100 символов).",
+      "failedToGenerateFlashcards": "Не удалось создать карточки",
+      "failedToRegenerateResponse": "Не удалось сгенерировать ответ повторно",
+      "failedToRetryResponse": "Не удалось повторить попытку"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Не удалось прикрепить заметку",
+      "folderCreatedSuccessfully": "Папка «{{name}}» успешно создана!",
+      "failedToCreateFolder": "Не удалось создать папку",
+      "failedToAttachDocument": "Не удалось прикрепить документ",
+      "failedToCreateChatSession": "Не удалось создать чат",
+      "failedToUploadDocument": "Не удалось загрузить документ",
+      "openingCamera": "📷 Открываем камеру...",
+      "openingImagePicker": "🖼️ Открываем галерею...",
+      "permissionRequired": "Требуется разрешение",
+      "pleaseGrantCameraPermissionToTake": "Предоставьте доступ к камере, чтобы сделать снимок.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Предоставьте доступ к галерее, чтобы загружать изображения.",
+      "failedToAttachImage": "Не удалось прикрепить изображение",
+      "failedToUploadImage": "Не удалось загрузить изображение",
+      "failedToAttachAudio": "Не удалось прикрепить аудио",
+      "failedToUploadAudio": "Не удалось загрузить аудио",
+      "items": "Элементов: {{itemCount}}",
+      "thisFolderIsEmptyGoBack": "Эта папка пуста. Вернитесь назад, чтобы выбрать другую.",
+      "addFolder": "Создать папку",
+      "uploadNewDocument": "Загрузить документ",
+      "uploadAPDFAndStartChatting": "Загрузите PDF и сразу начните обсуждение",
+      "uploadNewImage": "Загрузить изображение",
+      "uploadAnImageAndExtractText": "Загрузите изображение для мгновенного распознавания текста",
+      "uploadNewAudio": "Загрузить аудио",
+      "uploadAnAudioFileAndTranscribe": "Загрузите аудиофайл для мгновенной расшифровки",
+      "orselectfromlibrary": "ИЛИ ВЫБЕРИТЕ ИЗ БИБЛИОТЕКИ",
+      "folders": "Папки",
+      "allNotes": "Все конспекты",
+      "noFilesToDisplay": "Нет файлов для отображения",
+      "noNotesToDisplay": "Нет конспектов для отображения",
+      "noDocumentsYet": "У вас пока нет PDF-документов.\nСоздайте несколько конспектов, чтобы обсуждать их в чате.",
+      "noImagesYet": "У вас пока нет изображений.\nСоздайте несколько конспектов, чтобы обсуждать их в чате.",
+      "noAudioNotesYet": "У вас пока нет аудиозаметок.\nСоздайте несколько конспектов, чтобы обсуждать их в чате.",
+      "noNotesYet": "У вас пока нет конспектов.\nСоздайте их, чтобы обсуждать в чате.",
+      "attachNote": "Прикрепить конспект",
+      "selectNote": "Выбрать конспект",
+      "attachImage": "Прикрепить изображение",
+      "selectImage": "Выбрать изображение",
+      "attachDocument": "Прикрепить документ",
+      "selectDocument": "Выбрать документ",
+      "attachAudio": "Прикрепить аудио",
+      "selectAudio": "Выбрать аудио",
+      "attachFile": "Прикрепить файл",
+      "selectFile": "Выбрать файл",
+      "aNote": "{{verb}} заметку",
+      "anImage": "{{verb}} изображение",
+      "aDocument": "{{verb}} документ",
+      "audio": "{{verb}} аудио",
+      "aFile": "{{verb}} файл"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Добавить в чат",
+      "camera": "Камера",
+      "photos": "Фото",
+      "files": "Файлы",
+      "generateQuiz": "Создать тест",
+      "generateFlashcards": "Создать карточки",
+      "searchMedicalLiterature": "Поиск по мед. литературе",
+      "filterByDateSourceAndType": "Фильтр по дате, источнику и типу",
+      "pullsRealCitedSourcesIntoYour": "Добавляет реальные цитируемые источники в ответы",
+      "trustedmedicalsourcedatabase": "БАЗА ПРОВЕРЕННЫХ МЕДИЦИНСКИХ ИСТОЧНИКОВ",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "Национальная медицинская библиотека США",
+      "fdaDrugTreatmentData": "Данные FDA о препаратах и методах лечения"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Проверить источники",
+      "citations": "Источники",
+      "fromTheWeb": "Из интернета"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Готово · нажмите, чтобы переименовать",
+      "processing": "Обработка: {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Перейти к источнику ↗"
+    },
+    "chatRename": {
+      "renameChat": "Переименовать чат"
+    },
+    "sourcesRow": {
+      "viewSources": "Смотреть источники ({{total}})"
+    }
   },
   "languages": {
     "english": "Английский",
@@ -205,6 +1007,487 @@
     "turkish": "Турецкий",
     "vietnamese": "Вьетнамский",
     "thai": "Тайский",
-    "indonesian": "Индонезийский"
+    "indonesian": "Индонезийский",
+    "englishGB": "Английский (Великобритания)",
+    "englishAU": "Английский (Австралия)",
+    "englishCA": "Английский (Канада)",
+    "spanishMX": "Испанский (Мексика)",
+    "frenchCA": "Французский (Канада)",
+    "portuguesePT": "Португальский (Португалия)",
+    "norwegian": "Норвежский",
+    "danish": "Датский",
+    "finnish": "Финский",
+    "czech": "Чешский",
+    "slovak": "Словацкий",
+    "slovenian": "Словенский",
+    "croatian": "Хорватский",
+    "hungarian": "Венгерский",
+    "romanian": "Румынский",
+    "greek": "Греческий",
+    "ukrainian": "Украинский",
+    "arabicAE": "Арабский (ОАЭ)",
+    "arabicEG": "Арабский (Египет)",
+    "hebrew": "Иврит",
+    "bengali": "Бенгальский",
+    "tamil": "Тамильский",
+    "telugu": "Телугу",
+    "kannada": "Каннада",
+    "malayalam": "Малаялам",
+    "marathi": "Маратхи",
+    "gujarati": "Гуджарати",
+    "punjabi": "Пенджаби",
+    "urdu": "Урду",
+    "malay": "Малайский",
+    "catalan": "Каталонский"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Добавить папку",
+      "folderName": "Название папки",
+      "enterFolderName": "Введите название папки",
+      "chooseColor": "Выберите цвет",
+      "createFolder": "Создать папку"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Перед обработкой ваших данных",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact использует AI для ответов на ваши вопросы и преобразования материалов в конспекты, тесты и карточки. Вот что важно знать:",
+      "whatDataIsSent": "Какие данные отправляются",
+      "questionsAndMessagesYouTypeIn": "Вопросы и сообщения, которые вы вводите в чате",
+      "audioRecordingsOrUploadedAudioFiles": "Аудиозаписи или загруженные аудиофайлы",
+      "pdfAndTextDocumentsYouUpload": "Загружаемые вами документы PDF и текстовые файлы",
+      "imagesYouUpload": "Загружаемые вами изображения",
+      "youTubeVideoURLsAndTheirTranscripts": "Ссылки на видео YouTube и их расшифровки",
+      "customTextYouEnter": "Введенный вами текст",
+      "whoReceivesYourData": "Кто получает данные",
+      "howItSUsed": "Как они используются",
+      "yourContentIsUsedSolelyTo": "Ваши материалы используются исключительно для генерации запрошенного ответа, конспекта, теста или карточек. К данным, обрабатываемым через API каждого провайдера, применяются их собственные политики конфиденциальности. Подробнее — в нашей Политике конфиденциальности.",
+      "iAgreeContinue": "Согласиться и продолжить",
+      "noThanks": "Не сейчас",
+      "whoReceivesBody": "Ваш контент отправляется в <bold>Google (Gemini)</bold> (генерация заметок, тестов и карточек; ответы в чате; обработка документов и изображений) и в <bold>OpenAI</bold> (транскрипция аудио) через наши защищенные серверы. Фрагменты ваших документов также индексируются с помощью <bold>Google Vertex AI</bold>, чтобы чат мог находить нужную информацию. При использовании онлайн-поиска по медицинским источникам ваш вопрос передается в <bold>Tavily</bold> и открытые базы медицинской литературы (такие как PubMed, Europe PMC и Semantic Scholar) для поиска цитат из надежных источников, включая NIH, CDC, MedlinePlus, ВОЗ и Mayo Clinic. Эти сервисы обрабатывают данные исключительно для формирования ответа: они не используют их для обучения своих базовых моделей AI, а мы не продаем ваши данные третьим лицам."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Открепить чат",
+      "pinChat": "Закрепить чат",
+      "deleteChat": "Удалить чат"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Сгенерировать карточки",
+      "createFlashcards": "Создать карточки",
+      "createFlashcardsFromToImproveYour": "Создайте карточки по теме «{{noteTitle}}» для лучшего запоминания",
+      "createFlashcardsToImproveYourRetention": "Создайте карточки для лучшего запоминания материала",
+      "howManyQuestions": "Количество вопросов",
+      "generateFlashcards2": "Сгенерировать карточки"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Создать из чата",
+      "selectFromOneOfYourRecent": "Выберите один из недавних чатов",
+      "pdfOrDocument": "PDF или документ",
+      "createFromAudio": "Создать из аудио",
+      "image": "Изображение",
+      "createFromCustomText": "Создать из своего текста",
+      "created": "Создано {{day}}, {{time}}",
+      "createQuizFrom": "Создать тест из",
+      "createFlashcardsFrom": "Создать карточки из",
+      "selectFromChat": "Выбрать из чата",
+      "noRecentChatsYet": "Пока нет недавних чатов",
+      "quizFromPdf": "Создать тест из PDF или документа",
+      "flashcardsFromPdf": "Создать набор карточек из PDF или документа",
+      "quizFromAudio": "Создать тест из загруженного аудио",
+      "flashcardsFromAudio": "Создать набор карточек из загруженного аудио",
+      "quizFromImage": "Создать тест по изображению",
+      "flashcardsFromImage": "Создать набор карточек по изображению",
+      "quizFromText": "Создать тест из скопированного текста",
+      "flashcardsFromText": "Создать набор карточек из скопированного текста"
+    },
+    "createNote": {
+      "recordAudio": "Записать аудио",
+      "generateANoteFromAnyRecorded": "Создать заметку из аудиозаписи",
+      "uploadAudio": "Загрузить аудио",
+      "createANoteFromAnyUploaded": "Создать заметку из загруженного аудиофайла",
+      "youtubeVideo": "Видео с YouTube",
+      "createANoteFromAnyYoutube": "Создать заметку из любого видео на YouTube",
+      "pdfOrDocument": "PDF или документ",
+      "createANoteFromPDFOr": "Создать заметку из PDF или документа",
+      "customText": "Свой текст",
+      "createANoteFromCapturedText": "Создать заметку из введенного текста",
+      "image": "Изображение",
+      "createANoteFromAnyImage": "Создать заметку по изображению",
+      "createNote": "Создать заметку"
+    },
+    "createQuiz": {
+      "generateQuiz": "Сгенерировать тест",
+      "createQuiz": "Создать тест",
+      "practiceByCreatingQuestionsThatHelp": "Закрепите материал «{{noteTitle}}» с помощью контрольных вопросов",
+      "practiceYourNotesByCreatingQuestions": "Закрепляйте материал заметок с помощью контрольных вопросов",
+      "howManyQuestions": "Количество вопросов",
+      "timeInMinutes": "Время (в минутах)"
+    },
+    "deleteNote": {
+      "deleteNote": "Удалить заметку",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить эту заметку?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Экспортировать конспект как",
+      "exportTranscriptAs": "Экспортировать расшифровку как",
+      "exportAs": "Экспортировать как",
+      "exportSummary": "Экспорт конспекта",
+      "exportTranscript": "Экспорт расшифровки"
+    },
+    "exportTypeStep": {
+      "exportNote": "Экспорт заметки",
+      "exportSummary": "Экспорт конспекта",
+      "exportTranscript": "Экспорт расшифровки"
+    },
+    "exportSettings": {
+      "export": "Экспорт: {{title}}",
+      "selectFormat": "Выберите формат",
+      "includeAnswers": "Включить ответы",
+      "answersExplanationsIncluded": "С ответами и пояснениями",
+      "questionsOnly": "Только вопросы",
+      "export2": "Экспорт"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Заметка готова!",
+      "howDidWeDo": "Как вам результат?",
+      "happy": "Отлично",
+      "sad": "Плохо",
+      "maybeLater": "Позже",
+      "whatWentWrong": "Что пошло не так?",
+      "yourFeedbackHelpsUsImprove": "Ваш отзыв помогает нам стать лучше.",
+      "tellUsWhatCouldBeBetter": "Расскажите, что можно улучшить...",
+      "submit": "Отправить"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Нет содержимого",
+      "clickCardToFlip": "нажмите, чтобы перевернуть"
+    },
+    "flashcardExport": {
+      "exportFailed": "Ошибка экспорта",
+      "unknownError": "Неизвестная ошибка",
+      "export": "Экспортировать {{setTitle}}",
+      "chooseWhatToExport": "Выберите, что экспортировать",
+      "exportQuestions": "Экспортировать вопросы",
+      "exportAnswers": "Экспортировать ответы"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Удалить набор карточек",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{setTitle}}»?",
+      "failedToDeleteFlashcardSet": "Не удалось удалить набор карточек",
+      "flashcardHistory": "История карточек",
+      "cards": "Карточки",
+      "reviewedMastered": "Повторено: {{cardsReviewedCount}} • Усвоено: {{percentage}}%"
+    },
+    "folders": {
+      "items": "Элементов: {{itemCount}}",
+      "enterYourFolderName": "Введите название папки",
+      "yourFolderName": "Название папки",
+      "createFolder": "Создать папку",
+      "folders": "Папки",
+      "addFolder": "Добавить папку",
+      "noFoldersToDisplay": "Нет папок для отображения",
+      "clickTheButtonAboveToCreate": "Нажмите кнопку выше, чтобы создать папку для заметок",
+      "allFolders": "Все папки",
+      "items2": "Элементов: {{totalItems}}"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Фильтры мед. исследований",
+      "howrecentdoyouwantthe": "АКТУАЛЬНОСТЬ ИСТОЧНИКОВ",
+      "from": "От",
+      "whatkindofsourcedoyou": "ТИП ИСТОЧНИКА",
+      "textbooks": "Учебники",
+      "clinicalGuidelines": "Клинические рекомендации",
+      "scientificJournalArticles": "Статьи из научных журналов",
+      "onlywiththisjournalarticles": "ТОЛЬКО ЭТИ СТАТЬИ ИЗ ЖУРНАЛОВ",
+      "metaAnalyses": "Метаанализы",
+      "reviewArticles": "Обзорные статьи",
+      "clinicalTrials": "Клинические исследования",
+      "fromYear": "С года",
+      "toYear": "По год"
+    },
+    "noteOptions": {
+      "noteOptions": "Опции заметки",
+      "editNote": "Редактировать заметку",
+      "reTranscribe": "Расшифровать повторно",
+      "chatWithNote": "Чат по заметке",
+      "exportNote": "Экспортировать заметку",
+      "moveToFolder": "Переместить в папку",
+      "deleteNote": "Удалить заметку"
+    },
+    "onboardingTooltip": {
+      "skip": "Пропустить"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Удалить тест",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{quizTitle}}»?",
+      "failedToDeleteQuiz": "Не удалось удалить тест",
+      "quizHistory": "История тестов",
+      "questions": "Вопросы",
+      "correct": "Правильно: {{correctAnswers}}"
+    },
+    "referral": {
+      "copied": "Скопировано!",
+      "yourReferralCodeHasBeenCopied": "Ваш реферальный код скопирован в буфер обмена.",
+      "joinMeOnClinicalFactUse": "Присоединяйся ко мне в Clinical Fact! Используй мой код {{referralCode}} — {{appUrl}}",
+      "joined": "Дата регистрации: {{joinedDate}}",
+      "referralCode": "Реферальный код",
+      "yourReferralCode": "Ваш реферальный код",
+      "shareWithFriendsToEarnRewards": "Делитесь с друзьями и получайте бонусы",
+      "share": "Поделиться",
+      "copyCode": "Скопировать код",
+      "referredFriends": "Приглашенные друзья",
+      "noReferralsYetShareYourCode": "Пока нет приглашенных. Поделитесь кодом, чтобы начать!",
+      "loadMore": "Загрузить еще",
+      "howItWorks": "Как это работает",
+      "friendsUseYourCodeDuringSignup": "• Друзья вводят ваш код при регистрации",
+      "youBothEarnRewardsWhenThey": "• Вы оба получаете бонусы после их регистрации",
+      "friendsReferredCount": "Приглашено друзей: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Извлечение текста...",
+      "transcribingAudio": "Расшифровка аудио...",
+      "processingPDF": "Обработка PDF...",
+      "settingUpChat": "Настройка чата...",
+      "uploadFailed": "Ошибка загрузки",
+      "failedToUploadFilePleaseTry": "Не удалось загрузить файл. Попробуйте еще раз.",
+      "yourFileIsReadyForChatting": "Файл готов к обсуждению!",
+      "uploadingYourFileToTheServer": "Загрузка файла на сервер...",
+      "extractingTextFromYourImage": "Извлечение текста из изображения...",
+      "transcribingYourAudio": "Расшифровка аудиозаписи...",
+      "extractingTextFromYourPDF": "Извлечение текста из PDF...",
+      "creatingYourChatSession": "Создание чата...",
+      "pleaseWait": "Пожалуйста, подождите...",
+      "uploadFile": "Загрузить файл",
+      "processContent": "Обработать файл",
+      "createChat": "Создать чат"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Открыть",
+      "export": "📤 Экспортировать",
+      "delete": "🗑️ Удалить"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Работает на базе"
+    },
+    "exportFormat": {
+      "txtFile": "Файл TXT",
+      "pdfFile": "Файл PDF",
+      "docFile": "Файл DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Не удалось загрузить заметки",
+      "failedToFetchFolders": "Не удалось загрузить папки",
+      "failedToFetchNote": "Не удалось загрузить заметку",
+      "failedToDeleteNote": "Не удалось удалить заметку",
+      "failedToCreateFolder": "Не удалось создать папку",
+      "failedToDeleteFolder": "Не удалось удалить папку"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Не удалось удалить чат"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Набор карточек успешно экспортирован!",
+      "failedToExportFlashcardSet": "Не удалось экспортировать набор карточек."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Тест успешно экспортирован!",
+      "failedToExportQuiz": "Не удалось экспортировать тест."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Карточки без названия",
+      "failedToLoadFlashcards": "Не удалось загрузить карточки",
+      "failedToSyncFlashcardSet": "Не удалось синхронизировать набор карточек",
+      "failedToSyncCardUpdate": "Не удалось синхронизировать карточку"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Тесты"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Создано: {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Вы достигли лимита в 3 закрепленных чата",
+      "failedToUpdatePin": "Не удалось обновить закрепление",
+      "noChatsYet": "Чатов пока нет",
+      "startAChatToGetAnswers": "Начните чат, чтобы получить ответы с проверенными источниками.",
+      "createChat": "+ Новый чат"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Удалить карточки",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{sourceTitle}}»?",
+      "failedToDeleteFlashcards": "Не удалось удалить карточки",
+      "sets": "Наборов: {{setCount}}",
+      "flashcards": "Карточки",
+      "createFlashcards": "Создать карточки",
+      "searchFlashcards": "Поиск карточек...",
+      "noFlashcardsYet": "Карточек пока нет",
+      "createAFlashcardSetFromA": "Создайте набор карточек из заметки, чтобы начать",
+      "createSet": "+ Создать набор",
+      "flashcardOptions": "Параметры карточек",
+      "view": "Открыть"
+    },
+    "folder": {
+      "deleteFolder": "Удалить папку",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{name}}»? Заметки внутри будут перемещены в корень.",
+      "failedToDeleteFolder": "Не удалось удалить папку",
+      "error": "Ошибка: {{message}}",
+      "noFoldersYetCreateOne": "Папок пока нет. Создайте первую!",
+      "folders": "Папки"
+    },
+    "home": {
+      "created": "Создано {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Не удалось обновить язык",
+      "notEnoughContentYet": "Пока недостаточно данных",
+      "chatABitMoreBeforeGenerating": "Напишите чуть больше в чате для генерации теста (минимум 100 символов).",
+      "chatABitMoreBeforeGenerating2": "Напишите чуть больше в чате для генерации карточек (минимум 100 символов).",
+      "failedToGenerateFlashcards": "Не удалось создать карточки",
+      "upgradeToPro": "Перейти на PRO",
+      "get80DiscountWhenYouUpgrade": "Скидка 80% при обновлении аккаунта",
+      "unlockPRO": "Открыть доступ к PRO",
+      "noMedicalChats": "Нет медицинских чатов",
+      "youHaveNotCreatedAnyMedical": "Вы еще не создали ни одного чата. Начните диалог, чтобы получить клинические ответы со ссылками на источники",
+      "talkToClinicalfactAI": "Чат с Clinical Fact AI",
+      "jumpInWhereYouStopped": "Продолжить с места остановки",
+      "practiceQuiz": "Пройти тест",
+      "makeFlashcards": "Создать карточки",
+      "continueChatWithNote": "Продолжить чат с заметкой",
+      "continueChat": "Продолжить чат",
+      "recentChats": "Недавние чаты",
+      "chatOptions": "Опции чата"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Вы не в сети. Подключитесь к интернету для выполнения действия.",
+      "failedToDeleteNote": "Не удалось удалить заметку",
+      "failedToMoveNote": "Не удалось переместить заметку",
+      "deleteFolder": "Удалить папку?",
+      "areYouSureNotesInsideWill": "Вы уверены? Заметки внутри не удалятся, а переместятся во «Все заметки».",
+      "failedToDeleteFolder": "Не удалось удалить папку",
+      "library": "Библиотека",
+      "addFolder": "Добавить папку",
+      "searchForANoteFolder": "Поиск заметки или папки",
+      "yourFolders": "Ваши папки",
+      "noFoldersToDisplay": "Папок пока нет",
+      "tapAddFolderToCreateA": "Нажмите «+ Добавить папку», чтобы упорядочить заметки",
+      "allNotes": "Все заметки",
+      "items": "Элементов: {{allNotesTotal}}",
+      "items2": "Элементов: {{itemCount}}",
+      "yourNotes": "Ваши заметки",
+      "untitledNote": "Заметка без названия",
+      "noResultsFor": "Ничего не найдено по запросу «{{searchQuery}}»",
+      "noNotesInThisFolder": "В этой папке нет заметок",
+      "noNotesToDisplay": "Нет заметок для отображения",
+      "tryADifferentSearchTerm": "Попробуйте изменить поисковый запрос",
+      "moveNotesToThisFolderTo": "Переместите заметки в эту папку, чтобы они появились здесь",
+      "clickBelowToGenerateYourNote": "Нажмите ниже, чтобы создать заметку с помощью Clinical Fact",
+      "filterByType": "Фильтр по типу",
+      "audio": "Аудио",
+      "text2": "Текст",
+      "image": "Изображение",
+      "clearFilter": "Сбросить фильтр"
+    },
+    "profile": {
+      "permissionRequired": "Требуется разрешение",
+      "pleaseAllowAccessToYourPhoto": "Разрешите доступ к фото, чтобы установить фото профиля.",
+      "uploadFailed": "Ошибка загрузки",
+      "couldNotUpdateProfilePicture": "Не удалось обновить фото профиля.",
+      "failedToUploadProfilePicture": "Не удалось загрузить фото профиля.",
+      "checkOutClinicalFactAIPowered": "Попробуйте Clinical Fact — конспекты с AI! {{url}}",
+      "proSubscriber": "Подписка PRO",
+      "subscriptionExpired": "Подписка истекла",
+      "freeSubscriber": "Бесплатный план",
+      "tapToManageIPhoneSettingsApple": "Управление · Настройки iPhone → Apple ID → Подписки",
+      "tapToManagePlayStoreSubscriptions": "Управление · Play Store → Подписки",
+      "tapToRenewYourSubscription": "Нажмите, чтобы продлить подписку",
+      "tapToUpgradeToPro": "Нажмите, чтобы перейти на PRO",
+      "referralCode": "Реферальный код",
+      "areYouSureYouWantTo": "Вы уверены, что хотите выйти из аккаунта?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Удалить тест",
+      "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{sourceTitle}}»?",
+      "failedToDeleteQuiz": "Не удалось удалить тест",
+      "correct": "Правильно: {{correct}}/{{total}}",
+      "attempts": "Попыток: {{attempts}}",
+      "quiz": "Тест",
+      "createQuiz": "Создать тест",
+      "searchQuizzes": "Поиск тестов...",
+      "noQuizzesYet": "Пока нет тестов",
+      "createAQuizFromANote": "Создайте тест из заметки, чтобы начать",
+      "createQuiz2": "+ Создать тест",
+      "quizOptions": "Параметры теста",
+      "view": "Открыть"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Переход недоступен",
+      "weCouldnTOpenTheUpgrade": "Не удалось открыть экран подписки. Проверьте подключение к сети и повторите попытку."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Сервер вернул ответ не в формате JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Ошибка сети. Проверьте подключение к интернету.",
+      "connectionErrorPleaseTryAgain": "Ошибка соединения. Попробуйте еще раз."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Файл экспортирован: {{filename}}",
+      "exportFailed": "Ошибка экспорта",
+      "exportFormat": "Формат экспорта",
+      "chooseFormat": "Выберите формат",
+      "text": "Текст"
+    },
+    "formatDate": {
+      "justNow": "Только что",
+      "minAgo": "{{diffMin}} мин назад",
+      "hrAgo": "{{diffHr}} ч назад",
+      "dAgo": "{{diffDay}} дн назад",
+      "created": "Создано: {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Не удалось отправить код",
+      "invalidOTP": "Неверный код",
+      "failedToVerifyOTP": "Не удалось подтвердить код",
+      "googleAuthenticationFailed": "Ошибка входа через Google",
+      "appleAuthenticationFailed": "Ошибка входа через Apple",
+      "failedToCompleteSignup": "Не удалось завершить регистрацию",
+      "failedToSkipSignup": "Не удалось пропустить регистрацию"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Чаты",
+      "description": "Общайтесь с конспектами, документами и PDF в одном месте"
+    },
+    "profileWelcome": {
+      "heading": "Добро пожаловать в профиль",
+      "description": "Это ваш профиль. Нажмите сюда, чтобы изменить личные данные и статус подписки"
+    },
+    "createNotes": {
+      "heading": "Создание заметок",
+      "description": "Создавайте конспекты из любых источников: записей, аудио, видео, фото, текста и ссылок на YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Смена языка",
+      "description": "Здесь можно выбрать удобный для вас язык приложения"
+    },
+    "manageHome": {
+      "heading": "Главный экран",
+      "description": "Просматривайте все созданные заметки и недавние действия в одном месте"
+    },
+    "yourLibrary": {
+      "heading": "Ваша библиотека",
+      "description": "Управляйте всеми заметками, распределяйте их по папкам и не только"
+    },
+    "yourProfile": {
+      "heading": "Ваш профиль",
+      "description": "Просматривайте информацию о профиле и настраивайте его параметры"
+    }
   }
 }
