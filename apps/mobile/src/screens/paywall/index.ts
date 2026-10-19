@@ -1,0 +1,1 @@
+export { PaywallFullScreen } from './PaywallFullScreen';

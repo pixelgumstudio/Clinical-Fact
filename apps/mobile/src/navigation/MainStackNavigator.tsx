@@ -18,6 +18,7 @@ import {
 import { QuizScreen, QuizResultsScreen, QuizReviewScreen, QuizGroupDetailScreen } from '../screens/quiz';
 import { ChatFileSelectScreen, ChatConversationScreen } from '../screens/chat';
 import { FolderScreen, QuizHistoryScreen, FlashcardHistoryScreen, LibraryScreen, ChatsScreen } from '../screens/main';
+import { PaywallFullScreen } from '../screens/paywall';
 
 interface QuizOption {
   id: string;
@@ -144,6 +145,8 @@ export type MainStackParamList = {
   // No longer a bottom tab (replaced by Home/Quiz/Flashcards/Profile), but
   // kept reachable via direct push — e.g. SharedNoteScreen's "View in Library".
   Library: undefined;
+  /** Full-page paywall; what to show is handed over through services/paywallSession. */
+  Paywall: undefined;
 };
 
 const Stack = createNativeStackNavigator<MainStackParamList>();
@@ -183,6 +186,7 @@ export const MainStackNavigator = () => {
       <Stack.Screen name="QuizHistoryScreen" component={QuizHistoryScreen as any} />
       <Stack.Screen name="FlashcardHistoryScreen" component={FlashcardHistoryScreen as any} />
       <Stack.Screen name="Library" component={LibraryScreen} />
+      <Stack.Screen name="Paywall" component={PaywallFullScreen} />
     </Stack.Navigator>
   );
 };
