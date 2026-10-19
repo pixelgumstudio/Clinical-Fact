@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import EventSource from 'react-native-sse';
 import { getAccessToken, getRefreshToken, saveTokens } from './tokenStorage';
 import i18n from '../i18n';
+import { localizeServerMessage } from '../utils/serverMessages';
 
 // Get API URL from environment variable or use platform-specific defaults
 const getApiUrl = () => {
@@ -156,6 +157,14 @@ export interface CompleteSignupData {
 
 // --- API Client ---
 
+/** Swaps the API's English message for the user's language when it's a known one. */
+const localizeBody = <B,>(body: B): B => {
+  if (body && typeof (body as any).message === 'string') {
+    (body as any).message = localizeServerMessage((body as any).message);
+  }
+  return body;
+};
+
 class ApiClient {
   private baseUrl: string;
   private defaultTimeout: number = 30000;
@@ -291,12 +300,12 @@ class ApiClient {
                       timeout
                     );
                     if (retryRes.headers.get('content-type')?.includes('application/json')) {
-                      resolve(await retryRes.json());
+                      resolve(localizeBody(await retryRes.json()));
                       return;
                     }
                   } catch { /* fall through */ }
                 }
-                resolve(body as ApiResponse<T>);
+                resolve(localizeBody(body) as ApiResponse<T>);
               })();
             });
           });
@@ -325,7 +334,7 @@ class ApiClient {
             timeout
           );
           if (retryRes.headers.get('content-type')?.includes('application/json')) {
-            return retryRes.json();
+            return localizeBody(await retryRes.json());
           }
         } else {
           // Refresh failed (token revoked or expired) — scorched-earth logout
@@ -337,7 +346,7 @@ class ApiClient {
       }
       // ── End token-expired interceptor ───────────────────────────────────
 
-      return body;
+      return localizeBody(body);
     } catch (error: any) {
       if (__DEV__) console.error('❌ API request error:', error);
       return {
@@ -1141,14 +1150,14 @@ class ApiClient {
         let quotaExceeded = false;
         if (event?.data) {
           try {
-            errorMessage = JSON.parse(event.data).message || errorMessage;
+            errorMessage = localizeServerMessage(JSON.parse(event.data).message) || errorMessage;
           } catch {
             // keep default
           }
         } else if (event?.message) {
           try {
             const parsed = JSON.parse(event.message);
-            errorMessage = parsed.message || errorMessage;
+            errorMessage = localizeServerMessage(parsed.message) || errorMessage;
             quotaExceeded = parsed.quotaExceeded === true;
           } catch {
             errorMessage = event.message;
