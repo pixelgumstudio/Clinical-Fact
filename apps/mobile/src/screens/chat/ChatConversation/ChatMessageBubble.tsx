@@ -4,8 +4,7 @@ import { colors, spacing, typography, RegenerateIcon, Icon, theme } from '@clini
 import { MedicalChatGroundingSource, MedicalChatImage, MedicalChatSource } from '../../../services/api';
 import { RichText } from '../../../components/RichText';
 import { Message } from './types';
-import { stripCitationMarkers, citationsForBlock } from './citationHelpers';
-import { CitationPillsRow } from './CitationPillsRow';
+import { stripCitationMarkers } from './citationHelpers';
 import { SourcesRow } from './SourcesRow';
 import { useTranslation } from 'react-i18next';
 
@@ -80,18 +79,6 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
               <RichText
                 content={item.content}
                 transformBlockText={stripCitationMarkers}
-                renderBlockFooter={(html, i) => {
-                  const blockSources = citationsForBlock(html, item.sources ?? []);
-                  if (!blockSources.length) return null;
-                  return (
-                    <CitationPillsRow
-                      key={`${item.id}-block-citations-${i}`}
-                      sources={blockSources}
-                      onOpenCitations={onOpenCitations}
-                      style={styles.blockCitationPillsRow}
-                    />
-                  );
-                }}
               />
             )}
 
@@ -244,10 +231,6 @@ const styles = StyleSheet.create({
     color: colors.text.tertiary,
     marginTop: spacing[1],
     maxWidth: 120,
-  },
-  blockCitationPillsRow: {
-    marginTop: theme.spacing[1], // 4 — sits right under its own block, not the whole message
-    marginBottom: theme.spacing[2], // 8
   },
   failedBlock: {
     marginTop: theme.spacing[2], // 8

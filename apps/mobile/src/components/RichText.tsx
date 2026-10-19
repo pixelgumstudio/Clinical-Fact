@@ -140,23 +140,17 @@ interface RichTextProps {
    *  generic so this component stays domain-agnostic even though its one current use is chat
    *  citations. Not applied to dividers. */
   transformBlockText?: (html: string) => string;
-  /** Rendered directly under a block, given that block's original (untransformed) html so the
-   *  caller can pull its own markers out of it before transformBlockText strips them. Not called
-   *  for dividers. */
-  renderBlockFooter?: (html: string, blockIndex: number) => React.ReactNode;
 }
 
 export const RichText: React.FC<RichTextProps> = ({
   content,
   containerStyle,
   transformBlockText,
-  renderBlockFooter,
 }) => {
   if (!content) return null;
 
   const blocks = parseBlocks(content);
   const displayHtml = (html: string) => (transformBlockText ? transformBlockText(html) : html);
-  const footerFor = (html: string, i: number) => renderBlockFooter?.(html, i) ?? null;
 
   return (
     <View style={containerStyle}>
@@ -184,7 +178,6 @@ export const RichText: React.FC<RichTextProps> = ({
               <Text style={headingStyle}>
                 {renderInline(displayHtml(block.html)) as any}
               </Text>
-              {footerFor(block.html, i)}
             </View>
           );
         }
@@ -198,7 +191,6 @@ export const RichText: React.FC<RichTextProps> = ({
                   {renderInline(displayHtml(block.html)) as any}
                 </Text>
               </View>
-              {footerFor(block.html, i)}
             </View>
           );
         }
@@ -210,7 +202,6 @@ export const RichText: React.FC<RichTextProps> = ({
             <Text style={[styles.paragraph, isLast && { marginBottom: 0 }]}>
               {renderInline(displayHtml(block.html)) as any}
             </Text>
-            {footerFor(block.html, i)}
           </View>
         );
       })}

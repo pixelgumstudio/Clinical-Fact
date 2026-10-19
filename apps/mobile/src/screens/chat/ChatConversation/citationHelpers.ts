@@ -1,21 +1,14 @@
 import { MedicalChatGroundingSource, MedicalChatSource } from '../../../services/api';
 import i18n from '../../../i18n';
 
-const CITATION_MARKER = /\[(\d+)\]/g;
+/** "[1]", "[2]" and lists like "[1, 3]" / "[2-4]". */
+const CITATION_MARKER = /\s*\[\d+(?:\s*[,\u2013-]\s*\d+)*\]/g;
 
-/** Removes "[n]" citation markers from a block's raw text so they never render as literal
- *  bracketed numbers — the matching source is instead surfaced as a pill (see CitationPillsRow). */
+/** Removes citation markers from a block's raw text so they never render as literal bracketed
+ *  numbers — every source is listed in the sources card under the answer instead. The space that
+ *  sat before a marker goes with it, so "differ entirely [1]: ..." reads "differ entirely: ..."
+ *  and not "differ entirely : ...". */
 export const stripCitationMarkers = (html: string): string => html.replace(CITATION_MARKER, '').trim();
-
-/** Which sources a single RichText block's "[n]" markers refer to, in the same relative order
- *  as `sources` (not marker-appearance order) so grouping/pill labels stay stable. Markers with
- *  no matching entry (off-by-one or hallucinated numbering) are silently dropped rather than
- *  shown as a broken pill. */
-export const citationsForBlock = (html: string, sources: MedicalChatSource[]): MedicalChatSource[] => {
-  const indices = new Set(Array.from(html.matchAll(CITATION_MARKER), (m) => Number(m[1])));
-  if (indices.size === 0) return [];
-  return sources.filter((s) => indices.has(s.index));
-};
 
 const hasRealJournal = (s: MedicalChatSource) => !!s.journal && !/^unknown/i.test(s.journal);
 const hasRealYear = (s: MedicalChatSource) => !!s.year && !/^unknown/i.test(s.year);
@@ -54,20 +47,6 @@ export const buildSourceChips = (
     visible.push(item);
   }
   return { visible, more: all.length - visible.length, total: all.length };
-};
-
-/** Groups sources by pillLabelFor for the pill row ("Journal +N" / "FDA +N" / "Attached +N"). */
-export const groupSourcesForPills = (sources: MedicalChatSource[]) => {
-  const byKey = new Map<string, MedicalChatSource[]>();
-  sources.forEach((s) => {
-    const key = pillLabelFor(s);
-    if (!byKey.has(key)) byKey.set(key, []);
-    byKey.get(key)!.push(s);
-  });
-  return Array.from(byKey.entries()).map(([label, group]) => ({
-    label: group.length > 1 ? i18n.t('chat.citationHelpers.text', { label, value: group.length - 1 }) : label,
-    sources: group,
-  }));
 };
 
 /** Meta line for a citation card ("Journal · Year" for literature, a fixed tag for the other
