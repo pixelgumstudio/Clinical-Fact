@@ -11,6 +11,23 @@ import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quot
 import notificationService from '../services/notification.service';
 import { isGenericTitle } from '../utils/title';
 
+/**
+ * Saves how far document indexing has got, so the chat screen's "Processing N%" moves instead of
+ * sitting at 0% until the very end. The app polls the session for it. Throttled to one write
+ * every ~1.5s, only ever moves forward, and never throws (progress is cosmetic).
+ */
+function embeddingProgressSaver(sessionId: string) {
+  let lastPercent = 0;
+  let lastSavedAt = 0;
+  return (percent: number) => {
+    const now = Date.now();
+    if (percent <= lastPercent || now - lastSavedAt < 1500) return;
+    lastPercent = percent;
+    lastSavedAt = now;
+    ChatSession.findByIdAndUpdate(sessionId, { embeddingProgress: percent }).catch(() => {});
+  };
+}
+
 // Minimum extracted-text length for a chat source. Images (a lab table, a labelled diagram, a
 // single clinical photo) legitimately carry far less text than a document, so they get a much
 // lower bar instead of being rejected as "too short".
@@ -95,7 +112,7 @@ class ChatController {
       incrementQuota(userId.toString(), 'chats');
 
       // Embed document in background using stored note content (if available)
-      chatService.embedNoteDocument(note._id.toString(), chatSession._id.toString())
+      chatService.embedNoteDocument(note._id.toString(), chatSession._id.toString(), embeddingProgressSaver(chatSession._id.toString()))
         .then(async (result) => {
           await ChatSession.findByIdAndUpdate(chatSession._id, {
             embeddingStatus: 'completed',
@@ -299,7 +316,7 @@ class ChatController {
       chatService.embedDocument(documentText, chatSession._id.toString(), {
         fileId,
         fileName: file.originalName,
-      })
+      }, embeddingProgressSaver(chatSession._id.toString()))
         .then(async () => {
           await ChatSession.findByIdAndUpdate(chatSession._id, {
             embeddingStatus: 'completed',
@@ -420,6 +437,7 @@ class ChatController {
 
       chatSession.attachedSources.push({ type: sourceType, refId: refId as any, title, attachedAt: new Date() });
       chatSession.embeddingStatus = 'processing';
+      chatSession.embeddingProgress = 0;
       await chatSession.save();
 
       res.json({
@@ -430,7 +448,7 @@ class ChatController {
 
       // Embed in background — client polls GET /chat/:sessionId, same mechanism used for the
       // session's initial source (see pollEmbeddingStatus on the mobile side).
-      chatService.embedDocument(content, sessionId, { attachedTitle: title, attachedType: sourceType })
+      chatService.embedDocument(content, sessionId, { attachedTitle: title, attachedType: sourceType }, embeddingProgressSaver(sessionId))
         .then(async (result) => {
           await ChatSession.findByIdAndUpdate(sessionId, {
             embeddingStatus: 'completed',
@@ -517,7 +535,12 @@ class ChatController {
 
       // Live medical mode bypasses the local Qdrant document store entirely,
       // so it doesn't need to wait on document embedding to finish.
-      if (mode !== 'medical_live' && chatSession.embeddingStatus !== 'completed') {
+      // A document whose text is stored on the session can be chatted with before indexing finishes
+      // (or after it failed): chatService.chatStream answers from that text instead of the vector index.
+      // Sessions with later-attached sources still need the index, since the stored text covers only the first.
+      const hasAttachedSources = (chatSession.attachedSources?.length ?? 0) > 0;
+      const canAnswerFromStoredText = !!chatSession.sourceContent?.trim() && !hasAttachedSources;
+      if (mode !== 'medical_live' && chatSession.embeddingStatus !== 'completed' && !canAnswerFromStoredText) {
         return res.status(400).json({
           success: false,
           message: 'Document is still being processed. Please wait a moment.',
@@ -608,7 +631,12 @@ class ChatController {
               chatHistory.slice(0, -1),
               !!deepResearch,
               language,
-              abortController.signal
+              abortController.signal,
+              {
+                sourceContent: chatSession.sourceContent,
+                hasAttachedSources,
+                forceStoredText: chatSession.embeddingStatus !== 'completed',
+              }
             );
 
         for await (const event of eventStream) {

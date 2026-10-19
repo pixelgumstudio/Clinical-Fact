@@ -70,6 +70,17 @@ export interface MedicalSearchFilters extends EuropePmcFilters {
   };
 }
 
+/**
+ * Questions about the document as a whole ("summarize this note", "what is this about") need all of it,
+ * not the few passages most similar to the question.
+ */
+export const WHOLE_DOCUMENT_INTENT =
+  /\b(summari[sz]e|summary|overview|outline|key (points|takeaways|ideas|concepts)|main (points|ideas|topics)|tl;?dr|recap|what('?s| is) (this|the) (note|document|file|pdf|lecture|material|text) (about|covering)|explain (this|the) (whole |entire )?(note|document|file|pdf|lecture|material))\b/i;
+// ~25,000 tokens: a long lecture fits, and a message stays affordable.
+const WHOLE_DOCUMENT_MAX_CHARS = 100000;
+// When retrieval fails and we fall back to the stored text, send a smaller slice.
+const FALLBACK_DOCUMENT_MAX_CHARS = 40000;
+
 class ChatService {
   /**
    * Embed document for RAG chat
@@ -77,7 +88,9 @@ class ChatService {
   async embedDocument(
     documentText: string,
     sessionId: string,
-    metadata: any = {}
+    metadata: any = {},
+    /** Percent done (0-100), reported as chunks are embedded; stays below 100 until stored. */
+    onProgress?: (percent: number) => void
   ): Promise<{
     chunksCount: number;
     sessionId: string;
@@ -96,7 +109,9 @@ class ChatService {
       console.log(`✂️ Split document into ${chunks.length} chunks (1500 char size, 300 overlap)`);
 
       // Generate embeddings for all chunks
-      const embeddings = await embeddingService.generateEmbeddings(chunks);
+      const embeddings = await embeddingService.generateEmbeddings(chunks, (done, total) =>
+        onProgress?.(Math.min(95, Math.round((done / total) * 95)))
+      );
       console.log(`✅ Generated ${embeddings.length} embeddings`);
 
       // Store in vector database
@@ -113,22 +128,14 @@ class ChatService {
   }
 
   /**
-   * Chat with document using RAG — streaming. Yields one `metadata` event (after retrieval,
-   * before generation starts), then one `chunk` event per text delta from the LLM. The caller
-   * is responsible for accumulating `chunk` text for persistence (see chat.controller.ts).
+   * Similarity search over the session's indexed chunks, returned as a numbered context block.
+   * Null when nothing matched. Throws if embedding or the vector database fails.
    */
-  async *chatStream(
+  private async retrieveLocalContext(
     sessionId: string,
     userMessage: string,
-    chatHistory: ChatMessage[] = [],
-    deepResearch = false,
-    language = 'en',
-    signal?: AbortSignal
-  ): AsyncGenerator<ChatStreamEvent, void, unknown> {
-    console.log(`💬 Streaming chat message for session ${sessionId}...`);
-
-    const retrievalStartedAt = performance.now();
-
+    retrievalStartedAt: number
+  ): Promise<{ context: string; count: number } | null> {
     // Generate embedding for user question
     const queryEmbedding = await embeddingService.generateQueryEmbedding(userMessage);
 
@@ -152,12 +159,7 @@ class ChatService {
 
       if (fallbackChunks.length === 0) {
         console.log(`⏱️ Vector retrieval duration (no matches): ${(performance.now() - retrievalStartedAt).toFixed(0)}ms`);
-        yield { type: 'metadata', metadata: { sources: [] } };
-        yield {
-          type: 'chunk',
-          text: "I couldn't find relevant information in this document to answer your question. Could you rephrase your question or ask about something else in the document?",
-        };
-        return;
+        return null;
       }
 
       // Use fallback chunks if found
@@ -189,6 +191,79 @@ class ChatService {
         return `[${i + 1}] "${title}"${sourceType} (Relevance: ${(chunk.score * 100).toFixed(0)}%)\n${this.truncateText(chunk.text, 800)}`;
       })
       .join('\n\n---\n\n');
+
+    return { context, count: uniqueChunks.length };
+  }
+
+  /** The stored document text as a context block, capped so very long documents stay affordable. */
+  private storedTextContext(text: string, maxChars: number): string {
+    return text.length > maxChars ? `${text.slice(0, maxChars)}\n\n[The rest of the document is not shown.]` : text;
+  }
+
+  /**
+   * Chat with document using RAG — streaming. Yields one `metadata` event (after retrieval,
+   * before generation starts), then one `chunk` event per text delta from the LLM. The caller
+   * is responsible for accumulating `chunk` text for persistence (see chat.controller.ts).
+   */
+  async *chatStream(
+    sessionId: string,
+    userMessage: string,
+    chatHistory: ChatMessage[] = [],
+    deepResearch = false,
+    language = 'en',
+    signal?: AbortSignal,
+    options: {
+      /** The session's stored document text. */
+      sourceContent?: string;
+      /** More documents were attached later; the stored text covers only the first, so it isn't used. */
+      hasAttachedSources?: boolean;
+      /** Answer from the stored text (indexing not finished). */
+      forceStoredText?: boolean;
+    } = {}
+  ): AsyncGenerator<ChatStreamEvent, void, unknown> {
+    console.log(`💬 Streaming chat message for session ${sessionId}...`);
+
+    const retrievalStartedAt = performance.now();
+
+    // Whole-document mode. "Summarize this note" doesn't resemble any one passage, so retrieving the few
+    // passages closest to the question gives a poor summary — send the document itself (up to a cap).
+    // Also used while indexing is still running, and as the fallback when retrieval fails or finds nothing.
+    const sourceText = (options.sourceContent || '').trim();
+    const canUseStoredText = sourceText.length > 0 && !options.hasAttachedSources;
+    let context = '';
+    let chunkCount = 0;
+
+    if (canUseStoredText && (options.forceStoredText || WHOLE_DOCUMENT_INTENT.test(userMessage))) {
+      context = this.storedTextContext(sourceText, WHOLE_DOCUMENT_MAX_CHARS);
+      console.log(`📖 Answering from the whole document (${Math.min(sourceText.length, WHOLE_DOCUMENT_MAX_CHARS)} chars)`);
+    } else {
+      let local: { context: string; count: number } | null = null;
+      try {
+        local = await this.retrieveLocalContext(sessionId, userMessage, retrievalStartedAt);
+      } catch (error: any) {
+        if (!canUseStoredText) throw error;
+        // e.g. the embedding quota is exhausted or the vector database is down — the document text
+        // is stored on the session, so the chat can still answer from it.
+        console.warn(`⚠️ Document retrieval failed (${error.message}) — answering from the stored document text instead`);
+        context = this.storedTextContext(sourceText, FALLBACK_DOCUMENT_MAX_CHARS);
+      }
+
+      if (local) {
+        context = local.context;
+        chunkCount = local.count;
+      } else if (!context) {
+        if (canUseStoredText) {
+          context = this.storedTextContext(sourceText, FALLBACK_DOCUMENT_MAX_CHARS);
+        } else {
+          yield { type: 'metadata', metadata: { sources: [] } };
+          yield {
+            type: 'chunk',
+            text: "I couldn't find relevant information in this document to answer your question. Could you rephrase your question or ask about something else in the document?",
+          };
+          return;
+        }
+      }
+    }
 
     // Matches the same targetLanguage convention already used by quiz/flashcard generation
     // (see quizGeneration.service.ts) — 'en' needs no instruction since it's the model's default.
@@ -250,7 +325,7 @@ ${context}${languageInstruction}`;
       yield { type: 'chunk', text: piece };
     }
 
-    console.log(`✅ Finished streaming chat response using ${uniqueChunks.length} local chunks${deepResearch ? ' + live web search' : ''}`);
+    console.log(`✅ Finished streaming chat response using ${chunkCount} local chunks${deepResearch ? ' + live web search' : ''}`);
   }
 
   /**
@@ -646,7 +721,8 @@ Respond with ONLY a JSON object in this exact shape, nothing else:
    */
   async embedNoteDocument(
     noteId: string,
-    sessionId: string
+    sessionId: string,
+    onProgress?: (percent: number) => void
   ): Promise<{
     chunksCount: number;
     sessionId: string;
@@ -677,7 +753,7 @@ Respond with ONLY a JSON object in this exact shape, nothing else:
         noteId: noteId.toString(),
         noteTitle: note.title,
         sourceType: note.sourceType,
-      });
+      }, onProgress);
     } catch (error: any) {
       console.error('❌ Error embedding note document:', error);
       throw new Error(`Note embedding failed: ${error.message}`);
