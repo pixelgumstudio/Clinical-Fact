@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA podaci o lijekovima i liječenju"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Provjeri citate"
+      "checkCitations": "Provjeri citate",
+      "citations": "Citati",
+      "fromTheWeb": "S weba"
     },
     "chatHeader": {
       "readyTapToRename": "Spremno · dodirni za preimenovanje",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Preimenuj razgovor"
+    },
+    "sourcesRow": {
+      "viewSources": "Prikaži izvore ({{total}})"
     }
   },
   "languages": {

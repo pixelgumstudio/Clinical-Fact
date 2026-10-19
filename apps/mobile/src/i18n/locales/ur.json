@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA ادویات اور طریقۂ علاج کا ڈیٹا"
     },
     "chatCitationsSheet": {
-      "checkCitations": "حوالہ جات چیک کریں"
+      "checkCitations": "حوالہ جات چیک کریں",
+      "citations": "حوالہ جات",
+      "fromTheWeb": "ویب سے"
     },
     "chatHeader": {
       "readyTapToRename": "تیار ہے · نام تبدیل کرنے کے لیے ٹیپ کریں",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "چیٹ کا نام تبدیل کریں"
+    },
+    "sourcesRow": {
+      "viewSources": "ذرائع دیکھیں ({{total}})"
     }
   },
   "languages": {

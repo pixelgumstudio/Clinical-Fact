@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA 의약품 및 치료 데이터"
     },
     "chatCitationsSheet": {
-      "checkCitations": "인용 출처 확인"
+      "checkCitations": "인용 출처 확인",
+      "citations": "출처",
+      "fromTheWeb": "웹 검색 결과"
     },
     "chatHeader": {
       "readyTapToRename": "준비 완료 · 탭하여 이름 변경",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "채팅 이름 변경"
+    },
+    "sourcesRow": {
+      "viewSources": "출처 보기 ({{total}})"
     }
   },
   "languages": {

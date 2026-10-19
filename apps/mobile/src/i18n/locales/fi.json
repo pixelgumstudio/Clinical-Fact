@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA:n lääke- ja hoitotiedot"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Tarkista lähteet"
+      "checkCitations": "Tarkista lähteet",
+      "citations": "Viitteet",
+      "fromTheWeb": "Verkosta"
     },
     "chatHeader": {
       "readyTapToRename": "Valmis · nimeä uudelleen napauttamalla",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Nimeä keskustelu uudelleen"
+    },
+    "sourcesRow": {
+      "viewSources": "Näytä lähteet ({{total}})"
     }
   },
   "languages": {

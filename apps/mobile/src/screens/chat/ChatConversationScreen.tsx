@@ -18,7 +18,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import api, { MedicalChatFilters, MedicalChatSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
+import api, { MedicalChatFilters, MedicalChatSource, MedicalChatGroundingSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import {
   colors,
@@ -58,6 +58,7 @@ import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTrans
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
 import { useTranslation } from 'react-i18next';
+import { stripHtml } from '../../utils/htmlText';
 
 type ChatConversationRouteProp = RouteProp<MainStackParamList, 'ChatConversation'>;
 type ChatConversationNavigationProp = NativeStackNavigationProp<MainStackParamList, 'ChatConversation'>;
@@ -86,7 +87,10 @@ export const ChatConversationScreen = () => {
   const toggleLiveSearch = useMedicalSearchStore((s) => s.toggleLiveSearch);
   const [isPinned, setIsPinned] = useState(false);
   const [isPinning, setIsPinning] = useState(false);
-  const [citationsSheetSources, setCitationsSheetSources] = useState<MedicalChatSource[] | null>(null);
+  const [citationsSheet, setCitationsSheet] = useState<{
+    sources: MedicalChatSource[];
+    webSources: MedicalChatGroundingSource[];
+  } | null>(null);
   // Commented out (not deleted) rather than the "•••" options menu it drove — replaced by the
   // "+" attach sheet's own rows (filters, quiz/flashcard generation, etc.), but kept in case
   // the menu is needed again.
@@ -924,16 +928,6 @@ export const ChatConversationScreen = () => {
     setMessage(question);
   };
 
-  const stripHtml = (html: string) =>
-    html
-      .replace(/<[^>]+>/g, '')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
-
   const handleCopyMessage = (content: string) => {
     Clipboard.setString(stripHtml(content));
     setToastMessage(t('chat.chatConversation.copiedToClipboard'));
@@ -1121,7 +1115,7 @@ export const ChatConversationScreen = () => {
       index={index}
       isSendingMessage={isSendingMessage}
       onPreviewImage={setPreviewImage}
-      onOpenCitations={setCitationsSheetSources}
+      onOpenCitations={(sources, webSources = []) => setCitationsSheet({ sources, webSources })}
       onRegenerate={handleRegenerateResponse}
       onCopy={handleCopyMessage}
       onSelectFollowUp={handleSuggestedQuestion}
@@ -1324,8 +1318,9 @@ export const ChatConversationScreen = () => {
       />
 
       <ChatCitationsSheet
-        sources={citationsSheetSources}
-        onClose={() => setCitationsSheetSources(null)}
+        sources={citationsSheet?.sources ?? null}
+        webSources={citationsSheet?.webSources}
+        onClose={() => setCitationsSheet(null)}
       />
 
       <ChatImagePreviewModal

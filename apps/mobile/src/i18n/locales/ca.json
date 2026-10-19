@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Dades de fàrmacs i tractaments de la FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Comprova les citacions"
+      "checkCitations": "Comprova les citacions",
+      "citations": "Citacions",
+      "fromTheWeb": "Del web"
     },
     "chatHeader": {
       "readyTapToRename": "A punt · toca per canviar el nom",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Reanomena el xat"
+    },
+    "sourcesRow": {
+      "viewSources": "Mostra les fonts ({{total}})"
     }
   },
   "languages": {

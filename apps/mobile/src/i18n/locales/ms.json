@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "Data Ubat & Rawatan FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Semak sitiran"
+      "checkCitations": "Semak sitiran",
+      "citations": "Petikan",
+      "fromTheWeb": "Daripada web"
     },
     "chatHeader": {
       "readyTapToRename": "Sedia · ketik untuk namakan semula",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Namakan Semula Sembang"
+    },
+    "sourcesRow": {
+      "viewSources": "Lihat sumber ({{total}})"
     }
   },
   "languages": {

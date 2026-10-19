@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA மருந்து & சிகிச்சைத் தரவு"
     },
     "chatCitationsSheet": {
-      "checkCitations": "மேற்கோள்களைச் சரிபார்க்கவும்"
+      "checkCitations": "மேற்கோள்களைச் சரிபார்க்கவும்",
+      "citations": "மேற்கோள்கள்",
+      "fromTheWeb": "இணையத்திலிருந்து"
     },
     "chatHeader": {
       "readyTapToRename": "தயார் · மறுபெயரிடத் தட்டவும்",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "அரட்டையை மறுபெயரிடவும்"
+    },
+    "sourcesRow": {
+      "viewSources": "மூலங்களைக் காண்க ({{total}})"
     }
   },
   "languages": {

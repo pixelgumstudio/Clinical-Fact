@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA-data om lægemidler og behandling"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Tjek kildehenvisninger"
+      "checkCitations": "Tjek kildehenvisninger",
+      "citations": "Kildehenvisninger",
+      "fromTheWeb": "Fra internettet"
     },
     "chatHeader": {
       "readyTapToRename": "Klar · tryk for at omdøbe",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "Omdøb chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Se kilder ({{total}})"
     }
   },
   "languages": {

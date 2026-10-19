@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "Данные FDA о препаратах и методах лечения"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Проверить источники"
+      "checkCitations": "Проверить источники",
+      "citations": "Источники",
+      "fromTheWeb": "Из интернета"
     },
     "chatHeader": {
       "readyTapToRename": "Готово · нажмите, чтобы переименовать",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Переименовать чат"
+    },
+    "sourcesRow": {
+      "viewSources": "Смотреть источники ({{total}})"
     }
   },
   "languages": {

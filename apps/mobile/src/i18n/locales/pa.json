@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA ਦਵਾਈ ਅਤੇ ਇਲਾਜ ਡਾਟਾ"
     },
     "chatCitationsSheet": {
-      "checkCitations": "ਹਵਾਲਿਆਂ ਦੀ ਜਾਂਚ ਕਰੋ"
+      "checkCitations": "ਹਵਾਲਿਆਂ ਦੀ ਜਾਂਚ ਕਰੋ",
+      "citations": "ਹਵਾਲੇ",
+      "fromTheWeb": "ਵੈੱਬ ਤੋਂ"
     },
     "chatHeader": {
       "readyTapToRename": "ਤਿਆਰ ਹੈ · ਨਾਮ ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "ਚੈਟ ਦਾ ਨਾਮ ਬਦਲੋ"
+    },
+    "sourcesRow": {
+      "viewSources": "ਸਰੋਤ ਦੇਖੋ ({{total}})"
     }
   },
   "languages": {

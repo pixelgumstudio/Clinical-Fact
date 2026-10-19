@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "Data Obat & Pengobatan FDA"
     },
     "chatCitationsSheet": {
-      "checkCitations": "Periksa sitasi"
+      "checkCitations": "Periksa sitasi",
+      "citations": "Sitasi",
+      "fromTheWeb": "Dari web"
     },
     "chatHeader": {
       "readyTapToRename": "Siap · ketuk untuk ubah nama",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "Ubah Nama Chat"
+    },
+    "sourcesRow": {
+      "viewSources": "Lihat sumber ({{total}})"
     }
   },
   "languages": {

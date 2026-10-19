@@ -983,7 +983,9 @@
       "fdaDrugTreatmentData": "FDA ಔಷಧಿ ಮತ್ತು ಚಿಕಿತ್ಸಾ ಡೇಟಾ"
     },
     "chatCitationsSheet": {
-      "checkCitations": "ಉಲ್ಲೇಖಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"
+      "checkCitations": "ಉಲ್ಲೇಖಗಳನ್ನು ಪರಿಶೀಲಿಸಿ",
+      "citations": "ಉಲ್ಲೇಖಗಳು",
+      "fromTheWeb": "ವೆಬ್‌ನಿಂದ"
     },
     "chatHeader": {
       "readyTapToRename": "ಸಿದ್ಧವಾಗಿದೆ · ಮರುಹೆಸರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
@@ -995,6 +997,9 @@
     },
     "chatRename": {
       "renameChat": "ಚಾಟ್ ಮರುಹೆಸರಿಸಿ"
+    },
+    "sourcesRow": {
+      "viewSources": "ಮೂಲಗಳನ್ನು ನೋಡಿ ({{total}})"
     }
   },
   "languages": {

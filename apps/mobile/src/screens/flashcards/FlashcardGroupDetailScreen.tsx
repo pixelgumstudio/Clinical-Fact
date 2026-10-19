@@ -24,6 +24,7 @@ import { ExportSettingsModal } from '../../components/ExportSettingsModal';
 import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
+import { stripHtml } from '../../utils/htmlText';
 
 type FlashcardGroupDetailRouteProp = RouteProp<MainStackParamList, 'FlashcardGroupDetail'>;
 type FlashcardGroupDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FlashcardGroupDetail'>;
@@ -58,15 +59,6 @@ interface GroupDetail {
 }
 
 type TabType = 'overview' | 'sets' | 'quizzes';
-
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .trim();
 
 const getSetStatus = (set: SetRow) => {
   if (set.totalCards > 0 && set.masteredCards >= set.totalCards) return 'Mastered';

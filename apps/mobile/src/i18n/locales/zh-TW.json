@@ -965,7 +965,9 @@
       "fdaDrugTreatmentData": "FDA 藥物與治療數據"
     },
     "chatCitationsSheet": {
-      "checkCitations": "查看引用來源"
+      "checkCitations": "查看引用來源",
+      "citations": "引用文獻",
+      "fromTheWeb": "來自網路"
     },
     "chatHeader": {
       "readyTapToRename": "就緒 · 點選以重新命名",
@@ -977,6 +979,9 @@
     },
     "chatRename": {
       "renameChat": "重新命名對話"
+    },
+    "sourcesRow": {
+      "viewSources": "查看來源（{{total}}）"
     }
   },
   "languages": {

@@ -21,6 +21,7 @@ import { useAIConsentStore } from '../store/aiConsentStore';
 import { CreateQuizModal } from './CreateQuizModal';
 import { CreateFlashcardsModal } from './CreateFlashcardsModal';
 import { useTranslation } from 'react-i18next';
+import { stripHtml } from '../utils/htmlText';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -44,16 +45,6 @@ interface CreateFromSourceSheetProps {
   onClose: () => void;
   mode: 'quiz' | 'flashcard';
 }
-
-const stripHtml = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 
 export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
   visible,
