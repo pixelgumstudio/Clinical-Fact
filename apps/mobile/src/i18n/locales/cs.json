@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} otázek · {{value}}",
       "deleteAllAttemptsOne": "Smazat 1 pokus kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět.",
       "deleteAllAttemptsMany": "Smazat všech {{total}} pokusů kvízu pro \"{{title}}\"? Tuto akci nelze vrátit zpět.",
-      "makeFlashcards": "Vytvořit kartičky"
+      "makeFlashcards": "Vytvořit kartičky",
+      "questionCount": "{{totalQuestions}} otázek"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nepodařilo se načíst data kvízu – neplatný formát odpovědi",
@@ -865,7 +866,8 @@
       "score": "Skóre {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generování kartiček",
       "questions": "{{totalCards}} otázek · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} otázek · {{value}}"
+      "questions2": "{{totalQuestions}} otázek · {{value}}",
+      "questionCount": "{{totalQuestions}} otázek"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Přemýšlím a hledám pro vás zdroje...",

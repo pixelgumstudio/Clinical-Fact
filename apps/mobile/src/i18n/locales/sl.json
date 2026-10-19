@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} vprašanj · {{value}}",
       "deleteAllAttemptsOne": "Želiš izbrisati 1 poskus kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
       "deleteAllAttemptsMany": "Želiš izbrisati vseh {{total}} poskusov kviza za »{{title}}«? Tega dejanja ni mogoče razveljaviti.",
-      "makeFlashcards": "Ustvari kartice"
+      "makeFlashcards": "Ustvari kartice",
+      "questionCount": "{{totalQuestions}} vprašanj"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Podatkov o kvizu ni bilo mogoče naložiti – neveljavna oblika odgovora",
@@ -865,7 +866,8 @@
       "score": "Rezultat {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Ustvarjanje kartic",
       "questions": "{{totalCards}} vprašanj · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} vprašanj · {{value}}"
+      "questions2": "{{totalQuestions}} vprašanj · {{value}}",
+      "questionCount": "{{totalQuestions}} vprašanj"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Razmišljam in iščem vire zate ...",

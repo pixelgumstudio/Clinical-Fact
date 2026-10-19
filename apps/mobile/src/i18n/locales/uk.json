@@ -733,7 +733,8 @@
       "questions": "Питань: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Видалити 1 спробу тесту «{{title}}»? Цю дію не можна скасувати.",
       "deleteAllAttemptsMany": "Видалити всі спроби ({{total}}) тесту «{{title}}»? Цю дію не можна скасувати.",
-      "makeFlashcards": "Створити картки"
+      "makeFlashcards": "Створити картки",
+      "questionCount": "{{totalQuestions}} питань"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Не вдалося завантажити дані тесту: неправильний формат відповіді",
@@ -865,7 +866,8 @@
       "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Створення карток",
       "questions": "Питань: {{totalCards}} · {{flashcardStatus}}",
-      "questions2": "Питань: {{totalQuestions}} · {{value}}"
+      "questions2": "Питань: {{totalQuestions}} · {{value}}",
+      "questionCount": "{{totalQuestions}} питань"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Думаю та шукаю ресурси для вас...",

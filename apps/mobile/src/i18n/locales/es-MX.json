@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} preguntas · {{value}}",
       "deleteAllAttemptsOne": "¿Eliminar el intento de quiz de \"{{title}}\"? Esta acción no se puede deshacer.",
       "deleteAllAttemptsMany": "¿Eliminar los {{total}} intentos de quiz de \"{{title}}\"? Esta acción no se puede deshacer.",
-      "makeFlashcards": "Crear flashcards"
+      "makeFlashcards": "Crear flashcards",
+      "questionCount": "{{totalQuestions}} preguntas"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Error al cargar los datos del quiz: formato de respuesta no válido",
@@ -847,7 +848,8 @@
       "score": "Puntaje {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generación de flashcards",
       "questions": "{{totalCards}} preguntas · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} preguntas · {{value}}"
+      "questions2": "{{totalQuestions}} preguntas · {{value}}",
+      "questionCount": "{{totalQuestions}} preguntas"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Pensando y buscando fuentes para ti...",

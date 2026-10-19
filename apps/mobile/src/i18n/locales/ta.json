@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} கேள்விகள் · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"-க்கான 1 வினாடி வினா முயற்சியை நீக்கவா? இதை மீட்டெடுக்க முடியாது.",
       "deleteAllAttemptsMany": "\"{{title}}\"-க்கான அனைத்து {{total}} வினாடி வினா முயற்சிகளையும் நீக்கவா? இதை மீட்டெடுக்க முடியாது.",
-      "makeFlashcards": "ஃபிளாஷ்கார்டுகளை உருவாக்கவும்"
+      "makeFlashcards": "ஃபிளாஷ்கார்டுகளை உருவாக்கவும்",
+      "questionCount": "{{totalQuestions}} கேள்விகள்"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "வினாடி வினாத் தரவை ஏற்ற முடியவில்லை - தவறான பதில் வடிவம்",
@@ -865,7 +866,8 @@
       "score": "மதிப்பெண் {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ஃப்ளாஷ்கார்டுகள் உருவாக்கம்",
       "questions": "{{totalCards}} கேள்விகள் · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} கேள்விகள் · {{value}}"
+      "questions2": "{{totalQuestions}} கேள்விகள் · {{value}}",
+      "questionCount": "{{totalQuestions}} கேள்விகள்"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "சிந்திக்கிறது மற்றும் உங்களுக்கான ஆதாரங்களைத் தேடுகிறது...",

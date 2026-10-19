@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} frågor · {{value}}",
       "deleteAllAttemptsOne": "Vill du radera 1 quizförsök för \"{{title}}\"? Detta kan inte ångras.",
       "deleteAllAttemptsMany": "Vill du radera alla {{total}} quizförsök för \"{{title}}\"? Detta kan inte ångras.",
-      "makeFlashcards": "Skapa flashcards"
+      "makeFlashcards": "Skapa flashcards",
+      "questionCount": "{{totalQuestions}} frågor"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Kunde inte läsa in quizdata – ogiltigt svarsformat",
@@ -847,7 +848,8 @@
       "score": "Resultat: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generering av flashcards",
       "questions": "{{totalCards}} frågor · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} frågor · {{value}}"
+      "questions2": "{{totalQuestions}} frågor · {{value}}",
+      "questionCount": "{{totalQuestions}} frågor"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Tänker och letar upp källor åt dig...",

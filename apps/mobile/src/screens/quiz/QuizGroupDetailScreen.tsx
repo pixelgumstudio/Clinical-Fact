@@ -461,13 +461,15 @@ export const QuizGroupDetailScreen = () => {
                     <Text style={styles.attemptTime}>{formatRelativeTime(attempt.createdAt)}</Text>
                   </View>
                   <Text style={styles.attemptMeta}>
-                    {t('quiz.quizGroupDetail.questions', { totalQuestions: attempt.totalQuestions, value: attempt.isCompleted ? (
+                    {t('quiz.quizGroupDetail.questionCount', { totalQuestions: attempt.totalQuestions })}
+                    {' · '}
+                    {attempt.isCompleted ? (
                       <Text style={attempt.correctAnswers / attempt.totalQuestions >= 0.5 ? styles.scoreGood : styles.scoreBad}>
-                       {t('quiz.quizGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions })}
+                        {t('quiz.quizGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions })}
                       </Text>
                     ) : (
                       t('quiz.quizGroupDetail.notStarted')
-                    ) })}
+                    )}
                   </Text>
                 </View>
               </TouchableOpacity>

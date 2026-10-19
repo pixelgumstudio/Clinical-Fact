@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} soalan · {{value}}",
       "deleteAllAttemptsOne": "Padam 1 percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
       "deleteAllAttemptsMany": "Padam semua {{total}} percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
-      "makeFlashcards": "Cipta kad imbasan"
+      "makeFlashcards": "Cipta kad imbasan",
+      "questionCount": "{{totalQuestions}} soalan"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Gagal memuatkan data kuiz - format respons tidak sah",
@@ -865,7 +866,8 @@
       "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Penjanaan kad imbas",
       "questions": "{{totalCards}} soalan · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} soalan · {{value}}"
+      "questions2": "{{totalQuestions}} soalan · {{value}}",
+      "questionCount": "{{totalQuestions}} soalan"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Sedang berfikir dan mencari sumber rujukan untuk anda...",

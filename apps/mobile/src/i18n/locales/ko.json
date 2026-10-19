@@ -715,7 +715,8 @@
       "questions": "문제 {{totalQuestions}}개 · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"의 퀴즈 응시 기록 1개를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
       "deleteAllAttemptsMany": "\"{{title}}\"의 퀴즈 응시 기록 {{total}}개를 모두 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
-      "makeFlashcards": "플래시카드 만들기"
+      "makeFlashcards": "플래시카드 만들기",
+      "questionCount": "{{totalQuestions}}문제"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "퀴즈 데이터를 불러오지 못했습니다. 잘못된 응답 형식입니다.",
@@ -847,7 +848,8 @@
       "score": "점수 {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "플래시카드 생성",
       "questions": "문제 {{totalCards}}개 · {{flashcardStatus}}",
-      "questions2": "문제 {{totalQuestions}}개 · {{value}}"
+      "questions2": "문제 {{totalQuestions}}개 · {{value}}",
+      "questionCount": "{{totalQuestions}}문제"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "답변 및 관련 자료를 찾는 중...",

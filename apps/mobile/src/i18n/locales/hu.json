@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} kérdés · {{value}}",
       "deleteAllAttemptsOne": "Törlöd ezt az 1 kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
       "deleteAllAttemptsMany": "Törlöd mind a(z) {{total}} kvízpróbálkozást ehhez: „{{title}}”? Ez a művelet nem vonható vissza.",
-      "makeFlashcards": "Tanulókártyák készítése"
+      "makeFlashcards": "Tanulókártyák készítése",
+      "questionCount": "{{totalQuestions}} kérdés"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nem sikerült betölteni a kvízadatokat – érvénytelen válaszformátum",
@@ -865,7 +866,8 @@
       "score": "Eredmény: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Tanulókártyák létrehozása",
       "questions": "{{totalCards}} kérdés · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} kérdés · {{value}}"
+      "questions2": "{{totalQuestions}} kérdés · {{value}}",
+      "questionCount": "{{totalQuestions}} kérdés"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Gondolkodom és forrásokat keresek neked...",

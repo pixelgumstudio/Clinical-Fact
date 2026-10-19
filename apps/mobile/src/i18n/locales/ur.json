@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} سوالات · {{value}}",
       "deleteAllAttemptsOne": "کیا آپ \"{{title}}\" کی 1 کوئز کوشش کو ڈیلیٹ کرنا چاہتے ہیں؟ اسے واپس نہیں لایا جا سکے گا۔",
       "deleteAllAttemptsMany": "کیا آپ \"{{title}}\" کی تمام {{total}} کوئز کوششیں ڈیلیٹ کرنا چاہتے ہیں؟ اسے واپس نہیں لایا جا سکے گا۔",
-      "makeFlashcards": "فلیش کارڈز بنائیں"
+      "makeFlashcards": "فلیش کارڈز بنائیں",
+      "questionCount": "{{totalQuestions}} سوالات"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "کوئز ڈیٹا لوڈ کرنے میں ناکامی - جوابی فارمیٹ غلط ہے",
@@ -865,7 +866,8 @@
       "score": "اسکور {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "فلیش کارڈز تیار ہو رہے ہیں",
       "questions": "{{totalCards}} سوالات · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} سوالات · {{value}}"
+      "questions2": "{{totalQuestions}} سوالات · {{value}}",
+      "questionCount": "{{totalQuestions}} سوالات"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "سوچ رہا ہے اور آپ کے لیے مواد تلاش کر رہا ہے...",

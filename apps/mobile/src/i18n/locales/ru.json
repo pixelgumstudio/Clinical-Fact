@@ -715,7 +715,8 @@
       "questions": "Вопросов: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Удалить 1 попытку прохождения теста «{{title}}»? Это действие нельзя отменить.",
       "deleteAllAttemptsMany": "Удалить все попытки ({{total}}) прохождения теста «{{title}}»? Это действие нельзя отменить.",
-      "makeFlashcards": "Создать карточки"
+      "makeFlashcards": "Создать карточки",
+      "questionCount": "Вопросов: {{totalQuestions}}"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Не удалось загрузить тест: неверный формат данных",
@@ -847,7 +848,8 @@
       "score": "Результат: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Генерация карточек",
       "questions": "Вопросов: {{totalCards}} · {{flashcardStatus}}",
-      "questions2": "Вопросов: {{totalQuestions}} · {{value}}"
+      "questions2": "Вопросов: {{totalQuestions}} · {{value}}",
+      "questionCount": "Вопросов: {{totalQuestions}}"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Думаю и подбираю источники...",

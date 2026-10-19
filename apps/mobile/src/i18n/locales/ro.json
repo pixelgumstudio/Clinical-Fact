@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} întrebări · {{value}}",
       "deleteAllAttemptsOne": "Ștergi singura încercare de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată.",
       "deleteAllAttemptsMany": "Ștergi toate cele {{total}} încercări de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată.",
-      "makeFlashcards": "Creează flashcarduri"
+      "makeFlashcards": "Creează flashcarduri",
+      "questionCount": "{{totalQuestions}} întrebări"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nu s-au putut încărca datele quizului – format de răspuns nevalid",
@@ -865,7 +866,8 @@
       "score": "Scor {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generare flashcarduri",
       "questions": "{{totalCards}} întrebări · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} întrebări · {{value}}"
+      "questions2": "{{totalQuestions}} întrebări · {{value}}",
+      "questionCount": "{{totalQuestions}} întrebări"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Gândesc și caut resurse pentru tine...",

@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} Fragen · {{value}}",
       "deleteAllAttemptsOne": "Den 1 Quiz-Versuch für \"{{title}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
       "deleteAllAttemptsMany": "Alle {{total}} Quiz-Versuche für \"{{title}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
-      "makeFlashcards": "Karteikarten erstellen"
+      "makeFlashcards": "Karteikarten erstellen",
+      "questionCount": "{{totalQuestions}} Fragen"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Quiz-Daten konnten nicht geladen werden – ungültiges Antwortformat",
@@ -847,7 +848,8 @@
       "score": "Ergebnis: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Karteikarten-Erstellung",
       "questions": "{{totalCards}} Fragen · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} Fragen · {{value}}"
+      "questions2": "{{totalQuestions}} Fragen · {{value}}",
+      "questionCount": "{{totalQuestions}} Fragen"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Denke nach und suche Quellen für dich...",

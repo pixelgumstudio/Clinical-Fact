@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} שאלות · {{value}}",
       "deleteAllAttemptsOne": "למחוק את הניסיון היחיד עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
       "deleteAllAttemptsMany": "למחוק את כל {{total}} הניסיונות עבור \"{{title}}\"? לא ניתן לשחזר פעולה זו.",
-      "makeFlashcards": "צור כרטיסיות"
+      "makeFlashcards": "צור כרטיסיות",
+      "questionCount": "{{totalQuestions}} שאלות"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "טעינת נתוני המבחן נכשלה - פורמט תשובה לא תקין",
@@ -865,7 +866,8 @@
       "score": "ציון: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "יצירת כרטיסיות",
       "questions": "{{totalCards}} שאלות · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} שאלות · {{value}}"
+      "questions2": "{{totalQuestions}} שאלות · {{value}}",
+      "questionCount": "{{totalQuestions}} שאלות"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "חושב ומחפש מקורות עבורך...",

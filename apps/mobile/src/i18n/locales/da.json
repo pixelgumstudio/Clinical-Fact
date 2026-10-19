@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} spørgsmål · {{value}}",
       "deleteAllAttemptsOne": "Vil du slette 1 quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
       "deleteAllAttemptsMany": "Vil du slette alle {{total}} quizforsøg for \"{{title}}\"? Dette kan ikke fortrydes.",
-      "makeFlashcards": "Opret vendekort"
+      "makeFlashcards": "Opret vendekort",
+      "questionCount": "{{totalQuestions}} spørgsmål"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Kunne ikke indlæse quizdata – ugyldigt svarformat",
@@ -865,7 +866,8 @@
       "score": "Score {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Flashcard-oprettelse",
       "questions": "{{totalCards}} spørgsmål · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} spørgsmål · {{value}}"
+      "questions2": "{{totalQuestions}} spørgsmål · {{value}}",
+      "questionCount": "{{totalQuestions}} spørgsmål"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Tænker og finder kilder til dig...",

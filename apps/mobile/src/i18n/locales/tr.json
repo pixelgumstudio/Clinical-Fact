@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} soru · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" için yapılan 1 test denemesi silinsin mi? Bu işlem geri alınamaz.",
       "deleteAllAttemptsMany": "\"{{title}}\" için yapılan toplam {{total}} test denemesi silinsin mi? Bu işlem geri alınamaz.",
-      "makeFlashcards": "Bilgi kartları oluştur"
+      "makeFlashcards": "Bilgi kartları oluştur",
+      "questionCount": "{{totalQuestions}} soru"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Test verileri yüklenemedi - geçersiz yanıt biçimi",
@@ -847,7 +848,8 @@
       "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Bilgi kartı oluşturma",
       "questions": "{{totalCards}} soru · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} soru · {{value}}"
+      "questions2": "{{totalQuestions}} soru · {{value}}",
+      "questionCount": "{{totalQuestions}} soru"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Düşünüyor ve senin için kaynaklar arıyor...",

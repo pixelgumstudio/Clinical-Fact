@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}}টি প্রশ্ন · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\"-এর ১টি কুইজ প্রচেষ্টা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
       "deleteAllAttemptsMany": "\"{{title}}\"-এর সকল {{total}}টি কুইজ প্রচেষ্টা মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।",
-      "makeFlashcards": "ফ্ল্যাশকার্ড তৈরি করুন"
+      "makeFlashcards": "ফ্ল্যাশকার্ড তৈরি করুন",
+      "questionCount": "{{totalQuestions}}টি প্রশ্ন"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "কুইজের ডেটা লোড করা যায়নি - অবৈধ রেসপন্স ফরম্যাট",
@@ -865,7 +866,8 @@
       "score": "স্কোর {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ফ্ল্যাশকার্ড তৈরি",
       "questions": "{{totalCards}}টি প্রশ্ন · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}}টি প্রশ্ন · {{value}}"
+      "questions2": "{{totalQuestions}}টি প্রশ্ন · {{value}}",
+      "questionCount": "{{totalQuestions}}টি প্রশ্ন"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "চিন্তাভাবনা করছি এবং আপনার জন্য রিসোর্স খুঁজছি...",

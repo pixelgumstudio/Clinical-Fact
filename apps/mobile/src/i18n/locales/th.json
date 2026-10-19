@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} ข้อ · {{value}}",
       "deleteAllAttemptsOne": "ลบประวัติการทำควิซ 1 ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
       "deleteAllAttemptsMany": "ลบประวัติการทำควิซทั้งหมด {{total}} ครั้งของ \"{{title}}\" หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้",
-      "makeFlashcards": "สร้างแฟลชการ์ด"
+      "makeFlashcards": "สร้างแฟลชการ์ด",
+      "questionCount": "{{totalQuestions}} ข้อ"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "โหลดข้อมูลควิซไม่สำเร็จ - รูปแบบการตอบกลับไม่ถูกต้อง",
@@ -847,7 +848,8 @@
       "score": "คะแนน {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "การสร้างแฟลชการ์ด",
       "questions": "{{totalCards}} ข้อ · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} ข้อ · {{value}}"
+      "questions2": "{{totalQuestions}} ข้อ · {{value}}",
+      "questionCount": "{{totalQuestions}} ข้อ"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "กำลังคิดและค้นหาแหล่งข้อมูลให้คุณ...",
