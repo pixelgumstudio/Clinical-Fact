@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Generowanie nie powiodło się"
-    }
+    },
+    "viewQuizHistory": "Zobacz historię quizów"
   },
   "flashcards": {
     "title": "Fiszki",

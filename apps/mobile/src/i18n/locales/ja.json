@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "生成に失敗しました"
-    }
+    },
+    "viewQuizHistory": "クイズの履歴を見る"
   },
   "flashcards": {
     "title": "フラッシュカード",

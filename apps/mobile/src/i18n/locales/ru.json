@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Ошибка генерации"
-    }
+    },
+    "viewQuizHistory": "История тестов"
   },
   "flashcards": {
     "title": "Карточки",

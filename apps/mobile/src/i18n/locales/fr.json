@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Échec de la génération"
-    }
+    },
+    "viewQuizHistory": "Historique des quiz"
   },
   "flashcards": {
     "title": "Cartes mémoire",

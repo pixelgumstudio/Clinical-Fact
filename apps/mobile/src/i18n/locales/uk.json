@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Помилка генерації"
-    }
+    },
+    "viewQuizHistory": "Історія тестів"
   },
   "flashcards": {
     "title": "Флеш-картки",

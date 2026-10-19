@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Generiranje nije uspjelo"
-    }
+    },
+    "viewQuizHistory": "Prikaži povijest kvizova"
   },
   "flashcards": {
     "title": "Kartice za učenje",

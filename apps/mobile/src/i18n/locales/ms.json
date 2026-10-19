@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Penjanaan gagal"
-    }
+    },
+    "viewQuizHistory": "Lihat sejarah kuiz"
   },
   "flashcards": {
     "title": "Kad Imbas",

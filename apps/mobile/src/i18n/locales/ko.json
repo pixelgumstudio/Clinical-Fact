@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "생성 실패"
-    }
+    },
+    "viewQuizHistory": "퀴즈 기록 보기"
   },
   "flashcards": {
     "title": "플래시카드",

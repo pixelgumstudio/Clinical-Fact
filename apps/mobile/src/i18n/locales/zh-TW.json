@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "產生失敗"
-    }
+    },
+    "viewQuizHistory": "查看測驗記錄"
   },
   "flashcards": {
     "title": "閃卡",

@@ -719,7 +719,8 @@
     },
     "quiz": {
       "generationFailed": "Generation failed"
-    }
+    },
+    "viewQuizHistory": "View quiz history"
   },
   "flashcards": {
     "title": "Flashcards",

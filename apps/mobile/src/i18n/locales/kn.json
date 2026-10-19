@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "ರಚನೆ ವಿಫಲವಾಗಿದೆ"
-    }
+    },
+    "viewQuizHistory": "ಕ್ವಿಜ್ ಇತಿಹಾಸವನ್ನು ವೀಕ್ಷಿಸಿ"
   },
   "flashcards": {
     "title": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳು",

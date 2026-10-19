@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Error en la generació"
-    }
+    },
+    "viewQuizHistory": "Mostra l'historial de qüestionaris"
   },
   "flashcards": {
     "title": "Targetes didàctiques",

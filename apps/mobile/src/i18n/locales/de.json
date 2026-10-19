@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Erstellung fehlgeschlagen"
-    }
+    },
+    "viewQuizHistory": "Quiz-Verlauf ansehen"
   },
   "flashcards": {
     "title": "Karteikarten",

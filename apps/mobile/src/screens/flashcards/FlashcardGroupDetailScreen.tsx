@@ -298,7 +298,8 @@ export const FlashcardGroupDetailScreen = () => {
           <Text style={styles.createdAt}>{t('flashcards.flashcardGroupDetail.created', { dateTime: formatDateTime(earliestCreatedAt) })}</Text>
         )}
 
-        {data.source && (
+        {/* Note source card hidden for now (note detail is not shown in the app); chat sources still link back. */}
+        {data.source?.type === 'chat' && (
           <TouchableOpacity style={styles.sourceCard} onPress={handleOpenSource} activeOpacity={0.7}>
             <View style={styles.sourceIcon}>
               <Icon name={data.source.type === 'chat' ? 'chat' : 'note'} size={20} color={theme.colors.yale[900]} />

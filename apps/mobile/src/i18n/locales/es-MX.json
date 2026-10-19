@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Error al generar"
-    }
+    },
+    "viewQuizHistory": "Ver historial de cuestionarios"
   },
   "flashcards": {
     "title": "Tarjetas de estudio",

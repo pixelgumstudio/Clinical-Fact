@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "உருவாக்கம் தோல்வியடைந்தது"
-    }
+    },
+    "viewQuizHistory": "வினாடி வினா வரலாற்றைக் காண்க"
   },
   "flashcards": {
     "title": "ஃபிளாஷ் கார்டுகள்",

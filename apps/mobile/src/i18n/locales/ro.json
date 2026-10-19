@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Generare eșuată"
-    }
+    },
+    "viewQuizHistory": "Vezi istoricul testelor"
   },
   "flashcards": {
     "title": "Fișe de lucru",

@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "തയ്യാറാക്കാൻ കഴിഞ്ഞില്ല"
-    }
+    },
+    "viewQuizHistory": "ക്വിസ് ഹിസ്റ്ററി കാണുക"
   },
   "flashcards": {
     "title": "ഫ്ലാഷ് കാർഡുകൾ",
