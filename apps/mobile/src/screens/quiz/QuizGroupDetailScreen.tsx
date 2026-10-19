@@ -461,13 +461,12 @@ export const QuizGroupDetailScreen = () => {
                     <Text style={styles.attemptTime}>{formatRelativeTime(attempt.createdAt)}</Text>
                   </View>
                   <Text style={styles.attemptMeta}>
-                    {t('quiz.quizGroupDetail.questions', { totalQuestions: attempt.totalQuestions, value: attempt.isCompleted ? (
-                      <Text style={attempt.correctAnswers / attempt.totalQuestions >= 0.5 ? styles.scoreGood : styles.scoreBad}>
-                       {t('quiz.quizGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions })}
-                      </Text>
-                    ) : (
-                      t('quiz.quizGroupDetail.notStarted')
-                    ) })}
+                    {t('quiz.quizGroupDetail.questions', {
+                      totalQuestions: attempt.totalQuestions,
+                      value: attempt.isCompleted
+                        ? t('quiz.quizGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions })
+                        : t('quiz.quizGroupDetail.notStarted'),
+                    })}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -787,12 +786,6 @@ const styles = StyleSheet.create({
   attemptMeta: {
     ...theme.typography.textStyles.p2,
     color: theme.colors.grey[600],
-  },
-  scoreGood: {
-    color: theme.colors.green[600],
-  },
-  scoreBad: {
-    color: theme.colors.red[600],
   },
   menuModalOverlay: {
     flex: 1,
