@@ -239,7 +239,13 @@
       "preparingFlashcards": "暗記カードを準備中",
       "preparingQuiz": "クイズのテンプレートを準備中",
       "preparingChat": "チャットアシスタントを準備中",
-      "title": "{{firstName}}さんのワークスペースを\\n設定しています..."
+      "title": "{{firstName}}さんのワークスペースを\\n設定しています...",
+      "itemResearch": "医学文献・リサーチ機能を設定中",
+      "itemQuizFlashcards": "学習用クイズ＆フラッシュカードを設定中",
+      "itemEvidence": "根拠（エビデンス）と引用元の連携を設定中",
+      "itemExams": "国家試験対策の検索機能を設定中",
+      "failedSignup": "アカウント登録を完了できませんでした",
+      "failedSetup": "セットアップを完了できませんでした。もう一度お試しください。"
     },
     "thanks": {
       "title": "Clinical Fact を選んでいただきありがとうございます",

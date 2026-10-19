@@ -239,7 +239,13 @@
       "preparingFlashcards": "正在準備字卡",
       "preparingQuiz": "正在準備測驗範本",
       "preparingChat": "正在準備對話助理",
-      "title": "正在為你設定個人化\\n工作空間，{{firstName}}…"
+      "title": "正在為你設定個人化\\n工作空間，{{firstName}}…",
+      "itemResearch": "正在設定醫學研究資源",
+      "itemQuizFlashcards": "正在準備測驗與複習字卡",
+      "itemEvidence": "正在設定附帶實證文獻引用的解答",
+      "itemExams": "正在設定醫師國考檢索功能",
+      "failedSignup": "註冊未完成",
+      "failedSetup": "設定失敗，請稍後再試。"
     },
     "thanks": {
       "title": "感謝你信任 Clinical Fact",

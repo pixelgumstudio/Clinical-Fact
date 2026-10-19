@@ -196,7 +196,13 @@
       "preparingFlashcards": "Příprava kartiček",
       "preparingQuiz": "Příprava šablon kvízů",
       "preparingChat": "Příprava asistentů chatu",
-      "title": "Nastavení vašeho personalizovaného pracovního prostoru, {{firstName}}..."
+      "title": "Nastavení vašeho personalizovaného pracovního prostoru, {{firstName}}...",
+      "itemResearch": "Příprava lékařského výzkumu",
+      "itemQuizFlashcards": "Příprava kvízů a kartiček ke studiu",
+      "itemEvidence": "Příprava odpovědí založených na důkazech s reálnými citacemi",
+      "itemExams": "Příprava vyhledávání pro atestační a licenční zkoušky",
+      "failedSignup": "Registraci se nepodařilo dokončit",
+      "failedSetup": "Nastavení se nepodařilo dokončit. Zkuste to prosím znovu."
     },
     "thanks": {
       "title": "Děkujeme za důvěru v Clinical Fact 🎧",

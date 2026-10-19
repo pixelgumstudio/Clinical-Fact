@@ -239,7 +239,13 @@
       "preparingFlashcards": "Karteikarten werden vorbereitet",
       "preparingQuiz": "Quiz-Vorlagen werden vorbereitet",
       "preparingChat": "Chat-Assistenten werden vorbereitet",
-      "title": "Dein persönlicher Workspace wird\\neingerichtet, {{firstName}}..."
+      "title": "Dein persönlicher Workspace wird\\neingerichtet, {{firstName}}...",
+      "itemResearch": "Medizinische Recherche wird eingerichtet",
+      "itemQuizFlashcards": "Quizze & Karteikarten zum Lernen werden eingerichtet",
+      "itemEvidence": "Evidenzbasierte Antworten mit Quellenangaben werden vorbereitet",
+      "itemExams": "Staatsexamens-Suche wird eingerichtet",
+      "failedSignup": "Registrierung fehlgeschlagen",
+      "failedSetup": "Einrichtung fehlgeschlagen. Bitte versuche es erneut."
     },
     "thanks": {
       "title": "Danke für dein Vertrauen in Clinical Fact",

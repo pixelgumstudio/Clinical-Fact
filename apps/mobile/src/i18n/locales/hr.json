@@ -196,7 +196,13 @@
       "preparingFlashcards": "Priprema kartica za učenje",
       "preparingQuiz": "Priprema predložaka za kviz",
       "preparingChat": "Priprema pomoćnika za chat",
-      "title": "Postavljanje vašeg personaliziranog radnog prostora, {{firstName}}..."
+      "title": "Postavljanje vašeg personaliziranog radnog prostora, {{firstName}}...",
+      "itemResearch": "Postavljanje medicinskih istraživanja",
+      "itemQuizFlashcards": "Priprema kvizova i kartica za učenje",
+      "itemEvidence": "Priprema odgovora utemeljenih na dokazima i citatima",
+      "itemExams": "Postavljanje pretrage za stručne medicinske ispite",
+      "failedSignup": "Registracija nije uspjela",
+      "failedSetup": "Postavljanje nije uspjelo. Pokušaj ponovno."
     },
     "thanks": {
       "title": "Hvala što vjerujete Clinical Factu 🎧",

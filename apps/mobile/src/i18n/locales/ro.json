@@ -196,7 +196,13 @@
       "preparingFlashcards": "Pregătirea fișelor de lucru",
       "preparingQuiz": "Pregătirea șabloanelor de chestionare",
       "preparingChat": "Pregătirea asistenților de chat",
-      "title": "Se configurează spațiul de lucru personalizat, {{firstName}}..."
+      "title": "Se configurează spațiul de lucru personalizat, {{firstName}}...",
+      "itemResearch": "Se configurează cercetarea medicală",
+      "itemQuizFlashcards": "Se pregătesc quizurile și flashcardurile pentru studiu",
+      "itemEvidence": "Se configurează răspunsurile bazate pe dovezi și citările reale",
+      "itemExams": "Se configurează căutările pentru examenele de rezidențiat și licență",
+      "failedSignup": "Înregistrarea nu a putut fi finalizată",
+      "failedSetup": "Configurarea nu a putut fi finalizată. Te rugăm să încerci din nou."
     },
     "thanks": {
       "title": "Mulțumim că ați avut încredere în Clinical Fact 🎧",

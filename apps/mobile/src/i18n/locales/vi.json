@@ -239,7 +239,13 @@
       "preparingFlashcards": "Đang chuẩn bị flashcard",
       "preparingQuiz": "Đang tạo bộ câu hỏi trắc nghiệm",
       "preparingChat": "Đang thiết lập trợ lý trò chuyện",
-      "title": "Đang thiết lập không gian học tập\\ncho riêng bạn, {{firstName}}..."
+      "title": "Đang thiết lập không gian học tập\\ncho riêng bạn, {{firstName}}...",
+      "itemResearch": "Đang thiết lập nghiên cứu y khoa",
+      "itemQuizFlashcards": "Đang chuẩn bị câu đố & flashcard học tập",
+      "itemEvidence": "Đang thiết lập câu trả lời chuẩn y học chứng cứ kèm trích dẫn thực tế",
+      "itemExams": "Đang thiết lập tìm kiếm kỳ thi chứng chỉ hành nghề y",
+      "failedSignup": "Đăng ký không thành công",
+      "failedSetup": "Thiết lập không thành công. Vui lòng thử lại."
     },
     "thanks": {
       "title": "Cảm ơn bạn đã tin tưởng Clinical Fact",

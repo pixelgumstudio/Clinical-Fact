@@ -196,7 +196,13 @@
       "preparingFlashcards": "Menyediakan Kad Imbas",
       "preparingQuiz": "Menyediakan templat Kuiz",
       "preparingChat": "Menyediakan pembantu Sembang",
-      "title": "Menyediakan ruang kerja\\nyang diperibadikan, {{firstName}}..."
+      "title": "Menyediakan ruang kerja\\nyang diperibadikan, {{firstName}}...",
+      "itemResearch": "Menyediakan penyelidikan perubatan",
+      "itemQuizFlashcards": "Menyediakan kuiz & kad imbas untuk pembelajaran",
+      "itemEvidence": "Menyediakan jawapan berasaskan bukti dengan sitasi sebenar",
+      "itemExams": "Menyediakan carian peperiksaan pelesenan perubatan",
+      "failedSignup": "Gagal melengkapkan pendaftaran",
+      "failedSetup": "Gagal melengkapkan persediaan. Sila cuba lagi."
     },
     "thanks": {
       "title": "Terima kasih kerana mempercayai Clinical Fact 🎧",

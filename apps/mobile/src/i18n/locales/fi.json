@@ -196,7 +196,13 @@
       "preparingFlashcards": "Muistikorttien valmistelu",
       "preparingQuiz": "Tietovisamallien valmistelu",
       "preparingChat": "Chat-avustajien valmistelu",
-      "title": "Henkilökohtaisen työtilasi määrittäminen, {{firstName}}..."
+      "title": "Henkilökohtaisen työtilasi määrittäminen, {{firstName}}...",
+      "itemResearch": "Valmistellaan lääketieteellistä tutkimustietoa",
+      "itemQuizFlashcards": "Valmistellaan visailuja ja muistikortteja opiskeluun",
+      "itemEvidence": "Valmistellaan näyttöön perustuvia vastauksia viitteineen",
+      "itemExams": "Valmistellaan lääketieteen pätevyyskokeiden hakuja",
+      "failedSignup": "Rekisteröityminen epäonnistui",
+      "failedSetup": "Käyttöönotto epäonnistui. Yritä uudelleen."
     },
     "thanks": {
       "title": "Kiitos luottamuksesta Clinical Factiin 🎧",

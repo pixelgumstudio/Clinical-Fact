@@ -10,7 +10,6 @@ import {
   LayoutChangeEvent,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Icon, theme, colors } from '@clinicalfact/design-system';
@@ -18,26 +17,19 @@ import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
 import { api } from '../../services/api';
+import { useTranslation } from 'react-i18next';
 
 type SetupScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Setup'>;
 
-const SETUP_ITEMS: { label: string; icon: 'ai' | 'translate' | 'link'; color: string }[] = [
-  { label: 'Setting up Medical research or research', icon: 'ai', color: theme.colors.yale[700] },
-  { label: 'Setting up Quiz & Flashcards for study operations', icon: 'translate', color: theme.colors.orange[600] },
-  { label: 'Setting up Evidence based answers with real citations', icon: 'link', color: theme.colors.green[600] },
-  { label: 'Setting up medical license exam searches for research', icon: 'ai', color: theme.colors.red[600] },
-];
-
-const GRADIENT_COLORS: readonly [string, string, ...string[]] = [
-  colors.pastelRainbow.mint,
-  colors.pastelRainbow.lime,
-  colors.pastelRainbow.coral,
-  colors.pastelRainbow.honeydew,
-  colors.pastelRainbow.wheat,
-  colors.pastelRainbow.apricot,
+const SETUP_ITEMS: { labelKey: string; icon: 'ai' | 'translate' | 'link'; color: string }[] = [
+  { labelKey: 'auth.setup.itemResearch', icon: 'ai', color: theme.colors.yale[700] },
+  { labelKey: 'auth.setup.itemQuizFlashcards', icon: 'translate', color: theme.colors.orange[600] },
+  { labelKey: 'auth.setup.itemEvidence', icon: 'link', color: theme.colors.green[600] },
+  { labelKey: 'auth.setup.itemExams', icon: 'ai', color: theme.colors.red[600] },
 ];
 
 export const SetupScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<SetupScreenNavigationProp>();
   const { data } = useSignupStore();
   const { persistOnboardingFlag } = useAuthStore();
@@ -89,11 +81,11 @@ export const SetupScreen = () => {
         if (response.success) {
           setIsReady(true);
         } else {
-          Alert.alert('Error', response.message || 'Failed to complete signup');
+          Alert.alert(t('common.error'), response.message || t('auth.setup.failedSignup'));
         }
       } catch (error: any) {
         console.error('Setup completion error:', error);
-        Alert.alert('Error', 'Failed to complete setup. Please try again.');
+        Alert.alert(t('common.error'), t('auth.setup.failedSetup'));
       }
     }, 5500);
 
@@ -132,7 +124,7 @@ export const SetupScreen = () => {
       {/* Title */}
       <View style={styles.titleSection}>
         <Text style={styles.title}>
-          Setting up your personalised{'\n'}workspace, {data.firstName}...
+          {t('auth.setup.title', { firstName: data.firstName }).replace(/\\n/g, '\n')}
         </Text>
       </View>
 
@@ -150,21 +142,16 @@ export const SetupScreen = () => {
       {/* Items Card */}
       <View style={styles.card}>
         {SETUP_ITEMS.map((item, index) => (
-          <View key={item.label}>
+          <View key={item.labelKey}>
             <View style={styles.cardRow}>
               <View style={[styles.itemIconWrap, { backgroundColor: theme.colors.linen[100] }]}>
                 <Icon name={item.icon} size={20} color={item.color} />
               </View>
-              <Text style={styles.cardRowText}>{item.label}</Text>
+              <Text style={styles.cardRowText}>{t(item.labelKey)}</Text>
               {completedItems > index ? (
-                <LinearGradient
-                  colors={GRADIENT_COLORS}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 0.3 }}
-                  style={styles.checkCircle}
-                >
+                <View style={styles.checkCircle}>
                   <Text style={styles.checkMark}>✓</Text>
-                </LinearGradient>
+                </View>
               ) : (
                 <View style={styles.checkCircleEmpty} />
               )}
@@ -185,7 +172,7 @@ export const SetupScreen = () => {
           disabled={!isReady}
           activeOpacity={0.85}
         >
-          <Text style={styles.continueButtonText}>Continue</Text>
+          <Text style={styles.continueButtonText}>{t('common.continue')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -283,11 +270,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: theme.colors.yale[700],
   },
   checkMark: {
     fontSize: 12,
     fontWeight: '700',
-    color: colors.oneOff.setupCheckmark,
+    color: colors.white,
   },
   checkCircleEmpty: {
     width: 24,

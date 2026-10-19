@@ -239,7 +239,13 @@
       "preparingFlashcards": "Flashcards voorbereiden",
       "preparingQuiz": "Quizsjablonen voorbereiden",
       "preparingChat": "Chatassistenten voorbereiden",
-      "title": "Je persoonlijke werkruimte\\nwordt ingesteld, {{firstName}}..."
+      "title": "Je persoonlijke werkruimte\\nwordt ingesteld, {{firstName}}...",
+      "itemResearch": "Medisch onderzoek instellen",
+      "itemQuizFlashcards": "Quizzen en flashcards voorbereiden",
+      "itemEvidence": "Evidence-based antwoorden met bronvermeldingen instellen",
+      "itemExams": "Zoekfuncties voor medische examens instellen",
+      "failedSignup": "Aanmelden mislukt",
+      "failedSetup": "Instellen mislukt. Probeer het opnieuw."
     },
     "thanks": {
       "title": "Bedankt voor je vertrouwen in Clinical Fact",

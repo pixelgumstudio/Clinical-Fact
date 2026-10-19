@@ -239,7 +239,13 @@
       "preparingFlashcards": "Przygotowywanie fiszek",
       "preparingQuiz": "Przygotowywanie szablonów quizów",
       "preparingChat": "Przygotowywanie asystentów czatu",
-      "title": "Przygotowujemy Twoją przestrzeń\\npracy, {{firstName}}..."
+      "title": "Przygotowujemy Twoją przestrzeń\\npracy, {{firstName}}...",
+      "itemResearch": "Konfigurowanie badań medycznych",
+      "itemQuizFlashcards": "Przygotowywanie quizów i fiszek do nauki",
+      "itemEvidence": "Konfigurowanie odpowiedzi EBM z rzetelnymi źródłami",
+      "itemExams": "Konfigurowanie bazy pytań do egzaminów lekarskich",
+      "failedSignup": "Rejestracja nie powiodła się",
+      "failedSetup": "Konfiguracja nie powiodła się. Spróbuj ponownie."
     },
     "thanks": {
       "title": "Dziękujemy za zaufanie do Clinical Fact",
