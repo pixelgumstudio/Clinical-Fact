@@ -63,6 +63,7 @@ export interface MedicalChatFilters {
   sources?: {
     semanticScholar?: boolean;
     pubmed?: boolean;
+    openFda?: boolean;
   };
 }
 
@@ -124,6 +125,15 @@ export interface ChatStreamDonePayload {
   title?: string;
   followUpQuestions: string[];
   status: string;
+  /** The server sends the title and follow-up chips afterwards as an `extras` event on the same connection. */
+  extrasPending?: boolean;
+}
+
+/** Follow-up chips and (first exchange only) the auto-generated title, sent after `done`. */
+export interface ChatStreamExtrasPayload {
+  messageIndex?: number;
+  title?: string;
+  followUpQuestions: string[];
 }
 
 export interface User {
@@ -1075,6 +1085,7 @@ class ApiClient {
       onMetadata: (metadata: ChatStreamMetadataPayload) => void;
       onChunk: (text: string) => void;
       onDone: (data: ChatStreamDonePayload) => void;
+      onExtras?: (data: ChatStreamExtrasPayload) => void;
       onError: (message: string, quotaExceeded?: boolean) => void;
     }
   ): () => void {
@@ -1129,10 +1140,33 @@ class ApiClient {
 
       es.addEventListener('done', (event: any) => {
         if (closed) return;
+        let keepOpenForExtras = false;
         try {
-          callbacks.onDone(event.data ? JSON.parse(event.data) : { messageCount: 0, followUpQuestions: [], status: 'completed' });
+          const payload: ChatStreamDonePayload = event.data
+            ? JSON.parse(event.data)
+            : { messageCount: 0, followUpQuestions: [], status: 'completed' };
+          keepOpenForExtras = payload.extrasPending === true;
+          callbacks.onDone(payload);
         } catch {
           callbacks.onDone({ messageCount: 0, followUpQuestions: [], status: 'completed' });
+        } finally {
+          // The answer is complete. Stay connected only while the server still has the title and
+          // follow-up chips to send (with a cap, so a stalled call can't hold the connection open);
+          // closing here, as before, is what stops the library from reconnecting and re-posting.
+          if (keepOpenForExtras) {
+            setTimeout(close, 25000);
+          } else {
+            close();
+          }
+        }
+      });
+
+      es.addEventListener('extras' as any, (event: any) => {
+        if (closed) return;
+        try {
+          if (event.data) callbacks.onExtras?.(JSON.parse(event.data));
+        } catch {
+          // ignore malformed frame
         } finally {
           close();
         }

@@ -67,6 +67,7 @@ export interface MedicalSearchFilters extends EuropePmcFilters {
   sources?: {
     semanticScholar?: boolean;
     pubmed?: boolean;
+    openFda?: boolean;
   };
 }
 
@@ -301,10 +302,10 @@ FORMAT YOUR ANSWER AS HTML:
 - Use <p>, <b>, <h3>, <ul><li>, <ol><li>, <strong>
 
 How to answer:
-- Use simple, everyday language; break complex ideas into pieces and use examples and analogies
-- Prioritize the material below, since the user chose to bring it into this conversation
-- Fill in standard, well-established medical knowledge (causes, mechanisms, symptoms, standard treatment) when the material doesn't fully cover the question — that's expected and normal, not "prior knowledge" you need permission for
-- Only say you don't have enough information if the question is itself obscure/unsettled enough that even general medical knowledge can't answer it responsibly — never say that for standard textbook topics just because the material happens to be narrow
+- Answer from the material below — the user brought this document into the conversation and turned outside medical search off, so what they get back must come from it
+- Use simple, everyday language; break complex ideas into pieces and use examples and analogies. You may use your general knowledge to EXPLAIN what the document says (define a term it uses, clarify a mechanism it mentions), but do not add facts, figures, doses or recommendations that the document does not contain
+- If the document does not cover the question, say so plainly in one sentence (for example "Your document doesn't cover this.") and tell the user they can turn on "Search medical literature" in the + menu to get cited answers from medical sources. Do not answer from general knowledge instead
+- When the document covers part of the question, answer that part fully and say which part it doesn't cover
 - Do NOT use inline citations (e.g., do not write "[1]", "[2]", or "(Source)").
 - Do NOT output a bibliography, reference list, or "Sources" section at the end of your response.
 - Do NOT write out image URLs or tell the user to open a link for an image — this chat has no image search feature, so any such link would be fabricated. If asked to show/fetch an image, just answer the underlying question in text and don't mention images at all.
@@ -378,6 +379,7 @@ ${context}${languageInstruction}`;
     // each independently toggleable from the "+" attach sheet, defaulting on when unset.
     const includeSemanticScholar = filters?.sources?.semanticScholar !== false;
     const includePubMed = filters?.sources?.pubmed !== false;
+    const includeOpenFda = filters?.sources?.openFda !== false;
 
     // Images are NOT part of the retrieval below: finding and vetting them takes several
     // seconds, so they start now, run alongside retrieval and the answer, and are delivered
@@ -392,7 +394,7 @@ ${context}${languageInstruction}`;
       withinBudget(includePubMed ? pubmedService.search(userQuery, 5) : Promise.resolve([]), []),
       // The user's own material is the point of attaching it, so it gets a much longer allowance.
       withinBudget(attachedChunksPromise, [], ATTACHED_BUDGET_MS),
-      withinBudget(openFdaService.search(userQuery, 3), []),
+      withinBudget(includeOpenFda ? openFdaService.search(userQuery, 3) : Promise.resolve([]), []),
     ]);
     const webResults = await webPromise;
 
@@ -630,7 +632,7 @@ User: ${userMessage.slice(0, 500)}
 Assistant: ${plainReply.slice(0, 500)}`;
 
     try {
-      const raw = await aiService.chat([{ role: 'user', content: prompt }]);
+      const raw = await aiService.chat([{ role: 'user', content: prompt }], undefined, { fast: true });
       const title = raw.replace(/^["']|["']$/g, '').replace(/\.$/, '').trim();
       return title.slice(0, 80) || userMessage.slice(0, 60);
     } catch (error) {
@@ -647,8 +649,11 @@ Assistant: ${plainReply.slice(0, 500)}`;
    */
   async summarizeChat(messages: ChatMessage[]): Promise<string> {
     try {
+      // Only the latest exchanges matter for a one-line list preview — sending a long chat's whole
+      // history made this call slower with every message.
       const conversationText = messages
-        .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
+        .slice(-6)
+        .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content.slice(0, 600)}`)
         .join('\n\n');
 
       const prompt = `Summarize this medical study conversation in ONE concise sentence (under 20 words) that would help a nursing or medical student recognize it later in their conversation history. Focus on the specific topic discussed, not generic phrasing like "a conversation about X".
@@ -657,7 +662,7 @@ ${conversationText}
 
 Reply with ONLY the summary sentence, nothing else.`;
 
-      const raw = await aiService.chat([{ role: 'user', content: prompt }]);
+      const raw = await aiService.chat([{ role: 'user', content: prompt }], undefined, { fast: true });
       return raw.replace(/^["']|["']$/g, '').replace(/\.$/, '').trim();
     } catch (error: any) {
       console.error('❌ Error summarizing chat:', error);
@@ -691,7 +696,8 @@ Respond with ONLY a JSON object in this exact shape, nothing else:
 
       const result = await aiService.chatJSON(
         [{ role: 'user', content: prompt }],
-        'You are a medical education assistant. Always respond with valid JSON matching the requested shape.'
+        'You are a medical education assistant. Always respond with valid JSON matching the requested shape.',
+        { fast: true }
       );
 
       return Array.isArray(result?.questions) ? result.questions : [];

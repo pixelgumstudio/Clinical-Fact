@@ -194,7 +194,8 @@ export const ChatConversationScreen = () => {
   // PMC-only filter surface (source categories/article types) and defaults books/guidelines off.
   const semanticScholarEnabled = medicalFilters.sources?.semanticScholar !== false;
   const pubmedEnabled = medicalFilters.sources?.pubmed !== false;
-  const toggleLiteratureSource = (key: 'semanticScholar' | 'pubmed') => {
+  const openFdaEnabled = medicalFilters.sources?.openFda !== false;
+  const toggleLiteratureSource = (key: 'semanticScholar' | 'pubmed' | 'openFda') => {
     setMedicalFilters((prev) => ({
       ...prev,
       sources: {
@@ -735,6 +736,14 @@ export const ChatConversationScreen = () => {
               }
             }
             resolve();
+          },
+          onExtras: (extras) => {
+            // Arrives a moment after the answer: the follow-up chips and, on the first exchange,
+            // the auto-generated title.
+            setMessages((prev) =>
+              prev.map((m) => (m.id === placeholderId ? { ...m, followUpQuestions: extras.followUpQuestions } : m))
+            );
+            if (extras.title) setChatTitle(extras.title);
           },
           onError: (errorMessage: string, quotaExceeded?: boolean) => {
             if (settled) return;
@@ -1307,6 +1316,7 @@ export const ChatConversationScreen = () => {
         isMedical={isMedical}
         semanticScholarEnabled={semanticScholarEnabled}
         pubmedEnabled={pubmedEnabled}
+        openFdaEnabled={openFdaEnabled}
         onToggleLiteratureSource={toggleLiteratureSource}
         onOpenFilters={async () => {
           // Same Modal-stacking race noted above (pickAndStageImage) — presenting the filter

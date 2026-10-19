@@ -22,7 +22,8 @@ interface ChatAttachSheetProps {
   isMedical: boolean;
   semanticScholarEnabled: boolean;
   pubmedEnabled: boolean;
-  onToggleLiteratureSource: (key: 'semanticScholar' | 'pubmed') => void;
+  openFdaEnabled: boolean;
+  onToggleLiteratureSource: (key: 'semanticScholar' | 'pubmed' | 'openFda') => void;
   onOpenFilters: () => void;
 }
 
@@ -47,6 +48,7 @@ export const ChatAttachSheet: React.FC<ChatAttachSheetProps> = ({
   isMedical,
   semanticScholarEnabled,
   pubmedEnabled,
+  openFdaEnabled,
   onToggleLiteratureSource,
   onOpenFilters,
 }) => {
@@ -164,13 +166,7 @@ export const ChatAttachSheet: React.FC<ChatAttachSheetProps> = ({
                   <View style={styles.sourceToggleDivider} />
                   <View style={styles.sourceToggleRow}>
                     <Text style={styles.sourceToggleLabel}>{t('chat.chatAttachSheet.fdaDrugTreatmentData')}</Text>
-                    {/* Always on, not user-togglable — the actual FDA drug label lookup
-                        (openFdaService) runs unconditionally whenever live search is on, so
-                        this switch reflects that truthfully rather than implying it can be
-                        turned off. No `disabled` prop: that style washes the track to a
-                        neutral white regardless of value, which would visually read as "off"
-                        — a no-op onValueChange keeps the true "on" (yale-700) look. */}
-                    <DSSwitch value={true} onValueChange={() => {}} />
+                    <DSSwitch value={openFdaEnabled} onValueChange={() => onToggleLiteratureSource('openFda')} />
                   </View>
                 </View>
               </>

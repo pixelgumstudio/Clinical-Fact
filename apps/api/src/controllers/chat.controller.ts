@@ -675,43 +675,53 @@ class ChatController {
             groundingSources: assistantMetadata?.groundingSources,
           });
           messageIndex = updated.messages.length - 1;
-
-          const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
-
-          // First exchange in this session — auto-title it from what was actually asked,
-          // same as ChatGPT/Claude do, instead of leaving the generic default title.
-          if (updated.messages.length === 2) {
-            generatedTitle = await chatService.generateChatTitle(message, assistantContent);
-            updated.title = generatedTitle;
-          }
-
-          // Follow-up suggestions (shown as tappable chips) and the session-list summary are
-          // both cheap Groq calls — run them alongside each other, and never let either one
-          // fail the actual chat response that the user is waiting on.
-          const [followUpsSettled, summarySettled] = await Promise.allSettled([
-            chatService.generateFollowUpQuestions(updatedHistory, language),
-            chatService.summarizeChat(updatedHistory),
-          ]);
-          followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
-          updated.messages[messageIndex].followUpQuestions = followUpQuestions;
-          if (summarySettled.status === 'fulfilled') {
-            updated.summary = summarySettled.value;
-          } else {
-            console.error('❌ Failed to update chat summary:', summarySettled.reason);
-          }
-
           await updated.save();
         }
 
-        console.log(`⏱️ Total end-to-end request duration: ${(performance.now() - requestStartedAt).toFixed(0)}ms`);
+        console.log(`⏱️ Answer delivered in ${(performance.now() - requestStartedAt).toFixed(0)}ms`);
 
+        // The answer is complete and saved: tell the app now so the chat unlocks. The title,
+        // follow-up chips and list summary are three more model calls (they used to run before
+        // this event, adding several seconds to every message); they follow as an `extras` event
+        // on the same connection and are saved either way.
         sendEvent('done', {
           messageIndex,
           messageCount: updated?.messages.length ?? 0,
-          title: generatedTitle,
           followUpQuestions,
           status: 'completed',
+          extrasPending: !!updated,
         });
+
+        if (updated) {
+          const updatedHistory = updated.messages.map(m => ({ role: m.role, content: m.content }));
+          const isFirstExchange = updated.messages.length === 2;
+          const [titleSettled, followUpsSettled, summarySettled] = await Promise.allSettled([
+            isFirstExchange ? chatService.generateChatTitle(message, assistantContent) : Promise.resolve(undefined),
+            chatService.generateFollowUpQuestions(updatedHistory, language),
+            chatService.summarizeChat(updatedHistory),
+          ]);
+          generatedTitle = titleSettled.status === 'fulfilled' ? titleSettled.value : undefined;
+          followUpQuestions = followUpsSettled.status === 'fulfilled' ? followUpsSettled.value : [];
+          if (summarySettled.status === 'rejected') {
+            console.error('❌ Failed to update chat summary:', summarySettled.reason);
+          }
+
+          // Targeted update rather than another document save: the user may already have sent
+          // their next message, and a whole-document save would overwrite it or fail on version.
+          await ChatSession.updateOne(
+            { _id: sessionId },
+            {
+              $set: {
+                ...(generatedTitle ? { title: generatedTitle } : {}),
+                ...(summarySettled.status === 'fulfilled' ? { summary: summarySettled.value } : {}),
+                [`messages.${messageIndex}.followUpQuestions`]: followUpQuestions,
+              },
+            }
+          );
+
+          sendEvent('extras', { messageIndex, title: generatedTitle, followUpQuestions });
+          console.log(`⏱️ Title/follow-ups/summary finished at ${(performance.now() - requestStartedAt).toFixed(0)}ms`);
+        }
         res.end();
 
         const sessionIdStr = sessionId.toString();
