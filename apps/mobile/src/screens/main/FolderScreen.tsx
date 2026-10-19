@@ -8,6 +8,7 @@ import { useFolders, useAddFolder, useDeleteFolder } from '../../hooks/queries';
 import { AddFolderModal } from '../../components/AddFolderModal';
 import { colors, spacing, typography, FolderIcon, PlusIcon, DeleteIcon } from '@clinicalfact/design-system';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
+import { useTranslation } from 'react-i18next';
 
 type FolderScreenNavProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -18,15 +19,16 @@ interface FolderItemProps {
 }
 
 const FolderItem: React.FC<FolderItemProps> = ({ item, onDelete, onPress }) => {
+  const { t } = useTranslation();
   const folderId = item._id || item.id || '';
 
   const handleDelete = () => {
     Alert.alert(
-      'Delete Folder',
-      `Are you sure you want to delete "${item.name}"? Notes inside will be moved to the root.`,
+      t('main.folder.deleteFolder'),
+      t('main.folder.areYouSureYouWantTo', { name: item.name }),
       [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Delete', style: 'destructive', onPress: () => onDelete(folderId) },
+        { text: t('common.cancel'), style: 'cancel' },
+        { text: t('common.delete'), style: 'destructive', onPress: () => onDelete(folderId) },
       ]
     );
   };
@@ -43,6 +45,7 @@ const FolderItem: React.FC<FolderItemProps> = ({ item, onDelete, onPress }) => {
 };
 
 export const FolderScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<FolderScreenNavProp>();
   const { data: folders = [], isLoading, error, refetch } = useFolders('note');
   const addFolderMutation = useAddFolder();
@@ -59,7 +62,7 @@ export const FolderScreen = () => {
 
   const handleDeleteFolder = (id: string) => {
     deleteFolderMutation.mutate(id, {
-      onError: (err: any) => Alert.alert('Error', err.message || 'Failed to delete folder'),
+      onError: (err: any) => Alert.alert(t('common.error'), err.message || t('main.folder.failedToDeleteFolder')),
     });
   };
 
@@ -69,13 +72,13 @@ export const FolderScreen = () => {
     }
 
     if (error) {
-      return <Text style={[styles.centered, styles.errorText]}>Error: {(error as Error).message}</Text>;
+      return <Text style={[styles.centered, styles.errorText]}>{t('main.folder.error', { message: (error as Error).message })}</Text>;
     }
 
     if (folders.length === 0) {
       return (
         <View style={styles.centered}>
-          <Text style={styles.emptyText}>No folders yet. Create one!</Text>
+          <Text style={styles.emptyText}>{t('main.folder.noFoldersYetCreateOne')}</Text>
         </View>
       );
     }
@@ -97,7 +100,7 @@ export const FolderScreen = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
       <View style={styles.header}>
-        <Text style={styles.title}>Folders</Text>
+        <Text style={styles.title}>{t('main.folder.folders')}</Text>
         <TouchableOpacity style={styles.addButton} onPress={() => setModalVisible(true)}>
           <PlusIcon size={22} color={colors.background.primary} />
         </TouchableOpacity>

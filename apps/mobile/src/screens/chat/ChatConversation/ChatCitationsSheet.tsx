@@ -5,6 +5,7 @@ import { Icon } from '@clinicalfact/design-system';
 import { MedicalChatSource } from '../../../services/api';
 import { formatSourceMeta } from './citationHelpers';
 import { sheetChromeStyles } from './sheetChromeStyles';
+import { useTranslation } from 'react-i18next';
 
 interface ChatCitationsSheetProps {
   sources: MedicalChatSource[] | null;
@@ -13,45 +14,49 @@ interface ChatCitationsSheetProps {
 
 /** "Check citations" sheet — opened by tapping a citation pill or the "Thinking..."
  *  disclosure row on an assistant message. */
-export const ChatCitationsSheet: React.FC<ChatCitationsSheetProps> = ({ sources, onClose }) => (
-  <Modal
-    visible={!!sources}
-    transparent
-    animationType="slide"
-    onRequestClose={onClose}
-  >
-    <TouchableOpacity style={sheetChromeStyles.overlay} activeOpacity={1} onPress={onClose}>
-      <TouchableOpacity activeOpacity={1} style={sheetChromeStyles.sheet}>
-        <View style={sheetChromeStyles.handle} />
-        <View style={sheetChromeStyles.header}>
-          <TouchableOpacity onPress={onClose} style={sheetChromeStyles.closeButton} activeOpacity={0.7}>
-            <Icon name="close" size={20} color={theme.colors.grey[900]} />
-          </TouchableOpacity>
-          <Text style={sheetChromeStyles.title}>Check citations</Text>
-          <View style={sheetChromeStyles.closeButton} />
-        </View>
-        <ScrollView style={styles.citationsList} showsVerticalScrollIndicator={false}>
-          {sources?.map((source) => (
-            <TouchableOpacity
-              key={source.index}
-              style={styles.citationCard}
-              onPress={() => source.doi && Linking.openURL(source.doi)}
-              activeOpacity={source.doi ? 0.7 : 1}
-            >
-              <View style={styles.citationCardText}>
-                <Text style={styles.citationCardMeta} numberOfLines={1}>
-                  {formatSourceMeta(source)}
-                </Text>
-                <Text style={styles.citationCardTitle} numberOfLines={2}>{source.title}</Text>
-              </View>
-              <Icon name="foward" size={16} color={theme.colors.grey[300]} />
+export const ChatCitationsSheet: React.FC<ChatCitationsSheetProps> = ({ sources, onClose }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Modal
+      visible={!!sources}
+      transparent
+      animationType="slide"
+      onRequestClose={onClose}
+    >
+      <TouchableOpacity style={sheetChromeStyles.overlay} activeOpacity={1} onPress={onClose}>
+        <TouchableOpacity activeOpacity={1} style={sheetChromeStyles.sheet}>
+          <View style={sheetChromeStyles.handle} />
+          <View style={sheetChromeStyles.header}>
+            <TouchableOpacity onPress={onClose} style={sheetChromeStyles.closeButton} activeOpacity={0.7}>
+              <Icon name="close" size={20} color={theme.colors.grey[900]} />
             </TouchableOpacity>
-          ))}
-        </ScrollView>
+            <Text style={sheetChromeStyles.title}>{t('chat.chatCitationsSheet.checkCitations')}</Text>
+            <View style={sheetChromeStyles.closeButton} />
+          </View>
+          <ScrollView style={styles.citationsList} showsVerticalScrollIndicator={false}>
+            {sources?.map((source) => (
+              <TouchableOpacity
+                key={source.index}
+                style={styles.citationCard}
+                onPress={() => source.doi && Linking.openURL(source.doi)}
+                activeOpacity={source.doi ? 0.7 : 1}
+              >
+                <View style={styles.citationCardText}>
+                  <Text style={styles.citationCardMeta} numberOfLines={1}>
+                    {formatSourceMeta(source)}
+                  </Text>
+                  <Text style={styles.citationCardTitle} numberOfLines={2}>{source.title}</Text>
+                </View>
+                <Icon name="foward" size={16} color={theme.colors.grey[300]} />
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </TouchableOpacity>
       </TouchableOpacity>
-    </TouchableOpacity>
-  </Modal>
-);
+    </Modal>
+  );
+};
 
 const styles = StyleSheet.create({
   citationsList: {

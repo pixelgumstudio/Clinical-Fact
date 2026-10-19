@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { colors, Icon, theme, Switch as DSSwitch } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface ExportSettingsModalProps {
   visible: boolean;
@@ -27,6 +28,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
   isLoading = false,
   error = null,
 }) => {
+  const { t } = useTranslation();
   const [selectedFormat, setSelectedFormat] = useState<'pdf' | 'docx'>('pdf');
   const [includeAnswers, setIncludeAnswers] = useState(true);
 
@@ -56,7 +58,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
               <View style={styles.handleBar} />
               {/* Header */}
               <View style={styles.header}>
-                <Text style={styles.headerTitle} numberOfLines={1}>Export {title}</Text>
+                <Text style={styles.headerTitle} numberOfLines={1}>{t('components.exportSettings.export', { title })}</Text>
                 <TouchableOpacity
                   onPress={onClose}
                   style={styles.closeButton}
@@ -69,7 +71,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
 
               {/* Format Selection */}
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Select format</Text>
+                <Text style={styles.sectionTitle}>{t('components.exportSettings.selectFormat')}</Text>
                 <View style={styles.formatButtonsContainer}>
                   <TouchableOpacity
                     style={[
@@ -113,14 +115,14 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
 
               {/* Content Selection */}
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Include answers</Text>
+                <Text style={styles.sectionTitle}>{t('components.exportSettings.includeAnswers')}</Text>
                 <View style={styles.toggleRow}>
                   <View style={styles.toggleLeft}>
                     <Icon name="sucessful" size={20} color={theme.colors.yale[700]} />
                     <Text style={styles.toggleLabel}>
                       {includeAnswers
-                        ? 'Answers & explanations included'
-                        : 'Questions only'}
+                        ? t('components.exportSettings.answersExplanationsIncluded')
+                        : t('components.exportSettings.questionsOnly')}
                     </Text>
                   </View>
                   <DSSwitch
@@ -146,7 +148,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
                   disabled={isLoading}
                   activeOpacity={0.7}
                 >
-                  <Text style={styles.cancelButtonText}>Cancel</Text>
+                  <Text style={styles.cancelButtonText}>{t('common.cancel')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -158,7 +160,7 @@ export const ExportSettingsModal: React.FC<ExportSettingsModalProps> = ({
                   {isLoading ? (
                     <ActivityIndicator color={colors.white} size="small" />
                   ) : (
-                    <Text style={styles.exportButtonText}>Export</Text>
+                    <Text style={styles.exportButtonText}>{t('components.exportSettings.export2')}</Text>
                   )}
                 </TouchableOpacity>
               </View>

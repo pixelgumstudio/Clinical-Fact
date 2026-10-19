@@ -7,7 +7,8 @@ import { Button, OptionCard, Icon, theme } from '@clinicalfact/design-system';
 
 export interface SurveyOption {
   id: string;
-  label: string;
+  /** Translation key for the option's text, resolved when rendered so it follows the app language. */
+  labelKey: string;
 }
 
 export interface SurveyQuestionScreenProps {
@@ -70,7 +71,7 @@ export const SurveyQuestionScreen: React.FC<SurveyQuestionScreenProps> = ({
           {options.map((option) => (
             <OptionCard
               key={option.id}
-              label={option.label}
+              label={t(option.labelKey)}
               selected={selectedId === option.id}
               onPress={() => onSelect(option.id)}
             />

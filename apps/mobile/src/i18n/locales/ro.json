@@ -15,7 +15,8 @@
     "done": "Făcut",
     "search": "Căutare",
     "filter": "Filtra",
-    "ok": "Bine"
+    "ok": "Bine",
+    "info": "Informații"
   },
   "home": {
     "title": "Clinical Fact",
@@ -75,7 +76,12 @@
     "reportBug": "Raportează o problemă"
   },
   "auth": {
-    "welcome": "Bun venit la Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Autentificarea cu Google a eșuat",
+      "failedToAuthenticateWithServer": "Autentificarea pe server a eșuat",
+      "googleSignInIsOnlyAvailable": "Autentificarea cu Google este disponibilă doar în aplicațiile native. Folosește autentificarea prin e-mail sau descarcă aplicația nativă.",
+      "code": "{{message}} (cod: {{code}})"
+    },
     "getStarted": "Începeți",
     "signIn": "Conectare",
     "signUp": "Înscrie-te",
@@ -199,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Tot ce ai nevoie pentru a învăța orice",
-      "subtitle": "Înregistrează-l. Cercetează-l. Testează-l. Stăpânește-l."
+      "subtitle": "Înregistrează-l. Cercetează-l. Testează-l. Stăpânește-l.",
+      "everythingYouNeedToLearnAnything": "Tot ce ai nevoie pentru a învăța orice",
+      "recordItResearchItQuizIt": "Înregistrează. Cercetează. Testează-te. Învață temeinic.",
+      "tryClinicalFactNowForFree": "Încearcă Clinical Fact acum gratuit"
     },
     "features": {
       "transcribe": {
@@ -283,12 +292,136 @@
       "studyTimePerWeek": "Cât timp ai la dispoziție pentru studiu în fiecare săptămână?",
       "comingUp": "Ce urmează pentru tine în perioada următoare?",
       "referralSource": "De unde ai aflat despre Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Activează notificările",
+      "thisHelpsUsStayOnTrack": "Ne ajută să-ți personalizăm contul și să găsești mai ușor răspunsuri medicale sigure"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Cod de verificare nevalid. Te rugăm să încerci din nou.",
+      "failedToResendCodePleaseTry": "Retrimiterea codului a eșuat. Te rugăm să încerci din nou.",
+      "confirmYourEmailAddress": "Confirmă-ți adresa de e-mail",
+      "enterCodeSentTo": "Introdu codul OTP trimis pe adresa ta de e-mail {{email}}",
+      "resendCodeIn": "Retrimite codul în {{seconds}} sec"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Ai primit o recomandare?",
+      "enterTheirReferralCodeIfYou": "Introdu codul de recomandare, dacă ai unul",
+      "eGJOHNOrTECHBRO": "ex. ION sau TECHBRO",
+      "codeIsValid": "✓ Codul este valid"
+    },
+    "resultsChart": {
+      "getBetterResults": "Obține rezultate mai bune",
+      "over95OfClinicalfactUsersScore": "Peste 95% dintre utilizatorii Clinicalfact obțin scoruri de 95% sau mai mari la teste și examene"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Student / elev la asistență medicală",
+        "medicalStudent": "Student la medicină",
+        "paPharmacyStudent": "Student la farmacie sau asistență medicală avansată",
+        "practicingNurse": "Asistent medical",
+        "practicingPhysician": "Medic rezident / specialist",
+        "otherHealthcareProfessional": "Alt profesionist din domeniul sănătății"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Manuale sau notițe de curs",
+        "flashcardQuizApps": "Aplicații de flashcarduri sau chestionare",
+        "youtube": "YouTube",
+        "aiChatbots": "Chatboți AI",
+        "colleagueClassmate": "Întreb un coleg sau o colegă",
+        "practiceQuestionBanks": "Bănci de grile și întrebări de antrenament"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Crearea de flashcarduri și teste de la zero",
+        "findingTrustworthyAnswer": "Găsirea rapidă a unui răspuns de încredere",
+        "reReadingNotes": "Recitirea notițelor pe care nu le mai rețin",
+        "switchingApps": "Comutarea între prea multe aplicații",
+        "chartingDocumentation": "Completarea fișelor și documentația clinică"
+      },
+      "appExpectation": {
+        "noHallucination": "Un AI care nu halucinează",
+        "realCitations": "Citări reale direct din surse",
+        "oneApp": "O singură aplicație în loc de cinci abonamente",
+        "explainsWhy": "Explică logica din spate, nu doar răspunsul"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Căutare Google",
+        "otherApps": "Alte aplicații"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "A inventat informații",
+        "notMedicalContent": "Nu e adaptat pentru domeniul medical",
+        "noSources": "Lipsesc sursele verificabile",
+        "tooGeneric": "Prea generic, nu e axat pe examene sau practică"
+      },
+      "aiTrustLevel": {
+        "everyTime": "De fiecare dată",
+        "sometimes": "Uneori",
+        "rarely": "Rareori",
+        "dontUseAi": "Nu folosesc AI încă"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Răspunsuri rapide în care pot avea încredere",
+        "quizzesFlashcardsWithoutWork": "Teste și flashcarduri fără efort",
+        "rememberingStudied": "Ajutor să rețin ceea ce am învățat",
+        "medicalCitations": "Referințe și citări medicale",
+        "allOfTheAbove": "Toate cele de mai sus"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Altul"
+      },
+      "studyTime": {
+        "under5Hours": "Sub 5 ore",
+        "510Hours": "5–10 ore",
+        "1020Hours": "10–20 de ore",
+        "20PlusHours": "Peste 20 de ore"
+      },
+      "comingUp": {
+        "medicalExams": "Examene de medicină",
+        "clinicalRotations": "Stagii clinice",
+        "nursingExams": "Examene de asistență medicală",
+        "otherExams": "Alte examene",
+        "staySharp": "Vreau doar să mă mențin în formă"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Transcrierea notelor",
+    "noteTranscript": {
+      "noteTranscript": "Transcriere notiță",
+      "noNoteIDProvided": "Niciun ID de notiță furnizat",
+      "noTranscriptAvailableForThisNote": "Nu există nicio transcriere disponibilă pentru această notiță.",
+      "thisNoteWasNotCreatedFrom": "Această notiță nu a fost creată din audio/video și nu are o transcriere.",
+      "failedToLoadNote": "Nu s-a putut încărca notița",
+      "noteTranscript2": "Transcriere notiță",
+      "loadingTranscript": "Se încarcă transcrierea...",
+      "goToNote": "Mergi la notiță"
+    },
     "noteOptions": "Opțiuni pentru note",
-    "editNote": "Editează nota",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Te rugăm să introduci un titlu pentru notiță",
+      "failedToUpdateNote": "Nu s-a putut actualiza notița",
+      "noteUpdatedSuccessfully": "Notiță actualizată cu succes",
+      "editNote": "Editează notița",
+      "noteTitle": "Titlul notiței",
+      "enterNoteTitle": "Introdu titlul notiței",
+      "noteContent": "Conținutul notiței",
+      "enterNoteContent": "Introdu conținutul notiței",
+      "saveThisNote": "Salvează această notiță",
+      "aiIsGeneratingYourNote": "AI îți generează notița",
+      "largeAudioAndVideoFilesMay": "Fișierele audio și video mari pot dura câteva minute pentru procesare. Te rugăm să păstrezi aplicația deschisă."
+    },
     "retranscribe": "Retranscrie",
     "exportNote": "Notă de export",
     "shareNoteLink": "Link pentru partajarea notei",
@@ -310,12 +443,89 @@
     "translate": "Traduce",
     "addToFolder": "Adăugați în folder",
     "loadingNote": "Se încarcă nota...",
-    "noteNotFound": "Nu s-a putut încărca nota"
+    "noteNotFound": "Nu s-a putut încărca nota",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Nu s-au putut genera flashcardurile",
+      "anUnexpectedErrorOccurred": "A apărut o eroare neașteptată",
+      "history": "Istoric",
+      "export": "Exportă"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Nu s-a putut adăuga notița în dosar",
+      "folderNotFound": "Dosarul nu a fost găsit",
+      "addNote": "+ Adaugă notiță",
+      "noNotesInThisFolder": "Nicio notiță în acest dosar",
+      "moveNotesToThisFolderTo": "Mută notițe în acest dosar pentru a le vedea aici",
+      "addNoteToFolder": "Adaugă notiță în dosar",
+      "noNotesAvailableToAdd": "Nicio notiță disponibilă pentru adăugare",
+      "allYourNotesAreAlreadyIn": "Toate notițele tale sunt deja în acest dosar",
+      "created": "Creat la {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Nu s-a putut încărca notița",
+      "reTranscribeNote": "Retranscrie notița",
+      "thisWillReTranscribeTheAudio": "Această acțiune va retranscrie conținutul audio și va actualiza notița. Continui?",
+      "reTranscribe": "Retranscrie",
+      "noteReTranscribedSuccessfully": "Notiță retranscrisă cu succes",
+      "info": "Informații",
+      "reTranscriptionFeatureIsComingSoon": "Funcția de retranscriere va fi disponibilă în curând",
+      "youAreCurrentlyOfflinePleaseConnect": "În prezent ești offline. Te rugăm să te conectezi la internet pentru a efectua această acțiune.",
+      "failedToDeleteNote": "Nu s-a putut șterge notița",
+      "failedToExportNote": "Exportarea notiței a eșuat",
+      "noteTranslatedSuccessfully": "Notiță tradusă cu succes",
+      "failedToTranslateNote": "Traducerea notiței a eșuat",
+      "noteMovedTo": "Notiță mutată în {{name}}",
+      "failedToMoveNoteToFolder": "Mutarea notiței în dosar a eșuat",
+      "summaryNotes": "Notițe rezumat",
+      "loadingNote": "Se încarcă notița...",
+      "imageNote": "Notiță din imagine",
+      "created": "Creată pe {{dateTime}}",
+      "translate": "Tradu",
+      "transcribe": "Transcrie",
+      "editThisNote": "Editează această notiță",
+      "createFlashcards": "Creează flashcarduri",
+      "createFlashcardsToImproveYourRetention": "Creează flashcarduri pentru a-ți îmbunătăți retenția",
+      "createQuizQuestions": "Creează întrebări de quiz",
+      "practiceYourNotesByCreatingQuestions": "Exersează din notițe creând întrebări care te ajută să stăpânești materia"
+    },
+    "sharedNote": {
+      "notFound": "Negăsit",
+      "thisSharedNoteLinkIsInvalid": "Acest link către notiță este nevalid sau a expirat.",
+      "failedToLoadSharedNote": "Încărcarea notiței distribuite a eșuat.",
+      "saved": "Salvat!",
+      "noteHasBeenAddedToYour": "Notița a fost adăugată în biblioteca ta.",
+      "viewInLibrary": "Vezi în bibliotecă",
+      "stayHere": "Rămâi aici",
+      "failedToSaveNote": "Salvarea notiței a eșuat.",
+      "loadingSharedNote": "Se încarcă notița distribuită...",
+      "sharedNote": "Notiță distribuită",
+      "sharedWithYou": "Distribuită cu tine",
+      "savedToLibrary": "Salvat în bibliotecă",
+      "saveToMyLibrary": "Salvează în biblioteca mea"
+    }
   },
   "create": {
     "selectOption": "Cum doriți să vă creați nota?",
-    "recordAudio": "Înregistrați audio",
-    "uploadAudio": "Încărcați fișiere audio",
+    "recordAudio": {
+      "permissionRequired": "Permisiune necesară",
+      "pleaseGrantMicrophonePermissionToRecord": "Te rugăm să acorzi permisiunea pentru microfon pentru a înregistra audio.",
+      "failedToRequestMicrophonePermission": "Solicitarea permisiunii pentru microfon a eșuat",
+      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "recordingAudio": "Se înregistrează audio",
+      "recordAudio": "Înregistrează audio",
+      "createANoteFromAnyRecorded": "Creează o notiță din orice înregistrare audio",
+      "recording": "Înregistrare ({{time}})",
+      "recordAgain": "Înregistrează din nou"
+    },
+    "uploadAudio": {
+      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "failedToPickAudioFile": "Selectarea fișierului audio a eșuat",
+      "uploadAudio": "Încarcă audio",
+      "createANoteFromAnyUploaded": "Creează o notiță din orice fișier audio încărcat",
+      "dragDropFilesOrBrowse": "Trage fișierele aici sau Caută",
+      "supportedFormatMp4WavMp3": "Formate acceptate: mp4, wav, mp3",
+      "changeFile": "Schimbă fișierul"
+    },
     "youtube": "Videoclip YouTube",
     "pdfDocument": "PDF sau document",
     "customText": "Text personalizat",
@@ -323,7 +533,56 @@
     "uploadingFile": "Se încarcă fișierul pe server...",
     "transcribing": "Se convertește vorbirea în text...",
     "extractingText": "Extragerea textului...",
-    "generatingNote": "Crearea de notițe de studiu bazate pe inteligență artificială...",
+    "generatingNote": {
+      "uploadAudio": "Încarcă audio",
+      "uploadingAudioFileToServer": "Se încarcă fișierul audio pe server...",
+      "transcribeAudio": "Transcrie audio",
+      "convertingSpeechToText": "Se convertește vocea în text...",
+      "generateYourNote": "Generează-ți notița",
+      "creatingStudyNotes": "Se creează notițele de studiu...",
+      "uploadPDF": "Încarcă PDF",
+      "uploadingPDFDocumentToServer": "Se încarcă documentul PDF pe server...",
+      "extractText": "Extrage textul",
+      "readingAndExtractingTextFromPDF": "Se citește și se extrage textul din PDF...",
+      "uploadImage": "Încarcă imaginea",
+      "uploadingImageToServer": "Se încarcă imaginea pe server...",
+      "extractTextOCR": "Extrage textul (OCR)",
+      "recognizingAndExtractingTextFromImage": "Se recunoaște și se extrage textul din imagine...",
+      "fetchVideo": "Preluare video",
+      "connectingToYouTube": "Se conectează la YouTube...",
+      "extractTranscript": "Extrage transcrierea",
+      "downloadingVideoTranscript": "Se descarcă transcrierea videoclipului...",
+      "processText": "Procesează textul",
+      "analyzingYourContent": "Se analizează conținutul...",
+      "uploadFile": "Încarcă fișierul",
+      "uploadingToServer": "Se încarcă pe server...",
+      "processContent": "Procesează conținutul",
+      "extractingContent": "Se extrage conținutul...",
+      "noteReady": "Notiță gata!",
+      "noteGenerationFailedOnTheServer": "Generarea notiței a eșuat pe server.",
+      "failedToUploadImage": "Încărcarea imaginii a eșuat",
+      "weCouldNotReadAnythingFrom": "Nu am putut citi nimic din această imagine. Încearcă o imagine mai clară a notițelor tale medicale.",
+      "preparingFile": "Se pregătește fișierul...",
+      "almostDone": "Aproape gata...",
+      "untitledNote": "Notiță fără titlu",
+      "failedToGenerateNote": "Generarea notiței a eșuat",
+      "whoaSpeedy": "Ușurel, nu te grăbi! 🏃💨",
+      "youReGeneratingContentABit": "Generezi conținut cam prea repede. Fă o pauză de 60 de secunde înainte de a încerca din nou, pentru ca AI-ul nostru să poată ține pasul.",
+      "gotIt": "Am înțeles",
+      "fileTooLarge": "Fișier prea mare",
+      "yourFileExceedsThe15MBLimit": "Fișierul tău depășește limita de 15 MB pentru utilizatorii gratuiți. Treci la PRO pentru a încărca cursuri de până la 100 MB.",
+      "upgradeToPRO": "Treci la PRO",
+      "oopsWeHitASnag": "Ups, a apărut o problemă 🚧",
+      "weCouldnTGenerateThatRight": "Nu am putut genera asta acum. Așteaptă un moment și încearcă din nou!",
+      "processingContent": "Se procesează conținutul...",
+      "generatingYourNote": "Se generează notița...",
+      "audioNote": "Notiță audio",
+      "failedToGenerateFlashcards": "Generarea flashcardurilor a eșuat",
+      "generatingNote": "Se generează notița",
+      "pleaseKeepThisScreenOpenWhile": "Te rugăm să lași acest ecran deschis în timp ce notița este generată. Transcrierea fișierelor mari poate dura câteva minute.",
+      "goToNote": "Mergi la notiță",
+      "generateNoteTranscript": "Generează transcrierea notiței"
+    },
     "fetchingVideo": "Conectare la YouTube...",
     "processingText": "Analizăm conținutul dvs....",
     "uploadAudioTitle": "Încărcați fișiere audio",
@@ -333,7 +592,63 @@
     "fetchVideo": "Preluare videoclip",
     "extractTranscript": "Extrageți transcrierea",
     "processText": "Textul procesului",
-    "generateNote": "Generați nota dvs."
+    "generateNote": "Generați nota dvs.",
+    "customTextInput": {
+      "customText": "Text personalizat",
+      "createANoteFromAnyCustom": "Creează o notiță din orice text introdus",
+      "enterText": "Introdu textul",
+      "enterYourTextHere": "Introdu textul aici..."
+    },
+    "uploadImage": {
+      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "permissionRequired": "Permisiune necesară",
+      "pleaseAllowAccessToYourPhoto": "Permite accesul la biblioteca foto",
+      "failedToPickImage": "Selectarea imaginii a eșuat",
+      "uploadImage": "Încarcă imaginea",
+      "createANoteFromAnyUploaded": "Creează o notiță din orice imagine încărcată",
+      "dragDropFilesOrBrowse": "Trage fișierele aici sau Răsfoiește",
+      "supportedFormatPngJpegHeicWebp": "Formate acceptate: png, jpeg, heic, webp",
+      "changeFile": "Schimbă fișierul"
+    },
+    "uploadPDF": {
+      "created": "Creat pe {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}} {{ampm}}",
+      "failedToPickDocument": "Selectarea documentului a eșuat",
+      "uploadPdf": "Încarcă PDF",
+      "createANoteFromAnyUploaded": "Creează o notiță din orice PDF încărcat",
+      "dragDropFilesOrBrowse": "Trage fișierele aici sau Răsfoiește",
+      "supportedFormatPdf": "Format acceptat: pdf",
+      "changeFile": "Schimbă fișierul"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Se preia videoclipul",
+      "gettingVideoDetails": "Se obțin detaliile videoclipului",
+      "extractingTranscript": "Se extrage transcrierea",
+      "convertingAudioToText": "Se convertește audio în text",
+      "generatingYourNote": "Se generează notița",
+      "aiIsSummarisingTheContent": "AI-ul rezumă conținutul",
+      "noteGenerationFailedPleaseTryAgain": "Generarea notiței a eșuat. Te rugăm să încerci din nou.",
+      "processingFailed": "Procesare eșuată",
+      "goBack": "Înapoi",
+      "retry": "Reîncearcă",
+      "failedToStartNoteGeneration": "Nu s-a putut începe generarea notiței",
+      "failedToProcessYouTubeVideoPlease": "Procesarea videoclipului YouTube a eșuat. Te rugăm să încerci din nou.",
+      "cancelProcessing": "Anulează procesarea",
+      "areYouSureYouWantTo": "Sigur vrei să anulezi? Progresul va fi pierdut.",
+      "continueProcessing": "Continuă procesarea",
+      "youTubeNote": "Notiță YouTube",
+      "noteGenerated": "Notiță generată",
+      "generatingNote": "Se generează notița",
+      "goToNote": "Mergi la notiță"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Nu s-au putut prelua informațiile despre videoclip",
+      "failedToFetchVideoInformation": "Preluarea informațiilor despre videoclip a eșuat",
+      "youtubeVideo": "Videoclip YouTube",
+      "createANoteFromAnyYoutube": "Creează o notiță din orice videoclip YouTube",
+      "enterYoutubeURL": "Introdu linkul YouTube",
+      "pasteYoutubeURL": "Lipește linkul YouTube",
+      "fetchingVideoInfo": "Se preiau informațiile despre videoclip..."
+    }
   },
   "library": {
     "title": "Bibliotecă",
@@ -387,7 +702,42 @@
     "explanation": "Explicaţie",
     "questionProgress": "Întrebarea {{current}} din {{total}}",
     "generatingQuizWait": "Îți generăm quizul, te rugăm să aștepți până la finalizare...",
-    "goToChats": "Mergi la conversații"
+    "goToChats": "Mergi la conversații",
+    "quizGroupDetail": {
+      "inProgress": "În desfășurare",
+      "notStarted": "Neînceput",
+      "failedToLoadQuizHistory": "Nu s-a putut încărca istoricul quizului",
+      "failedToLoadChatContent": "Nu s-a putut încărca conținutul chatului",
+      "deleteQuiz": "Șterge quizul",
+      "failedToDeleteQuiz": "Nu s-a putut șterge quizul",
+      "created": "Creat pe {{dateTime}}",
+      "lastscore": "ULTIMUL SCOR",
+      "bestscore": "CEL MAI BUN SCOR",
+      "attempts": "ÎNCERCĂRI",
+      "retakeQuiz": "Reia quizul",
+      "translate": "Tradu",
+      "newQuiz": "Quiz nou",
+      "quizHistory": "Istoric quizuri",
+      "flashcardHistory": "Istoric flashcarduri",
+      "score": "Scor {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Nu există încă seturi de flashcarduri din această sursă.",
+      "cards": "{{totalCards}} carduri · {{flashcardStatus}}",
+      "quizOptions": "Opțiuni quiz",
+      "exportLatestAttempt": "Exportă ultima încercare",
+      "questions": "{{totalQuestions}} întrebări · {{value}}",
+      "deleteAllAttemptsOne": "Ștergi singura încercare de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată.",
+      "deleteAllAttemptsMany": "Ștergi toate cele {{total}} încercări de quiz pentru „{{title}}”? Acțiunea nu poate fi anulată."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Nu s-au putut încărca datele quizului – format de răspuns nevalid",
+      "failedToLoadQuizData": "Nu s-au putut încărca datele quizului",
+      "noContentAvailable": "Niciun conținut disponibil",
+      "goBack": "Înapoi",
+      "previous": "Anterior"
+    },
+    "quiz": {
+      "generationFailed": "Generare eșuată"
+    }
   },
   "flashcards": {
     "title": "Fișe de lucru",
@@ -418,7 +768,44 @@
     "headerTitle": "Fișă de lucru",
     "progressFormat": "Fișă de lucru {{current}} din {{total}}",
     "noteIdRequired": "ID-ul notei este necesar pentru a genera fișe de lucru",
-    "invalidCardCount": "Vă rugăm să selectați între 1 și 100 de fișe de învățare"
+    "invalidCardCount": "Vă rugăm să selectați între 1 și 100 de fișe de învățare",
+    "flashcardGroupDetail": {
+      "inProgress": "În desfășurare",
+      "notStarted": "Neînceput",
+      "failedToLoadFlashcardHistory": "Nu s-a putut încărca istoricul flashcardurilor",
+      "limitReached": "Limită atinsă",
+      "flashcardGenerationLimitReached": "Ai atins limita de generare a flashcardurilor.",
+      "failedToGenerateFlashcards": "Nu s-au putut genera flashcardurile",
+      "failedToTranslateFlashcards": "Nu s-au putut traduce flashcardurile",
+      "deleteFlashcards": "Șterge flashcardurile",
+      "failedToDeleteFlashcards": "Nu s-au putut șterge flashcardurile",
+      "created": "Creat pe {{dateTime}}",
+      "lastprogress": "ULTIMUL PROGRES",
+      "bestprogress": "CEL MAI BUN PROGRES",
+      "sets": "SETURI",
+      "studyNow": "Învață acum",
+      "translate": "Tradu",
+      "newFlashcards": "Flashcarduri noi",
+      "flashcardHistory": "Istoric flashcarduri",
+      "quizHistory": "Istoric teste",
+      "cards": "{{totalCards}} carduri · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Niciun test din această sursă până acum.",
+      "score": "Scor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Opțiuni flashcarduri",
+      "exportLatestSet": "Exportă ultimul set",
+      "questions": "{{totalQuestions}} întrebări · {{value}}",
+      "deleteAllSetsOne": "Ștergi unicul set de flashcarduri pentru „{{title}}”? Acțiunea nu poate fi anulată.",
+      "deleteAllSetsMany": "Ștergi toate cele {{total}} seturi de flashcarduri pentru „{{title}}”? Acțiunea nu poate fi anulată."
+    },
+    "flashcardReview": {
+      "unknownError": "Eroare necunoscută",
+      "noFlashcardsInThisSet": "Niciun flashcard în acest set",
+      "goBack": "Înapoi",
+      "allDone": "Totul e gata",
+      "youHaveReviewedAllTheCards": "Ai parcurs toate cardurile din acest pachet",
+      "question": "Întrebarea {{value}}",
+      "questionOf": "Întrebarea {{value}} din {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Chat",
@@ -429,7 +816,186 @@
     "chatWithDocument": "Chat cu documentul",
     "selectFile": "Selectați un fișier cu care să discutați",
     "uploadFile": "Încărcați fișierul",
-    "startChatting": "Începeți conversația"
+    "startChatting": "Începeți conversația",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Adresează o întrebare medicală pentru clarificări",
+      "askAnythingAboutThisDocument": "Întreabă orice despre acest document...",
+      "askAQuestionAttachmentProcessingFailed": "Adresează o întrebare — procesarea atașamentului a eșuat",
+      "extractingText": "Se extrage textul...",
+      "processingPDF": "Se procesează PDF-ul...",
+      "upgradeToProToContinueChatting": "Treci la PRO pentru a continua conversația",
+      "queryremaining": "{{queriesRemaining}} ÎNTREBARE RĂMASĂ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Se inițializează chatul...",
+      "extractingTextFromImage": "Se extrage textul din imagine...",
+      "processingPDFDocument": "Se procesează documentul PDF...",
+      "analyzingYourNote": "Se analizează notița...",
+      "thisUsuallyTakesJustAFew": "⏱️ De obicei durează doar câteva secunde. Vei putea discuta pe chat de îndată ce procesarea este completă.",
+      "processingFailed": "Procesarea a eșuat",
+      "fileMightBeCorruptedOrUnreadable": "• Fișierul ar putea fi corupt sau ilizibil",
+      "imageQualityTooLow": "Calitatea imaginii este prea slabă",
+      "pdfIsPasswordProtected": "PDF-ul este protejat prin parolă",
+      "contentFormatNotSupported": "Formatul conținutului nu este acceptat",
+      "networkConnectionIssue": "• Problemă de conexiune la rețea",
+      "tryADifferentFile": "Încearcă un alt fișier",
+      "askAnyClinicalQuestionNoUpload": "💡 Adresează orice întrebare clinică — nu este nevoie să încarci fișiere. Voi răspunde folosind literatura medicală citată, cu imagini relevante acolo unde sunt disponibile.",
+      "readyToChat": "✓ Gata de conversație",
+      "couldntProcessNote": "Nu am putut procesa această notiță. Motive posibile:",
+      "couldntProcessImage": "Nu am putut procesa această imagine. Motive posibile:",
+      "couldntProcessDocument": "Nu am putut procesa acest document. Motive posibile:",
+      "askMeAboutNote": "💡 Întreabă-mă orice despre această notiță. Pot face rezumate, explica concepte sau răspunde la întrebări specifice.",
+      "askMeAboutImage": "💡 Întreabă-mă orice despre această imagine. Pot face rezumate, explica concepte sau răspunde la întrebări specifice.",
+      "askMeAboutDocument": "💡 Întreabă-mă orice despre acest document. Pot face rezumate, explica concepte sau răspunde la întrebări specifice."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} aprofundate",
+      "notStarted": "Neînceput",
+      "quizGeneration": "Generare test",
+      "score": "Scor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Generare flashcarduri",
+      "questions": "{{totalCards}} întrebări · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} întrebări · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Gândesc și caut resurse pentru tine...",
+      "couldnTGenerateAResponse": "Nu s-a putut genera un răspuns.",
+      "retry": "Reîncearcă",
+      "alsoReferencedFromTheWeb": "Surse de referință de pe web",
+      "followUpQuestions": "Întrebări suplimentare"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Întreabă orice din domeniul medical, primești răspunsuri citate din surse reale",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Bazat pe dovezi · Surse PubMed · Evaluat inter pares",
+      "tryOutAnyOfThisTopics": "Încearcă oricare dintre aceste subiecte pentru a începe",
+      "topics": {
+        "electrolytes": {
+          "label": "Dezechilibre electrolitice explicate",
+          "question": "Explică dezechilibrele electrolitice — cauze, simptome și tratament"
+        },
+        "ecg": {
+          "label": "Bazele interpretării ECG",
+          "question": "Care sunt noțiunile de bază în interpretarea unui ECG?"
+        },
+        "drugInteractions": {
+          "label": "Interacțiuni medicamentoase frecvente",
+          "question": "Care sunt cele mai frecvente și importante interacțiuni medicamentoase pe care ar trebui să le știu?"
+        },
+        "nclex": {
+          "label": "Subiecte de exersat stil NCLEX",
+          "question": "Generează o întrebare practică în stilul NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Prospect aprobat de FDA",
+      "fromYourAttachedMaterial": "Din materialul tău atașat"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Crearea sesiunii de chat a eșuat",
+      "failedToInitializeChatSession": "Inițializarea sesiunii de chat a eșuat",
+      "failedToUpdateLanguage": "Actualizarea limbii a eșuat",
+      "youVeReachedYour3Pin": "Ai atins limita de 3 elemente fixate",
+      "failedToUpdatePin": "Fixarea a eșuat",
+      "permissionRequired": "Permisiune necesară",
+      "pleaseGrantCameraPermissionToTake": "Te rugăm să acorzi permisiunea de acces la cameră pentru a face o fotografie.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Te rugăm să acorzi accesul la galeria foto pentru a încărca imagini.",
+      "failedToUploadImage": "Încărcarea imaginii a eșuat",
+      "uploadFailed": "Încărcare eșuată",
+      "failedToUploadDocument": "Încărcarea documentului a eșuat",
+      "failedToStartChatFromThis": "Pornirea chatului din acest fișier a eșuat.",
+      "chatFromImage": "Chat pe baza imaginii",
+      "failedToStartANewQuestion": "Pornirea unei noi întrebări a eșuat. Te rugăm să încerci din nou.",
+      "failedToAttachFile": "Atașarea fișierului a eșuat",
+      "failedToSendMessage": "Trimiterea mesajului a eșuat",
+      "copiedToClipboard": "Copiat în clipboard",
+      "notEnoughContentYet": "Conținut insuficient pentru moment",
+      "chatABitMoreBeforeGenerating": "Mai conversează puțin înainte de a genera un test (minimum 100 de caractere).",
+      "chatABitMoreBeforeGenerating2": "Mai conversează puțin înainte de a genera flashcarduri (minimum 100 de caractere).",
+      "failedToGenerateFlashcards": "Generarea flashcardurilor a eșuat",
+      "failedToRegenerateResponse": "Regenerarea răspunsului a eșuat",
+      "failedToRetryResponse": "Reîncercarea răspunsului a eșuat"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Atașarea notiței a eșuat",
+      "folderCreatedSuccessfully": "Dosarul „{{name}}” a fost creat cu succes!",
+      "failedToCreateFolder": "Crearea dosarului a eșuat",
+      "failedToAttachDocument": "Atașarea documentului a eșuat",
+      "failedToCreateChatSession": "Crearea sesiunii de chat a eșuat",
+      "failedToUploadDocument": "Încărcarea documentului a eșuat",
+      "openingCamera": "📷 Se deschide camera...",
+      "openingImagePicker": "🖼️ Se deschide galeria foto...",
+      "permissionRequired": "Permisiune necesară",
+      "pleaseGrantCameraPermissionToTake": "Te rugăm să acorzi permisiunea de acces la cameră pentru a face o fotografie.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Te rugăm să acorzi accesul la galeria foto pentru a încărca imagini.",
+      "failedToAttachImage": "Atașarea imaginii a eșuat",
+      "failedToUploadImage": "Încărcarea imaginii a eșuat",
+      "failedToAttachAudio": "Atașarea fișierului audio a eșuat",
+      "failedToUploadAudio": "Încărcarea fișierului audio a eșuat",
+      "items": "{{itemCount}} elemente",
+      "thisFolderIsEmptyGoBack": "Acest dosar este gol. Mergi înapoi pentru a alege un alt dosar.",
+      "addFolder": "Adaugă dosar",
+      "uploadNewDocument": "Încarcă un document nou",
+      "uploadAPDFAndStartChatting": "Încarcă un PDF și începe să discuți instant",
+      "uploadNewImage": "Încarcă o imagine nouă",
+      "uploadAnImageAndExtractText": "Încarcă o imagine și extrage textul instant",
+      "uploadNewAudio": "Încarcă un fișier audio nou",
+      "uploadAnAudioFileAndTranscribe": "Încarcă un fișier audio și transcrie-l instant",
+      "orselectfromlibrary": "SAU SELECTEAZĂ DIN BIBLIOTECĂ",
+      "folders": "Dosare",
+      "allNotes": "Toate notițele",
+      "noFilesToDisplay": "Niciun fișier de afișat",
+      "noNotesToDisplay": "Nicio notiță de afișat",
+      "noDocumentsYet": "Nu ai încă documente PDF.\nCreează mai întâi câteva notițe, apoi revino pentru a discuta despre ele.",
+      "noImagesYet": "Nu ai încă imagini.\nCreează mai întâi câteva notițe, apoi revino pentru a discuta despre ele.",
+      "noAudioNotesYet": "Nu ai încă notițe audio.\nCreează mai întâi câteva notițe, apoi revino pentru a discuta despre ele.",
+      "noNotesYet": "Nu ai încă notițe.\nCreează mai întâi câteva notițe, apoi revino pentru a discuta despre ele.",
+      "attachNote": "Atașează o notiță",
+      "selectNote": "Selectează o notiță",
+      "attachImage": "Atașează o imagine",
+      "selectImage": "Selectează o imagine",
+      "attachDocument": "Atașează un document",
+      "selectDocument": "Selectează un document",
+      "attachAudio": "Atașează un fișier audio",
+      "selectAudio": "Selectează un fișier audio",
+      "attachFile": "Atașează un fișier",
+      "selectFile": "Selectează un fișier",
+      "aNote": "{{verb}} o notiță",
+      "anImage": "{{verb}} o imagine",
+      "aDocument": "{{verb}} un document",
+      "audio": "{{verb}} audio",
+      "aFile": "{{verb}} un fișier"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Adaugă în chat",
+      "camera": "Cameră",
+      "photos": "Fotografii",
+      "files": "Fișiere",
+      "generateQuiz": "Generează quiz",
+      "generateFlashcards": "Generează flashcarduri",
+      "searchMedicalLiterature": "Caută în literatura medicală",
+      "filterByDateSourceAndType": "Filtrează după dată, sursă și tip",
+      "pullsRealCitedSourcesIntoYour": "Include surse reale și citate în răspunsurile tale",
+      "trustedmedicalsourcedatabase": "BAZĂ DE DATE CU SURSE MEDICALE DE ÎNCREDERE",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Date despre medicamente și tratamente de la FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Verifică citările"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Gata · atinge pentru a redenumi",
+      "processing": "Se procesează {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Vezi sursa ↗"
+    },
+    "chatRename": {
+      "renameChat": "Redenumire chat"
+    }
   },
   "languages": {
     "english": "Engleză",
@@ -483,5 +1049,455 @@
     "malay": "Malaeziană",
     "indonesian": "Indoneziană",
     "catalan": "catalan"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Adaugă dosar",
+      "folderName": "Nume dosar",
+      "enterFolderName": "Introdu numele dosarului",
+      "chooseColor": "Alege culoarea",
+      "createFolder": "Creează dosar"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Înainte de a-ți procesa conținutul",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact folosește AI pentru a-ți răspunde la întrebări și a-ți transforma conținutul în notițe, quizuri și flashcarduri. Iată ce trebuie să știi:",
+      "whatDataIsSent": "Ce date sunt trimise",
+      "questionsAndMessagesYouTypeIn": "Întrebările și mesajele pe care le scrii în chat",
+      "audioRecordingsOrUploadedAudioFiles": "Înregistrările audio sau fișierele audio încărcate",
+      "pdfAndTextDocumentsYouUpload": "Documentele PDF și fișierele text pe care le încarci",
+      "imagesYouUpload": "Imaginile pe care le încarci",
+      "youTubeVideoURLsAndTheirTranscripts": "Linkurile videoclipurilor YouTube și transcrierile acestora",
+      "customTextYouEnter": "Textul introdus de tine",
+      "whoReceivesYourData": "Cine primește datele tale",
+      "howItSUsed": "Cum sunt utilizate",
+      "yourContentIsUsedSolelyTo": "Conținutul tău este utilizat exclusiv pentru a genera răspunsul, notița, quizul sau flashcardurile solicitate. Fiecărui conținut procesat prin API i se aplică politicile de utilizare a datelor ale furnizorului respectiv. Pentru mai multe detalii, consultă Politica noastră de confidențialitate.",
+      "iAgreeContinue": "Sunt de acord — Continuă",
+      "noThanks": "Nu, mulțumesc",
+      "whoReceivesBody": "Conținutul tău este trimis către <bold>Google (Gemini)</bold> (generare de notițe, teste grilă și flashcarduri; răspunsuri pe chat; procesare de documente și imagini) și către <bold>OpenAI</bold> (transcriere audio) prin intermediul serverelor noastre securizate. Pasajele din documentele tale sunt, de asemenea, indexate cu <bold>Google Vertex AI</bold>, astfel încât chatul să poată găsi secțiunile relevante. Când folosești căutarea medicală în timp real, întrebarea ta este trimisă și către <bold>Tavily</bold> și baze de date publice cu literatură medicală (cum ar fi PubMed, Europe PMC și Semantic Scholar), pentru a găsi citări din surse de încredere precum NIH, CDC, MedlinePlus, WHO și Mayo Clinic. Acești furnizori îți procesează datele exclusiv pentru a genera răspunsul — nu le folosesc pentru a-și antrena propriile modele AI generale, iar noi nu vindem datele tale niciunei terțe părți."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Anulează fixarea chatului",
+      "pinChat": "Fixează conversația",
+      "deleteChat": "Șterge conversația"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Generează flashcarduri",
+      "createFlashcards": "Creează flashcarduri",
+      "createFlashcardsFromToImproveYour": "Creează flashcarduri din „{{noteTitle}}” pentru a-ți îmbunătăți memorarea",
+      "createFlashcardsToImproveYourRetention": "Creează flashcarduri pentru a-ți îmbunătăți memorarea",
+      "howManyQuestions": "Câte întrebări",
+      "generateFlashcards2": "Generează flashcarduri"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Creează din chat",
+      "selectFromOneOfYourRecent": "Alege dintr-o conversație recentă",
+      "pdfOrDocument": "PDF sau document",
+      "createFromAudio": "Creează din audio",
+      "image": "Imagine",
+      "createFromCustomText": "Creează din text personalizat",
+      "created": "Creat pe {{day}}, la {{time}}",
+      "createQuizFrom": "Creează un chestionar din",
+      "createFlashcardsFrom": "Creează flashcarduri din",
+      "selectFromChat": "Selectează din chat",
+      "noRecentChatsYet": "Nicio conversație recentă încă",
+      "quizFromPdf": "Creează un chestionar dintr-un PDF sau document",
+      "flashcardsFromPdf": "Creează un set de flashcarduri dintr-un PDF sau document",
+      "quizFromAudio": "Creează un chestionar din fișierul audio încărcat",
+      "flashcardsFromAudio": "Creează un set de flashcarduri din fișierul audio încărcat",
+      "quizFromImage": "Creează un chestionar din orice imagine",
+      "flashcardsFromImage": "Creează un set de flashcarduri din orice imagine",
+      "quizFromText": "Creează un chestionar din textul preluat",
+      "flashcardsFromText": "Creează un set de flashcarduri din textul preluat"
+    },
+    "createNote": {
+      "recordAudio": "Înregistrează audio",
+      "generateANoteFromAnyRecorded": "Generează o notiță din orice înregistrare audio",
+      "uploadAudio": "Încarcă audio",
+      "createANoteFromAnyUploaded": "Creează o notiță din orice fișier audio încărcat",
+      "youtubeVideo": "Videoclip YouTube",
+      "createANoteFromAnyYoutube": "Creează o notiță din orice videoclip YouTube",
+      "pdfOrDocument": "PDF sau document",
+      "createANoteFromPDFOr": "Creează o notiță dintr-un PDF sau document",
+      "customText": "Text personalizat",
+      "createANoteFromCapturedText": "Creează o notiță din textul preluat",
+      "image": "Imagine",
+      "createANoteFromAnyImage": "Creează o notiță din orice imagine",
+      "createNote": "Creează o notiță"
+    },
+    "createQuiz": {
+      "generateQuiz": "Generează chestionar",
+      "createQuiz": "Creează chestionar",
+      "practiceByCreatingQuestionsThatHelp": "Exersează „{{noteTitle}}” creând întrebări care te ajută să stăpânești materia",
+      "practiceYourNotesByCreatingQuestions": "Exersează pe baza notițelor creând întrebări care te ajută să stăpânești materia",
+      "howManyQuestions": "Câte întrebări",
+      "timeInMinutes": "Timp (în minute)"
+    },
+    "deleteNote": {
+      "deleteNote": "Șterge notița",
+      "areYouSureYouWantTo": "Sigur vrei să ștergi această notiță?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Exportă rezumatul ca",
+      "exportTranscriptAs": "Exportă transcrierea ca",
+      "exportAs": "Exportă ca",
+      "exportSummary": "Exportă rezumatul",
+      "exportTranscript": "Exportă transcrierea"
+    },
+    "exportTypeStep": {
+      "exportNote": "Exportă notița",
+      "exportSummary": "Exportă rezumatul",
+      "exportTranscript": "Exportă transcrierea"
+    },
+    "exportSettings": {
+      "export": "Exportă {{title}}",
+      "selectFormat": "Selectează formatul",
+      "includeAnswers": "Include răspunsurile",
+      "answersExplanationsIncluded": "Răspunsuri și explicații incluse",
+      "questionsOnly": "Doar întrebările",
+      "export2": "Exportă"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Notița ta este gata!",
+      "howDidWeDo": "Cum ne-am descurcat?",
+      "happy": "Mulțumit",
+      "sad": "Nemulțumit",
+      "maybeLater": "Poate mai târziu",
+      "whatWentWrong": "Ce nu a funcționat?",
+      "yourFeedbackHelpsUsImprove": "Părerea ta ne ajută să ne îmbunătățim.",
+      "tellUsWhatCouldBeBetter": "Spune-ne ce am putea îmbunătăți...",
+      "submit": "Trimite"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Niciun conținut disponibil",
+      "clickCardToFlip": "atinge cardul pentru a-l întoarce"
+    },
+    "flashcardExport": {
+      "exportFailed": "Exportarea a eșuat",
+      "unknownError": "Eroare necunoscută",
+      "export": "Exportă {{setTitle}}",
+      "chooseWhatToExport": "Alege ce dorești să exporți",
+      "exportQuestions": "Exportă întrebările",
+      "exportAnswers": "Exportă răspunsurile"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Șterge setul de flashcarduri",
+      "areYouSureYouWantTo": "Sigur vrei să ștergi „{{setTitle}}”?",
+      "failedToDeleteFlashcardSet": "Ștergerea setului de flashcarduri a eșuat",
+      "flashcardHistory": "Istoric flashcarduri",
+      "cards": "Carduri",
+      "reviewedMastered": "{{cardsReviewedCount}} recapitulate • {{percentage}}% aprofundate"
+    },
+    "folders": {
+      "items": "{{itemCount}} elemente",
+      "enterYourFolderName": "Introdu numele dosarului",
+      "yourFolderName": "Numele dosarului tău",
+      "createFolder": "Creează dosar",
+      "folders": "Dosare",
+      "addFolder": "Adaugă dosar",
+      "noFoldersToDisplay": "Niciun dosar de afișat",
+      "clickTheButtonAboveToCreate": "Apasă pe butonul de mai sus pentru a crea un dosar pentru notițe",
+      "allFolders": "Toate dosarele",
+      "items2": "{{totalItems}} elemente"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Filtre cercetare medicală",
+      "howrecentdoyouwantthe": "CÂT DE RECENTĂ SĂ FIE SURSA",
+      "from": "Din",
+      "whatkindofsourcedoyou": "CE TIP DE SURSĂ CAUȚI",
+      "textbooks": "Manuale și tratate",
+      "clinicalGuidelines": "Ghiduri clinice",
+      "scientificJournalArticles": "Articole din reviste științifice",
+      "onlywiththisjournalarticles": "DOAR CU ACESTE ARTICOLE",
+      "metaAnalyses": "Meta-analize",
+      "reviewArticles": "Articole de sinteză (review)",
+      "clinicalTrials": "Studii clinice",
+      "fromYear": "Din anul",
+      "toYear": "Până în anul"
+    },
+    "noteOptions": {
+      "noteOptions": "Opțiuni notiță",
+      "editNote": "Editează notița",
+      "reTranscribe": "Retranscrie",
+      "chatWithNote": "Discută cu notița",
+      "exportNote": "Exportă notița",
+      "moveToFolder": "Mută în dosar",
+      "deleteNote": "Șterge notița"
+    },
+    "onboardingTooltip": {
+      "skip": "Omite"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Șterge quizul",
+      "areYouSureYouWantTo": "Sigur vrei să ștergi „{{quizTitle}}”?",
+      "failedToDeleteQuiz": "Ștergerea quizului a eșuat",
+      "quizHistory": "Istoric quizuri",
+      "questions": "Întrebări",
+      "correct": "{{correctAnswers}} corecte"
+    },
+    "referral": {
+      "copied": "Copiat!",
+      "yourReferralCodeHasBeenCopied": "Codul tău de recomandare a fost copiat în clipboard.",
+      "joinMeOnClinicalFactUse": "Alătură-te mie pe Clinical Fact! Folosește codul meu {{referralCode}} – {{appUrl}}",
+      "joined": "Înscris pe {{joinedDate}}",
+      "referralCode": "Cod de recomandare",
+      "yourReferralCode": "Codul tău de recomandare",
+      "shareWithFriendsToEarnRewards": "Trimite prietenilor pentru a câștiga recompense",
+      "share": "Distribuie",
+      "copyCode": "Copiază codul",
+      "referredFriends": "Prieteni recomandați",
+      "noReferralsYetShareYourCode": "Nicio recomandare încă. Trimite codul tău pentru a începe!",
+      "loadMore": "Încarcă mai multe",
+      "howItWorks": "Cum funcționează",
+      "friendsUseYourCodeDuringSignup": "• Prietenii folosesc codul tău la înregistrare",
+      "youBothEarnRewardsWhenThey": "• Amândoi primiți recompense când se înscriu",
+      "friendsReferredCount": "Prieteni recomandați: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Se extrage textul...",
+      "transcribingAudio": "Se transcrie audio...",
+      "processingPDF": "Se procesează PDF-ul...",
+      "settingUpChat": "Se pregătește chatul...",
+      "uploadFailed": "Încărcare eșuată",
+      "failedToUploadFilePleaseTry": "Încărcarea fișierului a eșuat. Te rugăm să încerci din nou.",
+      "yourFileIsReadyForChatting": "Fișierul tău este gata pentru chat!",
+      "uploadingYourFileToTheServer": "Se încarcă fișierul pe server...",
+      "extractingTextFromYourImage": "Se extrage textul din imagine...",
+      "transcribingYourAudio": "Se transcrie fișierul audio...",
+      "extractingTextFromYourPDF": "Se extrage textul din PDF...",
+      "creatingYourChatSession": "Se creează sesiunea de chat...",
+      "pleaseWait": "Te rugăm să aștepți...",
+      "uploadFile": "Încarcă fișierul",
+      "processContent": "Procesează conținutul",
+      "createChat": "Creează chatul"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Vezi",
+      "export": "📤 Exportă",
+      "delete": "🗑️ Șterge"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Susținut de"
+    },
+    "exportFormat": {
+      "txtFile": "Fișier TXT",
+      "pdfFile": "Fișier PDF",
+      "docFile": "Fișier DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Nu s-au putut încărca notițele",
+      "failedToFetchFolders": "Nu s-au putut încărca dosarele",
+      "failedToFetchNote": "Nu s-a putut încărca notița",
+      "failedToDeleteNote": "Nu s-a putut șterge notița",
+      "failedToCreateFolder": "Nu s-a putut crea dosarul",
+      "failedToDeleteFolder": "Nu s-a putut șterge dosarul"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Nu s-a putut șterge chatul"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Setul de flashcarduri a fost exportat cu succes!",
+      "failedToExportFlashcardSet": "Exportul setului de flashcarduri a eșuat."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Testul a fost exportat cu succes!",
+      "failedToExportQuiz": "Exportul testului a eșuat."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Flashcarduri fără titlu",
+      "failedToLoadFlashcards": "Nu s-au putut încărca flashcardurile",
+      "failedToSyncFlashcardSet": "Sincronizarea setului de flashcarduri a eșuat",
+      "failedToSyncCardUpdate": "Sincronizarea actualizării cardului a eșuat"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Creat pe {{day}}, la {{time}}",
+      "youVeReachedYour3Pin": "Ai atins limita de 3 fixări",
+      "failedToUpdatePin": "Actualizarea fixării a eșuat",
+      "noChatsYet": "Niciun chat încă",
+      "startAChatToGetAnswers": "Începe o conversație pentru a primi răspunsuri bazate pe surse reale.",
+      "createChat": "+ Chat nou"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Șterge flashcardurile",
+      "areYouSureYouWantTo": "Sigur dorești să ștergi „{{sourceTitle}}”?",
+      "failedToDeleteFlashcards": "Ștergerea flashcardurilor a eșuat",
+      "sets": "{{setCount}} seturi",
+      "flashcards": "Flashcarduri",
+      "createFlashcards": "Creează flashcarduri",
+      "searchFlashcards": "Caută flashcarduri...",
+      "noFlashcardsYet": "Niciun flashcard încă",
+      "createAFlashcardSetFromA": "Creează un set de flashcarduri dintr-o notiță pentru a începe",
+      "createSet": "+ Creează set",
+      "flashcardOptions": "Opțiuni flashcarduri",
+      "view": "Vezi"
+    },
+    "folder": {
+      "deleteFolder": "Șterge dosarul",
+      "areYouSureYouWantTo": "Sigur vrei să ștergi „{{name}}”? Notițele din el vor fi mutate în rădăcină.",
+      "failedToDeleteFolder": "Ștergerea dosarului a eșuat",
+      "error": "Eroare: {{message}}",
+      "noFoldersYetCreateOne": "Niciun dosar încă. Creează unul!",
+      "folders": "Dosare"
+    },
+    "home": {
+      "created": "Creat pe {{day}}, la {{time}}",
+      "failedToUpdateLanguage": "Actualizarea limbii a eșuat",
+      "notEnoughContentYet": "Conținut insuficient",
+      "chatABitMoreBeforeGenerating": "Mai scrie puțin în chat înainte de a genera un quiz (minimum 100 de caractere).",
+      "chatABitMoreBeforeGenerating2": "Mai scrie puțin în chat înainte de a genera flashcarduri (minimum 100 de caractere).",
+      "failedToGenerateFlashcards": "Generarea flashcardurilor a eșuat",
+      "upgradeToPro": "Treci la PRO",
+      "get80DiscountWhenYouUpgrade": "Primești 80% reducere când faci upgrade la cont",
+      "unlockPRO": "Deblochează PRO",
+      "noMedicalChats": "Nicio conversație medicală",
+      "youHaveNotCreatedAnyMedical": "Nu ai inițiat nicio conversație medicală. Începe un chat nou pentru răspunsuri cu surse citate.",
+      "talkToClinicalfactAI": "Discută cu Clinical Fact AI",
+      "jumpInWhereYouStopped": "Reia de unde ai rămas",
+      "practiceQuiz": "Exersează cu un quiz",
+      "makeFlashcards": "Generează flashcarduri",
+      "continueChatWithNote": "Continuă chatul cu notița",
+      "continueChat": "Continuă chatul",
+      "recentChats": "Chaturi recente",
+      "chatOptions": "Opțiuni chat"
+    },
+    "library": {
+      "text": "{{day}} {{month}} {{year}}, {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Ești offline. Conectează-te la internet pentru a efectua această acțiune.",
+      "failedToDeleteNote": "Ștergerea notiței a eșuat",
+      "failedToMoveNote": "Mutarea notiței a eșuat",
+      "deleteFolder": "Ștergi dosarul?",
+      "areYouSureNotesInsideWill": "Sigur dorești asta? Notițele din interior nu vor fi șterse, ci mutate în „Toate notițele”.",
+      "failedToDeleteFolder": "Ștergerea dosarului a eșuat",
+      "library": "Bibliotecă",
+      "addFolder": "Adaugă dosar",
+      "searchForANoteFolder": "Caută o notiță sau un dosar",
+      "yourFolders": "Dosarele tale",
+      "noFoldersToDisplay": "Niciun dosar de afișat",
+      "tapAddFolderToCreateA": "Apasă pe „+ Adaugă dosar” pentru a organiza notițele",
+      "allNotes": "Toate notițele",
+      "items": "{{allNotesTotal}} elemente",
+      "items2": "{{itemCount}} elemente",
+      "yourNotes": "Notițele tale",
+      "untitledNote": "Notiță fără titlu",
+      "noResultsFor": "Niciun rezultat pentru „{{searchQuery}}”",
+      "noNotesInThisFolder": "Nicio notiță în acest dosar",
+      "noNotesToDisplay": "Nicio notiță de afișat",
+      "tryADifferentSearchTerm": "Încearcă un alt termen de căutare",
+      "moveNotesToThisFolderTo": "Mută notițe în acest dosar pentru a le vedea aici",
+      "clickBelowToGenerateYourNote": "Apasă mai jos pentru a genera notița cu Clinical Fact",
+      "filterByType": "Filtrează după tip",
+      "audio": "Audio",
+      "text2": "Text",
+      "image": "Imagine",
+      "clearFilter": "Șterge filtrul"
+    },
+    "profile": {
+      "permissionRequired": "Permisiune necesară",
+      "pleaseAllowAccessToYourPhoto": "Permite accesul la biblioteca foto pentru a seta o poză de profil.",
+      "uploadFailed": "Încărcare eșuată",
+      "couldNotUpdateProfilePicture": "Poza de profil nu a putut fi actualizată.",
+      "failedToUploadProfilePicture": "Încărcarea pozei de profil a eșuat.",
+      "checkOutClinicalFactAIPowered": "Descoperă Clinical Fact – notițe de studiu generate cu AI! {{url}}",
+      "proSubscriber": "Abonat PRO",
+      "subscriptionExpired": "Abonament expirat",
+      "freeSubscriber": "Abonat gratuit",
+      "tapToManageIPhoneSettingsApple": "Apasă pentru gestionare · Configurări iPhone → Apple ID → Abonamente",
+      "tapToManagePlayStoreSubscriptions": "Apasă pentru gestionare · Magazin Play → Abonamente",
+      "tapToRenewYourSubscription": "Apasă pentru a reînnoi abonamentul",
+      "tapToUpgradeToPro": "Apasă pentru a trece la PRO",
+      "referralCode": "Cod de recomandare",
+      "areYouSureYouWantTo": "Sigur vrei să te deconectezi din cont?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Șterge testul",
+      "areYouSureYouWantTo": "Sigur vrei să ștergi „{{sourceTitle}}”?",
+      "failedToDeleteQuiz": "Ștergerea testului a eșuat",
+      "correct": "{{correct}}/{{total}} corecte",
+      "attempts": "{{attempts}} încercări",
+      "quiz": "Test",
+      "createQuiz": "Creează test",
+      "searchQuizzes": "Caută teste...",
+      "noQuizzesYet": "Niciun test încă",
+      "createAQuizFromANote": "Creează un test dintr-o notiță pentru a începe",
+      "createQuiz2": "+ Creează test",
+      "quizOptions": "Opțiuni test",
+      "view": "Afișează"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Actualizare indisponibilă",
+      "weCouldnTOpenTheUpgrade": "Nu am putut deschide ecranul de actualizare. Verifică conexiunea și încearcă din nou."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Serverul a returnat un răspuns non-JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Eroare de rețea. Te rugăm să verifici conexiunea.",
+      "connectionErrorPleaseTryAgain": "Eroare de conexiune. Te rugăm să încerci din nou."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fișier exportat: {{filename}}",
+      "exportFailed": "Export eșuat",
+      "exportFormat": "Format de export",
+      "chooseFormat": "Alege formatul",
+      "text": "Text"
+    },
+    "formatDate": {
+      "justNow": "Chiar acum",
+      "minAgo": "acum {{diffMin}} min",
+      "hrAgo": "acum {{diffHr}} ore",
+      "dAgo": "acum {{diffDay}} z",
+      "created": "Creat pe {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Trimiterea codului OTP a eșuat",
+      "invalidOTP": "Cod OTP nevalid",
+      "failedToVerifyOTP": "Verificarea codului OTP a eșuat",
+      "googleAuthenticationFailed": "Autentificarea cu Google a eșuat",
+      "appleAuthenticationFailed": "Autentificarea cu Apple a eșuat",
+      "failedToCompleteSignup": "Finalizarea înregistrării a eșuat",
+      "failedToSkipSignup": "Omisiunea înregistrării a eșuat"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Conversații",
+      "description": "Discută cu notițele, documentele sau fișierele tale PDF, într-un singur loc"
+    },
+    "profileWelcome": {
+      "heading": "Bun venit la profilul tău",
+      "description": "Acesta este profilul tău; apasă aici pentru a face modificări profilului și stării abonamentului"
+    },
+    "createNotes": {
+      "heading": "Creează o notiță",
+      "description": "Creează orice tip de notiță din orice sursă: înregistrări, audio, video, imagini, text și linkuri YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Schimbă limba",
+      "description": "Schimbă limba aplicației de aici în limba dorită"
+    },
+    "manageHome": {
+      "heading": "Gestionează ecranul principal",
+      "description": "Vezi toate notițele create și toate acțiunile tale într-un singur loc"
+    },
+    "yourLibrary": {
+      "heading": "Biblioteca ta",
+      "description": "Gestionează toate notițele create, organizează-le în dosare și multe altele"
+    },
+    "yourProfile": {
+      "heading": "Profilul tău",
+      "description": "Vezi toate detaliile despre contul tău și modifică setările profilului de aici"
+    }
   }
 }

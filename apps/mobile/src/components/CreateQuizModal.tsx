@@ -10,6 +10,7 @@ import {
 import { Icon, theme } from "@clinicalfact/design-system";
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import { showInAppPaywall } from '../services/revenuecat';
+import { useTranslation } from 'react-i18next';
 
 const QUIZ_PAYWALL_ENABLED = true;
 
@@ -26,6 +27,7 @@ export const CreateQuizModal: React.FC<CreateQuizModalProps> = ({
   onGenerateQuiz,
   noteTitle,
 }) => {
+  const { t } = useTranslation();
   const hasAccess = useSubscriptionStore((s) => s.hasAccess);
   const [questionCount, setQuestionCount] = useState(3);
   const [timeMinutes, setTimeMinutes] = useState(10);
@@ -108,7 +110,7 @@ const handleGenerate = async () => {
                   <Icon name="close" size={20} color={theme.colors.grey[900]} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle} numberOfLines={1}>
-                  Generate Quiz
+                 {t('components.createQuiz.generateQuiz')}
                 </Text>
                 <View style={styles.closeButton} />
               </View>
@@ -121,16 +123,16 @@ const handleGenerate = async () => {
                 </View>
 
                 {/* Title */}
-                <Text style={styles.title}>Create Quiz</Text>
+                <Text style={styles.title}>{t('components.createQuiz.createQuiz')}</Text>
                 <Text style={styles.subtitle}>
                   {noteTitle
-                    ? `Practice "${noteTitle}" by creating questions that help you master the topic`
-                    : 'Practice your notes by creating questions that help you master the topic'}
+                    ? t('components.createQuiz.practiceByCreatingQuestionsThatHelp', { noteTitle })
+                    : t('components.createQuiz.practiceYourNotesByCreatingQuestions')}
                 </Text>
 
                 {/* Question Count Selector */}
                 <View style={styles.selectorContainer}>
-                  <Text style={styles.selectorLabel}>How many questions</Text>
+                  <Text style={styles.selectorLabel}>{t('components.createQuiz.howManyQuestions')}</Text>
                   <View style={styles.counterContainer}>
                     <TouchableOpacity
                       style={styles.counterButton}
@@ -156,7 +158,7 @@ const handleGenerate = async () => {
 
                 {/* Time Selector */}
                 <View style={styles.selectorContainer}>
-                  <Text style={styles.selectorLabel}>Time (in minutes)</Text>
+                  <Text style={styles.selectorLabel}>{t('components.createQuiz.timeInMinutes')}</Text>
                   <View style={styles.counterContainer}>
                     <TouchableOpacity
                       style={styles.counterButton}
@@ -186,7 +188,7 @@ const handleGenerate = async () => {
                   onPress={handleGenerate}
                   activeOpacity={0.8}
                 >
-                  <Text style={styles.generateButtonText}>Generate Quiz</Text>
+                  <Text style={styles.generateButtonText}>{t('components.createQuiz.generateQuiz')}</Text>
                 </TouchableOpacity>
               </View>
             </View>

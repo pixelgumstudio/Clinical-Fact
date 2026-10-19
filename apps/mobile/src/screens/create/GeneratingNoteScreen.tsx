@@ -31,6 +31,7 @@ import { showInAppPaywall } from '../../services/revenuecat';
 import { incrementNoteCount } from '../../utils/feedbackManager';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
+import { useTranslation } from 'react-i18next';
 
 type GeneratingNoteRouteProp = RouteProp<MainStackParamList, 'GeneratingNote'>;
 type GeneratingNoteNavigationProp = NativeStackNavigationProp<MainStackParamList, 'GeneratingNote'>;
@@ -45,6 +46,7 @@ interface ProgressStep {
 }
 
 export const GeneratingNoteScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<GeneratingNoteNavigationProp>();
   const route = useRoute<GeneratingNoteRouteProp>();
   const { sourceType, fileName, ocrText, fileUri, intent } = route.params || {};
@@ -69,22 +71,22 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Upload audio',
-            subtitle: 'Uploading audio file to server...',
+            title: t('create.generatingNote.uploadAudio'),
+            subtitle: t('create.generatingNote.uploadingAudioFileToServer'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'transcribe',
-            title: 'Transcribe audio',
-            subtitle: 'Converting speech to text...',
+            title: t('create.generatingNote.transcribeAudio'),
+            subtitle: t('create.generatingNote.convertingSpeechToText'),
             status: 'pending',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -94,22 +96,22 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Upload PDF',
-            subtitle: 'Uploading PDF document to server...',
+            title: t('create.generatingNote.uploadPDF'),
+            subtitle: t('create.generatingNote.uploadingPDFDocumentToServer'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'transcribe',
-            title: 'Extract text',
-            subtitle: 'Reading and extracting text from PDF...',
+            title: t('create.generatingNote.extractText'),
+            subtitle: t('create.generatingNote.readingAndExtractingTextFromPDF'),
             status: 'pending',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -119,22 +121,22 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Upload image',
-            subtitle: 'Uploading image to server...',
+            title: t('create.generatingNote.uploadImage'),
+            subtitle: t('create.generatingNote.uploadingImageToServer'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'transcribe',
-            title: 'Extract text (OCR)',
-            subtitle: 'Recognizing and extracting text from image...',
+            title: t('create.generatingNote.extractTextOCR'),
+            subtitle: t('create.generatingNote.recognizingAndExtractingTextFromImage'),
             status: 'pending',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -144,22 +146,22 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Fetch video',
-            subtitle: 'Connecting to YouTube...',
+            title: t('create.generatingNote.fetchVideo'),
+            subtitle: t('create.generatingNote.connectingToYouTube'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'transcribe',
-            title: 'Extract transcript',
-            subtitle: 'Downloading video transcript...',
+            title: t('create.generatingNote.extractTranscript'),
+            subtitle: t('create.generatingNote.downloadingVideoTranscript'),
             status: 'pending',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -169,15 +171,15 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Process text',
-            subtitle: 'Analyzing your content...',
+            title: t('create.generatingNote.processText'),
+            subtitle: t('create.generatingNote.analyzingYourContent'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -187,22 +189,22 @@ export const GeneratingNoteScreen = () => {
         return [
           {
             id: 'upload',
-            title: 'Upload file',
-            subtitle: 'Uploading to server...',
+            title: t('create.generatingNote.uploadFile'),
+            subtitle: t('create.generatingNote.uploadingToServer'),
             status: 'active',
             progress: 0,
           },
           {
             id: 'transcribe',
-            title: 'Process content',
-            subtitle: 'Extracting content...',
+            title: t('create.generatingNote.processContent'),
+            subtitle: t('create.generatingNote.extractingContent'),
             status: 'pending',
             progress: 0,
           },
           {
             id: 'generate',
-            title: 'Generate your note',
-            subtitle: 'Creating study notes...',
+            title: t('create.generatingNote.generateYourNote'),
+            subtitle: t('create.generatingNote.creatingStudyNotes'),
             status: 'pending',
             progress: 0,
           },
@@ -319,7 +321,7 @@ export const GeneratingNoteScreen = () => {
         ...step,
         status: 'completed',
         progress: 100,
-        statusMessage: i === finalStepIndex ? 'Note ready!' : 'Complete!',
+        statusMessage: i === finalStepIndex ? t('create.generatingNote.noteReady') : 'Complete!',
       };
     }));
     const noteId = result?._id || result?.id || result?.noteId;
@@ -369,7 +371,7 @@ export const GeneratingNoteScreen = () => {
         } else if (status === 'failed') {
           isPollingRef.current = false;
           jobPromiseRef.current?.reject(
-            Object.assign(new Error(error || 'Note generation failed on the server.'), { userMessage })
+            Object.assign(new Error(error || t('create.generatingNote.noteGenerationFailedOnTheServer')), { userMessage })
           );
         } else {
           pollTimerRef.current = setTimeout(poll, 3000);
@@ -394,7 +396,7 @@ export const GeneratingNoteScreen = () => {
     });
 
     if (!response.success || !response.data) {
-      const apiError: any = new Error((response as any).message || 'Failed to upload image');
+      const apiError: any = new Error((response as any).message || t('create.generatingNote.failedToUploadImage'));
       apiError.code = (response as any).code;
       apiError.quotaExceeded = (response as any).quotaExceeded === true;
       apiError.userMessage = (response as any).message;
@@ -406,7 +408,7 @@ export const GeneratingNoteScreen = () => {
       throw Object.assign(new Error('No text detected in image'), {
         userMessage:
           ocrResult?.error ||
-          'We could not read anything from that image. Please try a clearer image of your medical notes.',
+          t('create.generatingNote.weCouldNotReadAnythingFrom'),
       });
     }
     return ocrResult.text;
@@ -429,8 +431,8 @@ export const GeneratingNoteScreen = () => {
         imageOcrText = await uploadImageAndExtractText(fileUri, fileName);
       } else {
         await progressWithUpdates(0, 100, 2, [
-          { at: 30, message: 'Preparing file...' },
-          { at: 70, message: 'Almost done...' },
+          { at: 30, message: t('create.generatingNote.preparingFile') },
+          { at: 70, message: t('create.generatingNote.almostDone') },
         ]);
       }
 
@@ -479,7 +481,7 @@ export const GeneratingNoteScreen = () => {
       if (isFileUpload) {
         const formData = new FormData();
         formData.append('sourceType', sourceType || 'pdf');
-        formData.append('title', fileName || 'Untitled Note');
+        formData.append('title', fileName || t('create.generatingNote.untitledNote'));
 
         const cleanUri = Platform.OS === 'ios' ? fileUri?.replace('file://', '') : fileUri;
 
@@ -510,7 +512,7 @@ export const GeneratingNoteScreen = () => {
         response = await api.createNote({
           content: effectiveContent!,
           sourceType: sourceType || 'text',
-          title: fileName || 'Untitled Note',
+          title: fileName || t('create.generatingNote.untitledNote'),
         });
       }
 
@@ -520,7 +522,7 @@ export const GeneratingNoteScreen = () => {
       }
 
       if (!response.success || !response.data) {
-        const apiError: any = new Error((response as any).message || 'Failed to generate note');
+        const apiError: any = new Error((response as any).message || t('create.generatingNote.failedToGenerateNote'));
         apiError.code = (response as any).code;
         apiError.quotaExceeded = (response as any).quotaExceeded === true;
         throw apiError;
@@ -556,9 +558,9 @@ export const GeneratingNoteScreen = () => {
       if (error.code === 'AI_GENERATION_RATE_LIMITED') {
         if (user?.isPro) {
           showAlert(
-            'Whoa, speedy! 🏃💨',
-            "You're generating content a bit too fast. Take a quick 60-second breather before trying again so our AI can catch up.",
-            'Got it'
+            t('create.generatingNote.whoaSpeedy'),
+            t('create.generatingNote.youReGeneratingContentABit'),
+            t('create.generatingNote.gotIt')
           );
         } else {
           await showInAppPaywall();
@@ -568,9 +570,9 @@ export const GeneratingNoteScreen = () => {
 
       if (error.code === 'AUDIO_FREE_LIMIT_EXCEEDED') {
         showAlert(
-          'File Too Large',
-          'Your file exceeds the 15MB limit for free users. Upgrade to PRO to upload lectures up to 100MB.',
-          'Upgrade to PRO',
+          t('create.generatingNote.fileTooLarge'),
+          t('create.generatingNote.yourFileExceedsThe15MBLimit'),
+          t('create.generatingNote.upgradeToPRO'),
           () => {
             closeAlert();
             showInAppPaywall();
@@ -580,9 +582,9 @@ export const GeneratingNoteScreen = () => {
       }
 
       showAlert(
-        'Oops, we hit a snag 🚧',
-        error.userMessage || "We couldn't generate that right now. Give it a moment and try again!",
-        'Got it'
+        t('create.generatingNote.oopsWeHitASnag'),
+        error.userMessage || t('create.generatingNote.weCouldnTGenerateThatRight'),
+        t('create.generatingNote.gotIt')
       );
     }
   };
@@ -599,7 +601,7 @@ export const GeneratingNoteScreen = () => {
     earlyCreepProgressRef.current = 0;
     setSteps((prev) => prev.map((step, i) =>
       i === activeStep
-        ? { ...step, status: 'active', progress: startFrom, statusMessage: hasProcessingStep ? 'Processing content...' : 'Generating your note...' }
+        ? { ...step, status: 'active', progress: startFrom, statusMessage: hasProcessingStep ? t('create.generatingNote.processingContent') : t('create.generatingNote.generatingYourNote') }
         : step
     ));
     startSimulatedProgress(activeStep, startFrom, 85, 'AI is working...');
@@ -614,7 +616,7 @@ export const GeneratingNoteScreen = () => {
           if (data.status === 'failed') {
             jobCompleteRef.current = true;
             reject(
-              Object.assign(new Error(data.error || 'Note generation failed on the server.'), {
+              Object.assign(new Error(data.error || t('create.generatingNote.noteGenerationFailedOnTheServer')), {
                 userMessage: data.userMessage,
               })
             );
@@ -692,7 +694,7 @@ export const GeneratingNoteScreen = () => {
   const handleGenerateTranscript = () => {
     navigation.navigate('NoteTranscript', {
       noteId: Date.now().toString(),
-      title: fileName || 'Audio Note',
+      title: fileName || t('create.generatingNote.audioNote'),
     });
   };
 
@@ -754,10 +756,10 @@ export const GeneratingNoteScreen = () => {
         setCreateFlashcardsModalVisible(false);
         await showInAppPaywall();
       } else {
-        Alert.alert('Error', response.message || 'Failed to generate flashcards');
+        Alert.alert(t('common.error'), response.message || t('create.generatingNote.failedToGenerateFlashcards'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to generate flashcards');
+      Alert.alert(t('common.error'), error.message || t('create.generatingNote.failedToGenerateFlashcards'));
     } finally {
       setIsGeneratingFlashcards(false);
     }
@@ -836,7 +838,7 @@ export const GeneratingNoteScreen = () => {
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
           <Icon name="backFill" size={24} color={theme.colors.grey[600]} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Generating note</Text>
+        <Text style={styles.headerTitle}>{t('create.generatingNote.generatingNote')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -868,7 +870,7 @@ export const GeneratingNoteScreen = () => {
         {!isComplete && (
           <View style={styles.noteBox}>
             <Text style={styles.noteBoxText}>
-              Please keep this screen open while your note is being generated. Large files may take a few minutes to transcribe.
+             {t('create.generatingNote.pleaseKeepThisScreenOpenWhile')}
             </Text>
           </View>
         )}
@@ -884,7 +886,7 @@ export const GeneratingNoteScreen = () => {
             onPress={handleContinueAfterGenerate}
             activeOpacity={0.8}
           >
-            <Text style={styles.primaryButtonText}>{intent ? 'Continue' : 'Go to note'}</Text>
+            <Text style={styles.primaryButtonText}>{intent ? 'Continue' : t('create.generatingNote.goToNote')}</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
@@ -902,7 +904,7 @@ export const GeneratingNoteScreen = () => {
                 currentStepIndex < 1 && styles.buttonTextDisabled,
               ]}
             >
-              Generate note transcript
+             {t('create.generatingNote.generateNoteTranscript')}
             </Text>
           </TouchableOpacity>
         )}

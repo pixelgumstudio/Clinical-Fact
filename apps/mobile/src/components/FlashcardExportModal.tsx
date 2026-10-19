@@ -11,6 +11,7 @@ import {
 import { colors, spacing, typography } from '@clinicalfact/design-system';
 import api from '../services/api';
 import { handleExportFile, selectExportFormat } from '../utils/exportUtil';
+import { useTranslation } from 'react-i18next';
 
 interface FlashcardExportModalProps {
   visible: boolean;
@@ -25,6 +26,7 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
   setTitle,
   onClose,
 }) => {
+  const { t } = useTranslation();
   const [isExporting, setIsExporting] = useState(false);
 
   const handleExport = async (type: 'questions' | 'answers') => {
@@ -45,7 +47,7 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
       onClose();
     } catch (error) {
       console.error('Export failed:', error);
-      Alert.alert('Export Failed', error instanceof Error ? error.message : 'Unknown error');
+      Alert.alert(t('components.flashcardExport.exportFailed'), error instanceof Error ? error.message : t('components.flashcardExport.unknownError'));
     } finally {
       setIsExporting(false);
     }
@@ -55,8 +57,8 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
     <Modal visible={visible} transparent animationType="fade">
       <View style={styles.overlay}>
         <View style={styles.container}>
-          <Text style={styles.title}>Export {setTitle}</Text>
-          <Text style={styles.subtitle}>Choose what to export</Text>
+          <Text style={styles.title}>{t('components.flashcardExport.export', { setTitle })}</Text>
+          <Text style={styles.subtitle}>{t('components.flashcardExport.chooseWhatToExport')}</Text>
 
           <TouchableOpacity
             style={styles.button}
@@ -66,7 +68,7 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
             {isExporting ? (
               <ActivityIndicator size="small" color={colors.info[500]} />
             ) : (
-              <Text style={styles.buttonText}>Export Questions</Text>
+              <Text style={styles.buttonText}>{t('components.flashcardExport.exportQuestions')}</Text>
             )}
           </TouchableOpacity>
 
@@ -78,7 +80,7 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
             {isExporting ? (
               <ActivityIndicator size="small" color={colors.info[500]} />
             ) : (
-              <Text style={styles.buttonText}>Export Answers</Text>
+              <Text style={styles.buttonText}>{t('components.flashcardExport.exportAnswers')}</Text>
             )}
           </TouchableOpacity>
 
@@ -87,7 +89,7 @@ export const FlashcardExportModal: React.FC<FlashcardExportModalProps> = ({
             onPress={onClose}
             disabled={isExporting}
           >
-            <Text style={[styles.buttonText, styles.cancelButtonText]}>Cancel</Text>
+            <Text style={[styles.buttonText, styles.cancelButtonText]}>{t('common.cancel')}</Text>
           </TouchableOpacity>
         </View>
       </View>

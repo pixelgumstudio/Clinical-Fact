@@ -11,6 +11,7 @@ import { colors, spacing, typography, CloseIcon, RecordAudioGradientIcon, Upload
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import { useAuthStore } from '../store/authStore';
 import { showInAppPaywall } from '../services/revenuecat';
+import { useTranslation } from 'react-i18next';
 
 interface CreateNoteModalProps {
   visible: boolean;
@@ -36,44 +37,45 @@ const NoteOption: React.FC<NoteOptionProps> = ({ icon, title, description, onPre
 );
 
 export const CreateNoteModal: React.FC<CreateNoteModalProps> = ({ visible, onClose, onSelectOption }) => {
+  const { t } = useTranslation();
   const hasAccess = useSubscriptionStore((s) => s.hasAccess);
   const user = useAuthStore((s) => s.user);
 
   const noteOptions = [
     {
       icon: <RecordAudioGradientIcon size={48} />,
-      title: 'Record audio',
-      description: 'Generate a note from any recorded audio',
+      title: t('components.createNote.recordAudio'),
+      description: t('components.createNote.generateANoteFromAnyRecorded'),
       type: 'record_audio',
     },
     {
       icon: <UploadAudioGradientIcon size={48} />,
-      title: 'Upload audio',
-      description: 'Create a note from any uploaded audio',
+      title: t('components.createNote.uploadAudio'),
+      description: t('components.createNote.createANoteFromAnyUploaded'),
       type: 'upload_audio',
     },
     {
       icon: <YoutubeGradientIcon size={48} />,
-      title: 'Youtube video',
-      description: 'Create a note from any youtube video',
+      title: t('components.createNote.youtubeVideo'),
+      description: t('components.createNote.createANoteFromAnyYoutube'),
       type: 'youtube',
     },
     {
       icon: <PDFDocumentGradientIcon size={48} />,
-      title: 'PDF or Document',
-      description: 'Create a note from PDF or Document',
+      title: t('components.createNote.pdfOrDocument'),
+      description: t('components.createNote.createANoteFromPDFOr'),
       type: 'pdf_document',
     },
     {
       icon: <CustomTextGradientIcon size={48} />,
-      title: 'Custom text',
-      description: 'Create a note from captured text',
+      title: t('components.createNote.customText'),
+      description: t('components.createNote.createANoteFromCapturedText'),
       type: 'custom_text',
     },
     {
       icon: <ImageGradientIcon size={48} />,
-      title: 'Image',
-      description: 'Create a note from any Image',
+      title: t('components.createNote.image'),
+      description: t('components.createNote.createANoteFromAnyImage'),
       type: 'image',
     },
   ];
@@ -129,7 +131,7 @@ const handleOptionPress = async (optionType: string) => {
             <View style={styles.modalContainer}>
               {/* Header */}
               <View style={styles.header}>
-                <Text style={styles.headerTitle}>Create note</Text>
+                <Text style={styles.headerTitle}>{t('components.createNote.createNote')}</Text>
                 <TouchableOpacity
                   onPress={onClose}
                   style={styles.closeButton}

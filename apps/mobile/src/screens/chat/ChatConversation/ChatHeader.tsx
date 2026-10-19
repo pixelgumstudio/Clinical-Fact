@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 import { colors, spacing, typography, ChevronDownIcon, Icon, theme } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface ChatHeaderProps {
   hasAccess: boolean;
@@ -39,71 +40,75 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
   onTogglePin,
   onOpenRename,
   onOpenLanguageModal,
-}) => (
-  <View style={styles.header}>
-    <View style={styles.headerTopRow}>
-      <View style={styles.headerLeftGroup}>
-        <TouchableOpacity onPress={onOpenChatList} activeOpacity={0.7}>
-          <Icon name="logo" size={40} />
-        </TouchableOpacity>
-        <Text style={styles.headerWordmark}>Clinicalfact</Text>
-        <TouchableOpacity
-          style={[styles.headerStatusBadge2, hasAccess ? styles.headerProBadge : styles.headerFreeBadge]}
-          onPress={() => { if (!hasAccess) onUpgrade(); }}
-          activeOpacity={hasAccess ? 1 : 0.85}
-          disabled={hasAccess}
-        >
-          <Text style={[styles.headerStatusBadgeText, hasAccess ? styles.headerProBadgeText : styles.headerFreeBadgeText]}>
-            {hasAccess ? 'Pro' : 'Free'}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.headerRightGroup}>
-        <TouchableOpacity
-          style={styles.languageSelector}
-          onPress={onOpenLanguageModal}
-          activeOpacity={0.7}
-        >
-          <Text style={styles.flagIcon}>{currentLanguageFlag}</Text>
-          <Text style={styles.languageText}>{currentLanguageCode}</Text>
-          <ChevronDownIcon size={14} color={theme.colors.grey[600]} />
-        </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={[styles.headerIconButton, isPinned && styles.headerIconButtonActive]}
-          onPress={onTogglePin}
-          activeOpacity={0.7}
-          disabled={!sessionId || isPinning}
-        >
-          <Icon name="bookmarks" size={24} color={isPinned ? theme.colors.white : theme.colors.grey[900]} />
-        </TouchableOpacity> */}
-      </View>
-    </View>
+}) => {
+  const { t } = useTranslation();
 
-    {sessionId && (
-      <TouchableOpacity
-        style={styles.headerTitleRow}
-        onPress={onOpenRename}
-        activeOpacity={0.7}
-      >
-        <Text style={styles.headerTitle} numberOfLines={1}>
-          {chatTitle}
-        </Text>
-        {embeddingStatus === 'completed' && (
-          <View style={styles.headerStatusBadge}>
-            <View style={styles.statusDot} />
-            <Text style={styles.headerSubtitle}>Ready · tap to rename</Text>
-          </View>
-        )}
-        {embeddingStatus === 'processing' && (
-          <View style={styles.headerStatusBadge}>
-            <ActivityIndicator size="small" color={colors.vivid.warning[500]} style={{ marginRight: 4 }} />
-            <Text style={[styles.headerSubtitle, { color: colors.vivid.warning[500] }]}>Processing {embeddingProgress}%</Text>
-          </View>
-        )}
-      </TouchableOpacity>
-    )}
-  </View>
-);
+  return (
+    <View style={styles.header}>
+      <View style={styles.headerTopRow}>
+        <View style={styles.headerLeftGroup}>
+          <TouchableOpacity onPress={onOpenChatList} activeOpacity={0.7}>
+            <Icon name="logo" size={40} />
+          </TouchableOpacity>
+          <Text style={styles.headerWordmark}>Clinicalfact</Text>
+          <TouchableOpacity
+            style={[styles.headerStatusBadge2, hasAccess ? styles.headerProBadge : styles.headerFreeBadge]}
+            onPress={() => { if (!hasAccess) onUpgrade(); }}
+            activeOpacity={hasAccess ? 1 : 0.85}
+            disabled={hasAccess}
+          >
+            <Text style={[styles.headerStatusBadgeText, hasAccess ? styles.headerProBadgeText : styles.headerFreeBadgeText]}>
+              {hasAccess ? 'Pro' : 'Free'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.headerRightGroup}>
+          <TouchableOpacity
+            style={styles.languageSelector}
+            onPress={onOpenLanguageModal}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.flagIcon}>{currentLanguageFlag}</Text>
+            <Text style={styles.languageText}>{currentLanguageCode}</Text>
+            <ChevronDownIcon size={14} color={theme.colors.grey[600]} />
+          </TouchableOpacity>
+          {/* <TouchableOpacity
+            style={[styles.headerIconButton, isPinned && styles.headerIconButtonActive]}
+            onPress={onTogglePin}
+            activeOpacity={0.7}
+            disabled={!sessionId || isPinning}
+          >
+            <Icon name="bookmarks" size={24} color={isPinned ? theme.colors.white : theme.colors.grey[900]} />
+          </TouchableOpacity> */}
+        </View>
+      </View>
+
+      {sessionId && (
+        <TouchableOpacity
+          style={styles.headerTitleRow}
+          onPress={onOpenRename}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.headerTitle} numberOfLines={1}>
+            {chatTitle}
+          </Text>
+          {embeddingStatus === 'completed' && (
+            <View style={styles.headerStatusBadge}>
+              <View style={styles.statusDot} />
+              <Text style={styles.headerSubtitle}>{t('chat.chatHeader.readyTapToRename')}</Text>
+            </View>
+          )}
+          {embeddingStatus === 'processing' && (
+            <View style={styles.headerStatusBadge}>
+              <ActivityIndicator size="small" color={colors.vivid.warning[500]} style={{ marginRight: 4 }} />
+              <Text style={[styles.headerSubtitle, { color: colors.vivid.warning[500] }]}>{t('chat.chatHeader.processing', { embeddingProgress })}</Text>
+            </View>
+          )}
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   header: {

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { colors } from '@clinicalfact/design-system';
 import { useFlashcardStore, Flashcard } from '../store/flashcardStore';
 import api from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 export const useFlashcardSync = () => {
+  const { t } = useTranslation();
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
 
@@ -66,7 +68,7 @@ export const useFlashcardSync = () => {
         try {
           // Create the set locally with server data
           createFlashcardSet(
-            serverSet.title || 'Untitled Flashcards',
+            serverSet.title || t('hooks.useFlashcardSync.untitledFlashcards'),
             serverSet.createdAt || new Date().toISOString(),
             serverSet.totalCards || 0
           );
@@ -91,7 +93,7 @@ export const useFlashcardSync = () => {
       setIsSyncing(false);
     } catch (err: any) {
       console.error('❌ Error loading flashcards from backend:', err);
-      setSyncError(err.message || 'Failed to load flashcards');
+      setSyncError(err.message || t('hooks.useFlashcardSync.failedToLoadFlashcards'));
       setIsSyncing(false);
     }
   };
@@ -138,17 +140,17 @@ export const useFlashcardSync = () => {
             console.log(`✅ Flashcard set ${setId} synced to backend`);
           } else {
             console.warn(`⚠️ Backend sync failed for set ${setId}:`, response.message);
-            setSyncError(response.message || 'Failed to sync flashcard set');
+            setSyncError(response.message || t('hooks.useFlashcardSync.failedToSyncFlashcardSet'));
           }
         })
         .catch((err) => {
           console.error(`❌ Error syncing flashcard set ${setId}:`, err);
-          setSyncError(err.message || 'Failed to sync flashcard set');
+          setSyncError(err.message || t('hooks.useFlashcardSync.failedToSyncFlashcardSet'));
           // Continue working offline - don't throw error to user
         });
     } catch (err: any) {
       console.error(`❌ Error in syncFlashcardSetToBackend:`, err);
-      setSyncError(err.message || 'Failed to sync flashcard set');
+      setSyncError(err.message || t('hooks.useFlashcardSync.failedToSyncFlashcardSet'));
     }
   };
 
@@ -188,17 +190,17 @@ export const useFlashcardSync = () => {
             console.log(`✅ Card ${cardId} synced to backend`);
           } else {
             console.warn(`⚠️ Backend sync failed for card ${cardId}:`, response.message);
-            setSyncError(response.message || 'Failed to sync card update');
+            setSyncError(response.message || t('hooks.useFlashcardSync.failedToSyncCardUpdate'));
           }
         })
         .catch((err) => {
           console.error(`❌ Error syncing card ${cardId}:`, err);
-          setSyncError(err.message || 'Failed to sync card update');
+          setSyncError(err.message || t('hooks.useFlashcardSync.failedToSyncCardUpdate'));
           // Continue working offline - don't throw error to user
         });
     } catch (err: any) {
       console.error(`❌ Error in syncCardUpdate:`, err);
-      setSyncError(err.message || 'Failed to sync card update');
+      setSyncError(err.message || t('hooks.useFlashcardSync.failedToSyncCardUpdate'));
     }
   };
 

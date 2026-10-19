@@ -6,6 +6,8 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import api from '../../../services/api';
 import { MainStackParamList } from '../../../navigation/MainStackNavigator';
 import { formatRelativeTime } from '../../../utils/formatDate';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../i18n';
 
 interface QuizAttemptRow {
   quizId: string;
@@ -32,8 +34,8 @@ interface ChatGeneratedContentSectionProps {
 
 const getFlashcardStatus = (set: FlashcardSetRow): string => {
   if (set.totalCards > 0 && set.masteredCards >= set.totalCards) return 'Mastered';
-  if (set.masteredCards > 0) return `${set.masteredCards}/${set.totalCards} mastered`;
-  return 'Not Started';
+  if (set.masteredCards > 0) return i18n.t('chat.chatGeneratedContentSection.mastered', { masteredCards: set.masteredCards, totalCards: set.totalCards });
+  return i18n.t('chat.chatGeneratedContentSection.notStarted');
 };
 
 /** Lists the quizzes/flashcard sets generated from this specific chat session — tapping one
@@ -43,6 +45,7 @@ const getFlashcardStatus = (set: FlashcardSetRow): string => {
 export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionProps> = ({
   chatSessionId,
 }) => {
+  const { t } = useTranslation();
   const navigation = useNavigation<NavigationProp>();
   const [quizAttempts, setQuizAttempts] = useState<QuizAttemptRow[]>([]);
   const [flashcardSets, setFlashcardSets] = useState<FlashcardSetRow[]>([]);
@@ -87,7 +90,7 @@ export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionPr
     <View style={styles.container}>
       {quizAttempts.length > 0 && (
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Quiz generation</Text>
+          <Text style={styles.sectionLabel}>{t('chat.chatGeneratedContentSection.quizGeneration')}</Text>
           {quizAttempts.map((attempt) => {
             const passed = (attempt.correctAnswers ?? 0) / attempt.totalQuestions >= 0.5;
             return (
@@ -103,14 +106,13 @@ export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionPr
                 <View style={styles.cardInfo}>
                   <Text style={styles.cardTitle} numberOfLines={1}>{attempt.title}</Text>
                   <Text style={styles.cardSubtitle}>
-                    {attempt.totalQuestions} questions ·{' '}
-                    {attempt.isCompleted ? (
+                    {t('chat.chatGeneratedContentSection.questions2', { totalQuestions: attempt.totalQuestions, value: attempt.isCompleted ? (
                       <Text style={passed ? styles.scorePass : styles.scoreFail}>
-                        Score {attempt.correctAnswers ?? 0}/{attempt.totalQuestions}
+                       {t('chat.chatGeneratedContentSection.score', { correctAnswers: attempt.correctAnswers ?? 0, totalQuestions: attempt.totalQuestions })}
                       </Text>
                     ) : (
-                      'Not Started'
-                    )}
+                      t('chat.chatGeneratedContentSection.notStarted')
+                    ) })}
                   </Text>
                 </View>
                 <Text style={styles.cardTime}>{formatRelativeTime(attempt.createdAt)}</Text>
@@ -122,7 +124,7 @@ export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionPr
 
       {flashcardSets.length > 0 && (
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Flashcards generation</Text>
+          <Text style={styles.sectionLabel}>{t('chat.chatGeneratedContentSection.flashcardsGeneration')}</Text>
           {flashcardSets.map((set) => (
             <TouchableOpacity
               key={set.setId}
@@ -135,7 +137,7 @@ export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionPr
               </View>
               <View style={styles.cardInfo}>
                 <Text style={styles.cardTitle} numberOfLines={1}>{set.title}</Text>
-                <Text style={styles.cardSubtitle}>{set.totalCards} questions · {getFlashcardStatus(set)}</Text>
+                <Text style={styles.cardSubtitle}>{t('chat.chatGeneratedContentSection.questions', { totalCards: set.totalCards, flashcardStatus: getFlashcardStatus(set) })}</Text>
               </View>
               <Text style={styles.cardTime}>{formatRelativeTime(set.createdAt)}</Text>
             </TouchableOpacity>

@@ -9,6 +9,7 @@ import { FlashcardHistoryScreen } from '../screens/main/FlashcardHistoryScreen';
 import { OnboardingOverlay } from '../components/OnboardingOverlay';
 import { useOnboardingStore } from '../store/onboardingStore';
 import { useAuthStore } from '../store/authStore';
+import { useTranslation } from 'react-i18next';
 
 export type MainTabParamList = {
   Home: undefined;
@@ -23,6 +24,7 @@ export type MainTabParamList = {
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export const MainTabNavigator = () => {
+  const { t } = useTranslation();
   const { user, justCompletedOnboarding, clearJustCompletedOnboarding } = useAuthStore();
   const {
     hasCompletedOnboarding,
@@ -71,7 +73,7 @@ export const MainTabNavigator = () => {
           name="QuizTab"
           component={QuizHistoryScreen}
           options={{
-            title: 'Quiz',
+            title: t('navigation.mainTabNavigator.quiz'),
             tabBarIcon: ({ color }) => <Icon name="quizFill" size={24} color={color} />,
           }}
         />

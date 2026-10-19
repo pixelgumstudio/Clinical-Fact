@@ -178,7 +178,7 @@ export const CreateFlashcardsScreen = () => {
       }, 600);
     }
     else {
-      Alert.alert("Error", response.message || "Failed to generate flashcards");
+      Alert.alert(t('common.error'), response.message || t('notes.createFlashcards.failedToGenerateFlashcards'));
     }
   } catch (error: any) {
     console.error("Flashcard generation error:", error);
@@ -190,7 +190,7 @@ export const CreateFlashcardsScreen = () => {
         showInAppPaywall();
       }, 600);
     } else {
-      Alert.alert("Error", error.message || "An unexpected error occurred");
+      Alert.alert(t('common.error'), error.message || t('notes.createFlashcards.anUnexpectedErrorOccurred'));
     }
   } finally {
     setIsGenerating(false);
@@ -378,7 +378,7 @@ export const CreateFlashcardsScreen = () => {
             onPress={() => setCompleteTab("history")}
           >
             <Text style={[styles.tabText, completeTab === "history" && styles.tabTextActive]}>
-              History
+             {t('notes.createFlashcards.history')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -449,7 +449,7 @@ export const CreateFlashcardsScreen = () => {
               style={styles.exportButton}
               onPress={() => setExportModalVisible(true)}
             >
-              <Text style={styles.exportButtonText}>Export</Text>
+              <Text style={styles.exportButtonText}>{t('notes.createFlashcards.export')}</Text>
             </TouchableOpacity>
           )}
           {(!step || step !== "review") && <View style={styles.placeholder} />}

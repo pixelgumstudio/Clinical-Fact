@@ -38,6 +38,8 @@ import { NoteOptionsModal } from '../../components/NoteOptionsModal';
 import { DeleteNoteModal } from '../../components/DeleteNoteModal';
 import { FoldersModal } from '../../components/FoldersModal';
 import { useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 type LibraryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -73,7 +75,7 @@ const formatNoteDate = (date: Date): string => {
   const minutes = date.getMinutes().toString().padStart(2, '0');
   const ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12 || 12;
-  return `${month} ${day}, ${year}  ${hours}:${minutes}${ampm}`;
+  return i18n.t('main.library.text', { month, day, year, hours, minutes, ampm });
 };
 
 const NoteTypeIcon = ({ type, size = 18 }: { type: NoteCardType; size?: number }) => {
@@ -94,6 +96,7 @@ const NoteTypeIcon = ({ type, size = 18 }: { type: NoteCardType; size?: number }
 };
 
 export const LibraryScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<LibraryNavigationProp>();
   const qc = useQueryClient();
   const [searchQuery, setSearchQuery] = useState('');
@@ -158,9 +161,9 @@ export const LibraryScreen = () => {
       onError: (err: any) => {
         const message =
           err?.message === 'OFFLINE_ACTION_BLOCKED'
-            ? 'You are currently offline. Please connect to the internet to perform this action.'
-            : err?.message || 'Failed to delete note';
-        Alert.alert('Error', message);
+            ? t('main.library.youAreCurrentlyOfflinePleaseConnect')
+            : err?.message || t('main.library.failedToDeleteNote');
+        Alert.alert(t('common.error'), message);
       },
     });
   };
@@ -178,21 +181,21 @@ export const LibraryScreen = () => {
         await qc.invalidateQueries({ queryKey: ['notes'] });
         await qc.invalidateQueries({ queryKey: ['folders'] });
       } else {
-        Alert.alert('Error', response.message || 'Failed to move note');
+        Alert.alert(t('common.error'), response.message || t('main.library.failedToMoveNote'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to move note');
+      Alert.alert(t('common.error'), error.message || t('main.library.failedToMoveNote'));
     }
   };
 
   const handleDeleteFolder = (folder: any) => {
     Alert.alert(
-      'Delete Folder?',
-      'Are you sure? Notes inside will not be deleted, just moved to All Notes.',
+      t('main.library.deleteFolder'),
+      t('main.library.areYouSureNotesInsideWill'),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: async () => {
             try {
@@ -201,10 +204,10 @@ export const LibraryScreen = () => {
                 if (selectedFolderId === folder._id) setSelectedFolderId(null);
                 await qc.invalidateQueries({ queryKey: ['folders'] });
               } else {
-                Alert.alert('Error', response.message || 'Failed to delete folder');
+                Alert.alert(t('common.error'), response.message || t('main.library.failedToDeleteFolder'));
               }
             } catch (error: any) {
-              Alert.alert('Error', error.message || 'Failed to delete folder');
+              Alert.alert(t('common.error'), error.message || t('main.library.failedToDeleteFolder'));
             }
           },
         },
@@ -224,14 +227,14 @@ export const LibraryScreen = () => {
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.title}>Library</Text>
+        <Text style={styles.title}>{t('main.library.library')}</Text>
         <TouchableOpacity
           style={styles.addFolderPill}
           onPress={() => setAddFolderVisible(true)}
           activeOpacity={0.8}
         >
           <PlusIcon size={12} color={colors.white} />
-          <Text style={styles.addFolderPillText}>Add folder</Text>
+          <Text style={styles.addFolderPillText}>{t('main.library.addFolder')}</Text>
         </TouchableOpacity>
       </View>
 
@@ -241,7 +244,7 @@ export const LibraryScreen = () => {
           <SearchIcon size={18} color={colors.grey[300]} />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search for a note / folder"
+            placeholder={t('main.library.searchForANoteFolder')}
             placeholderTextColor={colors.grey[300]}
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -269,7 +272,7 @@ export const LibraryScreen = () => {
             {/* Your Folders Section */}
             <View style={styles.section}>
               <View style={styles.sectionHeader}>
-                <Text style={styles.sectionTitle}>Your Folders</Text>
+                <Text style={styles.sectionTitle}>{t('main.library.yourFolders')}</Text>
               </View>
 
               {folders.length === 0 ? (
@@ -277,9 +280,9 @@ export const LibraryScreen = () => {
                   <View style={styles.emptyIcon}>
                     <FolderIcon size={36} color={colors.slate[300]} />
                   </View>
-                  <Text style={styles.emptyTitle}>No folders to display</Text>
+                  <Text style={styles.emptyTitle}>{t('main.library.noFoldersToDisplay')}</Text>
                   <Text style={styles.emptySubtext}>
-                    Tap "+ Add folder" to create a folder for your notes
+                   {t('main.library.tapAddFolderToCreateA')}
                   </Text>
                 </View>
               ) : (
@@ -294,8 +297,8 @@ export const LibraryScreen = () => {
                       <DocumentFileIcon size={20} color={colors.slate[500]} />
                     </View>
                     <View style={styles.folderCardContent}>
-                      <Text style={styles.folderCardName}>All Notes</Text>
-                      <Text style={styles.folderCardCount}>{allNotesTotal} items</Text>
+                      <Text style={styles.folderCardName}>{t('main.library.allNotes')}</Text>
+                      <Text style={styles.folderCardCount}>{t('main.library.items', { allNotesTotal })}</Text>
                     </View>
                     <ChevronRightIcon size={18} color={colors.grey[300]} />
                   </TouchableOpacity>
@@ -320,7 +323,7 @@ export const LibraryScreen = () => {
                         <View style={styles.folderCardContent}>
                           <Text style={styles.folderCardName}>{folder.name}</Text>
                           <Text style={styles.folderCardCount}>
-                            {(folder as any).itemCount ?? 0} items
+                            {t('main.library.items2', { itemCount: (folder as any).itemCount ?? 0 })}
                           </Text>
                         </View>
                         <ChevronRightIcon size={18} color={colors.grey[300]} />
@@ -335,7 +338,7 @@ export const LibraryScreen = () => {
             <View style={styles.notesSectionHeader}>
               <View style={styles.sectionHeader}>
                 <Text style={styles.sectionTitle}>
-                  {selectedFolder ? selectedFolder.name : 'Your notes'}
+                  {selectedFolder ? selectedFolder.name : t('main.library.yourNotes')}
                 </Text>
                 {selectedFolderId && (
                   <TouchableOpacity
@@ -360,7 +363,7 @@ export const LibraryScreen = () => {
             </View>
             <View style={styles.noteRowContent}>
               <Text style={styles.noteRowTitle} numberOfLines={1}>
-                {item.title || 'Untitled Note'}
+                {item.title || t('main.library.untitledNote')}
               </Text>
               <Text style={styles.noteRowDate}>
                 {formatNoteDate(new Date(item.createdAt))}
@@ -387,17 +390,17 @@ export const LibraryScreen = () => {
               </View>
               <Text style={styles.emptyTitle}>
                 {searchQuery
-                  ? `No results for "${searchQuery}"`
+                  ? t('main.library.noResultsFor', { searchQuery })
                   : selectedFolderId
-                  ? 'No notes in this folder'
-                  : 'No notes to display'}
+                  ? t('main.library.noNotesInThisFolder')
+                  : t('main.library.noNotesToDisplay')}
               </Text>
               <Text style={styles.emptySubtext}>
                 {searchQuery
-                  ? 'Try a different search term'
+                  ? t('main.library.tryADifferentSearchTerm')
                   : selectedFolderId
-                  ? 'Move notes to this folder to see them here'
-                  : 'Click below to generate your note\nwith Clinical Fact'}
+                  ? t('main.library.moveNotesToThisFolderTo')
+                  : t('main.library.clickBelowToGenerateYourNote')}
               </Text>
             </View>
           )
@@ -424,7 +427,7 @@ export const LibraryScreen = () => {
               <View style={styles.filterSheet}>
                 <View style={styles.filterHandleBar} />
                 <View style={styles.filterHeader}>
-                  <Text style={styles.filterTitle}>Filter by type</Text>
+                  <Text style={styles.filterTitle}>{t('main.library.filterByType')}</Text>
                   <TouchableOpacity
                     onPress={() => setFilterVisible(false)}
                     hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
@@ -435,12 +438,12 @@ export const LibraryScreen = () => {
                 {([
                   {
                     type: 'audio' as NoteCardType,
-                    label: 'Audio',
+                    label: t('main.library.audio'),
                     icon: <AudioFilePreviewIcon size={28} color={colors.primary[500]} />,
                   },
                   {
                     type: 'text' as NoteCardType,
-                    label: 'Text',
+                    label: t('main.library.text2'),
                     icon: <NoteFilePreviewIcon size={28} color={colors.secondary[500]} />,
                   },
                   {
@@ -450,7 +453,7 @@ export const LibraryScreen = () => {
                   },
                   {
                     type: 'image' as NoteCardType,
-                    label: 'Image',
+                    label: t('main.library.image'),
                     icon: <ImageIcon size={28} color={colors.success.main} />,
                   },
                   {
@@ -485,7 +488,7 @@ export const LibraryScreen = () => {
                     }}
                     activeOpacity={0.8}
                   >
-                    <Text style={styles.clearFilterText}>Clear filter</Text>
+                    <Text style={styles.clearFilterText}>{t('main.library.clearFilter')}</Text>
                   </TouchableOpacity>
                 )}
               </View>

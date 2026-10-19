@@ -3,6 +3,7 @@
 import { Platform } from 'react-native';
 import EventSource from 'react-native-sse';
 import { getAccessToken, getRefreshToken, saveTokens } from './tokenStorage';
+import i18n from '../i18n';
 
 // Get API URL from environment variable or use platform-specific defaults
 const getApiUrl = () => {
@@ -270,7 +271,7 @@ class ApiClient {
         const text = await response.text();
         return {
           success: false,
-          message: `Server returned non-JSON response (${response.status})`,
+          message: i18n.t('services.api.serverReturnedNonJSONResponse', { status: response.status }),
           error: text,
         } as any;
       }
@@ -341,7 +342,7 @@ class ApiClient {
       if (__DEV__) console.error('❌ API request error:', error);
       return {
         success: false,
-        message: error.message || 'Network error. Please check your connection.',
+        message: error.message || i18n.t('services.api.networkErrorPleaseCheckYourConnection'),
       };
     }
   }
@@ -1136,7 +1137,7 @@ class ApiClient {
       // JSON text in `.message`, not as a proper `data:` frame.
       es.addEventListener('error', (event: any) => {
         if (closed) return;
-        let errorMessage = 'Connection error. Please try again.';
+        let errorMessage = i18n.t('services.api.connectionErrorPleaseTryAgain');
         let quotaExceeded = false;
         if (event?.data) {
           try {

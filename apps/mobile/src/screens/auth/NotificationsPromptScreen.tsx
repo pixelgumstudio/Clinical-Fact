@@ -6,10 +6,12 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Button, Icon, theme } from '@clinicalfact/design-system';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import notificationService from '../../services/notificationService';
+import { useTranslation } from 'react-i18next';
 
 type NotificationsPromptNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'NotificationsPrompt'>;
 
 export const NotificationsPromptScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<NotificationsPromptNavigationProp>();
   const canGoBack = navigation.canGoBack();
 
@@ -44,17 +46,16 @@ export const NotificationsPromptScreen = () => {
         <View style={styles.spacer} />
 
         <View style={styles.textSection}>
-          <Text style={styles.title}>Turn on notifications</Text>
+          <Text style={styles.title}>{t('auth.notificationsPrompt.turnOnNotifications')}</Text>
           <Text style={styles.subtitle}>
-            This helps us stay on track to personalise your account and help you find medical
-            answers better
+           {t('auth.notificationsPrompt.thisHelpsUsStayOnTrack')}
           </Text>
         </View>
       </View>
 
       <View style={styles.footer}>
         <Button variant="primary" fullWidth onPress={handleContinue}>
-          Continue
+         {t('common.continue')}
         </Button>
       </View>
     </SafeAreaView>

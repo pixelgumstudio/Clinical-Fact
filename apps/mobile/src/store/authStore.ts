@@ -7,6 +7,7 @@ import notificationService from '../services/notificationService';
 import { queryClient } from '../lib/queryClient';
 import { useSignupStore } from './signupStore';
 import { useOnboardingStore } from './onboardingStore';
+import i18n from '../i18n';
 
 /** Wipe the in-memory query cache. Called on every login so the new user starts fresh. */
 function clearQueryCache() {
@@ -158,12 +159,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const response = await api.sendOtp(email);
       set({ isLoading: false });
       if (!response.success) {
-        return { error: new Error(response.message || 'Failed to send OTP') };
+        return { error: new Error(response.message || i18n.t('store.authStore.failedToSendOTP')) };
       }
       return { error: null };
     } catch (err: any) {
       set({ isLoading: false });
-      return { error: new Error(err.message || 'Failed to send OTP') };
+      return { error: new Error(err.message || i18n.t('store.authStore.failedToSendOTP')) };
     }
   },
 
@@ -173,7 +174,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const response = await api.verifyOtp(email, token);
       if (!response.success || !response.data?.tokens) {
         set({ isLoading: false });
-        return { error: new Error(response.message || 'Invalid OTP') };
+        return { error: new Error(response.message || i18n.t('store.authStore.invalidOTP')) };
       }
 
       const { tokens, user: u, needsProfileSetup, isNewUser } = response.data;
@@ -194,7 +195,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return { error: null };
     } catch (err: any) {
       set({ isLoading: false });
-      return { error: new Error(err.message || 'Failed to verify OTP') };
+      return { error: new Error(err.message || i18n.t('store.authStore.failedToVerifyOTP')) };
     }
   },
 
@@ -204,7 +205,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const response = await api.googleAuth(idToken, accessToken);
       if (!response.success || !response.data?.tokens) {
         set({ isLoading: false });
-        return { error: new Error(response.message || 'Google authentication failed') };
+        return { error: new Error(response.message || i18n.t('store.authStore.googleAuthenticationFailed')) };
       }
 
       const { tokens, user: u, needsProfileSetup, isNewUser } = response.data;
@@ -225,7 +226,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return { error: null };
     } catch (err: any) {
       set({ isLoading: false });
-      return { error: new Error(err.message || 'Google authentication failed') };
+      return { error: new Error(err.message || i18n.t('store.authStore.googleAuthenticationFailed')) };
     }
   },
 
@@ -235,7 +236,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const response = await api.appleAuth(identityToken, firstName, lastName, email);
       if (!response.success || !response.data?.tokens) {
         set({ isLoading: false });
-        return { error: new Error(response.message || 'Apple authentication failed') };
+        return { error: new Error(response.message || i18n.t('store.authStore.appleAuthenticationFailed')) };
       }
 
       const { tokens, user: u, needsProfileSetup, isNewUser } = response.data;
@@ -256,7 +257,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return { error: null };
     } catch (err: any) {
       set({ isLoading: false });
-      return { error: new Error(err.message || 'Apple authentication failed') };
+      return { error: new Error(err.message || i18n.t('store.authStore.appleAuthenticationFailed')) };
     }
   },
 
@@ -385,7 +386,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         });
         useSignupStore.getState().resetSignup();
       } else {
-        throw new Error(response.message || 'Failed to complete signup');
+        throw new Error(response.message || i18n.t('store.authStore.failedToCompleteSignup'));
       }
     } catch (error) {
       set({ isLoading: false });
@@ -405,7 +406,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         });
         useSignupStore.getState().resetSignup();
       } else {
-        throw new Error(response.message || 'Failed to skip signup');
+        throw new Error(response.message || i18n.t('store.authStore.failedToSkipSignup'));
       }
     } catch (error) {
       set({ isLoading: false });

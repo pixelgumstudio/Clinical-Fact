@@ -55,7 +55,7 @@ export const ProfileScreen = () => {
 
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permissionResult.granted) {
-      Alert.alert("Permission Required", "Please allow access to your photo library to set a profile picture.");
+      Alert.alert(t('main.profile.permissionRequired'), t('main.profile.pleaseAllowAccessToYourPhoto'));
       return;
     }
 
@@ -94,11 +94,11 @@ export const ProfileScreen = () => {
         await useAuthStore.getState().updateUser({ profilePicture: response.data.user.profilePicture });
       } else {
         setLocalAvatarUri(null);
-        Alert.alert("Upload Failed", response.message || "Could not update profile picture.");
+        Alert.alert(t('main.profile.uploadFailed'), response.message || t('main.profile.couldNotUpdateProfilePicture'));
       }
     } catch (err: any) {
       setLocalAvatarUri(null);
-      Alert.alert("Error", err.message || "Failed to upload profile picture.");
+      Alert.alert(t('common.error'), err.message || t('main.profile.failedToUploadProfilePicture'));
     } finally {
       setIsUploadingAvatar(false);
     }
@@ -131,7 +131,7 @@ export const ProfileScreen = () => {
   const handleShareApp = () => {
     const url = Platform.OS === 'ios' ? APP_STORE_URL : PLAY_STORE_URL;
     Share.share({
-      message: `Check out Clinical Fact – AI-powered study notes! ${url}`,
+      message: t('main.profile.checkOutClinicalFactAIPowered', { url }),
     });
   };
 
@@ -292,16 +292,16 @@ export const ProfileScreen = () => {
           </View>
           <View style={styles.subscriptionTextGroup}>
             <Text style={styles.subscriptionTitle}>
-              {isActive ? "Pro subscriber" : isExpired ? "Subscription expired" : "Free subscriber"}
+              {isActive ? t('main.profile.proSubscriber') : isExpired ? t('main.profile.subscriptionExpired') : t('main.profile.freeSubscriber')}
             </Text>
             <Text style={styles.subscriptionSubtitle}>
               {isActive
                 ? Platform.OS === "ios"
-                  ? "Tap to manage · iPhone Settings → Apple ID → Subscriptions"
-                  : "Tap to manage · Play Store → Subscriptions"
+                  ? t('main.profile.tapToManageIPhoneSettingsApple')
+                  : t('main.profile.tapToManagePlayStoreSubscriptions')
                 : isExpired
-                ? "Tap to renew your subscription"
-                : "Tap to upgrade to Pro"}
+                ? t('main.profile.tapToRenewYourSubscription')
+                : t('main.profile.tapToUpgradeToPro')}
             </Text>
           </View>
           <Icon name="foward" size={20} color={theme.colors.grey[300]} />
@@ -331,7 +331,7 @@ export const ProfileScreen = () => {
             />
             <MenuItem
               icon="link"
-              label="Referral code"
+              label={t('main.profile.referralCode')}
               onPress={() => setShowReferralModal(true)}
             />
           </View>
@@ -415,7 +415,7 @@ export const ProfileScreen = () => {
                 {t("profile.signout")}
               </Text>
               <Text style={styles.deleteModalMessage}>
-                Are you sure you want to sign out of your account?
+               {t('main.profile.areYouSureYouWantTo')}
               </Text>
               <View style={styles.deleteModalButtons}>
                 <TouchableOpacity

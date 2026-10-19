@@ -51,6 +51,7 @@ import { FlashcardHistoryList } from '../../components/FlashcardHistoryList';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { shouldShowFeedback, recordFeedbackShown, resetFeedbackCooldown } from '../../utils/feedbackManager';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
+import { useTranslation } from 'react-i18next';
 
 type NoteDetailRouteProp = RouteProp<MainStackParamList, 'NoteDetail'>;
 type NoteDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'NoteDetail'>;
@@ -58,6 +59,7 @@ type NoteDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'N
 type TabType = 'summary' | 'quiz' | 'flashcards';
 
 export const NoteDetailScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<NoteDetailNavigationProp>();
   const route = useRoute<NoteDetailRouteProp>();
   const deleteNoteMutation = useDeleteNote();
@@ -129,11 +131,11 @@ export const NoteDetailScreen = () => {
       if (response.success && response.data) {
         setNoteData(response.data);
       } else {
-        Alert.alert('Error', 'Failed to load note');
+        Alert.alert(t('common.error'), t('notes.noteDetail.failedToLoadNote'));
         navigation.navigate('MainTabs', { screen: 'Home' } as any);
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to load note');
+      Alert.alert(t('common.error'), error.message || t('notes.noteDetail.failedToLoadNote'));
       navigation.navigate('MainTabs', { screen: 'Home' } as any);
     } finally {
       setIsLoading(false);
@@ -182,15 +184,15 @@ export const NoteDetailScreen = () => {
     setNoteOptionsVisible(false);
 
     Alert.alert(
-      'Re-transcribe Note',
-      'This will re-transcribe the audio and update the note. Continue?',
+      t('notes.noteDetail.reTranscribeNote'),
+      t('notes.noteDetail.thisWillReTranscribeTheAudio'),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Re-transcribe',
+          text: t('notes.noteDetail.reTranscribe'),
           onPress: async () => {
             const consented = await useAIConsentStore.getState().ensureConsent();
             if (!consented) return;
@@ -199,13 +201,13 @@ export const NoteDetailScreen = () => {
               const response = await api.retranscribeNote(route.params?.noteId || '');
 
               if (response.success) {
-                Alert.alert('Success', 'Note re-transcribed successfully');
+                Alert.alert(t('common.success'), t('notes.noteDetail.noteReTranscribedSuccessfully'));
                 loadNoteData(); // Reload note data
               } else {
-                Alert.alert('Info', response.message || 'Re-transcription feature is coming soon');
+                Alert.alert(t('notes.noteDetail.info'), response.message || t('notes.noteDetail.reTranscriptionFeatureIsComingSoon'));
               }
             } catch (error: any) {
-              Alert.alert('Info', error.message || 'Re-transcription feature is coming soon');
+              Alert.alert(t('notes.noteDetail.info'), error.message || t('notes.noteDetail.reTranscriptionFeatureIsComingSoon'));
             } finally {
               setIsLoading(false);
             }
@@ -243,9 +245,9 @@ export const NoteDetailScreen = () => {
       onError: (err: any) => {
         const message =
           err?.message === 'OFFLINE_ACTION_BLOCKED'
-            ? 'You are currently offline. Please connect to the internet to perform this action.'
-            : err?.message || 'Failed to delete note';
-        Alert.alert('Error', message);
+            ? t('notes.noteDetail.youAreCurrentlyOfflinePleaseConnect')
+            : err?.message || t('notes.noteDetail.failedToDeleteNote');
+        Alert.alert(t('common.error'), message);
       },
     });
   };
@@ -259,7 +261,7 @@ export const NoteDetailScreen = () => {
       const response = await api.exportNote(route.params.noteId, exportType, format);
 
       if (!response.success || !response.data) {
-        Alert.alert('Error', response.message || 'Failed to export note');
+        Alert.alert(t('common.error'), response.message || t('notes.noteDetail.failedToExportNote'));
         return;
       }
 
@@ -314,7 +316,7 @@ export const NoteDetailScreen = () => {
         });
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to export note');
+      Alert.alert(t('common.error'), error.message || t('notes.noteDetail.failedToExportNote'));
     } finally {
       setIsLoading(false);
     }
@@ -329,12 +331,12 @@ export const NoteDetailScreen = () => {
       const response = await api.translateNote(route.params?.noteId, languageCode);
       if (response.success) {
         await loadNoteData();
-        Alert.alert('Success', 'Note translated successfully');
+        Alert.alert(t('common.success'), t('notes.noteDetail.noteTranslatedSuccessfully'));
       } else {
-        Alert.alert('Error', response.message || 'Failed to translate note');
+        Alert.alert(t('common.error'), response.message || t('notes.noteDetail.failedToTranslateNote'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to translate note');
+      Alert.alert(t('common.error'), error.message || t('notes.noteDetail.failedToTranslateNote'));
     } finally {
       setIsLoading(false);
     }
@@ -353,12 +355,12 @@ export const NoteDetailScreen = () => {
         setSelectedFolder(folder ?? null);
         setFoldersModalVisible(false);
         await Promise.all([loadNoteData(), refetchFolders()]);
-        Alert.alert('Success', `Note moved to ${folder?.name || 'uncategorized'}`);
+        Alert.alert(t('common.success'), t('notes.noteDetail.noteMovedTo', { name: folder?.name || 'uncategorized' }));
       } else {
-        Alert.alert('Error', response.message || 'Failed to move note to folder');
+        Alert.alert(t('common.error'), response.message || t('notes.noteDetail.failedToMoveNoteToFolder'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to move note to folder');
+      Alert.alert(t('common.error'), error.message || t('notes.noteDetail.failedToMoveNoteToFolder'));
     }
   };
 
@@ -388,7 +390,7 @@ export const NoteDetailScreen = () => {
   };
 
   const tabs: { key: TabType; label: string }[] = [
-    { key: 'summary', label: 'Summary Notes' },
+    { key: 'summary', label: t('notes.noteDetail.summaryNotes') },
     // { key: 'quiz', label: 'Add Quiz' },
     // { key: 'flashcards', label: 'Add Flashcards' },
   ];
@@ -398,7 +400,7 @@ export const NoteDetailScreen = () => {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={[styles.container, styles.loadingContainer]}>
           <ActivityIndicator size="large" color={colors.neutral[900]} />
-          <Text style={styles.loadingText}>Loading note...</Text>
+          <Text style={styles.loadingText}>{t('notes.noteDetail.loadingNote')}</Text>
         </View>
       </SafeAreaView>
     );
@@ -463,10 +465,10 @@ export const NoteDetailScreen = () => {
           <DocumentFileIcon size={40} />
           <View style={styles.sourceFileInfo}>
             <Text style={styles.sourceFileName}>
-              {noteData.sourceType === 'image' ? 'Image Note' : noteData.title}
+              {noteData.sourceType === 'image' ? t('notes.noteDetail.imageNote') : noteData.title}
             </Text>
             <Text style={styles.sourceFileDate}>
-              Created {formatDateTime(noteData.createdAt)}
+             {t('notes.noteDetail.created', { dateTime: formatDateTime(noteData.createdAt) })}
             </Text>
           </View>
         </View>
@@ -478,21 +480,21 @@ export const NoteDetailScreen = () => {
             onPress={handleTranslate}
           >
             <TranslateIcon size={18} color={colors.slate[500]} />
-            <Text style={styles.actionButtonText}>Translate</Text>
+            <Text style={styles.actionButtonText}>{t('notes.noteDetail.translate')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionButton}
             onPress={handleTranscribe}
           >
             <TranscribeIcon size={18} color={colors.slate[500]} />
-            <Text style={styles.actionButtonText}>Transcribe</Text>
+            <Text style={styles.actionButtonText}>{t('notes.noteDetail.transcribe')}</Text>
           </TouchableOpacity>
         </View>
 
         {/* Edit Note Button */}
         <TouchableOpacity style={styles.editButton} onPress={handleEditNote}>
           <EditPencilIcon size={18} color={colors.white} />
-          <Text style={styles.editButtonText}>Edit this note</Text>
+          <Text style={styles.editButtonText}>{t('notes.noteDetail.editThisNote')}</Text>
         </TouchableOpacity>
 
         {/* Tabs */}
@@ -526,9 +528,9 @@ export const NoteDetailScreen = () => {
                 style={styles.flashcardsCard}
               >
                 <FlashcardIcon size={48} />
-                <Text style={styles.flashcardsTitle}>Create flashcards</Text>
+                <Text style={styles.flashcardsTitle}>{t('notes.noteDetail.createFlashcards')}</Text>
                 <Text style={styles.flashcardsDescription}>
-                  Create flashcards to improve your{'\n'}retention skills
+                 {t('notes.noteDetail.createFlashcardsToImproveYourRetention')}
                 </Text>
               </LinearGradient>
             </TouchableOpacity>
@@ -552,9 +554,9 @@ export const NoteDetailScreen = () => {
                 style={styles.quizCard}
               >
                 <QuizIcon size={48} />
-                <Text style={styles.quizTitle}>Create Quiz questions</Text>
+                <Text style={styles.quizTitle}>{t('notes.noteDetail.createQuizQuestions')}</Text>
                 <Text style={styles.quizDescription}>
-                  Practice your notes by creating{'\n'}questions that help you master the{'\n'}topic
+                 {t('notes.noteDetail.practiceYourNotesByCreatingQuestions')}
                 </Text>
               </LinearGradient>
             </TouchableOpacity>

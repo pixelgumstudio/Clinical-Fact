@@ -22,6 +22,8 @@ import { LanguageSupportModal } from '../../components/LanguageSupportModal';
 import { useExportFlashcard } from '../../hooks/useExportFlashcard';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
 import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 type FlashcardGroupDetailRouteProp = RouteProp<MainStackParamList, 'FlashcardGroupDetail'>;
 type FlashcardGroupDetailNavigationProp = NativeStackNavigationProp<MainStackParamList, 'FlashcardGroupDetail'>;
@@ -68,11 +70,12 @@ const stripHtml = (html: string) =>
 
 const getSetStatus = (set: SetRow) => {
   if (set.totalCards > 0 && set.masteredCards >= set.totalCards) return 'Mastered';
-  if (set.masteredCards > 0) return 'In Progress';
-  return 'Not Started';
+  if (set.masteredCards > 0) return i18n.t('flashcards.flashcardGroupDetail.inProgress');
+  return i18n.t('flashcards.flashcardGroupDetail.notStarted');
 };
 
 export const FlashcardGroupDetailScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<FlashcardGroupDetailNavigationProp>();
   const route = useRoute<FlashcardGroupDetailRouteProp>();
   const { noteId, chatSessionId, title } = route.params;
@@ -96,11 +99,11 @@ export const FlashcardGroupDetailScreen = () => {
       if (response.success && response.data) {
         setData(response.data);
       } else {
-        Alert.alert('Error', 'Failed to load flashcard history');
+        Alert.alert(t('common.error'), t('flashcards.flashcardGroupDetail.failedToLoadFlashcardHistory'));
         navigation.goBack();
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to load flashcard history');
+      Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToLoadFlashcardHistory'));
       navigation.goBack();
     } finally {
       setIsLoading(false);
@@ -162,12 +165,12 @@ export const FlashcardGroupDetailScreen = () => {
         navigation.navigate('FlashcardReview', { setId: response.data._id, title: response.data.title || title });
       } else if ((response as any).quotaExceeded) {
         setCreateModalVisible(false);
-        Alert.alert('Limit reached', response.message || 'Flashcard generation limit reached.');
+        Alert.alert(t('flashcards.flashcardGroupDetail.limitReached'), response.message || t('flashcards.flashcardGroupDetail.flashcardGenerationLimitReached'));
       } else {
-        Alert.alert('Error', response.message || 'Failed to generate flashcards');
+        Alert.alert(t('common.error'), response.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to generate flashcards');
+      Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToGenerateFlashcards'));
     } finally {
       setIsPreparingAction(null);
     }
@@ -184,10 +187,10 @@ export const FlashcardGroupDetailScreen = () => {
       if (response.success && response.data) {
         navigation.navigate('FlashcardReview', { setId: response.data._id, title: response.data.title || title });
       } else {
-        Alert.alert('Error', response.message || 'Failed to translate flashcards');
+        Alert.alert(t('common.error'), response.message || t('flashcards.flashcardGroupDetail.failedToTranslateFlashcards'));
       }
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to translate flashcards');
+      Alert.alert(t('common.error'), error.message || t('flashcards.flashcardGroupDetail.failedToTranslateFlashcards'));
     } finally {
       setIsPreparingAction(null);
     }
@@ -223,19 +226,21 @@ export const FlashcardGroupDetailScreen = () => {
     if (!data) return;
     setMenuVisible(false);
     Alert.alert(
-      'Delete Flashcards',
-      `Delete all ${data.sets.length} flashcard ${data.sets.length === 1 ? 'set' : 'sets'} for "${title}"? This can't be undone.`,
+      t('flashcards.flashcardGroupDetail.deleteFlashcards'),
+      data.sets.length === 1
+        ? t('flashcards.flashcardGroupDetail.deleteAllSetsOne', { title })
+        : t('flashcards.flashcardGroupDetail.deleteAllSetsMany', { total: data.sets.length, title }),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: async () => {
             try {
               await Promise.all(data.sets.map((s) => api.deleteFlashcardSet(s.setId)));
               navigation.goBack();
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete flashcards');
+              Alert.alert(t('common.error'), t('flashcards.flashcardGroupDetail.failedToDeleteFlashcards'));
             }
           },
         },
@@ -276,7 +281,7 @@ export const FlashcardGroupDetailScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>{displayTitle}</Text>
         {earliestCreatedAt && (
-          <Text style={styles.createdAt}>Created {formatDateTime(earliestCreatedAt)}</Text>
+          <Text style={styles.createdAt}>{t('flashcards.flashcardGroupDetail.created', { dateTime: formatDateTime(earliestCreatedAt) })}</Text>
         )}
 
         {data.source && (
@@ -286,7 +291,7 @@ export const FlashcardGroupDetailScreen = () => {
             </View>
             <View style={styles.sourceInfo}>
               <Text style={styles.sourceTitle} numberOfLines={1}>{data.source.title}</Text>
-              <Text style={styles.sourceDate}>Created {formatDateTime(data.source.createdAt)}</Text>
+              <Text style={styles.sourceDate}>{t('flashcards.flashcardGroupDetail.created', { dateTime: formatDateTime(data.source.createdAt) })}</Text>
             </View>
             <Icon name="foward" size={16} color={theme.colors.grey[200]} />
           </TouchableOpacity>
@@ -294,15 +299,15 @@ export const FlashcardGroupDetailScreen = () => {
 
         <View style={styles.statsRow}>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>LAST PROGRESS</Text>
+            <Text style={styles.statLabel}>{t('flashcards.flashcardGroupDetail.lastprogress')}</Text>
             <Text style={styles.statValue}>{formatProgress(data.lastProgress)}</Text>
           </View>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>BEST PROGRESS</Text>
+            <Text style={styles.statLabel}>{t('flashcards.flashcardGroupDetail.bestprogress')}</Text>
             <Text style={styles.statValue}>{formatProgress(data.bestProgress)}</Text>
           </View>
           <View style={styles.statCard}>
-            <Text style={styles.statLabel}>SETS</Text>
+            <Text style={styles.statLabel}>{t('flashcards.flashcardGroupDetail.sets')}</Text>
             <Text style={styles.statValue}>{data.setCount}</Text>
           </View>
         </View>
@@ -313,7 +318,7 @@ export const FlashcardGroupDetailScreen = () => {
           disabled={isPreparingAction !== null}
           activeOpacity={0.8}
         >
-          <Text style={styles.primaryButtonText}>Study Now</Text>
+          <Text style={styles.primaryButtonText}>{t('flashcards.flashcardGroupDetail.studyNow')}</Text>
         </TouchableOpacity>
 
         <View style={styles.secondaryButtonsRow}>
@@ -328,7 +333,7 @@ export const FlashcardGroupDetailScreen = () => {
             ) : (
               <>
                 <Icon name="translate" size={20} color={theme.colors.grey[300]} />
-                <Text style={styles.secondaryButtonText}>Translate</Text>
+                <Text style={styles.secondaryButtonText}>{t('flashcards.flashcardGroupDetail.translate')}</Text>
               </>
             )}
           </TouchableOpacity>
@@ -341,7 +346,7 @@ export const FlashcardGroupDetailScreen = () => {
             {isPreparingAction === 'new' ? (
               <ActivityIndicator size="small" color={theme.colors.grey[900]} />
             ) : (
-              <Text style={styles.secondaryButtonText}>New Flashcards</Text>
+              <Text style={styles.secondaryButtonText}>{t('flashcards.flashcardGroupDetail.newFlashcards')}</Text>
             )}
           </TouchableOpacity>
         </View>
@@ -353,11 +358,11 @@ export const FlashcardGroupDetailScreen = () => {
             {activeTab === 'overview' && <View style={styles.tabUnderline} />}
           </TouchableOpacity> */}
           <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('sets')} activeOpacity={0.7}>
-            <Text style={[styles.tabText, activeTab === 'sets' && styles.tabTextActive]}>Flashcard history</Text>
+            <Text style={[styles.tabText, activeTab === 'sets' && styles.tabTextActive]}>{t('flashcards.flashcardGroupDetail.flashcardHistory')}</Text>
             {activeTab === 'sets' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
           <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('quizzes')} activeOpacity={0.7}>
-            <Text style={[styles.tabText, activeTab === 'quizzes' && styles.tabTextActive]}>Quiz history</Text>
+            <Text style={[styles.tabText, activeTab === 'quizzes' && styles.tabTextActive]}>{t('flashcards.flashcardGroupDetail.quizHistory')}</Text>
             {activeTab === 'quizzes' && <View style={styles.tabUnderline} />}
           </TouchableOpacity>
         </View>
@@ -381,7 +386,7 @@ export const FlashcardGroupDetailScreen = () => {
                     <Text style={styles.rowTime}>{formatRelativeTime(set.createdAt)}</Text>
                   </View>
                   <Text style={styles.rowMeta}>
-                    {set.totalCards} cards · {getSetStatus(set)}
+                    {t('flashcards.flashcardGroupDetail.cards', { totalCards: set.totalCards, setStatus: getSetStatus(set) })}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -394,7 +399,7 @@ export const FlashcardGroupDetailScreen = () => {
             {isLoadingQuizzes ? (
               <ActivityIndicator size="small" color={theme.colors.yale[700]} />
             ) : quizAttempts.length === 0 ? (
-              <Text style={styles.emptyText}>No quizzes from this source yet.</Text>
+              <Text style={styles.emptyText}>{t('flashcards.flashcardGroupDetail.noQuizzesFromThisSourceYet')}</Text>
             ) : (
               quizAttempts.map((attempt) => (
                 <TouchableOpacity
@@ -412,8 +417,7 @@ export const FlashcardGroupDetailScreen = () => {
                       <Text style={styles.rowTime}>{formatRelativeTime(attempt.createdAt)}</Text>
                     </View>
                     <Text style={styles.rowMeta}>
-                      {attempt.totalQuestions} questions ·{' '}
-                      {attempt.isCompleted ? `Score ${attempt.correctAnswers}/${attempt.totalQuestions}` : 'Not Started'}
+                      {t('flashcards.flashcardGroupDetail.questions', { totalQuestions: attempt.totalQuestions, value: attempt.isCompleted ? t('flashcards.flashcardGroupDetail.score', { correctAnswers: attempt.correctAnswers, totalQuestions: attempt.totalQuestions }) : t('flashcards.flashcardGroupDetail.notStarted') })}
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -457,19 +461,19 @@ export const FlashcardGroupDetailScreen = () => {
               <View style={styles.menuModalContainer}>
                 <View style={styles.menuHandleBar} />
                 <View style={styles.menuHeaderRow}>
-                  <Text style={styles.menuHeaderTitle}>Flashcard options</Text>
+                  <Text style={styles.menuHeaderTitle}>{t('flashcards.flashcardGroupDetail.flashcardOptions')}</Text>
                   <TouchableOpacity onPress={() => setMenuVisible(false)} style={styles.menuCloseButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                     <Icon name="close" size={20} color={theme.colors.grey[600]} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7} onPress={handleExportLatest}>
                   <Icon name="export" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>Export latest set</Text>
+                  <Text style={styles.menuModalOptionText}>{t('flashcards.flashcardGroupDetail.exportLatestSet')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7} onPress={handleDeleteGroup}>
                   <Icon name="delete" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>Delete</Text>
+                  <Text style={styles.menuModalOptionText}>{t('common.delete')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
               </View>

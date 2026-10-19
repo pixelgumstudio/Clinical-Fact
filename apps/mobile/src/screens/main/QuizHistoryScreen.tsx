@@ -28,6 +28,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { CreateFromSourceSheet } from '../../components/CreateFromSourceSheet';
 import { formatCreatedLabel } from '../../utils/formatDate';
+import { useTranslation } from 'react-i18next';
 
 type QuizHistoryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -47,6 +48,7 @@ interface QuizGroup {
 }
 
 export const QuizHistoryScreen: React.FC = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<QuizHistoryNavigationProp>();
   const [groups, setGroups] = useState<QuizGroup[]>([]);
   const [filteredGroups, setFilteredGroups] = useState<QuizGroup[]>([]);
@@ -107,15 +109,15 @@ export const QuizHistoryScreen: React.FC = () => {
 
   const handleDeleteGroup = async (group: QuizGroup) => {
     Alert.alert(
-      'Delete Quiz',
-      `Are you sure you want to delete "${group.sourceTitle}"?`,
+      t('main.quizHistory.deleteQuiz'),
+      t('main.quizHistory.areYouSureYouWantTo', { sourceTitle: group.sourceTitle }),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           onPress: async () => {
             try {
               const response = group.sourceType === 'standalone'
@@ -127,7 +129,7 @@ export const QuizHistoryScreen: React.FC = () => {
               await Promise.all(quizIds.map((id: string) => api.deleteQuiz(id)));
               setGroups(groups.filter(g => g.groupKey !== group.groupKey));
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete quiz');
+              Alert.alert(t('common.error'), t('main.quizHistory.failedToDeleteQuiz'));
             }
           },
           style: 'destructive',
@@ -158,11 +160,11 @@ export const QuizHistoryScreen: React.FC = () => {
             <Text style={styles.quizDate}>{formatCreatedLabel(item.createdAt)}</Text>
             {item.lastScore && (
               <Text style={styles.quizScore}>
-                {item.lastScore.correct}/{item.lastScore.total} correct
+                {t('main.quizHistory.correct', { correct: item.lastScore.correct, total: item.lastScore.total })}
               </Text>
             )}
             {item.attempts > 1 && (
-              <Text style={styles.quizAttempts}>{item.attempts} attempts</Text>
+              <Text style={styles.quizAttempts}>{t('main.quizHistory.attempts', { attempts: item.attempts })}</Text>
             )}
           </View>
         </View>
@@ -182,13 +184,13 @@ export const QuizHistoryScreen: React.FC = () => {
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Quiz</Text>
+        <Text style={styles.headerTitle}>{t('main.quizHistory.quiz')}</Text>
         <TouchableOpacity
           style={styles.newQuizButton}
           onPress={() => setCreateSheetVisible(true)}
           activeOpacity={0.7}
         >
-          <Text style={styles.newQuizButtonText}>Create Quiz</Text>
+          <Text style={styles.newQuizButtonText}>{t('main.quizHistory.createQuiz')}</Text>
         </TouchableOpacity>
       </View>
 
@@ -198,7 +200,7 @@ export const QuizHistoryScreen: React.FC = () => {
           <SearchIcon size={20} color={colors.oneOff.mutedPlaceholder} />
           <TextInput
             style={styles.searchInput}
-            placeholder="Search quizzes..."
+            placeholder={t('main.quizHistory.searchQuizzes')}
             placeholderTextColor={colors.grey[200]}
             value={searchText}
             onChangeText={setSearchText}
@@ -214,16 +216,16 @@ export const QuizHistoryScreen: React.FC = () => {
       ) : filteredGroups.length === 0 ? (
         <View style={styles.emptyState}>
           <EmptyFolderLargeIcon size={80} color={colors.slate[300]} />
-          <Text style={styles.emptyTitle}>No quizzes yet</Text>
+          <Text style={styles.emptyTitle}>{t('main.quizHistory.noQuizzesYet')}</Text>
           <Text style={styles.emptyDescription}>
-            Create a quiz from a note to get started
+           {t('main.quizHistory.createAQuizFromANote')}
           </Text>
           <TouchableOpacity
             style={styles.createButton}
             onPress={() => setCreateSheetVisible(true)}
             activeOpacity={0.7}
           >
-            <Text style={styles.createButtonText}>+ Create Quiz</Text>
+            <Text style={styles.createButtonText}>{t('main.quizHistory.createQuiz2')}</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -257,7 +259,7 @@ export const QuizHistoryScreen: React.FC = () => {
               <View style={styles.menuModalContainer}>
                 <View style={styles.menuHandleBar} />
                 <View style={styles.menuHeaderRow}>
-                  <Text style={styles.menuHeaderTitle}>Quiz options</Text>
+                  <Text style={styles.menuHeaderTitle}>{t('main.quizHistory.quizOptions')}</Text>
                   <TouchableOpacity onPress={() => setSelectedMenuItem(null)} style={styles.menuCloseButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                     <Icon name="close" size={20} color={theme.colors.grey[600]} />
                   </TouchableOpacity>
@@ -265,13 +267,13 @@ export const QuizHistoryScreen: React.FC = () => {
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7}
                   onPress={() => { if (selectedMenuItem) { handleOpenGroup(selectedMenuItem); setSelectedMenuItem(null); } }}>
                   <Icon name="note" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>View</Text>
+                  <Text style={styles.menuModalOptionText}>{t('main.quizHistory.view')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.menuModalOption} activeOpacity={0.7}
                   onPress={() => { if (selectedMenuItem) { handleDeleteGroup(selectedMenuItem); setSelectedMenuItem(null); } }}>
                   <Icon name="delete" size={24} color={theme.colors.yale[700]} />
-                  <Text style={styles.menuModalOptionText}>Delete</Text>
+                  <Text style={styles.menuModalOptionText}>{t('common.delete')}</Text>
                   <Icon name="foward" size={16} color={theme.colors.grey[200]} />
                 </TouchableOpacity>
               </View>

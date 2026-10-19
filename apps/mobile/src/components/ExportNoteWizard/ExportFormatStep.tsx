@@ -16,22 +16,23 @@ import {
   RadioUnselectedIcon,
 } from '@clinicalfact/design-system';
 import type { ExportType } from './ExportNoteWizardModal';
+import { useTranslation } from 'react-i18next';
 
 type FormatOption = {
   id: string;
-  label: string;
+  labelKey: string;
 };
 
 const summaryFormats: FormatOption[] = [
-  { id: 'txt', label: 'TXT file' },
-  { id: 'pdf', label: 'PDF file' },
-  { id: 'doc', label: 'Doc file' },
+  { id: 'txt', labelKey: 'components.exportFormat.txtFile' },
+  { id: 'pdf', labelKey: 'components.exportFormat.pdfFile' },
+  { id: 'doc', labelKey: 'components.exportFormat.docFile' },
 ];
 
 const transcriptFormats: FormatOption[] = [
-  { id: 'txt', label: 'TXT file' },
-  { id: 'pdf', label: 'PDF file' },
-  { id: 'doc', label: 'Doc file' },
+  { id: 'txt', labelKey: 'components.exportFormat.txtFile' },
+  { id: 'pdf', labelKey: 'components.exportFormat.pdfFile' },
+  { id: 'doc', labelKey: 'components.exportFormat.docFile' },
 ];
 
 interface ExportFormatStepProps {
@@ -47,25 +48,26 @@ export const ExportFormatStep: React.FC<ExportFormatStepProps> = ({
   onClose,
   onExport,
 }) => {
+  const { t } = useTranslation();
   const [selectedFormat, setSelectedFormat] = useState<string>('pdf');
 
   const getTitle = () => {
     switch (exportType) {
       case 'summary':
-        return 'Export summary as';
+        return t('components.exportFormatStep.exportSummaryAs');
       case 'transcript':
-        return 'Export Transcript as';
+        return t('components.exportFormatStep.exportTranscriptAs');
       default:
-        return 'Export as';
+        return t('components.exportFormatStep.exportAs');
     }
   };
 
   const getButtonLabel = () => {
     switch (exportType) {
       case 'summary':
-        return 'Export summary';
+        return t('components.exportFormatStep.exportSummary');
       case 'transcript':
-        return 'Export transcript';
+        return t('components.exportFormatStep.exportTranscript');
       default:
         return 'Export';
     }
@@ -136,7 +138,7 @@ export const ExportFormatStep: React.FC<ExportFormatStepProps> = ({
                         selectedFormat === format.id && styles.formatLabelSelected,
                       ]}
                     >
-                      {format.label}
+                      {t(format.labelKey)}
                     </Text>
                   </TouchableOpacity>
                 ))}

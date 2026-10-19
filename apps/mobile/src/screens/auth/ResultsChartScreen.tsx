@@ -5,10 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Button, Icon, theme } from '@clinicalfact/design-system';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { useTranslation } from 'react-i18next';
 
 type ResultsChartScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'ResultsChart'>;
 
 export const ResultsChartScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<ResultsChartScreenNavigationProp>();
   const canGoBack = navigation.canGoBack();
 
@@ -32,9 +34,9 @@ export const ResultsChartScreen = () => {
         />
 
         <View style={styles.textSection}>
-          <Text style={styles.title}>Get better results</Text>
+          <Text style={styles.title}>{t('auth.resultsChart.getBetterResults')}</Text>
           <Text style={styles.subtitle}>
-            Over 95% of Clinicalfact users score 95% and above on their test and exam
+           {t('auth.resultsChart.over95OfClinicalfactUsersScore')}
           </Text>
         </View>
       </View>
@@ -45,7 +47,7 @@ export const ResultsChartScreen = () => {
           fullWidth
           onPress={() => navigation.navigate('NotificationsPrompt')}
         >
-          Continue
+         {t('common.continue')}
         </Button>
       </View>
     </SafeAreaView>

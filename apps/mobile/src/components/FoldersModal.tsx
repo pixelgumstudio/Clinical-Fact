@@ -23,6 +23,7 @@ import {
 } from '@clinicalfact/design-system';
 import { Folder } from '../store/folderStore';
 import { useFolders, useAddFolder } from '../hooks/queries';
+import { useTranslation } from 'react-i18next';
 export type { Folder } from '../store/folderStore';
 
 interface FoldersModalProps {
@@ -47,6 +48,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
   selectedFolderId,
   folderType = 'note',
 }) => {
+  const { t } = useTranslation();
   const addFolderMutation = useAddFolder();
   const { data: queryFolders = [] } = useFolders(folderType);
   // Use folders from props if provided (parent manages via API), else fall back to React Query cache
@@ -88,7 +90,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
         </View>
         <View style={styles.folderContent}>
           <Text style={styles.folderName}>{item.name}</Text>
-          <Text style={styles.folderCount}>{(item as any).itemCount || 0} items</Text>
+          <Text style={styles.folderCount}>{t('components.folders.items', { itemCount: (item as any).itemCount || 0 })}</Text>
         </View>
         {isSelected ? (
           <CheckIcon size={20} color={colors.vivid.success[500]} />
@@ -125,11 +127,11 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                 <FolderIcon size={64} color={colors.vivid.accent[500]} />
               </View>
 
-              <Text style={styles.addFolderTitle}>Enter your folder name</Text>
+              <Text style={styles.addFolderTitle}>{t('components.folders.enterYourFolderName')}</Text>
 
               <TextInput
                 style={styles.folderInput}
-                placeholder="Your folder name"
+                placeholder={t('components.folders.yourFolderName')}
                 placeholderTextColor={colors.slate[400]}
                 value={folderName}
                 onChangeText={setFolderName}
@@ -145,7 +147,7 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                 disabled={!folderName.trim()}
                 activeOpacity={0.8}
               >
-                <Text style={styles.createButtonText}>Create folder</Text>
+                <Text style={styles.createButtonText}>{t('components.folders.createFolder')}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -177,13 +179,13 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                 >
                   <CloseIcon size={24} color={colors.slate[500]} />
                 </TouchableOpacity>
-                <Text style={styles.headerTitle}>Folders</Text>
+                <Text style={styles.headerTitle}>{t('components.folders.folders')}</Text>
                 <TouchableOpacity
                   style={styles.addFolderButton}
                   onPress={() => setShowAddFolder(true)}
                 >
                   <PlusIcon size={14} color={colors.white} />
-                  <Text style={styles.addFolderButtonText}>Add folder</Text>
+                  <Text style={styles.addFolderButtonText}>{t('components.folders.addFolder')}</Text>
                 </TouchableOpacity>
               </View>
 
@@ -193,16 +195,16 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                   <View style={styles.emptyFolderIcon}>
                     <FolderIcon size={36} color={colors.slate[300]} />
                   </View>
-                  <Text style={styles.emptyTitle}>No folders to display</Text>
+                  <Text style={styles.emptyTitle}>{t('components.folders.noFoldersToDisplay')}</Text>
                   <Text style={styles.emptyDescription}>
-                    Click the button above to create a folder{'\n'}for your notes
+                   {t('components.folders.clickTheButtonAboveToCreate')}
                   </Text>
                   <TouchableOpacity
                     style={styles.emptyAddButton}
                     onPress={() => setShowAddFolder(true)}
                     activeOpacity={0.8}
                   >
-                    <Text style={styles.emptyAddButtonText}>Add folder</Text>
+                    <Text style={styles.emptyAddButtonText}>{t('components.folders.addFolder')}</Text>
                   </TouchableOpacity>
                 </View>
               ) : (
@@ -216,8 +218,8 @@ export const FoldersModal: React.FC<FoldersModalProps> = ({
                       <FolderIcon size={26} color={colors.white} />
                     </View>
                     <View style={styles.folderContent}>
-                      <Text style={styles.folderName}>All folders</Text>
-                      <Text style={styles.folderCount}>{totalItems} items</Text>
+                      <Text style={styles.folderName}>{t('components.folders.allFolders')}</Text>
+                      <Text style={styles.folderCount}>{t('components.folders.items2', { totalItems })}</Text>
                     </View>
                     <ChevronRightIcon size={20} color={colors.slate[400]} />
                   </TouchableOpacity>

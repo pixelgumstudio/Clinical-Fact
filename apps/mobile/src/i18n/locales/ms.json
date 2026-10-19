@@ -15,7 +15,8 @@
     "done": "Selesai",
     "search": "Carian",
     "filter": "Penapis",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Maklumat"
   },
   "home": {
     "title": "Clinical Fact",
@@ -75,7 +76,12 @@
     "reportBug": "Laporkan pepijat"
   },
   "auth": {
-    "welcome": "Selamat datang ke Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Log masuk Google gagal",
+      "failedToAuthenticateWithServer": "Gagal mengesahkan dengan pelayan",
+      "googleSignInIsOnlyAvailable": "Log masuk Google hanya tersedia pada aplikasi natif. Sila gunakan e-mel atau muat turun aplikasi natif.",
+      "code": "{{message}} (kod: {{code}})"
+    },
     "getStarted": "Mulakan",
     "signIn": "Daftar masuk",
     "signUp": "Daftar",
@@ -199,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Semua yang anda perlukan untuk\\mempelajari apa sahaja",
-      "subtitle": "Rakamkannya. Kajinya. Kuizkannya. Kuasainya."
+      "subtitle": "Rakamkannya. Kajinya. Kuizkannya. Kuasainya.",
+      "everythingYouNeedToLearnAnything": "Segalanya yang anda perlukan untuk belajar apa jua topik",
+      "recordItResearchItQuizIt": "Rakam. Kaji. Uji. Kuasai.",
+      "tryClinicalFactNowForFree": "Cuba Clinical Fact percuma sekarang"
     },
     "features": {
       "transcribe": {
@@ -283,12 +292,136 @@
       "studyTimePerWeek": "Berapa banyak masa yang anda miliki untuk belajar setiap minggu?",
       "comingUp": "Apakah cabaran atau peperiksaan yang akan anda hadapi tidak lama lagi?",
       "referralSource": "Dari mana anda mengetahui tentang Clinical Fact?"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Hidupkan notifikasi",
+      "thisHelpsUsStayOnTrack": "Ini membantu kami memperibadikan akaun anda dan membantu anda mencari jawapan klinikal dengan lebih baik"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Kod pengesahan tidak sah. Sila cuba lagi.",
+      "failedToResendCodePleaseTry": "Gagal menghantar semula kod. Sila cuba lagi.",
+      "confirmYourEmailAddress": "Sahkan alamat e-mel anda",
+      "enterCodeSentTo": "Sila masukkan kod OTP yang dihantar ke e-mel {{email}}",
+      "resendCodeIn": "Hantar semula kod dalam {{seconds}} saat"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Adakah anda disyorkan oleh seseorang?",
+      "enterTheirReferralCodeIfYou": "Masukkan kod rujukan mereka jika ada",
+      "eGJOHNOrTECHBRO": "cth. JOHN atau TECHBRO",
+      "codeIsValid": "✓ Kod sah"
+    },
+    "resultsChart": {
+      "getBetterResults": "Dapatkan keputusan lebih cemerlang",
+      "over95OfClinicalfactUsersScore": "Lebih 95% pengguna Clinical Fact mendapat skor 95% ke atas dalam ujian & peperiksaan mereka"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Pelajar kejururawatan",
+        "medicalStudent": "Pelajar perubatan",
+        "paPharmacyStudent": "Pelajar PA atau farmasi",
+        "practicingNurse": "Jururawat bertauliah",
+        "practicingPhysician": "Doktor perubatan",
+        "otherHealthcareProfessional": "Profesional penjagaan kesihatan lain"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Buku teks atau nota kuliah",
+        "flashcardQuizApps": "Aplikasi kad imbas atau kuiz",
+        "youtube": "YouTube",
+        "aiChatbots": "Bot sembang AI",
+        "colleagueClassmate": "Bertanya rakan sekerja atau rakan sekelas",
+        "practiceQuestionBanks": "Bank soalan latihan"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Membina kad imbas & kuiz secara manual",
+        "findingTrustworthyAnswer": "Mencari jawapan yang sahih dengan pantas",
+        "reReadingNotes": "Membaca semula nota yang sukar diingati",
+        "switchingApps": "Kerap bertukar antara terlalu banyak aplikasi",
+        "chartingDocumentation": "Pendokumenan & carta klinikal"
+      },
+      "appExpectation": {
+        "noHallucination": "AI yang tepat tanpa halusinasi",
+        "realCitations": "Rujukan sumber yang sahih",
+        "oneApp": "Satu aplikasi lengkap, bukan lima langganan",
+        "explainsWhy": "Menerangkan sebab klinikal, bukan sekadar jawapan"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Carian Google",
+        "otherApps": "Aplikasi lain"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Menjana maklumat palsu",
+        "notMedicalContent": "Bukan dibina untuk kandungan perubatan",
+        "noSources": "Tiada sumber untuk semakan",
+        "tooGeneric": "Terlalu umum, tidak fokus pada peperiksaan/amalan"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Setiap masa",
+        "sometimes": "Kadang-kadang",
+        "rarely": "Jarang-jarang",
+        "dontUseAi": "Saya belum menggunakan AI lagi"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Jawapan pantas yang boleh dipercayai",
+        "quizzesFlashcardsWithoutWork": "Kuiz & kad imbas automatik tanpa renyah",
+        "rememberingStudied": "Bantuan untuk mengingati apa yang dipelajari",
+        "medicalCitations": "Rujukan sitasi perubatan",
+        "allOfTheAbove": "Semua di atas"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Surat berita",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Lain-lain"
+      },
+      "studyTime": {
+        "under5Hours": "Kurang daripada 5 jam",
+        "510Hours": "5–10 jam",
+        "1020Hours": "10–20 jam",
+        "20PlusHours": "20+ jam"
+      },
+      "comingUp": {
+        "medicalExams": "Peperiksaan perubatan",
+        "clinicalRotations": "Putaran klinikal",
+        "nursingExams": "Peperiksaan kejururawatan",
+        "otherExams": "Peperiksaan Lain",
+        "staySharp": "Hanya ingin kekal mahir"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Nota transkrip",
+    "noteTranscript": {
+      "noteTranscript": "Transkrip Nota",
+      "noNoteIDProvided": "Tiada ID nota diberikan",
+      "noTranscriptAvailableForThisNote": "Tiada transkrip tersedia untuk nota ini.",
+      "thisNoteWasNotCreatedFrom": "Nota ini tidak dicipta daripada audio/video dan tiada transkrip.",
+      "failedToLoadNote": "Gagal memuatkan nota",
+      "noteTranscript2": "Transkrip nota",
+      "loadingTranscript": "Memuatkan transkrip...",
+      "goToNote": "Pergi ke nota"
+    },
     "noteOptions": "Pilihan nota",
-    "editNote": "Sunting nota",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Sila masukkan tajuk nota",
+      "failedToUpdateNote": "Gagal mengemas kini nota",
+      "noteUpdatedSuccessfully": "Nota berjaya dikemas kini",
+      "editNote": "Edit nota",
+      "noteTitle": "Tajuk nota",
+      "enterNoteTitle": "Masukkan tajuk nota",
+      "noteContent": "Kandungan nota",
+      "enterNoteContent": "Masukkan kandungan nota",
+      "saveThisNote": "Simpan nota ini",
+      "aiIsGeneratingYourNote": "AI sedang menjana nota anda",
+      "largeAudioAndVideoFilesMay": "Fail audio dan video yang besar mungkin mengambil masa beberapa minit untuk diproses. Sila pastikan aplikasi terus dibuka."
+    },
     "retranscribe": "Transkripsi semula",
     "exportNote": "Nota eksport",
     "shareNoteLink": "Kongsi pautan nota",
@@ -310,12 +443,89 @@
     "translate": "Terjemah",
     "addToFolder": "Tambah ke folder",
     "loadingNote": "Memuatkan nota...",
-    "noteNotFound": "Gagal memuatkan nota"
+    "noteNotFound": "Gagal memuatkan nota",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Gagal menjana kad imbasan",
+      "anUnexpectedErrorOccurred": "Ralat yang tidak dijangka telah berlaku",
+      "history": "Sejarah",
+      "export": "Eksport"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Gagal menambah nota ke folder",
+      "folderNotFound": "Folder tidak ditemui",
+      "addNote": "+ Tambah nota",
+      "noNotesInThisFolder": "Tiada nota dalam folder ini",
+      "moveNotesToThisFolderTo": "Alihkan nota ke folder ini untuk melihatnya di sini",
+      "addNoteToFolder": "Tambah nota ke folder",
+      "noNotesAvailableToAdd": "Tiada nota tersedia untuk ditambah",
+      "allYourNotesAreAlreadyIn": "Semua nota anda sudah berada dalam folder ini",
+      "created": "Dicipta {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Gagal memuatkan nota",
+      "reTranscribeNote": "Transkripsi Semula Nota",
+      "thisWillReTranscribeTheAudio": "Ini akan mentranskripsi semula audio dan mengemas kini nota. Teruskan?",
+      "reTranscribe": "Transkripsi semula",
+      "noteReTranscribedSuccessfully": "Nota berjaya ditranskripsi semula",
+      "info": "Maklumat",
+      "reTranscriptionFeatureIsComingSoon": "Ciri transkripsi semula akan datang tidak lama lagi",
+      "youAreCurrentlyOfflinePleaseConnect": "Anda sedang luar talian. Sila sambung ke internet untuk melakukan tindakan ini.",
+      "failedToDeleteNote": "Gagal memadam nota",
+      "failedToExportNote": "Gagal mengeksport nota",
+      "noteTranslatedSuccessfully": "Nota berjaya diterjemahkan",
+      "failedToTranslateNote": "Gagal menterjemah nota",
+      "noteMovedTo": "Nota dipindahkan ke {{name}}",
+      "failedToMoveNoteToFolder": "Gagal memindahkan nota ke folder",
+      "summaryNotes": "Nota Ringkasan",
+      "loadingNote": "Memuatkan nota...",
+      "imageNote": "Nota Imej",
+      "created": "Dicipta {{dateTime}}",
+      "translate": "Terjemah",
+      "transcribe": "Transkripsi",
+      "editThisNote": "Edit nota ini",
+      "createFlashcards": "Cipta kad imbas",
+      "createFlashcardsToImproveYourRetention": "Cipta kad imbas untuk meningkatkan daya ingatan anda",
+      "createQuizQuestions": "Cipta soalan kuiz",
+      "practiceYourNotesByCreatingQuestions": "Uji kefahaman nota anda dengan mencipta soalan untuk menguasai topik ini"
+    },
+    "sharedNote": {
+      "notFound": "Tidak Dijumpai",
+      "thisSharedNoteLinkIsInvalid": "Pautan nota kongsi ini tidak sah atau telah tamat tempoh.",
+      "failedToLoadSharedNote": "Gagal memuatkan nota kongsi.",
+      "saved": "Disimpan!",
+      "noteHasBeenAddedToYour": "Nota telah ditambahkan ke pustaka anda.",
+      "viewInLibrary": "Lihat dalam Pustaka",
+      "stayHere": "Kekal di sini",
+      "failedToSaveNote": "Gagal menyimpan nota.",
+      "loadingSharedNote": "Memuatkan nota kongsi...",
+      "sharedNote": "Nota Kongsi",
+      "sharedWithYou": "Dikongsi dengan anda",
+      "savedToLibrary": "Disimpan ke pustaka",
+      "saveToMyLibrary": "Simpan ke pustaka saya"
+    }
   },
   "create": {
     "selectOption": "Bagaimanakah anda ingin mencipta nota anda?",
-    "recordAudio": "Rakam audio",
-    "uploadAudio": "Muat naik audio",
+    "recordAudio": {
+      "permissionRequired": "Kebenaran Diperlukan",
+      "pleaseGrantMicrophonePermissionToRecord": "Sila berikan kebenaran mikrofon untuk merakam audio.",
+      "failedToRequestMicrophonePermission": "Gagal meminta kebenaran mikrofon",
+      "created": "Dicipta {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Merakam Audio",
+      "recordAudio": "Rakam audio",
+      "createANoteFromAnyRecorded": "Cipta nota daripada sebarang audio yang dirakam",
+      "recording": "Merakam ({{time}})",
+      "recordAgain": "Rakam semula"
+    },
+    "uploadAudio": {
+      "created": "Dicipta {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Gagal memilih fail audio",
+      "uploadAudio": "Muat naik audio",
+      "createANoteFromAnyUploaded": "Cipta nota daripada sebarang audio yang dimuat naik",
+      "dragDropFilesOrBrowse": "Seret & lepas fail atau Layari",
+      "supportedFormatMp4WavMp3": "Format disokong: mp4, wav, mp3",
+      "changeFile": "Tukar fail"
+    },
     "youtube": "Video YouTube",
     "pdfDocument": "PDF atau dokumen",
     "customText": "Teks tersuai",
@@ -323,7 +533,56 @@
     "uploadingFile": "Memuat naik fail ke pelayan...",
     "transcribing": "Menukar pertuturan kepada teks...",
     "extractingText": "Mengekstrak teks...",
-    "generatingNote": "Mencipta nota pembelajaran berkuasa AI...",
+    "generatingNote": {
+      "uploadAudio": "Muat naik audio",
+      "uploadingAudioFileToServer": "Memuat naik fail audio ke pelayan...",
+      "transcribeAudio": "Transkripsi audio",
+      "convertingSpeechToText": "Menukar pertuturan kepada teks...",
+      "generateYourNote": "Jana nota anda",
+      "creatingStudyNotes": "Mencipta nota pembelajaran...",
+      "uploadPDF": "Muat naik PDF",
+      "uploadingPDFDocumentToServer": "Memuat naik dokumen PDF ke pelayan...",
+      "extractText": "Ekstrak teks",
+      "readingAndExtractingTextFromPDF": "Membaca dan mengekstrak teks daripada PDF...",
+      "uploadImage": "Muat naik imej",
+      "uploadingImageToServer": "Memuat naik imej ke pelayan...",
+      "extractTextOCR": "Ekstrak teks (OCR)",
+      "recognizingAndExtractingTextFromImage": "Mengecam dan mengekstrak teks daripada imej...",
+      "fetchVideo": "Dapatkan video",
+      "connectingToYouTube": "Menyambung ke YouTube...",
+      "extractTranscript": "Ekstrak transkrip",
+      "downloadingVideoTranscript": "Memuat turun transkrip video...",
+      "processText": "Proses teks",
+      "analyzingYourContent": "Menganalisis kandungan anda...",
+      "uploadFile": "Muat naik fail",
+      "uploadingToServer": "Memuat naik ke pelayan...",
+      "processContent": "Proses kandungan",
+      "extractingContent": "Mengekstrak kandungan...",
+      "noteReady": "Nota sudah sedia!",
+      "noteGenerationFailedOnTheServer": "Penjanaan nota gagal pada pelayan.",
+      "failedToUploadImage": "Gagal memuat naik gambar",
+      "weCouldNotReadAnythingFrom": "Kami tidak dapat membaca apa-apa daripada gambar tersebut. Sila cuba gambar nota perubatan anda yang lebih jelas.",
+      "preparingFile": "Menyediakan fail...",
+      "almostDone": "Hampir selesai...",
+      "untitledNote": "Nota Tanpa Tajuk",
+      "failedToGenerateNote": "Gagal menjana nota",
+      "whoaSpeedy": "Wah, lajunya! 🏃💨",
+      "youReGeneratingContentABit": "Anda menjana kandungan terlalu pantas. Berehat selama 60 saat sebelum mencuba lagi supaya AI kami dapat mengejar.",
+      "gotIt": "Faham",
+      "fileTooLarge": "Fail Terlalu Besar",
+      "yourFileExceedsThe15MBLimit": "Fail anda melebihi had 15MB untuk pengguna percuma. Naik taraf ke PRO untuk memuat naik syarahan sehingga 100MB.",
+      "upgradeToPRO": "Naik taraf ke PRO",
+      "oopsWeHitASnag": "Alamak, ada masalah 🚧",
+      "weCouldnTGenerateThatRight": "Kami tidak dapat menjananya buat masa ini. Tunggu sebentar dan cuba lagi!",
+      "processingContent": "Memproses kandungan...",
+      "generatingYourNote": "Menjana nota anda...",
+      "audioNote": "Nota Audio",
+      "failedToGenerateFlashcards": "Gagal menjana kad imbasan",
+      "generatingNote": "Menjana nota",
+      "pleaseKeepThisScreenOpenWhile": "Sila biarkan skrin ini dibuka semasa nota anda sedang dijana. Fail besar mungkin mengambil masa beberapa minit untuk ditranskripsi.",
+      "goToNote": "Pergi ke nota",
+      "generateNoteTranscript": "Jana transkrip nota"
+    },
     "fetchingVideo": "Menyambung ke YouTube...",
     "processingText": "Menganalisis kandungan anda...",
     "uploadAudioTitle": "Muat naik audio",
@@ -333,7 +592,63 @@
     "fetchVideo": "Ambil video",
     "extractTranscript": "Ekstrak transkrip",
     "processText": "Teks proses",
-    "generateNote": "Jana nota anda"
+    "generateNote": "Jana nota anda",
+    "customTextInput": {
+      "customText": "Teks tersuai",
+      "createANoteFromAnyCustom": "Cipta nota daripada sebarang teks tersuai",
+      "enterText": "Masukkan Teks",
+      "enterYourTextHere": "Masukkan teks anda di sini..."
+    },
+    "uploadImage": {
+      "created": "Dicipta pada {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Kebenaran Diperlukan",
+      "pleaseAllowAccessToYourPhoto": "Sila benarkan akses ke pustaka foto anda",
+      "failedToPickImage": "Gagal memilih gambar",
+      "uploadImage": "Muat naik gambar",
+      "createANoteFromAnyUploaded": "Cipta nota daripada sebarang gambar yang dimuat naik",
+      "dragDropFilesOrBrowse": "Seret & lepas fail atau Layari",
+      "supportedFormatPngJpegHeicWebp": "Format disokong: png, jpeg, heic, webp",
+      "changeFile": "Tukar fail"
+    },
+    "uploadPDF": {
+      "created": "Dicipta pada {{day}} {{month}} {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Gagal memilih dokumen",
+      "uploadPdf": "Muat naik PDF",
+      "createANoteFromAnyUploaded": "Cipta nota daripada sebarang PDF yang dimuat naik",
+      "dragDropFilesOrBrowse": "Seret & lepas fail atau Layari",
+      "supportedFormatPdf": "Format disokong: pdf",
+      "changeFile": "Tukar fail"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Mengambil video",
+      "gettingVideoDetails": "Mendapatkan butiran video",
+      "extractingTranscript": "Mengekstrak transkrip",
+      "convertingAudioToText": "Menukar audio ke teks",
+      "generatingYourNote": "Menjana nota anda",
+      "aiIsSummarisingTheContent": "AI sedang meringkaskan kandungan",
+      "noteGenerationFailedPleaseTryAgain": "Penjanaan nota gagal. Sila cuba lagi.",
+      "processingFailed": "Pemprosesan Gagal",
+      "goBack": "Kembali",
+      "retry": "Cuba Lagi",
+      "failedToStartNoteGeneration": "Gagal memulakan penjanaan nota",
+      "failedToProcessYouTubeVideoPlease": "Gagal memproses video YouTube. Sila cuba lagi.",
+      "cancelProcessing": "Batal Pemprosesan",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu membatalkannya? Kemajuan anda akan hilang.",
+      "continueProcessing": "Teruskan Pemprosesan",
+      "youTubeNote": "Nota YouTube",
+      "noteGenerated": "Nota Berjaya Dijana",
+      "generatingNote": "Menjana nota",
+      "goToNote": "Pergi ke nota"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Tidak dapat mendapatkan maklumat video",
+      "failedToFetchVideoInformation": "Gagal mendapatkan maklumat video",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Cipta nota daripada mana-mana video YouTube",
+      "enterYoutubeURL": "Masukkan URL YouTube",
+      "pasteYoutubeURL": "Tampal URL YouTube",
+      "fetchingVideoInfo": "Mendapatkan maklumat video..."
+    }
   },
   "library": {
     "title": "Perpustakaan",
@@ -387,7 +702,42 @@
     "explanation": "Penjelasan",
     "questionProgress": "Soalan {{current}} daripada {{total}}",
     "generatingQuizWait": "Kami sedang menjana Kuiz anda, sila tunggu sebentar sementara ia disiapkan...",
-    "goToChats": "Pergi ke sembang"
+    "goToChats": "Pergi ke sembang",
+    "quizGroupDetail": {
+      "inProgress": "Sedang Berjalan",
+      "notStarted": "Belum Mula",
+      "failedToLoadQuizHistory": "Gagal memuatkan sejarah kuiz",
+      "failedToLoadChatContent": "Gagal memuatkan kandungan sembang",
+      "deleteQuiz": "Padam Kuiz",
+      "failedToDeleteQuiz": "Gagal memadam kuiz",
+      "created": "Dicipta {{dateTime}}",
+      "lastscore": "SKOR TERAKHIR",
+      "bestscore": "SKOR TERBAIK",
+      "attempts": "PERCUBAAN",
+      "retakeQuiz": "Ambil Semula Kuiz",
+      "translate": "Terjemah",
+      "newQuiz": "Kuiz Baharu",
+      "quizHistory": "Sejarah kuiz",
+      "flashcardHistory": "Sejarah kad imbas",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Tiada set kad imbas daripada sumber ini lagi.",
+      "cards": "{{totalCards}} kad · {{flashcardStatus}}",
+      "quizOptions": "Pilihan kuiz",
+      "exportLatestAttempt": "Eksport percubaan terkini",
+      "questions": "{{totalQuestions}} soalan · {{value}}",
+      "deleteAllAttemptsOne": "Padam 1 percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
+      "deleteAllAttemptsMany": "Padam semua {{total}} percubaan kuiz untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Gagal memuatkan data kuiz - format respons tidak sah",
+      "failedToLoadQuizData": "Gagal memuatkan data kuiz",
+      "noContentAvailable": "Tiada kandungan tersedia",
+      "goBack": "Kembali",
+      "previous": "Sebelumnya"
+    },
+    "quiz": {
+      "generationFailed": "Penjanaan gagal"
+    }
   },
   "flashcards": {
     "title": "Kad Imbas",
@@ -418,7 +768,44 @@
     "headerTitle": "Kad Imbas",
     "progressFormat": "Kad imbas {{current}} daripada {{total}}",
     "noteIdRequired": "ID Nota diperlukan untuk menjana kad imbasan",
-    "invalidCardCount": "Sila pilih antara 1 dan 100 kad imbasan"
+    "invalidCardCount": "Sila pilih antara 1 dan 100 kad imbasan",
+    "flashcardGroupDetail": {
+      "inProgress": "Sedang Berjalan",
+      "notStarted": "Belum Mula",
+      "failedToLoadFlashcardHistory": "Gagal memuatkan sejarah kad imbas",
+      "limitReached": "Had dicapai",
+      "flashcardGenerationLimitReached": "Had penjanaan kad imbas telah dicapai.",
+      "failedToGenerateFlashcards": "Gagal menjana kad imbas",
+      "failedToTranslateFlashcards": "Gagal menterjemah kad imbas",
+      "deleteFlashcards": "Padam Kad Imbas",
+      "failedToDeleteFlashcards": "Gagal memadam kad imbas",
+      "created": "Dicipta {{dateTime}}",
+      "lastprogress": "KEMAJUAN TERAKHIR",
+      "bestprogress": "KEMAJUAN TERBAIK",
+      "sets": "SET",
+      "studyNow": "Ulang Kaji Sekarang",
+      "translate": "Terjemah",
+      "newFlashcards": "Kad Imbas Baharu",
+      "flashcardHistory": "Sejarah kad imbas",
+      "quizHistory": "Sejarah kuiz",
+      "cards": "{{totalCards}} kad · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Belum ada kuiz daripada sumber ini.",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Pilihan kad imbas",
+      "exportLatestSet": "Eksport set terkini",
+      "questions": "{{totalQuestions}} soalan · {{value}}",
+      "deleteAllSetsOne": "Padamkan 1 set kad imbas untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal.",
+      "deleteAllSetsMany": "Padamkan kesemua {{total}} set kad imbas untuk \"{{title}}\"? Tindakan ini tidak boleh dibuat asal."
+    },
+    "flashcardReview": {
+      "unknownError": "Ralat tidak diketahui",
+      "noFlashcardsInThisSet": "Tiada kad imbas dalam set ini",
+      "goBack": "Kembali",
+      "allDone": "Selesai semua",
+      "youHaveReviewedAllTheCards": "Anda telah mengulang kaji semua kad dalam set ini",
+      "question": "Soalan {{value}}",
+      "questionOf": "Soalan {{value}} daripada {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Sembang",
@@ -429,7 +816,186 @@
     "chatWithDocument": "Sembang dengan dokumen",
     "selectFile": "Pilih fail untuk bersembang",
     "uploadFile": "Muat naik fail",
-    "startChatting": "Mula bersembang"
+    "startChatting": "Mula bersembang",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Tanya soalan perubatan untuk penjelasan lanjut",
+      "askAnythingAboutThisDocument": "Tanya apa-apa tentang dokumen ini...",
+      "askAQuestionAttachmentProcessingFailed": "Tanya soalan — pemprosesan lampiran gagal",
+      "extractingText": "Mengekstrak teks...",
+      "processingPDF": "Memproses PDF...",
+      "upgradeToProToContinueChatting": "Naik taraf ke PRO untuk terus berbual",
+      "queryremaining": "TINGGAL {{queriesRemaining}} PERTANYAAN"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Memulakan sembang...",
+      "extractingTextFromImage": "Mengekstrak teks daripada imej...",
+      "processingPDFDocument": "Memproses dokumen PDF...",
+      "analyzingYourNote": "Menganalisis nota anda...",
+      "thisUsuallyTakesJustAFew": "⏱️ Ini biasanya mengambil masa beberapa saat sahaja. Anda boleh mula berbual setelah pemprosesan selesai.",
+      "processingFailed": "Pemprosesan Gagal",
+      "fileMightBeCorruptedOrUnreadable": "• Fail mungkin rosak atau tidak dapat dibaca",
+      "imageQualityTooLow": "Kualiti imej terlalu rendah",
+      "pdfIsPasswordProtected": "PDF dilindungi kata laluan",
+      "contentFormatNotSupported": "Format kandungan tidak disokong",
+      "networkConnectionIssue": "• Masalah sambungan rangkaian",
+      "tryADifferentFile": "Cuba Fail Lain",
+      "askAnyClinicalQuestionNoUpload": "💡 Tanya sebarang soalan klinikal — tanpa perlu memuat naik fail. Saya akan menjawab menggunakan rujukan literatur perubatan, berserta imej yang berkaitan jika ada.",
+      "readyToChat": "✓ Sedia untuk berbual",
+      "couldntProcessNote": "Kami tidak dapat memproses nota ini. Ini mungkin disebabkan oleh:",
+      "couldntProcessImage": "Kami tidak dapat memproses imej ini. Ini mungkin disebabkan oleh:",
+      "couldntProcessDocument": "Kami tidak dapat memproses dokumen ini. Ini mungkin disebabkan oleh:",
+      "askMeAboutNote": "💡 Tanya saya apa-apa tentang nota ini. Saya boleh meringkaskan, menerangkan konsep, atau menjawab soalan khusus.",
+      "askMeAboutImage": "💡 Tanya saya apa-apa tentang imej ini. Saya boleh meringkaskan, menerangkan konsep, atau menjawab soalan khusus.",
+      "askMeAboutDocument": "💡 Tanya saya apa-apa tentang dokumen ini. Saya boleh meringkaskan, menerangkan konsep, atau menjawab soalan khusus."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} dikuasai",
+      "notStarted": "Belum Mula",
+      "quizGeneration": "Penjanaan kuiz",
+      "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Penjanaan kad imbas",
+      "questions": "{{totalCards}} soalan · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} soalan · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Sedang berfikir dan mencari sumber rujukan untuk anda...",
+      "couldnTGenerateAResponse": "Tidak dapat menjana respons.",
+      "retry": "Cuba lagi",
+      "alsoReferencedFromTheWeb": "Turut dirujuk daripada web",
+      "followUpQuestions": "Soalan susulan"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Tanya apa sahaja berkaitan perubatan, dapatkan fakta bersandarkan rujukan sahih",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Berasaskan bukti · Sumber PubMed · Disemak rakan sebaya",
+      "tryOutAnyOfThisTopics": "Cuba mana-mana topik ini untuk bermula",
+      "topics": {
+        "electrolytes": {
+          "label": "Penerangan ketidakseimbangan elektrolit",
+          "question": "Terangkan tentang ketidakseimbangan elektrolit — punca, gejala dan rawatan"
+        },
+        "ecg": {
+          "label": "Asas interpretasi ECG",
+          "question": "Apakah asas bagi interpretasi ECG?"
+        },
+        "drugInteractions": {
+          "label": "Interaksi ubat lazim yang perlu diketahui",
+          "question": "Apakah antara interaksi ubat yang lazim dan penting untuk saya ketahui?"
+        },
+        "nclex": {
+          "label": "Topik latihan gaya NCLEX",
+          "question": "Berikan soalan latihan gaya NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Label ubat FDA",
+      "fromYourAttachedMaterial": "Daripada bahan lampiran anda"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Gagal mencipta sesi sembang",
+      "failedToInitializeChatSession": "Gagal memulakan sesi sembang",
+      "failedToUpdateLanguage": "Gagal mengemas kini bahasa",
+      "youVeReachedYour3Pin": "Anda telah mencapai had 3 pin",
+      "failedToUpdatePin": "Gagal mengemas kini pin",
+      "permissionRequired": "Keizinan Diperlukan",
+      "pleaseGrantCameraPermissionToTake": "Sila berikan keizinan kamera untuk mengambil foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Sila berikan keizinan pustaka foto untuk memuat naik imej.",
+      "failedToUploadImage": "Gagal memuat naik imej",
+      "uploadFailed": "Muat naik gagal",
+      "failedToUploadDocument": "Gagal memuat naik dokumen",
+      "failedToStartChatFromThis": "Gagal memulakan sembang daripada fail ini.",
+      "chatFromImage": "Sembang daripada imej",
+      "failedToStartANewQuestion": "Gagal memulakan soalan baharu. Sila cuba lagi.",
+      "failedToAttachFile": "Gagal melampirkan fail",
+      "failedToSendMessage": "Gagal menghantar mesej",
+      "copiedToClipboard": "Disalin ke papan keratan",
+      "notEnoughContentYet": "Kandungan belum mencukupi",
+      "chatABitMoreBeforeGenerating": "Berbual sedikit lagi sebelum menjana kuiz (minimum 100 aksara).",
+      "chatABitMoreBeforeGenerating2": "Berbual sedikit lagi sebelum menjana kad imbas (minimum 100 aksara).",
+      "failedToGenerateFlashcards": "Gagal menjana kad imbas",
+      "failedToRegenerateResponse": "Gagal menjana semula respons",
+      "failedToRetryResponse": "Gagal mencuba semula respons"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Gagal melampirkan nota",
+      "folderCreatedSuccessfully": "Folder \"{{name}}\" berjaya dicipta!",
+      "failedToCreateFolder": "Gagal mencipta folder",
+      "failedToAttachDocument": "Gagal melampirkan dokumen",
+      "failedToCreateChatSession": "Gagal mencipta sesi sembang",
+      "failedToUploadDocument": "Gagal memuat naik dokumen",
+      "openingCamera": "📷 Membuka kamera...",
+      "openingImagePicker": "🖼️ Membuka pemilih imej...",
+      "permissionRequired": "Keizinan Diperlukan",
+      "pleaseGrantCameraPermissionToTake": "Sila berikan keizinan kamera untuk mengambil foto.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Sila berikan keizinan pustaka foto untuk memuat naik imej.",
+      "failedToAttachImage": "Gagal melampirkan imej",
+      "failedToUploadImage": "Gagal memuat naik imej",
+      "failedToAttachAudio": "Gagal melampirkan audio",
+      "failedToUploadAudio": "Gagal memuat naik audio",
+      "items": "{{itemCount}} item",
+      "thisFolderIsEmptyGoBack": "Folder ini kosong. Kembali untuk memilih folder lain.",
+      "addFolder": "Tambah folder",
+      "uploadNewDocument": "Muat naik dokumen baharu",
+      "uploadAPDFAndStartChatting": "Muat naik PDF dan mula bersembang serta-merta",
+      "uploadNewImage": "Muat naik imej baharu",
+      "uploadAnImageAndExtractText": "Muat naik imej dan ekstrak teks serta-merta",
+      "uploadNewAudio": "Muat naik audio baharu",
+      "uploadAnAudioFileAndTranscribe": "Muat naik fail audio dan transkripsikannya serta-merta",
+      "orselectfromlibrary": "ATAU PILIH DARIPADA PUSTAKA",
+      "folders": "Folder",
+      "allNotes": "Semua Nota",
+      "noFilesToDisplay": "Tiada fail untuk dipaparkan",
+      "noNotesToDisplay": "Tiada nota untuk dipaparkan",
+      "noDocumentsYet": "Anda belum mempunyai sebarang dokumen PDF.\nCipta beberapa nota dahulu, kemudian kembali untuk bersembang dengannya.",
+      "noImagesYet": "Anda belum mempunyai sebarang imej.\nCipta beberapa nota dahulu, kemudian kembali untuk bersembang dengannya.",
+      "noAudioNotesYet": "Anda belum mempunyai sebarang nota audio.\nCipta beberapa nota dahulu, kemudian kembali untuk bersembang dengannya.",
+      "noNotesYet": "Anda belum mempunyai sebarang nota.\nCipta beberapa nota dahulu, kemudian kembali untuk bersembang dengannya.",
+      "attachNote": "Lampirkan nota",
+      "selectNote": "Pilih nota",
+      "attachImage": "Lampirkan imej",
+      "selectImage": "Pilih imej",
+      "attachDocument": "Lampirkan dokumen",
+      "selectDocument": "Pilih dokumen",
+      "attachAudio": "Lampirkan audio",
+      "selectAudio": "Pilih audio",
+      "attachFile": "Lampirkan fail",
+      "selectFile": "Pilih fail",
+      "aNote": "{{verb}} nota",
+      "anImage": "{{verb}} imej",
+      "aDocument": "{{verb}} dokumen",
+      "audio": "{{verb}} audio",
+      "aFile": "{{verb}} fail"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Tambah ke sembang",
+      "camera": "Kamera",
+      "photos": "Foto",
+      "files": "Fail",
+      "generateQuiz": "Jana Kuiz",
+      "generateFlashcards": "Jana Kad Imbas",
+      "searchMedicalLiterature": "Cari literatur perubatan",
+      "filterByDateSourceAndType": "Tapis mengikut Tarikh, Sumber dan Jenis",
+      "pullsRealCitedSourcesIntoYour": "Menyertakan sumber sebenar yang dipetik ke dalam jawapan anda",
+      "trustedmedicalsourcedatabase": "PANGKALAN DATA SUMBER PERUBATAN DIPERCAYAI",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "U.S. National Library of Medicine",
+      "fdaDrugTreatmentData": "Data Ubat & Rawatan FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Semak sitiran"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Sedia · ketik untuk namakan semula",
+      "processing": "Memproses {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Lihat sumber ↗"
+    },
+    "chatRename": {
+      "renameChat": "Namakan Semula Sembang"
+    }
   },
   "languages": {
     "english": "Bahasa Inggeris",
@@ -483,5 +1049,455 @@
     "malay": "Bahasa Melayu",
     "indonesian": "Bahasa Indonesia",
     "catalan": "Bahasa Catalan"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Tambah folder",
+      "folderName": "Nama folder",
+      "enterFolderName": "Masukkan nama folder",
+      "chooseColor": "Pilih warna",
+      "createFolder": "Cipta folder"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Sebelum kami memproses kandungan anda",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact menggunakan AI untuk menjawab soalan anda dan menukar kandungan anda menjadi nota, kuiz dan kad imbas. Ini yang perlu anda ketahui:",
+      "whatDataIsSent": "Data yang dihantar",
+      "questionsAndMessagesYouTypeIn": "Soalan dan mesej yang anda taip dalam sembang",
+      "audioRecordingsOrUploadedAudioFiles": "Rakaman audio atau fail audio yang dimuat naik",
+      "pdfAndTextDocumentsYouUpload": "Dokumen PDF dan teks yang anda muat naik",
+      "imagesYouUpload": "Imej yang anda muat naik",
+      "youTubeVideoURLsAndTheirTranscripts": "URL video YouTube dan transkripnya",
+      "customTextYouEnter": "Teks tersuai yang anda masukkan",
+      "whoReceivesYourData": "Pihak yang menerima data anda",
+      "howItSUsed": "Cara ia digunakan",
+      "yourContentIsUsedSolelyTo": "Kandungan anda digunakan semata-mata untuk menjana jawapan, nota, kuiz atau kad imbas yang anda minta. Dasar penggunaan data bagi setiap penyedia terpakai pada kandungan yang diproses melalui API mereka. Untuk maklumat lanjut, lihat Dasar Privasi kami.",
+      "iAgreeContinue": "Saya Setuju — Teruskan",
+      "noThanks": "Tidak, Terima Kasih",
+      "whoReceivesBody": "Kandungan anda dihantar kepada <bold>Google (Gemini)</bold> (penjanaan nota, kuiz, dan imbas kad; respons sembang; pemprosesan dokumen dan imej) serta <bold>OpenAI</bold> (transkripsi audio) melalui pelayan bahagian belakang kami yang selamat. Petikan daripada dokumen anda juga diindeks menggunakan <bold>Google Vertex AI</bold> supaya fungsi sembang dapat mencari bahagian yang berkaitan. Apabila carian perubatan langsung digunakan, soalan anda turut dihantar kepada <bold>Tavily</bold> dan pangkalan data literatur perubatan awam (seperti PubMed, Europe PMC, dan Semantic Scholar) untuk mencari sitasi daripada sumber dipercayai seperti NIH, CDC, MedlinePlus, WHO, dan Mayo Clinic. Penyedia ini memproses data anda hanya untuk menjana jawapan anda — mereka tidak menggunakannya untuk melatih model AI tujuan am mereka, dan kami tidak menjual data anda kepada mana-mana pihak ketiga."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Nyahsemat sembang",
+      "pinChat": "Semat sembang",
+      "deleteChat": "Padam sembang"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Jana kad imbas",
+      "createFlashcards": "Cipta Kad Imbas",
+      "createFlashcardsFromToImproveYour": "Cipta kad imbas daripada \"{{noteTitle}}\" untuk tingkatkan daya ingatan anda",
+      "createFlashcardsToImproveYourRetention": "Cipta kad imbas untuk tingkatkan daya ingatan anda",
+      "howManyQuestions": "Berapa banyak soalan",
+      "generateFlashcards2": "Jana Kad Imbas"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Cipta daripada sembang",
+      "selectFromOneOfYourRecent": "Pilih daripada sembang terkini anda",
+      "pdfOrDocument": "PDF atau Dokumen",
+      "createFromAudio": "Cipta daripada audio",
+      "image": "Imej",
+      "createFromCustomText": "Cipta daripada teks tersuai",
+      "created": "Dicipta {{day}}, {{time}}",
+      "createQuizFrom": "Cipta Kuiz daripada",
+      "createFlashcardsFrom": "Cipta Kad Imbas daripada",
+      "selectFromChat": "Pilih daripada sembang",
+      "noRecentChatsYet": "Tiada sembang terkini lagi",
+      "quizFromPdf": "Cipta kuiz daripada PDF atau Dokumen",
+      "flashcardsFromPdf": "Cipta set kad imbas daripada PDF atau Dokumen",
+      "quizFromAudio": "Cipta kuiz daripada audio yang dimuat naik",
+      "flashcardsFromAudio": "Cipta set kad imbas daripada audio yang dimuat naik",
+      "quizFromImage": "Cipta kuiz daripada mana-mana imej",
+      "flashcardsFromImage": "Cipta set kad imbas daripada mana-mana imej",
+      "quizFromText": "Cipta kuiz daripada teks yang ditangkap",
+      "flashcardsFromText": "Cipta set kad imbas daripada teks yang ditangkap"
+    },
+    "createNote": {
+      "recordAudio": "Rakam audio",
+      "generateANoteFromAnyRecorded": "Jana nota daripada sebarang audio yang dirakam",
+      "uploadAudio": "Muat naik audio",
+      "createANoteFromAnyUploaded": "Cipta nota daripada sebarang audio yang dimuat naik",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Cipta nota daripada sebarang video YouTube",
+      "pdfOrDocument": "PDF atau Dokumen",
+      "createANoteFromPDFOr": "Cipta nota daripada PDF atau Dokumen",
+      "customText": "Teks tersuai",
+      "createANoteFromCapturedText": "Cipta nota daripada teks yang ditangkap",
+      "image": "Imej",
+      "createANoteFromAnyImage": "Cipta nota daripada mana-mana imej",
+      "createNote": "Cipta nota"
+    },
+    "createQuiz": {
+      "generateQuiz": "Jana Kuiz",
+      "createQuiz": "Cipta Kuiz",
+      "practiceByCreatingQuestionsThatHelp": "Ulang kaji \"{{noteTitle}}\" dengan mencipta soalan yang membantu anda menguasai topik ini",
+      "practiceYourNotesByCreatingQuestions": "Ulang kaji nota anda dengan mencipta soalan yang membantu anda menguasai topik ini",
+      "howManyQuestions": "Berapa banyak soalan",
+      "timeInMinutes": "Masa (dalam minit)"
+    },
+    "deleteNote": {
+      "deleteNote": "Padam nota",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadamkan nota ini?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Eksport ringkasan sebagai",
+      "exportTranscriptAs": "Eksport transkrip sebagai",
+      "exportAs": "Eksport sebagai",
+      "exportSummary": "Eksport ringkasan",
+      "exportTranscript": "Eksport transkrip"
+    },
+    "exportTypeStep": {
+      "exportNote": "Eksport nota",
+      "exportSummary": "Eksport ringkasan",
+      "exportTranscript": "Eksport transkrip"
+    },
+    "exportSettings": {
+      "export": "Eksport {{title}}",
+      "selectFormat": "Pilih format",
+      "includeAnswers": "Sertakan jawapan",
+      "answersExplanationsIncluded": "Jawapan & penjelasan disertakan",
+      "questionsOnly": "Soalan sahaja",
+      "export2": "Eksport"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Nota anda sudah sedia!",
+      "howDidWeDo": "Bagaimana penilaian anda?",
+      "happy": "Puas hati",
+      "sad": "Tidak puas hati",
+      "maybeLater": "Mungkin Nanti",
+      "whatWentWrong": "Apakah masalahnya?",
+      "yourFeedbackHelpsUsImprove": "Maklum balas anda membantu kami menambah baik.",
+      "tellUsWhatCouldBeBetter": "Beritahu kami apa yang boleh diperbaiki...",
+      "submit": "Hantar"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Tiada kandungan tersedia",
+      "clickCardToFlip": "ketik kad untuk pusing"
+    },
+    "flashcardExport": {
+      "exportFailed": "Eksport Gagal",
+      "unknownError": "Ralat tidak diketahui",
+      "export": "Eksport {{setTitle}}",
+      "chooseWhatToExport": "Pilih apa yang ingin dieksport",
+      "exportQuestions": "Eksport Soalan",
+      "exportAnswers": "Eksport Jawapan"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Padam Set Kad Imbas",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadamkan \"{{setTitle}}\"?",
+      "failedToDeleteFlashcardSet": "Gagal memadamkan set kad imbas",
+      "flashcardHistory": "Sejarah Kad Imbas",
+      "cards": "Kad",
+      "reviewedMastered": "{{cardsReviewedCount}} diulang kaji • {{percentage}}% dikuasai"
+    },
+    "folders": {
+      "items": "{{itemCount}} item",
+      "enterYourFolderName": "Masukkan nama folder anda",
+      "yourFolderName": "Nama folder anda",
+      "createFolder": "Cipta folder",
+      "folders": "Folder",
+      "addFolder": "Tambah folder",
+      "noFoldersToDisplay": "Tiada folder untuk dipaparkan",
+      "clickTheButtonAboveToCreate": "Ketik butang di atas untuk mencipta folder bagi nota anda",
+      "allFolders": "Semua folder",
+      "items2": "{{totalItems}} item"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Penapis carian perubatan",
+      "howrecentdoyouwantthe": "SEBERAPA TERKINI SUMBER YANG DIPERLUKAN",
+      "from": "Dari",
+      "whatkindofsourcedoyou": "APAKAH JENIS SUMBER YANG ANDA PERLUKAN",
+      "textbooks": "Buku teks",
+      "clinicalGuidelines": "Garis panduan klinikal",
+      "scientificJournalArticles": "Artikel jurnal saintifik",
+      "onlywiththisjournalarticles": "HANYA DENGAN ARTIKEL JURNAL INI",
+      "metaAnalyses": "Meta-analisis",
+      "reviewArticles": "Artikel ulasan",
+      "clinicalTrials": "Percubaan klinikal",
+      "fromYear": "Dari tahun",
+      "toYear": "Hingga tahun"
+    },
+    "noteOptions": {
+      "noteOptions": "Pilihan nota",
+      "editNote": "Edit nota",
+      "reTranscribe": "Transkripsi semula",
+      "chatWithNote": "Bual dengan nota",
+      "exportNote": "Eksport nota",
+      "moveToFolder": "Pindah ke folder",
+      "deleteNote": "Padam nota"
+    },
+    "onboardingTooltip": {
+      "skip": "Langkau"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Padam Kuiz",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadamkan \"{{quizTitle}}\"?",
+      "failedToDeleteQuiz": "Gagal memadamkan kuiz",
+      "quizHistory": "Sejarah Kuiz",
+      "questions": "Soalan",
+      "correct": "{{correctAnswers}} betul"
+    },
+    "referral": {
+      "copied": "Disalin!",
+      "yourReferralCodeHasBeenCopied": "Kod rujukan anda telah disalin ke papan keratan.",
+      "joinMeOnClinicalFactUse": "Sertai saya di Clinical Fact! Gunakan kod saya {{referralCode}} – {{appUrl}}",
+      "joined": "Menyertai {{joinedDate}}",
+      "referralCode": "Kod rujukan",
+      "yourReferralCode": "Kod Rujukan Anda",
+      "shareWithFriendsToEarnRewards": "Kongsi dengan rakan untuk ganjaran",
+      "share": "Kongsi",
+      "copyCode": "Salin Kod",
+      "referredFriends": "Rakan dirujuk",
+      "noReferralsYetShareYourCode": "Tiada rujukan lagi. Kongsi kod anda untuk bermula!",
+      "loadMore": "Muat lagi",
+      "howItWorks": "Cara ia berfungsi",
+      "friendsUseYourCodeDuringSignup": "• Rakan guna kod anda semasa mendaftar",
+      "youBothEarnRewardsWhenThey": "• Anda berdua dapat ganjaran apabila mereka sertai",
+      "friendsReferredCount": "Rakan dirujuk: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Mengekstrak teks...",
+      "transcribingAudio": "Mentranskripsi audio...",
+      "processingPDF": "Memproses PDF...",
+      "settingUpChat": "Menyediakan sembang...",
+      "uploadFailed": "Muat Naik Gagal",
+      "failedToUploadFilePleaseTry": "Gagal memuat naik fail. Sila cuba lagi.",
+      "yourFileIsReadyForChatting": "Fail anda sedia untuk sesi sembang!",
+      "uploadingYourFileToTheServer": "Memuat naik fail anda ke pelayan...",
+      "extractingTextFromYourImage": "Mengekstrak teks daripada imej anda...",
+      "transcribingYourAudio": "Mentranskripsi audio anda...",
+      "extractingTextFromYourPDF": "Mengekstrak teks daripada PDF anda...",
+      "creatingYourChatSession": "Mencipta sesi sembang anda...",
+      "pleaseWait": "Sila tunggu...",
+      "uploadFile": "Muat naik fail",
+      "processContent": "Proses kandungan",
+      "createChat": "Cipta sembang"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Lihat",
+      "export": "📤 Eksport",
+      "delete": "🗑️ Padam"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Dikuasakan oleh"
+    },
+    "exportFormat": {
+      "txtFile": "Fail TXT",
+      "pdfFile": "Fail PDF",
+      "docFile": "Fail Doc"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Gagal mendapatkan nota",
+      "failedToFetchFolders": "Gagal mendapatkan folder",
+      "failedToFetchNote": "Gagal mendapatkan nota",
+      "failedToDeleteNote": "Gagal memadam nota",
+      "failedToCreateFolder": "Gagal mencipta folder",
+      "failedToDeleteFolder": "Gagal memadam folder"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Gagal memadam sembang"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Set kad imbas berjaya dieksport!",
+      "failedToExportFlashcardSet": "Gagal mengeksport set kad imbas."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Kuiz berjaya dieksport!",
+      "failedToExportQuiz": "Gagal mengeksport kuiz."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Kad Imbas Tanpa Tajuk",
+      "failedToLoadFlashcards": "Gagal memuatkan kad imbas",
+      "failedToSyncFlashcardSet": "Gagal menyegerakkan set kad imbas",
+      "failedToSyncCardUpdate": "Gagal menyegerakkan kemas kini kad"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Kuiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Dicipta {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Anda telah mencapai had 3 pin",
+      "failedToUpdatePin": "Gagal mengemas kini pin",
+      "noChatsYet": "Tiada sembang lagi",
+      "startAChatToGetAnswers": "Mulakan sembang untuk dapatkan jawapan bersandarkan sumber sahih.",
+      "createChat": "+ Cipta sembang"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Padam Kad Imbasan",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadam \"{{sourceTitle}}\"?",
+      "failedToDeleteFlashcards": "Gagal memadam kad imbasan",
+      "sets": "{{setCount}} set",
+      "flashcards": "Kad Imbasan",
+      "createFlashcards": "Cipta Kad Imbasan",
+      "searchFlashcards": "Cari kad imbasan...",
+      "noFlashcardsYet": "Tiada kad imbasan lagi",
+      "createAFlashcardSetFromA": "Cipta set kad imbasan daripada nota untuk bermula",
+      "createSet": "+ Cipta Set",
+      "flashcardOptions": "Pilihan kad imbasan",
+      "view": "Lihat"
+    },
+    "folder": {
+      "deleteFolder": "Padam Folder",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadam \"{{name}}\"? Nota di dalamnya akan dipindahkan ke direktori utama.",
+      "failedToDeleteFolder": "Gagal memadam folder",
+      "error": "Ralat: {{message}}",
+      "noFoldersYetCreateOne": "Tiada folder lagi. Cipta sekarang!",
+      "folders": "Folder"
+    },
+    "home": {
+      "created": "Dicipta {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Gagal mengemas kini bahasa",
+      "notEnoughContentYet": "Kandungan belum mencukupi",
+      "chatABitMoreBeforeGenerating": "Sembang lebih lanjut sebelum menjana kuiz (minimum 100 aksara).",
+      "chatABitMoreBeforeGenerating2": "Sembang lebih lanjut sebelum menjana kad imbasan (minimum 100 aksara).",
+      "failedToGenerateFlashcards": "Gagal menjana kad imbasan",
+      "upgradeToPro": "Naik taraf ke PRO",
+      "get80DiscountWhenYouUpgrade": "Dapatkan diskaun 80% apabila anda menaik taraf akaun anda",
+      "unlockPRO": "Buka PRO",
+      "noMedicalChats": "Tiada sembang klinikal",
+      "youHaveNotCreatedAnyMedical": "Anda belum memulakan sebarang sembang klinikal, sila mulakan sembang baharu untuk mendapatkan sumber rujukan",
+      "talkToClinicalfactAI": "Bercakap dengan Clinical Fact AI",
+      "jumpInWhereYouStopped": "Sambung dari tempat anda berhenti",
+      "practiceQuiz": "Kuiz Latihan",
+      "makeFlashcards": "Bina kad imbasan",
+      "continueChatWithNote": "Sambung sembang dengan Nota",
+      "continueChat": "Sambung sembang",
+      "recentChats": "Sembang terkini",
+      "chatOptions": "Pilihan sembang"
+    },
+    "library": {
+      "text": "{{day}} {{month}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Anda sedang luar talian. Sila sambung ke internet untuk meneruskan.",
+      "failedToDeleteNote": "Gagal memadam nota",
+      "failedToMoveNote": "Gagal memindahkan nota",
+      "deleteFolder": "Padam Folder?",
+      "areYouSureNotesInsideWill": "Adakah anda pasti? Nota di dalamnya tidak akan dipadamkan, hanya dipindahkan ke Semua Nota.",
+      "failedToDeleteFolder": "Gagal memadam folder",
+      "library": "Perpustakaan",
+      "addFolder": "Tambah folder",
+      "searchForANoteFolder": "Cari nota / folder",
+      "yourFolders": "Folder Anda",
+      "noFoldersToDisplay": "Tiada folder untuk dipaparkan",
+      "tapAddFolderToCreateA": "Ketik \"+ Tambah folder\" untuk mencipta folder bagi nota anda",
+      "allNotes": "Semua Nota",
+      "items": "{{allNotesTotal}} item",
+      "items2": "{{itemCount}} item",
+      "yourNotes": "Nota anda",
+      "untitledNote": "Nota Tanpa Tajuk",
+      "noResultsFor": "Tiada hasil untuk \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Tiada nota dalam folder ini",
+      "noNotesToDisplay": "Tiada nota untuk dipaparkan",
+      "tryADifferentSearchTerm": "Cuba kata kunci carian lain",
+      "moveNotesToThisFolderTo": "Pindahkan nota ke folder ini untuk melihatnya di sini",
+      "clickBelowToGenerateYourNote": "Ketik di bawah untuk menjana nota anda dengan Clinical Fact",
+      "filterByType": "Tapis mengikut jenis",
+      "audio": "Audio",
+      "text2": "Teks",
+      "image": "Imej",
+      "clearFilter": "Kosongkan penapis"
+    },
+    "profile": {
+      "permissionRequired": "Kebenaran Diperlukan",
+      "pleaseAllowAccessToYourPhoto": "Sila benarkan akses ke pustaka foto anda untuk menetapkan gambar profil.",
+      "uploadFailed": "Muat Naik Gagal",
+      "couldNotUpdateProfilePicture": "Tidak dapat mengemas kini gambar profil.",
+      "failedToUploadProfilePicture": "Gagal memuat naik gambar profil.",
+      "checkOutClinicalFactAIPowered": "Jom cuba Clinical Fact – nota pembelajaran dikuasakan AI! {{url}}",
+      "proSubscriber": "Pelanggan PRO",
+      "subscriptionExpired": "Langganan telah tamat",
+      "freeSubscriber": "Pelanggan Percuma",
+      "tapToManageIPhoneSettingsApple": "Ketik untuk urus · Tetapan iPhone → Apple ID → Langganan",
+      "tapToManagePlayStoreSubscriptions": "Ketik untuk urus · Play Store → Langganan",
+      "tapToRenewYourSubscription": "Ketik untuk memperbaharui langganan anda",
+      "tapToUpgradeToPro": "Ketik untuk naik taraf ke PRO",
+      "referralCode": "Kod rujukan",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu log keluar daripada akaun anda?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Padam Kuiz",
+      "areYouSureYouWantTo": "Adakah anda pasti mahu memadamkan \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Gagal memadamkan kuiz",
+      "correct": "{{correct}}/{{total}} betul",
+      "attempts": "{{attempts}} percubaan",
+      "quiz": "Kuiz",
+      "createQuiz": "Cipta Kuiz",
+      "searchQuizzes": "Cari kuiz...",
+      "noQuizzesYet": "Tiada kuiz lagi",
+      "createAQuizFromANote": "Cipta kuiz daripada nota untuk bermula",
+      "createQuiz2": "+ Cipta Kuiz",
+      "quizOptions": "Pilihan kuiz",
+      "view": "Lihat"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Naik taraf tidak tersedia",
+      "weCouldnTOpenTheUpgrade": "Kami tidak dapat membuka skrin naik taraf buat masa ini. Sila semak sambungan anda dan cuba lagi."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Pelayan mengembalikan respons bukan JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Ralat rangkaian. Sila semak sambungan internet anda.",
+      "connectionErrorPleaseTryAgain": "Ralat sambungan. Sila cuba lagi."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Fail dieksport: {{filename}}",
+      "exportFailed": "Eksport Gagal",
+      "exportFormat": "Format Eksport",
+      "chooseFormat": "Pilih format",
+      "text": "Teks"
+    },
+    "formatDate": {
+      "justNow": "Sebentar tadi",
+      "minAgo": "{{diffMin}} min lepas",
+      "hrAgo": "{{diffHr}} jam lepas",
+      "dAgo": "{{diffDay}}h lepas",
+      "created": "Dicipta {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Gagal menghantar OTP",
+      "invalidOTP": "OTP tidak sah",
+      "failedToVerifyOTP": "Gagal mengesahkan OTP",
+      "googleAuthenticationFailed": "Pengesahan Google gagal",
+      "appleAuthenticationFailed": "Pengesahan Apple gagal",
+      "failedToCompleteSignup": "Gagal melengkapkan pendaftaran",
+      "failedToSkipSignup": "Gagal melangkau pendaftaran"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Sembang",
+      "description": "Berbual dengan mana-mana nota, Dokumen atau PDF di satu tempat"
+    },
+    "profileWelcome": {
+      "heading": "Selamat datang ke Profil anda",
+      "description": "Ini profil anda, ketik di sini untuk mengemas kini profil dan status langganan anda"
+    },
+    "createNotes": {
+      "heading": "Cipta nota",
+      "description": "Cipta sebarang jenis nota daripada apa sahaja: Rakaman, Audio, Video, Imej, Teks dan pautan YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Tukar bahasa",
+      "description": "Tukar bahasa aplikasi anda dari sini ke bahasa yang diingini"
+    },
+    "manageHome": {
+      "heading": "Urus utama",
+      "description": "Lihat semua nota yang dicipta, pantau semua tindakan anda di satu tempat"
+    },
+    "yourLibrary": {
+      "heading": "Pustaka anda",
+      "description": "Urus semua nota yang dicipta, cipta folder untuk nota anda dan banyak lagi"
+    },
+    "yourProfile": {
+      "heading": "Profil anda",
+      "description": "Lihat segala-galanya tentang profil anda dan edit tetapan profil dari sini"
+    }
   }
 }

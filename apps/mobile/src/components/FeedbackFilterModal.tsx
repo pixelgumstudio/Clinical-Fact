@@ -10,6 +10,7 @@ import {
   Platform,
 } from 'react-native';
 import { colors, spacing, typography } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 interface FeedbackFilterModalProps {
   visible: boolean;
@@ -25,6 +26,7 @@ export const FeedbackFilterModal = ({
   onSad,
   onLater,
 }: FeedbackFilterModalProps) => {
+  const { t } = useTranslation();
   const [phase, setPhase] = useState<'prompt' | 'sad-input'>('prompt');
   const [comment, setComment] = useState('');
 
@@ -65,8 +67,8 @@ export const FeedbackFilterModal = ({
           {phase === 'prompt' ? (
             <>
               <Text style={styles.emoji}>🎉</Text>
-              <Text style={styles.title}>Your note is ready!</Text>
-              <Text style={styles.subtitle}>How did we do?</Text>
+              <Text style={styles.title}>{t('components.feedbackFilter.yourNoteIsReady')}</Text>
+              <Text style={styles.subtitle}>{t('components.feedbackFilter.howDidWeDo')}</Text>
 
               <View style={styles.buttonRow}>
                 <TouchableOpacity
@@ -75,7 +77,7 @@ export const FeedbackFilterModal = ({
                   activeOpacity={0.75}
                 >
                   <Text style={styles.reactionEmoji}>👍</Text>
-                  <Text style={styles.reactionLabel}>Happy</Text>
+                  <Text style={styles.reactionLabel}>{t('components.feedbackFilter.happy')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -84,22 +86,22 @@ export const FeedbackFilterModal = ({
                   activeOpacity={0.75}
                 >
                   <Text style={styles.reactionEmoji}>👎</Text>
-                  <Text style={styles.reactionLabel}>Sad</Text>
+                  <Text style={styles.reactionLabel}>{t('components.feedbackFilter.sad')}</Text>
                 </TouchableOpacity>
               </View>
 
               <TouchableOpacity onPress={handleLater} activeOpacity={0.6} style={styles.laterButton}>
-                <Text style={styles.laterText}>Maybe Later</Text>
+                <Text style={styles.laterText}>{t('components.feedbackFilter.maybeLater')}</Text>
               </TouchableOpacity>
             </>
           ) : (
             <>
-              <Text style={styles.title}>What went wrong?</Text>
-              <Text style={styles.subtitle}>Your feedback helps us improve.</Text>
+              <Text style={styles.title}>{t('components.feedbackFilter.whatWentWrong')}</Text>
+              <Text style={styles.subtitle}>{t('components.feedbackFilter.yourFeedbackHelpsUsImprove')}</Text>
 
               <TextInput
                 style={styles.textInput}
-                placeholder="Tell us what could be better..."
+                placeholder={t('components.feedbackFilter.tellUsWhatCouldBeBetter')}
                 placeholderTextColor={colors.text.tertiary}
                 value={comment}
                 onChangeText={setComment}
@@ -114,11 +116,11 @@ export const FeedbackFilterModal = ({
                 onPress={handleSubmitComment}
                 activeOpacity={0.8}
               >
-                <Text style={styles.submitButtonText}>Submit</Text>
+                <Text style={styles.submitButtonText}>{t('components.feedbackFilter.submit')}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={handleCancel} activeOpacity={0.6} style={styles.laterButton}>
-                <Text style={styles.laterText}>Cancel</Text>
+                <Text style={styles.laterText}>{t('common.cancel')}</Text>
               </TouchableOpacity>
             </>
           )}

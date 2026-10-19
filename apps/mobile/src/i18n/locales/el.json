@@ -15,7 +15,8 @@
     "done": "Γινώμενος",
     "search": "Ερευνα",
     "filter": "Φίλτρο",
-    "ok": "ΕΝΤΑΞΕΙ"
+    "ok": "ΕΝΤΑΞΕΙ",
+    "info": "Πληροφορίες"
   },
   "home": {
     "title": "Clinical Fact",
@@ -75,7 +76,12 @@
     "reportBug": "Αναφορά σφάλματος"
   },
   "auth": {
-    "welcome": "Καλώς ορίσατε στο Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Η σύνδεση μέσω Google απέτυχε",
+      "failedToAuthenticateWithServer": "Αποτυχία ταυτοποίησης με τον διακομιστή",
+      "googleSignInIsOnlyAvailable": "Η σύνδεση μέσω Google είναι διαθέσιμη μόνο στις εγγενείς εφαρμογές. Χρησιμοποίησε το email σου ή κατέβασε την εφαρμογή.",
+      "code": "{{message}} (κωδικός: {{code}})"
+    },
     "getStarted": "Ξεκινήστε",
     "signIn": "Σύνδεση",
     "signUp": "Εγγραφή",
@@ -199,7 +205,10 @@
     },
     "demoVideo": {
       "title": "Όλα όσα χρειάζεστε για να\\nμάθετε οτιδήποτε",
-      "subtitle": "Ηχογράφησέ το. Έρευνά το. Κάνε τεστ. Κατακτήστε το."
+      "subtitle": "Ηχογράφησέ το. Έρευνά το. Κάνε τεστ. Κατακτήστε το.",
+      "everythingYouNeedToLearnAnything": "Όλα όσα χρειάζεσαι για να μάθεις τα πάντα",
+      "recordItResearchItQuizIt": "Κατάγραψε. Αναζήτησε. Εξασκήσου. Κατάκτησέ το.",
+      "tryClinicalFactNowForFree": "Δοκίμασε το Clinical Fact δωρεάν τώρα"
     },
     "features": {
       "transcribe": {
@@ -283,12 +292,136 @@
       "studyTimePerWeek": "Πόσο χρόνο έχετε για διάβασμα κάθε εβδομάδα;",
       "comingUp": "Τι εξετάσεις ή υποχρεώσεις ακολουθούν σύντομα;",
       "referralSource": "Πού ακούσατε για το Clinical Fact;"
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Ενεργοποίηση ειδοποιήσεων",
+      "thisHelpsUsStayOnTrack": "Αυτό μας βοηθά να εξατομικεύσουμε τον λογαριασμό σου και να βρίσκεις ευκολότερα ιατρικές απαντήσεις"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Μη έγκυρος κωδικός επαλήθευσης. Δοκίμασε ξανά.",
+      "failedToResendCodePleaseTry": "Αποτυχία επαναποστολής κωδικού. Δοκίμασε ξανά.",
+      "confirmYourEmailAddress": "Επιβεβαίωση της διεύθυνσης email σου",
+      "enterCodeSentTo": "Εισήγαγε τον κωδικό OTP που στείλαμε στο email σου {{email}}",
+      "resendCodeIn": "Επαναποστολή κωδικού σε {{seconds}} δευτ."
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Σου πρότεινε κάποιος την εφαρμογή;",
+      "enterTheirReferralCodeIfYou": "Εισήγαγε τον κωδικό σύστασης εάν έχεις",
+      "eGJOHNOrTECHBRO": "π.χ. JOHN ή TECHBRO",
+      "codeIsValid": "✓ Ο κωδικός είναι έγκυρος"
+    },
+    "resultsChart": {
+      "getBetterResults": "Πέτυχε καλύτερα αποτελέσματα",
+      "over95OfClinicalfactUsersScore": "Πάνω από το 95% των χρηστών του Clinicalfact συγκεντρώνει 95% και άνω σε τεστ και εξετάσεις"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Φοιτητής/τρια Νοσηλευτικής",
+        "medicalStudent": "Φοιτητής/τρια Ιατρικής",
+        "paPharmacyStudent": "Φοιτητής/τρια Φαρμακευτικής ή Βοηθός Ιατρού (PA)",
+        "practicingNurse": "Εν ενεργεία νοσηλευτής/τρια",
+        "practicingPhysician": "Εν ενεργεία ιατρός",
+        "otherHealthcareProfessional": "Άλλος επαγγελματίας υγείας"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Συγγράμματα ή σημειώσεις μαθημάτων",
+        "flashcardQuizApps": "Εφαρμογές flashcards ή κουίζ",
+        "youtube": "YouTube",
+        "aiChatbots": "AI chatbots",
+        "colleagueClassmate": "Ερώτηση σε συνάδελφο ή συμφοιτητή",
+        "practiceQuestionBanks": "Τράπεζες ερωτήσεων εξάσκησης"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Δημιουργία flashcards & κουίζ από το μηδέν",
+        "findingTrustworthyAnswer": "Γρήγορη εύρεση αξιόπιστης απάντησης",
+        "reReadingNotes": "Επανάληψη σημειώσεων που δεν θυμάμαι",
+        "switchingApps": "Εναλλαγή μεταξύ πολλών εφαρμογών",
+        "chartingDocumentation": "Καταγραφή ιστορικού & τεκμηρίωση"
+      },
+      "appExpectation": {
+        "noHallucination": "Μια AI που δεν επινοεί ανακρίβειες",
+        "realCitations": "Πραγματικές παραπομπές από πηγές",
+        "oneApp": "Μία εφαρμογή αντί για πέντε συνδρομές",
+        "explainsWhy": "Εξηγεί το «γιατί», όχι μόνο την απάντηση"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Google search",
+        "otherApps": "Άλλες εφαρμογές"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Επινόησε πράγματα",
+        "notMedicalContent": "Δεν έχει σχεδιαστεί για ιατρικό περιεχόμενο",
+        "noSources": "Χωρίς πηγές για επαλήθευση",
+        "tooGeneric": "Πολύ γενικό, όχι εστιασμένο στις εξετάσεις ή την πράξη"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Κάθε φορά",
+        "sometimes": "Μερικές φορές",
+        "rarely": "Σπάνια",
+        "dontUseAi": "Δεν χρησιμοποιώ AI ακόμα"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Γρήγορες και αξιόπιστες απαντήσεις",
+        "quizzesFlashcardsWithoutWork": "Κουίζ & flashcards χωρίς κόπο",
+        "rememberingStudied": "Βοήθεια στην απομνημόνευση όσων διάβασα",
+        "medicalCitations": "Ιατρικές παραπομπές",
+        "allOfTheAbove": "Όλα τα παραπάνω"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Newsletter",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Άλλο"
+      },
+      "studyTime": {
+        "under5Hours": "Λιγότερο από 5 ώρες",
+        "510Hours": "5–10 ώρες",
+        "1020Hours": "10–20 ώρες",
+        "20PlusHours": "20+ ώρες"
+      },
+      "comingUp": {
+        "medicalExams": "Εξετάσεις Ιατρικής",
+        "clinicalRotations": "Κλινικές ασκήσεις",
+        "nursingExams": "Εξετάσεις Νοσηλευτικής",
+        "otherExams": "Άλλες εξετάσεις",
+        "staySharp": "Απλώς θέλω να μένω σε φόρμα"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Μεταγραφή σημείωσης",
+    "noteTranscript": {
+      "noteTranscript": "Απομαγνητοφώνηση σημείωσης",
+      "noNoteIDProvided": "Δεν δόθηκε αναγνωριστικό σημείωσης",
+      "noTranscriptAvailableForThisNote": "Δεν υπάρχει διαθέσιμη απομαγνητοφώνηση για αυτή τη σημείωση.",
+      "thisNoteWasNotCreatedFrom": "Αυτή η σημείωση δεν δημιουργήθηκε από ήχο/βίντεο και δεν διαθέτει απομαγνητοφώνηση.",
+      "failedToLoadNote": "Αποτυχία φόρτωσης σημείωσης",
+      "noteTranscript2": "Απομαγνητοφώνηση σημείωσης",
+      "loadingTranscript": "Φόρτωση απομαγνητοφώνησης...",
+      "goToNote": "Μετάβαση στη σημείωση"
+    },
     "noteOptions": "Επιλογές σημειώσεων",
-    "editNote": "Επεξεργασία σημείωσης",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Παρακαλώ εισαγάγετε τίτλο σημείωσης",
+      "failedToUpdateNote": "Αποτυχία ενημέρωσης σημείωσης",
+      "noteUpdatedSuccessfully": "Η σημείωση ενημερώθηκε επιτυχώς",
+      "editNote": "Επεξεργασία σημείωσης",
+      "noteTitle": "Τίτλος σημείωσης",
+      "enterNoteTitle": "Εισαγάγετε τίτλο σημείωσης",
+      "noteContent": "Περιεχόμενο σημείωσης",
+      "enterNoteContent": "Εισαγάγετε περιεχόμενο σημείωσης",
+      "saveThisNote": "Αποθήκευση σημείωσης",
+      "aiIsGeneratingYourNote": "Το AI δημιουργεί τη σημείωσή σας",
+      "largeAudioAndVideoFilesMay": "Τα μεγάλα αρχεία ήχου και βίντεο μπορεί να χρειαστούν μερικά λεπτά για επεξεργασία. Παρακαλώ κρατήστε την εφαρμογή ανοιχτή."
+    },
     "retranscribe": "Επαναμεταγραφή",
     "exportNote": "Εξαγωγή σημείωσης",
     "shareNoteLink": "Κοινή χρήση συνδέσμου σημείωσης",
@@ -310,12 +443,89 @@
     "translate": "Μεταφράζω",
     "addToFolder": "Προσθήκη σε φάκελο",
     "loadingNote": "Φόρτωση σημείωσης...",
-    "noteNotFound": "Η φόρτωση της σημείωσης απέτυχε"
+    "noteNotFound": "Η φόρτωση της σημείωσης απέτυχε",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Αποτυχία δημιουργίας flashcards",
+      "anUnexpectedErrorOccurred": "Παρουσιάστηκε μη αναμενόμενο σφάλμα",
+      "history": "Ιστορικό",
+      "export": "Εξαγωγή"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Αποτυχία προσθήκης σημείωσης στον φάκελο",
+      "folderNotFound": "Ο φάκελος δεν βρέθηκε",
+      "addNote": "+ Προσθήκη σημείωσης",
+      "noNotesInThisFolder": "Δεν υπάρχουν σημειώσεις σε αυτόν τον φάκελο",
+      "moveNotesToThisFolderTo": "Μετακινήστε σημειώσεις σε αυτόν τον φάκελο για να τις δείτε εδώ",
+      "addNoteToFolder": "Προσθήκη σημείωσης στον φάκελο",
+      "noNotesAvailableToAdd": "Δεν υπάρχουν διαθέσιμες σημειώσεις για προσθήκη",
+      "allYourNotesAreAlreadyIn": "Όλες οι σημειώσεις σας βρίσκονται ήδη σε αυτόν τον φάκελο",
+      "created": "Δημιουργήθηκε: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Αποτυχία φόρτωσης σημείωσης",
+      "reTranscribeNote": "Επαναπομαγνητοφώνηση σημείωσης",
+      "thisWillReTranscribeTheAudio": "Θα γίνει εκ νέου απομαγνητοφώνηση του ήχου και ενημέρωση της σημείωσης. Συνέχεια;",
+      "reTranscribe": "Επαναπομαγνητοφώνηση",
+      "noteReTranscribedSuccessfully": "Η σημείωση απομαγνητοφωνήθηκε ξανά επιτυχώς",
+      "info": "Πληροφορίες",
+      "reTranscriptionFeatureIsComingSoon": "Η δυνατότητα επαναπομαγνητοφώνησης θα είναι σύντομα διαθέσιμη",
+      "youAreCurrentlyOfflinePleaseConnect": "Είστε εκτός σύνδεσης. Παρακαλώ συνδεθείτε στο διαδίκτυο για να εκτελέσετε αυτή την ενέργεια.",
+      "failedToDeleteNote": "Αποτυχία διαγραφής σημείωσης",
+      "failedToExportNote": "Αποτυχία εξαγωγής σημείωσης",
+      "noteTranslatedSuccessfully": "Η σημείωση μεταφράστηκε επιτυχώς",
+      "failedToTranslateNote": "Αποτυχία μετάφρασης σημείωσης",
+      "noteMovedTo": "Η σημείωση μεταφέρθηκε στο {{name}}",
+      "failedToMoveNoteToFolder": "Αποτυχία μεταφοράς σημείωσης στον φάκελο",
+      "summaryNotes": "Συνοπτικές σημειώσεις",
+      "loadingNote": "Φόρτωση σημείωσης...",
+      "imageNote": "Σημείωση εικόνας",
+      "created": "Δημιουργήθηκε {{dateTime}}",
+      "translate": "Μετάφραση",
+      "transcribe": "Απομαγνητοφώνηση",
+      "editThisNote": "Επεξεργασία σημείωσης",
+      "createFlashcards": "Δημιουργία flashcards",
+      "createFlashcardsToImproveYourRetention": "Δημιούργησε flashcards για να βελτιώσεις την απομνημόνευσή σου",
+      "createQuizQuestions": "Δημιουργία ερωτήσεων κουίζ",
+      "practiceYourNotesByCreatingQuestions": "Κάνε εξάσκηση δημιουργώντας ερωτήσεις για καλύτερη κατανόηση της ύλης"
+    },
+    "sharedNote": {
+      "notFound": "Δεν βρέθηκε",
+      "thisSharedNoteLinkIsInvalid": "Αυτός ο σύνδεσμος κοινόχρηστης σημείωσης δεν είναι έγκυρος ή έχει λήξει.",
+      "failedToLoadSharedNote": "Αποτυχία φόρτωσης κοινόχρηστης σημείωσης.",
+      "saved": "Αποθηκεύτηκε!",
+      "noteHasBeenAddedToYour": "Η σημείωση προστέθηκε στη βιβλιοθήκη σου.",
+      "viewInLibrary": "Προβολή στη βιβλιοθήκη",
+      "stayHere": "Παραμονή εδώ",
+      "failedToSaveNote": "Αποτυχία αποθήκευσης σημείωσης.",
+      "loadingSharedNote": "Φόρτωση κοινόχρηστης σημείωσης...",
+      "sharedNote": "Κοινοποιημένη σημείωση",
+      "sharedWithYou": "Κοινοποιήθηκε σε εσένα",
+      "savedToLibrary": "Αποθηκεύτηκε στη βιβλιοθήκη",
+      "saveToMyLibrary": "Αποθήκευση στη βιβλιοθήκη μου"
+    }
   },
   "create": {
     "selectOption": "Πώς θα θέλατε να δημιουργήσετε τη σημείωσή σας;",
-    "recordAudio": "Εγγραφή ήχου",
-    "uploadAudio": "Μεταφόρτωση ήχου",
+    "recordAudio": {
+      "permissionRequired": "Απαιτείται άδεια",
+      "pleaseGrantMicrophonePermissionToRecord": "Παρακαλούμε δώσε άδεια πρόσβασης στο μικρόφωνο για την εγγραφή ήχου.",
+      "failedToRequestMicrophonePermission": "Αποτυχία αιτήματος άδειας μικροφώνου",
+      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Εγγραφή ήχου",
+      "recordAudio": "Εγγραφή ήχου",
+      "createANoteFromAnyRecorded": "Δημιούργησε σημείωση από οποιοδήποτε ηχογραφημένο αρχείο",
+      "recording": "Εγγραφή ({{time}})",
+      "recordAgain": "Επανεγγραφή"
+    },
+    "uploadAudio": {
+      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Αποτυχία επιλογής αρχείου ήχου",
+      "uploadAudio": "Μεταφόρτωση ήχου",
+      "createANoteFromAnyUploaded": "Δημιούργησε σημείωση από οποιοδήποτε αρχείο ήχου",
+      "dragDropFilesOrBrowse": "Σύρε & άφησε αρχεία ή περιηγήσου",
+      "supportedFormatMp4WavMp3": "Υποστηριζόμενοι τύποι: mp4, wav, mp3",
+      "changeFile": "Αλλαγή αρχείου"
+    },
     "youtube": "Βίντεο YouTube",
     "pdfDocument": "PDF ή έγγραφο",
     "customText": "Προσαρμοσμένο κείμενο",
@@ -323,7 +533,56 @@
     "uploadingFile": "Μεταφόρτωση αρχείου στον διακομιστή...",
     "transcribing": "Μετατροπή ομιλίας σε κείμενο...",
     "extractingText": "Εξαγωγή κειμένου...",
-    "generatingNote": "Δημιουργία σημειώσεων μελέτης με τεχνητή νοημοσύνη...",
+    "generatingNote": {
+      "uploadAudio": "Μεταφόρτωση ήχου",
+      "uploadingAudioFileToServer": "Μεταφόρτωση αρχείου ήχου στον διακομιστή...",
+      "transcribeAudio": "Απομαγνητοφώνηση ήχου",
+      "convertingSpeechToText": "Μετατροπή ομιλίας σε κείμενο...",
+      "generateYourNote": "Δημιουργία της σημείωσής σου",
+      "creatingStudyNotes": "Δημιουργία σημειώσεων μελέτης...",
+      "uploadPDF": "Μεταφόρτωση PDF",
+      "uploadingPDFDocumentToServer": "Μεταφόρτωση εγγράφου PDF στον διακομιστή...",
+      "extractText": "Εξαγωγή κειμένου",
+      "readingAndExtractingTextFromPDF": "Ανάγνωση και εξαγωγή κειμένου από το PDF...",
+      "uploadImage": "Μεταφόρτωση εικόνας",
+      "uploadingImageToServer": "Μεταφόρτωση εικόνας στον διακομιστή...",
+      "extractTextOCR": "Εξαγωγή κειμένου (OCR)",
+      "recognizingAndExtractingTextFromImage": "Αναγνώριση και εξαγωγή κειμένου από την εικόνα...",
+      "fetchVideo": "Ανάκτηση βίντεο",
+      "connectingToYouTube": "Σύνδεση στο YouTube...",
+      "extractTranscript": "Εξαγωγή απομαγνητοφώνησης",
+      "downloadingVideoTranscript": "Λήψη απομαγνητοφώνησης βίντεο...",
+      "processText": "Επεξεργασία κειμένου",
+      "analyzingYourContent": "Ανάλυση περιεχομένου...",
+      "uploadFile": "Μεταφόρτωση αρχείου",
+      "uploadingToServer": "Μεταφόρτωση στον διακομιστή...",
+      "processContent": "Επεξεργασία περιεχομένου",
+      "extractingContent": "Εξαγωγή περιεχομένου...",
+      "noteReady": "Η σημείωση είναι έτοιμη!",
+      "noteGenerationFailedOnTheServer": "Η δημιουργία σημείωσης απέτυχε στον διακομιστή.",
+      "failedToUploadImage": "Αποτυχία μεταφόρτωσης εικόνας",
+      "weCouldNotReadAnythingFrom": "Δεν μπορέσαμε να διαβάσουμε τίποτα από αυτή την εικόνα. Δοκιμάστε μια πιο καθαρή εικόνα των ιατρικών σας σημειώσεων.",
+      "preparingFile": "Προετοιμασία αρχείου...",
+      "almostDone": "Σχεδόν έτοιμο...",
+      "untitledNote": "Σημείωση χωρίς τίτλο",
+      "failedToGenerateNote": "Αποτυχία δημιουργίας σημείωσης",
+      "whoaSpeedy": "Ώπα, τι ταχύτητα! 🏃💨",
+      "youReGeneratingContentABit": "Δημιουργείτε περιεχόμενο πολύ γρήγορα. Κάντε ένα διάλειμμα 60 δευτερολέπτων πριν δοκιμάσετε ξανά, ώστε να προλάβει το AI μας.",
+      "gotIt": "Εντάξει",
+      "fileTooLarge": "Το αρχείο είναι πολύ μεγάλο",
+      "yourFileExceedsThe15MBLimit": "Το αρχείο σας υπερβαίνει το όριο των 15MB για δωρεάν χρήστες. Αναβαθμίστε σε PRO για να ανεβάζετε διαλέξεις έως 100MB.",
+      "upgradeToPRO": "Αναβάθμιση σε PRO",
+      "oopsWeHitASnag": "Ωχ, παρουσιάστηκε πρόβλημα 🚧",
+      "weCouldnTGenerateThatRight": "Δεν ήταν δυνατή η δημιουργία αυτή τη στιγμή. Περιμένετε λίγο και δοκιμάστε ξανά!",
+      "processingContent": "Επεξεργασία περιεχομένου...",
+      "generatingYourNote": "Δημιουργία της σημείωσής σας...",
+      "audioNote": "Ηχητική σημείωση",
+      "failedToGenerateFlashcards": "Αποτυχία δημιουργίας flashcards",
+      "generatingNote": "Δημιουργία σημείωσης",
+      "pleaseKeepThisScreenOpenWhile": "Παρακαλούμε κρατήστε αυτήν την οθόνη ανοιχτή όσο δημιουργείται η σημείωσή σας. Η απομαγνητοφώνηση μεγάλων αρχείων ενδέχεται να διαρκέσει λίγα λεπτά.",
+      "goToNote": "Μετάβαση στη σημείωση",
+      "generateNoteTranscript": "Δημιουργία απομαγνητοφώνησης σημείωσης"
+    },
     "fetchingVideo": "Σύνδεση στο YouTube...",
     "processingText": "Ανάλυση του περιεχομένου σας...",
     "uploadAudioTitle": "Μεταφόρτωση ήχου",
@@ -333,7 +592,63 @@
     "fetchVideo": "Ανάκτηση βίντεο",
     "extractTranscript": "Απόσπασμα μεταγραφής",
     "processText": "Κείμενο επεξεργασίας",
-    "generateNote": "Δημιουργήστε τη σημείωσή σας"
+    "generateNote": "Δημιουργήστε τη σημείωσή σας",
+    "customTextInput": {
+      "customText": "Προσαρμοσμένο κείμενο",
+      "createANoteFromAnyCustom": "Δημιουργήστε σημείωση από οποιοδήποτε δικό σας κείμενο",
+      "enterText": "Εισαγωγή κειμένου",
+      "enterYourTextHere": "Εισαγάγετε το κείμενό σας εδώ..."
+    },
+    "uploadImage": {
+      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Απαιτείται άδεια",
+      "pleaseAllowAccessToYourPhoto": "Επιτρέψτε την πρόσβαση στη βιβλιοθήκη φωτογραφιών σας",
+      "failedToPickImage": "Αποτυχία επιλογής εικόνας",
+      "uploadImage": "Μεταφόρτωση εικόνας",
+      "createANoteFromAnyUploaded": "Δημιουργήστε σημείωση από οποιαδήποτε μεταφορτωμένη εικόνα",
+      "dragDropFilesOrBrowse": "Σύρετε και αποθέστε αρχεία ή Αναζητήστε",
+      "supportedFormatPngJpegHeicWebp": "Υποστηριζόμενοι τύποι: png, jpeg, heic, webp",
+      "changeFile": "Αλλαγή αρχείου"
+    },
+    "uploadPDF": {
+      "created": "Δημιουργήθηκε {{month}} {{day}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Αποτυχία επιλογής εγγράφου",
+      "uploadPdf": "Μεταφόρτωση PDF",
+      "createANoteFromAnyUploaded": "Δημιουργήστε σημείωση από οποιοδήποτε μεταφορτωμένο PDF",
+      "dragDropFilesOrBrowse": "Σύρετε και αποθέστε αρχεία ή Αναζητήστε",
+      "supportedFormatPdf": "Υποστηριζόμενος τύπος: pdf",
+      "changeFile": "Αλλαγή αρχείου"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Ανάκτηση βίντεο",
+      "gettingVideoDetails": "Λήψη στοιχείων βίντεο",
+      "extractingTranscript": "Εξαγωγή απομαγνητοφώνησης",
+      "convertingAudioToText": "Μετατροπή ήχου σε κείμενο",
+      "generatingYourNote": "Δημιουργία της σημείωσής σας",
+      "aiIsSummarisingTheContent": "Το AI συνοψίζει το περιεχόμενο",
+      "noteGenerationFailedPleaseTryAgain": "Η δημιουργία σημείωσης απέτυχε. Δοκιμάστε ξανά.",
+      "processingFailed": "Η επεξεργασία απέτυχε",
+      "goBack": "Επιστροφή",
+      "retry": "Επανάληψη",
+      "failedToStartNoteGeneration": "Αποτυχία έναρξης δημιουργίας σημείωσης",
+      "failedToProcessYouTubeVideoPlease": "Αποτυχία επεξεργασίας βίντεο YouTube. Παρακαλούμε δοκιμάστε ξανά.",
+      "cancelProcessing": "Ακύρωση επεξεργασίας",
+      "areYouSureYouWantTo": "Είστε σίγουροι ότι θέλετε να ακυρώσετε; Η πρόοδός σας θα χαθεί.",
+      "continueProcessing": "Συνέχιση επεξεργασίας",
+      "youTubeNote": "Σημείωση YouTube",
+      "noteGenerated": "Η σημείωση δημιουργήθηκε",
+      "generatingNote": "Δημιουργία σημείωσης",
+      "goToNote": "Μετάβαση στη σημείωση"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Δεν ήταν δυνατή η ανάκτηση πληροφοριών βίντεο",
+      "failedToFetchVideoInformation": "Αποτυχία ανάκτησης πληροφοριών βίντεο",
+      "youtubeVideo": "Βίντεο YouTube",
+      "createANoteFromAnyYoutube": "Δημιουργήστε σημείωση από οποιοδήποτε βίντεο YouTube",
+      "enterYoutubeURL": "Εισαγάγετε URL YouTube",
+      "pasteYoutubeURL": "Επικολλήστε το URL YouTube",
+      "fetchingVideoInfo": "Ανάκτηση στοιχείων βίντεο..."
+    }
   },
   "library": {
     "title": "Βιβλιοθήκη",
@@ -387,7 +702,42 @@
     "explanation": "Εξήγηση",
     "questionProgress": "Ερώτηση {{current}} από {{total}}",
     "generatingQuizWait": "Δημιουργούμε το κουίζ σας, παρακαλούμε περιμένετε...",
-    "goToChats": "Μετάβαση στις συνομιλίες"
+    "goToChats": "Μετάβαση στις συνομιλίες",
+    "quizGroupDetail": {
+      "inProgress": "Σε εξέλιξη",
+      "notStarted": "Δεν ξεκίνησε",
+      "failedToLoadQuizHistory": "Αποτυχία φόρτωσης ιστορικού κουίζ",
+      "failedToLoadChatContent": "Αποτυχία φόρτωσης περιεχομένου συνομιλίας",
+      "deleteQuiz": "Διαγραφή κουίζ",
+      "failedToDeleteQuiz": "Αποτυχία διαγραφής κουίζ",
+      "created": "Δημιουργήθηκε: {{dateTime}}",
+      "lastscore": "ΤΕΛΕΥΤΑΙΑ ΒΑΘΜΟΛΟΓΙΑ",
+      "bestscore": "ΚΑΛΥΤΕΡΗ ΒΑΘΜΟΛΟΓΙΑ",
+      "attempts": "ΠΡΟΣΠΑΘΕΙΕΣ",
+      "retakeQuiz": "Επανάληψη κουίζ",
+      "translate": "Μετάφραση",
+      "newQuiz": "Νέο κουίζ",
+      "quizHistory": "Ιστορικό κουίζ",
+      "flashcardHistory": "Ιστορικό flashcards",
+      "score": "Βαθμολογία {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Δεν υπάρχουν ακόμη σετ flashcards από αυτήν την πηγή.",
+      "cards": "{{totalCards}} κάρτες · {{flashcardStatus}}",
+      "quizOptions": "Επιλογές κουίζ",
+      "exportLatestAttempt": "Εξαγωγή τελευταίας προσπάθειας",
+      "questions": "{{totalQuestions}} ερωτήσεις · {{value}}",
+      "deleteAllAttemptsOne": "Διαγραφή της 1 προσπάθειας κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+      "deleteAllAttemptsMany": "Διαγραφή και των {{total}} προσπαθειών κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Αποτυχία φόρτωσης δεδομένων κουίζ - μη έγκυρη μορφή απόκρισης",
+      "failedToLoadQuizData": "Αποτυχία φόρτωσης δεδομένων κουίζ",
+      "noContentAvailable": "Δεν υπάρχει διαθέσιμο περιεχόμενο",
+      "goBack": "Επιστροφή",
+      "previous": "Προηγούμενο"
+    },
+    "quiz": {
+      "generationFailed": "Η δημιουργία απέτυχε"
+    }
   },
   "flashcards": {
     "title": "Κάρτες flash",
@@ -418,7 +768,44 @@
     "headerTitle": "Κάρτα flashcard",
     "progressFormat": "Κάρτα flashcard {{current}} από {{total}}",
     "noteIdRequired": "Απαιτείται αναγνωριστικό σημείωσης για τη δημιουργία καρτών flash",
-    "invalidCardCount": "Παρακαλώ επιλέξτε μεταξύ 1 και 100 καρτών flash"
+    "invalidCardCount": "Παρακαλώ επιλέξτε μεταξύ 1 και 100 καρτών flash",
+    "flashcardGroupDetail": {
+      "inProgress": "Σε εξέλιξη",
+      "notStarted": "Δεν ξεκίνησε",
+      "failedToLoadFlashcardHistory": "Αποτυχία φόρτωσης ιστορικού flashcards",
+      "limitReached": "Συμπληρώθηκε το όριο",
+      "flashcardGenerationLimitReached": "Συμπληρώθηκε το όριο δημιουργίας flashcards.",
+      "failedToGenerateFlashcards": "Αποτυχία δημιουργίας flashcards",
+      "failedToTranslateFlashcards": "Αποτυχία μετάφρασης flashcards",
+      "deleteFlashcards": "Διαγραφή flashcards",
+      "failedToDeleteFlashcards": "Αποτυχία διαγραφής flashcards",
+      "created": "Δημιουργήθηκε: {{dateTime}}",
+      "lastprogress": "ΤΕΛΕΥΤΑΙΑ ΠΡΟΟΔΟΣ",
+      "bestprogress": "ΚΑΛΥΤΕΡΗ ΠΡΟΟΔΟΣ",
+      "sets": "ΣΕΤ",
+      "studyNow": "Μελέτη τώρα",
+      "translate": "Μετάφραση",
+      "newFlashcards": "Νέες flashcards",
+      "flashcardHistory": "Ιστορικό flashcards",
+      "quizHistory": "Ιστορικό κουίζ",
+      "cards": "{{totalCards}} κάρτες · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Δεν υπάρχουν ακόμη κουίζ από αυτή την πηγή.",
+      "score": "Βαθμολογία {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Επιλογές flashcards",
+      "exportLatestSet": "Εξαγωγή τελευταίου σετ",
+      "questions": "{{totalQuestions}} ερωτήσεις · {{value}}",
+      "deleteAllSetsOne": "Διαγραφή του 1 σετ flashcards για το «{{title}}»; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί.",
+      "deleteAllSetsMany": "Διαγραφή και των {{total}} σετ flashcards για το «{{title}}»; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί."
+    },
+    "flashcardReview": {
+      "unknownError": "Άγνωστο σφάλμα",
+      "noFlashcardsInThisSet": "Δεν υπάρχουν flashcards σε αυτό το σετ",
+      "goBack": "Επιστροφή",
+      "allDone": "Ολοκληρώθηκε",
+      "youHaveReviewedAllTheCards": "Έχετε μελετήσει όλες τις κάρτες αυτής της σειράς",
+      "question": "Ερώτηση {{value}}",
+      "questionOf": "Ερώτηση {{value}} από {{totalCards}}"
+    }
   },
   "chat": {
     "title": "Κουβέντα",
@@ -429,7 +816,186 @@
     "chatWithDocument": "Συνομιλία με έγγραφο",
     "selectFile": "Επιλέξτε ένα αρχείο για συνομιλία",
     "uploadFile": "Μεταφόρτωση αρχείου",
-    "startChatting": "Ξεκινήστε τη συνομιλία"
+    "startChatting": "Ξεκινήστε τη συνομιλία",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Κάντε μια ιατρική ερώτηση για περισσότερες διευκρινίσεις",
+      "askAnythingAboutThisDocument": "Ρωτήστε οτιδήποτε σχετικά με αυτό το έγγραφο...",
+      "askAQuestionAttachmentProcessingFailed": "Κάντε μια ερώτηση — η επεξεργασία του συνημμένου απέτυχε",
+      "extractingText": "Εξαγωγή κειμένου...",
+      "processingPDF": "Επεξεργασία PDF...",
+      "upgradeToProToContinueChatting": "Αναβαθμίστε σε PRO για να συνεχίσετε τη συνομιλία",
+      "queryremaining": "{{queriesRemaining}} ΕΡΩΤΗΣΕΙΣ ΑΠΟΜΕΝΟΥΝ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Προετοιμασία συνομιλίας...",
+      "extractingTextFromImage": "Εξαγωγή κειμένου από την εικόνα...",
+      "processingPDFDocument": "Επεξεργασία εγγράφου PDF...",
+      "analyzingYourNote": "Ανάλυση της σημείωσής σας...",
+      "thisUsuallyTakesJustAFew": "⏱️ Αυτό συνήθως διαρκεί λίγα δευτερόλεπτα. Θα μπορείτε να συνομιλήσετε μόλις ολοκληρωθεί η επεξεργασία.",
+      "processingFailed": "Η επεξεργασία απέτυχε",
+      "fileMightBeCorruptedOrUnreadable": "• Το αρχείο ενδέχεται να είναι κατεστραμμένο ή μη αναγνώσιμο",
+      "imageQualityTooLow": "Πολύ χαμηλή ποιότητα εικόνας",
+      "pdfIsPasswordProtected": "Το PDF προστατεύεται με κωδικό πρόσβασης",
+      "contentFormatNotSupported": "Μη υποστηριζόμενη μορφή περιεχομένου",
+      "networkConnectionIssue": "• Πρόβλημα σύνδεσης δικτύου",
+      "tryADifferentFile": "Δοκιμάστε άλλο αρχείο",
+      "askAnyClinicalQuestionNoUpload": "💡 Κάντε οποιαδήποτε κλινική ερώτηση — χωρίς ανάγκη μεταφόρτωσης. Θα απαντήσω βάσει της ιατρικής βιβλιογραφίας, με σχετικές εικόνες όπου υπάρχουν.",
+      "readyToChat": "✓ Έτοιμο για συνομιλία",
+      "couldntProcessNote": "Δεν ήταν δυνατή η επεξεργασία αυτής της σημείωσης. Αυτό μπορεί να οφείλεται σε:",
+      "couldntProcessImage": "Δεν ήταν δυνατή η επεξεργασία αυτής της εικόνας. Αυτό μπορεί να οφείλεται σε:",
+      "couldntProcessDocument": "Δεν ήταν δυνατή η επεξεργασία αυτού του εγγράφου. Αυτό μπορεί να οφείλεται σε:",
+      "askMeAboutNote": "💡 Ρωτήστε με οτιδήποτε για αυτή τη σημείωση. Μπορώ να συνοψίσω, να εξηγήσω έννοιες ή να απαντήσω σε συγκεκριμένες ερωτήσεις.",
+      "askMeAboutImage": "💡 Ρωτήστε με οτιδήποτε για αυτή την εικόνα. Μπορώ να συνοψίσω, να εξηγήσω έννοιες ή να απαντήσω σε συγκεκριμένες ερωτήσεις.",
+      "askMeAboutDocument": "💡 Ρωτήστε με οτιδήποτε για αυτό το έγγραφο. Μπορώ να συνοψίσω, να εξηγήσω έννοιες ή να απαντήσω σε συγκεκριμένες ερωτήσεις."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "{{masteredCards}}/{{totalCards}} εμπεδώθηκαν",
+      "notStarted": "Δεν ξεκίνησε",
+      "quizGeneration": "Δημιουργία κουίζ",
+      "score": "Βαθμολογία {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Δημιουργία flashcards",
+      "questions": "{{totalCards}} ερωτήσεις · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} ερωτήσεις · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Αναζήτηση πηγών και επεξεργασία απάντησης...",
+      "couldnTGenerateAResponse": "Δεν ήταν δυνατή η δημιουργία απάντησης.",
+      "retry": "Δοκιμάστε ξανά",
+      "alsoReferencedFromTheWeb": "Αναφορές και από το διαδίκτυο",
+      "followUpQuestions": "Συμπληρωματικές ερωτήσεις"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Ρωτήστε οτιδήποτε ιατρικό, λάβετε τεκμηριωμένες απαντήσεις με έγκυρες πηγές",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Βασισμένο σε ενδείξεις · Πηγές PubMed · Με αξιολόγηση από ομοτίμους",
+      "tryOutAnyOfThisTopics": "Δοκιμάστε ένα από αυτά τα θέματα για να ξεκινήσετε",
+      "topics": {
+        "electrolytes": {
+          "label": "Διαταραχές ηλεκτρολυτών: Ανάλυση",
+          "question": "Εξήγησε τις ηλεκτρολυτικές διαταραχές — αίτια, συμπτώματα και αντιμετώπιση"
+        },
+        "ecg": {
+          "label": "Βασικές αρχές ερμηνείας ΗΚΓ",
+          "question": "Ποιες είναι οι βασικές αρχές ερμηνείας ενός ΗΚΓ;"
+        },
+        "drugInteractions": {
+          "label": "Σημαντικές αλληλεπιδράσεις φαρμάκων",
+          "question": "Ποιες είναι μερικές συχνές και σημαντικές αλληλεπιδράσεις φαρμάκων που πρέπει να γνωρίζω;"
+        },
+        "nclex": {
+          "label": "Θέματα προετοιμασίας τύπου NCLEX",
+          "question": "Δώσε μου μια ερώτηση εξάσκησης τύπου NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Ετικέτα φαρμάκου FDA",
+      "fromYourAttachedMaterial": "Από το συνημμένο υλικό σας"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Αποτυχία δημιουργίας συνεδρίας συνομιλίας",
+      "failedToInitializeChatSession": "Αποτυχία προετοιμασίας συνεδρίας συνομιλίας",
+      "failedToUpdateLanguage": "Αποτυχία ενημέρωσης γλώσσας",
+      "youVeReachedYour3Pin": "Φτάσατε το όριο των 3 καρφιτσωμένων",
+      "failedToUpdatePin": "Αποτυχία ενημέρωσης καρφιτσώματος",
+      "permissionRequired": "Απαιτείται άδεια",
+      "pleaseGrantCameraPermissionToTake": "Παραχωρήστε πρόσβαση στην κάμερα για λήψη φωτογραφίας.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Παραχωρήστε πρόσβαση στη βιβλιοθήκη φωτογραφιών για μεταφόρτωση εικόνων.",
+      "failedToUploadImage": "Αποτυχία μεταφόρτωσης εικόνας",
+      "uploadFailed": "Η μεταφόρτωση απέτυχε",
+      "failedToUploadDocument": "Αποτυχία μεταφόρτωσης εγγράφου",
+      "failedToStartChatFromThis": "Αποτυχία έναρξης συνομιλίας από αυτό το αρχείο.",
+      "chatFromImage": "Συνομιλία από εικόνα",
+      "failedToStartANewQuestion": "Αποτυχία έναρξης νέας ερώτησης. Παρακαλούμε δοκιμάστε ξανά.",
+      "failedToAttachFile": "Αποτυχία επισύναψης αρχείου",
+      "failedToSendMessage": "Αποτυχία αποστολής μηνύματος",
+      "copiedToClipboard": "Αντιγράφηκε στο πρόχειρο",
+      "notEnoughContentYet": "Δεν υπάρχει αρκετό περιεχόμενο ακόμα",
+      "chatABitMoreBeforeGenerating": "Συνομιλήστε λίγο περισσότερο πριν από τη δημιουργία κουίζ (τουλάχιστον 100 χαρακτήρες).",
+      "chatABitMoreBeforeGenerating2": "Συνομιλήστε λίγο περισσότερο πριν από τη δημιουργία flashcards (τουλάχιστον 100 χαρακτήρες).",
+      "failedToGenerateFlashcards": "Αποτυχία δημιουργίας flashcards",
+      "failedToRegenerateResponse": "Αποτυχία αναδημιουργίας απάντησης",
+      "failedToRetryResponse": "Αποτυχία επανάληψης απάντησης"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Αποτυχία επισύναψης σημείωσης",
+      "folderCreatedSuccessfully": "Ο φάκελος «{{name}}» δημιουργήθηκε επιτυχώς!",
+      "failedToCreateFolder": "Αποτυχία δημιουργίας φακέλου",
+      "failedToAttachDocument": "Αποτυχία επισύναψης εγγράφου",
+      "failedToCreateChatSession": "Αποτυχία δημιουργίας συνεδρίας συνομιλίας",
+      "failedToUploadDocument": "Αποτυχία μεταφόρτωσης εγγράφου",
+      "openingCamera": "📷 Άνοιγμα κάμερας...",
+      "openingImagePicker": "🖼️ Άνοιγμα επιλογέα εικόνων...",
+      "permissionRequired": "Απαιτείται άδεια",
+      "pleaseGrantCameraPermissionToTake": "Παραχωρήστε πρόσβαση στην κάμερα για λήψη φωτογραφίας.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Παραχωρήστε πρόσβαση στη βιβλιοθήκη φωτογραφιών για μεταφόρτωση εικόνων.",
+      "failedToAttachImage": "Αποτυχία επισύναψης εικόνας",
+      "failedToUploadImage": "Αποτυχία μεταφόρτωσης εικόνας",
+      "failedToAttachAudio": "Αποτυχία επισύναψης ήχου",
+      "failedToUploadAudio": "Αποτυχία μεταφόρτωσης ήχου",
+      "aNote": "{{verb}} σημείωση",
+      "anImage": "{{verb}} εικόνα",
+      "aDocument": "{{verb}} έγγραφο",
+      "audio": "{{verb}} ήχος",
+      "aFile": "{{verb}} αρχείο",
+      "items": "{{itemCount}} στοιχεία",
+      "thisFolderIsEmptyGoBack": "Αυτός ο φάκελος είναι κενός. Επιστρέψτε πίσω για να επιλέξετε διαφορετικό φάκελο.",
+      "addFolder": "Προσθήκη φακέλου",
+      "uploadNewDocument": "Μεταφόρτωση νέου εγγράφου",
+      "uploadAPDFAndStartChatting": "Μεταφορτώστε ένα PDF και ξεκινήστε συνομιλία αμέσως",
+      "uploadNewImage": "Μεταφόρτωση νέας εικόνας",
+      "uploadAnImageAndExtractText": "Μεταφορτώστε μια εικόνα και εξάγετε κείμενο αμέσως",
+      "uploadNewAudio": "Μεταφόρτωση νέου ήχου",
+      "uploadAnAudioFileAndTranscribe": "Μεταφορτώστε αρχείο ήχου και απομαγνητοφωνήστε το αμέσως",
+      "orselectfromlibrary": "Ή ΕΠΙΛΕΞΤΕ ΑΠΟ ΤΗ ΒΙΒΛΙΟΘΗΚΗ",
+      "folders": "Φάκελοι",
+      "allNotes": "Όλες οι σημειώσεις",
+      "noFilesToDisplay": "Δεν υπάρχουν αρχεία προς εμφάνιση",
+      "noNotesToDisplay": "Δεν υπάρχουν σημειώσεις προς εμφάνιση",
+      "noDocumentsYet": "Δεν έχετε ακόμη έγγραφα PDF.\nΔημιουργήστε πρώτα μερικές σημειώσεις και επιστρέψτε για να συνομιλήσετε μαζί τους.",
+      "noImagesYet": "Δεν έχετε ακόμη εικόνες.\nΔημιουργήστε πρώτα μερικές σημειώσεις και επιστρέψτε για να συνομιλήσετε μαζί τους.",
+      "noAudioNotesYet": "Δεν έχετε ακόμη ηχητικές σημειώσεις.\nΔημιουργήστε πρώτα μερικές σημειώσεις και επιστρέψτε για να συνομιλήσετε μαζί τους.",
+      "noNotesYet": "Δεν έχετε ακόμη σημειώσεις.\nΔημιουργήστε πρώτα μερικές σημειώσεις και επιστρέψτε για να συνομιλήσετε μαζί τους.",
+      "attachNote": "Επισύναψη σημείωσης",
+      "selectNote": "Επιλογή σημείωσης",
+      "attachImage": "Επισύναψη εικόνας",
+      "selectImage": "Επιλογή εικόνας",
+      "attachDocument": "Επισύναψη εγγράφου",
+      "selectDocument": "Επιλογή εγγράφου",
+      "attachAudio": "Επισύναψη ήχου",
+      "selectAudio": "Επιλογή ήχου",
+      "attachFile": "Επισύναψη αρχείου",
+      "selectFile": "Επιλογή αρχείου"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Προσθήκη στη συνομιλία",
+      "camera": "Κάμερα",
+      "photos": "Φωτογραφίες",
+      "files": "Αρχεία",
+      "generateQuiz": "Δημιουργία κουίζ",
+      "generateFlashcards": "Δημιουργία flashcards",
+      "searchMedicalLiterature": "Αναζήτηση στην ιατρική βιβλιογραφία",
+      "filterByDateSourceAndType": "Φιλτράρισμα κατά ημερομηνία, πηγή και τύπο",
+      "pullsRealCitedSourcesIntoYour": "Εισάγει πραγματικές, τεκμηριωμένες πηγές στις απαντήσεις σας",
+      "trustedmedicalsourcedatabase": "ΒΑΣΗ ΑΞΙΟΠΙΣΤΩΝ ΙΑΤΡΙΚΩΝ ΠΗΓΩΝ",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "Εθνική Βιβλιοθήκη Ιατρικής των ΗΠΑ",
+      "fdaDrugTreatmentData": "Δεδομένα φαρμάκων & θεραπειών FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Έλεγχος παραπομπών"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Έτοιμο · πατήστε για μετονομασία",
+      "processing": "Επεξεργασία {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Προβολή πηγής ↗"
+    },
+    "chatRename": {
+      "renameChat": "Μετονομασία συνομιλίας"
+    }
   },
   "languages": {
     "english": "αγγλικός",
@@ -483,5 +1049,455 @@
     "malay": "Μαλαισιανά",
     "indonesian": "Ινδονησιακά",
     "catalan": "Καταλανικά"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Προσθήκη φακέλου",
+      "folderName": "Όνομα φακέλου",
+      "enterFolderName": "Εισαγάγετε όνομα φακέλου",
+      "chooseColor": "Επιλογή χρώματος",
+      "createFolder": "Δημιουργία φακέλου"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Πριν επεξεργαστούμε το περιεχόμενό σας",
+      "clinicalFactUsesAIToAnswer": "Το Clinical Fact χρησιμοποιεί AI για να απαντά στις ερωτήσεις σας και να μετατρέπει το περιεχόμενό σας σε σημειώσεις, κουίζ και flashcards. Δείτε τι πρέπει να γνωρίζετε:",
+      "whatDataIsSent": "Ποια δεδομένα αποστέλλονται",
+      "questionsAndMessagesYouTypeIn": "Ερωτήσεις και μηνύματα που πληκτρολογείτε στη συνομιλία",
+      "audioRecordingsOrUploadedAudioFiles": "Ηχογραφήσεις ή μεταφορτωμένα αρχεία ήχου",
+      "pdfAndTextDocumentsYouUpload": "Έγγραφα PDF και κειμένου που μεταφορτώνετε",
+      "imagesYouUpload": "Εικόνες που μεταφορτώνετε",
+      "youTubeVideoURLsAndTheirTranscripts": "Σύνδεσμοι βίντεο YouTube και οι απομαγνητοφωνήσεις τους",
+      "customTextYouEnter": "Προσαρμοσμένο κείμενο που εισάγετε",
+      "whoReceivesYourData": "Ποιος λαμβάνει τα δεδομένα σας",
+      "howItSUsed": "Πώς χρησιμοποιούνται",
+      "yourContentIsUsedSolelyTo": "Το περιεχόμενό σας χρησιμοποιείται αποκλειστικά για τη δημιουργία της απάντησης, της σημείωσης, του κουίζ ή των flashcards που ζητήσατε. Για το περιεχόμενο που υποβάλλεται σε επεξεργασία μέσω API ισχύουν οι πολιτικές χρήσης δεδομένων του εκάστοτε παρόχου. Για περισσότερες λεπτομέρειες, ανατρέξτε στην Πολιτική Απορρήτου μας.",
+      "iAgreeContinue": "Συμφωνώ — Συνέχεια",
+      "noThanks": "Όχι, ευχαριστώ",
+      "whoReceivesBody": "Το περιεχόμενό σας αποστέλλεται στην <bold>Google (Gemini)</bold> (δημιουργία σημειώσεων, κουίζ και flashcards, απαντήσεις συνομιλίας, επεξεργασία εγγράφων και εικόνων) και στην <bold>OpenAI</bold> (απομαγνητοφώνηση ήχου) μέσω των ασφαλών διακομιστών backend μας. Αποσπάσματα από τα έγγραφά σας ευρετηριάζονται επίσης με το <bold>Google Vertex AI</bold> ώστε η συνομιλία να εντοπίζει τα σχετικά σημεία. Όταν χρησιμοποιείται η ζωντανή ιατρική αναζήτηση, η ερώτησή σας αποστέλλεται επίσης στο <bold>Tavily</bold> και σε δημόσιες βάσεις δεδομένων ιατρικής βιβλιογραφίας (όπως PubMed, Europe PMC και Semantic Scholar) για την εύρεση παραπομπών από έγκυρες πηγές όπως τα NIH, CDC, MedlinePlus, WHO και Mayo Clinic. Αυτοί οι πάροχοι επεξεργάζονται τα δεδομένα σας αποκλειστικά για τη δημιουργία της απάντησής σας — δεν τα χρησιμοποιούν για την εκπαίδευση των δικών τους μοντέλων AI γενικού σκοπού, και δεν πουλάμε τα δεδομένα σας σε κανέναν τρίτο."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Ξεκαρφίτσωμα συνομιλίας",
+      "pinChat": "Καρφίτσωμα συνομιλίας",
+      "deleteChat": "Διαγραφή συνομιλίας"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Δημιουργία flashcards",
+      "createFlashcards": "Δημιουργία flashcards",
+      "createFlashcardsFromToImproveYour": "Δημιουργήστε flashcards από το «{{noteTitle}}» για να βελτιώσετε την απομνημόνευσή σας",
+      "createFlashcardsToImproveYourRetention": "Δημιούργησε flashcards για να βελτιώσεις την αποστήθιση",
+      "howManyQuestions": "Πόσες ερωτήσεις;",
+      "generateFlashcards2": "Δημιουργία flashcards"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Δημιουργία από συνομιλία",
+      "selectFromOneOfYourRecent": "Επίλεξε από πρόσφατη συνομιλία",
+      "pdfOrDocument": "PDF ή έγγραφο",
+      "createFromAudio": "Δημιουργία από ήχο",
+      "image": "Εικόνα",
+      "createFromCustomText": "Δημιουργία από προσαρμοσμένο κείμενο",
+      "created": "Δημιουργήθηκε {{day}}, {{time}}",
+      "createQuizFrom": "Δημιουργία κουίζ από",
+      "createFlashcardsFrom": "Δημιουργία flashcards από",
+      "selectFromChat": "Επιλογή από συνομιλία",
+      "noRecentChatsYet": "Δεν υπάρχουν πρόσφατες συνομιλίες",
+      "quizFromPdf": "Δημιουργία κουίζ από PDF ή έγγραφο",
+      "flashcardsFromPdf": "Δημιουργία σετ flashcards από PDF ή έγγραφο",
+      "quizFromAudio": "Δημιουργία κουίζ από μεταφορτωμένο ήχο",
+      "flashcardsFromAudio": "Δημιουργία σετ flashcards από μεταφορτωμένο ήχο",
+      "quizFromImage": "Δημιουργία κουίζ από οποιαδήποτε εικόνα",
+      "flashcardsFromImage": "Δημιουργία σετ flashcards από οποιαδήποτε εικόνα",
+      "quizFromText": "Δημιουργία κουίζ από κείμενο",
+      "flashcardsFromText": "Δημιουργία σετ flashcards από κείμενο"
+    },
+    "createNote": {
+      "recordAudio": "Ηχογράφηση",
+      "generateANoteFromAnyRecorded": "Δημιουργία σημείωσης από ηχογράφηση",
+      "uploadAudio": "Μεταφόρτωση ήχου",
+      "createANoteFromAnyUploaded": "Δημιουργία σημείωσης από αρχείο ήχου",
+      "youtubeVideo": "Βίντεο YouTube",
+      "createANoteFromAnyYoutube": "Δημιουργία σημείωσης από βίντεο YouTube",
+      "pdfOrDocument": "PDF ή έγγραφο",
+      "createANoteFromPDFOr": "Δημιουργία σημείωσης από PDF ή έγγραφο",
+      "customText": "Προσαρμοσμένο κείμενο",
+      "createANoteFromCapturedText": "Δημιουργία σημείωσης από κείμενο",
+      "image": "Εικόνα",
+      "createANoteFromAnyImage": "Δημιουργία σημείωσης από οποιαδήποτε εικόνα",
+      "createNote": "Δημιουργία σημείωσης"
+    },
+    "createQuiz": {
+      "generateQuiz": "Δημιουργία κουίζ",
+      "createQuiz": "Δημιουργία κουίζ",
+      "practiceByCreatingQuestionsThatHelp": "Κάνε εξάσκηση στο «{{noteTitle}}» δημιουργώντας ερωτήσεις για την εμπέδωση της ύλης",
+      "practiceYourNotesByCreatingQuestions": "Κάνε εξάσκηση στις σημειώσεις σου δημιουργώντας ερωτήσεις για την εμπέδωση της ύλης",
+      "howManyQuestions": "Πόσες ερωτήσεις;",
+      "timeInMinutes": "Χρόνος (σε λεπτά)"
+    },
+    "deleteNote": {
+      "deleteNote": "Διαγραφή σημείωσης",
+      "areYouSureYouWantTo": "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή τη σημείωση;"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Εξαγωγή περίληψης ως",
+      "exportTranscriptAs": "Εξαγωγή απομαγνητοφώνησης ως",
+      "exportAs": "Εξαγωγή ως",
+      "exportSummary": "Εξαγωγή περίληψης",
+      "exportTranscript": "Εξαγωγή απομαγνητοφώνησης"
+    },
+    "exportTypeStep": {
+      "exportNote": "Εξαγωγή σημείωσης",
+      "exportSummary": "Εξαγωγή περίληψης",
+      "exportTranscript": "Εξαγωγή απομαγνητοφώνησης"
+    },
+    "exportSettings": {
+      "export": "Εξαγωγή: {{title}}",
+      "selectFormat": "Επιλογή μορφής",
+      "includeAnswers": "Συμπερίληψη απαντήσεων",
+      "answersExplanationsIncluded": "Περιλαμβάνονται απαντήσεις & επεξηγήσεις",
+      "questionsOnly": "Μόνο ερωτήσεις",
+      "export2": "Εξαγωγή"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Η σημείωσή σου είναι έτοιμη!",
+      "howDidWeDo": "Πώς τα πήγαμε;",
+      "happy": "Ικανοποιημένος",
+      "sad": "Λυπημένος",
+      "maybeLater": "Ίσως αργότερα",
+      "whatWentWrong": "Τι πήγε στραβά;",
+      "yourFeedbackHelpsUsImprove": "Τα σχόλιά σου μας βοηθούν να βελτιωθούμε.",
+      "tellUsWhatCouldBeBetter": "Πες μας τι θα μπορούσε να είναι καλύτερο...",
+      "submit": "Υποβολή"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Δεν υπάρχει διαθέσιμο περιεχόμενο",
+      "clickCardToFlip": "πάτησε την κάρτα για αναστροφή"
+    },
+    "flashcardExport": {
+      "exportFailed": "Η εξαγωγή απέτυχε",
+      "unknownError": "Άγνωστο σφάλμα",
+      "export": "Εξαγωγή {{setTitle}}",
+      "chooseWhatToExport": "Επίλεξε τι θέλεις να εξάγεις",
+      "exportQuestions": "Εξαγωγή ερωτήσεων",
+      "exportAnswers": "Εξαγωγή απαντήσεων"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Διαγραφή σετ καρτών μνήμης",
+      "areYouSureYouWantTo": "Είσαι σίγουρος ότι θέλεις να διαγράψεις το \"{{setTitle}}\";",
+      "failedToDeleteFlashcardSet": "Αποτυχία διαγραφής σετ καρτών μνήμης",
+      "flashcardHistory": "Ιστορικό καρτών μνήμης",
+      "cards": "Κάρτες",
+      "reviewedMastered": "{{cardsReviewedCount}} μελετήθηκαν • {{percentage}}% εμπέδωση"
+    },
+    "folders": {
+      "items": "{{itemCount}} στοιχεία",
+      "enterYourFolderName": "Εισήγαγε το όνομα του φακέλου",
+      "yourFolderName": "Όνομα φακέλου",
+      "createFolder": "Δημιουργία φακέλου",
+      "folders": "Φάκελοι",
+      "addFolder": "Προσθήκη φακέλου",
+      "noFoldersToDisplay": "Δεν υπάρχουν φάκελοι προς εμφάνιση",
+      "clickTheButtonAboveToCreate": "Πάτησε το παραπάνω κουμπί για να δημιουργήσεις έναν φάκελο για τις σημειώσεις σου",
+      "allFolders": "Όλοι οι φάκελοι",
+      "items2": "{{totalItems}} στοιχεία"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Φίλτρα ιατρικής έρευνας",
+      "howrecentdoyouwantthe": "ΠΟΣΟ ΠΡΟΣΦΑΤΗ ΘΕΛΕΙΣ ΝΑ ΕΙΝΑΙ Η ΠΗΓΗ",
+      "from": "Από",
+      "whatkindofsourcedoyou": "ΤΙ ΕΙΔΟΥΣ ΠΗΓΗ ΧΡΕΙΑΖΕΣΑΙ",
+      "textbooks": "Συγγράμματα",
+      "clinicalGuidelines": "Κλινικές κατευθυντήριες οδηγίες",
+      "scientificJournalArticles": "Άρθρα επιστημονικών περιοδικών",
+      "onlywiththisjournalarticles": "ΜΟΝΟ ΜΕ ΑΥΤΑ ΤΑ ΑΡΘΡΑ ΠΕΡΙΟΔΙΚΩΝ",
+      "metaAnalyses": "Μετα-αναλύσεις",
+      "reviewArticles": "Άρθρα ανασκόπησης",
+      "clinicalTrials": "Κλινικές δοκιμές",
+      "fromYear": "Από έτος",
+      "toYear": "Έως έτος"
+    },
+    "noteOptions": {
+      "noteOptions": "Επιλογές σημείωσης",
+      "editNote": "Επεξεργασία σημείωσης",
+      "reTranscribe": "Επαναμεταγραφή",
+      "chatWithNote": "Συνομιλία με τη σημείωση",
+      "exportNote": "Εξαγωγή σημείωσης",
+      "moveToFolder": "Μετακίνηση σε φάκελο",
+      "deleteNote": "Διαγραφή σημείωσης"
+    },
+    "onboardingTooltip": {
+      "skip": "Παράλειψη"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Διαγραφή κουίζ",
+      "areYouSureYouWantTo": "Είσαι σίγουρος ότι θέλεις να διαγράψεις το \"{{quizTitle}}\";",
+      "failedToDeleteQuiz": "Αποτυχία διαγραφής κουίζ",
+      "quizHistory": "Ιστορικό κουίζ",
+      "questions": "Ερωτήσεις",
+      "correct": "{{correctAnswers}} σωστές"
+    },
+    "referral": {
+      "copied": "Αντιγράφηκε!",
+      "yourReferralCodeHasBeenCopied": "Ο κωδικός σύστασής σου αντιγράφηκε στο πρόχειρο.",
+      "joinMeOnClinicalFactUse": "Έλα μαζί μου στο Clinical Fact! Χρησιμοποίησε τον κωδικό μου {{referralCode}} – {{appUrl}}",
+      "joined": "Εγγραφή: {{joinedDate}}",
+      "referralCode": "Κωδικός σύστασης",
+      "yourReferralCode": "Ο κωδικός σύστασής σου",
+      "shareWithFriendsToEarnRewards": "Μοιράσου τον με φίλους για να κερδίσεις ανταμοιβές",
+      "share": "Κοινοποίηση",
+      "copyCode": "Αντιγραφή κωδικού",
+      "referredFriends": "Φίλοι που προσκλήθηκαν",
+      "noReferralsYetShareYourCode": "Δεν υπάρχουν συστάσεις ακόμα. Μοιράσου τον κωδικό σου για να ξεκινήσεις!",
+      "loadMore": "Περισσότερα",
+      "howItWorks": "Πώς λειτουργεί",
+      "friendsUseYourCodeDuringSignup": "• Οι φίλοι σου χρησιμοποιούν τον κωδικό σου κατά την εγγραφή",
+      "youBothEarnRewardsWhenThey": "• Κερδίζετε και οι δύο ανταμοιβές μόλις εγγραφούν",
+      "friendsReferredCount": "Φίλοι που προσκλήθηκαν: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Εξαγωγή κειμένου...",
+      "transcribingAudio": "Μεταγραφή ήχου...",
+      "processingPDF": "Επεξεργασία PDF...",
+      "settingUpChat": "Προετοιμασία συνομιλίας...",
+      "uploadFailed": "Η μεταφόρτωση απέτυχε",
+      "failedToUploadFilePleaseTry": "Αποτυχία μεταφόρτωσης αρχείου. Δοκίμασε ξανά.",
+      "yourFileIsReadyForChatting": "Το αρχείο σου είναι έτοιμο για συνομιλία!",
+      "uploadingYourFileToTheServer": "Μεταφόρτωση του αρχείου στον διακομιστή...",
+      "extractingTextFromYourImage": "Εξαγωγή κειμένου από την εικόνα...",
+      "transcribingYourAudio": "Μεταγραφή του ήχου σου...",
+      "extractingTextFromYourPDF": "Εξαγωγή κειμένου από το PDF σου...",
+      "creatingYourChatSession": "Δημιουργία συνεδρίας συνομιλίας...",
+      "pleaseWait": "Παρακαλώ περίμενε...",
+      "uploadFile": "Μεταφόρτωση αρχείου",
+      "processContent": "Επεξεργασία περιεχομένου",
+      "createChat": "Δημιουργία συνομιλίας"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Προβολή",
+      "export": "📤 Εξαγωγή",
+      "delete": "🗑️ Διαγραφή"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Υποστηρίζεται από"
+    },
+    "exportFormat": {
+      "txtFile": "Αρχείο TXT",
+      "pdfFile": "Αρχείο PDF",
+      "docFile": "Αρχείο Doc"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Αποτυχία ανάκτησης σημειώσεων",
+      "failedToFetchFolders": "Αποτυχία ανάκτησης φακέλων",
+      "failedToFetchNote": "Αποτυχία ανάκτησης σημείωσης",
+      "failedToDeleteNote": "Αποτυχία διαγραφής σημείωσης",
+      "failedToCreateFolder": "Αποτυχία δημιουργίας φακέλου",
+      "failedToDeleteFolder": "Αποτυχία διαγραφής φακέλου"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Αποτυχία διαγραφής συνομιλίας"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Το σετ flashcards εξήχθη με επιτυχία!",
+      "failedToExportFlashcardSet": "Αποτυχία εξαγωγής του σετ flashcards."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Το κουίζ εξήχθη με επιτυχία!",
+      "failedToExportQuiz": "Αποτυχία εξαγωγής κουίζ."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Flashcards χωρίς τίτλο",
+      "failedToLoadFlashcards": "Αποτυχία φόρτωσης flashcards",
+      "failedToSyncFlashcardSet": "Αποτυχία συγχρονισμού σετ flashcards",
+      "failedToSyncCardUpdate": "Αποτυχία συγχρονισμού ενημέρωσης κάρτας"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Κουίζ"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Δημιουργήθηκε: {{day}}, {{time}}",
+      "youVeReachedYour3Pin": "Έφτασες το όριο των 3 καρφιτσωμένων",
+      "failedToUpdatePin": "Αποτυχία ενημέρωσης καρφιτσώματος",
+      "noChatsYet": "Δεν υπάρχουν συνομιλίες ακόμα",
+      "startAChatToGetAnswers": "Ξεκίνα μια συνομιλία για να λάβεις απαντήσεις βασισμένες σε έγκυρες πηγές.",
+      "createChat": "+ Νέα συνομιλία"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Διαγραφή Flashcards",
+      "areYouSureYouWantTo": "Είσαι σίγουρος ότι θέλεις να διαγράψεις το «{{sourceTitle}}»;",
+      "failedToDeleteFlashcards": "Αποτυχία διαγραφής flashcards",
+      "sets": "{{setCount}} σετ",
+      "flashcards": "Flashcards",
+      "createFlashcards": "Δημιουργία flashcards",
+      "searchFlashcards": "Αναζήτηση flashcards...",
+      "noFlashcardsYet": "Δεν υπάρχουν flashcards ακόμα",
+      "createAFlashcardSetFromA": "Δημιουργήστε ένα σετ flashcards από μια σημείωση για να ξεκινήσετε",
+      "createSet": "+ Δημιουργία σετ",
+      "flashcardOptions": "Επιλογές flashcard",
+      "view": "Προβολή"
+    },
+    "folder": {
+      "deleteFolder": "Διαγραφή φακέλου",
+      "areYouSureYouWantTo": "Είστε σίγουροι ότι θέλετε να διαγράψετε το «{{name}}»; Οι σημειώσεις θα μεταφερθούν στον αρχικό φάκελο.",
+      "failedToDeleteFolder": "Αποτυχία διαγραφής φακέλου",
+      "error": "Σφάλμα: {{message}}",
+      "noFoldersYetCreateOne": "Δεν υπάρχουν φάκελοι ακόμα. Δημιουργήστε έναν!",
+      "folders": "Φάκελοι"
+    },
+    "home": {
+      "created": "Δημιουργήθηκε {{day}}, {{time}}",
+      "failedToUpdateLanguage": "Αποτυχία ενημέρωσης γλώσσας",
+      "notEnoughContentYet": "Δεν υπάρχει αρκετό περιεχόμενο ακόμα",
+      "chatABitMoreBeforeGenerating": "Συνομιλήστε λίγο περισσότερο πριν δημιουργήσετε κουίζ (τουλάχιστον 100 χαρακτήρες).",
+      "chatABitMoreBeforeGenerating2": "Συνομιλήστε λίγο περισσότερο πριν δημιουργήσετε flashcards (τουλάχιστον 100 χαρακτήρες).",
+      "failedToGenerateFlashcards": "Αποτυχία δημιουργίας flashcards",
+      "upgradeToPro": "Αναβάθμιση σε PRO",
+      "get80DiscountWhenYouUpgrade": "Αποκτήστε 80% έκπτωση με την αναβάθμιση του λογαριασμού σας",
+      "unlockPRO": "Ξεκλειδώστε το PRO",
+      "noMedicalChats": "Δεν υπάρχουν ιατρικές συνομιλίες",
+      "youHaveNotCreatedAnyMedical": "Δεν έχετε δημιουργήσει ιατρικές συνομιλίες. Ξεκινήστε μια νέα συνομιλία για να λάβετε έγκυρες πηγές",
+      "talkToClinicalfactAI": "Συνομιλήστε με το Clinical Fact AI",
+      "jumpInWhereYouStopped": "Συνεχίστε από εκεί που μείνατε",
+      "practiceQuiz": "Κουίζ εξάσκησης",
+      "makeFlashcards": "Δημιουργία flashcards",
+      "continueChatWithNote": "Συνέχιση συνομιλίας με Σημείωση",
+      "continueChat": "Συνέχιση συνομιλίας",
+      "recentChats": "Πρόσφατες συνομιλίες",
+      "chatOptions": "Επιλογές συνομιλίας"
+    },
+    "library": {
+      "text": "{{month}} {{day}}, {{year}} {{hours}}:{{minutes}}{{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Είστε εκτός σύνδεσης. Συνδεθείτε στο διαδίκτυο για να συνεχίσετε.",
+      "failedToDeleteNote": "Αποτυχία διαγραφής σημείωσης",
+      "failedToMoveNote": "Αποτυχία μετακίνησης σημείωσης",
+      "deleteFolder": "Διαγραφή φακέλου;",
+      "areYouSureNotesInsideWill": "Είστε σίγουροι; Οι σημειώσεις δεν θα διαγραφούν, αλλά θα μεταφερθούν στις «Όλες οι σημειώσεις».",
+      "failedToDeleteFolder": "Αποτυχία διαγραφής φακέλου",
+      "library": "Βιβλιοθήκη",
+      "addFolder": "Προσθήκη φακέλου",
+      "searchForANoteFolder": "Αναζήτηση σημείωσης / φακέλου",
+      "yourFolders": "Οι φάκελοί σας",
+      "noFoldersToDisplay": "Δεν υπάρχουν φάκελοι προς εμφάνιση",
+      "tapAddFolderToCreateA": "Πατήστε «+ Προσθήκη φακέλου» για να οργανώσετε τις σημειώσεις σας",
+      "allNotes": "Όλες οι σημειώσεις",
+      "items": "{{allNotesTotal}} στοιχεία",
+      "items2": "{{itemCount}} στοιχεία",
+      "yourNotes": "Οι σημειώσεις σας",
+      "untitledNote": "Σημείωση χωρίς τίτλο",
+      "noResultsFor": "Δεν βρέθηκαν αποτελέσματα για «{{searchQuery}}»",
+      "noNotesInThisFolder": "Δεν υπάρχουν σημειώσεις σε αυτόν τον φάκελο",
+      "noNotesToDisplay": "Δεν υπάρχουν σημειώσεις προς εμφάνιση",
+      "tryADifferentSearchTerm": "Δοκιμάστε διαφορετικό όρο αναζήτησης",
+      "moveNotesToThisFolderTo": "Μετακινήστε σημειώσεις εδώ για να εμφανιστούν σε αυτόν τον φάκελο",
+      "clickBelowToGenerateYourNote": "Πατήστε παρακάτω για να δημιουργήσετε τη σημείωσή σας με το Clinical Fact",
+      "filterByType": "Φιλτράρισμα κατά τύπο",
+      "audio": "Ήχος",
+      "text2": "Κείμενο",
+      "image": "Εικόνα",
+      "clearFilter": "Εκκαθάριση φίλτρου"
+    },
+    "profile": {
+      "permissionRequired": "Απαιτείται άδεια",
+      "pleaseAllowAccessToYourPhoto": "Επιτρέψτε την πρόσβαση στη βιβλιοθήκη φωτογραφιών σας για να ορίσετε φωτογραφία προφίλ.",
+      "uploadFailed": "Η μεταφόρτωση απέτυχε",
+      "couldNotUpdateProfilePicture": "Δεν ήταν δυνατή η ενημέρωση της φωτογραφίας προφίλ.",
+      "failedToUploadProfilePicture": "Αποτυχία μεταφόρτωσης φωτογραφίας προφίλ.",
+      "checkOutClinicalFactAIPowered": "Δες το Clinical Fact – σημειώσεις μελέτης με AI! {{url}}",
+      "proSubscriber": "Συνδρομητής PRO",
+      "subscriptionExpired": "Η συνδρομή έληξε",
+      "freeSubscriber": "Δωρεάν συνδρομητής",
+      "tapToManageIPhoneSettingsApple": "Πατήστε για διαχείριση · Ρυθμίσεις iPhone → Apple ID → Συνδρομές",
+      "tapToManagePlayStoreSubscriptions": "Πατήστε για διαχείριση · Play Store → Συνδρομές",
+      "tapToRenewYourSubscription": "Πατήστε για ανανέωση της συνδρομής σας",
+      "tapToUpgradeToPro": "Πατήστε για αναβάθμιση σε PRO",
+      "referralCode": "Κωδικός σύστασης",
+      "areYouSureYouWantTo": "Είστε σίγουροι ότι θέλετε να αποσυνδεθείτε από τον λογαριασμό σας;"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Διαγραφή κουίζ",
+      "areYouSureYouWantTo": "Είστε σίγουροι ότι θέλετε να διαγράψετε το \"{{sourceTitle}}\";",
+      "failedToDeleteQuiz": "Αποτυχία διαγραφής κουίζ",
+      "correct": "{{correct}}/{{total}} σωστά",
+      "attempts": "{{attempts}} προσπάθειες",
+      "quiz": "Κουίζ",
+      "createQuiz": "Δημιουργία κουίζ",
+      "searchQuizzes": "Αναζήτηση κουίζ...",
+      "noQuizzesYet": "Δεν υπάρχουν κουίζ ακόμα",
+      "createAQuizFromANote": "Δημιουργήστε ένα κουίζ από μια σημείωση για να ξεκινήσετε",
+      "createQuiz2": "+ Δημιουργία κουίζ",
+      "quizOptions": "Επιλογές κουίζ",
+      "view": "Προβολή"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Η αναβάθμιση δεν είναι διαθέσιμη",
+      "weCouldnTOpenTheUpgrade": "Δεν ήταν δυνατό το άνοιγμα της οθόνης αναβάθμισης αυτή τη στιγμή. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Ο διακομιστής επέστρεψε απάντηση μη-JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Σφάλμα δικτύου. Ελέγξτε τη σύνδεσή σας.",
+      "connectionErrorPleaseTryAgain": "Σφάλμα σύνδεσης. Παρακαλώ δοκιμάστε ξανά."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Το αρχείο εξήχθη: {{filename}}",
+      "exportFailed": "Η εξαγωγή απέτυχε",
+      "exportFormat": "Μορφή εξαγωγής",
+      "chooseFormat": "Επιλογή μορφής",
+      "text": "Κείμενο"
+    },
+    "formatDate": {
+      "justNow": "Μόλις τώρα",
+      "minAgo": "{{diffMin}} λ. πριν",
+      "hrAgo": "{{diffHr}} ώρ. πριν",
+      "dAgo": "{{diffDay}}ημ. πριν",
+      "created": "Δημιουργήθηκε {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Αποτυχία αποστολής OTP",
+      "invalidOTP": "Μη έγκυρο OTP",
+      "failedToVerifyOTP": "Αποτυχία επαλήθευσης OTP",
+      "googleAuthenticationFailed": "Ο έλεγχος ταυτότητας Google απέτυχε",
+      "appleAuthenticationFailed": "Ο έλεγχος ταυτότητας Apple απέτυχε",
+      "failedToCompleteSignup": "Αποτυχία ολοκλήρωσης εγγραφής",
+      "failedToSkipSignup": "Αποτυχία παράκαμψης εγγραφής"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Συνομιλίες",
+      "description": "Συνομιλήστε με σημειώσεις, έγγραφα ή PDF, όλα σε ένα μέρος"
+    },
+    "profileWelcome": {
+      "heading": "Καλώς ορίσατε στο προφίλ σας",
+      "description": "Αυτό είναι το προφίλ σας, πατήστε εδώ για να κάνετε αλλαγές στο προφίλ και στην κατάσταση της συνδρομής σας"
+    },
+    "createNotes": {
+      "heading": "Δημιουργία σημείωσης",
+      "description": "Δημιουργήστε κάθε τύπο σημείωσης από οτιδήποτε: Ηχογράφηση, Ήχος, Βίντεο, Εικόνα, Κείμενο και συνδέσμους YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Αλλαγή γλώσσας",
+      "description": "Άλλαξε τη γλώσσα της εφαρμογής από εδώ στη γλώσσα που επιθυμείς"
+    },
+    "manageHome": {
+      "heading": "Διαχείριση αρχικής",
+      "description": "Δες όλες τις σημειώσεις που δημιούργησες και συγκέντρωσε όλες τις ενέργειές σου σε ένα μέρος"
+    },
+    "yourLibrary": {
+      "heading": "Η βιβλιοθήκη σου",
+      "description": "Διαχειρίσου όλες τις σημειώσεις σου, δημιούργησε φακέλους και πολλά άλλα"
+    },
+    "yourProfile": {
+      "heading": "Το προφίλ σου",
+      "description": "Δες όλες τις πληροφορίες του προφίλ σου και προσάρμοσε τις ρυθμίσεις σου από εδώ"
+    }
   }
 }

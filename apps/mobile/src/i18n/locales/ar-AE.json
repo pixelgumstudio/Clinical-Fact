@@ -15,7 +15,8 @@
     "done": "تم",
     "search": "بحث",
     "filter": "تصفية",
-    "ok": "موافق"
+    "ok": "موافق",
+    "info": "معلومات"
   },
   "home": {
     "title": "Clinical Fact",
@@ -76,7 +77,12 @@
     "trial": "تجريبي"
   },
   "auth": {
-    "welcome": "مرحباً بك في Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "فشل تسجيل الدخول عبر Google",
+      "failedToAuthenticateWithServer": "فشلت المصادقة مع الخادم",
+      "googleSignInIsOnlyAvailable": "تسجيل الدخول عبر Google متاح فقط في التطبيق المثبت. يُرجى استخدام البريد الإلكتروني أو تنزيل التطبيق.",
+      "code": "{{message}} (الرمز: {{code}})"
+    },
     "getStarted": "ابدأ",
     "signIn": "تسجيل الدخول",
     "signUp": "إنشاء حساب",
@@ -242,7 +248,10 @@
     },
     "demoVideo": {
       "title": "كل ما تحتاجه لتتقن\\nأي مادة سريرية",
-      "subtitle": "سجّلها. ابحث فيها. اختبر نفسك. أتقنها."
+      "subtitle": "سجّلها. ابحث فيها. اختبر نفسك. أتقنها.",
+      "everythingYouNeedToLearnAnything": "كل ما تحتاجه لتعلّم أي شيء",
+      "recordItResearchItQuizIt": "سجّلها. ابحث عنها. اختبر نفسك. أتقنها.",
+      "tryClinicalFactNowForFree": "جرّب Clinical Fact الآن مجاناً"
     },
     "features": {
       "feature1": {
@@ -265,12 +274,136 @@
         "title": "حوّل أي محادثة أو مستند إلى أسئلة بطاقات استذكار للتدريب",
         "description": "لا حاجة لتطبيق دراسة منفصل؛ أنشئ أسئلة تدريبية مباشرةً من محادثاتك وملفاتك."
       }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "تفعيل الإشعارات",
+      "thisHelpsUsStayOnTrack": "يساعدنا هذا في تخصيص حسابك ومساعدتك في العثور على إجابات طبية بشكل أفضل"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "رمز التحقق غير صالح. يُرجى المحاولة مرة أخرى.",
+      "failedToResendCodePleaseTry": "فشل إعادة إرسال الرمز. يُرجى المحاولة مرة أخرى.",
+      "confirmYourEmailAddress": "تأكيد بريدك الإلكتروني",
+      "enterCodeSentTo": "يُرجى إدخال رمز OTP المرسل إلى بريدك الإلكتروني {{email}}",
+      "resendCodeIn": "إعادة إرسال الرمز خلال {{seconds}} ثانية"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "هل تمت إحالتك من قِبل شخص ما؟",
+      "enterTheirReferralCodeIfYou": "أدخل رمز الإحالة الخاص به إذا كان لديك",
+      "eGJOHNOrTECHBRO": "مثال: JOHN أو TECHBRO",
+      "codeIsValid": "✓ الرمز صالح"
+    },
+    "resultsChart": {
+      "getBetterResults": "حقّق نتائج أفضل",
+      "over95OfClinicalfactUsersScore": "أكثر من 95% من مستخدمي Clinical Fact يحصلون على 95% فأعلى في اختباراتهم وامتحاناتهم"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "طالب تمريض",
+        "medicalStudent": "طالب طب",
+        "paPharmacyStudent": "طالب صيدلة أو مساعد طبيب (PA)",
+        "practicingNurse": "ممرض ممارس",
+        "practicingPhysician": "طبيب ممارس",
+        "otherHealthcareProfessional": "أخصائي رعاية صحية آخر"
+      },
+      "currentMethod": {
+        "textbooksNotes": "الكتب الدراسية أو ملاحظات المحاضرات",
+        "flashcardQuizApps": "تطبيقات البطاقات التعليمية والاختبارات",
+        "youtube": "YouTube",
+        "aiChatbots": "روبوتات دردشة AI",
+        "colleagueClassmate": "سؤال زميل دراسة أو عمل",
+        "practiceQuestionBanks": "بنوك أسئلة للتدريب"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "إنشاء البطاقات والاختبارات من الصفر",
+        "findingTrustworthyAnswer": "العثور على إجابة موثوقة بسرعة",
+        "reReadingNotes": "إعادة قراءة ملاحظات لا أتذكرها",
+        "switchingApps": "التنقل بين تطبيقات كثيرة جداً",
+        "chartingDocumentation": "التدوين والتوثيق السريري"
+      },
+      "appExpectation": {
+        "noHallucination": "AI لا يُهلوس",
+        "realCitations": "مراجع حقيقية من المصدر",
+        "oneApp": "تطبيق واحد بدلاً من خمسة اشتراكات",
+        "explainsWhy": "شرح \"السبب\" وليس الإجابة فقط"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "بحث Google",
+        "otherApps": "تطبيقات أخرى"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "يختلق معلومات من عنده",
+        "notMedicalContent": "غير مخصص للمحتوى الطبي",
+        "noSources": "لا توجد مصادر للتحقق منها",
+        "tooGeneric": "عام جداً، وغير مخصص للامتحانات أو التدريب السريري"
+      },
+      "aiTrustLevel": {
+        "everyTime": "دائماً",
+        "sometimes": "أحياناً",
+        "rarely": "نادراً",
+        "dontUseAi": "لا أستخدم AI بعد"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "إجابات سريعة يمكنني الوثوق بها",
+        "quizzesFlashcardsWithoutWork": "اختبارات وبطاقات تعليمية دون عناء",
+        "rememberingStudied": "المساعدة في تذكّر ما درسته",
+        "medicalCitations": "مراجع الاقتباسات الطبية",
+        "allOfTheAbove": "كل ما سبق"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "النشرة البريدية",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "أخرى"
+      },
+      "studyTime": {
+        "under5Hours": "أقل من 5 ساعات",
+        "510Hours": "5–10 ساعات",
+        "1020Hours": "10–20 ساعة",
+        "20PlusHours": "20+ ساعة"
+      },
+      "comingUp": {
+        "medicalExams": "امتحانات الطب",
+        "clinicalRotations": "التدريب السريري",
+        "nursingExams": "امتحانات التمريض",
+        "otherExams": "امتحانات أخرى",
+        "staySharp": "تنشيط معلوماتي فقط"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "نص الملاحظة",
+    "noteTranscript": {
+      "noteTranscript": "تفريغ الملاحظة",
+      "noNoteIDProvided": "لم يتم توفير معرّف الملاحظة",
+      "noTranscriptAvailableForThisNote": "لا يوجد تفريغ صوتي متاح لهذه الملاحظة.",
+      "thisNoteWasNotCreatedFrom": "لم يتم إنشاء هذه الملاحظة من تسجيل صوتي أو فيديو ولا تحتوي على تفريغ.",
+      "failedToLoadNote": "تعذّر تحميل الملاحظة",
+      "noteTranscript2": "تفريغ الملاحظة",
+      "loadingTranscript": "جارٍ تحميل التفريغ...",
+      "goToNote": "الانتقال إلى الملاحظة"
+    },
     "noteOptions": "خيارات الملاحظة",
-    "editNote": "تعديل الملاحظة",
+    "editNote": {
+      "pleaseEnterANoteTitle": "يُرجى إدخال عنوان الملاحظة",
+      "failedToUpdateNote": "تعذّر تحديث الملاحظة",
+      "noteUpdatedSuccessfully": "تم تحديث الملاحظة بنجاح",
+      "editNote": "تعديل الملاحظة",
+      "noteTitle": "عنوان الملاحظة",
+      "enterNoteTitle": "أدخل عنوان الملاحظة",
+      "noteContent": "محتوى الملاحظة",
+      "enterNoteContent": "أدخل محتوى الملاحظة",
+      "saveThisNote": "حفظ هذه الملاحظة",
+      "aiIsGeneratingYourNote": "يقوم AI بإنشاء ملاحظتك الآن",
+      "largeAudioAndVideoFilesMay": "قد تستغرق معالجة ملفات الصوت والفيديو الكبيرة بضع دقائق. يُرجى إبقاء التطبيق مفتوحاً."
+    },
     "retranscribe": "إعادة النسخ",
     "exportNote": "تصدير الملاحظة",
     "shareNoteLink": "مشاركة رابط الملاحظة",
@@ -292,12 +425,89 @@
     "translate": "ترجمة",
     "addToFolder": "إضافة إلى مجلد",
     "loadingNote": "جاري تحميل الملاحظة...",
-    "noteNotFound": "فشل تحميل الملاحظة"
+    "noteNotFound": "فشل تحميل الملاحظة",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "تعذّر إنشاء البطاقات التعليمية",
+      "anUnexpectedErrorOccurred": "حدث خطأ غير متوقع",
+      "history": "السجل",
+      "export": "تصدير"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "تعذّرت إضافة الملاحظة إلى المجلد",
+      "folderNotFound": "المجلد غير موجود",
+      "addNote": "+ إضافة ملاحظة",
+      "noNotesInThisFolder": "لا توجد ملاحظات في هذا المجلد",
+      "moveNotesToThisFolderTo": "انقل الملاحظات إلى هذا المجلد لتظهر هنا",
+      "addNoteToFolder": "إضافة ملاحظة إلى المجلد",
+      "noNotesAvailableToAdd": "لا توجد ملاحظات متاحة للإضافة",
+      "allYourNotesAreAlreadyIn": "جميع ملاحظاتك موجودة بالفعل في هذا المجلد",
+      "created": "تم الإنشاء {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "تعذّر تحميل الملاحظة",
+      "reTranscribeNote": "إعادة تفريغ الملاحظة",
+      "thisWillReTranscribeTheAudio": "سيؤدي هذا إلى إعادة تفريغ الصوت وتحديث الملاحظة. هل تريد المتابعة؟",
+      "reTranscribe": "إعادة التفريغ",
+      "noteReTranscribedSuccessfully": "تمت إعادة تفريغ الملاحظة بنجاح",
+      "info": "معلومات",
+      "reTranscriptionFeatureIsComingSoon": "ميزة إعادة التفريغ ستتوفر قريباً",
+      "youAreCurrentlyOfflinePleaseConnect": "أنت غير متصل بالإنترنت حالياً. يُرجى الاتصال بالإنترنت لإتمام هذا الإجراء.",
+      "failedToDeleteNote": "تعذّر حذف الملاحظة",
+      "failedToExportNote": "تعذّر تصدير الملاحظة",
+      "noteTranslatedSuccessfully": "تمت ترجمة الملاحظة بنجاح",
+      "failedToTranslateNote": "تعذّرت ترجمة الملاحظة",
+      "noteMovedTo": "تم نقل الملاحظة إلى {{name}}",
+      "failedToMoveNoteToFolder": "تعذّر نقل الملاحظة إلى المجلد",
+      "summaryNotes": "ملاحظات تلخيصية",
+      "loadingNote": "جارٍ تحميل الملاحظة...",
+      "imageNote": "ملاحظة مصوّرة",
+      "created": "تم الإنشاء في {{dateTime}}",
+      "translate": "ترجمة",
+      "transcribe": "تفريغ صوتي",
+      "editThisNote": "تعديل هذه الملاحظة",
+      "createFlashcards": "إنشاء بطاقات تعليمية",
+      "createFlashcardsToImproveYourRetention": "أنشئ بطاقات تعليمية لتعزيز قوة الحفظ والاسترجاع",
+      "createQuizQuestions": "إنشاء أسئلة اختبار",
+      "practiceYourNotesByCreatingQuestions": "تدرّب على ملاحظاتك بإنشاء أسئلة تساعدك على إتقان الموضوع"
+    },
+    "sharedNote": {
+      "notFound": "غير موجودة",
+      "thisSharedNoteLinkIsInvalid": "رابط الملاحظة المشتركة غير صالح أو انتهت صلاحيته.",
+      "failedToLoadSharedNote": "تعذّر تحميل الملاحظة المشتركة.",
+      "saved": "تم الحفظ!",
+      "noteHasBeenAddedToYour": "تمت إضافة الملاحظة إلى مكتبتك.",
+      "viewInLibrary": "عرض في المكتبة",
+      "stayHere": "البقاء هنا",
+      "failedToSaveNote": "تعذّر حفظ الملاحظة.",
+      "loadingSharedNote": "جارٍ تحميل الملاحظة المشتركة...",
+      "sharedNote": "ملاحظة مشتركة",
+      "sharedWithYou": "تمت مشاركتها معك",
+      "savedToLibrary": "محفوظة في المكتبة",
+      "saveToMyLibrary": "حفظ في مكتبتي"
+    }
   },
   "create": {
     "selectOption": "كيف تريد إنشاء ملاحظتك؟",
-    "recordAudio": "تسجيل صوت",
-    "uploadAudio": "رفع صوت",
+    "recordAudio": {
+      "permissionRequired": "مطلوب إذن الوصول",
+      "pleaseGrantMicrophonePermissionToRecord": "يرجى منح إذن الميكروفون لتسجيل الصوت.",
+      "failedToRequestMicrophonePermission": "تعذّر طلب إذن الميكروفون",
+      "created": "تم الإنشاء في {{day}} {{month}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "تسجيل الصوت",
+      "recordAudio": "تسجيل صوتي",
+      "createANoteFromAnyRecorded": "أنشئ ملاحظة من أي تسجيل صوتي",
+      "recording": "جارٍ التسجيل ({{time}})",
+      "recordAgain": "إعادة التسجيل"
+    },
+    "uploadAudio": {
+      "created": "تم الإنشاء في {{day}} {{month}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "تعذّر اختيار الملف الصوتي",
+      "uploadAudio": "رفع ملف صوتي",
+      "createANoteFromAnyUploaded": "أنشئ ملاحظة من أي ملف صوتي مرفوع",
+      "dragDropFilesOrBrowse": "اسحب الملفات وأفلتها هنا أو تصفّح",
+      "supportedFormatMp4WavMp3": "الصيغ المدعومة: mp4، wav، mp3",
+      "changeFile": "تغيير الملف"
+    },
     "youtube": "فيديو يوتيوب",
     "pdfDocument": "ملف PDF أو مستند",
     "customText": "نص مخصص",
@@ -305,7 +515,56 @@
     "uploadingFile": "جاري رفع الملف إلى الخادم...",
     "transcribing": "جاري تحويل الكلام إلى نص...",
     "extractingText": "جاري استخراج النص...",
-    "generatingNote": "جاري إنشاء ملاحظات دراسية بالذكاء الاصطناعي...",
+    "generatingNote": {
+      "uploadAudio": "رفع الصوت",
+      "uploadingAudioFileToServer": "جارٍ رفع الملف الصوتي إلى الخادم...",
+      "transcribeAudio": "تفريغ الصوت",
+      "convertingSpeechToText": "جارٍ تحويل الصوت إلى نص...",
+      "generateYourNote": "توليد الملاحظة",
+      "creatingStudyNotes": "جارٍ إنشاء ملاحظات دراسية...",
+      "uploadPDF": "رفع PDF",
+      "uploadingPDFDocumentToServer": "جارٍ رفع مستند PDF إلى الخادم...",
+      "extractText": "استخراج النص",
+      "readingAndExtractingTextFromPDF": "جارٍ قراءة واستخراج النص من الـ PDF...",
+      "uploadImage": "رفع صورة",
+      "uploadingImageToServer": "جارٍ رفع الصورة إلى الخادم...",
+      "extractTextOCR": "استخراج النص (OCR)",
+      "recognizingAndExtractingTextFromImage": "جارٍ التعرّف على النص واستخراجه من الصورة...",
+      "fetchVideo": "جلب الفيديو",
+      "connectingToYouTube": "جارٍ الاتصال بـ YouTube...",
+      "extractTranscript": "استخراج النص",
+      "downloadingVideoTranscript": "جارٍ تنزيل نص الفيديو...",
+      "processText": "معالجة النص",
+      "analyzingYourContent": "جارٍ تحليل المحتوى...",
+      "uploadFile": "رفع ملف",
+      "uploadingToServer": "جارٍ الرفع إلى الخادم...",
+      "processContent": "معالجة المحتوى",
+      "extractingContent": "جارٍ استخراج المحتوى...",
+      "noteReady": "الملاحظة جاهزة!",
+      "noteGenerationFailedOnTheServer": "فشل إنشاء الملاحظة على الخادم.",
+      "failedToUploadImage": "فشل رفع الصورة",
+      "weCouldNotReadAnythingFrom": "تعذّرت قراءة أي نص من هذه الصورة. يرجى تجربة صورة أكثر وضوحاً لملاحظاتك الطبية.",
+      "preparingFile": "جارٍ تحضير الملف...",
+      "almostDone": "أوشكنا على الانتهاء...",
+      "untitledNote": "ملاحظة بدون عنوان",
+      "failedToGenerateNote": "فشل إنشاء الملاحظة",
+      "whoaSpeedy": "مهلاً، ليس بهذه السرعة! 🏃💨",
+      "youReGeneratingContentABit": "أنت تُنشئ المحتوى بسرعة كبيرة. خذ استراحة قصيرة لمدة 60 ثانية قبل المحاولة مجدداً حتى يتمكن الـ AI من المتابعة.",
+      "gotIt": "حسناً",
+      "fileTooLarge": "الملف كبير جداً",
+      "yourFileExceedsThe15MBLimit": "يتجاوز حجم ملفك الحد المسموح به للمستخدمين المجانيين (15 ميجابايت). قم بالترقية إلى PRO لرفع محاضرات حتى 100 ميجابايت.",
+      "upgradeToPRO": "الترقية إلى PRO",
+      "oopsWeHitASnag": "عفواً، حدث خطأ غير متوقع 🚧",
+      "weCouldnTGenerateThatRight": "تعذّر إنشاء ذلك الآن. انتظر لحظة وحاول مجدداً!",
+      "processingContent": "جارٍ معالجة المحتوى...",
+      "generatingYourNote": "جارٍ إنشاء ملاحظتك...",
+      "audioNote": "ملاحظة صوتية",
+      "failedToGenerateFlashcards": "فشل إنشاء البطاقات التعليمية",
+      "generatingNote": "جارٍ إنشاء الملاحظة",
+      "pleaseKeepThisScreenOpenWhile": "يرجى إبقاء هذه الشاشة مفتوحة أثناء إنشاء ملاحظتك. قد تستغرق الملفات الكبيرة بضع دقائق لتحويلها إلى نص.",
+      "goToNote": "الانتقال إلى الملاحظة",
+      "generateNoteTranscript": "إنشاء تفريغ نصي للملاحظة"
+    },
     "fetchingVideo": "جاري الاتصال بـ YouTube...",
     "processingText": "جاري تحليل محتواك...",
     "uploadAudioTitle": "رفع صوت",
@@ -315,7 +574,63 @@
     "fetchVideo": "جلب الفيديو",
     "extractTranscript": "استخراج النص",
     "processText": "معالجة النص",
-    "generateNote": "إنشاء ملاحظتك"
+    "generateNote": "إنشاء ملاحظتك",
+    "customTextInput": {
+      "customText": "نص مخصص",
+      "createANoteFromAnyCustom": "أنشئ ملاحظة من أي نص مخصص",
+      "enterText": "إدخال نص",
+      "enterYourTextHere": "أدخل نصك هنا..."
+    },
+    "uploadImage": {
+      "created": "تم الإنشاء في {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "مطلوب إذن الوصول",
+      "pleaseAllowAccessToYourPhoto": "يرجى السماح بالوصول إلى مكتبة الصور الخاصة بك",
+      "failedToPickImage": "فشل اختيار الصورة",
+      "uploadImage": "رفع صورة",
+      "createANoteFromAnyUploaded": "أنشئ ملاحظة من أي صورة مرفوعة",
+      "dragDropFilesOrBrowse": "اسحب وأفلت الملفات أو تصفّح",
+      "supportedFormatPngJpegHeicWebp": "الصيغ المدعومة: png, jpeg, heic, webp",
+      "changeFile": "تغيير الملف"
+    },
+    "uploadPDF": {
+      "created": "تم الإنشاء في {{month}} {{day}}، {{year}}، {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "فشل اختيار المستند",
+      "uploadPdf": "رفع PDF",
+      "createANoteFromAnyUploaded": "أنشئ ملاحظة من أي ملف PDF مرفوع",
+      "dragDropFilesOrBrowse": "اسحب وأفلت الملفات أو تصفّح",
+      "supportedFormatPdf": "الصيغ المدعومة: pdf",
+      "changeFile": "تغيير الملف"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "جارٍ جلب الفيديو",
+      "gettingVideoDetails": "جارٍ جلب تفاصيل الفيديو",
+      "extractingTranscript": "جارٍ استخراج النص",
+      "convertingAudioToText": "جارٍ تحويل الصوت إلى نص",
+      "generatingYourNote": "جارٍ إنشاء ملاحظتك",
+      "aiIsSummarisingTheContent": "الـ AI يلخّص المحتوى الآن",
+      "noteGenerationFailedPleaseTryAgain": "فشل إنشاء الملاحظة. يرجى المحاولة مجدداً.",
+      "processingFailed": "فشلت المعالجة",
+      "goBack": "رجوع",
+      "retry": "إعادة المحاولة",
+      "failedToStartNoteGeneration": "فشل بدء إنشاء الملاحظة",
+      "failedToProcessYouTubeVideoPlease": "فشلت معالجة فيديو YouTube. يرجى المحاولة مرة أخرى.",
+      "cancelProcessing": "إلغاء المعالجة",
+      "areYouSureYouWantTo": "هل أنت متأكد من الإلغاء؟ سيتم فقدان تقدمك.",
+      "continueProcessing": "متابعة المعالجة",
+      "youTubeNote": "ملاحظة YouTube",
+      "noteGenerated": "تم إنشاء الملاحظة",
+      "generatingNote": "جارٍ إنشاء الملاحظة",
+      "goToNote": "الانتقال إلى الملاحظة"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "تعذر جلب معلومات الفيديو",
+      "failedToFetchVideoInformation": "فشل جلب معلومات الفيديو",
+      "youtubeVideo": "فيديو YouTube",
+      "createANoteFromAnyYoutube": "أنشئ ملاحظة من أي فيديو YouTube",
+      "enterYoutubeURL": "أدخل رابط YouTube",
+      "pasteYoutubeURL": "ألصق رابط YouTube",
+      "fetchingVideoInfo": "جارٍ جلب معلومات الفيديو..."
+    }
   },
   "library": {
     "title": "المكتبة",
@@ -369,7 +684,42 @@
     "explanation": "الشرح",
     "questionProgress": "السؤال {{current}} من {{total}}",
     "generatingQuizWait": "نعمل على إنشاء اختبارك الآن، يرجى الانتظار حتى يكتمل...",
-    "goToChats": "الانتقال إلى المحادثات"
+    "goToChats": "الانتقال إلى المحادثات",
+    "quizGroupDetail": {
+      "inProgress": "قيد التقدم",
+      "notStarted": "لم يبدأ",
+      "failedToLoadQuizHistory": "فشل تحميل سجل الاختبارات",
+      "failedToLoadChatContent": "فشل تحميل محتوى المحادثة",
+      "deleteQuiz": "حذف الاختبار",
+      "failedToDeleteQuiz": "فشل حذف الاختبار",
+      "created": "تاريخ الإنشاء {{dateTime}}",
+      "lastscore": "آخر نتيجة",
+      "bestscore": "أفضل نتيجة",
+      "attempts": "المحاولات",
+      "retakeQuiz": "إعادة الاختبار",
+      "translate": "ترجمة",
+      "newQuiz": "اختبار جديد",
+      "quizHistory": "سجل الاختبارات",
+      "flashcardHistory": "سجل البطاقات التعليمية",
+      "score": "النتيجة {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "لا توجد مجموعات بطاقات تعليمية من هذا المصدر حتى الآن.",
+      "cards": "{{totalCards}} بطاقة · {{flashcardStatus}}",
+      "quizOptions": "خيارات الاختبار",
+      "exportLatestAttempt": "تصدير المحاولة الأخيرة",
+      "questions": "{{totalQuestions}} أسئلة · {{value}}",
+      "deleteAllAttemptsOne": "هل تريد حذف محاولة الاختبار الوحيدة لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "deleteAllAttemptsMany": "هل تريد حذف جميع محاولات الاختبار البالغ عددها {{total}} لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "فشل تحميل بيانات الاختبار - تنسيق الاستجابة غير صالح",
+      "failedToLoadQuizData": "فشل تحميل بيانات الاختبار",
+      "noContentAvailable": "لا يوجد محتوى متاح",
+      "goBack": "رجوع",
+      "previous": "السابق"
+    },
+    "quiz": {
+      "generationFailed": "فشل الإنشاء"
+    }
   },
   "flashcards": {
     "title": "بطاقات تعليمية",
@@ -400,7 +750,44 @@
     "headerTitle": "بطاقة استذكار",
     "progressFormat": "بطاقة {{current}} من {{total}}",
     "noteIdRequired": "معرّف الملاحظة مطلوب لإنشاء بطاقات الاستذكار",
-    "invalidCardCount": "يرجى اختيار ما بين 1 و100 بطاقة استذكار"
+    "invalidCardCount": "يرجى اختيار ما بين 1 و100 بطاقة استذكار",
+    "flashcardGroupDetail": {
+      "inProgress": "قيد التقدم",
+      "notStarted": "لم تبدأ",
+      "failedToLoadFlashcardHistory": "فشل تحميل سجل البطاقات التعليمية",
+      "limitReached": "تم الوصول إلى الحد الأقصى",
+      "flashcardGenerationLimitReached": "تم الوصول إلى الحد الأقصى لإنشاء البطاقات التعليمية.",
+      "failedToGenerateFlashcards": "فشل إنشاء البطاقات التعليمية",
+      "failedToTranslateFlashcards": "فشل ترجمة البطاقات التعليمية",
+      "deleteFlashcards": "حذف البطاقات التعليمية",
+      "failedToDeleteFlashcards": "فشل حذف البطاقات التعليمية",
+      "created": "تاريخ الإنشاء {{dateTime}}",
+      "lastprogress": "آخر تقدم",
+      "bestprogress": "أفضل تقدم",
+      "sets": "المجموعات",
+      "studyNow": "ذاكر الآن",
+      "translate": "ترجمة",
+      "newFlashcards": "بطاقات تعليمية جديدة",
+      "flashcardHistory": "سجل البطاقات التعليمية",
+      "quizHistory": "سجل الاختبارات",
+      "cards": "{{totalCards}} بطاقة · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "لا توجد اختبارات من هذا المصدر حتى الآن.",
+      "score": "النتيجة {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "خيارات البطاقات التعليمية",
+      "exportLatestSet": "تصدير أحدث مجموعة",
+      "questions": "{{totalQuestions}} سؤال · {{value}}",
+      "deleteAllSetsOne": "هل تريد حذف مجموعة البطاقات التعليمية لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "deleteAllSetsMany": "هل تريد حذف جميع مجموعات البطاقات التعليمية البالغ عددها {{total}} لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء."
+    },
+    "flashcardReview": {
+      "unknownError": "خطأ غير معروف",
+      "noFlashcardsInThisSet": "لا توجد بطاقات تعليمية في هذه المجموعة",
+      "goBack": "رجوع",
+      "allDone": "اكتملت جميعها",
+      "youHaveReviewedAllTheCards": "لقد راجعت جميع البطاقات في هذه المجموعة",
+      "question": "سؤال {{value}}",
+      "questionOf": "السؤال {{value}} من {{totalCards}}"
+    }
   },
   "chat": {
     "title": "دردشة",
@@ -411,7 +798,186 @@
     "chatWithDocument": "الدردشة مع المستند",
     "selectFile": "اختر ملفاً للدردشة معه",
     "uploadFile": "رفع ملف",
-    "startChatting": "بدء الدردشة"
+    "startChatting": "بدء الدردشة",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "اطرح سؤالاً طبياً للحصول على مزيد من التوضيح",
+      "askAnythingAboutThisDocument": "اسأل أي شيء عن هذا المستند...",
+      "askAQuestionAttachmentProcessingFailed": "اطرح سؤالاً — تعذّرت معالجة المرفق",
+      "extractingText": "جارٍ استخراج النص...",
+      "processingPDF": "جارٍ معالجة PDF...",
+      "upgradeToProToContinueChatting": "قم بالترقية إلى Pro لمواصلة المحادثة",
+      "queryremaining": "{{queriesRemaining}} استفسار متبقٍ"
+    },
+    "chatEmptyState": {
+      "initializingChat": "جارٍ تهيئة المحادثة...",
+      "extractingTextFromImage": "جارٍ استخراج النص من الصورة...",
+      "processingPDFDocument": "جارٍ معالجة مستند PDF...",
+      "analyzingYourNote": "جارٍ تحليل ملاحظاتك...",
+      "thisUsuallyTakesJustAFew": "⏱️ يستغرق هذا عادةً بضع ثوانٍ فقط. ستتمكن من بدء المحادثة فور اكتمال المعالجة.",
+      "processingFailed": "فشلت المعالجة",
+      "fileMightBeCorruptedOrUnreadable": "• قد يكون الملف تالفاً أو غير قابل للقراءة",
+      "imageQualityTooLow": "جودة الصورة منخفضة جداً",
+      "pdfIsPasswordProtected": "ملف PDF محمي بكلمة مرور",
+      "contentFormatNotSupported": "صيغة المحتوى غير مدعومة",
+      "networkConnectionIssue": "• مشكلة في الاتصال بالشبكة",
+      "tryADifferentFile": "جرّب ملفاً آخر",
+      "askAnyClinicalQuestionNoUpload": "💡 اطرح أي سؤال سريري — لا حاجة لتحميل ملفات. سأجيبك بالاعتماد على مصادر طبية موثوقة، مع صور توضيحية عند توفرها.",
+      "readyToChat": "✓ جاهز للمحادثة",
+      "couldntProcessNote": "تعذّرت معالجة هذه الملاحظة. قد يعود ذلك إلى:",
+      "couldntProcessImage": "تعذّرت معالجة هذه الصورة. قد يعود ذلك إلى:",
+      "couldntProcessDocument": "تعذّرت معالجة هذا المستند. قد يعود ذلك إلى:",
+      "askMeAboutNote": "💡 اسألني أي شيء عن هذه الملاحظة. يمكنني تلخيصها، أو شرح المفاهيم، أو الإجابة عن أسئلة محددة.",
+      "askMeAboutImage": "💡 اسألني أي شيء عن هذه الصورة. يمكنني تلخيصها، أو شرح المفاهيم، أو الإجابة عن أسئلة محددة.",
+      "askMeAboutDocument": "💡 اسألني أي شيء عن هذا المستند. يمكنني تلخيصه، أو شرح المفاهيم، أو الإجابة عن أسئلة محددة."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "تم إتقان {{masteredCards}}/{{totalCards}}",
+      "notStarted": "لم تبدأ بعد",
+      "quizGeneration": "إنشاء اختبار",
+      "score": "النتيجة {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "إنشاء بطاقات تعليمية",
+      "questions": "{{totalCards}} سؤال · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} سؤال · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "جارٍ التفكير والبحث عن مراجع لك...",
+      "couldnTGenerateAResponse": "تعذّر إنشاء رد.",
+      "retry": "إعادة المحاولة",
+      "alsoReferencedFromTheWeb": "تمت الاستعانة بمراجع من الويب أيضاً",
+      "followUpQuestions": "أسئلة متابعة"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "اسأل عن أي موضوع طبي، واحصل على حقائق موثّقة بمصادر حقيقية",
+      "evidenceBasedPubMedSourcesPeerReviewed": "قائم على الأدلة · مصادر PubMed · مُحكَّم علمياً",
+      "tryOutAnyOfThisTopics": "جرّب أياً من هذه المواضيع للبدء",
+      "topics": {
+        "electrolytes": {
+          "label": "شرح اضطراب الكهارل",
+          "question": "اشرح لي اضطراب الكهارل — الأسباب والأعراض والعلاج"
+        },
+        "ecg": {
+          "label": "أساسيات تخطيط القلب (ECG)",
+          "question": "ما هي أساسيات قراءة وتفسير تخطيط القلب (ECG)؟"
+        },
+        "drugInteractions": {
+          "label": "تفاعلات دوائية شائعة يجب معرفتها",
+          "question": "ما هي أبرز وأهم التفاعلات الدوائية الشائعة التي يجب عليّ معرفتها؟"
+        },
+        "nclex": {
+          "label": "مواضيع تدريبية بنمط NCLEX",
+          "question": "أعطني سؤالاً تدريبياً بنمط NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "النشرة الدوائية المعتمدة من FDA",
+      "fromYourAttachedMaterial": "من ملفاتك المرفقة"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "تعذّر بدء جلسة المحادثة",
+      "failedToInitializeChatSession": "تعذّر تشغيل جلسة المحادثة",
+      "failedToUpdateLanguage": "تعذّر تحديث اللغة",
+      "youVeReachedYour3Pin": "لقد بلغت الحد الأقصى للتثبيت (3 عناصر)",
+      "failedToUpdatePin": "تعذّر تحديث التثبيت",
+      "permissionRequired": "مطلوب إذن الوصول",
+      "pleaseGrantCameraPermissionToTake": "يرجى منح إذن استخدام الكاميرا لالتقاط صورة.",
+      "pleaseGrantPhotoLibraryPermissionTo": "يرجى منح إذن الوصول إلى مكتبة الصور لتحميل الصور.",
+      "failedToUploadImage": "تعذّر تحميل الصورة",
+      "uploadFailed": "فشل التحميل",
+      "failedToUploadDocument": "تعذّر تحميل المستند",
+      "failedToStartChatFromThis": "تعذّر بدء محادثة من هذا الملف.",
+      "chatFromImage": "محادثة عبر الصورة",
+      "failedToStartANewQuestion": "تعذّر بدء سؤال جديد. يرجى المحاولة مرة أخرى.",
+      "failedToAttachFile": "تعذّر إرفاق الملف",
+      "failedToSendMessage": "تعذّر إرسال الرسالة",
+      "copiedToClipboard": "تم النسخ إلى الحافظة",
+      "notEnoughContentYet": "المحتوى غير كافٍ حتى الآن",
+      "chatABitMoreBeforeGenerating": "تحدث أكثر قليلاً قبل إنشاء اختبار (100 حرف كحد أدنى).",
+      "chatABitMoreBeforeGenerating2": "تحدث أكثر قليلاً قبل إنشاء بطاقات تعليمية (100 حرف كحد أدنى).",
+      "failedToGenerateFlashcards": "تعذّر إنشاء البطاقات التعليمية",
+      "failedToRegenerateResponse": "تعذّر إعادة إنشاء الرد",
+      "failedToRetryResponse": "تعذّرت إعادة محاولة الحصول على الرد"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "تعذّر إرفاق الملاحظة",
+      "folderCreatedSuccessfully": "تم إنشاء المجلد \"{{name}}\" بنجاح!",
+      "failedToCreateFolder": "تعذّر إنشاء المجلد",
+      "failedToAttachDocument": "تعذّر إرفاق المستند",
+      "failedToCreateChatSession": "تعذّر إنشاء جلسة المحادثة",
+      "failedToUploadDocument": "تعذّر تحميل المستند",
+      "openingCamera": "📷 جارٍ فتح الكاميرا...",
+      "openingImagePicker": "🖼️ جارٍ فتح محدد الصور...",
+      "permissionRequired": "مطلوب إذن الوصول",
+      "pleaseGrantCameraPermissionToTake": "يرجى منح إذن استخدام الكاميرا لالتقاط صورة.",
+      "pleaseGrantPhotoLibraryPermissionTo": "يرجى منح إذن الوصول إلى مكتبة الصور لتحميل الصور.",
+      "failedToAttachImage": "تعذّر إرفاق الصورة",
+      "failedToUploadImage": "تعذّر تحميل الصورة",
+      "failedToAttachAudio": "تعذّر إرفاق المقطع الصوتي",
+      "failedToUploadAudio": "تعذّر تحميل المقطع الصوتي",
+      "aNote": "{{verb}} ملاحظة",
+      "anImage": "{{verb}} صورة",
+      "aDocument": "{{verb}} مستنداً",
+      "audio": "{{verb}} مقطعاً صوتياً",
+      "aFile": "{{verb}} ملفاً",
+      "items": "{{itemCount}} من العناصر",
+      "thisFolderIsEmptyGoBack": "هذا المجلد فارغ. ارجع لاختيار مجلد آخر.",
+      "addFolder": "إضافة مجلد",
+      "uploadNewDocument": "رفع مستند جديد",
+      "uploadAPDFAndStartChatting": "ارفع ملف PDF وابدأ المحادثة فوراً",
+      "uploadNewImage": "رفع صورة جديدة",
+      "uploadAnImageAndExtractText": "ارفع صورة واستخرج النص فوراً",
+      "uploadNewAudio": "رفع ملف صوتي جديد",
+      "uploadAnAudioFileAndTranscribe": "ارفع ملفاً صوتياً وحوّله إلى نص فوراً",
+      "orselectfromlibrary": "أو اختر من المكتبة",
+      "folders": "المجلدات",
+      "allNotes": "جميع الملاحظات",
+      "noFilesToDisplay": "لا توجد ملفات لعرضها",
+      "noNotesToDisplay": "لا توجد ملاحظات لعرضها",
+      "noDocumentsYet": "ليس لديك أي مستندات PDF بعد.\nأنشئ بعض الملاحظات أولاً، ثم عُد لبدء المحادثة معها.",
+      "noImagesYet": "ليس لديك أي صور بعد.\nأنشئ بعض الملاحظات أولاً، ثم عُد لبدء المحادثة معها.",
+      "noAudioNotesYet": "ليس لديك أي ملاحظات صوتية بعد.\nأنشئ بعض الملاحظات أولاً، ثم عُد لبدء المحادثة معها.",
+      "noNotesYet": "ليس لديك أي ملاحظات بعد.\nأنشئ بعض الملاحظات أولاً، ثم عُد لبدء المحادثة معها.",
+      "attachNote": "إرفاق ملاحظة",
+      "selectNote": "تحديد ملاحظة",
+      "attachImage": "إرفاق صورة",
+      "selectImage": "تحديد صورة",
+      "attachDocument": "إرفاق مستند",
+      "selectDocument": "تحديد مستند",
+      "attachAudio": "إرفاق مقطع صوتي",
+      "selectAudio": "تحديد مقطع صوتي",
+      "attachFile": "إرفاق ملف",
+      "selectFile": "تحديد ملف"
+    },
+    "chatAttachSheet": {
+      "addToChat": "إضافة إلى المحادثة",
+      "camera": "الكاميرا",
+      "photos": "الصور",
+      "files": "الملفات",
+      "generateQuiz": "إنشاء اختبار",
+      "generateFlashcards": "إنشاء بطاقات استذكار",
+      "searchMedicalLiterature": "البحث في المراجع الطبية",
+      "filterByDateSourceAndType": "تصفية حسب التاريخ والمصدر والنوع",
+      "pullsRealCitedSourcesIntoYour": "يضمّن مراجع حقيقية موثقة في إجاباتك",
+      "trustedmedicalsourcedatabase": "قاعدة بيانات المصادر الطبية الموثوقة",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "المكتبة الوطنية الأمريكية للطب",
+      "fdaDrugTreatmentData": "بيانات الأدوية والعلاجات من FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "عرض المراجع"
+    },
+    "chatHeader": {
+      "readyTapToRename": "جاهز · اضغط لإعادة التسمية",
+      "processing": "جارٍ المعالجة {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "عرض المصدر ↗"
+    },
+    "chatRename": {
+      "renameChat": "إعادة تسمية المحادثة"
+    }
   },
   "languages": {
     "english": "الإنجليزية",
@@ -465,5 +1031,455 @@
     "urdu": "الأردية",
     "malay": "الملايوية",
     "catalan": "الكتالونية"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "إضافة مجلد",
+      "folderName": "اسم المجلد",
+      "enterFolderName": "أدخل اسم المجلد",
+      "chooseColor": "اختر لوناً",
+      "createFolder": "إنشاء مجلد"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "قبل معالجة محتواك",
+      "clinicalFactUsesAIToAnswer": "يستخدم Clinical Fact تقنية AI للإجابة عن أسئلتك وتحويل محتواك إلى ملاحظات، واختبارات، وبطاقات استذكار. إليك ما تحتاج معرفته:",
+      "whatDataIsSent": "ما هي البيانات التي يتم إرسالها",
+      "questionsAndMessagesYouTypeIn": "الأسئلة والرسائل التي تكتبها في المحادثة",
+      "audioRecordingsOrUploadedAudioFiles": "التسجيلات الصوتية أو الملفات الصوتية المرفوعة",
+      "pdfAndTextDocumentsYouUpload": "مستندات PDF والنصوص التي ترفعها",
+      "imagesYouUpload": "الصور التي ترفعها",
+      "youTubeVideoURLsAndTheirTranscripts": "روابط مقاطع YouTube ونصوصها",
+      "customTextYouEnter": "أي نصوص مخصصة تُدخلها",
+      "whoReceivesYourData": "من يتلقى بياناتك",
+      "howItSUsed": "كيفية استخدامها",
+      "yourContentIsUsedSolelyTo": "يُستخدم محتواك فقط لإنشاء الإجابة أو الملاحظة أو الاختبار أو بطاقات الاستذكار المطلوبة. تنطبق سياسات استخدام البيانات الخاصة بكل مزود خدمة على المحتوى المعالج عبر واجهة API الخاصة به. لمزيد من التفاصيل، يرجى الاطلاع على سياسة الخصوصية.",
+      "iAgreeContinue": "أوافق — متابعة",
+      "noThanks": "لا، شكراً",
+      "whoReceivesBody": "يتم إرسال محتواك إلى <bold>Google (Gemini)</bold> (لإنشاء الملاحظات والاختبارات والبطاقات التعليمية، والردود عبر الدردشة، ومعالجة المستندات والصور) وإلى <bold>OpenAI</bold> (لتفريغ التسجيلات الصوتية) عبر خوادمنا الآمنة. كما يتم فهرسة أجزاء من مستنداتك باستخدام <bold>Google Vertex AI</bold> لتتمكن الدردشة من العثور على الأقسام ذات الصلة. وعند استخدام البحث الطبي المباشر، يُرسل سؤالك أيضاً إلى <bold>Tavily</bold> وإلى قواعد بيانات المراجع الطبية العامة (مثل PubMed وEurope PMC وSemantic Scholar) للبحث عن اقتباسات من مصادر موثوقة مثل NIH وCDC وMedlinePlus وWHO وMayo Clinic. يقوم هؤلاء المزودون بمعالجة بياناتك فقط لإنشاء الإجابة لك، ولا يستخدمونها لتدريب نماذج AI العامة الخاصة بهم، ونحن لا نبيع بياناتك لأي طرف ثالث مطلقاً."
+    },
+    "chatActionSheet": {
+      "unpinChat": "إلغاء تثبيت المحادثة",
+      "pinChat": "تثبيت المحادثة",
+      "deleteChat": "حذف المحادثة"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "إنشاء بطاقات استذكار",
+      "createFlashcards": "إنشاء بطاقات استذكار",
+      "createFlashcardsFromToImproveYour": "أنشئ بطاقات استذكار من \"{{noteTitle}}\" لتحسين مهارات الحفظ والاسترجاع لديك",
+      "createFlashcardsToImproveYourRetention": "أنشئ بطاقات استذكار لتعزيز قدرتك على التذكر",
+      "howManyQuestions": "عدد الأسئلة",
+      "generateFlashcards2": "إنشاء بطاقات استذكار"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "إنشاء من المحادثة",
+      "selectFromOneOfYourRecent": "اختر من إحدى محادثاتك الأخيرة",
+      "pdfOrDocument": "ملف PDF أو مستند",
+      "createFromAudio": "إنشاء من ملف صوتي",
+      "image": "صورة",
+      "createFromCustomText": "إنشاء من نص مخصص",
+      "created": "تم الإنشاء في {{day}}، {{time}}",
+      "createQuizFrom": "إنشاء اختبار من",
+      "createFlashcardsFrom": "إنشاء بطاقات استذكار من",
+      "selectFromChat": "اختيار من المحادثة",
+      "noRecentChatsYet": "لا توجد محادثات أخيرة بعد",
+      "quizFromPdf": "إنشاء اختبار من ملف PDF أو مستند",
+      "flashcardsFromPdf": "إنشاء مجموعة بطاقات استذكار من ملف PDF أو مستند",
+      "quizFromAudio": "إنشاء اختبار من ملف صوتي مرفوع",
+      "flashcardsFromAudio": "إنشاء مجموعة بطاقات استذكار من ملف صوتي مرفوع",
+      "quizFromImage": "إنشاء اختبار من أي صورة",
+      "flashcardsFromImage": "إنشاء مجموعة بطاقات استذكار من أي صورة",
+      "quizFromText": "إنشاء اختبار من نص ملتقط",
+      "flashcardsFromText": "إنشاء مجموعة بطاقات استذكار من نص ملتقط"
+    },
+    "createNote": {
+      "recordAudio": "تسجيل صوتي",
+      "generateANoteFromAnyRecorded": "توليد ملاحظة من أي تسجيل صوتي",
+      "uploadAudio": "رفع ملف صوتي",
+      "createANoteFromAnyUploaded": "إنشاء ملاحظة من أي ملف صوتي مرفوع",
+      "youtubeVideo": "فيديو YouTube",
+      "createANoteFromAnyYoutube": "إنشاء ملاحظة من أي فيديو YouTube",
+      "pdfOrDocument": "ملف PDF أو مستند",
+      "createANoteFromPDFOr": "إنشاء ملاحظة من ملف PDF أو مستند",
+      "customText": "نص مخصص",
+      "createANoteFromCapturedText": "إنشاء ملاحظة من نص ملتقط",
+      "image": "صورة",
+      "createANoteFromAnyImage": "إنشاء ملاحظة من أي صورة",
+      "createNote": "إنشاء ملاحظة"
+    },
+    "createQuiz": {
+      "generateQuiz": "توليد اختبار",
+      "createQuiz": "إنشاء اختبار",
+      "practiceByCreatingQuestionsThatHelp": "تدرّب على \"{{noteTitle}}\" عبر إنشاء أسئلة تساعدك على إتقان الموضوع",
+      "practiceYourNotesByCreatingQuestions": "تدرّب على ملاحظاتك عبر إنشاء أسئلة تساعدك على إتقان الموضوع",
+      "howManyQuestions": "عدد الأسئلة",
+      "timeInMinutes": "الوقت (بالدقائق)"
+    },
+    "deleteNote": {
+      "deleteNote": "حذف الملاحظة",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في حذف هذه الملاحظة؟"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "تصدير الملخص بصيغة",
+      "exportTranscriptAs": "تصدير النص المفرّغ بصيغة",
+      "exportAs": "تصدير بصيغة",
+      "exportSummary": "تصدير الملخص",
+      "exportTranscript": "تصدير النص المفرّغ"
+    },
+    "exportTypeStep": {
+      "exportNote": "تصدير الملاحظة",
+      "exportSummary": "تصدير الملخص",
+      "exportTranscript": "تصدير النص المفرّغ"
+    },
+    "exportSettings": {
+      "export": "تصدير {{title}}",
+      "selectFormat": "تحديد الصيغة",
+      "includeAnswers": "تضمين الإجابات",
+      "answersExplanationsIncluded": "الإجابات والشروحات متضمنة",
+      "questionsOnly": "الأسئلة فقط",
+      "export2": "تصدير"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "ملاحظتك جاهزة!",
+      "howDidWeDo": "كيف كان أداؤنا؟",
+      "happy": "راضٍ",
+      "sad": "غير راضٍ",
+      "maybeLater": "ربما لاحقاً",
+      "whatWentWrong": "ما المشكلة التي واجهتها؟",
+      "yourFeedbackHelpsUsImprove": "ملاحظاتك تساعدنا على التحسين.",
+      "tellUsWhatCouldBeBetter": "أخبرنا بما يمكن تحسينه...",
+      "submit": "إرسال"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "لا يوجد محتوى متاح",
+      "clickCardToFlip": "اضغط على البطاقة لقلبها"
+    },
+    "flashcardExport": {
+      "exportFailed": "فشل التصدير",
+      "unknownError": "خطأ غير معروف",
+      "export": "تصدير {{setTitle}}",
+      "chooseWhatToExport": "اختر ما ترغب في تصديره",
+      "exportQuestions": "تصدير الأسئلة",
+      "exportAnswers": "تصدير الإجابات"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "حذف مجموعة البطاقات التعليمية",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في حذف \"{{setTitle}}\"؟",
+      "failedToDeleteFlashcardSet": "فشل حذف مجموعة البطاقات التعليمية",
+      "flashcardHistory": "سجل البطاقات التعليمية",
+      "cards": "بطاقات",
+      "reviewedMastered": "تمت مراجعة {{cardsReviewedCount}} • تم إتقان {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} من العناصر",
+      "enterYourFolderName": "أدخل اسم المجلد",
+      "yourFolderName": "اسم المجلد الخاص بك",
+      "createFolder": "إنشاء مجلد",
+      "folders": "المجلدات",
+      "addFolder": "إضافة مجلد",
+      "noFoldersToDisplay": "لا توجد مجلدات لعرضها",
+      "clickTheButtonAboveToCreate": "اضغط على الزر أعلاه لإنشاء مجلد لملاحظاتك",
+      "allFolders": "جميع المجلدات",
+      "items2": "{{totalItems}} من العناصر"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "فلاتر الأبحاث الطبية",
+      "howrecentdoyouwantthe": "ما مدى حداثة المصدر المطلوبة؟",
+      "from": "من",
+      "whatkindofsourcedoyou": "ما نوع المصدر الذي تحتاجه؟",
+      "textbooks": "كتب مرجعية",
+      "clinicalGuidelines": "إرشادات سريرية",
+      "scientificJournalArticles": "مقالات المجلات العلمية",
+      "onlywiththisjournalarticles": "فقط بمقالات هذه المجلات",
+      "metaAnalyses": "التحليلات التلوية (Meta-analyses)",
+      "reviewArticles": "مقالات مراجعة",
+      "clinicalTrials": "تجارب سريرية",
+      "fromYear": "من عام",
+      "toYear": "إلى عام"
+    },
+    "noteOptions": {
+      "noteOptions": "خيارات الملاحظة",
+      "editNote": "تعديل الملاحظة",
+      "reTranscribe": "إعادة النسخ الصوتي",
+      "chatWithNote": "محادثة حول الملاحظة",
+      "exportNote": "تصدير الملاحظة",
+      "moveToFolder": "نقل إلى مجلد",
+      "deleteNote": "حذف الملاحظة"
+    },
+    "onboardingTooltip": {
+      "skip": "تخطي"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "حذف الاختبار",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في حذف \"{{quizTitle}}\"؟",
+      "failedToDeleteQuiz": "فشل حذف الاختبار",
+      "quizHistory": "سجل الاختبارات",
+      "questions": "أسئلة",
+      "correct": "{{correctAnswers}} صحيح"
+    },
+    "referral": {
+      "copied": "تم النسخ!",
+      "yourReferralCodeHasBeenCopied": "تم نسخ رمز الإحالة الخاص بك إلى الحافظة.",
+      "joinMeOnClinicalFactUse": "انضم إلي في Clinical Fact! استخدم رمزي {{referralCode}} – {{appUrl}}",
+      "joined": "انضم في {{joinedDate}}",
+      "referralCode": "رمز الإحالة",
+      "yourReferralCode": "رمز الإحالة الخاص بك",
+      "shareWithFriendsToEarnRewards": "شارك مع أصدقائك للحصول على مكافآت",
+      "share": "مشاركة",
+      "copyCode": "نسخ الرمز",
+      "referredFriends": "الأصدقاء المُحالون",
+      "noReferralsYetShareYourCode": "لا توجد إحالات بعد. شارك رمزك للبدء!",
+      "loadMore": "تحميل المزيد",
+      "howItWorks": "طريقة العمل",
+      "friendsUseYourCodeDuringSignup": "• يستخدم أصدقاؤك رمزك أثناء التسجيل",
+      "youBothEarnRewardsWhenThey": "• يحصل كلاكما على مكافآت عند انضمامهم",
+      "friendsReferredCount": "الأصدقاء المُحالون: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "جارٍ استخراج النص...",
+      "transcribingAudio": "جارٍ تحويل الصوت إلى نص...",
+      "processingPDF": "جارٍ معالجة ملف PDF...",
+      "settingUpChat": "جارٍ إعداد المحادثة...",
+      "uploadFailed": "فشل الرفع",
+      "failedToUploadFilePleaseTry": "فشل رفع الملف. يُرجى المحاولة مرة أخرى.",
+      "yourFileIsReadyForChatting": "ملفك جاهز للمحادثة!",
+      "uploadingYourFileToTheServer": "جارٍ رفع ملفك إلى الخادم...",
+      "extractingTextFromYourImage": "جارٍ استخراج النص من صورتك...",
+      "transcribingYourAudio": "جارٍ تحويل تسجيلك الصوتي إلى نص...",
+      "extractingTextFromYourPDF": "جارٍ استخراج النص من ملف PDF الخاص بك...",
+      "creatingYourChatSession": "جارٍ إنشاء جلسة المحادثة...",
+      "pleaseWait": "يُرجى الانتظار...",
+      "uploadFile": "رفع ملف",
+      "processContent": "معالجة المحتوى",
+      "createChat": "إنشاء محادثة"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ عرض",
+      "export": "📤 تصدير",
+      "delete": "🗑️ حذف"
+    },
+    "poweredByFooter": {
+      "poweredBy": "مدعوم من"
+    },
+    "exportFormat": {
+      "txtFile": "ملف TXT",
+      "pdfFile": "ملف PDF",
+      "docFile": "ملف Doc"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "فشل جلب الملاحظات",
+      "failedToFetchFolders": "فشل جلب المجلدات",
+      "failedToFetchNote": "فشل جلب الملاحظة",
+      "failedToDeleteNote": "فشل حذف الملاحظة",
+      "failedToCreateFolder": "فشل إنشاء المجلد",
+      "failedToDeleteFolder": "فشل حذف المجلد"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "فشل حذف المحادثة"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "تم تصدير مجموعة البطاقات التعليمية بنجاح!",
+      "failedToExportFlashcardSet": "فشل تصدير مجموعة البطاقات التعليمية."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "تم تصدير الاختبار بنجاح!",
+      "failedToExportQuiz": "فشل تصدير الاختبار."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "بطاقات تعليمية بلا عنوان",
+      "failedToLoadFlashcards": "فشل تحميل البطاقات التعليمية",
+      "failedToSyncFlashcardSet": "فشل مزامنة مجموعة البطاقات التعليمية",
+      "failedToSyncCardUpdate": "فشل مزامنة تحديث البطاقة"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "اختبار"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "تم الإنشاء في {{day}}، {{time}}",
+      "youVeReachedYour3Pin": "لقد وصلت إلى الحد الأقصى للتثبيت (3 محادثات)",
+      "failedToUpdatePin": "فشل تحديث التثبيت",
+      "noChatsYet": "لا توجد محادثات بعد",
+      "startAChatToGetAnswers": "ابدأ محادثة للحصول على إجابات مدعومة بمصادر موثوقة.",
+      "createChat": "+ إنشاء محادثة"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "حذف البطاقات التعليمية",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في حذف \"{{sourceTitle}}\"؟",
+      "failedToDeleteFlashcards": "تعذّر حذف البطاقات التعليمية",
+      "sets": "{{setCount}} مجموعة",
+      "flashcards": "البطاقات التعليمية",
+      "createFlashcards": "إنشاء بطاقات تعليمية",
+      "searchFlashcards": "البحث في البطاقات التعليمية...",
+      "noFlashcardsYet": "لا توجد بطاقات تعليمية بعد",
+      "createAFlashcardSetFromA": "أنشئ مجموعة بطاقات من ملاحظة للبدء",
+      "createSet": "+ إنشاء مجموعة",
+      "flashcardOptions": "خيارات البطاقات التعليمية",
+      "view": "عرض"
+    },
+    "folder": {
+      "deleteFolder": "حذف المجلد",
+      "areYouSureYouWantTo": "هل أنت متأكد من حذف \"{{name}}\"؟ سيتم نقل الملاحظات بداخله إلى المجلد الرئيسي.",
+      "failedToDeleteFolder": "تعذّر حذف المجلد",
+      "error": "خطأ: {{message}}",
+      "noFoldersYetCreateOne": "لا توجد مجلدات بعد. أنشئ مجلداً!",
+      "folders": "المجلدات"
+    },
+    "home": {
+      "created": "تم الإنشاء {{day}}، {{time}}",
+      "failedToUpdateLanguage": "تعذّر تحديث اللغة",
+      "notEnoughContentYet": "المحتوى غير كافٍ بعد",
+      "chatABitMoreBeforeGenerating": "تحدث أكثر قليلاً قبل إنشاء اختبار تدريبي (100 حرف على الأقل).",
+      "chatABitMoreBeforeGenerating2": "تحدث أكثر قليلاً قبل إنشاء بطاقات تعليمية (100 حرف على الأقل).",
+      "failedToGenerateFlashcards": "تعذّر إنشاء البطاقات التعليمية",
+      "upgradeToPro": "الترقية إلى PRO",
+      "get80DiscountWhenYouUpgrade": "احصل على خصم 80% عند ترقية حسابك",
+      "unlockPRO": "فتح حساب PRO",
+      "noMedicalChats": "لا توجد محادثات طبية",
+      "youHaveNotCreatedAnyMedical": "لم تقم بإنشاء أي محادثات طبية، يرجى بدء محادثة جديدة والحصول على مصادر موثقة",
+      "talkToClinicalfactAI": "تحدث مع Clinicalfact AI",
+      "jumpInWhereYouStopped": "تابع من حيث توقفت",
+      "practiceQuiz": "اختبار تدريبي",
+      "makeFlashcards": "إنشاء بطاقات تعليمية",
+      "continueChatWithNote": "متابعة المحادثة مع الملاحظة",
+      "continueChat": "متابعة المحادثة",
+      "recentChats": "المحادثات الأخيرة",
+      "chatOptions": "خيارات المحادثة"
+    },
+    "library": {
+      "text": "{{month}} {{day}}، {{year}} {{hours}}:{{minutes}} {{ampm}}",
+      "youAreCurrentlyOfflinePleaseConnect": "أنت غير متصل بالإنترنت حالياً. يرجى الاتصال بالإنترنت لإتمام هذا الإجراء.",
+      "failedToDeleteNote": "تعذّر حذف الملاحظة",
+      "failedToMoveNote": "تعذّر نقل الملاحظة",
+      "deleteFolder": "حذف المجلد؟",
+      "areYouSureNotesInsideWill": "هل أنت متأكد؟ لن تُحذف الملاحظات بداخل المجلد، بل ستُنقل إلى \"كل الملاحظات\".",
+      "failedToDeleteFolder": "تعذّر حذف المجلد",
+      "library": "المكتبة",
+      "addFolder": "إضافة مجلد",
+      "searchForANoteFolder": "البحث عن ملاحظة / مجلد",
+      "yourFolders": "مجلداتك",
+      "noFoldersToDisplay": "لا توجد مجلدات لعرضها",
+      "tapAddFolderToCreateA": "اضغط على \"+ إضافة مجلد\" لإنشاء مجلد لملاحظاتك",
+      "allNotes": "كل الملاحظات",
+      "items": "{{allNotesTotal}} عنصر",
+      "items2": "{{itemCount}} عنصر",
+      "yourNotes": "ملاحظاتك",
+      "untitledNote": "ملاحظة بدون عنوان",
+      "noResultsFor": "لا توجد نتائج لـ \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "لا توجد ملاحظات في هذا المجلد",
+      "noNotesToDisplay": "لا توجد ملاحظات لعرضها",
+      "tryADifferentSearchTerm": "جرّب كلمة بحث أخرى",
+      "moveNotesToThisFolderTo": "انقل الملاحظات إلى هذا المجلد لتظهر هنا",
+      "clickBelowToGenerateYourNote": "انقر أدناه لإنشاء ملاحظتك باستخدام Clinical Fact",
+      "filterByType": "تصفية حسب النوع",
+      "audio": "صوت",
+      "text2": "نص",
+      "image": "صورة",
+      "clearFilter": "إزالة الفلتر"
+    },
+    "profile": {
+      "permissionRequired": "الإذن مطلوب",
+      "pleaseAllowAccessToYourPhoto": "يرجى السماح بالوصول إلى مكتبة الصور لتعيين صورة الملف الشخصي.",
+      "uploadFailed": "فشل الرفع",
+      "couldNotUpdateProfilePicture": "تعذر تحديث صورة الملف الشخصي.",
+      "failedToUploadProfilePicture": "فشل رفع صورة الملف الشخصي.",
+      "checkOutClinicalFactAIPowered": "جرّب Clinical Fact - ملخصات دراسية مدعومة بـ AI! {{url}}",
+      "proSubscriber": "مشترك PRO",
+      "subscriptionExpired": "انتهى الاشتراك",
+      "freeSubscriber": "مشترك مجاني",
+      "tapToManageIPhoneSettingsApple": "اضغط للإدارة · إعدادات iPhone ← Apple ID ← الاشتراكات",
+      "tapToManagePlayStoreSubscriptions": "اضغط للإدارة · Play Store ← الاشتراكات",
+      "tapToRenewYourSubscription": "اضغط لتجديد اشتراكك",
+      "tapToUpgradeToPro": "اضغط للترقية إلى PRO",
+      "referralCode": "رمز الإحالة",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في تسجيل الخروج من حسابك؟"
+    },
+    "quizHistory": {
+      "deleteQuiz": "حذف الاختبار",
+      "areYouSureYouWantTo": "هل أنت متأكد من رغبتك في حذف \"{{sourceTitle}}\"؟",
+      "failedToDeleteQuiz": "فشل حذف الاختبار",
+      "correct": "{{correct}}/{{total}} إجابة صحيحة",
+      "attempts": "{{attempts}} محاولات",
+      "quiz": "اختبار",
+      "createQuiz": "إنشاء اختبار",
+      "searchQuizzes": "البحث في الاختبارات...",
+      "noQuizzesYet": "لا توجد اختبارات بعد",
+      "createAQuizFromANote": "أنشئ اختباراً من إحدى الملاحظات للبدء",
+      "createQuiz2": "+ إنشاء اختبار",
+      "quizOptions": "خيارات الاختبار",
+      "view": "عرض"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "الترقية غير متوفرة",
+      "weCouldnTOpenTheUpgrade": "تعذر فتح شاشة الترقية حالياً. يرجى التحقق من اتصالك والمحاولة مجدداً."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "أرجع الخادم استجابة بتنسيق غير JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+      "connectionErrorPleaseTryAgain": "خطأ في الاتصال. يرجى المحاولة مجدداً."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "تم تصدير الملف: {{filename}}",
+      "exportFailed": "فشل التصدير",
+      "exportFormat": "صيغة التصدير",
+      "chooseFormat": "اختر الصيغة",
+      "text": "نص"
+    },
+    "formatDate": {
+      "justNow": "الآن",
+      "minAgo": "منذ {{diffMin}} دقيقة",
+      "hrAgo": "منذ {{diffHr}} ساعة",
+      "dAgo": "منذ {{diffDay}} يوم",
+      "created": "تم الإنشاء في {{day}}، {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "فشل إرسال رمز التحقق",
+      "invalidOTP": "رمز التحقق غير صالح",
+      "failedToVerifyOTP": "فشل التحقق من الرمز",
+      "googleAuthenticationFailed": "فشلت المصادقة عبر Google",
+      "appleAuthenticationFailed": "فشلت المصادقة عبر Apple",
+      "failedToCompleteSignup": "فشل إكمال إنشاء الحساب",
+      "failedToSkipSignup": "فشل تخطي إنشاء الحساب"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "المحادثات",
+      "description": "تحدّث مع أي ملاحظة أو مستند أو ملف PDF في مكان واحد"
+    },
+    "profileWelcome": {
+      "heading": "مرحباً بك في ملفك الشخصي",
+      "description": "هذا ملفك الشخصي، اضغط هنا لتعديل بياناتك وحالة اشتراكك"
+    },
+    "createNotes": {
+      "heading": "إنشاء ملاحظة",
+      "description": "أنشئ أي نوع من الملاحظات من أي محتوى: تسجيل، ملف صوتي، فيديو، صورة، نص، وروابط YouTube"
+    },
+    "changeLanguage": {
+      "heading": "تغيير اللغة",
+      "description": "غيّر لغة التطبيق من هنا إلى لغتك المفضلة"
+    },
+    "manageHome": {
+      "heading": "إدارة الصفحة الرئيسية",
+      "description": "اعرض جميع ملاحظاتك، وتابع كل نشاطاتك في مكان واحد"
+    },
+    "yourLibrary": {
+      "heading": "مكتبتك",
+      "description": "أدر جميع ملاحظاتك، وأنشئ مجلدات لتنظيمها والمزيد"
+    },
+    "yourProfile": {
+      "heading": "ملفك الشخصي",
+      "description": "اطّلع على بيانات ملفك الشخصي وعدّل إعداداتك من هنا"
+    }
   }
 }

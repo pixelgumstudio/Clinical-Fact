@@ -6,6 +6,7 @@ import { RichText } from '../../../components/RichText';
 import { Message } from './types';
 import { stripCitationMarkers, citationsForBlock } from './citationHelpers';
 import { CitationPillsRow } from './CitationPillsRow';
+import { useTranslation } from 'react-i18next';
 
 interface ChatMessageBubbleProps {
   item: Message;
@@ -30,6 +31,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
   onSelectFollowUp,
   onRetryMessage,
 }) => {
+  const { t } = useTranslation();
   const isUser = item.role === 'user';
   const isFailed = item.status === 'failed';
 
@@ -67,7 +69,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
                 activeOpacity={item.sources?.length ? 0.7 : 1}
               >
                 <Icon name="ai" size={24} color={theme.colors.grey[400]} />
-                <Text style={styles.thinkingText}>Thinking and finding resources for you...</Text>
+                <Text style={styles.thinkingText}>{t('chat.chatMessageBubble.thinkingAndFindingResourcesForYou')}</Text>
                 <Icon name="foward" size={16} color={theme.colors.grey[400]} style={{ transform: [{ rotate: '90deg' }] }} />
               </TouchableOpacity>
             )}
@@ -93,7 +95,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
 
             {isFailed && (
               <View style={styles.failedBlock}>
-                <Text style={styles.failedText}>Couldn't generate a response.</Text>
+                <Text style={styles.failedText}>{t('chat.chatMessageBubble.couldnTGenerateAResponse')}</Text>
                 <TouchableOpacity
                   style={styles.retryButton}
                   onPress={() => onRetryMessage(index)}
@@ -101,7 +103,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
                   disabled={isSendingMessage}
                 >
                   <RegenerateIcon size={18} color={theme.colors.white} />
-                  <Text style={styles.retryButtonText}>Retry</Text>
+                  <Text style={styles.retryButtonText}>{t('chat.chatMessageBubble.retry')}</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -145,7 +147,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
 
           {!!item.groundingSources?.length && (
             <View style={styles.groundingContainer}>
-              <Text style={styles.groundingHeader}>Also referenced from the web</Text>
+              <Text style={styles.groundingHeader}>{t('chat.chatMessageBubble.alsoReferencedFromTheWeb')}</Text>
               {item.groundingSources.map((source, i) => (
                 <TouchableOpacity
                   key={`${item.id}-grounding-${i}`}
@@ -162,7 +164,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
 
           {!!item.followUpQuestions?.length && (
             <View style={styles.followUpSection}>
-              <Text style={styles.followUpHeader}>Follow up questions</Text>
+              <Text style={styles.followUpHeader}>{t('chat.chatMessageBubble.followUpQuestions')}</Text>
               <View style={styles.followUpCard}>
                 {item.followUpQuestions.map((question, i) => (
                   <TouchableOpacity

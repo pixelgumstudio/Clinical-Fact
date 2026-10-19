@@ -1,4 +1,5 @@
 import { MedicalChatSource } from '../../../services/api';
+import i18n from '../../../i18n';
 
 const CITATION_MARKER = /\[(\d+)\]/g;
 
@@ -34,7 +35,7 @@ export const groupSourcesForPills = (sources: MedicalChatSource[]) => {
     byKey.get(key)!.push(s);
   });
   return Array.from(byKey.entries()).map(([label, group]) => ({
-    label: group.length > 1 ? `${label} +${group.length - 1}` : label,
+    label: group.length > 1 ? i18n.t('chat.citationHelpers.text', { label, value: group.length - 1 }) : label,
     sources: group,
   }));
 };
@@ -43,8 +44,8 @@ export const groupSourcesForPills = (sources: MedicalChatSource[]) => {
  *  two types) — omits journal/year when they're the generic "Unknown ..." placeholder and
  *  falls back to the provider name instead of showing "Unknown journal · Unknown year" verbatim. */
 export const formatSourceMeta = (source: MedicalChatSource): string => {
-  if (source.type === 'drug_label') return 'FDA drug label';
-  if (source.type === 'attached') return 'From your attached material';
+  if (source.type === 'drug_label') return i18n.t('chat.citationHelpers.fdaDrugLabel');
+  if (source.type === 'attached') return i18n.t('chat.citationHelpers.fromYourAttachedMaterial');
   const parts = [
     hasRealJournal(source) ? source.journal : null,
     hasRealYear(source) ? source.year : null,

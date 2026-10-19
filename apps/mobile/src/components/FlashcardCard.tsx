@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { colors, theme } from '@clinicalfact/design-system';
+import { useTranslation } from 'react-i18next';
 
 export interface IFlashcard {
   id: string;
@@ -32,6 +33,7 @@ export const FlashcardCard: React.FC<FlashcardCardProps> = ({
   isLoading = false,
   cardColor = theme.colors.green[600],
 }) => {
+  const { t } = useTranslation();
   const flipAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export const FlashcardCard: React.FC<FlashcardCardProps> = ({
             </View>
           ) : !card ? (
             <View style={[styles.flashcard, { backgroundColor: cardColor }]}>
-              <Text style={styles.cardText}>No content available</Text>
+              <Text style={styles.cardText}>{t('components.flashcardCard.noContentAvailable')}</Text>
             </View>
           ) : (
             <>
@@ -100,7 +102,7 @@ export const FlashcardCard: React.FC<FlashcardCardProps> = ({
                     <Text style={styles.cardText}>{card.front}</Text>
                   </ScrollView>
                   <View style={styles.flipButton}>
-                    <Text style={styles.flipButtonText}>click card to flip</Text>
+                    <Text style={styles.flipButtonText}>{t('components.flashcardCard.clickCardToFlip')}</Text>
                   </View>
                 </Animated.View>
               </TouchableOpacity>
@@ -130,7 +132,7 @@ export const FlashcardCard: React.FC<FlashcardCardProps> = ({
                     <Text style={styles.cardText}>{card.back}</Text>
                   </ScrollView>
                   <View style={styles.flipButton}>
-                    <Text style={styles.flipButtonText}>click card to flip</Text>
+                    <Text style={styles.flipButtonText}>{t('components.flashcardCard.clickCardToFlip')}</Text>
                   </View>
                 </Animated.View>
               </TouchableOpacity>

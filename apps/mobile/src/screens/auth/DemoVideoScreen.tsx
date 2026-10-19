@@ -15,6 +15,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
+import { useTranslation } from 'react-i18next';
 
 type DemoVideoScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'DemoVideo'>;
 
@@ -28,6 +29,7 @@ const PROGRESS_GRADIENT: [string, string, ...string[]] = [
 ];
 
 export const DemoVideoScreen = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<DemoVideoScreenNavigationProp>();
   const { resetSignup } = useSignupStore();
   const { setOnboardingComplete } = useAuthStore();
@@ -66,9 +68,9 @@ export const DemoVideoScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.titleSection}>
-          <Text style={styles.title}>Everything you need to{'\n'} learn anything</Text>
+          <Text style={styles.title}>{t('auth.demoVideo.everythingYouNeedToLearnAnything')}</Text>
           <Text style={styles.subtitle}>
-            Record it. Research it. Quiz it. Master it.
+           {t('auth.demoVideo.recordItResearchItQuizIt')}
           </Text>
         </View>
 
@@ -99,7 +101,7 @@ export const DemoVideoScreen = () => {
           onPress={handleContinue}
           activeOpacity={0.85}
         >
-          <Text style={styles.continueButtonText}>Try Clinical Fact now for free</Text>
+          <Text style={styles.continueButtonText}>{t('auth.demoVideo.tryClinicalFactNowForFree')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

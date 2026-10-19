@@ -15,7 +15,8 @@
     "done": "Hoàn tất",
     "search": "Tìm kiếm",
     "filter": "Lọc",
-    "ok": "OK"
+    "ok": "OK",
+    "info": "Thông tin"
   },
   "home": {
     "title": "Clinical Fact",
@@ -76,7 +77,12 @@
     "trial": "DÙNG THỬ"
   },
   "auth": {
-    "welcome": "Chào mừng đến với Clinical Fact",
+    "welcome": {
+      "googleSignInFailed": "Đăng nhập Google thất bại",
+      "failedToAuthenticateWithServer": "Không thể xác thực với máy chủ",
+      "googleSignInIsOnlyAvailable": "Đăng nhập Google chỉ khả dụng trên ứng dụng gốc. Vui lòng dùng email hoặc tải ứng dụng.",
+      "code": "{{message}} (mã: {{code}})"
+    },
     "getStarted": "Bắt đầu",
     "signIn": "Đăng nhập",
     "signUp": "Đăng ký",
@@ -242,7 +248,10 @@
     },
     "demoVideo": {
       "title": "Tất cả công cụ bạn cần\\nđể làm chủ mọi kiến thức",
-      "subtitle": "Ghi âm. Tra cứu. Luyện trắc nghiệm. Nắm vững."
+      "subtitle": "Ghi âm. Tra cứu. Luyện trắc nghiệm. Nắm vững.",
+      "everythingYouNeedToLearnAnything": "Mọi thứ bạn cần để làm chủ kiến thức",
+      "recordItResearchItQuizIt": "Ghi chép. Tra cứu. Luyện trắc nghiệm. Thành thạo.",
+      "tryClinicalFactNowForFree": "Dùng thử Clinical Fact miễn phí ngay"
     },
     "features": {
       "feature1": {
@@ -265,12 +274,136 @@
         "title": "Biến cuộc trò chuyện hoặc tài liệu thành câu hỏi Flashcard để ôn tập",
         "description": "Không cần thêm ứng dụng học tập khác, tạo câu hỏi ôn luyện trực tiếp từ cuộc trò chuyện và tài liệu tải lên."
       }
+    },
+    "notificationsPrompt": {
+      "turnOnNotifications": "Bật thông báo",
+      "thisHelpsUsStayOnTrack": "Giúp cá nhân hóa tài khoản và hỗ trợ bạn tra cứu câu trả lời y khoa chính xác hơn"
+    },
+    "otpVerification": {
+      "invalidVerificationCodePleaseTryAgain": "Mã xác thực không hợp lệ. Vui lòng thử lại.",
+      "failedToResendCodePleaseTry": "Gửi lại mã thất bại. Vui lòng thử lại.",
+      "confirmYourEmailAddress": "Xác nhận địa chỉ email",
+      "enterCodeSentTo": "Vui lòng nhập mã OTP đã được gửi đến email {{email}}",
+      "resendCodeIn": "Gửi lại mã sau {{seconds}} giây"
+    },
+    "referralCode": {
+      "wereYouReferredBySomeone": "Bạn có mã giới thiệu không?",
+      "enterTheirReferralCodeIfYou": "Nhập mã giới thiệu nếu có",
+      "eGJOHNOrTECHBRO": "Ví dụ: JOHN hoặc TECHBRO",
+      "codeIsValid": "✓ Mã hợp lệ"
+    },
+    "resultsChart": {
+      "getBetterResults": "Đạt kết quả học tập tốt hơn",
+      "over95OfClinicalfactUsersScore": "Hơn 95% người dùng Clinicalfact đạt từ 95% điểm trở lên trong các bài kiểm tra và kỳ thi"
+    },
+    "options": {
+      "role": {
+        "nursingStudent": "Sinh viên Điều dưỡng",
+        "medicalStudent": "Sinh viên Y khoa",
+        "paPharmacyStudent": "Sinh viên PA hoặc Dược",
+        "practicingNurse": "Điều dưỡng viên",
+        "practicingPhysician": "Bác sĩ đang hành nghề",
+        "otherHealthcareProfessional": "Nhân viên y tế khác"
+      },
+      "currentMethod": {
+        "textbooksNotes": "Sách giáo trình hoặc bài giảng",
+        "flashcardQuizApps": "Ứng dụng flashcard hoặc trắc nghiệm",
+        "youtube": "YouTube",
+        "aiChatbots": "Chatbot AI",
+        "colleagueClassmate": "Hỏi đồng nghiệp hoặc bạn học",
+        "practiceQuestionBanks": "Ngân hàng câu hỏi luyện thi"
+      },
+      "timeDrain": {
+        "makingFlashcardsQuizzes": "Tự tạo flashcard & câu hỏi từ đầu",
+        "findingTrustworthyAnswer": "Tìm câu trả lời đáng tin cậy nhanh chóng",
+        "reReadingNotes": "Đọc lại ghi chú nhưng không nhớ được",
+        "switchingApps": "Phải chuyển đổi qua lại quá nhiều ứng dụng",
+        "chartingDocumentation": "Ghi chép hồ sơ bệnh án & tài liệu"
+      },
+      "appExpectation": {
+        "noHallucination": "Một AI không bịa đặt thông tin",
+        "realCitations": "Trích dẫn nguồn tài liệu chuẩn xác",
+        "oneApp": "Một ứng dụng thay vì đăng ký năm gói khác nhau",
+        "explainsWhy": "Giải thích rõ \"lý do tại sao\", không chỉ đưa đáp án"
+      },
+      "aiToolsUsed": {
+        "chatgpt": "ChatGPT",
+        "googleGemini": "Google Gemini",
+        "notebookLlm": "Notebook LLM",
+        "claude": "Claude",
+        "uworld": "Uworld",
+        "googleSearch": "Tìm kiếm Google",
+        "otherApps": "Ứng dụng khác"
+      },
+      "aiToolIssue": {
+        "madeThingsUp": "Tự bịa đặt thông tin",
+        "notMedicalContent": "Không chuyên sâu cho y khoa",
+        "noSources": "Không có nguồn để đối chiếu",
+        "tooGeneric": "Quá chung chung, không sát với đề thi hay thực hành"
+      },
+      "aiTrustLevel": {
+        "everyTime": "Luôn luôn",
+        "sometimes": "Thỉnh thoảng",
+        "rarely": "Hiếm khi",
+        "dontUseAi": "Tôi chưa dùng AI bao giờ"
+      },
+      "biggestNeed": {
+        "fastTrustworthyAnswers": "Câu trả lời nhanh và đáng tin cậy",
+        "quizzesFlashcardsWithoutWork": "Flashcard & câu hỏi ôn tập tự động",
+        "rememberingStudied": "Ghi nhớ tốt hơn những gì đã học",
+        "medicalCitations": "Trích dẫn y khoa tham khảo",
+        "allOfTheAbove": "Tất cả các mục trên"
+      },
+      "referral": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "newsletter": "Bản tin",
+        "threads": "Threads",
+        "appstore": "App Store",
+        "playstore": "Play Store",
+        "other": "Khác"
+      },
+      "studyTime": {
+        "under5Hours": "Dưới 5 giờ",
+        "510Hours": "5–10 giờ",
+        "1020Hours": "10–20 giờ",
+        "20PlusHours": "Hơn 20 giờ"
+      },
+      "comingUp": {
+        "medicalExams": "Kỳ thi y khoa",
+        "clinicalRotations": "Đi lâm sàng",
+        "nursingExams": "Kỳ thi điều dưỡng",
+        "otherExams": "Kỳ thi khác",
+        "staySharp": "Chỉ muốn trau dồi kiến thức"
+      }
     }
   },
   "notes": {
-    "noteTranscript": "Bản sao ghi chú",
+    "noteTranscript": {
+      "noteTranscript": "Bản ghi lời thoại ghi chú",
+      "noNoteIDProvided": "Không có ID ghi chú",
+      "noTranscriptAvailableForThisNote": "Không có bản ghi lời thoại cho ghi chú này.",
+      "thisNoteWasNotCreatedFrom": "Ghi chú này không được tạo từ âm thanh/video nên không có bản ghi lời thoại.",
+      "failedToLoadNote": "Không thể tải ghi chú",
+      "noteTranscript2": "Bản ghi lời thoại ghi chú",
+      "loadingTranscript": "Đang tải bản ghi lời thoại...",
+      "goToNote": "Đi đến ghi chú"
+    },
     "noteOptions": "Tùy chọn ghi chú",
-    "editNote": "Chỉnh sửa ghi chú",
+    "editNote": {
+      "pleaseEnterANoteTitle": "Vui lòng nhập tiêu đề ghi chú",
+      "failedToUpdateNote": "Không thể cập nhật ghi chú",
+      "noteUpdatedSuccessfully": "Đã cập nhật ghi chú thành công",
+      "editNote": "Chỉnh sửa ghi chú",
+      "noteTitle": "Tiêu đề ghi chú",
+      "enterNoteTitle": "Nhập tiêu đề ghi chú",
+      "noteContent": "Nội dung ghi chú",
+      "enterNoteContent": "Nhập nội dung ghi chú",
+      "saveThisNote": "Lưu ghi chú này",
+      "aiIsGeneratingYourNote": "AI đang tạo ghi chú của bạn",
+      "largeAudioAndVideoFilesMay": "Các tệp âm thanh và video lớn có thể mất vài phút để xử lý. Vui lòng duy trì mở ứng dụng."
+    },
     "retranscribe": "Sao chép lại",
     "exportNote": "Xuất ghi chú",
     "shareNoteLink": "Chia sẻ liên kết ghi chú",
@@ -292,12 +425,89 @@
     "translate": "Dịch",
     "addToFolder": "Thêm vào thư mục",
     "loadingNote": "Đang tải ghi chú...",
-    "noteNotFound": "Không thể tải ghi chú"
+    "noteNotFound": "Không thể tải ghi chú",
+    "createFlashcards": {
+      "failedToGenerateFlashcards": "Không thể tạo flashcard",
+      "anUnexpectedErrorOccurred": "Đã xảy ra lỗi không mong muốn",
+      "history": "Lịch sử",
+      "export": "Xuất"
+    },
+    "folderDetail": {
+      "failedToAddNoteToFolder": "Không thể thêm ghi chú vào thư mục",
+      "folderNotFound": "Không tìm thấy thư mục",
+      "addNote": "+ Thêm ghi chú",
+      "noNotesInThisFolder": "Chưa có ghi chú trong thư mục này",
+      "moveNotesToThisFolderTo": "Chuyển ghi chú vào thư mục này để xem tại đây",
+      "addNoteToFolder": "Thêm ghi chú vào thư mục",
+      "noNotesAvailableToAdd": "Không có ghi chú nào để thêm",
+      "allYourNotesAreAlreadyIn": "Tất cả ghi chú của bạn đã có trong thư mục này",
+      "created": "Đã tạo: {{value}}"
+    },
+    "noteDetail": {
+      "failedToLoadNote": "Không thể tải ghi chú",
+      "reTranscribeNote": "Ghi chép lại lời thoại",
+      "thisWillReTranscribeTheAudio": "Thao tác này sẽ ghi chép lại âm thanh và cập nhật ghi chú. Bạn có muốn tiếp tục?",
+      "reTranscribe": "Ghi chép lại",
+      "noteReTranscribedSuccessfully": "Đã ghi chép lại lời thoại thành công",
+      "info": "Thông tin",
+      "reTranscriptionFeatureIsComingSoon": "Tính năng ghi chép lại lời thoại sẽ sớm ra mắt",
+      "youAreCurrentlyOfflinePleaseConnect": "Bạn đang ngoại tuyến. Vui lòng kết nối Internet để thực hiện thao tác này.",
+      "failedToDeleteNote": "Không thể xóa ghi chú",
+      "failedToExportNote": "Xuất ghi chú thất bại",
+      "noteTranslatedSuccessfully": "Dịch ghi chú thành công",
+      "failedToTranslateNote": "Dịch ghi chú thất bại",
+      "noteMovedTo": "Đã chuyển ghi chú sang {{name}}",
+      "failedToMoveNoteToFolder": "Không thể chuyển ghi chú vào thư mục",
+      "summaryNotes": "Ghi chú tóm tắt",
+      "loadingNote": "Đang tải ghi chú...",
+      "imageNote": "Ghi chú hình ảnh",
+      "created": "Đã tạo {{dateTime}}",
+      "translate": "Dịch",
+      "transcribe": "Chuyển thành văn bản",
+      "editThisNote": "Chỉnh sửa ghi chú này",
+      "createFlashcards": "Tạo flashcard",
+      "createFlashcardsToImproveYourRetention": "Tạo flashcard để nâng cao khả năng ghi nhớ",
+      "createQuizQuestions": "Tạo câu hỏi ôn tập",
+      "practiceYourNotesByCreatingQuestions": "Ôn luyện kiến thức bằng cách tạo câu hỏi giúp bạn nắm vững chủ đề"
+    },
+    "sharedNote": {
+      "notFound": "Không tìm thấy",
+      "thisSharedNoteLinkIsInvalid": "Liên kết ghi chú được chia sẻ không hợp lệ hoặc đã hết hạn.",
+      "failedToLoadSharedNote": "Không thể tải ghi chú được chia sẻ.",
+      "saved": "Đã lưu!",
+      "noteHasBeenAddedToYour": "Ghi chú đã được thêm vào thư viện của bạn.",
+      "viewInLibrary": "Xem trong thư viện",
+      "stayHere": "Ở lại đây",
+      "failedToSaveNote": "Lưu ghi chú thất bại.",
+      "loadingSharedNote": "Đang tải ghi chú được chia sẻ...",
+      "sharedNote": "Ghi chú được chia sẻ",
+      "sharedWithYou": "Được chia sẻ với bạn",
+      "savedToLibrary": "Đã lưu vào thư viện",
+      "saveToMyLibrary": "Lưu vào thư viện của tôi"
+    }
   },
   "create": {
     "selectOption": "Bạn muốn tạo ghi chú như thế nào?",
-    "recordAudio": "Ghi âm",
-    "uploadAudio": "Tải lên âm thanh",
+    "recordAudio": {
+      "permissionRequired": "Yêu cầu quyền truy cập",
+      "pleaseGrantMicrophonePermissionToRecord": "Vui lòng cấp quyền truy cập micro để ghi âm.",
+      "failedToRequestMicrophonePermission": "Không thể yêu cầu quyền truy cập micro",
+      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "recordingAudio": "Đang ghi âm",
+      "recordAudio": "Ghi âm",
+      "createANoteFromAnyRecorded": "Tạo ghi chú từ bản ghi âm bất kỳ",
+      "recording": "Đang ghi âm ({{time}})",
+      "recordAgain": "Ghi âm lại"
+    },
+    "uploadAudio": {
+      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickAudioFile": "Không thể chọn tệp âm thanh",
+      "uploadAudio": "Tải âm thanh lên",
+      "createANoteFromAnyUploaded": "Tạo ghi chú từ tệp âm thanh đã tải lên",
+      "dragDropFilesOrBrowse": "Kéo & thả tệp hoặc Duyệt tìm",
+      "supportedFormatMp4WavMp3": "Định dạng hỗ trợ: mp4, wav, mp3",
+      "changeFile": "Đổi tệp"
+    },
     "youtube": "Video YouTube",
     "pdfDocument": "PDF hoặc tài liệu",
     "customText": "Văn bản tùy chỉnh",
@@ -305,7 +515,56 @@
     "uploadingFile": "Đang tải tệp lên máy chủ...",
     "transcribing": "Đang chuyển đổi giọng nói thành văn bản...",
     "extractingText": "Đang trích xuất văn bản...",
-    "generatingNote": "Đang tạo ghi chú học tập AI...",
+    "generatingNote": {
+      "uploadAudio": "Tải âm thanh lên",
+      "uploadingAudioFileToServer": "Đang tải tệp âm thanh lên máy chủ...",
+      "transcribeAudio": "Chuyển âm thanh thành văn bản",
+      "convertingSpeechToText": "Đang chuyển giọng nói thành văn bản...",
+      "generateYourNote": "Tạo ghi chú của bạn",
+      "creatingStudyNotes": "Đang tạo ghi chú học tập...",
+      "uploadPDF": "Tải PDF lên",
+      "uploadingPDFDocumentToServer": "Đang tải tài liệu PDF lên máy chủ...",
+      "extractText": "Trích xuất văn bản",
+      "readingAndExtractingTextFromPDF": "Đang đọc và trích xuất văn bản từ PDF...",
+      "uploadImage": "Tải ảnh lên",
+      "uploadingImageToServer": "Đang tải ảnh lên máy chủ...",
+      "extractTextOCR": "Trích xuất văn bản (OCR)",
+      "recognizingAndExtractingTextFromImage": "Đang nhận diện và trích xuất văn bản từ hình ảnh...",
+      "fetchVideo": "Tải video",
+      "connectingToYouTube": "Đang kết nối với YouTube...",
+      "extractTranscript": "Trích xuất bản chép lời",
+      "downloadingVideoTranscript": "Đang tải bản chép lời video...",
+      "processText": "Xử lý văn bản",
+      "analyzingYourContent": "Đang phân tích nội dung của bạn...",
+      "uploadFile": "Tải tệp lên",
+      "uploadingToServer": "Đang tải lên máy chủ...",
+      "processContent": "Xử lý nội dung",
+      "extractingContent": "Đang trích xuất nội dung...",
+      "noteReady": "Ghi chú đã sẵn sàng!",
+      "noteGenerationFailedOnTheServer": "Tạo ghi chú thất bại trên máy chủ.",
+      "failedToUploadImage": "Tải ảnh lên thất bại",
+      "weCouldNotReadAnythingFrom": "Không thể đọc nội dung từ ảnh này. Vui lòng thử lại với ảnh chụp ghi chú y khoa rõ nét hơn.",
+      "preparingFile": "Đang chuẩn bị tệp...",
+      "almostDone": "Sắp xong rồi...",
+      "untitledNote": "Ghi chú chưa có tiêu đề",
+      "failedToGenerateNote": "Tạo ghi chú thất bại",
+      "whoaSpeedy": "Chậm lại một chút! 🏃💨",
+      "youReGeneratingContentABit": "Bạn đang tạo nội dung hơi nhanh. Vui lòng nghỉ ngơi khoảng 60 giây trước khi thử lại để AI có thể xử lý kịp.",
+      "gotIt": "Đã hiểu",
+      "fileTooLarge": "Tệp quá lớn",
+      "yourFileExceedsThe15MBLimit": "Tệp của bạn vượt quá giới hạn 15MB cho tài khoản miễn phí. Nâng cấp lên PRO để tải lên bài giảng lên tới 100MB.",
+      "upgradeToPRO": "Nâng cấp lên PRO",
+      "oopsWeHitASnag": "Rất tiếc, đã xảy ra sự cố 🚧",
+      "weCouldnTGenerateThatRight": "Không thể tạo nội dung lúc này. Vui lòng đợi trong giây lát rồi thử lại!",
+      "processingContent": "Đang xử lý nội dung...",
+      "generatingYourNote": "Đang tạo ghi chú của bạn...",
+      "audioNote": "Ghi chú âm thanh",
+      "failedToGenerateFlashcards": "Tạo flashcard thất bại",
+      "generatingNote": "Đang tạo ghi chú",
+      "pleaseKeepThisScreenOpenWhile": "Vui lòng giữ màn hình này mở trong khi ghi chú đang được tạo. Tệp dung lượng lớn có thể mất vài phút để chép lời.",
+      "goToNote": "Đi đến ghi chú",
+      "generateNoteTranscript": "Tạo bản chép lời ghi chú"
+    },
     "fetchingVideo": "Đang kết nối với YouTube...",
     "processingText": "Đang phân tích nội dung của bạn...",
     "uploadAudioTitle": "Tải lên âm thanh",
@@ -315,7 +574,63 @@
     "fetchVideo": "Lấy video",
     "extractTranscript": "Trích xuất bản sao",
     "processText": "Xử lý văn bản",
-    "generateNote": "Tạo ghi chú của bạn"
+    "generateNote": "Tạo ghi chú của bạn",
+    "customTextInput": {
+      "customText": "Văn bản tùy chỉnh",
+      "createANoteFromAnyCustom": "Tạo ghi chú từ bất kỳ văn bản tùy chỉnh nào",
+      "enterText": "Nhập văn bản",
+      "enterYourTextHere": "Nhập văn bản của bạn tại đây..."
+    },
+    "uploadImage": {
+      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "permissionRequired": "Yêu cầu quyền truy cập",
+      "pleaseAllowAccessToYourPhoto": "Vui lòng cho phép quyền truy cập vào thư viện ảnh của bạn",
+      "failedToPickImage": "Chọn ảnh thất bại",
+      "uploadImage": "Tải ảnh lên",
+      "createANoteFromAnyUploaded": "Tạo ghi chú từ bất kỳ ảnh nào được tải lên",
+      "dragDropFilesOrBrowse": "Kéo thả tệp hoặc Duyệt tìm",
+      "supportedFormatPngJpegHeicWebp": "Định dạng hỗ trợ: png, jpeg, heic, webp",
+      "changeFile": "Đổi tệp"
+    },
+    "uploadPDF": {
+      "created": "Đã tạo {{day}} {{month}}, {{year}}, {{formattedHours}}:{{formattedMinutes}}{{ampm}}",
+      "failedToPickDocument": "Chọn tài liệu thất bại",
+      "uploadPdf": "Tải tệp PDF lên",
+      "createANoteFromAnyUploaded": "Tạo ghi chú từ bất kỳ tệp PDF nào được tải lên",
+      "dragDropFilesOrBrowse": "Kéo thả tệp hoặc Duyệt tìm",
+      "supportedFormatPdf": "Định dạng hỗ trợ: pdf",
+      "changeFile": "Đổi tệp"
+    },
+    "youTubeGenerating": {
+      "fetchingVideo": "Đang tìm video",
+      "gettingVideoDetails": "Đang lấy thông tin chi tiết của video",
+      "extractingTranscript": "Đang trích xuất bản chép lời",
+      "convertingAudioToText": "Đang chuyển âm thanh thành văn bản",
+      "generatingYourNote": "Đang tạo ghi chú của bạn",
+      "aiIsSummarisingTheContent": "AI đang tóm tắt nội dung",
+      "noteGenerationFailedPleaseTryAgain": "Tạo ghi chú thất bại. Vui lòng thử lại.",
+      "processingFailed": "Xử lý thất bại",
+      "goBack": "Quay lại",
+      "retry": "Thử lại",
+      "failedToStartNoteGeneration": "Không thể bắt đầu tạo ghi chú",
+      "failedToProcessYouTubeVideoPlease": "Không thể xử lý video YouTube. Vui lòng thử lại.",
+      "cancelProcessing": "Hủy xử lý",
+      "areYouSureYouWantTo": "Bạn có chắc muốn hủy? Tiến trình hiện tại sẽ bị mất.",
+      "continueProcessing": "Tiếp tục xử lý",
+      "youTubeNote": "Ghi chú YouTube",
+      "noteGenerated": "Đã tạo ghi chú",
+      "generatingNote": "Đang tạo ghi chú",
+      "goToNote": "Xem ghi chú"
+    },
+    "youTubeInput": {
+      "couldNotFetchVideoInformation": "Không thể lấy thông tin video",
+      "failedToFetchVideoInformation": "Lỗi khi lấy thông tin video",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Tạo ghi chú từ video YouTube bất kỳ",
+      "enterYoutubeURL": "Nhập liên kết YouTube",
+      "pasteYoutubeURL": "Dán liên kết YouTube",
+      "fetchingVideoInfo": "Đang lấy thông tin video..."
+    }
   },
   "library": {
     "title": "Thư viện",
@@ -369,7 +684,42 @@
     "explanation": "Giải thích",
     "questionProgress": "Câu hỏi {{current}} / {{total}}",
     "generatingQuizWait": "Đang tạo bài trắc nghiệm cho bạn, vui lòng đợi trong giây lát...",
-    "goToChats": "Đến cuộc trò chuyện"
+    "goToChats": "Đến cuộc trò chuyện",
+    "quizGroupDetail": {
+      "inProgress": "Đang làm",
+      "notStarted": "Chưa bắt đầu",
+      "failedToLoadQuizHistory": "Không thể tải lịch sử làm bài",
+      "failedToLoadChatContent": "Không thể tải nội dung đoạn chat",
+      "deleteQuiz": "Xóa bài trắc nghiệm",
+      "failedToDeleteQuiz": "Không thể xóa bài trắc nghiệm",
+      "created": "Đã tạo {{dateTime}}",
+      "lastscore": "ĐIỂM GẦN NHẤT",
+      "bestscore": "ĐIỂM CAO NHẤT",
+      "attempts": "SỐ LẦN LÀM",
+      "retakeQuiz": "Làm lại bài",
+      "translate": "Dịch",
+      "newQuiz": "Bài trắc nghiệm mới",
+      "quizHistory": "Lịch sử trắc nghiệm",
+      "flashcardHistory": "Lịch sử flashcard",
+      "score": "Điểm: {{correctAnswers}}/{{totalQuestions}}",
+      "noFlashcardSetsFromThisSource": "Chưa có bộ flashcard nào từ nguồn này.",
+      "cards": "{{totalCards}} thẻ · {{flashcardStatus}}",
+      "quizOptions": "Tùy chọn trắc nghiệm",
+      "exportLatestAttempt": "Xuất lần làm gần nhất",
+      "questions": "{{totalQuestions}} câu hỏi · {{value}}",
+      "deleteAllAttemptsOne": "Xóa 1 lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này.",
+      "deleteAllAttemptsMany": "Xóa toàn bộ {{total}} lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này."
+    },
+    "quizReview": {
+      "failedToLoadQuizDataInvalid": "Không thể tải dữ liệu bài trắc nghiệm - định dạng phản hồi không hợp lệ",
+      "failedToLoadQuizData": "Không thể tải dữ liệu bài trắc nghiệm",
+      "noContentAvailable": "Không có nội dung",
+      "goBack": "Quay lại",
+      "previous": "Trước"
+    },
+    "quiz": {
+      "generationFailed": "Tạo thất bại"
+    }
   },
   "flashcards": {
     "title": "Thẻ ghi nhớ",
@@ -400,7 +750,44 @@
     "headerTitle": "Thẻ ghi nhớ",
     "progressFormat": "Thẻ {{current}} / {{total}}",
     "noteIdRequired": "Cần có mã ghi chú để tạo flashcard",
-    "invalidCardCount": "Vui lòng chọn từ 1 đến 100 flashcard"
+    "invalidCardCount": "Vui lòng chọn từ 1 đến 100 flashcard",
+    "flashcardGroupDetail": {
+      "inProgress": "Đang học",
+      "notStarted": "Chưa bắt đầu",
+      "failedToLoadFlashcardHistory": "Không thể tải lịch sử flashcard",
+      "limitReached": "Đã đạt giới hạn",
+      "flashcardGenerationLimitReached": "Đã đạt giới hạn tạo flashcard.",
+      "failedToGenerateFlashcards": "Không thể tạo flashcard",
+      "failedToTranslateFlashcards": "Không thể dịch flashcard",
+      "deleteFlashcards": "Xóa flashcard",
+      "failedToDeleteFlashcards": "Không thể xóa flashcard",
+      "created": "Đã tạo {{dateTime}}",
+      "lastprogress": "TIẾN ĐỘ GẦN NHẤT",
+      "bestprogress": "TIẾN ĐỘ TỐT NHẤT",
+      "sets": "BỘ THẺ",
+      "studyNow": "Học ngay",
+      "translate": "Dịch",
+      "newFlashcards": "Flashcard mới",
+      "flashcardHistory": "Lịch sử flashcard",
+      "quizHistory": "Lịch sử trắc nghiệm",
+      "cards": "{{totalCards}} thẻ · {{setStatus}}",
+      "noQuizzesFromThisSourceYet": "Chưa có bài trắc nghiệm nào từ nguồn này.",
+      "score": "Điểm: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardOptions": "Tùy chọn flashcard",
+      "exportLatestSet": "Xuất bộ thẻ mới nhất",
+      "questions": "{{totalQuestions}} câu hỏi · {{value}}",
+      "deleteAllSetsOne": "Xóa bộ 1 flashcard của \"{{title}}\"? Thao tác này không thể hoàn tác.",
+      "deleteAllSetsMany": "Xóa toàn bộ {{total}} bộ flashcard của \"{{title}}\"? Thao tác này không thể hoàn tác."
+    },
+    "flashcardReview": {
+      "unknownError": "Lỗi không xác định",
+      "noFlashcardsInThisSet": "Không có flashcard nào trong bộ này",
+      "goBack": "Quay lại",
+      "allDone": "Đã hoàn thành",
+      "youHaveReviewedAllTheCards": "Bạn đã ôn tập hết các thẻ trong bộ này",
+      "question": "Câu hỏi {{value}}",
+      "questionOf": "Câu hỏi {{value}}/{{totalCards}}"
+    }
   },
   "chat": {
     "title": "Trò chuyện",
@@ -411,7 +798,186 @@
     "chatWithDocument": "Trò chuyện với tài liệu",
     "selectFile": "Chọn tệp để trò chuyện",
     "uploadFile": "Tải lên tệp",
-    "startChatting": "Bắt đầu trò chuyện"
+    "startChatting": "Bắt đầu trò chuyện",
+    "chatComposer": {
+      "askAMedicalQuestionToGet": "Đặt câu hỏi y khoa để được giải đáp thêm",
+      "askAnythingAboutThisDocument": "Hỏi bất kỳ điều gì về tài liệu này...",
+      "askAQuestionAttachmentProcessingFailed": "Đặt câu hỏi — xử lý tệp đính kèm thất bại",
+      "extractingText": "Đang trích xuất văn bản...",
+      "processingPDF": "Đang xử lý PDF...",
+      "upgradeToProToContinueChatting": "Nâng cấp lên PRO để tiếp tục trò chuyện",
+      "queryremaining": "CÒN LẠI {{queriesRemaining}} LƯỢT HỎI"
+    },
+    "chatEmptyState": {
+      "initializingChat": "Đang khởi tạo cuộc trò chuyện...",
+      "extractingTextFromImage": "Đang trích xuất văn bản từ hình ảnh...",
+      "processingPDFDocument": "Đang xử lý tài liệu PDF...",
+      "analyzingYourNote": "Đang phân tích ghi chú của bạn...",
+      "thisUsuallyTakesJustAFew": "⏱️ Quá trình này thường chỉ mất vài giây. Bạn có thể trò chuyện sau khi xử lý xong.",
+      "processingFailed": "Xử lý thất bại",
+      "fileMightBeCorruptedOrUnreadable": "• Tệp có thể bị hỏng hoặc không thể đọc",
+      "imageQualityTooLow": "Chất lượng hình ảnh quá thấp",
+      "pdfIsPasswordProtected": "PDF có đặt mật khẩu bảo vệ",
+      "contentFormatNotSupported": "Định dạng nội dung không được hỗ trợ",
+      "networkConnectionIssue": "• Sự cố kết nối mạng",
+      "tryADifferentFile": "Thử tệp khác",
+      "askAnyClinicalQuestionNoUpload": "💡 Đặt bất kỳ câu hỏi lâm sàng nào — không cần tải tệp lên. Tôi sẽ trả lời dựa trên y văn có trích dẫn, kèm hình ảnh minh họa nếu có.",
+      "readyToChat": "✓ Sẵn sàng trò chuyện",
+      "couldntProcessNote": "Không thể xử lý ghi chú này. Nguyên nhân có thể do:",
+      "couldntProcessImage": "Không thể xử lý hình ảnh này. Nguyên nhân có thể do:",
+      "couldntProcessDocument": "Không thể xử lý tài liệu này. Nguyên nhân có thể do:",
+      "askMeAboutNote": "💡 Đặt bất kỳ câu hỏi nào về ghi chú này. Tôi có thể tóm tắt, giải thích khái niệm hoặc trả lời câu hỏi cụ thể.",
+      "askMeAboutImage": "💡 Đặt bất kỳ câu hỏi nào về hình ảnh này. Tôi có thể tóm tắt, giải thích khái niệm hoặc trả lời câu hỏi cụ thể.",
+      "askMeAboutDocument": "💡 Đặt bất kỳ câu hỏi nào về tài liệu này. Tôi có thể tóm tắt, giải thích khái niệm hoặc trả lời câu hỏi cụ thể."
+    },
+    "chatGeneratedContentSection": {
+      "mastered": "Đã thuộc {{masteredCards}}/{{totalCards}}",
+      "notStarted": "Chưa bắt đầu",
+      "quizGeneration": "Tạo trắc nghiệm",
+      "score": "Điểm: {{correctAnswers}}/{{totalQuestions}}",
+      "flashcardsGeneration": "Tạo flashcard",
+      "questions": "{{totalCards}} câu hỏi · {{flashcardStatus}}",
+      "questions2": "{{totalQuestions}} câu hỏi · {{value}}"
+    },
+    "chatMessageBubble": {
+      "thinkingAndFindingResourcesForYou": "Đang suy nghĩ và tìm kiếm tài liệu cho bạn...",
+      "couldnTGenerateAResponse": "Không thể tạo câu trả lời.",
+      "retry": "Thử lại",
+      "alsoReferencedFromTheWeb": "Cũng được tham khảo từ web",
+      "followUpQuestions": "Câu hỏi tiếp theo"
+    },
+    "chatWelcomeHero": {
+      "askAnythingMedicalGetTheCited": "Hỏi bất kỳ điều gì về y khoa, nhận câu trả lời có trích dẫn từ nguồn thực tế",
+      "evidenceBasedPubMedSourcesPeerReviewed": "Dựa trên bằng chứng · Nguồn PubMed · Bình duyệt khoa học",
+      "tryOutAnyOfThisTopics": "Thử một trong các chủ đề dưới đây để bắt đầu",
+      "topics": {
+        "electrolytes": {
+          "label": "Tìm hiểu rối loạn điện giải",
+          "question": "Giải thích về rối loạn điện giải — nguyên nhân, triệu chứng và điều trị"
+        },
+        "ecg": {
+          "label": "Cơ bản về đọc điện tâm đồ (ECG)",
+          "question": "Những kiến thức cơ bản về đọc điện tâm đồ (ECG) là gì?"
+        },
+        "drugInteractions": {
+          "label": "Tương tác thuốc phổ biến cần biết",
+          "question": "Những tương tác thuốc quan trọng và thường gặp mà tôi cần biết là gì?"
+        },
+        "nclex": {
+          "label": "Chủ đề luyện thi dạng NCLEX",
+          "question": "Hãy cho tôi một câu hỏi luyện tập theo dạng đề NCLEX"
+        }
+      }
+    },
+    "citationHelpers": {
+      "text": "{{label}} +{{value}}",
+      "fdaDrugLabel": "Thông tin thuốc của FDA",
+      "fromYourAttachedMaterial": "Từ tài liệu đính kèm của bạn"
+    },
+    "chatConversation": {
+      "failedToCreateChatSession": "Không thể tạo phiên trò chuyện",
+      "failedToInitializeChatSession": "Không thể khởi tạo phiên trò chuyện",
+      "failedToUpdateLanguage": "Không thể cập nhật ngôn ngữ",
+      "youVeReachedYour3Pin": "Bạn đã đạt giới hạn ghim tối đa 3 mục",
+      "failedToUpdatePin": "Không thể cập nhật trạng thái ghim",
+      "permissionRequired": "Yêu cầu cấp quyền",
+      "pleaseGrantCameraPermissionToTake": "Vui lòng cấp quyền camera để chụp ảnh.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Vui lòng cấp quyền truy cập thư viện ảnh để tải ảnh lên.",
+      "failedToUploadImage": "Không thể tải ảnh lên",
+      "uploadFailed": "Tải lên thất bại",
+      "failedToUploadDocument": "Không thể tải tài liệu lên",
+      "failedToStartChatFromThis": "Không thể bắt đầu trò chuyện từ tệp này.",
+      "chatFromImage": "Trò chuyện từ hình ảnh",
+      "failedToStartANewQuestion": "Không thể bắt đầu câu hỏi mới. Vui lòng thử lại.",
+      "failedToAttachFile": "Không thể đính kèm tệp",
+      "failedToSendMessage": "Không thể gửi tin nhắn",
+      "copiedToClipboard": "Đã sao chép vào khay nhớ tạm",
+      "notEnoughContentYet": "Chưa có đủ nội dung",
+      "chatABitMoreBeforeGenerating": "Hãy trò chuyện thêm một chút trước khi tạo câu đố (tối thiểu 100 ký tự).",
+      "chatABitMoreBeforeGenerating2": "Hãy trò chuyện thêm một chút trước khi tạo flashcard (tối thiểu 100 ký tự).",
+      "failedToGenerateFlashcards": "Không thể tạo flashcard",
+      "failedToRegenerateResponse": "Không thể tạo lại phản hồi",
+      "failedToRetryResponse": "Không thể thử lại phản hồi"
+    },
+    "chatFileSelect": {
+      "failedToAttachNote": "Không thể đính kèm ghi chú",
+      "folderCreatedSuccessfully": "Đã tạo thư mục \"{{name}}\" thành công!",
+      "failedToCreateFolder": "Không thể tạo thư mục",
+      "failedToAttachDocument": "Không thể đính kèm tài liệu",
+      "failedToCreateChatSession": "Không thể tạo phiên trò chuyện",
+      "failedToUploadDocument": "Không thể tải tài liệu lên",
+      "openingCamera": "📷 Đang mở camera...",
+      "openingImagePicker": "🖼️ Đang mở thư viện ảnh...",
+      "permissionRequired": "Yêu cầu cấp quyền",
+      "pleaseGrantCameraPermissionToTake": "Vui lòng cấp quyền camera để chụp ảnh.",
+      "pleaseGrantPhotoLibraryPermissionTo": "Vui lòng cấp quyền truy cập thư viện ảnh để tải ảnh lên.",
+      "failedToAttachImage": "Không thể đính kèm ảnh",
+      "failedToUploadImage": "Không thể tải ảnh lên",
+      "failedToAttachAudio": "Không thể đính kèm tệp âm thanh",
+      "failedToUploadAudio": "Không thể tải tệp âm thanh lên",
+      "items": "{{itemCount}} mục",
+      "thisFolderIsEmptyGoBack": "Thư mục này trống. Quay lại để chọn thư mục khác.",
+      "addFolder": "Thêm thư mục",
+      "uploadNewDocument": "Tải tài liệu mới",
+      "uploadAPDFAndStartChatting": "Tải lên tệp PDF và bắt đầu trò chuyện ngay",
+      "uploadNewImage": "Tải ảnh mới",
+      "uploadAnImageAndExtractText": "Tải ảnh lên và trích xuất văn bản ngay",
+      "uploadNewAudio": "Tải tệp âm thanh mới",
+      "uploadAnAudioFileAndTranscribe": "Tải lên tệp âm thanh và chuyển thành văn bản tức thì",
+      "orselectfromlibrary": "HOẶC CHỌN TỪ THƯ VIỆN",
+      "folders": "Thư mục",
+      "allNotes": "Tất cả ghi chú",
+      "noFilesToDisplay": "Không có tệp để hiển thị",
+      "noNotesToDisplay": "Không có ghi chú để hiển thị",
+      "noDocumentsYet": "Bạn chưa có tài liệu PDF nào.\nHãy tạo vài ghi chú trước, sau đó quay lại để trò chuyện cùng tài liệu.",
+      "noImagesYet": "Bạn chưa có hình ảnh nào.\nHãy tạo vài ghi chú trước, sau đó quay lại để trò chuyện cùng hình ảnh.",
+      "noAudioNotesYet": "Bạn chưa có ghi chú âm thanh nào.\nHãy tạo vài ghi chú trước, sau đó quay lại để trò chuyện cùng âm thanh.",
+      "noNotesYet": "Bạn chưa có ghi chú nào.\nHãy tạo vài ghi chú trước, sau đó quay lại để trò chuyện cùng ghi chú.",
+      "attachNote": "Đính kèm ghi chú",
+      "selectNote": "Chọn ghi chú",
+      "attachImage": "Đính kèm hình ảnh",
+      "selectImage": "Chọn hình ảnh",
+      "attachDocument": "Đính kèm tài liệu",
+      "selectDocument": "Chọn tài liệu",
+      "attachAudio": "Đính kèm âm thanh",
+      "selectAudio": "Chọn âm thanh",
+      "attachFile": "Đính kèm tệp",
+      "selectFile": "Chọn tệp",
+      "aNote": "{{verb}} ghi chú",
+      "anImage": "{{verb}} hình ảnh",
+      "aDocument": "{{verb}} tài liệu",
+      "audio": "{{verb}} âm thanh",
+      "aFile": "{{verb}} tệp"
+    },
+    "chatAttachSheet": {
+      "addToChat": "Thêm vào đoạn chat",
+      "camera": "Máy ảnh",
+      "photos": "Ảnh",
+      "files": "Tệp",
+      "generateQuiz": "Tạo Quiz",
+      "generateFlashcards": "Tạo Flashcard",
+      "searchMedicalLiterature": "Tìm tài liệu y khoa",
+      "filterByDateSourceAndType": "Lọc theo Ngày, Nguồn và Loại",
+      "pullsRealCitedSourcesIntoYour": "Trích dẫn các nguồn tài liệu thực tế vào câu trả lời",
+      "trustedmedicalsourcedatabase": "CƠ SỞ DỮ LIỆU Y KHOA ĐÁNG TIN CẬY",
+      "semanticScholar": "Semantic Scholar",
+      "usNationalLibraryOfMedicine": "Thư viện Y khoa Quốc gia Hoa Kỳ",
+      "fdaDrugTreatmentData": "Dữ liệu thuốc & điều trị của FDA"
+    },
+    "chatCitationsSheet": {
+      "checkCitations": "Kiểm tra nguồn trích dẫn"
+    },
+    "chatHeader": {
+      "readyTapToRename": "Sẵn sàng · chạm để đổi tên",
+      "processing": "Đang xử lý {{embeddingProgress}}%"
+    },
+    "chatImagePreview": {
+      "text": "· {{license}}",
+      "viewSource": "Xem nguồn ↗"
+    },
+    "chatRename": {
+      "renameChat": "Đổi tên đoạn chat"
+    }
   },
   "languages": {
     "english": "Tiếng Anh",
@@ -465,5 +1031,455 @@
     "urdu": "Tiếng Urdu",
     "malay": "Tiếng Mã Lai",
     "catalan": "Tiếng Catalan"
+  },
+  "components": {
+    "addFolder": {
+      "addFolder": "Thêm thư mục",
+      "folderName": "Tên thư mục",
+      "enterFolderName": "Nhập tên thư mục",
+      "chooseColor": "Chọn màu",
+      "createFolder": "Tạo thư mục"
+    },
+    "aiConsent": {
+      "beforeWeProcessYourContent": "Trước khi chúng tôi xử lý nội dung của bạn",
+      "clinicalFactUsesAIToAnswer": "Clinical Fact sử dụng AI để trả lời câu hỏi và chuyển đổi nội dung của bạn thành ghi chú, bài quiz và flashcard. Dưới đây là những điều bạn cần biết:",
+      "whatDataIsSent": "Dữ liệu nào được gửi đi",
+      "questionsAndMessagesYouTypeIn": "Câu hỏi và tin nhắn bạn nhập trong đoạn chat",
+      "audioRecordingsOrUploadedAudioFiles": "Bản ghi âm hoặc tệp âm thanh được tải lên",
+      "pdfAndTextDocumentsYouUpload": "Tài liệu PDF và văn bản bạn tải lên",
+      "imagesYouUpload": "Hình ảnh bạn tải lên",
+      "youTubeVideoURLsAndTheirTranscripts": "Đường dẫn video YouTube và bản chép lời",
+      "customTextYouEnter": "Văn bản tùy chỉnh bạn nhập",
+      "whoReceivesYourData": "Ai nhận dữ liệu của bạn",
+      "howItSUsed": "Dữ liệu được dùng như thế nào",
+      "yourContentIsUsedSolelyTo": "Nội dung của bạn chỉ được dùng để tạo câu trả lời, ghi chú, quiz hoặc flashcard theo yêu cầu của bạn. Chính sách sử dụng dữ liệu của từng nhà cung cấp sẽ áp dụng cho nội dung được xử lý qua API của họ. Để biết thêm chi tiết, vui lòng xem Chính sách quyền riêng tư của chúng tôi.",
+      "iAgreeContinue": "Tôi đồng ý — Tiếp tục",
+      "noThanks": "Không, cảm ơn",
+      "whoReceivesBody": "Nội dung của bạn được gửi đến <bold>Google (Gemini)</bold> (tạo ghi chú, câu đố và flashcard; phản hồi trò chuyện; xử lý tài liệu và hình ảnh) và <bold>OpenAI</bold> (chuyển đổi giọng nói thành văn bản) qua máy chủ phụ trợ an toàn của chúng tôi. Các đoạn trích từ tài liệu của bạn cũng được lập chỉ mục bằng <bold>Google Vertex AI</bold> để tính năng chat có thể tìm thấy phần nội dung liên quan. Khi bạn sử dụng tính năng tìm kiếm y khoa trực tiếp, câu hỏi của bạn cũng được gửi đến <bold>Tavily</bold> và các cơ sở dữ liệu y văn công khai (như PubMed, Europe PMC và Semantic Scholar) để tìm trích dẫn từ các nguồn uy tín như NIH, CDC, MedlinePlus, WHO và Mayo Clinic. Các nhà cung cấp này chỉ xử lý dữ liệu để tạo câu trả lời cho bạn — họ không dùng dữ liệu đó để huấn luyện các mô hình AI đa mục đích của riêng mình, và chúng tôi cũng không bán dữ liệu của bạn cho bất kỳ bên thứ ba nào."
+    },
+    "chatActionSheet": {
+      "unpinChat": "Bỏ ghim đoạn chat",
+      "pinChat": "Ghim đoạn chat",
+      "deleteChat": "Xóa đoạn chat"
+    },
+    "createFlashcards": {
+      "generateFlashcards": "Tạo flashcard",
+      "createFlashcards": "Tạo Flashcard",
+      "createFlashcardsFromToImproveYour": "Tạo flashcard từ \"{{noteTitle}}\" để tăng khả năng ghi nhớ",
+      "createFlashcardsToImproveYourRetention": "Tạo flashcard để tăng khả năng ghi nhớ",
+      "howManyQuestions": "Số lượng câu hỏi",
+      "generateFlashcards2": "Tạo Flashcard"
+    },
+    "createFromSourceSheet": {
+      "createFromChat": "Tạo từ đoạn chat",
+      "selectFromOneOfYourRecent": "Chọn từ một trong các đoạn chat gần đây",
+      "pdfOrDocument": "PDF hoặc tài liệu",
+      "createFromAudio": "Tạo từ âm thanh",
+      "image": "Hình ảnh",
+      "createFromCustomText": "Tạo từ văn bản tùy chỉnh",
+      "created": "Đã tạo {{day}}, {{time}}",
+      "createQuizFrom": "Tạo trắc nghiệm từ",
+      "createFlashcardsFrom": "Tạo flashcard từ",
+      "selectFromChat": "Chọn từ đoạn chat",
+      "noRecentChatsYet": "Chưa có đoạn chat gần đây",
+      "quizFromPdf": "Tạo bài trắc nghiệm từ PDF hoặc tài liệu",
+      "flashcardsFromPdf": "Tạo bộ flashcard từ PDF hoặc tài liệu",
+      "quizFromAudio": "Tạo bài trắc nghiệm từ âm thanh tải lên",
+      "flashcardsFromAudio": "Tạo bộ flashcard từ âm thanh tải lên",
+      "quizFromImage": "Tạo bài trắc nghiệm từ hình ảnh bất kỳ",
+      "flashcardsFromImage": "Tạo bộ flashcard từ hình ảnh bất kỳ",
+      "quizFromText": "Tạo bài trắc nghiệm từ văn bản đã lưu",
+      "flashcardsFromText": "Tạo bộ flashcard từ văn bản đã lưu"
+    },
+    "createNote": {
+      "recordAudio": "Ghi âm",
+      "generateANoteFromAnyRecorded": "Tạo ghi chú từ bản ghi âm bất kỳ",
+      "uploadAudio": "Tải âm thanh lên",
+      "createANoteFromAnyUploaded": "Tạo ghi chú từ tệp âm thanh đã tải lên",
+      "youtubeVideo": "Video YouTube",
+      "createANoteFromAnyYoutube": "Tạo ghi chú từ video YouTube bất kỳ",
+      "pdfOrDocument": "PDF hoặc tài liệu",
+      "createANoteFromPDFOr": "Tạo ghi chú từ PDF hoặc tài liệu",
+      "customText": "Văn bản tùy chỉnh",
+      "createANoteFromCapturedText": "Tạo ghi chú từ văn bản đã nhập",
+      "image": "Hình ảnh",
+      "createANoteFromAnyImage": "Tạo ghi chú từ hình ảnh bất kỳ",
+      "createNote": "Tạo ghi chú"
+    },
+    "createQuiz": {
+      "generateQuiz": "Tạo bài trắc nghiệm",
+      "createQuiz": "Tạo bài trắc nghiệm",
+      "practiceByCreatingQuestionsThatHelp": "Ôn tập \"{{noteTitle}}\" qua các câu hỏi giúp bạn nắm vững kiến thức",
+      "practiceYourNotesByCreatingQuestions": "Ôn tập ghi chú qua các câu hỏi giúp bạn nắm vững kiến thức",
+      "howManyQuestions": "Số lượng câu hỏi",
+      "timeInMinutes": "Thời gian (phút)"
+    },
+    "deleteNote": {
+      "deleteNote": "Xóa ghi chú",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa ghi chú này không?"
+    },
+    "exportFormatStep": {
+      "exportSummaryAs": "Xuất tóm tắt dưới dạng",
+      "exportTranscriptAs": "Xuất bản chép lời dưới dạng",
+      "exportAs": "Xuất dưới dạng",
+      "exportSummary": "Xuất tóm tắt",
+      "exportTranscript": "Xuất bản chép lời"
+    },
+    "exportTypeStep": {
+      "exportNote": "Xuất ghi chú",
+      "exportSummary": "Xuất tóm tắt",
+      "exportTranscript": "Xuất bản chép lời"
+    },
+    "exportSettings": {
+      "export": "Xuất {{title}}",
+      "selectFormat": "Chọn định dạng",
+      "includeAnswers": "Bao gồm đáp án",
+      "answersExplanationsIncluded": "Đã bao gồm đáp án & giải thích",
+      "questionsOnly": "Chỉ câu hỏi",
+      "export2": "Xuất"
+    },
+    "feedbackFilter": {
+      "yourNoteIsReady": "Ghi chú của bạn đã sẵn sàng!",
+      "howDidWeDo": "Bạn thấy thế nào?",
+      "happy": "Hài lòng",
+      "sad": "Chưa hài lòng",
+      "maybeLater": "Để sau",
+      "whatWentWrong": "Có vấn đề gì xảy ra?",
+      "yourFeedbackHelpsUsImprove": "Phản hồi của bạn giúp chúng tôi hoàn thiện hơn.",
+      "tellUsWhatCouldBeBetter": "Chia sẻ điều cần cải thiện...",
+      "submit": "Gửi"
+    },
+    "flashcardCard": {
+      "noContentAvailable": "Không có nội dung",
+      "clickCardToFlip": "chạm vào thẻ để lật"
+    },
+    "flashcardExport": {
+      "exportFailed": "Xuất thất bại",
+      "unknownError": "Lỗi không xác định",
+      "export": "Xuất {{setTitle}}",
+      "chooseWhatToExport": "Chọn nội dung cần xuất",
+      "exportQuestions": "Xuất câu hỏi",
+      "exportAnswers": "Xuất câu trả lời"
+    },
+    "flashcardHistoryList": {
+      "deleteFlashcardSet": "Xóa bộ flashcard",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{setTitle}}\" không?",
+      "failedToDeleteFlashcardSet": "Không thể xóa bộ flashcard",
+      "flashcardHistory": "Lịch sử flashcard",
+      "cards": "Thẻ",
+      "reviewedMastered": "Đã ôn tập {{cardsReviewedCount}} • Thành thạo {{percentage}}%"
+    },
+    "folders": {
+      "items": "{{itemCount}} mục",
+      "enterYourFolderName": "Nhập tên thư mục",
+      "yourFolderName": "Tên thư mục",
+      "createFolder": "Tạo thư mục",
+      "folders": "Thư mục",
+      "addFolder": "Thêm thư mục",
+      "noFoldersToDisplay": "Chưa có thư mục nào",
+      "clickTheButtonAboveToCreate": "Nhấn vào nút phía trên để tạo thư mục cho ghi chú của bạn",
+      "allFolders": "Tất cả thư mục",
+      "items2": "{{totalItems}} mục"
+    },
+    "medicalFilter": {
+      "medicalResearchFilters": "Bộ lọc nghiên cứu y khoa",
+      "howrecentdoyouwantthe": "MỨC ĐỘ MỚI CỦA NGUỒN TÀI LIỆU",
+      "from": "Từ",
+      "whatkindofsourcedoyou": "LOẠI NGUỒN TÀI LIỆU BẠN CẦN",
+      "textbooks": "Sách giáo trình",
+      "clinicalGuidelines": "Hướng dẫn lâm sàng",
+      "scientificJournalArticles": "Bài báo tạp chí khoa học",
+      "onlywiththisjournalarticles": "CHỈ TỪ CÁC BÀI BÁO TẠP CHÍ NÀY",
+      "metaAnalyses": "Tổng quan hệ thống / Phân tích gộp",
+      "reviewArticles": "Bài tổng quan",
+      "clinicalTrials": "Thử nghiệm lâm sàng",
+      "fromYear": "Từ năm",
+      "toYear": "Đến năm"
+    },
+    "noteOptions": {
+      "noteOptions": "Tùy chọn ghi chú",
+      "editNote": "Sửa ghi chú",
+      "reTranscribe": "Chuyển ngữ lại",
+      "chatWithNote": "Chat với ghi chú",
+      "exportNote": "Xuất ghi chú",
+      "moveToFolder": "Chuyển vào thư mục",
+      "deleteNote": "Xóa ghi chú"
+    },
+    "onboardingTooltip": {
+      "skip": "Bỏ qua"
+    },
+    "quizHistoryList": {
+      "deleteQuiz": "Xóa bài trắc nghiệm",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{quizTitle}}\" không?",
+      "failedToDeleteQuiz": "Không thể xóa bài trắc nghiệm",
+      "quizHistory": "Lịch sử trắc nghiệm",
+      "questions": "Câu hỏi",
+      "correct": "{{correctAnswers}} câu đúng"
+    },
+    "referral": {
+      "copied": "Đã sao chép!",
+      "yourReferralCodeHasBeenCopied": "Đã sao chép mã giới thiệu vào khay nhớ tạm.",
+      "joinMeOnClinicalFactUse": "Học cùng mình trên Clinical Fact nhé! Dùng mã của mình: {{referralCode}} – {{appUrl}}",
+      "joined": "Đã tham gia {{joinedDate}}",
+      "referralCode": "Mã giới thiệu",
+      "yourReferralCode": "Mã giới thiệu của bạn",
+      "shareWithFriendsToEarnRewards": "Chia sẻ với bạn bè để nhận thưởng",
+      "share": "Chia sẻ",
+      "copyCode": "Sao chép mã",
+      "referredFriends": "Bạn bè đã giới thiệu",
+      "noReferralsYetShareYourCode": "Chưa có lượt giới thiệu nào. Hãy chia sẻ mã để bắt đầu!",
+      "loadMore": "Xem thêm",
+      "howItWorks": "Cách thức hoạt động",
+      "friendsUseYourCodeDuringSignup": "• Bạn bè nhập mã của bạn khi đăng ký",
+      "youBothEarnRewardsWhenThey": "• Cả hai cùng nhận thưởng khi họ tham gia",
+      "friendsReferredCount": "Số bạn bè đã giới thiệu: {{referralCount}}"
+    },
+    "uploadProgress": {
+      "extractingText": "Đang trích xuất văn bản...",
+      "transcribingAudio": "Đang chuyển âm thanh thành văn bản...",
+      "processingPDF": "Đang xử lý PDF...",
+      "settingUpChat": "Đang thiết lập đoạn chat...",
+      "uploadFailed": "Tải lên thất bại",
+      "failedToUploadFilePleaseTry": "Không thể tải tệp lên. Vui lòng thử lại.",
+      "yourFileIsReadyForChatting": "Tệp đã sẵn sàng để trò chuyện!",
+      "uploadingYourFileToTheServer": "Đang tải tệp lên máy chủ...",
+      "extractingTextFromYourImage": "Đang trích xuất văn bản từ hình ảnh...",
+      "transcribingYourAudio": "Đang chuyển đổi bản ghi âm...",
+      "extractingTextFromYourPDF": "Đang trích xuất văn bản từ tệp PDF...",
+      "creatingYourChatSession": "Đang tạo phiên trò chuyện...",
+      "pleaseWait": "Vui lòng chờ...",
+      "uploadFile": "Tải tệp lên",
+      "processContent": "Xử lý nội dung",
+      "createChat": "Tạo đoạn chat"
+    },
+    "historyItemActionSheet": {
+      "view": "👁️ Xem",
+      "export": "📤 Xuất",
+      "delete": "🗑️ Xóa"
+    },
+    "poweredByFooter": {
+      "poweredBy": "Được hỗ trợ bởi"
+    },
+    "exportFormat": {
+      "txtFile": "Tệp TXT",
+      "pdfFile": "Tệp PDF",
+      "docFile": "Tệp DOC"
+    }
+  },
+  "hooks": {
+    "queries": {
+      "failedToFetchNotes": "Không thể tải ghi chú",
+      "failedToFetchFolders": "Không thể tải thư mục",
+      "failedToFetchNote": "Không thể tải ghi chú",
+      "failedToDeleteNote": "Không thể xóa ghi chú",
+      "failedToCreateFolder": "Không thể tạo thư mục",
+      "failedToDeleteFolder": "Không thể xóa thư mục"
+    },
+    "useDeleteChatSession": {
+      "failedToDeleteChat": "Không thể xóa đoạn chat"
+    },
+    "useExportFlashcard": {
+      "flashcardSetExportedSuccessfully": "Đã xuất bộ flashcard thành công!",
+      "failedToExportFlashcardSet": "Không thể xuất bộ flashcard."
+    },
+    "useExportQuiz": {
+      "quizExportedSuccessfully": "Đã xuất quiz thành công!",
+      "failedToExportQuiz": "Không thể xuất quiz."
+    },
+    "useFlashcardSync": {
+      "untitledFlashcards": "Flashcard chưa có tiêu đề",
+      "failedToLoadFlashcards": "Không thể tải flashcard",
+      "failedToSyncFlashcardSet": "Không thể đồng bộ bộ flashcard",
+      "failedToSyncCardUpdate": "Không thể đồng bộ cập nhật thẻ"
+    }
+  },
+  "navigation": {
+    "mainTabNavigator": {
+      "quiz": "Quiz"
+    }
+  },
+  "main": {
+    "chats": {
+      "created": "Đã tạo lúc {{time}}, {{day}}",
+      "youVeReachedYour3Pin": "Bạn đã đạt giới hạn ghim 3 đoạn chat",
+      "failedToUpdatePin": "Không thể cập nhật trạng thái ghim",
+      "noChatsYet": "Chưa có đoạn chat nào",
+      "startAChatToGetAnswers": "Bắt đầu chat để nhận câu trả lời có trích dẫn nguồn uy tín.",
+      "createChat": "+ Tạo đoạn chat"
+    },
+    "flashcardHistory": {
+      "deleteFlashcards": "Xóa Flashcard",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{sourceTitle}}\" không?",
+      "failedToDeleteFlashcards": "Không thể xóa flashcard",
+      "sets": "{{setCount}} bộ",
+      "flashcards": "Flashcard",
+      "createFlashcards": "Tạo Flashcard",
+      "searchFlashcards": "Tìm kiếm flashcard...",
+      "noFlashcardsYet": "Chưa có flashcard nào",
+      "createAFlashcardSetFromA": "Tạo một bộ flashcard từ ghi chú để bắt đầu",
+      "createSet": "+ Tạo bộ thẻ",
+      "flashcardOptions": "Tùy chọn flashcard",
+      "view": "Xem"
+    },
+    "folder": {
+      "deleteFolder": "Xóa thư mục",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{name}}\"? Các ghi chú bên trong sẽ được chuyển ra thư mục gốc.",
+      "failedToDeleteFolder": "Không thể xóa thư mục",
+      "error": "Lỗi: {{message}}",
+      "noFoldersYetCreateOne": "Chưa có thư mục nào. Hãy tạo mới!",
+      "folders": "Thư mục"
+    },
+    "home": {
+      "created": "Đã tạo: {{time}}, {{day}}",
+      "failedToUpdateLanguage": "Không thể cập nhật ngôn ngữ",
+      "notEnoughContentYet": "Chưa đủ nội dung",
+      "chatABitMoreBeforeGenerating": "Hãy trò chuyện thêm để tạo câu hỏi trắc nghiệm (tối thiểu 100 ký tự).",
+      "chatABitMoreBeforeGenerating2": "Hãy trò chuyện thêm để tạo flashcard (tối thiểu 100 ký tự).",
+      "failedToGenerateFlashcards": "Không thể tạo flashcard",
+      "upgradeToPro": "Nâng cấp lên PRO",
+      "get80DiscountWhenYouUpgrade": "Giảm 80% khi nâng cấp tài khoản",
+      "unlockPRO": "Mở khóa PRO",
+      "noMedicalChats": "Chưa có đoạn chat y khoa nào",
+      "youHaveNotCreatedAnyMedical": "Bạn chưa tạo đoạn chat y khoa nào. Hãy bắt đầu trò chuyện để nhận các nguồn trích dẫn",
+      "talkToClinicalfactAI": "Trò chuyện với Clinical Fact AI",
+      "jumpInWhereYouStopped": "Tiếp tục nội dung đang dở",
+      "practiceQuiz": "Luyện trắc nghiệm",
+      "makeFlashcards": "Tạo flashcard",
+      "continueChatWithNote": "Tiếp tục chat với Ghi chú",
+      "continueChat": "Tiếp tục chat",
+      "recentChats": "Đoạn chat gần đây",
+      "chatOptions": "Tùy chọn đoạn chat"
+    },
+    "library": {
+      "text": "{{hours}}:{{minutes}} {{ampm}}, {{day}} {{month}}, {{year}}",
+      "youAreCurrentlyOfflinePleaseConnect": "Bạn đang ngoại tuyến. Vui lòng kết nối Internet để thực hiện thao tác này.",
+      "failedToDeleteNote": "Không thể xóa ghi chú",
+      "failedToMoveNote": "Không thể di chuyển ghi chú",
+      "deleteFolder": "Xóa thư mục?",
+      "areYouSureNotesInsideWill": "Bạn có chắc chắn không? Các ghi chú bên trong sẽ không bị xóa mà được chuyển đến mục Tất cả ghi chú.",
+      "failedToDeleteFolder": "Không thể xóa thư mục",
+      "library": "Thư viện",
+      "addFolder": "Thêm thư mục",
+      "searchForANoteFolder": "Tìm ghi chú / thư mục",
+      "yourFolders": "Thư mục của bạn",
+      "noFoldersToDisplay": "Không có thư mục nào",
+      "tapAddFolderToCreateA": "Nhấn \"+ Thêm thư mục\" để tạo thư mục chứa ghi chú của bạn",
+      "allNotes": "Tất cả ghi chú",
+      "items": "{{allNotesTotal}} mục",
+      "items2": "{{itemCount}} mục",
+      "yourNotes": "Ghi chú của bạn",
+      "untitledNote": "Ghi chú không có tiêu đề",
+      "noResultsFor": "Không có kết quả cho \"{{searchQuery}}\"",
+      "noNotesInThisFolder": "Không có ghi chú nào trong thư mục này",
+      "noNotesToDisplay": "Không có ghi chú nào",
+      "tryADifferentSearchTerm": "Thử tìm kiếm bằng từ khóa khác",
+      "moveNotesToThisFolderTo": "Di chuyển ghi chú vào thư mục này để xem tại đây",
+      "clickBelowToGenerateYourNote": "Nhấn vào bên dưới để tạo ghi chú với Clinical Fact",
+      "filterByType": "Lọc theo loại",
+      "audio": "Âm thanh",
+      "text2": "Văn bản",
+      "image": "Hình ảnh",
+      "clearFilter": "Xóa bộ lọc"
+    },
+    "profile": {
+      "permissionRequired": "Yêu cầu quyền truy cập",
+      "pleaseAllowAccessToYourPhoto": "Vui lòng cấp quyền truy cập thư viện ảnh để đặt ảnh đại diện.",
+      "uploadFailed": "Tải lên thất bại",
+      "couldNotUpdateProfilePicture": "Không thể cập nhật ảnh đại diện.",
+      "failedToUploadProfilePicture": "Tải ảnh đại diện lên thất bại.",
+      "checkOutClinicalFactAIPowered": "Khám phá Clinical Fact – Ghi chú học tập tích hợp AI! {{url}}",
+      "proSubscriber": "Gói PRO",
+      "subscriptionExpired": "Gói đăng ký đã hết hạn",
+      "freeSubscriber": "Gói Miễn phí",
+      "tapToManageIPhoneSettingsApple": "Chạm để quản lý · Cài đặt iPhone → Apple ID → Đăng ký",
+      "tapToManagePlayStoreSubscriptions": "Chạm để quản lý · CH Play → Gói thuê bao",
+      "tapToRenewYourSubscription": "Chạm để gia hạn gói đăng ký",
+      "tapToUpgradeToPro": "Chạm để nâng cấp lên PRO",
+      "referralCode": "Mã giới thiệu",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn đăng xuất khỏi tài khoản?"
+    },
+    "quizHistory": {
+      "deleteQuiz": "Xóa câu đố",
+      "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{sourceTitle}}\"?",
+      "failedToDeleteQuiz": "Không thể xóa câu đố",
+      "correct": "Đúng {{correct}}/{{total}}",
+      "attempts": "{{attempts}} lần làm",
+      "quiz": "Câu đố",
+      "createQuiz": "Tạo câu đố",
+      "searchQuizzes": "Tìm kiếm câu đố...",
+      "noQuizzesYet": "Chưa có câu đố nào",
+      "createAQuizFromANote": "Tạo câu đố từ ghi chú để bắt đầu",
+      "createQuiz2": "+ Tạo câu đố",
+      "quizOptions": "Tùy chọn câu đố",
+      "view": "Xem"
+    }
+  },
+  "services": {
+    "revenuecat": {
+      "upgradeUnavailable": "Không thể nâng cấp",
+      "weCouldnTOpenTheUpgrade": "Hiện không thể mở màn hình nâng cấp. Vui lòng kiểm tra kết nối và thử lại."
+    },
+    "api": {
+      "serverReturnedNonJSONResponse": "Máy chủ trả về phản hồi không phải JSON ({{status}})",
+      "networkErrorPleaseCheckYourConnection": "Lỗi mạng. Vui lòng kiểm tra kết nối.",
+      "connectionErrorPleaseTryAgain": "Lỗi kết nối. Vui lòng thử lại."
+    }
+  },
+  "utils": {
+    "exportUtil": {
+      "fileExported": "Đã xuất tệp: {{filename}}",
+      "exportFailed": "Xuất tệp thất bại",
+      "exportFormat": "Định dạng xuất",
+      "chooseFormat": "Chọn định dạng",
+      "text": "Văn bản"
+    },
+    "formatDate": {
+      "justNow": "Vừa xong",
+      "minAgo": "{{diffMin}} phút trước",
+      "hrAgo": "{{diffHr}} giờ trước",
+      "dAgo": "{{diffDay}} ngày trước",
+      "created": "Đã tạo {{day}}, {{time}}"
+    }
+  },
+  "store": {
+    "authStore": {
+      "failedToSendOTP": "Gửi mã OTP thất bại",
+      "invalidOTP": "Mã OTP không hợp lệ",
+      "failedToVerifyOTP": "Xác thực mã OTP thất bại",
+      "googleAuthenticationFailed": "Xác thực Google thất bại",
+      "appleAuthenticationFailed": "Xác thực Apple thất bại",
+      "failedToCompleteSignup": "Không thể hoàn tất đăng ký",
+      "failedToSkipSignup": "Không thể bỏ qua đăng ký"
+    }
+  },
+  "onboardingTour": {
+    "chats": {
+      "heading": "Đoạn chat",
+      "description": "Trò chuyện cùng AI từ mọi ghi chú, tài liệu hoặc file PDF tại một nơi duy nhất"
+    },
+    "profileWelcome": {
+      "heading": "Chào mừng đến với Hồ sơ của bạn",
+      "description": "Đây là hồ sơ của bạn, nhấn vào đây để chỉnh sửa thông tin cá nhân và gói đăng ký"
+    },
+    "createNotes": {
+      "heading": "Tạo ghi chú",
+      "description": "Tạo mọi loại ghi chú từ: Bản ghi âm, âm thanh, video, hình ảnh, văn bản và link YouTube"
+    },
+    "changeLanguage": {
+      "heading": "Đổi ngôn ngữ",
+      "description": "Thay đổi ngôn ngữ ứng dụng sang ngôn ngữ bạn mong muốn tại đây"
+    },
+    "manageHome": {
+      "heading": "Quản lý Trang chủ",
+      "description": "Xem tất cả ghi chú đã tạo và theo dõi mọi hoạt động của bạn tại một nơi"
+    },
+    "yourLibrary": {
+      "heading": "Thư viện của bạn",
+      "description": "Quản lý toàn bộ ghi chú đã tạo, sắp xếp theo thư mục và nhiều tiện ích khác"
+    },
+    "yourProfile": {
+      "heading": "Hồ sơ của bạn",
+      "description": "Xem thông tin tài khoản và tùy chỉnh cài đặt hồ sơ của bạn ngay tại đây"
+    }
   }
 }

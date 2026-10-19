@@ -15,6 +15,7 @@ import { Icon, theme, colors } from '@clinicalfact/design-system';
 import { useAlertDialog } from '../hooks/useAlertDialog';
 import { AlertDialog } from './AlertDialog';
 import api from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 interface ReferredFriend {
   name: string;
@@ -34,6 +35,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
   referralCode,
   referralCount = 0,
 }) => {
+  const { t } = useTranslation();
   const { alertConfig, showAlert, closeAlert } = useAlertDialog('Got it');
 
   const [friends, setFriends] = useState<ReferredFriend[]>([]);
@@ -78,7 +80,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
   const handleCopyCode = () => {
     if (referralCode) {
       Clipboard.setString(referralCode);
-      showAlert('Copied!', 'Your referral code has been copied to clipboard.');
+      showAlert(t('components.referral.copied'), t('components.referral.yourReferralCodeHasBeenCopied'));
     }
   };
 
@@ -86,7 +88,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
     if (referralCode) {
       const appUrl = 'https://play.google.com/store/apps/details?id=com.clinicalfact.app';
       Share.share({
-        message: `Join me on Clinical Fact! Use my code ${referralCode} – ${appUrl}`,
+        message: t('components.referral.joinMeOnClinicalFactUse', { referralCode, appUrl }),
       });
     }
   };
@@ -112,7 +114,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
       </View>
       <View style={styles.friendInfo}>
         <Text style={styles.friendName}>{item.name}</Text>
-        <Text style={styles.friendDate}>Joined {formatJoinedDate(item.joinedAt)}</Text>
+        <Text style={styles.friendDate}>{t('components.referral.joined', { joinedDate: formatJoinedDate(item.joinedAt) })}</Text>
       </View>
     </View>
   );
@@ -136,7 +138,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                   <TouchableOpacity onPress={onClose} style={styles.closeButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                     <Icon name="close" size={20} color={theme.colors.grey[900]} />
                   </TouchableOpacity>
-                  <Text style={styles.headerTitle} numberOfLines={1}>Referral code</Text>
+                  <Text style={styles.headerTitle} numberOfLines={1}>{t('components.referral.referralCode')}</Text>
                   <View style={styles.closeButton} />
                 </View>
 
@@ -144,8 +146,8 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                   <View style={styles.iconCircle}>
                     <Icon name="link" size={32} color={colors.white} />
                   </View>
-                  <Text style={styles.title}>Your Referral Code</Text>
-                  <Text style={styles.subtitle}>Share with friends to earn rewards</Text>
+                  <Text style={styles.title}>{t('components.referral.yourReferralCode')}</Text>
+                  <Text style={styles.subtitle}>{t('components.referral.shareWithFriendsToEarnRewards')}</Text>
 
                   {/* Code Display */}
                   {referralCode && (
@@ -162,7 +164,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                       activeOpacity={0.7}
                     >
                       <Icon name="shareApp" size={18} color={theme.colors.grey[900]} />
-                      <Text style={styles.shareButtonText}>Share</Text>
+                      <Text style={styles.shareButtonText}>{t('components.referral.share')}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.copyButton}
@@ -170,7 +172,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                       activeOpacity={0.7}
                     >
                       <Icon name="copy" size={18} color={colors.white} />
-                      <Text style={styles.copyButtonText}>Copy Code</Text>
+                      <Text style={styles.copyButtonText}>{t('components.referral.copyCode')}</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -179,13 +181,13 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                 <View style={styles.friendsSection}>
                   <Text style={styles.friendsTitle}>
                     {referralCount > 0
-                      ? `You've referred ${referralCount} ${referralCount === 1 ? 'friend' : 'friends'}`
-                      : 'Referred friends'}
+                      ? t('components.referral.friendsReferredCount', { referralCount })
+                      : t('components.referral.referredFriends')}
                   </Text>
 
                   {referralCount === 0 ? (
                     <Text style={styles.noFriendsText}>
-                      No referrals yet. Share your code to get started!
+                     {t('components.referral.noReferralsYetShareYourCode')}
                     </Text>
                   ) : isLoadingFriends ? (
                     <ActivityIndicator size="small" color={theme.colors.yale[700]} style={styles.loadingSpinner} />
@@ -205,7 +207,7 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
                           >
                             {isLoadingMore
                               ? <ActivityIndicator size="small" color={theme.colors.yale[700]} />
-                              : <Text style={styles.loadMoreText}>Load more</Text>
+                              : <Text style={styles.loadMoreText}>{t('components.referral.loadMore')}</Text>
                             }
                           </TouchableOpacity>
                         ) : null
@@ -216,12 +218,12 @@ export const ReferralModal: React.FC<ReferralModalProps> = ({
 
                 {/* How it works */}
                 <View style={styles.infoContainer}>
-                  <Text style={styles.infoTitle}>How it works</Text>
+                  <Text style={styles.infoTitle}>{t('components.referral.howItWorks')}</Text>
                   <Text style={styles.infoBullet}>
-                    • Friends use your code during signup
+                   {t('components.referral.friendsUseYourCodeDuringSignup')}
                   </Text>
                   <Text style={styles.infoBullet}>
-                    • You both earn rewards when they join
+                   {t('components.referral.youBothEarnRewardsWhenThey')}
                   </Text>
                 </View>
               </View>
