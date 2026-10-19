@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { theme } from '@clinicalfact/design-system';
-import { decodeHtmlEntities } from '../utils/htmlText';
+import { renderAnswerText } from '../utils/htmlText';
 
 // ─── Inline parser ────────────────────────────────────────────────────────────
 
@@ -32,7 +32,7 @@ function parseInline(html: string): InlineNode[] {
     if (/^<\/code>/i.test(part)) { code = false; continue; }
 
     // Strip any unknown residual tags then push text
-    const text = decodeHtmlEntities(part.replace(/<[^>]+>/g, ''));
+    const text = renderAnswerText(part.replace(/<[^>]+>/g, ''));
     if (text) nodes.push({ text, bold, italic, code });
   }
 

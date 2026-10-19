@@ -1,4 +1,4 @@
-import { decodeHtmlEntities, stripHtml } from '../htmlText';
+import { decodeHtmlEntities, latexToUnicode, renderAnswerText, stripHtml } from '../htmlText';
 
 describe('decodeHtmlEntities', () => {
   test('decodes the symbols that showed up as text in chat answers', () => {
@@ -57,5 +57,40 @@ describe('stripHtml', () => {
 
   test('collapses runs of blank lines and trims', () => {
     expect(stripHtml('  <p>a</p>\n\n\n\n<p>b</p>  ')).toBe('a\n\nb');
+  });
+});
+
+describe('latexToUnicode', () => {
+  test.each([
+    ['$Na^+$', 'Na⁺'],
+    ['$K^+$', 'K⁺'],
+    ['$Mg^{2+}$', 'Mg²⁺'],
+    ['$Ca^{2+}$', 'Ca²⁺'],
+    ['$2Cl^-$', '2Cl⁻'],
+    ['$HCO_3^-$', 'HCO₃⁻'],
+    ['$H_2O$', 'H₂O'],
+    ['$CO_{2}$', 'CO₂'],
+    ['$\\text{pH} \\geq 7.4$', 'pH ≥ 7.4'],
+    ['$K^+ \\rightarrow$ cell', 'K⁺ → cell'],
+  ])('%s', (input, expected) => {
+    expect(latexToUnicode(input)).toBe(expected);
+  });
+
+  test('the screenshot sentence', () => {
+    expect(latexToUnicode('moves $Na^+$, $K^+$, and $2Cl^-$ into the cell ($Mg^{2+}$)')).toBe(
+      'moves Na⁺, K⁺, and 2Cl⁻ into the cell (Mg²⁺)'
+    );
+  });
+
+  test('plain dollar amounts are left alone', () => {
+    expect(latexToUnicode('costs $5 and $10 each')).toBe('costs $5 and $10 each');
+  });
+
+  test('an exponent with no Unicode form keeps its caret rather than losing text', () => {
+    expect(latexToUnicode('$x^{abc}$')).toBe('x^abc');
+  });
+
+  test('renderAnswerText decodes entities and LaTeX together', () => {
+    expect(renderAnswerText('K &lt; 3.5 mmol/L; $K^+$ &rarr; cell')).toBe('K < 3.5 mmol/L; K⁺ → cell');
   });
 });
