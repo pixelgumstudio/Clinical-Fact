@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}}問 · {{value}}",
       "deleteAllAttemptsOne": "「{{title}}」の回答履歴（1件）を削除しますか？この操作は元に戻せません。",
       "deleteAllAttemptsMany": "「{{title}}」の全{{total}}件の回答履歴を削除しますか？この操作は元に戻せません。",
-      "makeFlashcards": "単語カードを作成"
+      "makeFlashcards": "単語カードを作成",
+      "questionCount": "{{totalQuestions}}問"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "クイズデータを読み込めませんでした（不正な応答形式）",
@@ -847,7 +848,8 @@
       "score": "スコア {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "フラッシュカード生成",
       "questions": "{{totalCards}}問 · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}}問 · {{value}}"
+      "questions2": "{{totalQuestions}}問 · {{value}}",
+      "questionCount": "{{totalQuestions}}問"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "考え中… 関連資料を検索しています...",

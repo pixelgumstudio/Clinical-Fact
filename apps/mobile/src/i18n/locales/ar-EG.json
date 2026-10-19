@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} سؤال · {{value}}",
       "deleteAllAttemptsOne": "هل تريد حذف محاولة الاختبار الوحيدة لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
       "deleteAllAttemptsMany": "هل تريد حذف جميع محاولات الاختبار الـ {{total}} لـ \"{{title}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
-      "makeFlashcards": "إنشاء بطاقات استذكار"
+      "makeFlashcards": "إنشاء بطاقات استذكار",
+      "questionCount": "{{totalQuestions}} سؤال"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "فشل تحميل بيانات الاختبار - تنسيق الاستجابة غير صالح",
@@ -847,7 +848,8 @@
       "score": "النتيجة {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "إنشاء كروت استذكار",
       "questions": "{{totalCards}} أسئلة · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} أسئلة · {{value}}"
+      "questions2": "{{totalQuestions}} أسئلة · {{value}}",
+      "questionCount": "{{totalQuestions}} سؤال"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "بفكر وبدوّرلك على مراجع...",

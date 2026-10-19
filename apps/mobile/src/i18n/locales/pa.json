@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} ਸਵਾਲ · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" ਲਈ 1 ਕਵਿਜ਼ ਯਤਨ ਮਿਟਾਉਣਾ ਹੈ? ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।",
       "deleteAllAttemptsMany": "\"{{title}}\" ਲਈ ਸਾਰੇ {{total}} ਕਵਿਜ਼ ਯਤਨ ਮਿਟਾਉਣੇ ਹਨ? ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।",
-      "makeFlashcards": "ਫਲੈਸ਼ਕਾਰਡ ਬਣਾਓ"
+      "makeFlashcards": "ਫਲੈਸ਼ਕਾਰਡ ਬਣਾਓ",
+      "questionCount": "{{totalQuestions}} ਪ੍ਰਸ਼ਨ"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ਕਵਿਜ਼ ਡਾਟਾ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ - ਅਵੈਧ ਜਵਾਬ ਫਾਰਮੈਟ",
@@ -865,7 +866,8 @@
       "score": "ਸਕੋਰ {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ਫਲੈਸ਼ਕਾਰਡ ਤਿਆਰੀ",
       "questions": "{{totalCards}} ਸਵਾਲ · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} ਸਵਾਲ · {{value}}"
+      "questions2": "{{totalQuestions}} ਸਵਾਲ · {{value}}",
+      "questionCount": "{{totalQuestions}} ਪ੍ਰਸ਼ਨ"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "ਤੁਹਾਡੇ ਲਈ ਸਰੋਤ ਲੱਭੇ ਜਾ ਰਹੇ ਹਨ...",

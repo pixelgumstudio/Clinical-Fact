@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} spørsmål · {{value}}",
       "deleteAllAttemptsOne": "Slette 1 quizforsøk for «{{title}}»? Dette kan ikke angres.",
       "deleteAllAttemptsMany": "Slette alle {{total}} quizforsøk for «{{title}}»? Dette kan ikke angres.",
-      "makeFlashcards": "Lag flashcards"
+      "makeFlashcards": "Lag flashcards",
+      "questionCount": "{{totalQuestions}} spørsmål"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Kunne ikke laste quizdata – ugyldig svarformat",
@@ -865,7 +866,8 @@
       "score": "Resultat {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Flashcard-oppretting",
       "questions": "{{totalCards}} spørsmål · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} spørsmål · {{value}}"
+      "questions2": "{{totalQuestions}} spørsmål · {{value}}",
+      "questionCount": "{{totalQuestions}} spørsmål"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Tenker og henter kilder for deg...",

@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} domande · {{value}}",
       "deleteAllAttemptsOne": "Eliminare l'unico tentativo del quiz per \"{{title}}\"? L'azione è irreversibile.",
       "deleteAllAttemptsMany": "Eliminare tutti i {{total}} tentativi del quiz per \"{{title}}\"? L'azione è irreversibile.",
-      "makeFlashcards": "Crea flashcard"
+      "makeFlashcards": "Crea flashcard",
+      "questionCount": "{{totalQuestions}} domande"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Impossibile caricare i dati del quiz: formato di risposta non valido",
@@ -847,7 +848,8 @@
       "score": "Punteggio: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generazione flashcard",
       "questions": "{{totalCards}} domande · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} domande · {{value}}"
+      "questions2": "{{totalQuestions}} domande · {{value}}",
+      "questionCount": "{{totalQuestions}} domande"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Elaborazione e ricerca delle risorse in corso...",

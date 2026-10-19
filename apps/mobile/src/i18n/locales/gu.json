@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} પ્રશ્નો · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" માટેનો 1 ક્વિઝ પ્રયાસ કાઢી નાખવો છે? આ પાછું લાવી શકાશે નહીં.",
       "deleteAllAttemptsMany": "\"{{title}}\" માટેના તમામ {{total}} ક્વિઝ પ્રયાસો કાઢી નાખવા છે? આ પાછું લાવી શકાશે નહીં.",
-      "makeFlashcards": "ફ્લેશકાર્ડ્સ બનાવો"
+      "makeFlashcards": "ફ્લેશકાર્ડ્સ બનાવો",
+      "questionCount": "{{totalQuestions}} પ્રશ્નો"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ક્વિઝ ડેટા લોડ કરવામાં નિષ્ફળ - અમાન્ય પ્રતિસાદ ફોર્મેટ",
@@ -865,7 +866,8 @@
       "score": "સ્કોર {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ફ્લેશકાર્ડ્સ બનાવવા",
       "questions": "{{totalCards}} પ્રશ્નો · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} પ્રશ્નો · {{value}}"
+      "questions2": "{{totalQuestions}} પ્રશ્નો · {{value}}",
+      "questionCount": "{{totalQuestions}} પ્રશ્નો"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "વિચારી રહ્યું છે અને તમારા માટે માહિતી શોધી રહ્યું છે...",

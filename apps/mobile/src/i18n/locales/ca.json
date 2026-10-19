@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} preguntes · {{value}}",
       "deleteAllAttemptsOne": "Vols eliminar l'únic intent del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
       "deleteAllAttemptsMany": "Vols eliminar els {{total}} intents del qüestionari «{{title}}»? Aquesta acció no es pot desfer.",
-      "makeFlashcards": "Crea targetes"
+      "makeFlashcards": "Crea targetes",
+      "questionCount": "{{totalQuestions}} preguntes"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Error en carregar les dades del qüestionari: format de resposta no vàlid",
@@ -865,7 +866,8 @@
       "score": "Puntuació {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generació de flashcards",
       "questions": "{{totalCards}} preguntes · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} preguntes · {{value}}"
+      "questions2": "{{totalQuestions}} preguntes · {{value}}",
+      "questionCount": "{{totalQuestions}} preguntes"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Pensant i cercant recursos per a tu...",

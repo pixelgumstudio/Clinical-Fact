@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} vragen · {{value}}",
       "deleteAllAttemptsOne": "De enige quizpoging voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
       "deleteAllAttemptsMany": "Alle {{total}} quizpogingen voor \"{{title}}\" verwijderen? Dit kan niet ongedaan worden gemaakt.",
-      "makeFlashcards": "Maak flashcards"
+      "makeFlashcards": "Maak flashcards",
+      "questionCount": "{{totalQuestions}} vragen"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Laden van quizgegevens mislukt - ongeldige reactie",
@@ -847,7 +848,8 @@
       "score": "Score {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Flashcards genereren",
       "questions": "{{totalCards}} vragen · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} vragen · {{value}}"
+      "questions2": "{{totalQuestions}} vragen · {{value}}",
+      "questionCount": "{{totalQuestions}} vragen"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Nadenken en bronnen voor je zoeken...",

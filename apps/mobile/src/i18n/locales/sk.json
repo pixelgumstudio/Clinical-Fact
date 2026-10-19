@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} otázok · {{value}}",
       "deleteAllAttemptsOne": "Vymazať 1 pokus kvízu pre „{{title}}“? Túto akciu nemožno vrátiť späť.",
       "deleteAllAttemptsMany": "Vymazať všetkých {{total}} pokusov kvízu pre „{{title}}“? Túto akciu nemožno vrátiť späť.",
-      "makeFlashcards": "Vytvoriť kartičky"
+      "makeFlashcards": "Vytvoriť kartičky",
+      "questionCount": "{{totalQuestions}} otázok"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Údaje kvízu sa nepodarilo načítať – neplatný formát odpovede",
@@ -865,7 +866,8 @@
       "score": "Skóre {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generovanie kartičiek",
       "questions": "{{totalCards}} otázok · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} otázok · {{value}}"
+      "questions2": "{{totalQuestions}} otázok · {{value}}",
+      "questionCount": "{{totalQuestions}} otázok"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Premýšľam a hľadám pre vás zdroje...",

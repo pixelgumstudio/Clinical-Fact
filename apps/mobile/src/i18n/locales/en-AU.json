@@ -714,7 +714,8 @@
       "questions": "{{totalQuestions}} questions · {{value}}",
       "deleteAllAttemptsOne": "Delete all 1 quiz attempt for \"{{title}}\"? This can't be undone.",
       "deleteAllAttemptsMany": "Delete all {{total}} quiz attempts for \"{{title}}\"? This can't be undone.",
-      "makeFlashcards": "Make flashcards"
+      "makeFlashcards": "Make flashcards",
+      "questionCount": "{{totalQuestions}} questions"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Failed to load quiz data - invalid response format",
@@ -846,7 +847,8 @@
       "score": "Score {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Flashcards generation",
       "questions": "{{totalCards}} questions · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} questions · {{value}}"
+      "questions2": "{{totalQuestions}} questions · {{value}}",
+      "questionCount": "{{totalQuestions}} questions"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Thinking and finding resources for you...",

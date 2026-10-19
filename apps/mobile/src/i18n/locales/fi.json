@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} kysymystä · {{value}}",
       "deleteAllAttemptsOne": "Poistetaanko visan ”{{title}}” suorituskerta? Tätä toimintoa ei voi kumota.",
       "deleteAllAttemptsMany": "Poistetaanko kaikki {{total}} visan ”{{title}}” suorituskertaa? Tätä toimintoa ei voi kumota.",
-      "makeFlashcards": "Luo muistikortteja"
+      "makeFlashcards": "Luo muistikortteja",
+      "questionCount": "{{totalQuestions}} kysymystä"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Visan tietojen lataus epäonnistui – virheellinen vastausmuoto",
@@ -865,7 +866,8 @@
       "score": "Tulos {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Muistikorttien luonti",
       "questions": "{{totalCards}} kysymystä · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} kysymystä · {{value}}"
+      "questions2": "{{totalQuestions}} kysymystä · {{value}}",
+      "questionCount": "{{totalQuestions}} kysymystä"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Pohditaan ja etsitään lähteitä...",

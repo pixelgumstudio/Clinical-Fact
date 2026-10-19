@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} प्रश्न · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" के लिए 1 क्विज़ प्रयास हटाएं? इसे पूर्ववत नहीं किया जा सकता।",
       "deleteAllAttemptsMany": "\"{{title}}\" के सभी {{total}} क्विज़ प्रयास हटाएं? इसे पूर्ववत नहीं किया जा सकता।",
-      "makeFlashcards": "फ़्लैशकार्ड बनाएं"
+      "makeFlashcards": "फ़्लैशकार्ड बनाएं",
+      "questionCount": "{{totalQuestions}} प्रश्न"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "क्विज़ डेटा लोड करने में विफल - अमान्य प्रतिक्रिया प्रारूप",
@@ -847,7 +848,8 @@
       "score": "स्कोर {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "फ्लैशकार्ड्स जनरेशन",
       "questions": "{{totalCards}} प्रश्न · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} प्रश्न · {{value}}"
+      "questions2": "{{totalQuestions}} प्रश्न · {{value}}",
+      "questionCount": "{{totalQuestions}} प्रश्न"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "सोच रहा हूँ और आपके लिए स्रोत खोज रहा हूँ...",

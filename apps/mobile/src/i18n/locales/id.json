@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} soal · {{value}}",
       "deleteAllAttemptsOne": "Hapus 1 riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
       "deleteAllAttemptsMany": "Hapus semua {{total}} riwayat percobaan kuis untuk \"{{title}}\"? Tindakan ini tidak dapat dibatalkan.",
-      "makeFlashcards": "Buat flashcard"
+      "makeFlashcards": "Buat flashcard",
+      "questionCount": "{{totalQuestions}} pertanyaan"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Gagal memuat data kuis - format respons tidak valid",
@@ -847,7 +848,8 @@
       "score": "Skor {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Pembuatan flashcard",
       "questions": "{{totalCards}} pertanyaan · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} pertanyaan · {{value}}"
+      "questions2": "{{totalQuestions}} pertanyaan · {{value}}",
+      "questionCount": "{{totalQuestions}} pertanyaan"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Sedang berpikir dan mencari referensi untukmu...",

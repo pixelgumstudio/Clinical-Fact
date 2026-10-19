@@ -105,12 +105,15 @@ export const ChatGeneratedContentSection: React.FC<ChatGeneratedContentSectionPr
                 <View style={styles.cardInfo}>
                   <Text style={styles.cardTitle} numberOfLines={1}>{attempt.title}</Text>
                   <Text style={styles.cardSubtitle}>
-                    {t('chat.chatGeneratedContentSection.questions2', {
-                      totalQuestions: attempt.totalQuestions,
-                      value: attempt.isCompleted
-                        ? t('chat.chatGeneratedContentSection.score', { correctAnswers: attempt.correctAnswers ?? 0, totalQuestions: attempt.totalQuestions })
-                        : t('chat.chatGeneratedContentSection.notStarted'),
-                    })}
+                    {t('chat.chatGeneratedContentSection.questionCount', { totalQuestions: attempt.totalQuestions })}
+                    {' · '}
+                    {attempt.isCompleted ? (
+                      <Text style={(attempt.correctAnswers ?? 0) / attempt.totalQuestions >= 0.5 ? styles.scorePass : styles.scoreFail}>
+                        {t('chat.chatGeneratedContentSection.score', { correctAnswers: attempt.correctAnswers ?? 0, totalQuestions: attempt.totalQuestions })}
+                      </Text>
+                    ) : (
+                      t('chat.chatGeneratedContentSection.notStarted')
+                    )}
                   </Text>
                 </View>
                 <Text style={styles.cardTime}>{formatRelativeTime(attempt.createdAt)}</Text>
@@ -187,6 +190,12 @@ const styles = StyleSheet.create({
   cardSubtitle: {
     ...theme.typography.textStyles.p3,
     color: theme.colors.grey[400],
+  },
+  scorePass: {
+    color: theme.colors.green[600], // matches QuizReviewScreen's "correct" green
+  },
+  scoreFail: {
+    color: colors.error.main,
   },
   cardTime: {
     ...theme.typography.textStyles.caption1,

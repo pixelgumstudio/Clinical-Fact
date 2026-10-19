@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} perguntas · {{value}}",
       "deleteAllAttemptsOne": "Eliminar 1 tentativa de questionário de \"{{title}}\"? Esta ação não pode ser anulada.",
       "deleteAllAttemptsMany": "Eliminar todas as {{total}} tentativas de questionário de \"{{title}}\"? Esta ação não pode ser anulada.",
-      "makeFlashcards": "Criar flashcards"
+      "makeFlashcards": "Criar flashcards",
+      "questionCount": "{{totalQuestions}} perguntas"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Falha ao carregar os dados do questionário — formato de resposta inválido",
@@ -847,7 +848,8 @@
       "score": "Pontuação {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Criação de flashcards",
       "questions": "{{totalCards}} perguntas · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} perguntas · {{value}}"
+      "questions2": "{{totalQuestions}} perguntas · {{value}}",
+      "questionCount": "{{totalQuestions}} perguntas"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "A pensar e a procurar recursos para ti...",

@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} câu hỏi · {{value}}",
       "deleteAllAttemptsOne": "Xóa 1 lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này.",
       "deleteAllAttemptsMany": "Xóa toàn bộ {{total}} lần làm bài trắc nghiệm của \"{{title}}\"? Không thể hoàn tác thao tác này.",
-      "makeFlashcards": "Tạo flashcard"
+      "makeFlashcards": "Tạo flashcard",
+      "questionCount": "{{totalQuestions}} câu hỏi"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Không thể tải dữ liệu bài trắc nghiệm - định dạng phản hồi không hợp lệ",
@@ -847,7 +848,8 @@
       "score": "Điểm: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Tạo flashcard",
       "questions": "{{totalCards}} câu hỏi · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} câu hỏi · {{value}}"
+      "questions2": "{{totalQuestions}} câu hỏi · {{value}}",
+      "questionCount": "{{totalQuestions}} câu hỏi"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Đang suy nghĩ và tìm kiếm tài liệu cho bạn...",

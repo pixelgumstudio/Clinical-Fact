@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" కోసం ఉన్న 1 క్విజ్ ప్రయత్నాన్ని తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
       "deleteAllAttemptsMany": "\"{{title}}\" కోసం ఉన్న అన్ని {{total}} క్విజ్ ప్రయత్నాలను తొలగించాలా? దీన్ని రద్దు చేయలేరు.",
-      "makeFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి"
+      "makeFlashcards": "ఫ్లాష్‌కార్డ్‌లను రూపొందించండి",
+      "questionCount": "{{totalQuestions}} ప్రశ్నలు"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "క్విజ్ డేటాను లోడ్ చేయడం విఫలమైంది - చెల్లని రెస్పాన్స్ ఫార్మాట్",
@@ -865,7 +866,8 @@
       "score": "స్కోరు {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ఫ్లాష్‌కార్డ్‌ల రూపకల్పన",
       "questions": "{{totalCards}} ప్రశ్నలు · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} ప్రశ్నలు · {{value}}"
+      "questions2": "{{totalQuestions}} ప్రశ్నలు · {{value}}",
+      "questionCount": "{{totalQuestions}} ప్రశ్నలు"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "ఆలోచిస్తోంది మరియు మీ కోసం వనరులను వెతుకుతోంది...",

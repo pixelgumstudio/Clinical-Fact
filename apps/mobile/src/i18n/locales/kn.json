@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು · {{value}}",
       "deleteAllAttemptsOne": "\"{{title}}\" ನ ಎಲ್ಲಾ 1 ಕ್ವಿಜ್ ಪ್ರಯತ್ನವನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
       "deleteAllAttemptsMany": "\"{{title}}\" ನ ಎಲ್ಲಾ {{total}} ಕ್ವಿಜ್ ಪ್ರಯತ್ನಗಳನ್ನು ಅಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
-      "makeFlashcards": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳನ್ನು ರಚಿಸಿ"
+      "makeFlashcards": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್‌ಗಳನ್ನು ರಚಿಸಿ",
+      "questionCount": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "ಕ್ವಿಜ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ - ಅಮಾನ್ಯ ಪ್ರತಿಕ್ರಿಯೆ ಸ್ವರೂಪ",
@@ -865,7 +866,8 @@
       "score": "ಅಂಕ {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ರಚನೆ",
       "questions": "{{totalCards}} ಪ್ರಶ್ನೆಗಳು · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು · {{value}}"
+      "questions2": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು · {{value}}",
+      "questionCount": "{{totalQuestions}} ಪ್ರಶ್ನೆಗಳು"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "ಆಲೋಚಿಸುತ್ತಿದೆ ಮತ್ತು ನಿಮಗಾಗಿ ಸಂಪನ್ಮೂಲಗಳನ್ನು ಹುಡುಕುತ್ತಿದೆ...",

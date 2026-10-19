@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} pitanja · {{value}}",
       "deleteAllAttemptsOne": "Izbrisati 1 pokušaj kviza za \"{{title}}\"? Ova se radnja ne može poništiti.",
       "deleteAllAttemptsMany": "Izbrisati svih {{total}} pokušaja kviza za \"{{title}}\"? Ova se radnja ne može poništiti.",
-      "makeFlashcards": "Izradi kartice"
+      "makeFlashcards": "Izradi kartice",
+      "questionCount": "{{totalQuestions}} pitanja"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Učitavanje podataka kviza nije uspjelo – nevažeći format odgovora",
@@ -865,7 +866,8 @@
       "score": "Rezultat: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generiranje kartica",
       "questions": "{{totalCards}} pitanja · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} pitanja · {{value}}"
+      "questions2": "{{totalQuestions}} pitanja · {{value}}",
+      "questionCount": "{{totalQuestions}} pitanja"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Razmišljam i tražim izvore za tebe...",

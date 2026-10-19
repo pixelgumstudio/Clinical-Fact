@@ -715,7 +715,8 @@
       "questions": "{{totalQuestions}} 道题目 · {{value}}",
       "deleteAllAttemptsOne": "确定要删除“{{title}}”的这 1 次测验记录吗？此操作无法撤销。",
       "deleteAllAttemptsMany": "确定要删除“{{title}}”的全部 {{total}} 次测验记录吗？此操作无法撤销。",
-      "makeFlashcards": "制作记忆卡"
+      "makeFlashcards": "制作记忆卡",
+      "questionCount": "{{totalQuestions}} 道题目"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "加载测验数据失败：响应格式无效",
@@ -847,7 +848,8 @@
       "score": "得分 {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "抽认卡生成",
       "questions": "{{totalCards}} 道题目 · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} 道题目 · {{value}}"
+      "questions2": "{{totalQuestions}} 道题目 · {{value}}",
+      "questionCount": "{{totalQuestions}} 道题目"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "正在思考并为您查找参考资料...",

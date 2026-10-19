@@ -715,7 +715,8 @@
       "questions": "Pytania: {{totalQuestions}} · {{value}}",
       "deleteAllAttemptsOne": "Usunąć 1 podejście do quizu „{{title}}”? Tej operacji nie można cofnąć.",
       "deleteAllAttemptsMany": "Usunąć wszystkie podejścia ({{total}}) do quizu „{{title}}”? Tej operacji nie można cofnąć.",
-      "makeFlashcards": "Utwórz fiszki"
+      "makeFlashcards": "Utwórz fiszki",
+      "questionCount": "{{totalQuestions}} pytań"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Nie udało się załadować danych quizu – nieprawidłowy format odpowiedzi",
@@ -847,7 +848,8 @@
       "score": "Wynik: {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Generowanie fiszek",
       "questions": "Pytania: {{totalCards}} · {{flashcardStatus}}",
-      "questions2": "Pytania: {{totalQuestions}} · {{value}}"
+      "questions2": "Pytania: {{totalQuestions}} · {{value}}",
+      "questionCount": "{{totalQuestions}} pytań"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Myślę i szukam dla Ciebie materiałów...",

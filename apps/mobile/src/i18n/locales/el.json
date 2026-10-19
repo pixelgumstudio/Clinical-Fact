@@ -733,7 +733,8 @@
       "questions": "{{totalQuestions}} ερωτήσεις · {{value}}",
       "deleteAllAttemptsOne": "Διαγραφή της 1 προσπάθειας κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
       "deleteAllAttemptsMany": "Διαγραφή και των {{total}} προσπαθειών κουίζ για το «{{title}}»; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
-      "makeFlashcards": "Δημιουργία flashcards"
+      "makeFlashcards": "Δημιουργία flashcards",
+      "questionCount": "{{totalQuestions}} ερωτήσεις"
     },
     "quizReview": {
       "failedToLoadQuizDataInvalid": "Αποτυχία φόρτωσης δεδομένων κουίζ - μη έγκυρη μορφή απόκρισης",
@@ -865,7 +866,8 @@
       "score": "Βαθμολογία {{correctAnswers}}/{{totalQuestions}}",
       "flashcardsGeneration": "Δημιουργία flashcards",
       "questions": "{{totalCards}} ερωτήσεις · {{flashcardStatus}}",
-      "questions2": "{{totalQuestions}} ερωτήσεις · {{value}}"
+      "questions2": "{{totalQuestions}} ερωτήσεις · {{value}}",
+      "questionCount": "{{totalQuestions}} ερωτήσεις"
     },
     "chatMessageBubble": {
       "thinkingAndFindingResourcesForYou": "Αναζήτηση πηγών και επεξεργασία απάντησης...",
