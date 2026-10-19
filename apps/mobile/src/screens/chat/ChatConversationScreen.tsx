@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,7 @@ import {
   Easing,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { BottomTabBarHeightContext } from '@react-navigation/bottom-tabs';
 import { useNavigation, useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import api, { MedicalChatFilters, MedicalChatSource, MedicalChatGroundingSource, MedicalChatImage, ChatStreamMetadataPayload, ChatStreamDonePayload } from '../../services/api';
@@ -78,6 +79,7 @@ export const ChatConversationScreen = () => {
   const route = useRoute<ChatConversationRouteProp>();
   const { chatId, noteId, title, type, fileName } = route.params || {};
   const insets = useSafeAreaInsets();
+  const tabBarHeight = useContext(BottomTabBarHeightContext);
   const { withAccess } = useGatedFeature();
   const hasAccess = useSubscriptionStore((s) => s.hasAccess);
   const user = useAuthStore((s) => s.user);
@@ -1238,7 +1240,9 @@ export const ChatConversationScreen = () => {
           isLocked={isLocked}
           onUpgrade={() => showInAppPaywall()}
           queriesRemaining={queriesRemaining}
-          insetsBottom={insets.bottom}
+          // Inside the tab bar (which already clears the home indicator) the composer must not add the
+          // safe-area gap again — that doubled space under the input.
+          insetsBottom={tabBarHeight ? 0 : insets.bottom}
           pendingAttachment={pendingAttachment}
           onRemovePendingAttachment={handleRemovePendingAttachment}
           message={message}

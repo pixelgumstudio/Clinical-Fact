@@ -82,7 +82,7 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
     (!message.trim() || embeddingBlocking || pendingAttachment?.isUploading);
 
   return (
-    <View style={[styles.inputContainer, { paddingBottom: Math.max(insetsBottom, spacing[4]) }]}>
+    <View style={[styles.inputContainer, { paddingBottom: Math.max(insetsBottom, spacing[2]) }]}>
       {/* Main input card — an optional "X query remaining" header on top, then the text
           field, with attach (+) and send on a row below. The "+" is always available: with
           no chat open yet, it starts a new one; inside an open chat, it attaches to that
