@@ -14,7 +14,8 @@
     "next": "Tiếp theo",
     "done": "Hoàn tất",
     "search": "Tìm kiếm",
-    "filter": "Lọc"
+    "filter": "Lọc",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "Nâng cấp gói",
     "everyWeek": "Mỗi tuần",
     "everyMonth": "Mỗi tháng",
-    "everyYear": "Mỗi năm"
+    "everyYear": "Mỗi năm",
+    "expired": "Đã hết hạn",
+    "reportBug": "Báo lỗi",
+    "active": "HOẠT ĐỘNG",
+    "trial": "DÙNG THỬ"
   },
   "auth": {
     "welcome": "Chào mừng đến với Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "Chọn ngôn ngữ bạn muốn sử dụng trong ứng dụng. Bạn có thể thay đổi lại sau trong hồ sơ.",
       "searchPlaceholder": "Tìm kiếm ngôn ngữ",
       "noResults": "Không tìm thấy ngôn ngữ nào"
+    },
+    "buttons": {
+      "continue": "Tiếp tục",
+      "continueWithEmail": "Tiếp tục với Email",
+      "continueWithGoogle": "Tiếp tục với Google",
+      "continueWithApple": "Tiếp tục với Apple",
+      "skip": "Bỏ qua",
+      "verify": "Đã xác thực!",
+      "next": "Tiếp theo",
+      "tryNow": "Trải nghiệm Clinical Fact miễn phí ngay"
+    },
+    "labels": {
+      "firstName": "Tên",
+      "lastName": "Họ",
+      "username": "@username",
+      "referralCode": "Mã giới thiệu",
+      "nameScreenTitle": "Họ và tên của bạn",
+      "byAgree": "Bằng cách tiếp tục, bạn đồng ý với",
+      "termsAndConditions": "Điều khoản dịch vụ",
+      "privacyPolicy": "chính sách quyền riêng tư",
+      "and": "và"
+    },
+    "placeholders": {
+      "enterEmail": "Nhập địa chỉ email của bạn",
+      "firstName": "Tên",
+      "lastName": "Họ",
+      "username": "@username",
+      "referralCode": "VD: JOHN hoặc TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ",
+      "emailRequired": "Vui lòng nhập địa chỉ email",
+      "firstLastNameRequired": "Vui lòng nhập cả họ và tên",
+      "usernameRequired": "Vui lòng nhập tên người dùng",
+      "usernameLength": "Tên người dùng phải có từ 3-20 ký tự (chỉ gồm chữ cái, số và dấu gạch dưới)",
+      "usernameTaken": "Tên người dùng đã được sử dụng. Vui lòng chọn tên khác.",
+      "usernameCheckFailed": "Không thể kiểm tra tên người dùng khả dụng",
+      "usernameError": "Lỗi kiểm tra tên người dùng. Vui lòng kiểm tra lại kết nối mạng.",
+      "invalidOTP": "Mã không hợp lệ. Vui lòng kiểm tra và thử lại.",
+      "otpExpired": "Mã đã hết hạn. Vui lòng yêu cầu mã mới.",
+      "otpRequired": "Vui lòng nhập đầy đủ mã xác thực",
+      "referralNotFound": "Không tìm thấy mã giới thiệu. Vui lòng kiểm tra lại ký tự và thử lại.",
+      "referralValidateFailed": "Không thể xác minh mã. Vui lòng thử lại.",
+      "referralApplyFailed": "Không thể áp dụng mã giới thiệu. Vui lòng thử lại.",
+      "codeSendFailed": "Không thể gửi mã xác thực. Vui lòng thử lại.",
+      "resendCodeFailed": "Không thể gửi lại mã. Vui lòng thử lại.",
+      "signInFailed": "Đăng nhập thất bại",
+      "googleSignInFailed": "Đăng nhập Google thất bại",
+      "googleTokenFailed": "Không thể xử lý token Google",
+      "googleAccessTokenFailed": "Không thể lấy access token. Vui lòng thử lại.",
+      "authTokenFailed": "Không thể lấy token xác thực. Vui lòng thử lại.",
+      "googleStartFailed": "Không thể khởi động đăng nhập Google. Vui lòng thử lại.",
+      "setupRequired": "Yêu cầu cài đặt",
+      "googleOAuthMissing": "Đăng nhập Google yêu cầu OAuth Client ID.\\n\\nVui lòng thêm thông tin xác thực vào tệp .env của bạn.",
+      "youCanStillUseEmail": "Bạn vẫn có thể chọn \"Tiếp tục với Email\".",
+      "appleSignInFailed": "Đăng nhập Apple thất bại",
+      "appleTokenFailed": "Không thể xử lý token Apple",
+      "appleIosOnly": "Đăng nhập bằng Apple chỉ khả dụng trên iOS."
+    },
+    "messages": {
+      "signingIn": "Đang đăng nhập...",
+      "codeValid": "✓ Mã hợp lệ",
+      "signupFailed": "Không thể hoàn tất đăng ký",
+      "setupFailed": "Không thể hoàn tất thiết lập. Vui lòng thử lại."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Ghi chú thông minh hơn bắt đầu từ đây",
+      "tagline": "Biến mọi tài liệu thành ghi chú hoàn hảo",
+      "description": "Chuyển âm thanh, tài liệu hoặc video thành ghi chú rõ ràng, dễ tìm kiếm và tạo nhanh bài trắc nghiệm, flashcard cùng bản tóm tắt.",
+      "createAccountTitle": "Tạo tài khoản",
+      "orSignUpWith": "HOẶC ĐĂNG KÝ BẰNG",
+      "signUpWithEmail": "Đăng ký bằng email",
+      "signInWithEmail": "Đăng nhập bằng email",
+      "alreadyHaveAccount": "Đã có tài khoản? ",
+      "dontHaveAccount": "Chưa có tài khoản? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Hỏi mọi vấn đề y khoa. Nhận dữ liệu lâm sàng chính xác",
+        "description": "Đặt bất kỳ câu hỏi y khoa nào và nhận câu trả lời có trích dẫn nguồn xác thực từ PubMed, hướng dẫn lâm sàng cùng y văn đáng tin cậy"
+      },
+      "slide2": {
+        "headline": "Mọi câu trả lời đều có nguồn chứng thực",
+        "description": "Không suy đoán, không bịa đặt dữ liệu, mọi câu trả lời đều dẫn về nghiên cứu y khoa thực tế có thể kiểm chứng."
+      },
+      "slide3": {
+        "headline": "Học thông minh hơn, vượt qua kỳ thi y khoa",
+        "description": "Biến mọi câu hỏi hoặc tài liệu tải lên thành bộ trắc nghiệm hay flashcard chỉ trong vài giây, ôn luyện trực tiếp từ kiến thức bạn đang học."
+      }
+    },
+    "otp": {
+      "title": "Xác nhận địa chỉ email",
+      "subtitle": "Vui lòng nhập mã OTP đã được gửi đến địa chỉ email của bạn"
+    },
+    "professionalDeclaration": {
+      "title": "Tuyên bố chuyên môn",
+      "subtitle": "Clinical Fact là công cụ tra cứu y văn phục vụ mục đích giáo dục",
+      "disclaimerIntro": "Clinical Fact là công cụ thông tin ứng dụng trí tuệ nhân tạo (AI) nhằm hỗ trợ sinh viên điều dưỡng, y khoa và các ngành khoa học sức khỏe tiếp cận kiến thức y học, y văn nghiên cứu và tài liệu học tập. Ứng dụng không đưa ra chẩn đoán y khoa, khuyến nghị điều trị, hướng dẫn lâm sàng hay lời khuyên y tế cho từng cá nhân, và không được sử dụng làm căn cứ chăm sóc bệnh nhân trực tiếp hoặc ra quyết định lâm sàng.",
+      "disclaimerHeading": "Cách Clinical Fact tạo câu trả lời:",
+      "disclaimerBody": "Clinical Fact truy xuất thông tin trực tiếp từ các nguồn y học và khoa học chính thống, bao gồm PubMed, Semantic Scholar và thông tin nhãn thuốc chính thức của FDA, sau đó sử dụng AI để tóm tắt và giải thích nội dung bằng ngôn ngữ dễ hiểu. Mọi câu trả lời chỉ được tạo từ các nguồn được truy xuất cho câu hỏi cụ thể đó, kèm trích dẫn dẫn đến tài liệu gốc để bạn tự kiểm chứng. Clinical Fact không tự suy diễn kiến thức y khoa từ bộ nhớ hay tự tạo nguồn dẫn chứng.\n\nClinical Fact không phải là công cụ chẩn đoán, nền tảng điều trị, thiết bị y tế, hay giải pháp thay thế cho đánh giá chuyên môn y khoa, giảng dạy có chứng chỉ hoặc chương trình đào tạo của cơ sở giáo dục. Mọi thông tin do ứng dụng tạo ra, bao gồm câu trả lời, trích dẫn, câu hỏi trắc nghiệm và flashcard, chỉ phục vụ mục đích học tập và nghiên cứu tổng quát; người dùng cần chủ động xác minh độc lập trước khi áp dụng vào bất kỳ bối cảnh học thuật, lâm sàng hay chuyên môn nào.\nClinical Fact không đảm bảo tính đầy đủ, độ chính xác tuyệt đối hoặc tính cập nhật lâm sàng của bất kỳ thông tin nào được cung cấp. Kiến thức y khoa luôn thay đổi liên tục — hãy luôn đối chiếu thông tin quan trọng với giảng viên, người giám sát lâm sàng và các tài liệu gốc mới nhất.\nKhi bạn tải lên tài liệu, ghi chú hoặc bản ghi âm cá nhân, Clinical Fact sẽ tạo câu trả lời, bản tóm tắt, bài trắc nghiệm và flashcard chỉ dựa trên nội dung đã tải lên đó, không sử dụng nguồn bên ngoài trừ khi nguồn bên ngoài được hiển thị rõ ràng bên cạnh.\n\nClinical Fact không xác minh, chứng thực hay xác nhận danh tính, tình trạng theo học hoặc chứng chỉ chuyên môn của người dùng. Ứng dụng không dành cho các tình huống khẩn cấp hoặc đưa ra quyết định lâm sàng theo thời gian thực.\nBằng việc tiếp tục, bạn xác nhận đã hiểu các điều khoản này và đồng ý chỉ sử dụng Clinical Fact như một công cụ hỗ trợ học tập và tham khảo.",
+      "checkboxLabel": "Tôi hiểu ứng dụng này chỉ dùng để tham khảo học tập và không cung cấp lời khuyên y tế",
+      "acceptButton": "Chấp nhận và tiếp tục"
+    },
+    "survey": {
+      "role": "Điều nào mô tả đúng nhất về bạn, {{firstName}}?",
+      "currentMethod": "Hiện tại bạn thường tìm câu trả lời cho các thắc mắc y khoa bằng cách nào?",
+      "timeDrain": "Điều gì làm bạn mất nhiều thời gian nhất?",
+      "appExpectation": "Bạn kỳ vọng điều gì nhất từ ứng dụng y khoa Clinical Fact?",
+      "aiToolsUsed": "Bạn đã từng sử dụng công cụ AI nào để tra cứu y khoa?",
+      "aiToolIssue": "Bạn gặp khó khăn gì khi dùng các công cụ đó?",
+      "aiTrustLevel": "Bạn có thường lo lắng câu trả lời của AI bị sai sót không?",
+      "biggestNeed": "Bạn cần hỗ trợ điều gì nhất vào lúc này?",
+      "studyTimePerWeek": "Bạn có bao nhiêu thời gian để học mỗi tuần?",
+      "comingUp": "Sắp tới bạn có kế hoạch hoặc kỳ thi quan trọng nào không?",
+      "referralSource": "Bạn biết đến Clinical Fact từ đâu?"
+    },
+    "onboarding": {
+      "username": "Thiết lập tên người dùng của bạn",
+      "usernameSubtitle": "Giúp trang cá nhân của bạn mang dấu ấn riêng hơn",
+      "goals": "Bạn muốn Clinical Fact hỗ trợ\\nvề điều gì?",
+      "goalsSubtitle": "Chọn tất cả mục phù hợp. Chúng tôi sẽ cá nhân hóa trải nghiệm cho bạn.",
+      "contentType": "Bạn chủ yếu học từ loại\\ntài liệu nào?",
+      "contentTypeSubtitle": "Chọn tất cả mục phù hợp. Điều này giúp chúng tôi tối ưu trải nghiệm của bạn.",
+      "reviewStyle": "Bạn thích ôn tập kiến thức\\nđã học theo cách nào?",
+      "reviewStyleSubtitle": "Chọn phương pháp ôn tập bạn yêu thích.",
+      "frustration": "{{firstName}}, điều gì làm bạn nản nhất khi ghi chép?",
+      "frustrationSubtitle": "Chọn tất cả mục phù hợp để chúng tôi hỗ trợ bạn tốt hơn.",
+      "referral": "Một chút tò mò nhé\\n{{firstName}},\\nbạn biết đến Clinical Fact từ đâu?",
+      "referralSubtitle": "Chọn một phương án."
+    },
+    "referralScreen": {
+      "title": "Bạn có người\\ngiới thiệu không?",
+      "subtitle": "Nhập mã giới thiệu nếu bạn có"
+    },
+    "setup": {
+      "preparingNotes": "Đang chuẩn bị ghi chú",
+      "preparingFlashcards": "Đang chuẩn bị flashcard",
+      "preparingQuiz": "Đang tạo bộ câu hỏi trắc nghiệm",
+      "preparingChat": "Đang thiết lập trợ lý trò chuyện",
+      "title": "Đang thiết lập không gian học tập\\ncho riêng bạn, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Cảm ơn bạn đã tin tưởng Clinical Fact",
+      "subtitle": "Bạn đang đồng hành cùng hàng ngàn sinh viên y khoa và điều dưỡng",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Tất cả công cụ bạn cần\\nđể làm chủ mọi kiến thức",
+      "subtitle": "Ghi âm. Tra cứu. Luyện trắc nghiệm. Nắm vững."
+    },
+    "features": {
+      "feature1": {
+        "title": "Nhận câu trả lời y khoa chuẩn xác và câu hỏi gợi mở",
+        "description": "Đặt bất kỳ câu hỏi y khoa nào để nhận lời giải thích rõ ràng cùng các câu hỏi nối tiếp thông minh, giúp việc học của bạn không bao giờ bị bế tắc."
+      },
+      "feature2": {
+        "title": "Mọi câu trả lời y khoa,\nđều từ nguồn dẫn thực tế",
+        "description": "Trích dẫn từ PubMed, Semantic Scholar và Europe PMC — có thể kiểm chứng, không bịa đặt."
+      },
+      "feature3": {
+        "title": "Tải lên ghi chú, Nhận tóm tắt y khoa từ tài liệu của bạn",
+        "description": "Biến bài giảng, tài liệu PDF hoặc ghi chú thành lời giải thích rõ ràng kèm nguồn y khoa uy tín."
+      },
+      "feature4": {
+        "title": "Biến cuộc trò chuyện thành Trắc nghiệm hoặc Flashcard để luyện tập",
+        "description": "Không cần thêm ứng dụng học tập khác, tạo câu hỏi ôn luyện trực tiếp từ cuộc trò chuyện và tài liệu tải lên."
+      },
+      "feature5": {
+        "title": "Biến cuộc trò chuyện hoặc tài liệu thành câu hỏi Flashcard để ôn tập",
+        "description": "Không cần thêm ứng dụng học tập khác, tạo câu hỏi ôn luyện trực tiếp từ cuộc trò chuyện và tài liệu tải lên."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "Sắp xong...",
     "quizReady": "Câu đố đã sẵn sàng!",
     "startQuiz": "Bắt đầu câu đố",
-    "questionCount": "Câu {{current}} / {{total}}"
+    "questionCount": "Câu {{current}} / {{total}}",
+    "previous": "Câu trước",
+    "generatingQuiz": "Đang tạo bài trắc nghiệm bằng AI...",
+    "exitTitle": "Thoát bài trắc nghiệm?",
+    "exitMessage": "Tiến trình làm bài của bạn sẽ bị mất.",
+    "exit": "Thoát",
+    "errorTitle": "Rất tiếc, đã có sự cố xảy ra 🚧",
+    "errorMessage": "Không thể tạo nội dung lúc này. Vui lòng đợi một lát rồi thử lại!",
+    "noQuestions": "Không có câu hỏi nào.",
+    "reading": "Đang đọc ghi chú của bạn...",
+    "identifying": "Đang xác định các khái niệm chính...",
+    "structuring": "Đang định dạng câu hỏi...",
+    "almostReady": "Sắp hoàn thành...",
+    "youScored": "ĐIỂM CỦA BẠN",
+    "timeInSeconds": "THỜI GIAN (GIÂY)",
+    "accuracy": "ĐỘ CHÍNH XÁC",
+    "grade": "XẾP LOẠI",
+    "reportsCard": "Báo cáo kết quả",
+    "reviewAnswers": "Xem lại câu trả lời",
+    "correctAnswer": "Đáp án đúng",
+    "yourAnswer": "Câu trả lời của bạn",
+    "explanation": "Giải thích",
+    "questionProgress": "Câu hỏi {{current}} / {{total}}",
+    "generatingQuizWait": "Đang tạo bài trắc nghiệm cho bạn, vui lòng đợi trong giây lát...",
+    "goToChats": "Đến cuộc trò chuyện"
   },
   "flashcards": {
     "title": "Thẻ ghi nhớ",
@@ -178,7 +378,29 @@
     "previous": "Trước đó",
     "shuffle": "Xáo trộn",
     "generating": "Đang tạo thẻ ghi nhớ...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Tạo flashcard để nâng cao khả năng ghi nhớ",
+    "howManyQuestions": "Bao nhiêu câu hỏi?",
+    "generateButton": "Tạo flashcard",
+    "generatingEllipsis": "Đang tạo...",
+    "allDone": "Hoàn tất!",
+    "completedReview": "Bạn đã ôn tập xong tất cả thẻ trong bộ này",
+    "backToNotes": "Quay lại ghi chú",
+    "question": "Câu hỏi",
+    "answer": "Đáp án",
+    "noQuestionText": "(Chưa có nội dung câu hỏi)",
+    "noAnswerText": "(Chưa có nội dung đáp án)",
+    "enterQuestion": "Nhập câu hỏi",
+    "enterAnswer": "Nhập đáp án",
+    "clickToFlip": "Chạm vào thẻ để lật",
+    "reading": "Đang đọc ghi chú của bạn...",
+    "identifying": "Đang xác định các khái niệm chính...",
+    "creating": "Đang tạo flashcard...",
+    "almostReady": "Sắp hoàn thành...",
+    "headerTitle": "Thẻ ghi nhớ",
+    "progressFormat": "Thẻ {{current}} / {{total}}",
+    "noteIdRequired": "Cần có mã ghi chú để tạo flashcard",
+    "invalidCardCount": "Vui lòng chọn từ 1 đến 100 flashcard"
   },
   "chat": {
     "title": "Trò chuyện",
@@ -211,6 +433,37 @@
     "turkish": "Tiếng Thổ Nhĩ Kỳ",
     "vietnamese": "Tiếng Việt",
     "thai": "Tiếng Thái",
-    "indonesian": "Tiếng Indonesia"
+    "indonesian": "Tiếng Indonesia",
+    "englishGB": "Tiếng Anh (Vương quốc Anh)",
+    "englishAU": "Tiếng Anh (Úc)",
+    "englishCA": "Tiếng Anh (Canada)",
+    "spanishMX": "Tiếng Tây Ban Nha (Mexico)",
+    "frenchCA": "Tiếng Pháp (Canada)",
+    "portuguesePT": "Tiếng Bồ Đào Nha (Bồ Đào Nha)",
+    "norwegian": "Tiếng Na Uy",
+    "danish": "Tiếng Đan Mạch",
+    "finnish": "Tiếng Phần Lan",
+    "czech": "Tiếng Séc",
+    "slovak": "Tiếng Slovak",
+    "slovenian": "Tiếng Slovenia",
+    "croatian": "Tiếng Croatia",
+    "hungarian": "Tiếng Hungary",
+    "romanian": "Tiếng Romania",
+    "greek": "Tiếng Hy Lạp",
+    "ukrainian": "Tiếng Ukraina",
+    "arabicAE": "Tiếng Ả Rập (UAE)",
+    "arabicEG": "Tiếng Ả Rập (Ai Cập)",
+    "hebrew": "Tiếng Do Thái",
+    "bengali": "Tiếng Bengali",
+    "tamil": "Tiếng Tamil",
+    "telugu": "Tiếng Telugu",
+    "kannada": "Tiếng Kannada",
+    "malayalam": "Tiếng Malayalam",
+    "marathi": "Tiếng Marathi",
+    "gujarati": "Tiếng Gujarati",
+    "punjabi": "Tiếng Punjabi",
+    "urdu": "Tiếng Urdu",
+    "malay": "Tiếng Mã Lai",
+    "catalan": "Tiếng Catalan"
   }
 }

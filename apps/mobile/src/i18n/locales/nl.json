@@ -14,7 +14,8 @@
     "next": "Volgende",
     "done": "Klaar",
     "search": "Zoeken",
-    "filter": "Filteren"
+    "filter": "Filteren",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -68,7 +69,11 @@
     "upgradePlan": "Plan upgraden",
     "everyWeek": "Elke week",
     "everyMonth": "Elke maand",
-    "everyYear": "Elk jaar"
+    "everyYear": "Elk jaar",
+    "expired": "Verlopen",
+    "reportBug": "Probleem melden",
+    "active": "ACTIEF",
+    "trial": "PROEFPERIODE"
   },
   "auth": {
     "welcome": "Welkom bij Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "Kies de taal die je in de app wilt gebruiken. Je kunt dit later wijzigen in je profiel.",
       "searchPlaceholder": "Talen zoeken",
       "noResults": "Geen talen gevonden"
+    },
+    "buttons": {
+      "continue": "Doorgaan",
+      "continueWithEmail": "Doorgaan met e-mail",
+      "continueWithGoogle": "Doorgaan met Google",
+      "continueWithApple": "Doorgaan met Apple",
+      "skip": "Overslaan",
+      "verify": "Geverifieerd!",
+      "next": "Volgende",
+      "tryNow": "Probeer Clinical Fact nu gratis"
+    },
+    "labels": {
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "username": "@gebruikersnaam",
+      "referralCode": "Verwijzingscode",
+      "nameScreenTitle": "Je voor- en achternaam",
+      "byAgree": "Door verder te gaan ga je akkoord met onze",
+      "termsAndConditions": "Algemene voorwaarden",
+      "privacyPolicy": "het privacybeleid",
+      "and": "en"
+    },
+    "placeholders": {
+      "enterEmail": "Vul je e-mailadres in",
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "username": "@gebruikersnaam",
+      "referralCode": "bijv. JAN of TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Vul een geldig e-mailadres in",
+      "emailRequired": "Vul je e-mailadres in",
+      "firstLastNameRequired": "Vul zowel je voor- als achternaam in",
+      "usernameRequired": "Vul een gebruikersnaam in",
+      "usernameLength": "Gebruikersnaam moet 3-20 tekens bevatten (alleen letters, cijfers en liggende streepjes)",
+      "usernameTaken": "Deze gebruikersnaam is al bezet. Probeer een andere.",
+      "usernameCheckFailed": "Controleren van gebruikersnaam mislukt",
+      "usernameError": "Fout bij controleren van gebruikersnaam. Controleer je verbinding.",
+      "invalidOTP": "Ongeldige code. Controleer de code en probeer het opnieuw.",
+      "otpExpired": "Code verlopen. Vraag een nieuwe code aan.",
+      "otpRequired": "Vul de volledige verificatiecode in",
+      "referralNotFound": "Verwijzingscode niet gevonden. Controleer de spelling en probeer het opnieuw.",
+      "referralValidateFailed": "Valideren van code mislukt. Probeer het opnieuw.",
+      "referralApplyFailed": "Toepassen van verwijzingscode mislukt. Probeer het opnieuw.",
+      "codeSendFailed": "Versturen van verificatiecode mislukt. Probeer het opnieuw.",
+      "resendCodeFailed": "Opnieuw verzenden van code mislukt. Probeer het opnieuw.",
+      "signInFailed": "Inloggen mislukt",
+      "googleSignInFailed": "Inloggen met Google mislukt",
+      "googleTokenFailed": "Verwerken van Google-token mislukt",
+      "googleAccessTokenFailed": "Ophalen van toegangstoken mislukt. Probeer het opnieuw.",
+      "authTokenFailed": "Ophalen van authenticatietoken mislukt. Probeer het opnieuw.",
+      "googleStartFailed": "Starten van Google-aanmelding mislukt. Probeer het opnieuw.",
+      "setupRequired": "Configuratie vereist",
+      "googleOAuthMissing": "Google Sign-In vereist OAuth Client IDs.\\n\\nVoeg de inloggegevens toe aan je .env-bestand.",
+      "youCanStillUseEmail": "Je kunt nog steeds \"Doorgaan met e-mail\" gebruiken.",
+      "appleSignInFailed": "Inloggen met Apple mislukt",
+      "appleTokenFailed": "Verwerken van Apple-token mislukt",
+      "appleIosOnly": "Inloggen met Apple is alleen beschikbaar op iOS."
+    },
+    "messages": {
+      "signingIn": "Bezig met inloggen...",
+      "codeValid": "✓ Code is geldig",
+      "signupFailed": "Registratie voltooien mislukt",
+      "setupFailed": "Instellen mislukt. Probeer het opnieuw."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact: Slimmere aantekeningen beginnen hier",
+      "tagline": "Zet elke tekst om in perfecte notities",
+      "description": "Zet audio, documenten of video's om in duidelijke, doorzoekbare notities en maak direct quizzen, flashcards en samenvattingen.",
+      "createAccountTitle": "Account aanmaken",
+      "orSignUpWith": "OF REGISTREER MET",
+      "signUpWithEmail": "Aanmelden met e-mailadres",
+      "signInWithEmail": "Inloggen met e-mailadres",
+      "alreadyHaveAccount": "Heb je al een account? ",
+      "dontHaveAccount": "Nog geen account? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Stel elke medische vraag. Krijg het klinische feit",
+        "description": "Stel elke medische vraag en krijg een antwoord onderbouwd met echte, geciteerde bronnen uit PubMed, klinische richtlijnen en betrouwbare medische literatuur"
+      },
+      "slide2": {
+        "headline": "Elk antwoord, onderbouwd door een bron",
+        "description": "Geen giswerk, geen verzonnen feiten: elk antwoord linkt direct naar echt, controleerbaar medisch onderzoek."
+      },
+      "slide3": {
+        "headline": "Studeer slimmer, haal je medische examens",
+        "description": "Zet elke vraag of upload binnen enkele seconden om in een quiz of set flashcards: oefenmateriaal rechtstreeks gebaseerd op wat je leert."
+      }
+    },
+    "otp": {
+      "title": "Bevestig je e-mailadres",
+      "subtitle": "Voer de verificatiecode in die we naar je e-mailadres hebben gestuurd"
+    },
+    "professionalDeclaration": {
+      "title": "Professionele verklaring",
+      "subtitle": "Clinical Fact is een educatief hulpmiddel voor literatuuronderzoek",
+      "disclaimerIntro": "Clinical Fact is een op kunstmatige intelligentie gebaseerd informatief hulpmiddel, bedoeld om studenten verpleegkunde, geneeskunde en andere gezondheidswetenschappen te ondersteunen bij het vinden van medische kennis, wetenschappelijke literatuur en studiemateriaal. De app biedt geen medische diagnoses, behandeladviezen, klinische instructies of patiëntspecifiek medisch advies, en mag niet worden gebruikt als basis voor directe patiëntenzorg of klinische besluitvorming.",
+      "disclaimerHeading": "Hoe Clinical Fact antwoorden genereert:",
+      "disclaimerBody": "Clinical Fact haalt informatie rechtstreeks uit gevestigde medische en wetenschappelijke bronnen, waaronder PubMed, Semantic Scholar en officiële FDA-bijsluiters, en gebruikt AI om deze inhoud in begrijpelijke taal samen te vatten en uit te leggen. Elk antwoord wordt uitsluitend gegenereerd op basis van de bronnen die voor die specifieke vraag zijn opgehaald, en citaten linken naar het oorspronkelijke materiaal zodat je dit zelf kunt verifiëren. Clinical Fact genereert geen medische feiten uit het geheugen en verzint geen bronnen.\n\nClinical Fact is geen diagnostisch hulpmiddel, behandelplatform, medisch hulpmiddel of vervanging van professioneel medisch oordeel, bevoegd onderwijs of het curriculum van je onderwijsinstelling. Alle door de app gegenereerde informatie, inclusief antwoorden, citaten, quizzen en flashcards, wordt uitsluitend verstrekt voor algemene educatieve en studiedoeleinden en moet onafhankelijk door de gebruiker worden geverifieerd voordat erop wordt vertrouwd in een academische, klinische of professionele context.\nClinical Fact garandeert niet de volledigheid, nauwkeurigheid of actuele klinische relevantie van de verstrekte informatie. Medische kennis ontwikkelt zich voortdurend — controleer kritieke informatie altijd bij je docenten, klinische supervisoren en actuele primaire bronnen.\nWanneer je je eigen documenten, notities of opnamen uploadt, genereert Clinical Fact antwoorden, samenvattingen, quizzen en flashcards uitsluitend op basis van die geüploade inhoud, en niet op basis van externe bronnen, tenzij externe bronnen er expliciet naast worden weergegeven.\n\nClinical Fact verifieert, authenticeert of bevestigt de identiteit, inschrijfstatus of kwalificaties van haar gebruikers niet. De app is niet bedoeld voor gebruik in noodsituaties of voor het nemen van realtime klinische beslissingen.\nDoor verder te gaan, bevestig je dat je deze voorwaarden begrijpt en ermee instemt Clinical Fact uitsluitend als studie- en naslaghulpmiddel te gebruiken.",
+      "checkboxLabel": "Ik begrijp dat deze app uitsluitend bedoeld is als educatief naslagwerk en geen medisch advies biedt",
+      "acceptButton": "Accepteren en doorgaan"
+    },
+    "survey": {
+      "role": "Wat omschrijft jou het best, {{firstName}}?",
+      "currentMethod": "Hoe vind je momenteel meestal antwoorden op medische vragen?",
+      "timeDrain": "Wat kost jou de meeste tijd?",
+      "appExpectation": "Wat verwacht je van onze medische app Clinical Fact?",
+      "aiToolsUsed": "Welke AI-tools heb je tot nu toe gebruikt voor je medische studie?",
+      "aiToolIssue": "Wat ging er mis bij die tools?",
+      "aiTrustLevel": "Hoe vaak maak je je zorgen dat een AI-antwoord onjuist kan zijn?",
+      "biggestNeed": "Waar heb je op dit moment het meeste behoefte aan?",
+      "studyTimePerWeek": "Hoeveel tijd heb je per week om te studeren?",
+      "comingUp": "Wat staat er binnenkort voor jou op de planning?",
+      "referralSource": "Hoe heb je gehoord over Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Kies je gebruikersnaam",
+      "usernameSubtitle": "Dit maakt je account wat persoonlijker",
+      "goals": "Waar wil je Clinical Fact\\nvoor gebruiken?",
+      "goalsSubtitle": "Selecteer alles wat van toepassing is. We stemmen de ervaring op je af.",
+      "contentType": "Welk type materiaal gebruik\\nje het meest?",
+      "contentTypeSubtitle": "Selecteer alles wat van toepassing is. Zo kunnen we je ervaring personaliseren.",
+      "reviewStyle": "Hoe herhaal je het liefst\\nwat je hebt geleerd?",
+      "reviewStyleSubtitle": "Selecteer je voorkeursmethode om te herhalen.",
+      "frustration": "{{firstName}}, waar loop je het meest tegenaan bij het maken van notities?",
+      "frustrationSubtitle": "Selecteer alles wat van toepassing is. Dit helpt ons je beter te ondersteunen.",
+      "referral": "Zomaar benieuwd,\\n{{firstName}},\\nhoe heb je over Clinical Fact gehoord?",
+      "referralSubtitle": "Kies één optie."
+    },
+    "referralScreen": {
+      "title": "Ben je door iemand\\ndoorverwezen?",
+      "subtitle": "Voer de doorverwijscode in als je er een hebt"
+    },
+    "setup": {
+      "preparingNotes": "Notities voorbereiden",
+      "preparingFlashcards": "Flashcards voorbereiden",
+      "preparingQuiz": "Quizsjablonen voorbereiden",
+      "preparingChat": "Chatassistenten voorbereiden",
+      "title": "Je persoonlijke werkruimte\\nwordt ingesteld, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Bedankt voor je vertrouwen in Clinical Fact",
+      "subtitle": "Je sluit je aan bij duizenden studenten verpleegkunde en geneeskunde",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Alles wat je nodig hebt\\nom alles te leren",
+      "subtitle": "Neem het op. Zoek het uit. Oefen het. Beheers het."
+    },
+    "features": {
+      "feature1": {
+        "title": "Krijg echte medische antwoorden en vervolgvragen",
+        "description": "Stel elke medische vraag en krijg een duidelijke uitleg plus slimme vervolgvragen, zodat je tijdens het studeren nooit vastloopt."
+      },
+      "feature2": {
+        "title": "Elk medisch antwoord,\nonderbouwd door een echte bron",
+        "description": "Citaties uit PubMed, Semantic Scholar en Europe PMC: controleerbaar, niet verzonnen."
+      },
+      "feature3": {
+        "title": "Upload je aantekeningen, krijg medische samenvattingen van je lesstof",
+        "description": "Zet collegeslides, pdf's of aantekeningen om in een duidelijke uitleg, onderbouwd door betrouwbare medische bronnen."
+      },
+      "feature4": {
+        "title": "Maak van elke chat een quiz of flashcards om te oefenen",
+        "description": "Geen aparte studie-app nodig: genereer oefenvragen rechtstreeks uit je chats en uploads."
+      },
+      "feature5": {
+        "title": "Maak van elke chat of elk document flashcards om te oefenen",
+        "description": "Geen aparte studie-app nodig: genereer oefenvragen rechtstreeks uit je chats en uploads."
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "Bijna klaar...",
     "quizReady": "Quiz klaar!",
     "startQuiz": "Quiz starten",
-    "questionCount": "{{current}} van {{total}}"
+    "questionCount": "{{current}} van {{total}}",
+    "previous": "Vorige vraag",
+    "generatingQuiz": "Quiz genereren met AI...",
+    "exitTitle": "Quiz verlaten?",
+    "exitMessage": "Je voortgang gaat verloren.",
+    "exit": "Verlaten",
+    "errorTitle": "Oeps, er ging iets mis 🚧",
+    "errorMessage": "We konden dit nu niet genereren. Wacht even en probeer het opnieuw!",
+    "noQuestions": "Geen vragen beschikbaar.",
+    "reading": "Je aantekeningen lezen...",
+    "identifying": "Kernbegrippen identificeren...",
+    "structuring": "Vragen structureren...",
+    "almostReady": "Bijna klaar...",
+    "youScored": "JE SCORE",
+    "timeInSeconds": "TIJD IN SECONDEN",
+    "accuracy": "NAUWKEURIGHEID",
+    "grade": "CIJFER",
+    "reportsCard": "Resultatenoverzicht",
+    "reviewAnswers": "Antwoorden bekijken",
+    "correctAnswer": "Juist antwoord",
+    "yourAnswer": "Jouw antwoord",
+    "explanation": "Uitleg",
+    "questionProgress": "Vraag {{current}} van {{total}}",
+    "generatingQuizWait": "We genereren je quiz, even geduld...",
+    "goToChats": "Ga naar chats"
   },
   "flashcards": {
     "title": "Flashcards",
@@ -178,7 +378,29 @@
     "previous": "Vorige",
     "shuffle": "Schudden",
     "generating": "Flashcards genereren...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Maak flashcards om de leerstof beter te onthouden",
+    "howManyQuestions": "Hoeveel vragen?",
+    "generateButton": "Flashcards genereren",
+    "generatingEllipsis": "Genereren...",
+    "allDone": "Helemaal klaar!",
+    "completedReview": "Je hebt alle kaarten in deze stapel doorgenomen",
+    "backToNotes": "Terug naar aantekeningen",
+    "question": "Vraag",
+    "answer": "Antwoord",
+    "noQuestionText": "(Geen vraagtekst)",
+    "noAnswerText": "(Geen antwoordtekst)",
+    "enterQuestion": "Voer je vraag in",
+    "enterAnswer": "Voer het antwoord in",
+    "clickToFlip": "tik op de kaart om te draaien",
+    "reading": "Je aantekeningen lezen...",
+    "identifying": "Kernbegrippen identificeren...",
+    "creating": "Flashcards maken...",
+    "almostReady": "Bijna klaar...",
+    "headerTitle": "Flashcard",
+    "progressFormat": "Flashcard {{current}} van {{total}}",
+    "noteIdRequired": "Notitie-ID is vereist om flashcards te genereren",
+    "invalidCardCount": "Kies tussen 1 en 100 flashcards"
   },
   "chat": {
     "title": "Chat",
@@ -211,6 +433,37 @@
     "turkish": "Turks",
     "vietnamese": "Vietnamees",
     "thai": "Thais",
-    "indonesian": "Indonesisch"
+    "indonesian": "Indonesisch",
+    "englishGB": "Engels (VK)",
+    "englishAU": "Engels (Australië)",
+    "englishCA": "Engels (Canada)",
+    "spanishMX": "Spaans (Mexico)",
+    "frenchCA": "Frans (Canada)",
+    "portuguesePT": "Portugees (Portugal)",
+    "norwegian": "Noors",
+    "danish": "Deens",
+    "finnish": "Fins",
+    "czech": "Tsjechisch",
+    "slovak": "Slowaaks",
+    "slovenian": "Sloveens",
+    "croatian": "Kroatisch",
+    "hungarian": "Hongaars",
+    "romanian": "Roemeens",
+    "greek": "Grieks",
+    "ukrainian": "Oekraïens",
+    "arabicAE": "Arabisch (VAE)",
+    "arabicEG": "Arabisch (Egypte)",
+    "hebrew": "Hebreeuws",
+    "bengali": "Bengaals",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi",
+    "urdu": "Urdu",
+    "malay": "Maleis",
+    "catalan": "Catalaans"
   }
 }

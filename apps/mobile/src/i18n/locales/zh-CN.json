@@ -14,7 +14,8 @@
     "next": "下一步",
     "done": "完成",
     "search": "搜索",
-    "filter": "筛选"
+    "filter": "筛选",
+    "ok": "确定"
   },
   "home": {
     "title": "Clinical Fact",
@@ -25,7 +26,7 @@
     "recentNotes": "最近的笔记",
     "seeAll": "查看全部",
     "noNotes": "没有笔记可显示",
-    "noNotesDesc": "请点击上方按钮开始\n为clinicalfact生成您的笔记。",
+    "noNotesDesc": "请点击上方按钮，\n开始生成你的 Clinical Fact 笔记。",
     "loadingNotes": "正在加载笔记..."
   },
   "profile": {
@@ -68,7 +69,11 @@
     "upgradePlan": "升级计划",
     "everyWeek": "每周",
     "everyMonth": "每月",
-    "everyYear": "每年"
+    "everyYear": "每年",
+    "expired": "已过期",
+    "reportBug": "反馈问题",
+    "active": "生效中",
+    "trial": "试用期"
   },
   "auth": {
     "welcome": "欢迎使用Clinical Fact",
@@ -89,6 +94,177 @@
       "subtitle": "选择您想在应用中使用的语言。之后可在个人资料中随时更改。",
       "searchPlaceholder": "搜索语言",
       "noResults": "未找到相关语言"
+    },
+    "buttons": {
+      "continue": "继续",
+      "continueWithEmail": "通过邮箱继续",
+      "continueWithGoogle": "通过 Google 继续",
+      "continueWithApple": "通过 Apple 继续",
+      "skip": "跳过",
+      "verify": "验证成功！",
+      "next": "下一步",
+      "tryNow": "立即免费体验 Clinical Fact"
+    },
+    "labels": {
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@用户名",
+      "referralCode": "推荐码",
+      "nameScreenTitle": "您的姓名",
+      "byAgree": "继续即表示您同意我们的",
+      "termsAndConditions": "服务条款",
+      "privacyPolicy": "隐私政策",
+      "and": "和"
+    },
+    "placeholders": {
+      "enterEmail": "输入您的邮箱地址",
+      "firstName": "名字",
+      "lastName": "姓氏",
+      "username": "@用户名",
+      "referralCode": "例如 JOHN 或 TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "请输入有效的邮箱地址",
+      "emailRequired": "请输入您的邮箱地址",
+      "firstLastNameRequired": "请输入您的姓氏和名字",
+      "usernameRequired": "请输入用户名",
+      "usernameLength": "用户名需为 3-20 个字符（仅限字母、数字和下划线）",
+      "usernameTaken": "该用户名已被使用，请换一个试试。",
+      "usernameCheckFailed": "检查用户名可用性失败",
+      "usernameError": "检查用户名出错，请检查网络连接。",
+      "invalidOTP": "验证码无效，请核对后重试。",
+      "otpExpired": "验证码已过期，请重新获取。",
+      "otpRequired": "请输入完整的验证码",
+      "referralNotFound": "未找到该推荐码，请检查拼写后重试。",
+      "referralValidateFailed": "验证推荐码失败，请重试。",
+      "referralApplyFailed": "应用推荐码失败，请重试。",
+      "codeSendFailed": "发送验证码失败，请重试。",
+      "resendCodeFailed": "重新发送验证码失败，请重试。",
+      "signInFailed": "登录失败",
+      "googleSignInFailed": "Google 登录失败",
+      "googleTokenFailed": "处理 Google 令牌失败",
+      "googleAccessTokenFailed": "获取访问令牌失败，请重试。",
+      "authTokenFailed": "获取认证令牌失败，请重试。",
+      "googleStartFailed": "启动 Google 登录失败，请重试。",
+      "setupRequired": "需要配置",
+      "googleOAuthMissing": "Google 登录需要 OAuth 客户端 ID。\\n\\n请在 .env 文件中添加相关凭据。",
+      "youCanStillUseEmail": "您仍可以使用“通过邮箱继续”。",
+      "appleSignInFailed": "Apple 登录失败",
+      "appleTokenFailed": "处理 Apple 令牌失败",
+      "appleIosOnly": "Apple 登录仅在 iOS 设备上可用。"
+    },
+    "messages": {
+      "signingIn": "正在登录...",
+      "codeValid": "✓ 验证码有效",
+      "signupFailed": "注册未能完成",
+      "setupFailed": "设置未能完成，请重试。"
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact：更高效的临床笔记，从这里开始",
+      "tagline": "将任意文本转化为完美笔记",
+      "description": "将音频、文档或视频转化为清晰且可检索的笔记，并快速生成测验、抽认卡与总结。",
+      "createAccountTitle": "创建账号",
+      "orSignUpWith": "或通过以下方式注册",
+      "signUpWithEmail": "使用邮箱注册",
+      "signInWithEmail": "使用邮箱登录",
+      "alreadyHaveAccount": "已有账号？",
+      "dontHaveAccount": "还没有账号？"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "随时提问医学问题，获取权威临床依据",
+        "description": "提出任何医学问题，获得由 PubMed、临床指南和权威医学文献真实引用的可靠解答。"
+      },
+      "slide2": {
+        "headline": "每个解答，皆有据可查",
+        "description": "绝无揣测，绝不捏造，每个答案均链接至真实、可核对的医学研究文献。"
+      },
+      "slide3": {
+        "headline": "高效备考，轻松通过医学考试",
+        "description": "数秒内将任何问题或上传资料转化为测验或抽认卡，紧密围绕所学内容开展针对性练习。"
+      }
+    },
+    "otp": {
+      "title": "验证你的电子邮箱",
+      "subtitle": "请输入发送至你邮箱的验证码"
+    },
+    "professionalDeclaration": {
+      "title": "专业声明",
+      "subtitle": "Clinical Fact 是一款教育类文献检索工具",
+      "disclaimerIntro": "Clinical Fact 是一款基于人工智能的信息工具，旨在帮助护理学、临床医学及其他健康科学专业的学生获取医学知识、研究文献和学习资料。本应用不提供医学诊断、治疗建议、临床指导或针对具体患者的医疗建议，严禁作为直接患者护理或临床决策的依据。",
+      "disclaimerHeading": "Clinical Fact 如何生成解答：",
+      "disclaimerBody": "Clinical Fact 直接从权威医学与科学来源（包括 PubMed、Semantic Scholar 和 FDA 官方药物标签）检索信息，并使用 AI 以通俗易懂的语言对检索到的内容进行总结和阐释。每个解答仅根据针对该具体问题检索到的来源生成，并且引用均链接回原始文献，方便你自行核对。Clinical Fact 不会凭记忆生成医学事实，也不会捏造文献来源。\n\nClinical Fact 不是诊断工具、治疗平台或医疗器械，也不能替代专业的医学判断、执业指导或所在院校的教学大纲。本应用生成的任何信息（包括解答、引用、测验和抽认卡）仅供一般教育和学习参考，在将其应用于任何学术、临床或专业环境之前，用户必须独立进行核实。\nClinical Fact 不保证所提供任何信息的完整性、准确性或最新临床适用性。医学知识不断更新发展——请务必与授课导师、临床带教老师及最新一手文献交叉核对关键信息。\n当你上传自己的文档、笔记或录音时，Clinical Fact 仅根据上传的内容生成解答、总结、测验和抽认卡，不会结合外部来源，除非明确同时展示了外部来源。\n\nClinical Fact 不会核实、认证或确认用户的身份、在读状态或专业资质。本应用不得用于紧急情况或用于做出实时临床决策。\n继续操作即表示你理解这些条款，并同意仅将 Clinical Fact 作为学习和参考辅助工具使用。",
+      "checkboxLabel": "我已知晓本应用仅供教育参考，不提供医疗建议",
+      "acceptButton": "接受并继续"
+    },
+    "survey": {
+      "role": "{{firstName}}，哪项最符合你的身份？",
+      "currentMethod": "目前你通常如何查找医学问题的答案？",
+      "timeDrain": "什么最消耗你的时间？",
+      "appExpectation": "你对 Clinical Fact 医学应用有什么期待？",
+      "aiToolsUsed": "目前你在医学学习或研究中用过哪些 AI 工具？",
+      "aiToolIssue": "使用这些工具时遇到了什么问题？",
+      "aiTrustLevel": "你经常担心 AI 的回答可能出错吗？",
+      "biggestNeed": "目前你最需要什么？",
+      "studyTimePerWeek": "你每周有多少学习时间？",
+      "comingUp": "你近期有什么重要安排？",
+      "referralSource": "你从哪里了解到 Clinical Fact 的？"
+    },
+    "onboarding": {
+      "username": "来设置你的用户名吧",
+      "usernameSubtitle": "这能让你的账号更具个性化",
+      "goals": "你希望用 Clinical Fact\\n来协助完成什么？",
+      "goalsSubtitle": "可多选。我们将为你量身打造使用体验。",
+      "contentType": "你平时主要使用\\n哪类学习内容？",
+      "contentTypeSubtitle": "可多选。这有助于我们为你定制专属体验。",
+      "reviewStyle": "你喜欢如何复习\\n所学内容？",
+      "reviewStyleSubtitle": "选择你偏好的复习方式。",
+      "frustration": "{{firstName}}，记笔记时最让你头疼的是什么？",
+      "frustrationSubtitle": "可多选。这有助于我们帮你解决问题。",
+      "referral": "冒昧问一下\\n{{firstName}}，\\n你是从哪里得知 Clinical Fact 的？",
+      "referralSubtitle": "请选择一项。"
+    },
+    "referralScreen": {
+      "title": "有人向你推荐过\\n本应用吗？",
+      "subtitle": "如果有，请输入对方的推荐码"
+    },
+    "setup": {
+      "preparingNotes": "正在准备笔记",
+      "preparingFlashcards": "正在准备抽认卡",
+      "preparingQuiz": "正在准备测验模板",
+      "preparingChat": "正在准备对话助手",
+      "title": "正在为你配置个性化\\n工作空间，{{firstName}}..."
+    },
+    "thanks": {
+      "title": "感谢你对 Clinical Fact 的信任",
+      "subtitle": "你已加入成千上万名医护学生的行列",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "掌握所学内容\\n所需的一切工具",
+      "subtitle": "记录。检索。测验。掌握。"
+    },
+    "features": {
+      "feature1": {
+        "title": "获取真实医学解答与延伸追问",
+        "description": "提问任何医学问题，即可获得清晰解析和智能追问建议，让你的学习思路永不卡壳。"
+      },
+      "feature2": {
+        "title": "每个医学解答，\n均有权威文献支持",
+        "description": "引文出自 PubMed、Semantic Scholar 和 Europe PMC，真实可查，绝非捏造。"
+      },
+      "feature3": {
+        "title": "上传笔记，获取专属医学知识总结",
+        "description": "将课件幻灯片、PDF 或笔记转化为由权威医学来源支持的清晰解读。"
+      },
+      "feature4": {
+        "title": "将对话转换为测验或抽认卡进行练习",
+        "description": "无需另用学习软件，直接根据对话和上传的资料生成练习题。"
+      },
+      "feature5": {
+        "title": "将对话或文档转化为抽认卡习题进行练习",
+        "description": "无需另用学习软件，直接根据对话和上传的资料生成练习题。"
+      }
     }
   },
   "notes": {
@@ -169,7 +345,31 @@
     "almostDone": "即将完成...",
     "quizReady": "测验已准备好！",
     "startQuiz": "开始测验",
-    "questionCount": "第{{current}}题，共{{total}}题"
+    "questionCount": "第{{current}}题，共{{total}}题",
+    "previous": "上一题",
+    "generatingQuiz": "AI 正在生成测验...",
+    "exitTitle": "退出测验？",
+    "exitMessage": "当前答题进度将会丢失。",
+    "exit": "退出",
+    "errorTitle": "抱歉，出了点小问题 🚧",
+    "errorMessage": "暂时无法生成内容，请稍候再试！",
+    "noQuestions": "暂无可用题目。",
+    "reading": "正在读取笔记...",
+    "identifying": "正在提取核心考点...",
+    "structuring": "正在构建题目...",
+    "almostReady": "马上就好...",
+    "youScored": "最终得分",
+    "timeInSeconds": "用时（秒）",
+    "accuracy": "正确率",
+    "grade": "评级",
+    "reportsCard": "成绩单",
+    "reviewAnswers": "查看解析",
+    "correctAnswer": "正确答案",
+    "yourAnswer": "你的答案",
+    "explanation": "解析",
+    "questionProgress": "第 {{current}} 题，共 {{total}} 题",
+    "generatingQuizWait": "正在为您生成测验，请稍候...",
+    "goToChats": "前往对话"
   },
   "flashcards": {
     "title": "闪卡",
@@ -178,7 +378,29 @@
     "previous": "上一张",
     "shuffle": "随机播放",
     "generating": "正在生成闪卡...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "制作抽认卡，巩固记忆效果",
+    "howManyQuestions": "需要多少张卡片？",
+    "generateButton": "生成抽认卡",
+    "generatingEllipsis": "生成中...",
+    "allDone": "全部完成！",
+    "completedReview": "你已复习完此卡包中的所有卡片",
+    "backToNotes": "返回笔记",
+    "question": "问题",
+    "answer": "答案",
+    "noQuestionText": "（无问题内容）",
+    "noAnswerText": "（无答案内容）",
+    "enterQuestion": "输入问题",
+    "enterAnswer": "输入答案",
+    "clickToFlip": "点击卡片翻转",
+    "reading": "正在读取笔记...",
+    "identifying": "正在提取核心概念...",
+    "creating": "正在制作抽认卡...",
+    "almostReady": "马上就好...",
+    "headerTitle": "抽认卡",
+    "progressFormat": "第 {{current}} 张，共 {{total}} 张",
+    "noteIdRequired": "生成抽认卡需要提供笔记 ID",
+    "invalidCardCount": "请选择 1 到 100 之间的卡片数量"
   },
   "chat": {
     "title": "聊天",
@@ -211,6 +433,37 @@
     "turkish": "土耳其语",
     "vietnamese": "越南语",
     "thai": "泰语",
-    "indonesian": "印尼语"
+    "indonesian": "印尼语",
+    "englishGB": "英语（英国）",
+    "englishAU": "英语（澳大利亚）",
+    "englishCA": "英语（加拿大）",
+    "spanishMX": "西班牙语（墨西哥）",
+    "frenchCA": "法语（加拿大）",
+    "portuguesePT": "葡萄牙语（葡萄牙）",
+    "norwegian": "挪威语",
+    "danish": "丹麦语",
+    "finnish": "芬兰语",
+    "czech": "捷克语",
+    "slovak": "斯洛伐克语",
+    "slovenian": "斯洛文尼亚语",
+    "croatian": "克罗地亚语",
+    "hungarian": "匈牙利语",
+    "romanian": "罗马尼亚语",
+    "greek": "希腊语",
+    "ukrainian": "乌克兰语",
+    "arabicAE": "阿拉伯语（阿联酋）",
+    "arabicEG": "阿拉伯语（埃及）",
+    "hebrew": "希伯来语",
+    "bengali": "孟加拉语",
+    "tamil": "泰米尔语",
+    "telugu": "泰卢固语",
+    "kannada": "卡纳达语",
+    "malayalam": "马拉雅拉姆语",
+    "marathi": "马拉地语",
+    "gujarati": "古吉拉特语",
+    "punjabi": "旁遮普语",
+    "urdu": "乌尔都语",
+    "malay": "马来语",
+    "catalan": "加泰罗尼亚语"
   }
 }

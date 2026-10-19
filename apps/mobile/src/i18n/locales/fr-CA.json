@@ -14,7 +14,8 @@
     "next": "Suivant",
     "done": "Terminé",
     "search": "Rechercher",
-    "filter": "Filtrer"
+    "filter": "Filtrer",
+    "ok": "OK"
   },
   "home": {
     "title": "Clinical Fact",
@@ -25,7 +26,7 @@
     "recentNotes": "Notes récentes",
     "seeAll": "Voir tout",
     "noNotes": "Aucune note à afficher",
-    "noNotesDesc": "Veuillez cliquer sur le bouton ci-dessus pour commencer\nà générer votre note pour clinicalfact.",
+    "noNotesDesc": "Cliquez sur le bouton ci-dessus pour commencer à\ngénérer votre note pour Clinical Fact.",
     "loadingNotes": "Chargement des notes..."
   },
   "profile": {
@@ -68,14 +69,18 @@
     "upgradePlan": "Mettre à niveau le forfait",
     "everyWeek": "Chaque semaine",
     "everyMonth": "Chaque mois",
-    "everyYear": "Chaque année"
+    "everyYear": "Chaque année",
+    "expired": "Expiré",
+    "reportBug": "Signaler un problème",
+    "active": "ACTIF",
+    "trial": "ESSAI"
   },
   "auth": {
     "welcome": "Bienvenue sur Clinical Fact",
     "getStarted": "Commencer",
     "signIn": "Se connecter",
     "signUp": "S'inscrire",
-    "email": "Email",
+    "email": "Courriel",
     "password": "Mot de passe",
     "forgotPassword": "Mot de passe oublié ?",
     "verifyEmail": "Vérifiez votre email",
@@ -89,6 +94,177 @@
       "subtitle": "Sélectionnez la langue que vous souhaitez utiliser dans l'application. Vous pourrez la modifier plus tard dans votre profil.",
       "searchPlaceholder": "Rechercher une langue",
       "noResults": "Aucune langue trouvée"
+    },
+    "buttons": {
+      "continue": "Continuer",
+      "continueWithEmail": "Continuer avec un courriel",
+      "continueWithGoogle": "Continuer avec Google",
+      "continueWithApple": "Continuer avec Apple",
+      "skip": "Passer",
+      "verify": "Vérifié!",
+      "next": "Suivant",
+      "tryNow": "Essayer Clinical Fact gratuitement"
+    },
+    "labels": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "username": "@nomdutilisateur",
+      "referralCode": "Code de référence",
+      "nameScreenTitle": "Vos prénom et nom",
+      "byAgree": "En continuant, vous acceptez nos",
+      "termsAndConditions": "Conditions d'utilisation",
+      "privacyPolicy": "politique de confidentialité",
+      "and": "et"
+    },
+    "placeholders": {
+      "enterEmail": "Entrez votre adresse courriel",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "username": "@nomdutilisateur",
+      "referralCode": "p. ex. JEAN ou TECHBRO"
+    },
+    "errors": {
+      "invalidEmail": "Veuillez entrer une adresse courriel valide",
+      "emailRequired": "Veuillez entrer votre adresse courriel",
+      "firstLastNameRequired": "Veuillez entrer votre prénom et votre nom",
+      "usernameRequired": "Veuillez entrer un nom d'utilisateur",
+      "usernameLength": "Le nom d'utilisateur doit compter de 3 à 20 caractères (lettres, chiffres et traits de soulignement seulement)",
+      "usernameTaken": "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.",
+      "usernameCheckFailed": "Impossible de vérifier la disponibilité du nom d'utilisateur",
+      "usernameError": "Erreur lors de la vérification du nom d'utilisateur. Veuillez vérifier votre connexion.",
+      "invalidOTP": "Code invalide. Veuillez vérifier et réessayer.",
+      "otpExpired": "Code expiré. Veuillez demander un nouveau code.",
+      "otpRequired": "Veuillez entrer le code de vérification complet",
+      "referralNotFound": "Code de référence introuvable. Vérifiez l'orthographe et réessayez.",
+      "referralValidateFailed": "Impossible de valider le code. Veuillez réessayer.",
+      "referralApplyFailed": "Impossible d'appliquer le code de référence. Veuillez réessayer.",
+      "codeSendFailed": "Échec de l'envoi du code de vérification. Veuillez réessayer.",
+      "resendCodeFailed": "Impossible de renvoyer le code. Veuillez réessayer.",
+      "signInFailed": "Échec de la connexion",
+      "googleSignInFailed": "Échec de la connexion avec Google",
+      "googleTokenFailed": "Impossible de traiter le jeton Google",
+      "googleAccessTokenFailed": "Impossible d'obtenir le jeton d'accès. Veuillez réessayer.",
+      "authTokenFailed": "Impossible d'obtenir le jeton d'authentification. Veuillez réessayer.",
+      "googleStartFailed": "Impossible de lancer la connexion avec Google. Veuillez réessayer.",
+      "setupRequired": "Configuration requise",
+      "googleOAuthMissing": "La connexion Google nécessite des identifiants client OAuth.\\n\\nVeuillez ajouter les identifiants à votre fichier .env.",
+      "youCanStillUseEmail": "Vous pouvez toujours utiliser « Continuer avec un courriel ».",
+      "appleSignInFailed": "Échec de la connexion avec Apple",
+      "appleTokenFailed": "Impossible de traiter le jeton Apple",
+      "appleIosOnly": "La connexion avec Apple est uniquement offerte sur iOS."
+    },
+    "messages": {
+      "signingIn": "Connexion en cours...",
+      "codeValid": "✓ Le code est valide",
+      "signupFailed": "Impossible de compléter l'inscription",
+      "setupFailed": "Impossible de terminer la configuration. Veuillez réessayer."
+    },
+    "welcomeScreen": {
+      "title": "Clinical Fact : Des notes plus intelligentes dès maintenant",
+      "tagline": "Transformez tout texte en notes parfaites",
+      "description": "Transformez vos audios, documents ou vidéos en notes claires et interrogeables, et générez instantanément des quiz, cartes mémoire et résumés.",
+      "createAccountTitle": "Créer un compte",
+      "orSignUpWith": "OU S'INSCRIRE AVEC",
+      "signUpWithEmail": "S'inscrire avec une adresse courriel",
+      "signInWithEmail": "Se connecter avec une adresse courriel",
+      "alreadyHaveAccount": "Vous avez déjà un compte? ",
+      "dontHaveAccount": "Vous n'avez pas de compte? "
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Posez vos questions médicales. Obtenez les faits cliniques",
+        "description": "Posez n'importe quelle question médicale et recevez une réponse appuyée par de véritables sources citées : PubMed, guides de pratique clinique et littérature médicale reconnue."
+      },
+      "slide2": {
+        "headline": "Chaque réponse, appuyée par une source",
+        "description": "Pas d'approximations ni de faits inventés : chaque réponse renvoie à des recherches médicales réelles et vérifiables."
+      },
+      "slide3": {
+        "headline": "Étudiez plus intelligemment, réussissez vos examens",
+        "description": "Transformez une question ou un document téléversé en quiz ou en jeu de cartes mémoire en quelques secondes : une pratique basée directement sur votre matière."
+      }
+    },
+    "otp": {
+      "title": "Confirmez votre adresse courriel",
+      "subtitle": "Veuillez entrer le code OTP envoyé à votre adresse courriel"
+    },
+    "professionalDeclaration": {
+      "title": "Déclaration professionnelle",
+      "subtitle": "Clinical Fact est un outil de recherche documentaire à visée éducative",
+      "disclaimerIntro": "Clinical Fact est un outil d'information fondé sur l'intelligence artificielle conçu pour aider les étudiants en sciences infirmières, en médecine et dans d'autres disciplines de la santé à accéder aux connaissances médicales, aux publications scientifiques et au matériel d'étude. L'application ne fournit aucun diagnostic médical, aucune recommandation de traitement, aucune consigne clinique ni aucun avis médical propre à un patient, et ne doit en aucun cas servir de fondement pour les soins directs aux patients ou la prise de décision clinique.",
+      "disclaimerHeading": "Comment Clinical Fact génère ses réponses :",
+      "disclaimerBody": "Clinical Fact extrait l'information directement de sources médicales et scientifiques reconnues, notamment PubMed, Semantic Scholar et les monographies officielles de la FDA, et utilise l'AI pour résumer et expliquer ce contenu en langage clair. Chaque réponse est générée uniquement à partir des sources trouvées pour cette question précise, et les citations renvoient aux documents d'origine afin que vous puissiez les vérifier vous-même. Clinical Fact ne génère pas de faits médicaux de mémoire et n'invente aucune source.\n\nClinical Fact n'est pas un outil de diagnostic, une plateforme de traitement, un dispositif médical ou un substitut au jugement clinique professionnel, à l'enseignement agréé ou au programme de votre établissement d'enseignement. Toute information générée par l'application, y compris les réponses, citations, quiz et cartes mémoire, est fournie uniquement à des fins d'apprentissage général et d'étude, et doit être vérifiée de manière indépendante par l'utilisateur avant d'être utilisée dans un contexte académique, clinique ou professionnel.\nClinical Fact ne garantit pas l'exhaustivité, l'exactitude ni la pertinence clinique actuelle des informations fournies. Les connaissances médicales évoluent continuellement — recoupez toujours les informations essentielles avec vos professeurs, vos superviseurs cliniques et des sources primaires à jour.\nLorsque vous téléversez vos propres documents, notes ou enregistrements, Clinical Fact génère des réponses, des résumés, des quiz et des cartes mémoire en se basant uniquement sur ce contenu importé, sans faire appel à des sources externes à moins que celles-ci ne soient explicitement indiquées en parallèle.\n\nClinical Fact ne vérifie pas, n'authentifie pas et ne confirme pas l'identité, le statut d'inscription ou les titres de compétences de ses utilisateurs. L'application n'est pas conçue pour être utilisée dans des situations d'urgence ni pour prendre des décisions cliniques en temps réel.\nEn continuant, vous confirmez comprendre ces conditions et acceptez d'utiliser Clinical Fact uniquement comme outil d'étude et d'aide à la consultation.",
+      "checkboxLabel": "Je comprends que cette application sert uniquement de référence éducative et ne fournit aucun avis médical",
+      "acceptButton": "Accepter et continuer"
+    },
+    "survey": {
+      "role": "Qu'est-ce qui vous décrit le mieux, {{firstName}}?",
+      "currentMethod": "Comment trouvez-vous habituellement des réponses à vos questions médicales en ce moment?",
+      "timeDrain": "Qu'est-ce qui vous fait perdre le plus de temps?",
+      "appExpectation": "Qu'attendez-vous de l'application médicale Clinical Fact?",
+      "aiToolsUsed": "Quels outils d'AI avez-vous utilisés jusqu'ici pour vos recherches médicales?",
+      "aiToolIssue": "Quel problème avez-vous rencontré avec ces outils?",
+      "aiTrustLevel": "À quelle fréquence craignez-vous qu'une réponse d'AI soit inexacte?",
+      "biggestNeed": "De quoi avez-vous le plus besoin en ce moment?",
+      "studyTimePerWeek": "Combien de temps avez-vous pour étudier chaque semaine?",
+      "comingUp": "Quelles sont vos prochaines échéances?",
+      "referralSource": "Comment avez-vous entendu parler de Clinical Fact?"
+    },
+    "onboarding": {
+      "username": "Choisissez votre nom d'utilisateur",
+      "usernameSubtitle": "Cela permet de personnaliser votre compte",
+      "goals": "Pour quoi souhaitez-vous\\nutiliser Clinical Fact?",
+      "goalsSubtitle": "Sélectionnez tout ce qui s'applique. Nous adapterons l'expérience pour vous.",
+      "contentType": "Quel type de contenu\\nutilisez-vous le plus?",
+      "contentTypeSubtitle": "Sélectionnez tout ce qui s'applique. Cela nous permet de personnaliser votre expérience.",
+      "reviewStyle": "Comment préférez-vous réviser\\nce que vous avez appris?",
+      "reviewStyleSubtitle": "Sélectionnez votre méthode de révision préférée.",
+      "frustration": "{{firstName}}, qu'est-ce qui vous frustre le plus dans la prise de notes?",
+      "frustrationSubtitle": "Sélectionnez tout ce qui s'applique. Cela nous aide à cibler vos besoins.",
+      "referral": "Par simple curiosité\\n{{firstName}},\\ncomment avez-vous découvert Clinical Fact?",
+      "referralSubtitle": "Sélectionnez une option."
+    },
+    "referralScreen": {
+      "title": "Avez-vous été recommandé\\npar quelqu'un?",
+      "subtitle": "Entrez son code de recommandation si vous en avez un"
+    },
+    "setup": {
+      "preparingNotes": "Préparation des notes",
+      "preparingFlashcards": "Préparation des cartes mémoire",
+      "preparingQuiz": "Préparation des modèles de quiz",
+      "preparingChat": "Préparation des assistants de discussion",
+      "title": "Configuration de votre espace\\npersonnalisé, {{firstName}}..."
+    },
+    "thanks": {
+      "title": "Merci de faire confiance à Clinical Fact",
+      "subtitle": "Vous rejoignez des milliers d'étudiants en médecine et en sciences infirmières",
+      "stars": "⭐⭐⭐⭐⭐"
+    },
+    "demoVideo": {
+      "title": "Tout ce dont vous avez besoin\\npour tout apprendre",
+      "subtitle": "Enregistrez. Cherchez. Testez-vous. Maîtrisez."
+    },
+    "features": {
+      "feature1": {
+        "title": "Obtenez de vraies réponses médicales et des pistes d'approfondissement",
+        "description": "Posez n'importe quelle question médicale et recevez une explication claire ainsi que des questions de suivi pertinentes, pour ne jamais rester bloqué en pleine étude."
+      },
+      "feature2": {
+        "title": "Chaque réponse médicale,\nappuyée par une source réelle",
+        "description": "Citations tirées de PubMed, Semantic Scholar et Europe PMC : vérifiables, non inventées."
+      },
+      "feature3": {
+        "title": "Téléversez vos notes, obtenez des résumés médicaux de votre contenu",
+        "description": "Transformez vos diapositives de cours, PDF ou notes en explications claires appuyées par des sources médicales fiables."
+      },
+      "feature4": {
+        "title": "Transformez toute discussion en quiz ou en fiches pour vous exercer",
+        "description": "Pas besoin d'une autre appli pour étudier : générez des questions pratiques directement depuis vos discussions et documents téléversés."
+      },
+      "feature5": {
+        "title": "Transformez toute discussion ou document en fiches pour vous exercer",
+        "description": "Pas besoin d'une autre appli pour étudier : générez des questions pratiques directement depuis vos discussions et documents téléversés."
+      }
     }
   },
   "notes": {
@@ -159,7 +335,7 @@
     "submit": "Soumettre",
     "next": "Suivant",
     "finish": "Terminer",
-    "score": "Score",
+    "score": "Pointage",
     "correct": "Correct",
     "incorrect": "Incorrect",
     "retakeQuiz": "Refaire le quiz",
@@ -169,7 +345,31 @@
     "almostDone": "Presque terminé...",
     "quizReady": "Quiz prêt !",
     "startQuiz": "Commencer le quiz",
-    "questionCount": "{{current}} sur {{total}}"
+    "questionCount": "{{current}} sur {{total}}",
+    "previous": "Question précédente",
+    "generatingQuiz": "Génération du quiz avec l'AI...",
+    "exitTitle": "Quitter le quiz?",
+    "exitMessage": "Votre progression sera perdue.",
+    "exit": "Quitter",
+    "errorTitle": "Oups, un pépin est survenu 🚧",
+    "errorMessage": "Impossible de générer le quiz pour le moment. Veuillez réessayer dans un instant!",
+    "noQuestions": "Aucune question disponible.",
+    "reading": "Lecture de vos notes...",
+    "identifying": "Identification des concepts clés...",
+    "structuring": "Structuration des questions...",
+    "almostReady": "Presque prêt...",
+    "youScored": "VOTRE RÉSULTAT",
+    "timeInSeconds": "TEMPS EN SECONDES",
+    "accuracy": "PRÉCISION",
+    "grade": "NOTE",
+    "reportsCard": "Fiche de résultats",
+    "reviewAnswers": "Revoir les réponses",
+    "correctAnswer": "Bonne réponse",
+    "yourAnswer": "Votre réponse",
+    "explanation": "Explication",
+    "questionProgress": "Question {{current}} sur {{total}}",
+    "generatingQuizWait": "Nous générons votre quiz, veuillez patienter un instant...",
+    "goToChats": "Aller aux discussions"
   },
   "flashcards": {
     "title": "Cartes mémoire",
@@ -178,10 +378,32 @@
     "previous": "Précédent",
     "shuffle": "Mélanger",
     "generating": "Génération des cartes mémoire...",
-    "cardCount": "{{current}} / {{total}}"
+    "cardCount": "{{current}} / {{total}}",
+    "setupSubtitle": "Créez des fiches pour améliorer votre taux de rétention",
+    "howManyQuestions": "Combien de questions?",
+    "generateButton": "Générer les fiches",
+    "generatingEllipsis": "Génération...",
+    "allDone": "Tout est terminé!",
+    "completedReview": "Vous avez révisé toutes les fiches de ce paquet",
+    "backToNotes": "Retour aux notes",
+    "question": "Question",
+    "answer": "Réponse",
+    "noQuestionText": "(Aucun texte de question)",
+    "noAnswerText": "(Aucun texte de réponse)",
+    "enterQuestion": "Entrez votre question",
+    "enterAnswer": "Entrez la réponse",
+    "clickToFlip": "cliquez sur la fiche pour la retourner",
+    "reading": "Lecture de vos notes...",
+    "identifying": "Identification des concepts clés...",
+    "creating": "Création des fiches...",
+    "almostReady": "Presque prêt...",
+    "headerTitle": "Fiche",
+    "progressFormat": "Fiche {{current}} sur {{total}}",
+    "noteIdRequired": "L'identifiant de la note est requis pour générer des fiches",
+    "invalidCardCount": "Veuillez choisir entre 1 et 100 fiches"
   },
   "chat": {
-    "title": "Chat",
+    "title": "Clavardage",
     "typeMessage": "Tapez un message...",
     "send": "Envoyer",
     "chatWithNote": "Discuter avec la note",
@@ -211,6 +433,37 @@
     "turkish": "Turc",
     "vietnamese": "Vietnamien",
     "thai": "Thaï",
-    "indonesian": "Indonésien"
+    "indonesian": "Indonésien",
+    "englishGB": "Anglais (Royaume-Uni)",
+    "englishAU": "Anglais (Australie)",
+    "englishCA": "Anglais (Canada)",
+    "spanishMX": "Espagnol (Mexique)",
+    "frenchCA": "Français (Canada)",
+    "portuguesePT": "Portugais (Portugal)",
+    "norwegian": "Norvégien",
+    "danish": "Danois",
+    "finnish": "Finnois",
+    "czech": "Tchèque",
+    "slovak": "Slovaque",
+    "slovenian": "Slovène",
+    "croatian": "Croate",
+    "hungarian": "Hongrois",
+    "romanian": "Roumain",
+    "greek": "Grec",
+    "ukrainian": "Ukrainien",
+    "arabicAE": "Arabe (Émirats arabes unis)",
+    "arabicEG": "Arabe (Égypte)",
+    "hebrew": "Hébreu",
+    "bengali": "Bengali",
+    "tamil": "Tamoul",
+    "telugu": "Télougou",
+    "kannada": "Kannada",
+    "malayalam": "Malayalam",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Pendjabi",
+    "urdu": "Ourdou",
+    "malay": "Malais",
+    "catalan": "Catalan"
   }
 }

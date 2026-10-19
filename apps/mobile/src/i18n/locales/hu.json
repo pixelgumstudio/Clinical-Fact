@@ -26,7 +26,7 @@
     "recentNotes": "Legutóbbi jegyzetek",
     "seeAll": "Összes megtekintése",
     "noNotes": "Nincsenek megjelenítendő jegyzetek",
-    "noNotesDesc": "Kérjük, kattintson a fenti gombra a clinicalfact számára létrehozott jegyzet létrehozásához.",
+    "noNotesDesc": "Kattints a fenti gombra a jegyzeted\ngenerálásának megkezdéséhez a Clinical Facthez.",
     "loadingNotes": "Jegyzetek betöltése..."
   },
   "profile": {
@@ -71,14 +71,15 @@
     "upgradePlan": "Frissítési csomag",
     "everyWeek": "Minden héten",
     "everyMonth": "Minden hónapban",
-    "everyYear": "Minden évben"
+    "everyYear": "Minden évben",
+    "reportBug": "Hiba bejelentése"
   },
   "auth": {
     "welcome": "Üdvözöljük a Clinical Factben",
     "getStarted": "Kezdés",
     "signIn": "Bejelentkezés",
     "signUp": "Regisztráció",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Jelszó",
     "forgotPassword": "Elfelejtett jelszó?",
     "verifyEmail": "E-mail cím ellenőrzése",
@@ -94,7 +95,8 @@
       "skip": "Kihagyás",
       "verify": "Ellenőrizve!",
       "next": "Következő",
-      "tryNow": "Próbálja ki a Clinical Fact-t most ingyenesen"
+      "tryNow": "Próbálja ki a Clinical Fact-t most ingyenesen",
+      "continueWithApple": "Folytatás az Apple-lel"
     },
     "labels": {
       "firstName": "Keresztnév",
@@ -139,7 +141,10 @@
       "googleStartFailed": "Nem sikerült elindítani a Google-bejelentkezést. Próbáld újra.",
       "setupRequired": "Beállítás szükséges",
       "googleOAuthMissing": "A Google-bejelentkezéshez OAuth kliensazonosítók szükségesek.\\n\\nKérjük, adja hozzá a hitelesítő adatokat az .env fájlhoz.",
-      "youCanStillUseEmail": "Továbbra is használhatod a „Folytatás e-mailben” lehetőséget."
+      "youCanStillUseEmail": "Továbbra is használhatod a „Folytatás e-mailben” lehetőséget.",
+      "appleSignInFailed": "Sikertelen Apple-bejelentkezés",
+      "appleTokenFailed": "Nem sikerült feldolgozni az Apple-tokent",
+      "appleIosOnly": "Az Apple-fiókkal történő bejelentkezés csak iOS-en érhető el."
     },
     "messages": {
       "signingIn": "Bejelentkezés...",
@@ -150,7 +155,13 @@
     "welcomeScreen": {
       "title": "Clinical Fact:\\nOkos jegyzetek Kezdje itt",
       "tagline": "Bármilyen szöveget tökéletes jegyzetekké alakíthat",
-      "description": "Alakítson át hanganyagokat, dokumentumokat vagy videókat áttekinthető, kereshető jegyzetekké, és azonnal készítsen kvízeket, flash kártyákat és összefoglalókat."
+      "description": "Alakítson át hanganyagokat, dokumentumokat vagy videókat áttekinthető, kereshető jegyzetekké, és azonnal készítsen kvízeket, flash kártyákat és összefoglalókat.",
+      "createAccountTitle": "Fiók létrehozása",
+      "orSignUpWith": "VAGY REGISZTRÁCIÓ EZZEL",
+      "signUpWithEmail": "Regisztráció e-mail-címmel",
+      "signInWithEmail": "Bejelentkezés e-mail-címmel",
+      "alreadyHaveAccount": "Már van fiókod? ",
+      "dontHaveAccount": "Még nincs fiókod? "
     },
     "otp": {
       "title": "Erősítse meg e-mail címét",
@@ -209,6 +220,26 @@
       "quiz": {
         "title": "Tanulj gyorsabban kvízzel és\\ntanulókártyákkal",
         "description": "Alakítsa jegyzeteit kvízekké és flash kártyákká. Tanuljon gyorsabban és jegyezzen meg többet."
+      },
+      "feature1": {
+        "title": "Valódi orvosi válaszok és pontosító kérdések",
+        "description": "Kérdezz bármit orvosi témában, és kapj világos magyarázatot, valamint hasznos követő kérdéseket, hogy sose akadj el tanulás közben."
+      },
+      "feature2": {
+        "title": "Minden orvosi válasz\nvalódi forrással alátámasztva",
+        "description": "PubMed-, Semantic Scholar- és Europe PMC-hivatkozások – ellenőrizhető, nem kitalált forrásokból."
+      },
+      "feature3": {
+        "title": "Töltsd fel a jegyzeteidet, és kérj orvosi összefoglalót az anyagaidról",
+        "description": "Alakíts bármilyen előadásdiát, PDF-et vagy jegyzetet világos, megbízható forrásokkal alátámasztott magyarázattá."
+      },
+      "feature4": {
+        "title": "Alakíts bármilyen beszélgetést kvízzé vagy tanulókártyává a gyakorláshoz",
+        "description": "Nincs szükség külön tanulóappra: hozz létre gyakorlófeladatokat közvetlenül a csevegésekből és feltöltött anyagokból."
+      },
+      "feature5": {
+        "title": "Alakíts bármilyen beszélgetést vagy fájlt tanulókártyás kérdésekké a gyakorláshoz",
+        "description": "Nincs szükség külön tanulóappra: hozz létre gyakorlófeladatokat közvetlenül a csevegésekből és feltöltött anyagokból."
       }
     },
     "languageSelect": {
@@ -216,6 +247,42 @@
       "subtitle": "Válaszd ki az alkalmazásban használni kívánt nyelvet. Később a profilodban módosíthatod.",
       "searchPlaceholder": "Nyelv keresése",
       "noResults": "Nem található nyelv"
+    },
+    "intro": {
+      "slide1": {
+        "headline": "Kérdezz orvosi témákban. Kérd a klinikai tényeket.",
+        "description": "Tegyél fel bármilyen orvosi kérdést, és kapj hiteles, a PubMedből, klinikai irányelvekből és megbízható orvosi szakirodalomból származó, forrásmegjelöléssel ellátott választ."
+      },
+      "slide2": {
+        "headline": "Minden válasz forrással alátámasztva",
+        "description": "Nincs találgatás vagy kitalált tény: minden válasz valódi, ellenőrizhető orvosi kutatásokra mutat."
+      },
+      "slide3": {
+        "headline": "Tanulj okosabban, menj át az orvosi vizsgákon",
+        "description": "Alakíts bármilyen kérdést vagy feltöltött fájlt kvízzé vagy tanulókártya-csomaggá másodpercek alatt – gyakorolj közvetlenül a saját tananyagodból."
+      }
+    },
+    "professionalDeclaration": {
+      "title": "Szakmai nyilatkozat",
+      "subtitle": "A Clinical Fact egy oktatási célú szakirodalom-kereső eszköz",
+      "disclaimerIntro": "A Clinical Fact egy mesterséges intelligencián alapuló információs eszköz, amelynek célja az ápoló-, orvos- és egyéb egészségtudományi hallgatók támogatása az orvosi ismeretek, kutatási irodalmak és tananyagok elérésében. Az applikáció nem ad orvosi diagnózist, kezelési javaslatot, klinikai utasítást vagy személyre szabott orvosi tanácsot, és tilos közvetlen betegellátás vagy klinikai döntéshozatal alapjaként használni.",
+      "disclaimerHeading": "Hogyan állítja elő a válaszokat a Clinical Fact:",
+      "disclaimerBody": "A Clinical Fact közvetlenül elismert orvosi és tudományos forrásokból nyeri ki az információkat – többek között a PubMed, a Semantic Scholar és a hivatalos FDA-gyógyszerleírások adatbázisából –, és AI segítségével, érthető nyelvezettel összegzi és magyarázza el azokat. Minden válasz kizárólag az adott kérdéshez lekért forrásokból készül, és a hivatkozások az eredeti anyagra mutatnak, így te magad is ellenőrizheted őket. A Clinical Fact nem emlékezetből állít elő orvosi tényeket, és nem talál ki forrásokat.\n\nA Clinical Fact nem diagnosztikai eszköz, nem terápiás felület, nem minősül orvostechnikai eszköznek, és nem helyettesíti a szakorvosi megítélést, az akkreditált oktatást vagy az intézményed tantervét. Az applikáció által generált bármely információ – beleértve a válaszokat, hivatkozásokat, kvízeket és tanulókártyákat – kizárólag általános oktatási és tanulási célt szolgál, és a felhasználónak független forrásból kötelező ellenőriznie, mielőtt bármilyen tanulmányi, klinikai vagy szakmai helyzetben hivatkozna rá.\nA Clinical Fact nem garantálja a közölt információk teljességét, pontosságát vagy aktuális klinikai relevanciáját. Az orvostudomány folyamatosan fejlődik – a kritikus információkat mindig vesd össze oktatóiddal, klinikai gyakorlatvezetőiddel és a naprakész elsődleges forrásokkal.\nHa saját dokumentumokat, jegyzeteket vagy felvételeket töltesz fel, a Clinical Fact kizárólag a feltöltött tartalom alapján hoz létre válaszokat, összefoglalókat, kvízeket és tanulókártyákat, külső forrásokat csak akkor vesz figyelembe, ha azok kifejezetten megjelennek a tartalom mellett.\n\nA Clinical Fact nem hitelesíti és nem ellenőrzi a felhasználók személyazonosságát, hallgatói jogviszonyát vagy képesítését. Az applikáció nem alkalmas vészhelyzeti alkalmazásra vagy valós idejű klinikai döntéshozatalra.\nA folytatással kijelented, hogy megértetted ezeket a feltételeket, és elfogadod, hogy a Clinical Fact alkalmazást kizárólag tanulási és tájékozódási segédeszközként használod.",
+      "checkboxLabel": "Tudomásul veszem, hogy az alkalmazás kizárólag oktatási célokat szolgál, és nem nyújt orvosi tanácsot",
+      "acceptButton": "Elfogadás és folytatás"
+    },
+    "survey": {
+      "role": "Mi ír le a legjobban, {{firstName}}?",
+      "currentMethod": "Jelenleg hogyan szoktál választ találni az orvosi kérdéseidre?",
+      "timeDrain": "Mivel megy el a legtöbb időd?",
+      "appExpectation": "Mit vársz a Clinical Fact orvosi apptól?",
+      "aiToolsUsed": "Milyen AI-eszközöket használtál eddig az orvosi kutatómunkáidhoz?",
+      "aiToolIssue": "Milyen problémákat tapasztaltál ezen eszközök használatakor?",
+      "aiTrustLevel": "Milyen gyakran aggódsz amiatt, hogy az AI válasza téves lehet?",
+      "biggestNeed": "Mire van most a legnagyobb szükséged?",
+      "studyTimePerWeek": "Hetente mennyi időd jut a tanulásra?",
+      "comingUp": "Milyen megmérettetés áll előtted?",
+      "referralSource": "Hol hallottál a Clinical Factről?"
     }
   },
   "notes": {
@@ -298,7 +365,7 @@
     "almostDone": "Majdnem kész...",
     "quizReady": "Kvíz kész!",
     "startQuiz": "Kvíz indítása",
-    "questionCount": "{{current}} of {{total}}",
+    "questionCount": "{{current}} / {{total}}",
     "exitTitle": "Kilépés a kvízből?",
     "exitMessage": "Az előrehaladásod elveszik.",
     "exit": "Kijárat",
@@ -318,7 +385,9 @@
     "correctAnswer": "Helyes válasz",
     "yourAnswer": "A válaszod",
     "explanation": "Magyarázat",
-    "questionProgress": "{{current}}. kérdés a {{total}}-ból"
+    "questionProgress": "{{current}}. kérdés a {{total}}-ból",
+    "generatingQuizWait": "A kvíz összeállítása folyamatban van, kérjük, várj egy pillanatot...",
+    "goToChats": "Ugrás a csevegésekhez"
   },
   "flashcards": {
     "title": "Flash kártyák",
