@@ -83,7 +83,13 @@
     "didntGetCode": "Không nhận được mã?",
     "resendCode": "Gửi lại mã",
     "resendIn": "Gửi lại sau",
-    "enterVerificationCode": "Vui lòng nhập đầy đủ mã xác minh"
+    "enterVerificationCode": "Vui lòng nhập đầy đủ mã xác minh",
+    "languageSelect": {
+      "title": "Chọn ngôn ngữ của bạn",
+      "subtitle": "Chọn ngôn ngữ bạn muốn sử dụng trong ứng dụng. Bạn có thể thay đổi lại sau trong hồ sơ.",
+      "searchPlaceholder": "Tìm kiếm ngôn ngữ",
+      "noResults": "Không tìm thấy ngôn ngữ nào"
+    }
   },
   "notes": {
     "noteTranscript": "Bản sao ghi chú",

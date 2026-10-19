@@ -83,7 +83,13 @@
     "didntGetCode": "Code niet ontvangen?",
     "resendCode": "Code opnieuw verzenden",
     "resendIn": "Opnieuw verzenden over",
-    "enterVerificationCode": "Voer de volledige verificatiecode in"
+    "enterVerificationCode": "Voer de volledige verificatiecode in",
+    "languageSelect": {
+      "title": "Kies je taal",
+      "subtitle": "Kies de taal die je in de app wilt gebruiken. Je kunt dit later wijzigen in je profiel.",
+      "searchPlaceholder": "Talen zoeken",
+      "noResults": "Geen talen gevonden"
+    }
   },
   "notes": {
     "noteTranscript": "Notitie transcriptie",

@@ -210,6 +210,12 @@
         "title": "Učte se rychleji s kvízy a kartičkami",
         "description": "Proměňte poznámky v kvízy a kartičky. Učte se rychleji a zapamatujte si více."
       }
+    },
+    "languageSelect": {
+      "title": "Vyber si jazyk",
+      "subtitle": "Zvol si jazyk, který chceš v aplikaci používat. Později ho můžeš změnit v profilu.",
+      "searchPlaceholder": "Hledat jazyk",
+      "noResults": "Nebyly nalezeny žádné jazyky"
     }
   },
   "notes": {

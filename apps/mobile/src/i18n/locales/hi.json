@@ -83,7 +83,13 @@
     "didntGetCode": "कोड नहीं मिला?",
     "resendCode": "कोड पुनः भेजें",
     "resendIn": "में पुनः भेजें",
-    "enterVerificationCode": "कृपया पूरा सत्यापन कोड दर्ज करें"
+    "enterVerificationCode": "कृपया पूरा सत्यापन कोड दर्ज करें",
+    "languageSelect": {
+      "title": "अपनी भाषा चुनें",
+      "subtitle": "ऐप में उपयोग के लिए भाषा चुनें। आप इसे बाद में अपनी प्रोफ़ाइल में बदल सकते हैं।",
+      "searchPlaceholder": "भाषा खोजें",
+      "noResults": "कोई भाषा नहीं मिली"
+    }
   },
   "notes": {
     "noteTranscript": "नोट ट्रांसक्रिप्ट",

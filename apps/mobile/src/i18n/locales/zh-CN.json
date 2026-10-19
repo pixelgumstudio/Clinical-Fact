@@ -83,7 +83,13 @@
     "didntGetCode": "没有收到验证码？",
     "resendCode": "重新发送验证码",
     "resendIn": "重新发送于",
-    "enterVerificationCode": "请输入完整的验证码"
+    "enterVerificationCode": "请输入完整的验证码",
+    "languageSelect": {
+      "title": "选择语言",
+      "subtitle": "选择您想在应用中使用的语言。之后可在个人资料中随时更改。",
+      "searchPlaceholder": "搜索语言",
+      "noResults": "未找到相关语言"
+    }
   },
   "notes": {
     "noteTranscript": "笔记转录",

@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Auth Screens
+import { LanguageSelectScreen } from '../screens/auth/LanguageSelectScreen';
 import { IntroScreen } from '../screens/auth/IntroScreen';
 import { WelcomeScreen } from '../screens/auth/WelcomeScreen';
 import { OTPVerificationScreen } from '../screens/auth/OTPVerificationScreen';
@@ -34,6 +35,7 @@ import { DemoVideoScreen } from '../screens/auth/DemoVideoScreen';
 
 export type AuthStackParamList = {
   // Entry
+  Language: undefined; // first launch only (see navigation/authStartRoute.ts)
   Intro: undefined;
   Welcome: undefined;
 
@@ -100,6 +102,7 @@ export const AuthNavigator = ({ initialRouteName = 'Intro' }: AuthNavigatorProps
       initialRouteName={initialRouteName}
     >
       {/* Entry Screens */}
+      <Stack.Screen name="Language" component={LanguageSelectScreen} />
       <Stack.Screen name="Intro" component={IntroScreen} />
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
 

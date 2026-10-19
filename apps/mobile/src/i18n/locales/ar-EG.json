@@ -83,7 +83,13 @@
     "didntGetCode": "لم تحصل على الرمز؟",
     "resendCode": "إعادة إرسال الرمز",
     "resendIn": "إعادة الإرسال خلال",
-    "enterVerificationCode": "يرجى إدخال رمز التحقق الكامل"
+    "enterVerificationCode": "يرجى إدخال رمز التحقق الكامل",
+    "languageSelect": {
+      "title": "اختر لغتك",
+      "subtitle": "اختر اللغة التي تفضل استخدامها في التطبيق. يمكنك تغييرها لاحقًا من ملفك الشخصي.",
+      "searchPlaceholder": "ابحث عن لغة",
+      "noResults": "لم يتم العثور على لغات"
+    }
   },
   "notes": {
     "noteTranscript": "نص الملاحظة",

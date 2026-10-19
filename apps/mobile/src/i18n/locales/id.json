@@ -83,7 +83,13 @@
     "didntGetCode": "Tidak menerima kode?",
     "resendCode": "Kirim ulang kode",
     "resendIn": "Kirim ulang dalam",
-    "enterVerificationCode": "Silakan masukkan kode verifikasi lengkap"
+    "enterVerificationCode": "Silakan masukkan kode verifikasi lengkap",
+    "languageSelect": {
+      "title": "Pilih bahasa Anda",
+      "subtitle": "Pilih bahasa yang ingin Anda gunakan di aplikasi. Anda dapat mengubahnya nanti di profil.",
+      "searchPlaceholder": "Cari bahasa",
+      "noResults": "Bahasa tidak ditemukan"
+    }
   },
   "notes": {
     "noteTranscript": "Transkrip catatan",

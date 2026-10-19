@@ -258,6 +258,12 @@
         "title": "Turn any chat or document into flashcard questions for practice",
         "description": "No separate app for studying,  generate practice questions straight from your chats and uploads."
       }
+    },
+    "languageSelect": {
+      "title": "Choose your language",
+      "subtitle": "Pick the language you'd like to use in the app. You can change it later in your profile.",
+      "searchPlaceholder": "Search languages",
+      "noResults": "No languages found"
     }
   },
   "notes": {

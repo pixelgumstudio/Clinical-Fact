@@ -83,7 +83,13 @@
     "didntGetCode": "Non hai ricevuto il codice?",
     "resendCode": "Invia di nuovo il codice",
     "resendIn": "Invia di nuovo tra",
-    "enterVerificationCode": "Inserisci il codice di verifica completo"
+    "enterVerificationCode": "Inserisci il codice di verifica completo",
+    "languageSelect": {
+      "title": "Scegli la tua lingua",
+      "subtitle": "Scegli la lingua che preferisci usare nell'app. Potrai modificarla in seguito dal tuo profilo.",
+      "searchPlaceholder": "Cerca lingua",
+      "noResults": "Nessuna lingua trovata"
+    }
   },
   "notes": {
     "noteTranscript": "Trascrizione nota",

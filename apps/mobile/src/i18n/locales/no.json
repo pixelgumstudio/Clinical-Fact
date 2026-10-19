@@ -210,6 +210,12 @@
         "title": "Lær raskere med quiz og flashcards",
         "description": "Gjør notater om til spørrekonkurranser og flashcards.\\nLær raskere og husk mer."
       }
+    },
+    "languageSelect": {
+      "title": "Velg språk",
+      "subtitle": "Velg språket du vil bruke i appen. Du kan endre det senere i profilen din.",
+      "searchPlaceholder": "Søk etter språk",
+      "noResults": "Ingen språk funnet"
     }
   },
   "notes": {

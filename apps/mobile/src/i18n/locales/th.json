@@ -83,7 +83,13 @@
     "didntGetCode": "ไม่ได้รับรหัส?",
     "resendCode": "ส่งรหัสอีกครั้ง",
     "resendIn": "ส่งอีกครั้งใน",
-    "enterVerificationCode": "กรุณาป้อนรหัสยืนยันให้ครบถ้วน"
+    "enterVerificationCode": "กรุณาป้อนรหัสยืนยันให้ครบถ้วน",
+    "languageSelect": {
+      "title": "เลือกภาษาของคุณ",
+      "subtitle": "เลือกภาษาที่คุณต้องการใช้งานในแอป คุณสามารถเปลี่ยนได้ในภายหลังที่หน้าโปรไฟล์",
+      "searchPlaceholder": "ค้นหาภาษา",
+      "noResults": "ไม่พบภาษา"
+    }
   },
   "notes": {
     "noteTranscript": "การถอดความบันทึก",

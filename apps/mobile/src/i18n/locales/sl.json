@@ -210,6 +210,12 @@
         "title": "Hitrejše učenje s kvizom in karticami",
         "description": "Spremenite zapiske v kvize in kartice za učenje.\\nUčite se hitreje in si zapomnite več."
       }
+    },
+    "languageSelect": {
+      "title": "Izberi jezik",
+      "subtitle": "Izberi jezik, ki ga želiš uporabljati v aplikaciji. Pozneje ga lahko spremeniš v svojem profilu.",
+      "searchPlaceholder": "Išči jezike",
+      "noResults": "Ni najdenih jezikov"
     }
   },
   "notes": {

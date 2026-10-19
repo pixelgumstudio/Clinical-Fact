@@ -210,6 +210,12 @@
         "title": "Aprèn més ràpid amb qüestionaris i targetes didàctiques",
         "description": "Converteix els apunts en qüestionaris i targetes didàctiques.\\nAprèn més ràpid i recorda més."
       }
+    },
+    "languageSelect": {
+      "title": "Tria el teu idioma",
+      "subtitle": "Tria l'idioma que vols utilitzar a l'aplicació. Pots canviar-lo més endavant al teu perfil.",
+      "searchPlaceholder": "Cerca idiomes",
+      "noResults": "No s'ha trobat cap idioma"
     }
   },
   "notes": {

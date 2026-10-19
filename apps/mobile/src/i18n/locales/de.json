@@ -83,7 +83,13 @@
     "didntGetCode": "Keinen Code erhalten?",
     "resendCode": "Code erneut senden",
     "resendIn": "Erneut senden in",
-    "enterVerificationCode": "Bitte geben Sie den vollständigen Bestätigungscode ein"
+    "enterVerificationCode": "Bitte geben Sie den vollständigen Bestätigungscode ein",
+    "languageSelect": {
+      "title": "Wähle deine Sprache",
+      "subtitle": "Wähle die Sprache, die du in der App nutzen möchtest. Du kannst sie später im Profil ändern.",
+      "searchPlaceholder": "Sprachen suchen",
+      "noResults": "Keine Sprachen gefunden"
+    }
   },
   "notes": {
     "noteTranscript": "Notiztranskript",

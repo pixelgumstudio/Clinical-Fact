@@ -210,6 +210,12 @@
         "title": "Belajar lebih pantas dengan Kuiz & Kad Imbas",
         "description": "Tukar nota menjadi kuiz dan kad imbasan.\\nBelajar lebih cepat dan ingat lebih banyak."
       }
+    },
+    "languageSelect": {
+      "title": "Pilih bahasa anda",
+      "subtitle": "Pilih bahasa yang ingin anda gunakan dalam aplikasi. Anda boleh menukarnya kemudian di profil anda.",
+      "searchPlaceholder": "Cari bahasa",
+      "noResults": "Tiada bahasa ditemui"
     }
   },
   "notes": {

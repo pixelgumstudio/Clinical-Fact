@@ -83,7 +83,13 @@
     "didntGetCode": "コードが届きませんか？",
     "resendCode": "コードを再送信",
     "resendIn": "再送信まで",
-    "enterVerificationCode": "完全な確認コードを入力してください"
+    "enterVerificationCode": "完全な確認コードを入力してください",
+    "languageSelect": {
+      "title": "言語を選択",
+      "subtitle": "アプリで使用する言語を選択してください。後からプロフィールで変更できます。",
+      "searchPlaceholder": "言語を検索",
+      "noResults": "該当する言語が見つかりません"
+    }
   },
   "notes": {
     "noteTranscript": "ノートの文字起こし",

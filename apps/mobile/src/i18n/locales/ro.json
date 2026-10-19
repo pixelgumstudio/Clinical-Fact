@@ -210,6 +210,12 @@
         "title": "Învață mai repede cu chestionare și fișe de învățare",
         "description": "Transformă notițele în teste și fișe.\\nÎnvață mai repede și reține mai multe."
       }
+    },
+    "languageSelect": {
+      "title": "Alege limba",
+      "subtitle": "Selectează limba pe care vrei să o folosești în aplicație. O poți schimba ulterior din profil.",
+      "searchPlaceholder": "Caută o limbă",
+      "noResults": "Nicio limbă găsită"
     }
   },
   "notes": {

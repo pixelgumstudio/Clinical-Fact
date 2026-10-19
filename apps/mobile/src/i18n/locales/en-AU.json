@@ -86,7 +86,13 @@
     "didntGetCode": "Didn't get code?",
     "resendCode": "Resend code",
     "resendIn": "Resend in",
-    "enterVerificationCode": "Please enter the complete verification code"
+    "enterVerificationCode": "Please enter the complete verification code",
+    "languageSelect": {
+      "title": "Choose your language",
+      "subtitle": "Pick the language you'd like to use in the app. You can change it later in your profile.",
+      "searchPlaceholder": "Search languages",
+      "noResults": "No languages found"
+    }
   },
   "notes": {
     "noteTranscript": "Note transcript",

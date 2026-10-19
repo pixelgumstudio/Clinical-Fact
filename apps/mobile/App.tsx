@@ -22,6 +22,8 @@ import { useAuthStore } from './src/store/authStore';
 import { queryClient } from './src/lib/queryClient';
 import notificationService from './src/services/notificationService';
 import api from './src/services/api';
+import { resolveLanguageAfterAuth } from './src/services/languageSync';
+import { getPendingOnboardingLanguage, clearPendingOnboardingLanguage } from './src/services/languagePreference';
 import { configureAnalytics, identifyUser, captureEvent } from './src/services/analytics';
 
 // Keep splash screen visible until the design system's fonts (Inter/Lora)
@@ -124,13 +126,45 @@ function AppInner() {
     [userId]
   );
 
+  // Re-runs when the signed-in account changes, not just at launch — the account's saved
+  // language is the source of truth, so logging into a different account must switch the app
+  // to that account's language instead of keeping the previous account's until a restart.
+  //
+  // One exception: a language picked on the first-launch screen, before there was an account.
+  // A brand-new account takes that pick (and it is saved to the account, which would otherwise
+  // sit on the server's English default and undo it); an existing account keeps its own.
   useEffect(() => {
     const initLanguage = async () => {
-      const user = useAuthStore.getState().user;
-      await loadUserLanguage(user?.preferredLanguage);
+      const { user, isFirstTimeUser } = useAuthStore.getState();
+      const pending = userId ? await getPendingOnboardingLanguage() : null;
+      const { language, syncToAccount, clearPending } = resolveLanguageAfterAuth({
+        pending,
+        isFirstTimeUser,
+        accountLanguage: user?.preferredLanguage,
+      });
+
+      await loadUserLanguage(language);
+
+      if (syncToAccount && language) {
+        try {
+          const res = await api.updateUserLanguage(language);
+          if (res.success) {
+            useAuthStore.getState().updateUser({ preferredLanguage: language });
+            await clearPendingOnboardingLanguage();
+          }
+        } catch {
+          // Kept for a retry on the next sign-in; the app already shows the chosen language.
+        }
+      } else if (clearPending) {
+        await clearPendingOnboardingLanguage();
+      }
     };
 
     initLanguage();
+  }, [userId]);
+
+  // Unconditional — analytics has no auth dependency, unlike identify/reset.
+  useEffect(() => {
     configureAnalytics();
   }, []);
 

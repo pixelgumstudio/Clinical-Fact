@@ -83,7 +83,13 @@
     "didntGetCode": "沒有收到驗證碼？",
     "resendCode": "重新發送驗證碼",
     "resendIn": "重新發送於",
-    "enterVerificationCode": "請輸入完整的驗證碼"
+    "enterVerificationCode": "請輸入完整的驗證碼",
+    "languageSelect": {
+      "title": "選擇你的語言",
+      "subtitle": "請選擇你想在 App 中使用的語言。稍後隨時可在個人檔案中變更。",
+      "searchPlaceholder": "搜尋語言",
+      "noResults": "找不到相符的語言"
+    }
   },
   "notes": {
     "noteTranscript": "筆記轉錄",

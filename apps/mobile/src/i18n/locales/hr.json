@@ -210,6 +210,12 @@
         "title": "Učite brže uz kviz i kartice za učenje",
         "description": "Pretvorite bilješke u kvizove i kartice za učenje. Učite brže i pamtite više."
       }
+    },
+    "languageSelect": {
+      "title": "Odaberite jezik",
+      "subtitle": "Odaberite jezik koji želite koristiti u aplikaciji. Možete ga promijeniti kasnije na svom profilu.",
+      "searchPlaceholder": "Pretraži jezike",
+      "noResults": "Nema pronađenih jezika"
     }
   },
   "notes": {

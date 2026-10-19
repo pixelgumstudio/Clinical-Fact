@@ -210,6 +210,12 @@
         "title": "Tanulj gyorsabban kvízzel és\\ntanulókártyákkal",
         "description": "Alakítsa jegyzeteit kvízekké és flash kártyákká. Tanuljon gyorsabban és jegyezzen meg többet."
       }
+    },
+    "languageSelect": {
+      "title": "Válassz nyelvet",
+      "subtitle": "Válaszd ki az alkalmazásban használni kívánt nyelvet. Később a profilodban módosíthatod.",
+      "searchPlaceholder": "Nyelv keresése",
+      "noResults": "Nem található nyelv"
     }
   },
   "notes": {

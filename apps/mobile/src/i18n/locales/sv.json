@@ -83,7 +83,13 @@
     "didntGetCode": "Fick du ingen kod?",
     "resendCode": "Skicka kod igen",
     "resendIn": "Skicka igen om",
-    "enterVerificationCode": "Vänligen ange den fullständiga verifieringskoden"
+    "enterVerificationCode": "Vänligen ange den fullständiga verifieringskoden",
+    "languageSelect": {
+      "title": "Välj språk",
+      "subtitle": "Välj det språk du vill använda i appen. Du kan ändra det senare i din profil.",
+      "searchPlaceholder": "Sök språk",
+      "noResults": "Inga språk hittades"
+    }
   },
   "notes": {
     "noteTranscript": "Anteckningstranskription",

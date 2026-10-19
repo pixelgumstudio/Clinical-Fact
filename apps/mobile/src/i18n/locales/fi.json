@@ -210,6 +210,12 @@
         "title": "Opi nopeammin tietokilpailujen ja muistikorttien avulla",
         "description": "Muunna muistiinpanot tietokilpailuiksi ja muistikorteiksi.\\nOpi nopeammin ja muista enemmän."
       }
+    },
+    "languageSelect": {
+      "title": "Valitse kieli",
+      "subtitle": "Valitse sovelluksessa käytettävä kieli. Voit muuttaa sen myöhemmin profiilistasi.",
+      "searchPlaceholder": "Hae kieliä",
+      "noResults": "Kieliä ei löytynyt"
     }
   },
   "notes": {

@@ -83,7 +83,13 @@
     "didntGetCode": "코드를 받지 못하셨나요?",
     "resendCode": "코드 재전송",
     "resendIn": "재전송까지",
-    "enterVerificationCode": "전체 인증 코드를 입력하세요"
+    "enterVerificationCode": "전체 인증 코드를 입력하세요",
+    "languageSelect": {
+      "title": "언어 선택",
+      "subtitle": "앱에서 사용할 언어를 선택해 주세요. 프로필에서 언제든지 변경할 수 있어요.",
+      "searchPlaceholder": "언어 검색",
+      "noResults": "검색 결과가 없습니다"
+    }
   },
   "notes": {
     "noteTranscript": "노트 기록",

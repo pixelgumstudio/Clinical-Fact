@@ -17,6 +17,7 @@
     "web": "expo start --web",
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 expo start --host lan",
     "test": "jest",
+    "translate:missing": "node scripts/translate-missing.js",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },

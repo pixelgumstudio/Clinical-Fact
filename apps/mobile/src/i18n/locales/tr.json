@@ -83,7 +83,13 @@
     "didntGetCode": "Kod almadınız mı?",
     "resendCode": "Kodu yeniden gönder",
     "resendIn": "Yeniden gönder",
-    "enterVerificationCode": "Lütfen tam doğrulama kodunu girin"
+    "enterVerificationCode": "Lütfen tam doğrulama kodunu girin",
+    "languageSelect": {
+      "title": "Dilinizi seçin",
+      "subtitle": "Uygulamada kullanmak istediğiniz dili seçin. Daha sonra profilinizden değiştirebilirsiniz.",
+      "searchPlaceholder": "Dil ara",
+      "noResults": "Dil bulunamadı"
+    }
   },
   "notes": {
     "noteTranscript": "Not transkripti",
