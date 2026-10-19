@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Η δημιουργία απέτυχε"
-    }
+    },
+    "viewQuizHistory": "Προβολή ιστορικού κουίζ"
   },
   "flashcards": {
     "title": "Κάρτες flash",

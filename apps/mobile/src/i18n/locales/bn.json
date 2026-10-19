@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "তৈরি করা যায়নি"
-    }
+    },
+    "viewQuizHistory": "কুইজের ইতিহাস দেখুন"
   },
   "flashcards": {
     "title": "ফ্ল্যাশকার্ড",

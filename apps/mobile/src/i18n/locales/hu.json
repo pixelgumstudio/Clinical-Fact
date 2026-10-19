@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "A létrehozás sikertelen"
-    }
+    },
+    "viewQuizHistory": "Kvízelőzmények megtekintése"
   },
   "flashcards": {
     "title": "Flash kártyák",

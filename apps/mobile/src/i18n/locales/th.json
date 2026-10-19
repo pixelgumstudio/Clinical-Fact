@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "การสร้างล้มเหลว"
-    }
+    },
+    "viewQuizHistory": "ดูประวัติการทำควิซ"
   },
   "flashcards": {
     "title": "บัตรคำ",

@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "فشل الإنشاء"
-    }
+    },
+    "viewQuizHistory": "عرض سجل الكويزات"
   },
   "flashcards": {
     "title": "بطاقات تعليمية",

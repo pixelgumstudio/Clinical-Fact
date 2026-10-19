@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Oluşturma başarısız oldu"
-    }
+    },
+    "viewQuizHistory": "Test geçmişini görüntüle"
   },
   "flashcards": {
     "title": "Flash kartlar",

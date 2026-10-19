@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "היצירה נכשלה"
-    }
+    },
+    "viewQuizHistory": "הצגת היסטוריית בחנים"
   },
   "flashcards": {
     "title": "כרטיסיות",

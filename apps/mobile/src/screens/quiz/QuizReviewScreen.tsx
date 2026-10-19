@@ -162,7 +162,7 @@ export const QuizReviewScreen = () => {
           index: 1,
           routes: [
             { name: 'MainTabs' },
-            { name: 'NoteDetail', params: { noteId, title: noteTitle } },
+            { name: 'QuizGroupDetail', params: { noteId, title: noteTitle } },
           ],
         })
       );
@@ -324,7 +324,7 @@ export const QuizReviewScreen = () => {
           onPress={handleGoToNotes}
         >
           <Text style={styles.goToNotesButtonText}>
-            {noteId ? t('notes.goToNote') : t('quiz.goToChats')}
+            {noteId ? t('quiz.viewQuizHistory') : t('quiz.goToChats')}
           </Text>
         </TouchableOpacity>
       </View>

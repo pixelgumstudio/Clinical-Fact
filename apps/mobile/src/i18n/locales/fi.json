@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Luonti epäonnistui"
-    }
+    },
+    "viewQuizHistory": "Näytä visahistoria"
   },
   "flashcards": {
     "title": "muistikortit",

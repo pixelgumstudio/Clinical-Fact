@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Pembuatan gagal"
-    }
+    },
+    "viewQuizHistory": "Lihat riwayat kuis"
   },
   "flashcards": {
     "title": "Kartu flash",

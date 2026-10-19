@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "तयार करणे अयशस्वी झाले"
-    }
+    },
+    "viewQuizHistory": "क्विझचा इतिहास पहा"
   },
   "flashcards": {
     "title": "फ्लॅशकार्ड्स",

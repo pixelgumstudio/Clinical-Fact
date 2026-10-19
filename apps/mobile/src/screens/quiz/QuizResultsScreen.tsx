@@ -205,7 +205,7 @@ export const QuizResultsScreen = () => {
         index: 1,
         routes: [
           { name: 'MainTabs' },
-          { name: 'NoteDetail', params: { noteId: noteId || '', title: noteTitle || '' } },
+          { name: 'QuizGroupDetail', params: { noteId: noteId || '', title: noteTitle || '' } },
         ],
       })
     );
@@ -284,7 +284,7 @@ export const QuizResultsScreen = () => {
               onPress={handleGoToNotes}
               activeOpacity={0.8}
             >
-              <Text style={styles.notesButtonText}>{t('notes.goToNote')}</Text>
+              <Text style={styles.notesButtonText}>{t('quiz.viewQuizHistory')}</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity

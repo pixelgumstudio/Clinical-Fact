@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "जनरेशन विफल रहा"
-    }
+    },
+    "viewQuizHistory": "क्विज़ इतिहास देखें"
   },
   "flashcards": {
     "title": "फ्लैशकार्ड",

@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Generering mislykkedes"
-    }
+    },
+    "viewQuizHistory": "Se quizhistorik"
   },
   "flashcards": {
     "title": "Flashcards",

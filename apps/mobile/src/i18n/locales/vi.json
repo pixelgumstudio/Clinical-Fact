@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Tạo thất bại"
-    }
+    },
+    "viewQuizHistory": "Xem lịch sử làm quiz"
   },
   "flashcards": {
     "title": "Thẻ ghi nhớ",

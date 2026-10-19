@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Genereringen misslyckades"
-    }
+    },
+    "viewQuizHistory": "Visa quizhistorik"
   },
   "flashcards": {
     "title": "Flashkort",

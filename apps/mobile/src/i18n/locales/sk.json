@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "Generovanie zlyhalo"
-    }
+    },
+    "viewQuizHistory": "Zobraziť históriu kvízov"
   },
   "flashcards": {
     "title": "Kartičky",

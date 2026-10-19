@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "生成失败"
-    }
+    },
+    "viewQuizHistory": "查看测验历史"
   },
   "flashcards": {
     "title": "闪卡",

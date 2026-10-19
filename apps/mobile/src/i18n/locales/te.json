@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "రూపొందించడం విఫలమైంది"
-    }
+    },
+    "viewQuizHistory": "క్విజ్ హిస్టరీని చూడండి"
   },
   "flashcards": {
     "title": "ఫ్లాష్‌కార్డులు",

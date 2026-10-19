@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "ਤਿਆਰ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
-    }
+    },
+    "viewQuizHistory": "ਕਵਿਜ਼ ਦਾ ਇਤਿਹਾਸ ਦੇਖੋ"
   },
   "flashcards": {
     "title": "ਫਲੈਸ਼ਕਾਰਡ",

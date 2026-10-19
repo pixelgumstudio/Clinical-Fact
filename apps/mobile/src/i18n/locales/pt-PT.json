@@ -720,7 +720,8 @@
     },
     "quiz": {
       "generationFailed": "Falha na geração"
-    }
+    },
+    "viewQuizHistory": "Ver histórico de questionários"
   },
   "flashcards": {
     "title": "Flashcards",

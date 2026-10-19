@@ -738,7 +738,8 @@
     },
     "quiz": {
       "generationFailed": "جنریشن ناکام ہو گئی"
-    }
+    },
+    "viewQuizHistory": "کوئز کی تاریخ دیکھیں"
   },
   "flashcards": {
     "title": "فلیش کارڈز",
