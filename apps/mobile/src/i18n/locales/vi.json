@@ -1222,9 +1222,6 @@
       "moveToFolder": "Chuyển vào thư mục",
       "deleteNote": "Xóa ghi chú"
     },
-    "onboardingTooltip": {
-      "skip": "Bỏ qua"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Xóa bài trắc nghiệm",
       "areYouSureYouWantTo": "Bạn có chắc chắn muốn xóa \"{{quizTitle}}\" không?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Xác thực Apple thất bại",
       "failedToCompleteSignup": "Không thể hoàn tất đăng ký",
       "failedToSkipSignup": "Không thể bỏ qua đăng ký"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Đoạn chat",
-      "description": "Trò chuyện cùng AI từ mọi ghi chú, tài liệu hoặc file PDF tại một nơi duy nhất"
-    },
-    "profileWelcome": {
-      "heading": "Chào mừng đến với Hồ sơ của bạn",
-      "description": "Đây là hồ sơ của bạn, nhấn vào đây để chỉnh sửa thông tin cá nhân và gói đăng ký"
-    },
-    "createNotes": {
-      "heading": "Tạo ghi chú",
-      "description": "Tạo mọi loại ghi chú từ: Bản ghi âm, âm thanh, video, hình ảnh, văn bản và link YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Đổi ngôn ngữ",
-      "description": "Thay đổi ngôn ngữ ứng dụng sang ngôn ngữ bạn mong muốn tại đây"
-    },
-    "manageHome": {
-      "heading": "Quản lý Trang chủ",
-      "description": "Xem tất cả ghi chú đã tạo và theo dõi mọi hoạt động của bạn tại một nơi"
-    },
-    "yourLibrary": {
-      "heading": "Thư viện của bạn",
-      "description": "Quản lý toàn bộ ghi chú đã tạo, sắp xếp theo thư mục và nhiều tiện ích khác"
-    },
-    "yourProfile": {
-      "heading": "Hồ sơ của bạn",
-      "description": "Xem thông tin tài khoản và tùy chỉnh cài đặt hồ sơ của bạn ngay tại đây"
     }
   },
   "serverMessages": {

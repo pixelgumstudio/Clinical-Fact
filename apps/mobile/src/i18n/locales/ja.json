@@ -1222,9 +1222,6 @@
       "moveToFolder": "フォルダへ移動",
       "deleteNote": "ノートを削除"
     },
-    "onboardingTooltip": {
-      "skip": "スキップ"
-    },
     "quizHistoryList": {
       "deleteQuiz": "クイズを削除",
       "areYouSureYouWantTo": "「{{quizTitle}}」を削除してもよろしいですか？",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple認証に失敗しました",
       "failedToCompleteSignup": "登録を完了できませんでした",
       "failedToSkipSignup": "登録のスキップに失敗しました"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "チャット",
-      "description": "ノート、ドキュメント、PDFとまとめてチャット可能"
-    },
-    "profileWelcome": {
-      "heading": "プロフィールへようこそ",
-      "description": "ここをタップして、プロフィールの変更やサブスクリプション状況の確認ができます"
-    },
-    "createNotes": {
-      "heading": "ノートを作成",
-      "description": "録音、音声、動画、画像、テキスト、YouTubeリンクなど、あらゆる形式からノートを作成できます"
-    },
-    "changeLanguage": {
-      "heading": "言語を変更",
-      "description": "ここからアプリの表示言語をお好みの言語に変更できます"
-    },
-    "manageHome": {
-      "heading": "ホームを管理",
-      "description": "作成したノートやアクティビティをまとめて確認できます"
-    },
-    "yourLibrary": {
-      "heading": "ライブラリ",
-      "description": "作成した全ノートの管理やフォルダ分けなどができます"
-    },
-    "yourProfile": {
-      "heading": "プロフィール",
-      "description": "プロフィール情報の確認や各種設定の変更がここから行えます"
     }
   },
   "serverMessages": {

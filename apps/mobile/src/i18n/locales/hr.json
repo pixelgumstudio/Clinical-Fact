@@ -1240,9 +1240,6 @@
       "moveToFolder": "Premjesti u mapu",
       "deleteNote": "Izbriši bilješku"
     },
-    "onboardingTooltip": {
-      "skip": "Preskoči"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Izbriši kviz",
       "areYouSureYouWantTo": "Sigurno želiš izbrisati \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Apple autentifikacija nije uspjela",
       "failedToCompleteSignup": "Dovršavanje registracije nije uspjelo",
       "failedToSkipSignup": "Preskakanje registracije nije uspjelo"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Razgovori",
-      "description": "Razgovaraj sa svojim bilješkama, dokumentima ili PDF-ovima na jednom mjestu"
-    },
-    "profileWelcome": {
-      "heading": "Dobrodošli na svoj profil",
-      "description": "Ovo je tvoj profil – dodirni ovdje za uređivanje profila i statusa pretplate"
-    },
-    "createNotes": {
-      "heading": "Izradi bilješku",
-      "description": "Izradi bilo koju vrstu bilješke iz bilo čega: snimke, audia, videa, slike, teksta i YouTube poveznica"
-    },
-    "changeLanguage": {
-      "heading": "Promijeni jezik",
-      "description": "Ovdje promijeni jezik aplikacije na željeni jezik."
-    },
-    "manageHome": {
-      "heading": "Upravljaj početnim zaslonom",
-      "description": "Pregledaj sve stvorene bilješke i prati sve svoje aktivnosti na jednom mjestu."
-    },
-    "yourLibrary": {
-      "heading": "Tvoja knjižnica",
-      "description": "Upravljaj stvorenim bilješkama, stvaraj mape i još mnogo toga."
-    },
-    "yourProfile": {
-      "heading": "Tvoj profil",
-      "description": "Ovdje pregledaj sve o svom profilu i uredi postavke."
     }
   },
   "serverMessages": {

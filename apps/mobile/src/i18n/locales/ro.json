@@ -1240,9 +1240,6 @@
       "moveToFolder": "Mută în dosar",
       "deleteNote": "Șterge notița"
     },
-    "onboardingTooltip": {
-      "skip": "Omite"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Șterge quizul",
       "areYouSureYouWantTo": "Sigur vrei să ștergi „{{quizTitle}}”?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Autentificarea cu Apple a eșuat",
       "failedToCompleteSignup": "Finalizarea înregistrării a eșuat",
       "failedToSkipSignup": "Omisiunea înregistrării a eșuat"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Conversații",
-      "description": "Discută cu notițele, documentele sau fișierele tale PDF, într-un singur loc"
-    },
-    "profileWelcome": {
-      "heading": "Bun venit la profilul tău",
-      "description": "Acesta este profilul tău; apasă aici pentru a face modificări profilului și stării abonamentului"
-    },
-    "createNotes": {
-      "heading": "Creează o notiță",
-      "description": "Creează orice tip de notiță din orice sursă: înregistrări, audio, video, imagini, text și linkuri YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Schimbă limba",
-      "description": "Schimbă limba aplicației de aici în limba dorită"
-    },
-    "manageHome": {
-      "heading": "Gestionează ecranul principal",
-      "description": "Vezi toate notițele create și toate acțiunile tale într-un singur loc"
-    },
-    "yourLibrary": {
-      "heading": "Biblioteca ta",
-      "description": "Gestionează toate notițele create, organizează-le în dosare și multe altele"
-    },
-    "yourProfile": {
-      "heading": "Profilul tău",
-      "description": "Vezi toate detaliile despre contul tău și modifică setările profilului de aici"
     }
   },
   "serverMessages": {

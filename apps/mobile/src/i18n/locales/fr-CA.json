@@ -1222,9 +1222,6 @@
       "moveToFolder": "Déplacer dans un dossier",
       "deleteNote": "Supprimer la note"
     },
-    "onboardingTooltip": {
-      "skip": "Passer"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Supprimer le quiz",
       "areYouSureYouWantTo": "Voulez-vous vraiment supprimer « {{quizTitle}} »?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Échec de l'authentification Apple",
       "failedToCompleteSignup": "Échec de l'inscription",
       "failedToSkipSignup": "Impossible d'ignorer l'inscription"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Discussions",
-      "description": "Interagissez avec vos notes, documents ou PDF au même endroit"
-    },
-    "profileWelcome": {
-      "heading": "Bienvenue dans votre profil",
-      "description": "Voici votre profil. Appuyez ici pour modifier vos renseignements et l'état de votre abonnement"
-    },
-    "createNotes": {
-      "heading": "Créer une note",
-      "description": "Créez tout type de note à partir de n'importe quelle source : enregistrement, audio, vidéo, image, texte et liens YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Changer de langue",
-      "description": "Modifiez la langue de l'application selon vos préférences directement ici."
-    },
-    "manageHome": {
-      "heading": "Gérer l'accueil",
-      "description": "Consultez toutes vos notes créées et retrouvez vos activités en un seul endroit."
-    },
-    "yourLibrary": {
-      "heading": "Votre bibliothèque",
-      "description": "Gérez toutes vos notes créées, organisez-les dans des dossiers et plus encore."
-    },
-    "yourProfile": {
-      "heading": "Votre profil",
-      "description": "Consultez les détails de votre profil et ajustez vos paramètres directement ici."
     }
   },
   "serverMessages": {

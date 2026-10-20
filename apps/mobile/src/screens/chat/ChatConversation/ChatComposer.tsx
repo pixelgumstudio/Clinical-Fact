@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Pressable, Image, ActivityIndi
 import { colors, spacing, typography, Icon, theme } from '@clinicalfact/design-system';
 import { PendingAttachment } from './types';
 import { useTranslation } from 'react-i18next';
+import { useWalkthroughTarget } from '../../../hooks/useWalkthroughTarget';
 import i18n from '../../../i18n';
 
 type ChatSourceType = 'note' | 'image' | 'document' | 'pdf' | 'audio' | 'medical_qa' | undefined;
@@ -63,6 +64,8 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
   onStopGenerating,
 }) => {
   const { t } = useTranslation();
+  const inputTargetRef = useWalkthroughTarget('chatInput');
+  const plusTargetRef = useWalkthroughTarget('chatPlus');
   if (isLocked) {
     return (
       <Pressable onPress={onUpgrade} style={[styles.lockedContainer, { marginBottom: insetsBottom > 0 ? insetsBottom : 16 }]}>
@@ -87,7 +90,7 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
           field, with attach (+) and send on a row below. The "+" is always available: with
           no chat open yet, it starts a new one; inside an open chat, it attaches to that
           chat instead. */}
-      <View style={[styles.inputRow]}>
+      <View ref={inputTargetRef} collapsable={false} style={[styles.inputRow]}>
         {queriesRemaining !== null && (
           <View style={styles.creditsHeader}>
             <Text style={styles.creditsHeaderText}>{t('chat.chatComposer.queryremaining', { queriesRemaining })}</Text>
@@ -131,6 +134,7 @@ export const ChatComposer: React.FC<ChatComposerProps> = ({
           />
           <View style={styles.inputActionsRow}>
             <TouchableOpacity
+              ref={plusTargetRef}
               style={styles.attachButton}
               onPress={onOpenAttachMenu}
               activeOpacity={0.7}

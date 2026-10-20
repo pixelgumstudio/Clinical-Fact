@@ -1240,9 +1240,6 @@
       "moveToFolder": "Přesunout do složky",
       "deleteNote": "Smazat poznámku"
     },
-    "onboardingTooltip": {
-      "skip": "Přeskočit"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Smazat kvíz",
       "areYouSureYouWantTo": "Opravdu chcete smazat \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Přihlášení přes Apple selhalo",
       "failedToCompleteSignup": "Registraci se nepodařilo dokončit",
       "failedToSkipSignup": "Přeskočení registrace se nezdařilo"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chaty",
-      "description": "Chatujte se svými poznámkami, dokumenty i PDF na jednom místě"
-    },
-    "profileWelcome": {
-      "heading": "Vítejte ve svém profilu",
-      "description": "Zde je váš profil. Klepnutím můžete upravit své údaje a zkontrolovat stav předplatného"
-    },
-    "createNotes": {
-      "heading": "Vytvořit poznámku",
-      "description": "Vytvářejte poznámky z čehokoli: nahrávek, audia, videa, obrázků, textu i odkazů na YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Změna jazyka",
-      "description": "Zde si můžeš změnit jazyk aplikace na ten, který ti vyhovuje."
-    },
-    "manageHome": {
-      "heading": "Správa domovské obrazovky",
-      "description": "Prohlížej si vytvořené poznámky a měj všechny své aktivity na jednom místě."
-    },
-    "yourLibrary": {
-      "heading": "Tvoje knihovna",
-      "description": "Spravuj všechny své poznámky, organizuj je do složek a mnoho dalšího."
-    },
-    "yourProfile": {
-      "heading": "Tvůj profil",
-      "description": "Zde najdeš veškeré informace o svém účtu a můžeš upravit nastavení profilu."
     }
   },
   "serverMessages": {

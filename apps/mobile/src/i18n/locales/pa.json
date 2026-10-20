@@ -1240,9 +1240,6 @@
       "moveToFolder": "ਫ਼ੋਲਡਰ ਵਿੱਚ ਭੇਜੋ",
       "deleteNote": "ਨੋਟ ਮਿਟਾਓ"
     },
-    "onboardingTooltip": {
-      "skip": "ਛੱਡੋ"
-    },
     "quizHistoryList": {
       "deleteQuiz": "ਕੁਇਜ਼ ਮਿਟਾਓ",
       "areYouSureYouWantTo": "ਕੀ ਤੁਸੀਂ ਵਾਕਈ \"{{quizTitle}}\" ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Apple ਪ੍ਰਮਾਣੀਕਰਨ ਅਸਫ਼ਲ ਰਿਹਾ",
       "failedToCompleteSignup": "ਸਾਈਨ-ਅੱਪ ਪੂਰਾ ਕਰਨਾ ਅਸਫ਼ਲ ਰਿਹਾ",
       "failedToSkipSignup": "ਸਾਈਨ-ਅੱਪ ਛੱਡਣਾ ਅਸਫ਼ਲ ਰਿਹਾ"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "ਚੈਟਸ",
-      "description": "ਕਿਸੇ ਵੀ ਨੋਟਸ, ਦਸਤਾਵੇਜ਼ਾਂ ਜਾਂ PDF ਨਾਲ ਇੱਕੋ ਥਾਂ 'ਤੇ ਗੱਲਬਾਤ ਕਰੋ"
-    },
-    "profileWelcome": {
-      "heading": "ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ",
-      "description": "ਇਹ ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ ਹੈ, ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਗਾਹਕੀ ਸਥਿਤੀ ਵਿੱਚ ਬਦਲਾਅ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ"
-    },
-    "createNotes": {
-      "heading": "ਨੋਟ ਬਣਾਓ",
-      "description": "ਕਿਸੇ ਵੀ ਚੀਜ਼ ਤੋਂ ਨੋਟ ਬਣਾਓ: ਰਿਕਾਰਡਿੰਗ, ਆਡੀਓ, ਵੀਡੀਓ, ਚਿੱਤਰ, ਟੈਕਸਟ ਅਤੇ YouTube ਲਿੰਕ"
-    },
-    "changeLanguage": {
-      "heading": "ਭਾਸ਼ਾ ਬਦਲੋ",
-      "description": "ਇੱਥੋਂ ਆਪਣੀ ਐਪ ਦੀ ਭਾਸ਼ਾ ਨੂੰ ਆਪਣੀ ਮਨਪਸੰਦ ਭਾਸ਼ਾ ਵਿੱਚ ਬਦਲੋ"
-    },
-    "manageHome": {
-      "heading": "ਹੋਮ ਪ੍ਰਬੰਧਿਤ ਕਰੋ",
-      "description": "ਆਪਣੇ ਬਣਾਏ ਸਾਰੇ ਨੋਟ ਦੇਖੋ, ਆਪਣੀਆਂ ਸਾਰੀਆਂ ਗਤੀਵਿਧੀਆਂ ਇੱਕੋ ਥਾਂ 'ਤੇ ਦੇਖੋ"
-    },
-    "yourLibrary": {
-      "heading": "ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ",
-      "description": "ਆਪਣੇ ਬਣਾਏ ਸਾਰੇ ਨੋਟਸ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ, ਨੋਟਸ ਲਈ ਫੋਲਡਰ ਬਣਾਓ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ"
-    },
-    "yourProfile": {
-      "heading": "ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ",
-      "description": "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਬਾਰੇ ਸਭ ਕੁਝ ਦੇਖੋ ਅਤੇ ਇੱਥੋਂ ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਸੈਟਿੰਗਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ"
     }
   },
   "serverMessages": {

@@ -1222,9 +1222,6 @@
       "moveToFolder": "移动至文件夹",
       "deleteNote": "删除笔记"
     },
-    "onboardingTooltip": {
-      "skip": "跳过"
-    },
     "quizHistoryList": {
       "deleteQuiz": "删除测验",
       "areYouSureYouWantTo": "确定要删除“{{quizTitle}}”吗？",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple 认证失败",
       "failedToCompleteSignup": "注册失败",
       "failedToSkipSignup": "跳过失败"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "问答对话",
-      "description": "随时随地与任何笔记、文档或 PDF 展开对话"
-    },
-    "profileWelcome": {
-      "heading": "欢迎来到个人中心",
-      "description": "这里是您的个人主页，点击此处可编辑个人信息及查看订阅状态"
-    },
-    "createNotes": {
-      "heading": "创建笔记",
-      "description": "支持多种格式生成笔记：录音、音频、视频、图片、文本和 YouTube 链接"
-    },
-    "changeLanguage": {
-      "heading": "更改语言",
-      "description": "在此处将应用切换为您所需的语言"
-    },
-    "manageHome": {
-      "heading": "主页管理",
-      "description": "一站式查看所有已创建的笔记和近期动态"
-    },
-    "yourLibrary": {
-      "heading": "资料库",
-      "description": "管理所有已建笔记，创建文件夹分类整理等"
-    },
-    "yourProfile": {
-      "heading": "个人中心",
-      "description": "在此查看个人资料详情并修改相关设置"
     }
   },
   "serverMessages": {

@@ -1240,9 +1240,6 @@
       "moveToFolder": "Pindah ke folder",
       "deleteNote": "Padam nota"
     },
-    "onboardingTooltip": {
-      "skip": "Langkau"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Padam Kuiz",
       "areYouSureYouWantTo": "Adakah anda pasti mahu memadamkan \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Pengesahan Apple gagal",
       "failedToCompleteSignup": "Gagal melengkapkan pendaftaran",
       "failedToSkipSignup": "Gagal melangkau pendaftaran"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Sembang",
-      "description": "Berbual dengan mana-mana nota, Dokumen atau PDF di satu tempat"
-    },
-    "profileWelcome": {
-      "heading": "Selamat datang ke Profil anda",
-      "description": "Ini profil anda, ketik di sini untuk mengemas kini profil dan status langganan anda"
-    },
-    "createNotes": {
-      "heading": "Cipta nota",
-      "description": "Cipta sebarang jenis nota daripada apa sahaja: Rakaman, Audio, Video, Imej, Teks dan pautan YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Tukar bahasa",
-      "description": "Tukar bahasa aplikasi anda dari sini ke bahasa yang diingini"
-    },
-    "manageHome": {
-      "heading": "Urus utama",
-      "description": "Lihat semua nota yang dicipta, pantau semua tindakan anda di satu tempat"
-    },
-    "yourLibrary": {
-      "heading": "Pustaka anda",
-      "description": "Urus semua nota yang dicipta, cipta folder untuk nota anda dan banyak lagi"
-    },
-    "yourProfile": {
-      "heading": "Profil anda",
-      "description": "Lihat segala-galanya tentang profil anda dan edit tetapan profil dari sini"
     }
   },
   "serverMessages": {

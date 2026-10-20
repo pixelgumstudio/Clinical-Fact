@@ -1222,9 +1222,6 @@
       "moveToFolder": "Pindahkan ke folder",
       "deleteNote": "Hapus catatan"
     },
-    "onboardingTooltip": {
-      "skip": "Lewati"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Hapus Kuis",
       "areYouSureYouWantTo": "Apakah Anda yakin ingin menghapus \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Autentikasi Apple gagal",
       "failedToCompleteSignup": "Gagal menyelesaikan pendaftaran",
       "failedToSkipSignup": "Gagal melewati pendaftaran"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Obrolan",
-      "description": "Tanya jawab dengan catatan, dokumen, atau PDF apa pun di satu tempat"
-    },
-    "profileWelcome": {
-      "heading": "Selamat datang di Profil Anda",
-      "description": "Ini adalah profil Anda, ketuk di sini untuk mengubah profil dan status langganan Anda"
-    },
-    "createNotes": {
-      "heading": "Buat catatan",
-      "description": "Buat jenis catatan apa pun dari berbagai sumber: Rekaman, Audio, Video, Gambar, Teks, dan tautan YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Ubah bahasa",
-      "description": "Ubah bahasa aplikasi sesuai keinginan Anda dari sini"
-    },
-    "manageHome": {
-      "heading": "Kelola beranda",
-      "description": "Lihat semua catatan yang dibuat dan pantau semua aktivitas Anda di satu tempat"
-    },
-    "yourLibrary": {
-      "heading": "Pustaka Anda",
-      "description": "Kelola semua catatan yang dibuat, buat folder untuk catatan Anda, dan lainnya"
-    },
-    "yourProfile": {
-      "heading": "Profil Anda",
-      "description": "Lihat info profil dan sesuaikan pengaturannya dari sini"
     }
   },
   "serverMessages": {

@@ -1240,9 +1240,6 @@
       "moveToFolder": "Siirrä kansioon",
       "deleteNote": "Poista muistiinpano"
     },
-    "onboardingTooltip": {
-      "skip": "Ohita"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Poista tietovisa",
       "areYouSureYouWantTo": "Haluatko varmasti poistaa visan \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Apple-tunnistautuminen epäonnistui",
       "failedToCompleteSignup": "Rekisteröitymisen viimeistely epäonnistui",
       "failedToSkipSignup": "Rekisteröitymisen ohittaminen epäonnistui"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Keskustelut",
-      "description": "Keskustele muistiinpanojesi, dokumenttiesi tai PDF-tiedostojesi kanssa yhdessä paikassa"
-    },
-    "profileWelcome": {
-      "heading": "Tervetuloa profiiliisi",
-      "description": "Tämä on profiilisi. Muokkaa tietojasi ja hallinnoi tilaustasi napauttamalla tästä."
-    },
-    "createNotes": {
-      "heading": "Luo muistiinpano",
-      "description": "Luo muistiinpanoja mistä tahansa muodosta: tallenteesta, äänitiedostosta, videosta, kuvasta, tekstistä tai YouTube-linkistä"
-    },
-    "changeLanguage": {
-      "heading": "Vaihda kieli",
-      "description": "Vaihda sovelluksen kieli haluamaksesi täältä."
-    },
-    "manageHome": {
-      "heading": "Hallitse etusivua",
-      "description": "Tarkastele luomiasi muistiinpanoja ja näe kaikki toiminnot yhdessä paikassa."
-    },
-    "yourLibrary": {
-      "heading": "Kirjastosi",
-      "description": "Hallitse luomiasi muistiinpanoja, luo niille kansioita ja paljon muuta."
-    },
-    "yourProfile": {
-      "heading": "Profiilisi",
-      "description": "Tarkastele profiilitietojasi ja muokkaa profiilisi asetuksia täältä."
     }
   },
   "serverMessages": {

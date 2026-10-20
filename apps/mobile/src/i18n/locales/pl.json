@@ -1222,9 +1222,6 @@
       "moveToFolder": "Przenieś do folderu",
       "deleteNote": "Usuń notatkę"
     },
-    "onboardingTooltip": {
-      "skip": "Pomiń"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Usuń quiz",
       "areYouSureYouWantTo": "Czy na pewno chcesz usunąć „{{quizTitle}}”?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Uwierzytelnianie przez Apple nie powiodło się",
       "failedToCompleteSignup": "Nie udało się ukończyć rejestracji",
       "failedToSkipSignup": "Nie udało się pominąć rejestracji"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Czaty",
-      "description": "Rozmawiaj ze swoimi notatkami, dokumentami i plikami PDF w jednym miejscu"
-    },
-    "profileWelcome": {
-      "heading": "Witaj w swoim profilu",
-      "description": "To Twój profil. Stuknij tutaj, aby edytować dane i sprawdzić status subskrypcji"
-    },
-    "createNotes": {
-      "heading": "Utwórz notatkę",
-      "description": "Twórz notatki z dowolnego źródła: nagrań, audio, wideo, zdjęć, tekstu i linków z YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Zmień język",
-      "description": "W tym miejscu możesz zmienić język aplikacji na wybrany"
-    },
-    "manageHome": {
-      "heading": "Ekran główny",
-      "description": "Przeglądaj utworzone notatki i miej wszystkie aktywności pod ręką"
-    },
-    "yourLibrary": {
-      "heading": "Twoja biblioteka",
-      "description": "Zarządzaj notatkami, twórz dla nich foldery i korzystaj z dodatkowych opcji"
-    },
-    "yourProfile": {
-      "heading": "Twój profil",
-      "description": "Sprawdzaj informacje o profilu i zmieniaj jego ustawienia w tym miejscu"
     }
   },
   "serverMessages": {

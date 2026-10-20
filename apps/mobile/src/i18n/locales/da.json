@@ -1240,9 +1240,6 @@
       "moveToFolder": "Flyt til mappe",
       "deleteNote": "Slet note"
     },
-    "onboardingTooltip": {
-      "skip": "Spring over"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Slet quiz",
       "areYouSureYouWantTo": "Er du sikker på, at du vil slette \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Apple-godkendelse mislykkedes",
       "failedToCompleteSignup": "Kunne ikke fuldføre oprettelsen",
       "failedToSkipSignup": "Kunne ikke springe oprettelsen over"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chats",
-      "description": "Chat med dine noter, dokumenter eller PDF'er samlet ét sted"
-    },
-    "profileWelcome": {
-      "heading": "Velkommen til din profil",
-      "description": "Dette er din profil. Tryk her for at ændre profiloplysninger og abonnementsstatus"
-    },
-    "createNotes": {
-      "heading": "Opret note",
-      "description": "Opret noter ud fra hvad som helst: optagelser, lyd, video, billeder, tekst og YouTube-links"
-    },
-    "changeLanguage": {
-      "heading": "Skift sprog",
-      "description": "Skift appens sprog til dit ønskede sprog lige her"
-    },
-    "manageHome": {
-      "heading": "Administrer Hjem",
-      "description": "Se alle dine oprettede noter, og få overblik over alle dine aktiviteter ét sted"
-    },
-    "yourLibrary": {
-      "heading": "Dit bibliotek",
-      "description": "Administrer alle dine oprettede noter, opret mapper til dine noter og meget mere"
-    },
-    "yourProfile": {
-      "heading": "Din profil",
-      "description": "Se alt om din profil, og rediger dine profilindstillinger herfra"
     }
   },
   "serverMessages": {

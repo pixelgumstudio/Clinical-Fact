@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabBarButtonProps } from '@react-navigation/bottom-tabs';
+import { PlatformPressable } from '@react-navigation/elements';
 import { Icon, SparkleIcon, theme } from '@clinicalfact/design-system';
 import { HomeScreen, ProfileScreen } from '../screens/main';
 import { ChatConversationScreen } from '../screens/chat';
 import { QuizHistoryScreen } from '../screens/main/QuizHistoryScreen';
 import { FlashcardHistoryScreen } from '../screens/main/FlashcardHistoryScreen';
-import { OnboardingOverlay } from '../components/OnboardingOverlay';
-import { useOnboardingStore } from '../store/onboardingStore';
+import { WalkthroughOverlay } from '../components/walkthrough/WalkthroughOverlay';
+import { useWalkthroughTarget } from '../hooks/useWalkthroughTarget';
+import type { WalkthroughTargetId } from '../services/walkthroughTargets';
 import { useAuthStore } from '../store/authStore';
 import { useTranslation } from 'react-i18next';
 
@@ -23,30 +25,29 @@ export type MainTabParamList = {
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
+/** A tab button the walkthrough can point at: the stock button, in a wrapper that registers its position. */
+const tabButtonFor = (id: WalkthroughTargetId) => (props: BottomTabBarButtonProps) => <TabButtonTarget targetId={id} {...props} />;
+
+const TabButtonTarget = ({ targetId, ...props }: BottomTabBarButtonProps & { targetId: WalkthroughTargetId }) => {
+  const ref = useWalkthroughTarget(targetId);
+  return (
+    <View ref={ref} collapsable={false} style={styles.tabButtonTarget}>
+      <PlatformPressable {...props} />
+    </View>
+  );
+};
+
 export const MainTabNavigator = () => {
   const { t } = useTranslation();
   const { user, completeOnboardingStep } = useAuthStore();
-  const {
-    hasCompletedOnboarding,
-    isOnboardingActive,
-    startOnboarding,
-  } = useOnboardingStore();
-
-  // Start onboarding once for new users — AppNavigator already loaded the status
-  useEffect(() => {
-    if (user && !hasCompletedOnboarding && !isOnboardingActive) {
-      const timer = setTimeout(() => {
-        startOnboarding();
-      }, 600);
-      return () => clearTimeout(timer);
-    }
-  }, [user?.id, hasCompletedOnboarding, isOnboardingActive]);
-
-  // A brand-new account lands on Chat so its first action is a conversation; every later launch
-  // lands on Home. The flag lives on the account (set when registration completes), so it survives
-  // a crash before landing, a reinstall or another device. Decided once, at first mount: the step is
-  // marked done straight away, which must not change where this mount starts.
-  const landOnChat = useRef(user?.onboarding?.firstChatPending === true).current;
+  // A brand-new account lands on Chat so its first action is a conversation, and it keeps landing
+  // there until the walkthrough (which points at things on Chat) is finished or skipped; every later
+  // launch lands on Home. Both flags live on the account (set when registration completes), so they
+  // survive a crash, a reinstall or another device. Decided once, at first mount: the first-chat step
+  // is marked done straight away, which must not change where this mount starts.
+  const landOnChat = useRef(
+    user?.onboarding?.firstChatPending === true || user?.onboarding?.walkthroughPending === true
+  ).current;
   useEffect(() => {
     if (landOnChat) completeOnboardingStep('firstChatPending');
   }, []);
@@ -67,6 +68,8 @@ export const MainTabNavigator = () => {
           name="Home"
           component={HomeScreen}
           options={{
+            title: t('navigation.mainTabNavigator.home'),
+            tabBarButton: tabButtonFor('tabHome'),
             tabBarIcon: ({ color }) => <Icon name="chatFill" size={24} color={color} />,
           }}
         />
@@ -75,6 +78,7 @@ export const MainTabNavigator = () => {
           component={QuizHistoryScreen}
           options={{
             title: t('navigation.mainTabNavigator.quiz'),
+            tabBarButton: tabButtonFor('tabQuiz'),
             tabBarIcon: ({ color }) => <Icon name="quizFill" size={24} color={color} />,
           }}
         />
@@ -94,6 +98,8 @@ export const MainTabNavigator = () => {
           name="Flashcards"
           component={FlashcardHistoryScreen}
           options={{
+            title: t('navigation.mainTabNavigator.flashcards'),
+            tabBarButton: tabButtonFor('tabFlashcards'),
             tabBarIcon: ({ color }) => <Icon name="flashcardsFill" size={24} color={color} />,
           }}
         />
@@ -101,18 +107,21 @@ export const MainTabNavigator = () => {
           name="Profile"
           component={ProfileScreen}
           options={{
+            title: t('navigation.mainTabNavigator.profile'),
             tabBarIcon: ({ color }) => <Icon name="profileFill" size={24} color={color} />,
           }}
         />
       </Tab.Navigator>
 
-      {/* Onboarding Overlay */}
-      <OnboardingOverlay />
+      <WalkthroughOverlay />
     </>
   );
 };
 
 const styles = StyleSheet.create({
+  tabButtonTarget: {
+    flex: 1,
+  },
   tabBar: {
     backgroundColor: theme.colors.white,
     borderTopWidth: 1,

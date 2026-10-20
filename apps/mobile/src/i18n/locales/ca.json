@@ -1240,9 +1240,6 @@
       "moveToFolder": "Mou a una carpeta",
       "deleteNote": "Elimina la nota"
     },
-    "onboardingTooltip": {
-      "skip": "Omet"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Elimina el qüestionari",
       "areYouSureYouWantTo": "Segur que vols eliminar «{{quizTitle}}»?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Error d'autenticació amb Apple",
       "failedToCompleteSignup": "Error en completar el registre",
       "failedToSkipSignup": "Error en ometre el registre"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Xats",
-      "description": "Xateja amb qualsevol apunt, document o PDF en un sol lloc"
-    },
-    "profileWelcome": {
-      "heading": "Benvingut al teu perfil",
-      "description": "Aquest és el teu perfil. Toca aquí per fer-hi canvis i gestionar la subscripció"
-    },
-    "createNotes": {
-      "heading": "Crea una nota",
-      "description": "Crea apunts a partir de qualsevol material: gravacions, àudio, vídeo, imatges, text i enllaços de YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Canvia l'idioma",
-      "description": "Canvia l'idioma de l'aplicació des d'aquí pel que prefereixis"
-    },
-    "manageHome": {
-      "heading": "Gestiona l'inici",
-      "description": "Consulta tots els teus apunts creats i mira tota la teva activitat en un sol lloc"
-    },
-    "yourLibrary": {
-      "heading": "La teva biblioteca",
-      "description": "Gestiona tots els teus apunts creats, crea carpetes per organitzar-los i molt més"
-    },
-    "yourProfile": {
-      "heading": "El teu perfil",
-      "description": "Consulta tota la informació del teu perfil i modifica'n la configuració des d'aquí"
     }
   },
   "serverMessages": {

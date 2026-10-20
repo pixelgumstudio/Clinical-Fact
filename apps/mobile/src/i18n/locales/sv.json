@@ -1222,9 +1222,6 @@
       "moveToFolder": "Flytta till mapp",
       "deleteNote": "Radera anteckning"
     },
-    "onboardingTooltip": {
-      "skip": "Hoppa över"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Radera quiz",
       "areYouSureYouWantTo": "Är du säker på att du vill radera \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple-autentiseringen misslyckades",
       "failedToCompleteSignup": "Kunde inte slutföra registreringen",
       "failedToSkipSignup": "Kunde inte hoppa över registreringen"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chattar",
-      "description": "Chatta med alla anteckningar, dokument eller PDF:er på ett och samma ställe"
-    },
-    "profileWelcome": {
-      "heading": "Välkommen till din profil",
-      "description": "Det här är din profil. Tryck här för att ändra dina uppgifter och se din prenumerationsstatus"
-    },
-    "createNotes": {
-      "heading": "Skapa anteckning",
-      "description": "Skapa valfri typ av anteckning från vad som helst: inspelningar, ljud, video, bild, text och YouTube-länkar"
-    },
-    "changeLanguage": {
-      "heading": "Ändra språk",
-      "description": "Ändra appens språk härifrån till önskat språk"
-    },
-    "manageHome": {
-      "heading": "Hantera Hem",
-      "description": "Visa alla dina skapade anteckningar och se alla dina aktiviteter på ett ställe"
-    },
-    "yourLibrary": {
-      "heading": "Ditt bibliotek",
-      "description": "Hantera alla dina skapade anteckningar, skapa mappar och mycket mer"
-    },
-    "yourProfile": {
-      "heading": "Din profil",
-      "description": "Se allt om din profil och ändra dina profilinställningar härifrån"
     }
   },
   "serverMessages": {
