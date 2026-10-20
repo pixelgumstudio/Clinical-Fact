@@ -3,17 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  Modal,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
 } from "react-native";
 import { Icon, theme, colors } from "@clinicalfact/design-system";
 import { CounterInput } from "./CounterInput";
 import { useTranslation } from 'react-i18next';
+import { FullScreenModal } from './FullScreenModal';
 
 interface CreateFlashcardsModalProps {
   visible: boolean;
@@ -38,33 +34,13 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
   };
 
   return (
-    <Modal
+    <FullScreenModal
       visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={isGenerating ? undefined : onClose}
+      onClose={onClose}
+      closeDisabled={isGenerating}
+      title={t('components.createFlashcards.generateFlashcards')}
+      scroll
     >
-      <TouchableWithoutFeedback onPress={isGenerating ? undefined : onClose}>
-        <KeyboardAvoidingView style={styles.overlay} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-          {/* Tapping anywhere inside the sheet (but outside the counter input itself) just
-              dismisses the keyboard — closing the whole modal is reserved for the X button or
-              a tap genuinely outside the sheet (the outer TouchableWithoutFeedback above). */}
-          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <View style={styles.modalContainer}>
-              <View style={styles.dragHandle} />
-
-              {/* Header */}
-              <View style={styles.header}>
-                <TouchableOpacity onPress={onClose} style={styles.closeButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} disabled={isGenerating}>
-                  <Icon name="close" size={20} color={theme.colors.grey[900]} />
-                </TouchableOpacity>
-                <Text style={styles.headerTitle} numberOfLines={1}>
-                 {t('components.createFlashcards.generateFlashcards')}
-                </Text>
-                <View style={styles.closeButton} />
-              </View>
-
-              {/* Content */}
               <View style={styles.content}>
                 {/* Flashcards Icon */}
                 <View style={styles.iconCircle}>
@@ -105,58 +81,16 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
                   )}
                 </TouchableOpacity>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>
-      </TouchableWithoutFeedback>
-    </Modal>
+    </FullScreenModal>
   );
 };
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(2, 22, 39, 0.35)",
-    justifyContent: "flex-end",
-  },
-  modalContainer: {
-    backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
-    paddingTop: theme.spacing[3],
-    paddingBottom: theme.spacing[6],
-  },
-  dragHandle: {
-    width: 60,
-    height: 8,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.grey[50],
-    alignSelf: 'center',
-    marginBottom: theme.spacing[3],
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: theme.spacing[5],
-    paddingBottom: theme.spacing[3],
-  },
-  headerTitle: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-    flex: 1,
-    textAlign: 'center',
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   content: {
     alignItems: "center",
     paddingHorizontal: theme.spacing[5],
     paddingTop: theme.spacing[4],
+    paddingBottom: theme.spacing[6],
   },
   iconCircle: {
     width: 80,

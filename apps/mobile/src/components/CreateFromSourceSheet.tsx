@@ -3,9 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  Modal,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   FlatList,
   ActivityIndicator,
   Animated,
@@ -22,6 +20,7 @@ import { CreateQuizModal } from './CreateQuizModal';
 import { CreateFlashcardsModal } from './CreateFlashcardsModal';
 import { useTranslation } from 'react-i18next';
 import { stripHtml } from '../utils/htmlText';
+import { FullScreenModal } from './FullScreenModal';
 import { formatDayAndTime } from '../utils/formatDate';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -211,12 +210,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
 
   return (
     <>
-      <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-        <TouchableWithoutFeedback onPress={onClose}>
-          <View style={styles.overlay}>
-            <TouchableWithoutFeedback>
-              <View style={styles.modalContainer}>
-                <View style={styles.dragHandle} />
+      <FullScreenModal visible={visible} onClose={onClose}>
                 <Animated.View style={[styles.panelsRow, { transform: [{ translateX }] }]}>
                   {/* Panel 1 — source options */}
                   <View style={styles.panel}>
@@ -298,11 +292,7 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
                     )}
                   </View>
                 </Animated.View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+      </FullScreenModal>
 
       {mode === 'quiz' ? (
         <CreateQuizModal
@@ -325,28 +315,6 @@ export const CreateFromSourceSheet: React.FC<CreateFromSourceSheetProps> = ({
 };
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(2, 22, 39, 0.35)',
-    justifyContent: 'flex-end',
-  },
-  modalContainer: {
-    backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
-    paddingTop: theme.spacing[3],
-    paddingBottom: theme.spacing[8],
-    height: '75%',
-    overflow: 'hidden',
-  },
-  dragHandle: {
-    width: 60,
-    height: 8,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.grey[50],
-    alignSelf: 'center',
-    marginBottom: theme.spacing[3],
-  },
   panelsRow: {
     flexDirection: 'row',
     width: SCREEN_WIDTH * 2,
@@ -354,6 +322,7 @@ const styles = StyleSheet.create({
   },
   panel: {
     width: SCREEN_WIDTH,
+    paddingTop: theme.spacing[3],
   },
   header: {
     flexDirection: 'row',
