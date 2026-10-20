@@ -47,6 +47,8 @@ export interface IUser extends Document {
   isPhoneVerified: boolean;
   isEmailVerified: boolean;
   hasCompletedSignup: boolean;
+  /** First-run state kept on the account (not the device): set when registration completes, cleared as each step is done. Absent on accounts that predate it, which counts as done. */
+  onboarding?: { firstChatPending: boolean; walkthroughPending: boolean };
   authProvider: 'local' | 'google' | 'apple' | 'phone';
   profilePicture?: string;
   avatarKey?: string;
@@ -152,6 +154,10 @@ const userSchema = new Schema<IUser>(
     hasCompletedSignup: {
       type: Boolean,
       default: false,
+    },
+    onboarding: {
+      firstChatPending: { type: Boolean },
+      walkthroughPending: { type: Boolean },
     },
     // Signup flow preferences
     goals: [{

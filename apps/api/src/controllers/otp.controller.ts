@@ -4,6 +4,7 @@ import { User } from '../models/User';
 import { generateOTP, sendOTPEmail, isAppReviewEmail } from '../services/email.service';
 import { issueAndStoreTokens } from '../services/auth.service';
 import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
+import { onboardingPayload } from '../utils/onboarding';
 
 const OTP_EXPIRY_MINUTES = 10;
 const MAX_ATTEMPTS = 5;
@@ -221,6 +222,7 @@ export const verifySignupOTP = async (req: Request, res: Response): Promise<void
               authProvider: user.authProvider,
               isEmailVerified: user.isEmailVerified,
               hasCompletedSignup: user.hasCompletedSignup,
+              onboarding: onboardingPayload(user),
               createdAt: user.createdAt,
             },
             tokens,
@@ -276,6 +278,7 @@ export const verifySignupOTP = async (req: Request, res: Response): Promise<void
             authProvider: user.authProvider,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
           tokens,
@@ -372,6 +375,7 @@ export const verifyLoginOTP = async (req: Request, res: Response): Promise<void>
             authProvider: user.authProvider,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
           tokens,

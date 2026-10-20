@@ -7,6 +7,7 @@ import {
   appleAuth,
   refreshToken,
   updateProfile,
+  updateOnboarding,
   completeSignup,
   skipSignup,
   checkUsernameAvailability,
@@ -39,6 +40,7 @@ router.post('/refresh', refreshToken);       // canonical path
 // Protected routes
 router.get('/me', authenticate, getMe);
 router.put('/profile', authenticate, updateProfile);
+router.put('/onboarding', authenticate, updateOnboarding);
 router.post('/profile/picture', authenticate, upload.single('file'), uploadProfilePicture);
 router.post('/complete-signup', authenticate, completeSignup);
 router.post('/skip-signup', authenticate, skipSignup);

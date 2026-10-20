@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon, SparkleIcon, theme } from '@clinicalfact/design-system';
@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export const MainTabNavigator = () => {
   const { t } = useTranslation();
-  const { user, justCompletedOnboarding, clearJustCompletedOnboarding } = useAuthStore();
+  const { user, completeOnboardingStep } = useAuthStore();
   const {
     hasCompletedOnboarding,
     isOnboardingActive,
@@ -42,18 +42,19 @@ export const MainTabNavigator = () => {
     }
   }, [user?.id, hasCompletedOnboarding, isOnboardingActive]);
 
-  // Consume the one-shot "just finished onboarding" signal so it only ever
-  // steers the very first landing on the main app, never a later remount.
+  // A brand-new account lands on Chat so its first action is a conversation; every later launch
+  // lands on Home. The flag lives on the account (set when registration completes), so it survives
+  // a crash before landing, a reinstall or another device. Decided once, at first mount: the step is
+  // marked done straight away, which must not change where this mount starts.
+  const landOnChat = useRef(user?.onboarding?.firstChatPending === true).current;
   useEffect(() => {
-    if (justCompletedOnboarding) {
-      clearJustCompletedOnboarding();
-    }
+    if (landOnChat) completeOnboardingStep('firstChatPending');
   }, []);
 
   return (
     <>
       <Tab.Navigator
-        initialRouteName={justCompletedOnboarding ? 'Chat' : 'Home'}
+        initialRouteName={landOnChat ? 'Chat' : 'Home'}
         screenOptions={{
           headerShown: false,
           tabBarStyle: styles.tabBar,

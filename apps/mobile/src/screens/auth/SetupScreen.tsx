@@ -79,6 +79,10 @@ export const SetupScreen = () => {
         });
 
         if (response.success) {
+          // This screen calls the API directly, so the store learns the new account's first-run steps here.
+          if (response.data?.user?.onboarding) {
+            useAuthStore.getState().updateUser({ onboarding: response.data.user.onboarding });
+          }
           setIsReady(true);
         } else {
           Alert.alert(t('common.error'), response.message || t('auth.setup.failedSignup'));
