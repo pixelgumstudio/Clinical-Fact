@@ -8,6 +8,7 @@ import { successResponse, errorResponse, ERROR_CODES } from '../utils/response';
 import { validatePassword } from '../utils/passwordValidator';
 import appleSignin from 'apple-signin-auth';
 import storageService from '../services/storage.service';
+import { onboardingPayload, PENDING_ONBOARDING } from '../utils/onboarding';
 
 async function generateUniqueUserCode(username: string): Promise<string> {
   const prefix = username.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 4).padEnd(4, 'X');
@@ -78,6 +79,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
             username: user.username,
             subscription: user.subscription,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
           tokens,
@@ -131,6 +133,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
             username: user.username,
             subscription: user.subscription,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             authProvider: user.authProvider,
             profilePicture: user.profilePicture,
             createdAt: user.createdAt,
@@ -198,6 +201,7 @@ export const getMe = async (req: AuthRequest, res: Response): Promise<void> => {
             isPhoneVerified: user.isPhoneVerified,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             goals: user.goals,
             contentTypes: user.contentTypes,
             reviewStyle: user.reviewStyle,
@@ -384,6 +388,7 @@ export const googleAuth = async (req: Request, res: Response): Promise<void> => 
             authProvider: user.authProvider,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
           tokens,
@@ -474,6 +479,7 @@ export const appleAuth = async (req: Request, res: Response): Promise<void> => {
             authProvider: user.authProvider,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
           tokens,
@@ -651,6 +657,7 @@ export const completeSignup = async (req: AuthRequest, res: Response): Promise<v
       userId,
       {
         hasCompletedSignup: true,
+        ...PENDING_ONBOARDING,
         ...(goals && { goals }),
         ...(contentTypes && { contentTypes }),
         ...(reviewStyle && { reviewStyle }),
@@ -692,6 +699,7 @@ export const completeSignup = async (req: AuthRequest, res: Response): Promise<v
             authProvider: user.authProvider,
             isEmailVerified: user.isEmailVerified,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             goals: user.goals,
             contentTypes: user.contentTypes,
             reviewStyle: user.reviewStyle,
@@ -710,6 +718,31 @@ export const completeSignup = async (req: AuthRequest, res: Response): Promise<v
   }
 };
 
+// Records that a first-run step was done so it is never shown again, on any device.
+export const updateOnboarding = async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const { firstChatPending, walkthroughPending } = req.body ?? {};
+    // Steps can only be marked done here; they become pending only when registration completes.
+    const set: Record<string, boolean> = {};
+    if (firstChatPending === false) set['onboarding.firstChatPending'] = false;
+    if (walkthroughPending === false) set['onboarding.walkthroughPending'] = false;
+    if (Object.keys(set).length === 0) {
+      res.status(400).json(errorResponse('Nothing to update', ERROR_CODES.VALIDATION_ERROR));
+      return;
+    }
+
+    const user = await User.findByIdAndUpdate(req.user?._id, { $set: set }, { new: true });
+    if (!user) {
+      res.status(404).json(errorResponse('User not found', ERROR_CODES.NOT_FOUND));
+      return;
+    }
+    res.status(200).json(successResponse({ onboarding: onboardingPayload(user) }, 'Onboarding updated'));
+  } catch (error: any) {
+    console.error('Update onboarding error:', error);
+    res.status(500).json(errorResponse('Failed to update onboarding', ERROR_CODES.SERVER_ERROR));
+  }
+};
+
 // Skip signup flow - marks signup as complete without saving preferences
 export const skipSignup = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
@@ -717,7 +750,7 @@ export const skipSignup = async (req: AuthRequest, res: Response): Promise<void>
 
     const user = await User.findByIdAndUpdate(
       userId,
-      { hasCompletedSignup: true },
+      { hasCompletedSignup: true, ...PENDING_ONBOARDING },
       { new: true }
     );
 
@@ -740,6 +773,7 @@ export const skipSignup = async (req: AuthRequest, res: Response): Promise<void>
             profilePicture: user.profilePicture,
             authProvider: user.authProvider,
             hasCompletedSignup: user.hasCompletedSignup,
+            onboarding: onboardingPayload(user),
             createdAt: user.createdAt,
           },
         },

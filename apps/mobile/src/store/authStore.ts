@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Sentry from '@sentry/react-native';
-import { api } from '../services/api';
+import { api, OnboardingState } from '../services/api';
 import { saveTokens, clearTokens, getAccessToken, getRefreshToken } from '../services/tokenStorage';
 import notificationService from '../services/notificationService';
 import { queryClient } from '../lib/queryClient';
@@ -44,6 +44,7 @@ export interface User {
   authProvider?: 'local' | 'google' | 'apple' | 'phone';
   isEmailVerified?: boolean;
   hasCompletedSignup?: boolean;
+  onboarding?: OnboardingState;
   goals?: string[];
   contentTypes?: string[];
   reviewStyle?: string;
@@ -69,7 +70,6 @@ interface AuthState {
   // One-shot, in-memory signal set the moment a first-time user finishes onboarding —
   // lets MainTabNavigator land them on Chat instead of Home just this once, then gets
   // cleared. Never persisted, so a later cold start always resets it to false.
-  justCompletedOnboarding: boolean;
 
   // Auth actions
   sendOtp: (email: string) => Promise<{ error: Error | null }>;
@@ -82,7 +82,8 @@ interface AuthState {
   updateUser: (userData: Partial<User>) => void;
   setAuthState: (u: any, tokens: { accessToken: string; refreshToken: string }, isNewUser: boolean, needsProfileSetup: boolean) => Promise<void>;
   setOnboardingComplete: () => void;
-  clearJustCompletedOnboarding: () => void;
+  /** Marks a first-run step done: immediately in the app, then on the account. */
+  completeOnboardingStep: (step: keyof OnboardingState) => void;
   persistOnboardingFlag: () => void;
   setFirstTimeUser: (isFirstTime: boolean) => void;
   setNeedsProfileSetup: (needs: boolean) => void;
@@ -125,6 +126,7 @@ function mapUser(u: any): User {
     authProvider: u.authProvider,
     isEmailVerified: u.isEmailVerified,
     hasCompletedSignup: u.hasCompletedSignup ?? false,
+    onboarding: u.onboarding,
     goals: u.goals,
     contentTypes: u.contentTypes,
     reviewStyle: u.reviewStyle,
@@ -147,7 +149,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   hasCompletedOnboarding: false,
   isFirstTimeUser: true,
   needsProfileSetup: false,
-  justCompletedOnboarding: false,
   isLoading: false,
   isInitialized: false,
 
@@ -310,8 +311,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       hasCompletedOnboarding: false,
       isFirstTimeUser: true,
       needsProfileSetup: false,
-      justCompletedOnboarding: false,
-      isLoading: false,
+          isLoading: false,
     });
     Sentry.setUser(null);
 
@@ -345,22 +345,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   setOnboardingComplete: () => {
     const currentUser = get().user;
-    // The server reports isNewUser: false for an account that already exists but never finished
-    // signup (aborted earlier, reinstalled, a reused test account). That user still just went
-    // through onboarding, so needsProfileSetup counts as "first time" too — otherwise they
-    // would land on Home instead of Chat.
-    const wasFirstTimeUser = get().isFirstTimeUser || get().needsProfileSetup;
     set({
       hasCompletedOnboarding: true,
       isFirstTimeUser: false,
       needsProfileSetup: false,
-      justCompletedOnboarding: wasFirstTimeUser,
       ...(currentUser && { user: { ...currentUser, hasCompletedSignup: true } }),
     });
     AsyncStorage.setItem('@clinicalfact:signup_complete', '1').catch(() => {});
   },
 
-  clearJustCompletedOnboarding: () => set({ justCompletedOnboarding: false }),
+  completeOnboardingStep: (step) => {
+    const current = get().user;
+    if (current?.onboarding?.[step]) {
+      set({ user: { ...current, onboarding: { ...current.onboarding, [step]: false } } });
+    }
+    // Best effort: if this fails the step shows once more on the next launch rather than being lost.
+    api.updateOnboarding({ [step]: false }).catch(() => {});
+  },
 
   // Writes only the crash-protection AsyncStorage flag without touching in-memory
   // auth state. Used mid-onboarding so a hard-kill during the paywall doesn't

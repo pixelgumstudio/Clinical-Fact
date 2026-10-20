@@ -147,12 +147,20 @@ export interface User {
   isEmailVerified: boolean;
   isPhoneVerified?: boolean;
   hasCompletedSignup: boolean;
+  onboarding?: OnboardingState;
   goals?: string[];
   contentTypes?: string[];
   reviewStyle?: string;
   preferredLanguage?: string;
   studyLanguage?: string | null;
   createdAt: string;
+}
+
+/** First-run steps still to do, kept on the account so they follow the user across devices. The server
+ *  sets both when registration completes; accounts that predate it report neither. */
+export interface OnboardingState {
+  firstChatPending: boolean;
+  walkthroughPending: boolean;
 }
 
 export interface CompleteSignupData {
@@ -510,6 +518,11 @@ class ApiClient {
       method: 'POST',
       body: JSON.stringify(data),
     }, true);
+  }
+
+  /** Marks first-run steps as done on the account (the server only accepts `false`). */
+  async updateOnboarding(done: Partial<OnboardingState>): Promise<ApiResponse<{ onboarding: OnboardingState }>> {
+    return this.request('/auth/onboarding', { method: 'PUT', body: JSON.stringify(done) }, true);
   }
 
   async skipSignup(): Promise<ApiResponse<{ user: User }>> {
