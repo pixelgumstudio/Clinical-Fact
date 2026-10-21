@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { SurveyQuestionScreen } from '../../components/SurveyQuestionScreen';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { nextSurveyRoute, surveyProgress } from '../../navigation/signupSurveyFlow';
 import { useSignupStore, ROLE_OPTIONS } from '../../store/signupStore';
 
 type RoleScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Role'>;
@@ -20,9 +21,8 @@ export const RoleScreen = () => {
       options={ROLE_OPTIONS}
       selectedId={data.role || null}
       onSelect={setRole}
-      onContinue={() => navigation.navigate('CurrentMethod')}
-      step={1}
-      totalSteps={8}
+      onContinue={() => navigation.navigate(nextSurveyRoute('Role') as any)}
+      {...surveyProgress('Role')}
     />
   );
 };

@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { SurveyQuestionScreen } from '../../components/SurveyQuestionScreen';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { nextSurveyRoute, surveyProgress } from '../../navigation/signupSurveyFlow';
 import { useSignupStore, TIME_DRAIN_OPTIONS } from '../../store/signupStore';
 
 type TimeDrainScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'TimeDrain'>;
@@ -20,9 +21,8 @@ export const TimeDrainScreen = () => {
       options={TIME_DRAIN_OPTIONS}
       selectedId={data.timeDrain || null}
       onSelect={setTimeDrain}
-      onContinue={() => navigation.navigate('AppExpectation')}
-      step={3}
-      totalSteps={8}
+      onContinue={() => navigation.navigate(nextSurveyRoute('TimeDrain') as any)}
+      {...surveyProgress('TimeDrain')}
     />
   );
 };

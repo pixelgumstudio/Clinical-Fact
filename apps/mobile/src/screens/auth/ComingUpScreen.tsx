@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { SurveyQuestionScreen } from '../../components/SurveyQuestionScreen';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { nextSurveyRoute, surveyProgress } from '../../navigation/signupSurveyFlow';
 import { useSignupStore, COMING_UP_OPTIONS } from '../../store/signupStore';
 
 type ComingUpScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'ComingUp'>;
@@ -21,8 +22,7 @@ export const ComingUpScreen = () => {
       selectedId={data.comingUp || null}
       onSelect={setComingUp}
       onContinue={() => navigation.navigate('ReferralCode')}
-      step={3}
-      totalSteps={3}
+      {...surveyProgress('ComingUp')}
     />
   );
 };

@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { SurveyQuestionScreen } from '../../components/SurveyQuestionScreen';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { nextSurveyRoute, surveyProgress } from '../../navigation/signupSurveyFlow';
 import { useSignupStore, BIGGEST_NEED_OPTIONS } from '../../store/signupStore';
 
 type BiggestNeedScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'BiggestNeed'>;
@@ -28,8 +29,7 @@ export const BiggestNeedScreen = () => {
       // an App Store rejection — restore `navigate('Feature1')` once the app is approved.
       // The Feature1-5 screens/routes are untouched, just not reached from anywhere right now.
       onContinue={() => navigation.navigate('Thanks')}
-      step={8}
-      totalSteps={8}
+      {...surveyProgress('BiggestNeed')}
     />
   );
 };
