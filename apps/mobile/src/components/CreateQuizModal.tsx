@@ -3,14 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  Modal,
   TouchableOpacity,
-  TouchableWithoutFeedback,
 } from "react-native";
 import { Icon, theme } from "@clinicalfact/design-system";
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import { showInAppPaywall } from '../services/revenuecat';
 import { useTranslation } from 'react-i18next';
+import { FullScreenModal } from './FullScreenModal';
 
 const QUIZ_PAYWALL_ENABLED = true;
 
@@ -92,30 +91,7 @@ const handleGenerate = async () => {
   };
 
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={onClose}
-    >
-      <TouchableWithoutFeedback onPress={onClose}>
-        <View style={styles.overlay}>
-          <TouchableWithoutFeedback>
-            <View style={styles.modalContainer}>
-              <View style={styles.dragHandle} />
-
-              {/* Header */}
-              <View style={styles.header}>
-                <TouchableOpacity onPress={onClose} style={styles.closeButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-                  <Icon name="close" size={20} color={theme.colors.grey[900]} />
-                </TouchableOpacity>
-                <Text style={styles.headerTitle} numberOfLines={1}>
-                 {t('components.createQuiz.generateQuiz')}
-                </Text>
-                <View style={styles.closeButton} />
-              </View>
-
-              {/* Content */}
+    <FullScreenModal visible={visible} onClose={onClose} title={t('components.createQuiz.generateQuiz')} scroll>
               <View style={styles.content}>
                 {/* Quiz Icon */}
                 <View style={styles.iconCircle}>
@@ -191,58 +167,16 @@ const handleGenerate = async () => {
                   <Text style={styles.generateButtonText}>{t('components.createQuiz.generateQuiz')}</Text>
                 </TouchableOpacity>
               </View>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      </TouchableWithoutFeedback>
-    </Modal>
+    </FullScreenModal>
   );
 };
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(2, 22, 39, 0.35)",
-    justifyContent: "flex-end",
-  },
-  modalContainer: {
-    backgroundColor: '#FFFFFF',
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
-    paddingTop: theme.spacing[3],
-    paddingBottom: theme.spacing[6],
-  },
-  dragHandle: {
-    width: 60,
-    height: 8,
-    borderRadius: theme.borderRadius.full,
-    backgroundColor: theme.colors.grey[50],
-    alignSelf: 'center',
-    marginBottom: theme.spacing[3],
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: theme.spacing[5],
-    paddingBottom: theme.spacing[3],
-  },
-  headerTitle: {
-    ...theme.typography.textStyles.subtitle1,
-    color: theme.colors.grey[900],
-    flex: 1,
-    textAlign: 'center',
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   content: {
     alignItems: "center",
     paddingHorizontal: theme.spacing[5],
     paddingTop: theme.spacing[4],
+    paddingBottom: theme.spacing[6],
   },
   iconCircle: {
     width: 80,
