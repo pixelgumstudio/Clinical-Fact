@@ -1235,9 +1235,6 @@
       "moveToFolder": "העברה לתיקייה",
       "deleteNote": "מחיקת סיכום"
     },
-    "onboardingTooltip": {
-      "skip": "דילוג"
-    },
     "quizHistoryList": {
       "deleteQuiz": "מחיקת מבחן",
       "areYouSureYouWantTo": "האם אתה בטוח שברצונך למחוק את \"{{quizTitle}}\"?",
@@ -1481,36 +1478,6 @@
       "appleAuthenticationFailed": "ההתחברות דרך Apple נכשלה",
       "failedToCompleteSignup": "השלמת ההרשמה נכשלה",
       "failedToSkipSignup": "דילוג על ההרשמה נכשל"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "צ׳אטים",
-      "description": "צ'אט עם כל סיכום, מסמך או קובץ PDF במקום אחד"
-    },
-    "profileWelcome": {
-      "heading": "ברוכים הבאים לפרופיל שלך",
-      "description": "זהו הפרופיל שלך. ניתן להקיש כאן כדי לערוך פרטים ולבדוק את סטטוס המנוי"
-    },
-    "createNotes": {
-      "heading": "יצירת סיכום",
-      "description": "יצירת סיכומים מכל מקור: הקלטה, שמע, וידאו, תמונה, טקסט וקישורים מ-YouTube"
-    },
-    "changeLanguage": {
-      "heading": "שינוי שפה",
-      "description": "שינוי שפת האפליקציה לשפה המועדפת עליך ישירות מכאן"
-    },
-    "manageHome": {
-      "heading": "ניהול דף הבית",
-      "description": "צפייה בכל הסיכומים שנוצרו ובכל הפעולות שלך במקום אחד"
-    },
-    "yourLibrary": {
-      "heading": "הספרייה שלך",
-      "description": "ניהול כל הסיכומים שנוצרו, ארגון בתיקיות ועוד"
-    },
-    "yourProfile": {
-      "heading": "הפרופיל שלך",
-      "description": "צפייה בכל פרטי הפרופיל ועריכת ההגדרות שלו ישירות מכאן"
     }
   },
   "serverMessages": {

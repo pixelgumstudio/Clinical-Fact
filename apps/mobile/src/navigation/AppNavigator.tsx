@@ -7,7 +7,6 @@ import { getAuthStartRoute } from './authStartRoute';
 import { hasChosenLanguage, markLanguageChosen } from '../services/languagePreference';
 import { navigationRef } from './navigationRef';
 import { useAuthStore } from '../store/authStore';
-import { useOnboardingStore } from '../store/onboardingStore';
 import { useSignupStore } from '../store/signupStore';
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import api from '../services/api';
@@ -38,7 +37,6 @@ export const AppNavigator = () => {
     needsProfileSetup,
   } = useAuthStore();
 
-  const { isLoading: onboardingLoading, loadOnboardingStatus } = useOnboardingStore();
   const { authMethod } = useSignupStore();
   const { setStatus, syncBackendSubscription, reset: resetSubscription } = useSubscriptionStore();
 
@@ -106,7 +104,6 @@ export const AppNavigator = () => {
   // ── Initialize auth + onboarding ─────────────────────────────────────────
   useEffect(() => {
     const unsubscribe = initialize();
-    loadOnboardingStatus();
     return unsubscribe;
   }, []);
 
@@ -124,7 +121,7 @@ export const AppNavigator = () => {
     }
   }, [isAuthenticated]);
 
-  if (onboardingLoading || !isInitialized || languageChosen === null) {
+  if (!isInitialized || languageChosen === null) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color={colors.slate[900]} />

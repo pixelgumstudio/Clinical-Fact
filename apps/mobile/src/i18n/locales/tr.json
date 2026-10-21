@@ -1222,9 +1222,6 @@
       "moveToFolder": "Klasöre taşı",
       "deleteNote": "Notu sil"
     },
-    "onboardingTooltip": {
-      "skip": "Atla"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Testi Sil",
       "areYouSureYouWantTo": "\"{{quizTitle}}\" testini silmek istediğinden emin misin?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple ile giriş başarısız",
       "failedToCompleteSignup": "Kayıt tamamlanamadı",
       "failedToSkipSignup": "Kayıt atlanamadı"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Sohbetler",
-      "description": "Tüm notlarınız, belgeleriniz veya PDF'lerinizle tek bir yerden sohbet edin"
-    },
-    "profileWelcome": {
-      "heading": "Profiline Hoş Geldin",
-      "description": "Burası senin profilin; profilinde ve abonelik durumunda değişiklik yapmak için buraya dokun"
-    },
-    "createNotes": {
-      "heading": "Not oluştur",
-      "description": "Her kaynaktan not oluşturun: Ses kaydı, Ses, Video, Görsel, Metin ve YouTube bağlantıları"
-    },
-    "changeLanguage": {
-      "heading": "Dili değiştir",
-      "description": "Uygulamanın dilini buradan istediğiniz dille değiştirin"
-    },
-    "manageHome": {
-      "heading": "Ana sayfayı yönet",
-      "description": "Oluşturduğun tüm notları ve tüm işlemlerini tek bir yerden gör"
-    },
-    "yourLibrary": {
-      "heading": "Kütüphanen",
-      "description": "Oluşturduğun tüm notları yönet, notların için klasörler oluştur ve daha fazlasını yap"
-    },
-    "yourProfile": {
-      "heading": "Profilin",
-      "description": "Profilinle ilgili her şeyi görüntüle ve profil ayarlarını buradan düzenle"
     }
   },
   "serverMessages": {

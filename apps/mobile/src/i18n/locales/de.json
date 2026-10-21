@@ -1222,9 +1222,6 @@
       "moveToFolder": "In Ordner verschieben",
       "deleteNote": "Notiz löschen"
     },
-    "onboardingTooltip": {
-      "skip": "Überspringen"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Quiz löschen",
       "areYouSureYouWantTo": "Möchtest du „{{quizTitle}}“ wirklich löschen?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple-Authentifizierung fehlgeschlagen",
       "failedToCompleteSignup": "Registrierung konnte nicht abgeschlossen werden",
       "failedToSkipSignup": "Überspringen der Registrierung fehlgeschlagen"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chats",
-      "description": "Chatte mit deinen Notizen, Dokumenten oder PDFs – alles an einem Ort"
-    },
-    "profileWelcome": {
-      "heading": "Willkommen in deinem Profil",
-      "description": "Das ist dein Profil. Tippe hier, um deine Daten und deinen Abostatus zu verwalten."
-    },
-    "createNotes": {
-      "heading": "Notiz erstellen",
-      "description": "Erstelle beliebige Notizen aus Sprachaufnahmen, Audio, Video, Bildern, Texten und YouTube-Links"
-    },
-    "changeLanguage": {
-      "heading": "Sprache ändern",
-      "description": "Wähle hier deine gewünschte App-Sprache aus."
-    },
-    "manageHome": {
-      "heading": "Startseite verwalten",
-      "description": "Sieh alle deine erstellten Notizen und behalte deine Aktivitäten an einem Ort im Blick."
-    },
-    "yourLibrary": {
-      "heading": "Deine Bibliothek",
-      "description": "Verwalte all deine erstellten Notizen, erstelle Ordner und mehr."
-    },
-    "yourProfile": {
-      "heading": "Dein Profil",
-      "description": "Hier siehst du alle Profilangaben und kannst deine Einstellungen anpassen."
     }
   },
   "serverMessages": {

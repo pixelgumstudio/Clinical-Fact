@@ -1240,9 +1240,6 @@
       "moveToFolder": "Áthelyezés mappába",
       "deleteNote": "Jegyzet törlése"
     },
-    "onboardingTooltip": {
-      "skip": "Kihagyás"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Kvíz törlése",
       "areYouSureYouWantTo": "Biztosan törölni szeretnéd a következőt: \"{{quizTitle}}\"?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Az Apple-hitelesítés sikertelen",
       "failedToCompleteSignup": "Nem sikerült befejezni a regisztrációt",
       "failedToSkipSignup": "Nem sikerült kihagyni a regisztrációt"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Csevegések",
-      "description": "Beszélgess bármelyik jegyzeteddel, dokumentumoddal vagy PDF-eddel egy helyen"
-    },
-    "profileWelcome": {
-      "heading": "Üdvözlünk a profilodban!",
-      "description": "Ez a profilod; koppints ide a profiladatok és az előfizetési állapot módosításához"
-    },
-    "createNotes": {
-      "heading": "Jegyzet létrehozása",
-      "description": "Készíts bármilyen típusú jegyzetet hangfelvételből, audióból, videóból, képből, szövegből vagy YouTube-linkből"
-    },
-    "changeLanguage": {
-      "heading": "Nyelvváltás",
-      "description": "Itt állíthatod át az alkalmazás nyelvét a kívánt nyelvre."
-    },
-    "manageHome": {
-      "heading": "Kezdőlap kezelése",
-      "description": "Tekintsd meg a létrehozott jegyzeteidet, és kövesd nyomon az összes tevékenységedet egy helyen."
-    },
-    "yourLibrary": {
-      "heading": "Saját könyvtár",
-      "description": "Kezeld az összes jegyzetedet, hozz létre mappákat, és még sok más."
-    },
-    "yourProfile": {
-      "heading": "Saját profil",
-      "description": "Tekintsd meg a profilodat, és módosítsd a profilbeállításaidat innen."
     }
   },
   "serverMessages": {

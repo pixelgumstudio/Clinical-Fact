@@ -6,7 +6,6 @@ import { saveTokens, clearTokens, getAccessToken, getRefreshToken } from '../ser
 import notificationService from '../services/notificationService';
 import { queryClient } from '../lib/queryClient';
 import { useSignupStore } from './signupStore';
-import { useOnboardingStore } from './onboardingStore';
 import i18n from '../i18n';
 
 /** Wipe the in-memory query cache. Called on every login so the new user starts fresh. */
@@ -317,7 +316,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     // 6. Wipe persisted wizard stores so a fresh user never sees stale form data.
     useSignupStore.getState().resetSignup();
-    useOnboardingStore.getState().resetOnboarding();
   },
 
   // ─── App-level actions ────────────────────────────────────────────────────

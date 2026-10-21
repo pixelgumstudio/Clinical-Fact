@@ -1222,9 +1222,6 @@
       "moveToFolder": "移至資料夾",
       "deleteNote": "刪除筆記"
     },
-    "onboardingTooltip": {
-      "skip": "略過"
-    },
     "quizHistoryList": {
       "deleteQuiz": "刪除測驗",
       "areYouSureYouWantTo": "確定要刪除「{{quizTitle}}」嗎？",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple 驗證失敗",
       "failedToCompleteSignup": "無法完成註冊",
       "failedToSkipSignup": "無法略過註冊"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "問答",
-      "description": "一站式與任何筆記、文件或 PDF 進行對話"
-    },
-    "profileWelcome": {
-      "heading": "歡迎來到個人檔案",
-      "description": "這是您的個人檔案，點擊此處可修改個人資料與訂閱狀態"
-    },
-    "createNotes": {
-      "heading": "建立筆記",
-      "description": "支援多種形式建立筆記：錄音、音訊、影片、圖片、文字與 YouTube 連結"
-    },
-    "changeLanguage": {
-      "heading": "切換語言",
-      "description": "在此將應用程式語言切換為您偏好的語言"
-    },
-    "manageHome": {
-      "heading": "管理首頁",
-      "description": "一站式查看所有已建立的筆記與最近動態"
-    },
-    "yourLibrary": {
-      "heading": "您的資料庫",
-      "description": "管理所有已建立的筆記、建立筆記資料夾等功能"
-    },
-    "yourProfile": {
-      "heading": "個人檔案",
-      "description": "在此查看完整的個人資訊並調整個人檔案設定"
     }
   },
   "serverMessages": {

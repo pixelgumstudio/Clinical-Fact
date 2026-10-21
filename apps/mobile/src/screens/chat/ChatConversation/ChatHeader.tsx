@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 import { colors, spacing, typography, ChevronDownIcon, Icon, theme } from '@clinicalfact/design-system';
 import { useTranslation } from 'react-i18next';
+import { useWalkthroughTarget } from '../../../hooks/useWalkthroughTarget';
 
 interface ChatHeaderProps {
   hasAccess: boolean;
@@ -42,11 +43,12 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
   onOpenLanguageModal,
 }) => {
   const { t } = useTranslation();
+  const profileTargetRef = useWalkthroughTarget('chatHeader');
 
   return (
     <View style={styles.header}>
       <View style={styles.headerTopRow}>
-        <View style={styles.headerLeftGroup}>
+        <View ref={profileTargetRef} collapsable={false} style={styles.headerLeftGroup}>
           <TouchableOpacity onPress={onOpenChatList} activeOpacity={0.7}>
             <Icon name="logo" size={40} />
           </TouchableOpacity>

@@ -1240,9 +1240,6 @@
       "moveToFolder": "Premakni v mapo",
       "deleteNote": "Izbriši zapiske"
     },
-    "onboardingTooltip": {
-      "skip": "Preskoči"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Izbriši kviz",
       "areYouSureYouWantTo": "Ali res želiš izbrisati »{{quizTitle}}«?",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Prijava z računom Apple ni uspela",
       "failedToCompleteSignup": "Registracije ni bilo mogoče dokončati",
       "failedToSkipSignup": "Preskok registracije ni uspel"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Klepeti",
-      "description": "Klepetajte z zapisi, dokumenti ali datotekami PDF na enem mestu"
-    },
-    "profileWelcome": {
-      "heading": "Dobrodošli v svojem profilu",
-      "description": "To je vaš profil. Dotaknite se tukaj za urejanje profila in stanja naročnine."
-    },
-    "createNotes": {
-      "heading": "Ustvarite zapisek",
-      "description": "Ustvarite zapiske iz posnetkov, zvoka, videa, slik, besedila ali povezav YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Spremenite jezik",
-      "description": "Tukaj lahko spremenite jezik aplikacije v želeni jezik"
-    },
-    "manageHome": {
-      "heading": "Upravljajte začetni zaslon",
-      "description": "Preglejte vse ustvarjene zapiske in dejanja na enem mestu"
-    },
-    "yourLibrary": {
-      "heading": "Vaša knjižnica",
-      "description": "Upravljajte vse ustvarjene zapiske, ustvarjajte mape in še več"
-    },
-    "yourProfile": {
-      "heading": "Vaš profil",
-      "description": "Oglejte si podatke o svojem profilu in tukaj urejajte nastavitve"
     }
   },
   "serverMessages": {

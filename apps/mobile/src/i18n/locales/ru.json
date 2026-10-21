@@ -1222,9 +1222,6 @@
       "moveToFolder": "Переместить в папку",
       "deleteNote": "Удалить заметку"
     },
-    "onboardingTooltip": {
-      "skip": "Пропустить"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Удалить тест",
       "areYouSureYouWantTo": "Вы уверены, что хотите удалить «{{quizTitle}}»?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Ошибка входа через Apple",
       "failedToCompleteSignup": "Не удалось завершить регистрацию",
       "failedToSkipSignup": "Не удалось пропустить регистрацию"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Чаты",
-      "description": "Общайтесь с конспектами, документами и PDF в одном месте"
-    },
-    "profileWelcome": {
-      "heading": "Добро пожаловать в профиль",
-      "description": "Это ваш профиль. Нажмите сюда, чтобы изменить личные данные и статус подписки"
-    },
-    "createNotes": {
-      "heading": "Создание заметок",
-      "description": "Создавайте конспекты из любых источников: записей, аудио, видео, фото, текста и ссылок на YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Смена языка",
-      "description": "Здесь можно выбрать удобный для вас язык приложения"
-    },
-    "manageHome": {
-      "heading": "Главный экран",
-      "description": "Просматривайте все созданные заметки и недавние действия в одном месте"
-    },
-    "yourLibrary": {
-      "heading": "Ваша библиотека",
-      "description": "Управляйте всеми заметками, распределяйте их по папкам и не только"
-    },
-    "yourProfile": {
-      "heading": "Ваш профиль",
-      "description": "Просматривайте информацию о профиле и настраивайте его параметры"
     }
   },
   "serverMessages": {

@@ -1222,9 +1222,6 @@
       "moveToFolder": "폴더로 이동",
       "deleteNote": "노트 삭제"
     },
-    "onboardingTooltip": {
-      "skip": "건너뛰기"
-    },
     "quizHistoryList": {
       "deleteQuiz": "퀴즈 삭제",
       "areYouSureYouWantTo": "\"{{quizTitle}}\"을(를) 삭제하시겠습니까?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple 인증 실패",
       "failedToCompleteSignup": "회원가입 완료 실패",
       "failedToSkipSignup": "회원가입 건너뛰기 실패"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "채팅",
-      "description": "노트, 문서, PDF를 기반으로 한곳에서 AI와 대화해 보세요"
-    },
-    "profileWelcome": {
-      "heading": "프로필에 오신 것을 환영합니다",
-      "description": "내 프로필입니다. 여기를 탭하여 프로필 정보와 구독 상태를 변경할 수 있습니다."
-    },
-    "createNotes": {
-      "heading": "노트 만들기",
-      "description": "음성 녹음, 오디오, 비디오, 이미지, 텍스트, YouTube 링크 등 무엇이든 노트로 만들 수 있습니다"
-    },
-    "changeLanguage": {
-      "heading": "언어 변경",
-      "description": "여기서 앱 언어를 원하는 언어로 변경할 수 있습니다"
-    },
-    "manageHome": {
-      "heading": "홈 관리",
-      "description": "작성한 모든 노트를 확인하고 활동 내역을 한곳에서 모아보세요"
-    },
-    "yourLibrary": {
-      "heading": "내 보관함",
-      "description": "작성한 모든 노트를 관리하고, 폴더를 생성하여 정리해 보세요"
-    },
-    "yourProfile": {
-      "heading": "내 프로필",
-      "description": "프로필 정보를 확인하고 관련 설정을 변경할 수 있습니다"
     }
   },
   "serverMessages": {

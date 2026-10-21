@@ -1222,9 +1222,6 @@
       "moveToFolder": "Mover a carpeta",
       "deleteNote": "Eliminar nota"
     },
-    "onboardingTooltip": {
-      "skip": "Omitir"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Eliminar cuestionario",
       "areYouSureYouWantTo": "¿Seguro que quieres eliminar \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Error de autenticación con Apple",
       "failedToCompleteSignup": "Error al completar el registro",
       "failedToSkipSignup": "Error al omitir el registro"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chats",
-      "description": "Interactúa con tus notas, documentos o PDF en un solo lugar"
-    },
-    "profileWelcome": {
-      "heading": "Te damos la bienvenida a tu perfil",
-      "description": "Este es tu perfil; toca aquí para editar tu información y ver el estado de tu suscripción"
-    },
-    "createNotes": {
-      "heading": "Crear nota",
-      "description": "Crea cualquier tipo de nota a partir de grabaciones, audio, video, imágenes, texto y enlaces de YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Cambiar idioma",
-      "description": "Cambia el idioma de la app al que prefieras desde aquí"
-    },
-    "manageHome": {
-      "heading": "Administra tu inicio",
-      "description": "Consulta tus notas creadas y revisa toda tu actividad en un solo lugar"
-    },
-    "yourLibrary": {
-      "heading": "Tu biblioteca",
-      "description": "Administra todas tus notas creadas, crea carpetas y mucho más"
-    },
-    "yourProfile": {
-      "heading": "Tu perfil",
-      "description": "Revisa los detalles de tu perfil y edita tu configuración desde aquí"
     }
   },
   "serverMessages": {

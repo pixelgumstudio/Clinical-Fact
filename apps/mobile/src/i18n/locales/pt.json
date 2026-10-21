@@ -1222,9 +1222,6 @@
       "moveToFolder": "Mover para pasta",
       "deleteNote": "Excluir anotação"
     },
-    "onboardingTooltip": {
-      "skip": "Pular"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Excluir quiz",
       "areYouSureYouWantTo": "Tem certeza de que deseja excluir \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Falha na autenticação com a Apple",
       "failedToCompleteSignup": "Falha ao concluir o cadastro",
       "failedToSkipSignup": "Falha ao pular o cadastro"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Conversas",
-      "description": "Converse com anotações, documentos ou PDFs em um só lugar"
-    },
-    "profileWelcome": {
-      "heading": "Boas-vindas ao seu Perfil",
-      "description": "Este é o seu perfil. Toque aqui para editá-lo e ver o status da sua assinatura"
-    },
-    "createNotes": {
-      "heading": "Criar anotação",
-      "description": "Crie anotações a partir de gravações, áudios, vídeos, imagens, textos e links do YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Alterar idioma",
-      "description": "Altere o idioma do aplicativo por aqui para a opção que preferir"
-    },
-    "manageHome": {
-      "heading": "Gerenciar Início",
-      "description": "Veja todas as suas anotações e acompanhe suas atividades em um só lugar"
-    },
-    "yourLibrary": {
-      "heading": "Sua biblioteca",
-      "description": "Gerencie suas anotações, crie pastas para organizá-las e muito mais"
-    },
-    "yourProfile": {
-      "heading": "Seu perfil",
-      "description": "Veja todas as informações e ajuste as configurações do seu perfil por aqui"
     }
   },
   "serverMessages": {

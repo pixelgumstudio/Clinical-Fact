@@ -1222,9 +1222,6 @@
       "moveToFolder": "نقل إلى فولدر",
       "deleteNote": "حذف الملاحظة"
     },
-    "onboardingTooltip": {
-      "skip": "تخطي"
-    },
     "quizHistoryList": {
       "deleteQuiz": "حذف الكويز",
       "areYouSureYouWantTo": "متأكد إنك عايز تحذف \"{{quizTitle}}\"؟",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "فشل تسجيل الدخول عبر Apple",
       "failedToCompleteSignup": "فشل إتمام إنشاء الحساب",
       "failedToSkipSignup": "فشل تخطي إنشاء الحساب"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "المحادثات",
-      "description": "تحدث مع أي ملاحظات أو مستندات أو ملفات PDF في مكان واحد"
-    },
-    "profileWelcome": {
-      "heading": "أهلاً بك في ملفك الشخصي",
-      "description": "هذا ملفك الشخصي، اضغط هنا لتعديل بياناتك ومتابعة حالة اشتراكك"
-    },
-    "createNotes": {
-      "heading": "إنشاء ملاحظة",
-      "description": "أنشئ أي نوع من الملاحظات من أي مصدر: تسجيلات، مقاطع صوتية، فيديو، صور، نصوص، وروابط YouTube"
-    },
-    "changeLanguage": {
-      "heading": "تغيير اللغة",
-      "description": "غيّر لغة التطبيق من هنا للغة اللي تناسبك"
-    },
-    "manageHome": {
-      "heading": "إدارة الرئيسية",
-      "description": "شوف كل ملاحظاتك وتابع كل نشاطاتك في مكان واحد"
-    },
-    "yourLibrary": {
-      "heading": "مكتبتك",
-      "description": "نظّم كل ملاحظاتك، وأنشئ مجلدات ليها، وأكتر من كده"
-    },
-    "yourProfile": {
-      "heading": "ملفك الشخصي",
-      "description": "شوف كل بيانات ملفك الشخصي وعدّل إعداداته من هنا"
     }
   },
   "serverMessages": {

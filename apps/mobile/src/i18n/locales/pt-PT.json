@@ -1222,9 +1222,6 @@
       "moveToFolder": "Mover para pasta",
       "deleteNote": "Eliminar nota"
     },
-    "onboardingTooltip": {
-      "skip": "Ignorar"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Eliminar quiz",
       "areYouSureYouWantTo": "Tens a certeza de que queres eliminar \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Falha na autenticação com a Apple",
       "failedToCompleteSignup": "Falha ao concluir o registo",
       "failedToSkipSignup": "Falha ao ignorar o registo"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Conversas",
-      "description": "Conversa com os teus apontamentos, documentos ou PDF, tudo num só lugar"
-    },
-    "profileWelcome": {
-      "heading": "Bem-vindo ao teu Perfil",
-      "description": "Este é o teu perfil. Toca aqui para fazeres alterações e veres o estado da tua subscrição"
-    },
-    "createNotes": {
-      "heading": "Criar apontamento",
-      "description": "Cria qualquer tipo de nota a partir de gravações, áudio, vídeo, imagem, texto ou links do YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Mudar idioma",
-      "description": "Altera aqui o idioma da aplicação para o que preferires"
-    },
-    "manageHome": {
-      "heading": "Gerir início",
-      "description": "Vê todos os apontamentos criados e consulta as tuas ações num só lugar"
-    },
-    "yourLibrary": {
-      "heading": "A tua biblioteca",
-      "description": "Gere todos os teus apontamentos, cria pastas para os organizar e muito mais"
-    },
-    "yourProfile": {
-      "heading": "O teu perfil",
-      "description": "Consulta todas as informações do teu perfil e edita as definições a partir daqui"
     }
   },
   "serverMessages": {

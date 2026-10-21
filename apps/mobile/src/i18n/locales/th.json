@@ -1222,9 +1222,6 @@
       "moveToFolder": "ย้ายไปที่โฟลเดอร์",
       "deleteNote": "ลบโน้ต"
     },
-    "onboardingTooltip": {
-      "skip": "ข้าม"
-    },
     "quizHistoryList": {
       "deleteQuiz": "ลบควิซ",
       "areYouSureYouWantTo": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "การยืนยันตัวตนด้วย Apple ไม่สำเร็จ",
       "failedToCompleteSignup": "ลงทะเบียนไม่สำเร็จ",
       "failedToSkipSignup": "ข้ามการลงทะเบียนไม่สำเร็จ"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "แชต",
-      "description": "แชทถาม-ตอบกับโน้ต เอกสาร หรือไฟล์ PDF ทั้งหมดได้ในที่เดียว"
-    },
-    "profileWelcome": {
-      "heading": "ยินดีต้อนรับสู่โปรไฟล์ของคุณ",
-      "description": "นี่คือโปรไฟล์ของคุณ แตะที่นี่เพื่อแก้ไขข้อมูลส่วนตัวและสถานะการสมัครสมาชิก"
-    },
-    "createNotes": {
-      "heading": "สร้างโน้ต",
-      "description": "สร้างโน้ตได้จากทุกอย่าง ทั้งเสียงบันทึก ไฟล์เสียง วิดีโอ รูปภาพ ข้อความ และลิงก์ YouTube"
-    },
-    "changeLanguage": {
-      "heading": "เปลี่ยนภาษา",
-      "description": "เปลี่ยนภาษาของแอปเป็นภาษาที่คุณต้องการได้จากที่นี่"
-    },
-    "manageHome": {
-      "heading": "จัดการหน้าหลัก",
-      "description": "ดูโน้ตทั้งหมดที่คุณสร้าง และติดตามทุกกิจกรรมของคุณได้ในที่เดียว"
-    },
-    "yourLibrary": {
-      "heading": "คลังของคุณ",
-      "description": "จัดการโน้ตทั้งหมดที่คุณสร้าง สร้างโฟลเดอร์สำหรับจัดเก็บโน้ต และอื่นๆ"
-    },
-    "yourProfile": {
-      "heading": "โปรไฟล์ของคุณ",
-      "description": "ดูข้อมูลโปรไฟล์ทั้งหมดและปรับแต่งการตั้งค่าโปรไฟล์ของคุณได้จากที่นี่"
     }
   },
   "serverMessages": {

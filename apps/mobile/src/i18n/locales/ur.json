@@ -1240,9 +1240,6 @@
       "moveToFolder": "فولڈر میں منتقل کریں",
       "deleteNote": "نوٹ حذف کریں"
     },
-    "onboardingTooltip": {
-      "skip": "چھوڑیں"
-    },
     "quizHistoryList": {
       "deleteQuiz": "کوئز حذف کریں",
       "areYouSureYouWantTo": "کیا آپ واقعی \"{{quizTitle}}\" کو حذف کرنا چاہتے ہیں؟",
@@ -1486,36 +1483,6 @@
       "appleAuthenticationFailed": "Apple کی تصدیق ناکام ہو گئی",
       "failedToCompleteSignup": "سائن اپ مکمل کرنے میں ناکامی",
       "failedToSkipSignup": "سائن اپ چھوڑنے میں ناکامی"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "چیٹس",
-      "description": "کسی بھی نوٹس، دستاویزات یا PDF کے ساتھ ایک ہی جگہ چیٹ کریں"
-    },
-    "profileWelcome": {
-      "heading": "آپ کے پروفائل میں خوش آمدید",
-      "description": "یہ آپ کا پروفائل ہے، اس میں تبدیلیاں کرنے اور سبسکرپشن اسٹیٹس دیکھنے کے لیے یہاں ٹیپ کریں"
-    },
-    "createNotes": {
-      "heading": "نوٹ بنائیں",
-      "description": "کسی بھی چیز سے نوٹ بنائیں: ریکارڈنگ، آڈیو، ویڈیو، تصویر، متن اور یوٹیوب لنکس"
-    },
-    "changeLanguage": {
-      "heading": "زبان تبدیل کریں",
-      "description": "یہاں سے اپنی ایپ کی زبان اپنی پسند کے مطابق تبدیل کریں"
-    },
-    "manageHome": {
-      "heading": "ہوم کا انتظام کریں",
-      "description": "اپنے تمام نوٹس دیکھیں، اور اپنی تمام تر سرگرمیاں ایک ہی جگہ پائیں"
-    },
-    "yourLibrary": {
-      "heading": "آپ کی لائبریری",
-      "description": "اپنے تمام نوٹس کا انتظام کریں، فولڈرز بنائیں اور مزید بہت کچھ"
-    },
-    "yourProfile": {
-      "heading": "آپ کا پروفائل",
-      "description": "اپنے پروفائل کی تفصیلات دیکھیں اور یہاں سے سیٹنگز میں ترمیم کریں"
     }
   },
   "serverMessages": {

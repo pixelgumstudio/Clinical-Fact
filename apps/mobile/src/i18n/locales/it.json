@@ -1222,9 +1222,6 @@
       "moveToFolder": "Sposta nella cartella",
       "deleteNote": "Elimina nota"
     },
-    "onboardingTooltip": {
-      "skip": "Salta"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Elimina quiz",
       "areYouSureYouWantTo": "Sei sicuro di voler eliminare \"{{quizTitle}}\"?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Autenticazione con Apple non riuscita",
       "failedToCompleteSignup": "Impossibile completare la registrazione",
       "failedToSkipSignup": "Impossibile saltare la registrazione"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chat",
-      "description": "Chatta con qualsiasi appunto, documento o PDF in un unico posto"
-    },
-    "profileWelcome": {
-      "heading": "Ti diamo il benvenuto nel tuo profilo",
-      "description": "Questo è il tuo profilo: tocca qui per modificarlo e gestire il tuo abbonamento"
-    },
-    "createNotes": {
-      "heading": "Crea appunto",
-      "description": "Crea qualsiasi tipo di appunto da registrazioni, audio, video, immagini, testo e link YouTube"
-    },
-    "changeLanguage": {
-      "heading": "Cambia lingua",
-      "description": "Cambia da qui la lingua dell'app impostando quella che preferisci"
-    },
-    "manageHome": {
-      "heading": "Gestisci la home",
-      "description": "Visualizza tutti gli appunti creati e consulta le tue attività in un unico posto"
-    },
-    "yourLibrary": {
-      "heading": "La tua libreria",
-      "description": "Gestisci tutti gli appunti creati, organizzali in cartelle e molto altro"
-    },
-    "yourProfile": {
-      "heading": "Il tuo profilo",
-      "description": "Visualizza tutti i dettagli del profilo e modifica le impostazioni direttamente da qui"
     }
   },
   "serverMessages": {

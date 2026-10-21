@@ -1222,9 +1222,6 @@
       "moveToFolder": "Verplaatsen naar map",
       "deleteNote": "Notitie verwijderen"
     },
-    "onboardingTooltip": {
-      "skip": "Overslaan"
-    },
     "quizHistoryList": {
       "deleteQuiz": "Quiz verwijderen",
       "areYouSureYouWantTo": "Weet je zeker dat je \"{{quizTitle}}\" wilt verwijderen?",
@@ -1468,36 +1465,6 @@
       "appleAuthenticationFailed": "Apple-verificatie mislukt",
       "failedToCompleteSignup": "Registratie voltooien mislukt",
       "failedToSkipSignup": "Registratie overslaan mislukt"
-    }
-  },
-  "onboardingTour": {
-    "chats": {
-      "heading": "Chats",
-      "description": "Chat met al je notities, documenten of pdf's op één plek"
-    },
-    "profileWelcome": {
-      "heading": "Welkom bij je profiel",
-      "description": "Dit is je profiel. Tik hier om je gegevens en abonnementstatus aan te passen"
-    },
-    "createNotes": {
-      "heading": "Notitie maken",
-      "description": "Maak elk type notitie van: opnames, audio, video, afbeeldingen, tekst en YouTube-links"
-    },
-    "changeLanguage": {
-      "heading": "Taal wijzigen",
-      "description": "Verander hier de taal van de app naar de gewenste taal"
-    },
-    "manageHome": {
-      "heading": "Startscherm beheren",
-      "description": "Bekijk al je gemaakte notities en zie al je acties op één plek"
-    },
-    "yourLibrary": {
-      "heading": "Je bibliotheek",
-      "description": "Beheer al je notities, maak mappen aan en nog veel meer"
-    },
-    "yourProfile": {
-      "heading": "Je profiel",
-      "description": "Bekijk al je profielgegevens en pas hier direct je instellingen aan"
     }
   },
   "serverMessages": {
