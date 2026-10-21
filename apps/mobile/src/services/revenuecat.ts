@@ -138,17 +138,24 @@ export function listenForSubscriptionChanges(
 // past the free limit) looks like the button doing nothing. Tell the user instead — except for
 // the optional follow-up "exit offer" and the end-of-signup paywall, which they never asked for
 // (signup completes either way).
+// Why the paywall couldn't open, kept short and appended to the alert while we track down a
+// production-only failure (the generic message alone doesn't say which step failed).
+let lastPaywallReason = '';
+
 function notifyPaywallUnavailable(offeringId: PaywallOffering): void {
   if (offeringId === 'exit offer' || offeringId === 'Onboarding') return;
   Alert.alert(
     i18n.t('services.revenuecat.upgradeUnavailable'),
-    i18n.t('services.revenuecat.weCouldnTOpenTheUpgrade')
+    `${i18n.t('services.revenuecat.weCouldnTOpenTheUpgrade')}${lastPaywallReason ? `
+
+(${lastPaywallReason})` : ''}`
   );
 }
 
 /** The RevenueCat offering to show for a paywall name, or null (after logging, and telling the user
  *  for a paywall they asked for) when none with purchasable packages exists. */
 export async function getPaywallOffering(offeringId: PaywallOffering): Promise<PurchasesOffering | null> {
+  lastPaywallReason = '';
   const offerings = await Purchases.getOfferings();
   const offeringKey = OFFERING_IDS[offeringId];
   let offering: PurchasesOffering | undefined = offerings.all[offeringKey];
@@ -166,6 +173,7 @@ export async function getPaywallOffering(offeringId: PaywallOffering): Promise<P
   }
 
   if (!offering) {
+    lastPaywallReason = `no offering with packages; wanted "${offeringKey}", have: ${Object.keys(offerings.all).join(', ') || 'none'}; current: ${offerings.current?.identifier ?? 'none'}`;
     console.error(`[RC] No offering with packages is available for "${offeringId}" — cannot show a paywall.`);
     notifyPaywallUnavailable(offeringId);
     return null;
@@ -209,6 +217,7 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
     if (outcome === 'purchased' || outcome === 'restored') return true;
 
     if (outcome === 'error') {
+      if (!lastPaywallReason) lastPaywallReason = String(outcome);
       console.error(`[RC] Paywall for "${OFFERING_IDS[offeringId]}" failed (outcome: error).`);
       notifyPaywallUnavailable(offeringId);
       return false;
@@ -225,6 +234,7 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
     return false;
   } catch (e: any) {
     console.error('[RC] In-app paywall error:', e);
+    lastPaywallReason = `${e?.code ?? 'error'}: ${String(e?.message ?? e).slice(0, 140)}`;
     notifyPaywallUnavailable(offeringId);
     return false;
   }
