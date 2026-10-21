@@ -77,9 +77,9 @@ export const WalkthroughOverlay: React.FC = () => {
 
   if (!pending || !started || !step || !rect) return null;
 
-  const pad = step.tab ? theme.spacing[2] : theme.spacing[1];
+  const pad = step.tab ? theme.spacing[3] : theme.spacing[1]; // tab tiles extend a little beyond the tab itself
   const hole = { x: rect.x - pad, y: rect.y - pad, w: rect.width + pad * 2, h: rect.height + pad * 2 };
-  const radius = Math.min(16, hole.h / 2, hole.w / 2);
+  const radius = Math.min(step.tab ? 20 : 16, hole.h / 2, hole.w / 2);
   const cardLeft = Math.min(
     Math.max(rect.x + rect.width / 2 - WALKTHROUGH_CARD_WIDTH / 2, SCREEN_MARGIN),
     width - SCREEN_MARGIN - WALKTHROUGH_CARD_WIDTH
@@ -109,7 +109,7 @@ export const WalkthroughOverlay: React.FC = () => {
             pointerEvents="none"
             style={[styles.tabHighlight, { left: hole.x, top: hole.y, width: hole.w, height: hole.h, borderRadius: radius }]}
           >
-            <Icon name={step.tab.icon} size={24} color={theme.colors.yale[700]} />
+            <Icon name={step.tab.icon} size={24} color={theme.colors.grey[600]} />
             <Text style={styles.tabLabel} numberOfLines={1}>
               {t(step.tab.labelKey)}
             </Text>
@@ -146,8 +146,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.white,
     gap: 4,
   },
+  // The highlighted tab reads as a white tile with its own icon and a bold dark label, so it is
+  // obvious which tab the card is about while the rest of the bar stays dimmed.
   tabLabel: {
     ...theme.typography.textStyles.label2,
-    color: theme.colors.yale[700],
+    fontFamily: theme.typography.fontFamily.interMedium,
+    fontWeight: '500',
+    color: theme.colors.grey[900],
   },
 });
