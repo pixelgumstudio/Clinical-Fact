@@ -8,12 +8,13 @@ import { safeParseJSON } from '../utils/jsonParser';
 
 // Gemini is the default provider. Set AI_PROVIDER=legacy to roll back to the previous
 // OpenAI (generation/OCR) + Groq (chat) setup below without a code change.
-// Prices per 1M tokens (input/output): 3.8-flash $0.75/$3.75 (doubles on 2027-01-01), 3.1-flash-lite $0.25/$1.50,
-// 2.5-flash-lite $0.10/$0.40. The main model is the cheaper 3.1 Flash-Lite; the backup (also used for the small
-// helper calls: titles, follow-ups, summaries, image checks) is 2.5 Flash-Lite. Override with GEMINI_MODEL /
-// GEMINI_FALLBACK_MODEL (e.g. back to 'gemini-3.8-flash') without a deploy.
+// Prices per 1M tokens (input/output): 3.8-flash $0.75/$3.75 (doubles on 2027-01-01), 3.5-flash-lite
+// $0.30/$2.50, 3.1-flash-lite $0.25/$1.50. The main model is the cheaper 3.1 Flash-Lite; the backup (also
+// used for the small helper calls: titles, follow-ups, summaries, image checks) is 3.5 Flash-Lite.
+// NOT gemini-2.5-flash-lite: Google answers 404 "no longer available to new users" for new projects.
+// Override with GEMINI_MODEL / GEMINI_FALLBACK_MODEL (e.g. back to 'gemini-3.8-flash') without a deploy.
 const DEFAULT_GEMINI_MODEL = 'gemini-3.1-flash-lite';
-const DEFAULT_GEMINI_FALLBACK_MODEL = 'gemini-2.5-flash-lite';
+const DEFAULT_GEMINI_FALLBACK_MODEL = 'gemini-3.5-flash-lite';
 // Output is not artificially capped: every Gemini call is allowed the model's full output limit
 // (65,536 tokens, thinking included) so answers and long scans are never cut short.
 const GEMINI_MAX_OUTPUT_TOKENS = 65536;
