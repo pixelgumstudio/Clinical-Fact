@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { SurveyQuestionScreen } from '../../components/SurveyQuestionScreen';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { nextSurveyRoute, surveyProgress } from '../../navigation/signupSurveyFlow';
 import { useSignupStore, REFERRAL_OPTIONS } from '../../store/signupStore';
 
 type ReferralScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Referral'>;
@@ -19,9 +20,8 @@ export const ReferralScreen = () => {
       options={REFERRAL_OPTIONS}
       selectedId={data.referralSource || null}
       onSelect={setReferralSource}
-      onContinue={() => navigation.navigate('StudyTime')}
-      step={1}
-      totalSteps={3}
+      onContinue={() => navigation.navigate(nextSurveyRoute('Referral') as any)}
+      {...surveyProgress('Referral')}
     />
   );
 };
