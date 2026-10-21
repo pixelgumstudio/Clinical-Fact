@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Keyboard, Modal, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { I18nManager, Keyboard, Modal, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { Icon, theme } from '@clinicalfact/design-system';
 import { useTranslation } from 'react-i18next';
@@ -8,12 +8,11 @@ import { measureWalkthroughTarget, Rect } from '../../services/walkthroughTarget
 import { useAuthStore } from '../../store/authStore';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { WALKTHROUGH_CARD_WIDTH, WalkthroughCard } from './WalkthroughCard';
+import { computeWalkthroughLayout } from './walkthroughLayout';
 
 const START_DELAY_MS = 900; // let the Chat screen finish laying out so its targets can be measured
 const MEASURE_RETRIES = 8;
 const MEASURE_RETRY_MS = 120;
-const SCREEN_MARGIN = theme.spacing[4]; // 16
-const CARD_GAP = theme.spacing[3]; // 12
 const DIM = `${theme.colors.yale[900]}73`; // the brand's darkest blue at ~45% opacity
 
 const roundedRect = (x: number, y: number, w: number, h: number, r: number) =>
@@ -77,21 +76,21 @@ export const WalkthroughOverlay: React.FC = () => {
 
   if (!pending || !started || !step || !rect) return null;
 
-  const pad = step.tab ? theme.spacing[3] : theme.spacing[1]; // tab tiles extend a little beyond the tab itself
-  const hole = { x: rect.x - pad, y: rect.y - pad, w: rect.width + pad * 2, h: rect.height + pad * 2 };
-  const radius = Math.min(step.tab ? 20 : 16, hole.h / 2, hole.w / 2);
-  const cardLeft = Math.min(
-    Math.max(rect.x + rect.width / 2 - WALKTHROUGH_CARD_WIDTH / 2, SCREEN_MARGIN),
-    width - SCREEN_MARGIN - WALKTHROUGH_CARD_WIDTH
-  );
-  // A card sitting on the left edge of a left-aligned element (the input, the "+") reads better
-  // aligned to that element than centred on it.
-  const alignToTarget = step.target === 'chatInput' || step.target === 'chatPlus' || step.target === 'chatHeader';
-  const left = alignToTarget ? Math.min(Math.max(hole.x, SCREEN_MARGIN), width - SCREEN_MARGIN - WALKTHROUGH_CARD_WIDTH) : cardLeft;
-  const cardPosition =
-    step.placement === 'above'
-      ? { bottom: height - (hole.y - CARD_GAP), left }
-      : { top: hole.y + hole.h + CARD_GAP, left };
+  const { hole, radius, card } = computeWalkthroughLayout({
+    rect,
+    target: step.target,
+    isTab: !!step.tab,
+    placement: step.placement,
+    screen: { width, height },
+    cardWidth: WALKTHROUGH_CARD_WIDTH,
+  });
+  // Positions are measured in physical window coordinates, but React Native swaps `left`/`right` in
+  // right-to-left languages, so a physical x must be given as `right` there to land in the same place.
+  const physicalX = (x: number) => (I18nManager.isRTL ? { right: x } : { left: x });
+  const cardPosition = {
+    ...physicalX(card.left),
+    ...(card.top !== undefined ? { top: card.top } : { bottom: card.bottom }),
+  };
 
   return (
     <Modal visible transparent animationType="fade" statusBarTranslucent onRequestClose={finish}>
@@ -107,7 +106,7 @@ export const WalkthroughOverlay: React.FC = () => {
         {step.tab && (
           <View
             pointerEvents="none"
-            style={[styles.tabHighlight, { left: hole.x, top: hole.y, width: hole.w, height: hole.h, borderRadius: radius }]}
+            style={[styles.tabHighlight, physicalX(hole.x), { top: hole.y, width: hole.w, height: hole.h, borderRadius: radius }]}
           >
             <Icon name={step.tab.icon} size={24} color={theme.colors.grey[600]} />
             <Text style={styles.tabLabel} numberOfLines={1}>
