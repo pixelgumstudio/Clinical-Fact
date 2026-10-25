@@ -9,6 +9,7 @@ import {
 import { Icon, theme, colors } from "@clinicalfact/design-system";
 import { CounterInput } from "./CounterInput";
 import { useTranslation } from 'react-i18next';
+import { captureEvent } from '../services/analytics';
 import { FullScreenModal } from './FullScreenModal';
 
 interface CreateFlashcardsModalProps {
@@ -30,6 +31,7 @@ export const CreateFlashcardsModal: React.FC<CreateFlashcardsModalProps> = ({
   const [questionCount, setQuestionCount] = useState(3);
 
   const handleGenerate = () => {
+    captureEvent('flashcards_generate_requested', { cardCount: questionCount });
     onGenerateFlashcards(questionCount);
   };
 

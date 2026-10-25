@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { WALKTHROUGH_STEPS } from '../../config/walkthroughSteps';
 import { measureWalkthroughTarget, Rect } from '../../services/walkthroughTargets';
 import { useAuthStore } from '../../store/authStore';
+import { captureEvent } from '../../services/analytics';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { WALKTHROUGH_CARD_WIDTH, WalkthroughCard } from './WalkthroughCard';
 import { computeWalkthroughLayout } from './walkthroughLayout';
@@ -46,7 +47,10 @@ export const WalkthroughOverlay: React.FC = () => {
     return () => clearTimeout(timer);
   }, [pending]);
 
-  const finish = useCallback(() => completeOnboardingStep('walkthroughPending'), [completeOnboardingStep]);
+  const finish = useCallback(() => {
+    captureEvent('walkthrough_ended', { stepsSeen: index + 1, totalSteps: steps.length });
+    completeOnboardingStep('walkthroughPending');
+  }, [completeOnboardingStep, index, steps.length]);
 
   const step = steps[index];
   const isLast = index >= steps.length - 1;
@@ -73,6 +77,11 @@ export const WalkthroughOverlay: React.FC = () => {
       cancelled = true;
     };
   }, [started, pending, step?.id]);
+
+  useEffect(() => {
+    if (started && pending && step && rect) captureEvent('walkthrough_step_viewed', { step: step.id, index });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step?.id, !!rect]);
 
   if (!pending || !started || !step || !rect) return null;
 

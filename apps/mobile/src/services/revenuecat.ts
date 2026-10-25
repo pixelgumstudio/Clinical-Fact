@@ -3,6 +3,7 @@ import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui';
 import { Alert, Platform } from 'react-native';
 import i18n from '../i18n';
 import { navigationRef } from '../navigation/navigationRef';
+import { captureEvent } from './analytics';
 import { PaywallOutcome, startPaywallSession } from './paywallSession';
 
 const RC_API_KEY_IOS     = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS     ?? '';
@@ -194,6 +195,7 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
 
     // Already has access — nothing to show. Not an error.
     if (await hasProEntitlement()) return true;
+    captureEvent('paywall_shown', { offering: offeringId });
 
     // The paywall is a full-page screen in the main stack. Before the navigator exists (or outside
     // the signed-in app) fall back to RevenueCat's own presentation so a gate is never a dead end.
@@ -214,6 +216,7 @@ export async function showInAppPaywall(offeringId: PaywallOffering = 'Upgrade'):
         : 'cancelled';
     }
 
+    captureEvent('paywall_closed', { offering: offeringId, outcome });
     if (outcome === 'purchased' || outcome === 'restored') return true;
 
     if (outcome === 'error') {

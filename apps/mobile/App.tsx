@@ -24,7 +24,7 @@ import notificationService from './src/services/notificationService';
 import api from './src/services/api';
 import { resolveLanguageAfterAuth } from './src/services/languageSync';
 import { getPendingOnboardingLanguage, clearPendingOnboardingLanguage } from './src/services/languagePreference';
-import { configureAnalytics, identifyUser, captureEvent } from './src/services/analytics';
+import { configureAnalytics, identifyUser, resetAnalytics, captureEvent } from './src/services/analytics';
 
 // Keep splash screen visible until the design system's fonts (Inter/Lora)
 // have loaded — every text style in the theme references these families,
@@ -168,9 +168,18 @@ function AppInner() {
     configureAnalytics();
   }, []);
 
+  // Who this is, for filtering recordings and funnels in PostHog: plan, language, how they signed up.
+  // No email or name — the id is enough to find a person from the dashboard and keeps PII out of analytics.
+  const userPlan = useAuthStore((s) => s.user?.subscription);
+  const userLanguage = useAuthStore((s) => s.user?.preferredLanguage);
+  const userAuthProvider = useAuthStore((s) => s.user?.authProvider);
   useEffect(() => {
-    if (userId) identifyUser(userId);
-  }, [userId]);
+    if (userId) {
+      identifyUser(userId, { plan: userPlan, language: userLanguage, authProvider: userAuthProvider });
+    } else {
+      resetAnalytics();
+    }
+  }, [userId, userPlan, userLanguage, userAuthProvider]);
 
   // Register this device for push notifications once the user is signed in — the
   // backend needs a userId to attach the token to, so this can't run before login.
