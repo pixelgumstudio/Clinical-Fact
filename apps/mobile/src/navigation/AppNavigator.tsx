@@ -6,6 +6,7 @@ import { MainStackNavigator } from './MainStackNavigator';
 import { getAuthStartRoute } from './authStartRoute';
 import { hasChosenLanguage, markLanguageChosen } from '../services/languagePreference';
 import { navigationRef } from './navigationRef';
+import { trackScreen } from '../services/analytics';
 import { useAuthStore } from '../store/authStore';
 import { useSignupStore } from '../store/signupStore';
 import { useSubscriptionStore } from '../store/subscriptionStore';
@@ -26,6 +27,15 @@ const linking: LinkingOptions<any> = {
     },
   },
 };
+
+// The route that is focused now (the deepest one, so tabs report "Home" and not "MainTabs"); only a
+// change of screen is reported, not every navigation state update.
+let lastTrackedScreen: string | undefined;
+function trackCurrentScreen(name: string | undefined) {
+  if (!name || name === lastTrackedScreen) return;
+  lastTrackedScreen = name;
+  trackScreen(name);
+}
 
 export const AppNavigator = () => {
   const {
@@ -135,7 +145,13 @@ export const AppNavigator = () => {
   const navKey = !isAuthenticated ? 'auth' : needsSignupCompletion ? 'signup' : 'main';
 
   return (
-    <NavigationContainer key={navKey} ref={navigationRef} linking={linking}>
+    <NavigationContainer
+      key={navKey}
+      ref={navigationRef}
+      linking={linking}
+      onReady={() => trackCurrentScreen(navigationRef.getCurrentRoute()?.name)}
+      onStateChange={() => trackCurrentScreen(navigationRef.getCurrentRoute()?.name)}
+    >
       {!isAuthenticated ? (
         <AuthNavigator initialRouteName={getAuthStartRoute({ languageChosen })} />
       ) : needsSignupCompletion ? (

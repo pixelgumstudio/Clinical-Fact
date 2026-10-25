@@ -18,6 +18,7 @@ import { useSignupStore } from '../../store/signupStore';
 import { useAuthStore } from '../../store/authStore';
 import { api } from '../../services/api';
 import { useTranslation } from 'react-i18next';
+import { captureEvent } from '../../services/analytics';
 
 type SetupScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Setup'>;
 
@@ -83,6 +84,7 @@ export const SetupScreen = () => {
           if (response.data?.user?.onboarding) {
             useAuthStore.getState().updateUser({ onboarding: response.data.user.onboarding });
           }
+          captureEvent('signup_completed');
           setIsReady(true);
         } else {
           Alert.alert(t('common.error'), response.message || t('auth.setup.failedSignup'));

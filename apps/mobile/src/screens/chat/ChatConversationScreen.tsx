@@ -55,6 +55,7 @@ import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useAuthStore } from '../../store/authStore';
 import { useMedicalSearchStore } from '../../store/medicalSearchStore';
 import { showInAppPaywall } from '../../services/revenuecat';
+import { captureEvent } from '../../services/analytics';
 import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
@@ -683,6 +684,11 @@ export const ChatConversationScreen = () => {
       // never double-settle this promise).
       let settled = false;
 
+      captureEvent('chat_message_sent', {
+        mode: useLiveSearch ? 'medical_live' : 'document',
+        hasAttachment: !!options.attachmentFileId,
+        isRetry: !!options.reuseMessageId,
+      });
       const cleanup = api.streamChatMessage(
         activeSessionId,
         msgContent,
@@ -751,6 +757,7 @@ export const ChatConversationScreen = () => {
             if (settled) return;
             settled = true;
             sseChatCleanupRef.current = null;
+            captureEvent('chat_answer_failed', { quotaExceeded: !!quotaExceeded });
             if (quotaExceeded) {
               // Not a retry-able failure — the caller handles showing the paywall and removing
               // its own optimistic user-message bubble, so just drop the empty placeholder here.

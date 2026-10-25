@@ -9,6 +9,7 @@ import { Icon, theme } from "@clinicalfact/design-system";
 import { useSubscriptionStore } from '../store/subscriptionStore';
 import { showInAppPaywall } from '../services/revenuecat';
 import { useTranslation } from 'react-i18next';
+import { captureEvent } from '../services/analytics';
 import { FullScreenModal } from './FullScreenModal';
 
 const QUIZ_PAYWALL_ENABLED = true;
@@ -60,6 +61,7 @@ export const CreateQuizModal: React.FC<CreateQuizModalProps> = ({
   };
 
 const handleGenerate = async () => {
+    captureEvent('quiz_generate_requested', { questionCount, timeMinutes, isPro: hasAccess });
     // 🛡️ NUCLEAR OPTION: If they aren't Pro, trigger the paywall immediately
     // Use the 600ms timeout to avoid the modal collision bug
     if (QUIZ_PAYWALL_ENABLED && !hasAccess) {

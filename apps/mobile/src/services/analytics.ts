@@ -5,22 +5,40 @@ const POSTHOG_HOST = process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posth
 
 let client: PostHog | null = null;
 
+// Everything below is safe to call before analytics is configured, or with no key at all: it does nothing.
+// Never put what a user typed (chat messages, note text, document names) in an event — the properties
+// here are counts, modes and ids only.
+
 // ─── Configure — call once on app launch ───────────────────────────────────
-// No-ops (client stays null) if the key isn't set, so every other function
-// here is safe to call unconditionally before analytics is configured.
 export async function configureAnalytics(): Promise<void> {
-  if (!POSTHOG_API_KEY) return;
+  if (!POSTHOG_API_KEY || client) return;
   try {
-    client = new PostHog(POSTHOG_API_KEY, { host: POSTHOG_HOST });
+    client = new PostHog(POSTHOG_API_KEY, {
+      host: POSTHOG_HOST,
+      captureAppLifecycleEvents: true, // Application Installed / Opened / Backgrounded / Updated
+      flushAt: 10,
+      flushInterval: 15000,
+    });
   } catch (e) {
     console.warn('[Analytics] Failed to configure PostHog:', e);
   }
 }
 
-export function identifyUser(userId: string): void {
-  client?.identify(userId);
+/** Ties this device's events to the signed-in account; `properties` become person properties (plan, language...). */
+export function identifyUser(userId: string, properties?: Record<string, any>): void {
+  client?.identify(userId, properties);
+}
+
+/** Call on sign-out so the next person on this device isn't recorded as the previous user. */
+export function resetAnalytics(): void {
+  client?.reset();
 }
 
 export function captureEvent(event: string, properties?: Record<string, any>): void {
   client?.capture(event, properties);
+}
+
+/** One screen view; the route name is the screen's name in the navigator ("Home", "ChatConversation"...). */
+export function trackScreen(routeName: string, properties?: Record<string, any>): void {
+  client?.screen(routeName, properties);
 }
