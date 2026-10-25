@@ -1,4 +1,5 @@
 import React from 'react';
+import { PostHogMaskView } from 'posthog-react-native';
 import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, I18nManager } from 'react-native';
 import { colors, spacing, typography, RegenerateIcon, Icon, theme } from '@clinicalfact/design-system';
 import { MedicalChatGroundingSource, MedicalChatImage, MedicalChatSource } from '../../../services/api';
@@ -39,7 +40,8 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
   return (
     <View style={[styles.messageContainer, isUser && styles.userMessageContainer]}>
       {isUser ? (
-        <View style={styles.userMessageColumn}>
+        // What the user typed or attached is hidden from session recordings.
+        <PostHogMaskView style={styles.userMessageColumn}>
           {!!item.attachedImageUri && (
             <TouchableOpacity
               onPress={() => onPreviewImage({
@@ -56,7 +58,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
           <View style={styles.userMessage}>
             <Text style={styles.userMessageText}>{item.content}</Text>
           </View>
-        </View>
+        </PostHogMaskView>
       ) : (
         <View>
           <View style={styles.assistantMessage}>

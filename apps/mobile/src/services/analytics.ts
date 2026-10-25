@@ -18,6 +18,18 @@ export async function configureAnalytics(): Promise<void> {
       captureAppLifecycleEvents: true, // Application Installed / Opened / Backgrounded / Updated
       flushAt: 10,
       flushInterval: 15000,
+      // Screen recording. Needs the native module, so it only records in a store/TestFlight build made
+      // after it was added; older builds ignore it. Privacy: everything typed into an input, and every image
+      // (note photos, uploads), is masked; chat questions are masked where they are rendered.
+      enableSessionReplay: true,
+      sessionReplayConfig: {
+        maskAllTextInputs: true,
+        maskAllImages: true,
+        maskAllSandboxedViews: true,
+        captureLog: false,
+        captureNetworkTelemetry: false,
+        captureTouches: true,
+      },
     });
   } catch (e) {
     console.warn('[Analytics] Failed to configure PostHog:', e);
