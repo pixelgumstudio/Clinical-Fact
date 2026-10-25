@@ -1,9 +1,14 @@
+import { NativeModules } from 'react-native';
 import PostHog from 'posthog-react-native';
 
 const POSTHOG_API_KEY = process.env.EXPO_PUBLIC_POSTHOG_KEY ?? '';
 const POSTHOG_HOST = process.env.EXPO_PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
 
 let client: PostHog | null = null;
+
+// Recording needs the native module, which only builds made after it was added contain; an OTA can
+// still reach older builds, where turning replay on would try to call a module that isn't there.
+const replayAvailable = !!NativeModules.PosthogReactNativeSessionReplay;
 
 // Everything below is safe to call before analytics is configured, or with no key at all: it does nothing.
 // Never put what a user typed (chat messages, note text, document names) in an event — the properties
@@ -21,7 +26,7 @@ export async function configureAnalytics(): Promise<void> {
       // Screen recording. Needs the native module, so it only records in a store/TestFlight build made
       // after it was added; older builds ignore it. Privacy: everything typed into an input, and every image
       // (note photos, uploads), is masked; chat questions are masked where they are rendered.
-      enableSessionReplay: true,
+      enableSessionReplay: replayAvailable,
       sessionReplayConfig: {
         maskAllTextInputs: true,
         maskAllImages: true,
