@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { adminAuth } from '../middleware/adminAuth';
-import { getStats, getUsers, getUserDetail, getUserIds, getContent, getRevenue, getQueueStats, updateUserPlan, toggleUserBan, bulkUserAction, manageUserQuota, getFeedback, getReferralsSummary, getReferralPartnerUsers, createReferralPartner, updateReferralPartner, deleteReferralPartner } from '../controllers/admin.controller';
+import { getStats, getUsers, getUserDetail, getUserIds, getContent, getRevenue, getQueriesAnalytics, getQueueStats, updateUserPlan, toggleUserBan, bulkUserAction, manageUserQuota, getFeedback, getReferralsSummary, getReferralPartnerUsers, createReferralPartner, updateReferralPartner, deleteReferralPartner } from '../controllers/admin.controller';
 import { previewAudience, sendCampaign, getCampaigns, getCampaignDetail } from '../controllers/adminNotification.controller';
 
 const router = Router();
@@ -17,6 +17,7 @@ router.patch('/users/:id/ban', toggleUserBan);
 router.patch('/users/:id/quota', manageUserQuota);
 router.get('/content', getContent);
 router.get('/revenue', getRevenue);
+router.get('/analytics/queries', getQueriesAnalytics);
 router.get('/queue', getQueueStats);
 router.get('/feedback', getFeedback);
 router.get('/referrals/summary', getReferralsSummary);
