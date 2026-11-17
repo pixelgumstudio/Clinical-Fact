@@ -10,6 +10,7 @@ import { ReferralPartner } from '../models/ReferralPartner';
 import { transcriptionQueue } from '../queue/transcription.queue';
 import { successResponse, errorResponse, paginatedResponse, ERROR_CODES } from '../utils/response';
 import { buildUserFilter, USER_SORT_OPTIONS } from '../utils/userFilters';
+import { countQueriesByUser, getUserQueryStats, getQueryAnalytics } from '../utils/queryStats';
 
 // GET /admin/stats
 export const getStats = async (_req: Request, res: Response) => {
@@ -118,15 +119,19 @@ export const getUsers = async (req: Request, res: Response) => {
     ]);
 
     const userIds = users.map((u) => u._id);
-    const noteCounts = await Note.aggregate([
-      { $match: { userId: { $in: userIds }, deletedAt: null } },
-      { $group: { _id: '$userId', count: { $sum: 1 } } },
+    const [noteCounts, queryCountMap] = await Promise.all([
+      Note.aggregate([
+        { $match: { userId: { $in: userIds }, deletedAt: null } },
+        { $group: { _id: '$userId', count: { $sum: 1 } } },
+      ]),
+      countQueriesByUser(userIds),
     ]);
     const noteCountMap = Object.fromEntries(noteCounts.map((n) => [n._id.toString(), n.count]));
 
     const enriched = users.map((u) => ({
       ...u,
       noteCount: noteCountMap[u._id.toString()] ?? 0,
+      queryCount: queryCountMap[u._id.toString()] ?? 0,
     }));
 
     res.json(paginatedResponse(enriched, page, limit, total));
@@ -145,11 +150,12 @@ export const getUserDetail = async (req: Request, res: Response) => {
       return;
     }
 
-    const [user, notes, flashcardSets, quizzes] = await Promise.all([
+    const [user, notes, flashcardSets, quizzes, queries] = await Promise.all([
       User.findById(id).select('-password').lean(),
       Note.find({ userId: id, deletedAt: null }).select('title sourceType processingStatus createdAt').sort({ createdAt: -1 }).limit(50).lean(),
       FlashcardSet.find({ userId: id }).select('title totalCards createdAt').sort({ createdAt: -1 }).limit(20).lean(),
       Quiz.find({ userId: id }).select('title createdAt').sort({ createdAt: -1 }).limit(20).lean(),
+      getUserQueryStats(new mongoose.Types.ObjectId(id)),
     ]);
 
     if (!user) {
@@ -157,7 +163,7 @@ export const getUserDetail = async (req: Request, res: Response) => {
       return;
     }
 
-    res.json(successResponse({ user, notes, flashcardSets, quizzes }));
+    res.json(successResponse({ user, notes, flashcardSets, quizzes, queries }));
   } catch (error: any) {
     console.error('[admin] getUserDetail error:', error);
     res.status(500).json(errorResponse('Failed to fetch user', ERROR_CODES.SERVER_ERROR));
@@ -384,6 +390,17 @@ export const getRevenue = async (_req: Request, res: Response) => {
   } catch (error: any) {
     console.error('[admin] getRevenue error:', error);
     res.status(500).json(errorResponse('Failed to fetch revenue data', ERROR_CODES.SERVER_ERROR));
+  }
+};
+
+// GET /admin/analytics/queries?days=30
+export const getQueriesAnalytics = async (req: Request, res: Response) => {
+  try {
+    const days = Math.min(90, Math.max(1, parseInt(req.query.days as string) || 30));
+    res.json(successResponse(await getQueryAnalytics(days)));
+  } catch (error: any) {
+    console.error('[admin] getQueriesAnalytics error:', error);
+    res.status(500).json(errorResponse('Failed to fetch query analytics', ERROR_CODES.SERVER_ERROR));
   }
 };
 
