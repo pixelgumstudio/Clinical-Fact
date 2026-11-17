@@ -180,8 +180,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
+    borderTopStartRadius: theme.borderRadius['3xl'],
+    borderTopEndRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
     paddingBottom: theme.spacing[8],
   },
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     ...theme.typography.textStyles.h5,
     color: theme.colors.grey[900],
     flex: 1,
-    marginRight: theme.spacing[3],
+    marginEnd: theme.spacing[3],
   },
   closeButton: {
     width: 40,
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: theme.spacing[2],
     flex: 1,
-    marginRight: theme.spacing[3],
+    marginEnd: theme.spacing[3],
   },
   toggleLabel: {
     ...theme.typography.textStyles.p2,

@@ -56,6 +56,9 @@
     "upgradeSubtitle": "Get 88% Discount first time",
     "languageUpdated": "Language preference updated",
     "languageUpdateFailed": "Failed to update language",
+    "studyLanguage": "Language for AI content",
+    "studyLanguageUpdated": "AI content language updated",
+    "studyLanguageUpdateFailed": "Failed to update the AI content language",
     "deleteAccountTitle": "Delete Account?",
     "deleteAccountMessage": "Are you sure you want to delete your account? This action cannot be undone.",
     "deleteAccountWarning": "All your notes, quizzes, flashcards, and chat sessions will be permanently deleted.",
@@ -275,10 +278,8 @@
       }
     },
     "languageSelect": {
-      "title": "Choose your language",
-      "subtitle": "Pick the language you'd like to use in the app. You can change it later in your profile.",
-      "searchPlaceholder": "Search languages",
-      "noResults": "No languages found"
+      "title": "Select your language",
+      "subtitle": "This helps us personalize your experience for you."
     },
     "notificationsPrompt": {
       "turnOnNotifications": "Turn on notifications",
@@ -991,6 +992,11 @@
     "sourcesRow": {
       "viewSources": "View sources ({{total}})"
     }
+  },
+  "languageList": {
+    "searchPlaceholder": "Search for a language",
+    "noResults": "No languages found",
+    "defaultSameAsApp": "Default (same as app)"
   },
   "languages": {
     "english": "English",

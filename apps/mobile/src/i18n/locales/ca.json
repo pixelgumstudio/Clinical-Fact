@@ -73,7 +73,10 @@
     "everyWeek": "Cada setmana",
     "everyMonth": "Cada mes",
     "everyYear": "Cada any",
-    "reportBug": "Informa d'un error"
+    "reportBug": "Informa d'un error",
+    "studyLanguage": "Idioma del contingut d'AI",
+    "studyLanguageUpdated": "S'ha actualitzat l'idioma del contingut d'AI",
+    "studyLanguageUpdateFailed": "No s'ha pogut actualitzar l'idioma del contingut d'AI"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Tria el teu idioma",
-      "subtitle": "Tria l'idioma que vols utilitzar a l'aplicació. Pots canviar-lo més endavant al teu perfil.",
-      "searchPlaceholder": "Cerca idiomes",
-      "noResults": "No s'ha trobat cap idioma"
+      "title": "Tria la teva llengua",
+      "subtitle": "Això ens ajuda a personalitzar la teva experiència."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Qüestionaris"
+      "quiz": "Qüestionaris",
+      "home": "Inici",
+      "flashcards": "Flashcards",
+      "profile": "Perfil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "Cal noteId o fileId",
     "sourcetypeIsRequired": "sourceType és obligatori",
     "youtubeurlIsRequired": "youtubeUrl és obligatori"
+  },
+  "languageList": {
+    "searchPlaceholder": "Cerca un idioma",
+    "noResults": "No s'ha trobat cap idioma",
+    "defaultSameAsApp": "Per defecte (el mateix que l'aplicació)"
+  },
+  "walkthrough": {
+    "skip": "Omet",
+    "next": "Següent",
+    "finish": "Finalitza",
+    "medicalData": {
+      "title": "Obtén dades mèdiques",
+      "description": "Pregunta qualsevol dubte clínic i rep respostes amb cites de fonts mèdiques fiables"
+    },
+    "customizeChat": {
+      "title": "Personalitza el xat",
+      "description": "Genera qüestionaris i flashcards, o filtra els resultats per data i tipus de font."
+    },
+    "profile": {
+      "title": "El teu perfil",
+      "description": "Actualitza a PRO i gestiona la configuració del teu compte des d'aquí"
+    },
+    "home": {
+      "title": "Inici",
+      "description": "Els teus xats recents són aquí per reprendre'ls on ho vas deixar."
+    },
+    "quiz": {
+      "title": "Qüestionaris",
+      "description": "Crea qüestionaris de pràctica a partir d'un xat, document, imatge o fitxer d'àudio."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Crea flashcards a partir d'un xat, document, imatge o fitxer d'àudio."
+    }
   }
 }

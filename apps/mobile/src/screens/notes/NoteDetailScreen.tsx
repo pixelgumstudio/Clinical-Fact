@@ -38,7 +38,7 @@ import {
   ChevronRightIcon,
 } from '@clinicalfact/design-system';
 import { FeedbackFilterModal } from '../../components/FeedbackFilterModal';
-import { LanguageSupportModal } from '../../components/LanguageSupportModal';
+import { LanguageSupportModal } from '../../components/language/LanguageSupportModal';
 import { NoteOptionsModal } from '../../components/NoteOptionsModal';
 import { DeleteNoteModal } from '../../components/DeleteNoteModal';
 import { ExportNoteWizardModal, ExportType } from '../../components/ExportNoteWizard/ExportNoteWizardModal';
@@ -718,14 +718,14 @@ const styles = StyleSheet.create({
   addToFolderText: {
     fontSize: typography.fontSize.sm,
     color: colors.vivid.accent[500],
-    marginLeft: spacing[1],
-    marginRight: spacing[1],
+    marginStart: spacing[1],
+    marginEnd: spacing[1],
   },
   selectedFolderText: {
     fontSize: typography.fontSize.sm,
     color: colors.text.primary,
-    marginLeft: spacing[1],
-    marginRight: spacing[1],
+    marginStart: spacing[1],
+    marginEnd: spacing[1],
     maxWidth: 120,
   },
   sourceFileCard: {
@@ -739,7 +739,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border.light,
   },
   sourceFileInfo: {
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
     flex: 1,
   },
   sourceFileName: {
@@ -798,7 +798,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     paddingVertical: spacing[3],
-    marginRight: spacing[5],
+    marginEnd: spacing[5],
   },
   activeTab: {
     borderBottomWidth: 2,

@@ -9,7 +9,7 @@ import pubmedService from './pubmed.service';
 import { WikimediaImageResult } from './wikimediaImageSearch.service';
 import chatImagesService from './chatImages.service';
 import openFdaService from './openFda.service';
-import { getLanguageName } from '../utils/language';
+import { languageInstruction as buildLanguageInstruction } from '../utils/language';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -276,9 +276,7 @@ class ChatService {
     // Spelled out as a full name ("French") rather than the raw code ("fr") and phrased as a
     // standalone directive — a bare code tacked onto the end of an English-heavy prompt is easy
     // for the model to under-weight against all the English source material above it.
-    const languageInstruction = language !== 'en'
-      ? `\n\nIMPORTANT: Regardless of the language of the material above, you must write your entire response in ${getLanguageName(language)} only. Do not respond in English.`
-      : '';
+    const languageInstruction = `\n\n${buildLanguageInstruction(language, 'your entire response')}`;
 
     const systemInstruction = deepResearch
       ? `You are Clinical Fact, a medical reference AI tutor for nursing and medical students. You have access to live web search results — use them to find up-to-date information to supplement the user's local study material.
@@ -532,7 +530,7 @@ Some sources below are pulled from medical literature, others are official FDA d
 You also have live web search results (restricted to authoritative medical domains like NIH, CDC, WHO, FDA, and MedlinePlus) — use them to verify current guidance or fill gaps the sources below don't cover. Do not use bracketed citation numbers for anything found via web search; the numbered [n] citations above are reserved for the sources list below. Web-grounded information is shown to the user separately, so just write it naturally into the answer.
 
 Sources:
-${context || 'No sources found — answer from your own medical knowledge.'}${language !== 'en' ? `\n\nIMPORTANT: Regardless of the language of the sources above, you must write your entire response in ${getLanguageName(language)} only. Do not respond in English.` : ''}`;
+${context || 'No sources found — answer from your own medical knowledge.'}\n\n${buildLanguageInstruction(language, 'your entire response')}`;
 
     // Full conversation history stacks on top of the (already capped) sources context above —
     // uncapped, a long-running chat would eventually blow the token budget on history alone.
@@ -686,9 +684,7 @@ Reply with ONLY the summary sentence, nothing else.`;
         .map(msg => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
         .join('\n\n');
 
-      const languageInstruction = language !== 'en'
-        ? ` Write the questions in ${getLanguageName(language)} only, regardless of the language of the conversation above — do not use English.`
-        : '';
+      const languageInstruction = ` ${buildLanguageInstruction(language, 'the questions')}`;
 
       const prompt = `Based on this medical study conversation, suggest 3 relevant follow-up questions a nursing or medical student might naturally want to ask next — questions that build on what was just discussed (e.g. related mechanisms, complications, comparisons, or clinical application). Keep each question short and specific, not generic.${languageInstruction}
 

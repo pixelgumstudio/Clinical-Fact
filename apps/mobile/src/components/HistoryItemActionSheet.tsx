@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
   },
   menuModalContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingBottom: spacing[8],
   },
   menuHandleBar: {

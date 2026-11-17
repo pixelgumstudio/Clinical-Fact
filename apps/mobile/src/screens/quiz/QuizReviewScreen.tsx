@@ -451,7 +451,7 @@ const styles = StyleSheet.create({
   correctBadge: {
     position: 'absolute',
     top: -10,
-    right: theme.spacing[4],
+    end: theme.spacing[4],
     paddingHorizontal: theme.spacing[2],
     paddingVertical: theme.spacing[1.5],
     backgroundColor: colors.success.dark,
@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
   incorrectBadge: {
     position: 'absolute',
     top: -10,
-    right: theme.spacing[4],
+    end: theme.spacing[4],
     paddingHorizontal: theme.spacing[2],
     paddingVertical: theme.spacing[1.5],
     backgroundColor: colors.error.main,

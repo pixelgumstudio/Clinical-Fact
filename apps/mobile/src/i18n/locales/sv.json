@@ -74,7 +74,10 @@
     "expired": "Utgången",
     "reportBug": "Rapportera en bugg",
     "active": "AKTIV",
-    "trial": "PROVPERIOD"
+    "trial": "PROVPERIOD",
+    "studyLanguage": "Språk för AI-innehåll",
+    "studyLanguageUpdated": "Språk för AI-innehåll har uppdaterats",
+    "studyLanguageUpdateFailed": "Kunde inte uppdatera språket för AI-innehåll"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Vänligen ange den fullständiga verifieringskoden",
     "languageSelect": {
       "title": "Välj språk",
-      "subtitle": "Välj det språk du vill använda i appen. Du kan ändra det senare i din profil.",
-      "searchPlaceholder": "Sök språk",
-      "noResults": "Inga språk hittades"
+      "subtitle": "Detta hjälper oss att anpassa din upplevelse."
     },
     "buttons": {
       "continue": "Fortsätt",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Hem",
+      "flashcards": "Flashcards",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId eller fileId krävs",
     "sourcetypeIsRequired": "sourceType krävs",
     "youtubeurlIsRequired": "youtubeUrl krävs"
+  },
+  "languageList": {
+    "searchPlaceholder": "Sök efter ett språk",
+    "noResults": "Inga språk hittades",
+    "defaultSameAsApp": "Standard (samma som appen)"
+  },
+  "walkthrough": {
+    "skip": "Hoppa över",
+    "next": "Nästa",
+    "finish": "Slutför",
+    "medicalData": {
+      "title": "Få medicinsk data",
+      "description": "Ställ medicinska frågor och få svar med källhänvisningar från pålitlig medicinsk litteratur"
+    },
+    "customizeChat": {
+      "title": "Anpassa chatten",
+      "description": "Skapa quiz och flashcards, eller filtrera resultat efter datum och källtyp."
+    },
+    "profile": {
+      "title": "Din profil",
+      "description": "Uppgradera till PRO och hantera dina kontoinställningar här"
+    },
+    "home": {
+      "title": "Hem",
+      "description": "Här hittar du dina senaste chattar så att du enkelt kan fortsätta där du slutade."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Skapa ett övningsquiz från en chatt, ett dokument, en bild eller en ljudfil."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Skapa flashcards från en chatt, ett dokument, en bild eller en ljudfil."
+    }
   }
 }

@@ -242,8 +242,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
+    borderTopStartRadius: theme.borderRadius['3xl'],
+    borderTopEndRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
     paddingBottom: theme.spacing[8],
     maxHeight: '90%',
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.yale[700],
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: theme.spacing[3],
+    marginEnd: theme.spacing[3],
   },
   friendAvatarText: {
     ...theme.typography.textStyles.p2,
@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
   friendSeparator: {
     height: 1,
     backgroundColor: theme.colors.grey[100],
-    marginLeft: 48,
+    marginStart: 48,
   },
   loadMoreButton: {
     paddingVertical: theme.spacing[3],

@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     top: theme.spacing[16], // 8
-    left: theme.spacing[4], // 16
+    start: theme.spacing[4], // 16
     zIndex: 10,
     elevation: 10,
     width: 32,

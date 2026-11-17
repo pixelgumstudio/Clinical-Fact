@@ -73,7 +73,10 @@
     "everyWeek": "ਹਰ ਹਫ਼ਤੇ",
     "everyMonth": "ਹਰ ਮਹੀਨੇ",
     "everyYear": "ਹਰ ਸਾਲ",
-    "reportBug": "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ"
+    "reportBug": "ਬੱਗ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "studyLanguage": "AI ਸਮੱਗਰੀ ਲਈ ਭਾਸ਼ਾ",
+    "studyLanguageUpdated": "AI ਸਮੱਗਰੀ ਦੀ ਭਾਸ਼ਾ ਅੱਪਡੇਟ ਹੋ ਗਈ ਹੈ",
+    "studyLanguageUpdateFailed": "AI ਸਮੱਗਰੀ ਦੀ ਭਾਸ਼ਾ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ",
-      "subtitle": "ਉਹ ਭਾਸ਼ਾ ਚੁਣੋ ਜਿਸਦੀ ਵਰਤੋਂ ਤੁਸੀਂ ਐਪ ਵਿੱਚ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ। ਤੁਸੀਂ ਇਸਨੂੰ ਬਾਅਦ ਵਿੱਚ ਆਪਣੀ ਪ੍ਰੋਫ਼ਾਈਲ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।",
-      "searchPlaceholder": "ਭਾਸ਼ਾਵਾਂ ਖੋਜੋ",
-      "noResults": "ਕੋਈ ਭਾਸ਼ਾ ਨਹੀਂ ਮਿਲੀ"
+      "subtitle": "ਇਹ ਤੁਹਾਡੇ ਅਨੁਭਵ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰਦਾ ਹੈ।"
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "ਕੁਇਜ਼"
+      "quiz": "ਕੁਇਜ਼",
+      "home": "ਹੋਮ",
+      "flashcards": "Flashcards",
+      "profile": "ਪ੍ਰੋਫ਼ਾਈਲ"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId ਜਾਂ fileId ਲੋੜੀਂਦਾ ਹੈ",
     "sourcetypeIsRequired": "sourceType ਲੋੜੀਂਦਾ ਹੈ",
     "youtubeurlIsRequired": "youtubeUrl ਲੋੜੀਂਦਾ ਹੈ"
+  },
+  "languageList": {
+    "searchPlaceholder": "ਭਾਸ਼ਾ ਖੋਜੋ",
+    "noResults": "ਕੋਈ ਭਾਸ਼ਾ ਨਹੀਂ ਮਿਲੀ",
+    "defaultSameAsApp": "ਡਿਫ਼ੌਲਟ (ਐਪ ਵਾਂਗ ਹੀ)"
+  },
+  "walkthrough": {
+    "skip": "ਛੱਡੋ",
+    "next": "ਅੱਗੇ",
+    "finish": "ਸਮਾਪਤ",
+    "medicalData": {
+      "title": "ਮੈਡੀਕਲ ਡਾਟਾ ਪ੍ਰਾਪਤ ਕਰੋ",
+      "description": "ਕੋਈ ਵੀ ਮੈਡੀਕਲ ਸਵਾਲ ਪੁੱਛੋ ਅਤੇ ਭਰੋਸੇਯੋਗ ਮੈਡੀਕਲ ਸਰੋਤਾਂ ਦੇ ਹਵਾਲਿਆਂ ਸਮੇਤ ਜਵਾਬ ਪਾਓ"
+    },
+    "customizeChat": {
+      "title": "ਚੈਟ ਕਸਟਮਾਈਜ਼ ਕਰੋ",
+      "description": "ਕੁਇਜ਼ ਅਤੇ flashcards ਬਣਾਓ, ਜਾਂ ਮਿਤੀ ਅਤੇ ਸਰੋਤ ਦੀ ਕਿਸਮ ਮੁਤਾਬਕ ਨਤੀਜੇ ਫਿਲਟਰ ਕਰੋ।"
+    },
+    "profile": {
+      "title": "ਤੁਹਾਡੀ ਪ੍ਰੋਫ਼ਾਈਲ",
+      "description": "PRO ਵਿੱਚ ਅੱਪਗ੍ਰੇਡ ਕਰੋ ਅਤੇ ਇੱਥੇ ਆਪਣੇ ਖਾਤੇ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
+    },
+    "home": {
+      "title": "ਹੋਮ",
+      "description": "ਤੁਹਾਡੀਆਂ ਹਾਲੀਆ ਚੈਟਾਂ ਇੱਥੇ ਮਿਲਣਗੀਆਂ, ਤਾਂ ਜੋ ਤੁਸੀਂ ਉੱਥੋਂ ਹੀ ਸ਼ੁਰੂ ਕਰ ਸਕੋ ਜਿੱਥੇ ਛੱਡਿਆ ਸੀ।"
+    },
+    "quiz": {
+      "title": "ਕੁਇਜ਼",
+      "description": "ਕਿਸੇ ਚੈਟ, ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰ ਜਾਂ ਆਡੀਓ ਫ਼ਾਈਲ ਤੋਂ ਅਭਿਆਸ ਕੁਇਜ਼ ਬਣਾਓ।"
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "ਕਿਸੇ ਚੈਟ, ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰ ਜਾਂ ਆਡੀਓ ਫ਼ਾਈਲ ਤੋਂ flashcards ਬਣਾਓ।"
+    }
   }
 }

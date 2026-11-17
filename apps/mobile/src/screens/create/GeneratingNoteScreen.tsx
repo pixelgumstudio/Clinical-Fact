@@ -953,7 +953,7 @@ const styles = StyleSheet.create({
   },
   stepIconColumn: {
     alignItems: 'center',
-    marginRight: 16,
+    marginEnd: 16,
     width: 56,
   },
   stepIconContainer: {
@@ -971,7 +971,7 @@ const styles = StyleSheet.create({
     width: 4,
     height: 52,
     backgroundColor: theme.colors.grey[50],
-    marginLeft: 26,
+    marginStart: 26,
   },
   stepContent: {
     flex: 1,
@@ -999,7 +999,7 @@ const styles = StyleSheet.create({
     height: 6,
     backgroundColor: theme.colors.grey[10],
     borderRadius: theme.borderRadius.full,
-    marginRight: theme.spacing[3],
+    marginEnd: theme.spacing[3],
     overflow: 'hidden',
   },
   progressPercentage: {

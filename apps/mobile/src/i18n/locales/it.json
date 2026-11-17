@@ -74,7 +74,10 @@
     "expired": "Scaduto",
     "reportBug": "Segnala un bug",
     "active": "ATTIVO",
-    "trial": "PROVA"
+    "trial": "PROVA",
+    "studyLanguage": "Lingua dei contenuti AI",
+    "studyLanguageUpdated": "Lingua dei contenuti AI aggiornata",
+    "studyLanguageUpdateFailed": "Impossibile aggiornare la lingua dei contenuti AI"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "Invia di nuovo tra",
     "enterVerificationCode": "Inserisci il codice di verifica completo",
     "languageSelect": {
-      "title": "Scegli la tua lingua",
-      "subtitle": "Scegli la lingua che preferisci usare nell'app. Potrai modificarla in seguito dal tuo profilo.",
-      "searchPlaceholder": "Cerca lingua",
-      "noResults": "Nessuna lingua trovata"
+      "title": "Seleziona la tua lingua",
+      "subtitle": "Ci aiuterà a personalizzare la tua esperienza."
     },
     "buttons": {
       "continue": "Continua",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Home",
+      "flashcards": "Flashcard",
+      "profile": "Profilo"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId o fileId obbligatorio",
     "sourcetypeIsRequired": "sourceType è obbligatorio",
     "youtubeurlIsRequired": "youtubeUrl è obbligatorio"
+  },
+  "languageList": {
+    "searchPlaceholder": "Cerca una lingua",
+    "noResults": "Nessuna lingua trovata",
+    "defaultSameAsApp": "Predefinita (come l'app)"
+  },
+  "walkthrough": {
+    "skip": "Salta",
+    "next": "Avanti",
+    "finish": "Fine",
+    "medicalData": {
+      "title": "Accedi a dati medici",
+      "description": "Fai qualsiasi domanda medica e ottieni risposte con citazioni da fonti cliniche affidabili"
+    },
+    "customizeChat": {
+      "title": "Personalizza la chat",
+      "description": "Genera quiz e flashcard o filtra i risultati per data e tipo di fonte."
+    },
+    "profile": {
+      "title": "Il tuo profilo",
+      "description": "Passa a PRO e gestisci le impostazioni del tuo account qui"
+    },
+    "home": {
+      "title": "Home",
+      "description": "Qui trovi le tue chat recenti per riprendere da dove avevi interrotto."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Crea quiz di prova a partire da una chat, un documento, un'immagine o un file audio."
+    },
+    "flashcards": {
+      "title": "Flashcard",
+      "description": "Crea flashcard a partire da una chat, un documento, un'immagine o un file audio."
+    }
   }
 }

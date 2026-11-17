@@ -74,7 +74,10 @@
     "expired": "Expirado",
     "reportBug": "Relatar um problema",
     "active": "ATIVO",
-    "trial": "TESTE"
+    "trial": "TESTE",
+    "studyLanguage": "Idioma do conteúdo de AI",
+    "studyLanguageUpdated": "Idioma do conteúdo de AI atualizado",
+    "studyLanguageUpdateFailed": "Falha ao atualizar o idioma do conteúdo de AI"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "Reenviar em",
     "enterVerificationCode": "Por favor, insira o código de verificação completo",
     "languageSelect": {
-      "title": "Escolha seu idioma",
-      "subtitle": "Selecione o idioma que deseja usar no app. Você pode alterá-lo depois no seu perfil.",
-      "searchPlaceholder": "Buscar idiomas",
-      "noResults": "Nenhum idioma encontrado"
+      "title": "Selecione seu idioma",
+      "subtitle": "Isso nos ajuda a personalizar sua experiência."
     },
     "buttons": {
       "continue": "Continuar",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Início",
+      "flashcards": "Flashcards",
+      "profile": "Perfil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId ou fileId é obrigatório",
     "sourcetypeIsRequired": "sourceType é obrigatório",
     "youtubeurlIsRequired": "youtubeUrl é obrigatório"
+  },
+  "languageList": {
+    "searchPlaceholder": "Buscar um idioma",
+    "noResults": "Nenhum idioma encontrado",
+    "defaultSameAsApp": "Padrão (mesmo do app)"
+  },
+  "walkthrough": {
+    "skip": "Pular",
+    "next": "Avançar",
+    "finish": "Concluir",
+    "medicalData": {
+      "title": "Acesse dados médicos",
+      "description": "Tire qualquer dúvida clínica e receba respostas com citações de fontes médicas confiáveis"
+    },
+    "customizeChat": {
+      "title": "Personalize o chat",
+      "description": "Gere quizzes e flashcards, ou filtre os resultados por data e tipo de fonte."
+    },
+    "profile": {
+      "title": "Seu perfil",
+      "description": "Faça upgrade para o PRO e gerencie as configurações da sua conta por aqui"
+    },
+    "home": {
+      "title": "Início",
+      "description": "Seus chats recentes ficam aqui, para você continuar exatamente de onde parou."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Crie um simulado a partir de um chat, documento, imagem ou áudio."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Crie flashcards a partir de um chat, documento, imagem ou áudio."
+    }
   }
 }

@@ -74,7 +74,10 @@
     "expired": "Expiré",
     "reportBug": "Signaler un bug",
     "active": "ACTIF",
-    "trial": "ESSAI"
+    "trial": "ESSAI",
+    "studyLanguage": "Langue du contenu AI",
+    "studyLanguageUpdated": "Langue du contenu AI mise à jour",
+    "studyLanguageUpdateFailed": "Échec de la mise à jour de la langue du contenu AI"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Veuillez entrer le code de vérification complet",
     "languageSelect": {
       "title": "Choisissez votre langue",
-      "subtitle": "Choisissez la langue que vous souhaitez utiliser dans l'application. Vous pourrez la modifier plus tard dans votre profil.",
-      "searchPlaceholder": "Rechercher une langue",
-      "noResults": "Aucune langue trouvée"
+      "subtitle": "Cela nous aide à personnaliser votre expérience."
     },
     "buttons": {
       "continue": "Continuer",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Accueil",
+      "flashcards": "Flashcards",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId ou fileId est requis",
     "sourcetypeIsRequired": "sourceType est requis",
     "youtubeurlIsRequired": "youtubeUrl est requis"
+  },
+  "languageList": {
+    "searchPlaceholder": "Rechercher une langue",
+    "noResults": "Aucune langue trouvée",
+    "defaultSameAsApp": "Par défaut (comme l'application)"
+  },
+  "walkthrough": {
+    "skip": "Passer",
+    "next": "Suivant",
+    "finish": "Terminer",
+    "medicalData": {
+      "title": "Accédez aux données médicales",
+      "description": "Posez toutes vos questions médicales et obtenez des réponses basées sur des sources fiables et vérifiées."
+    },
+    "customizeChat": {
+      "title": "Personnalisez vos échanges",
+      "description": "Générez des quiz et des flashcards, ou filtrez les résultats par date et type de source."
+    },
+    "profile": {
+      "title": "Votre profil",
+      "description": "Passez à la version PRO et gérez les paramètres de votre compte ici."
+    },
+    "home": {
+      "title": "Accueil",
+      "description": "Retrouvez vos discussions récentes ici pour reprendre là où vous vous étiez arrêté."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Créez un quiz d'entraînement à partir d'un échange, d'un document, d'une image ou d'un fichier audio."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Créez des flashcards à partir d'un échange, d'un document, d'une image ou d'un fichier audio."
+    }
   }
 }

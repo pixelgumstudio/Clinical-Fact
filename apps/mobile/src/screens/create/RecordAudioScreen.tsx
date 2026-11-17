@@ -739,7 +739,7 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
     backgroundColor: colors.vivid.error[500],
-    marginRight: spacing[2],
+    marginEnd: spacing[2],
   },
   recordingText: {
     fontSize: typography.fontSize.sm,
@@ -794,7 +794,7 @@ const styles = StyleSheet.create({
   },
   previewInfo: {
     flex: 1,
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
   },
   previewTitle: {
     fontSize: typography.fontSize.sm,

@@ -74,7 +74,10 @@
     "expired": "Abgelaufen",
     "reportBug": "Fehler melden",
     "active": "AKTIV",
-    "trial": "TESTPHASE"
+    "trial": "TESTPHASE",
+    "studyLanguage": "Sprache für AI-Inhalte",
+    "studyLanguageUpdated": "Sprache für AI-Inhalte aktualisiert",
+    "studyLanguageUpdateFailed": "Fehler beim Aktualisieren der Sprache für AI-Inhalte"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Bitte geben Sie den vollständigen Bestätigungscode ein",
     "languageSelect": {
       "title": "Wähle deine Sprache",
-      "subtitle": "Wähle die Sprache, die du in der App nutzen möchtest. Du kannst sie später im Profil ändern.",
-      "searchPlaceholder": "Sprachen suchen",
-      "noResults": "Keine Sprachen gefunden"
+      "subtitle": "So können wir dein Erlebnis optimal anpassen."
     },
     "buttons": {
       "continue": "Weiter",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Home",
+      "flashcards": "Karteikarten",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId oder fileId ist erforderlich",
     "sourcetypeIsRequired": "sourceType ist erforderlich",
     "youtubeurlIsRequired": "youtubeUrl ist erforderlich"
+  },
+  "languageList": {
+    "searchPlaceholder": "Nach einer Sprache suchen",
+    "noResults": "Keine Sprachen gefunden",
+    "defaultSameAsApp": "Standard (wie App)"
+  },
+  "walkthrough": {
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "finish": "Fertig",
+    "medicalData": {
+      "title": "Medizinisches Wissen abrufen",
+      "description": "Stelle medizinische Fragen und erhalte Antworten mit Quellenangaben aus verlässlicher Fachliteratur."
+    },
+    "customizeChat": {
+      "title": "Chat anpassen",
+      "description": "Erstelle Quizze und Karteikarten oder filtere Ergebnisse nach Datum und Quellentyp."
+    },
+    "profile": {
+      "title": "Dein Profil",
+      "description": "Upgrade auf PRO und verwalte hier deine Kontoeinstellungen."
+    },
+    "home": {
+      "title": "Home",
+      "description": "Hier findest du deine letzten Chats, um direkt dort weiterzumachen, wo du aufgehört hast."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Erstelle ein Übungsquiz aus einem Chat, Dokument, Bild oder einer Audiodatei."
+    },
+    "flashcards": {
+      "title": "Karteikarten",
+      "description": "Erstelle Karteikarten aus einem Chat, Dokument, Bild oder einer Audiodatei."
+    }
   }
 }

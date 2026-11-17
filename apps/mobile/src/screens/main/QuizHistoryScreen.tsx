@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    marginLeft: spacing[2],
+    marginStart: spacing[2],
     fontSize: typography.fontSize.base,
     color: colors.text.primary,
   },
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.white,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   quizInfo: {
     flex: 1,
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
   separator: {
     height: 1,
     backgroundColor: colors.neutral[100],
-    marginLeft: spacing[12],
+    marginStart: spacing[12],
   },
   loadingContainer: {
     flex: 1,
@@ -430,8 +430,8 @@ const styles = StyleSheet.create({
   },
   menuModalContainer: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
+    borderTopStartRadius: theme.borderRadius['3xl'],
+    borderTopEndRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
     paddingHorizontal: theme.spacing[5],
     paddingBottom: theme.spacing[8],

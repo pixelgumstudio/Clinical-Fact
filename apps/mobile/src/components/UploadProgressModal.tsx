@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 10,
     backgroundColor: colors.neutral[200],
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   stepDotActive: {
     backgroundColor: colors.vivid.accent[500],

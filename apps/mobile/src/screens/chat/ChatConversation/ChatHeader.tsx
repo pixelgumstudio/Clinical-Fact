@@ -102,7 +102,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
           )}
           {embeddingStatus === 'processing' && (
             <View style={styles.headerStatusBadge}>
-              <ActivityIndicator size="small" color={colors.vivid.warning[500]} style={{ marginRight: 4 }} />
+              <ActivityIndicator size="small" color={colors.vivid.warning[500]} style={{ marginEnd: 4 }} />
               <Text style={[styles.headerSubtitle, { color: colors.vivid.warning[500] }]}>{t('chat.chatHeader.processing', { embeddingProgress })}</Text>
             </View>
           )}
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     height: 6,
     borderRadius: 3,
     backgroundColor: colors.vivid.success[500],
-    marginRight: 4,
+    marginEnd: 4,
   },
   headerSubtitle: {
     fontSize: typography.fontSize.xs,

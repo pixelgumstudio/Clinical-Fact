@@ -73,7 +73,10 @@
     "everyWeek": "ہر ہفتے",
     "everyMonth": "ہر ماہ",
     "everyYear": "ہر سال",
-    "reportBug": "خرابی کی اطلاع دیں"
+    "reportBug": "خرابی کی اطلاع دیں",
+    "studyLanguage": "AI مواد کی زبان",
+    "studyLanguageUpdated": "AI مواد کی زبان اپ ڈیٹ ہو گئی",
+    "studyLanguageUpdateFailed": "AI مواد کی زبان اپ ڈیٹ کرنے میں ناکامی"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "اپنی زبان منتخب کریں",
-      "subtitle": "وہ زبان منتخب کریں جو آپ ایپ میں استعمال کرنا چاہتے ہیں۔ آپ اسے بعد میں اپنی پروفائل میں بھی تبدیل کر سکتے ہیں۔",
-      "searchPlaceholder": "زبانیں تلاش کریں",
-      "noResults": "کوئی زبان نہیں ملی"
+      "subtitle": "اس سے ہمیں آپ کے لیے ایپ کے تجربے کو بہتر بنانے میں مدد ملتی ہے۔"
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "کوئز"
+      "quiz": "کوئز",
+      "home": "ہوم",
+      "flashcards": "فلیش کارڈز",
+      "profile": "پروفائل"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId یا fileId درکار ہے",
     "sourcetypeIsRequired": "sourceType درکار ہے",
     "youtubeurlIsRequired": "youtubeUrl درکار ہے"
+  },
+  "languageList": {
+    "searchPlaceholder": "زبان تلاش کریں",
+    "noResults": "کوئی زبان نہیں ملی",
+    "defaultSameAsApp": "ڈیفالٹ (ایپ جیسی ہی)"
+  },
+  "walkthrough": {
+    "skip": "چھوڑیں",
+    "next": "اگلا",
+    "finish": "مکمل",
+    "medicalData": {
+      "title": "طبی معلومات حاصل کریں",
+      "description": "طب سے متعلق کچھ بھی پوچھیں اور معتبر طبی ذرائع کے حوالہ جات کے ساتھ جوابات حاصل کریں"
+    },
+    "customizeChat": {
+      "title": "چیٹ حسب ضرورت بنائیں",
+      "description": "کوئز اور فلیش کارڈز بنائیں، یا تاریخ اور ذریعہ کے لحاظ سے نتائج فلٹر کریں۔"
+    },
+    "profile": {
+      "title": "آپ کا پروفائل",
+      "description": "PRO میں اپ گریڈ کریں اور یہاں اپنے اکاؤنٹ کی ترتیبات منظم کریں"
+    },
+    "home": {
+      "title": "ہوم",
+      "description": "آپ کی حالیہ چیٹس یہاں موجود ہیں تاکہ آپ وہیں سے جاری رکھ سکیں جہاں سے چھوڑا تھا۔"
+    },
+    "quiz": {
+      "title": "کوئز",
+      "description": "کسی بھی چیٹ، دستاویز، تصویر یا آڈیو فائل سے پریکٹس کوئز بنائیں۔"
+    },
+    "flashcards": {
+      "title": "فلیش کارڈز",
+      "description": "کسی بھی چیٹ، دستاویز، تصویر یا آڈیو فائل سے فلیش کارڈز بنائیں۔"
+    }
   }
 }

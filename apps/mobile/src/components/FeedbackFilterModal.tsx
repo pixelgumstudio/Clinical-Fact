@@ -138,8 +138,8 @@ const styles = StyleSheet.create({
   },
   sheet: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingHorizontal: spacing[6],
     paddingTop: spacing[3],
     paddingBottom: spacing[10],

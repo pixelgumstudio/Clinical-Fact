@@ -73,7 +73,10 @@
     "everyWeek": "Svaki tjedan",
     "everyMonth": "Svaki mjesec",
     "everyYear": "Svake godine",
-    "reportBug": "Prijavi grešku"
+    "reportBug": "Prijavi grešku",
+    "studyLanguage": "Jezik za AI sadržaj",
+    "studyLanguageUpdated": "Jezik AI sadržaja je ažuriran",
+    "studyLanguageUpdateFailed": "Ažuriranje jezika AI sadržaja nije uspjelo"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Odaberite jezik",
-      "subtitle": "Odaberite jezik koji želite koristiti u aplikaciji. Možete ga promijeniti kasnije na svom profilu.",
-      "searchPlaceholder": "Pretraži jezike",
-      "noResults": "Nema pronađenih jezika"
+      "title": "Odaberi jezik",
+      "subtitle": "To nam pomaže prilagoditi tvoje iskustvo."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kviz"
+      "quiz": "Kviz",
+      "home": "Početna",
+      "flashcards": "Kartice",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId ili fileId je obavezan",
     "sourcetypeIsRequired": "sourceType je obavezan",
     "youtubeurlIsRequired": "youtubeUrl je obavezan"
+  },
+  "languageList": {
+    "searchPlaceholder": "Pretraži jezik",
+    "noResults": "Nije pronađen nijedan jezik",
+    "defaultSameAsApp": "Zadano (kao i aplikacija)"
+  },
+  "walkthrough": {
+    "skip": "Preskoči",
+    "next": "Dalje",
+    "finish": "Završi",
+    "medicalData": {
+      "title": "Pronađi medicinske podatke",
+      "description": "Postavi bilo koje medicinsko pitanje i preuzmi odgovore potkrijepljene citatima iz pouzdanih medicinskih izvora"
+    },
+    "customizeChat": {
+      "title": "Prilagodi chat",
+      "description": "Izradi kvizove i kartice ili filtriraj rezultate prema datumu i vrsti izvora."
+    },
+    "profile": {
+      "title": "Tvoj profil",
+      "description": "Nadogradi na PRO i ovdje upravljaj postavkama svog računa"
+    },
+    "home": {
+      "title": "Početna",
+      "description": "Ovdje se nalaze tvoji nedavni chatovi kako bi mogao nastaviti gdje si stao."
+    },
+    "quiz": {
+      "title": "Kviz",
+      "description": "Stvori kviz za vježbu iz chata, dokumenta, slike ili audiozapisa."
+    },
+    "flashcards": {
+      "title": "Kartice",
+      "description": "Izradi kartice za ponavljanje iz chata, dokumenta, slike ili audiozapisa."
+    }
   }
 }

@@ -9,6 +9,7 @@ import { validatePassword } from '../utils/passwordValidator';
 import appleSignin from 'apple-signin-auth';
 import storageService from '../services/storage.service';
 import { onboardingPayload, PENDING_ONBOARDING } from '../utils/onboarding';
+import { isSupportedLanguageCode } from '../utils/language';
 
 async function generateUniqueUserCode(username: string): Promise<string> {
   const prefix = username.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 4).padEnd(4, 'X');
@@ -577,8 +578,18 @@ export const refreshToken = async (req: Request, res: Response): Promise<void> =
 // Update user profile (for completing profile after OAuth/phone signup)
 export const updateProfile = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
-    const { name, username, preferredLanguage } = req.body;
+    const { name, username, preferredLanguage, studyLanguage } = req.body;
     const userId = req.user?._id;
+
+    // Only codes the app can show and the model can write in. studyLanguage null = "same as the app".
+    if (preferredLanguage !== undefined && !isSupportedLanguageCode(preferredLanguage)) {
+      res.status(400).json(errorResponse('Unsupported language', ERROR_CODES.VALIDATION_ERROR));
+      return;
+    }
+    if (studyLanguage !== undefined && studyLanguage !== null && !isSupportedLanguageCode(studyLanguage)) {
+      res.status(400).json(errorResponse('Unsupported study language', ERROR_CODES.VALIDATION_ERROR));
+      return;
+    }
 
     // Check if username is already taken
     if (username) {
@@ -597,6 +608,7 @@ export const updateProfile = async (req: AuthRequest, res: Response): Promise<vo
         ...(name && { name }),
         ...(username && { username }),
         ...(preferredLanguage !== undefined && { preferredLanguage }),
+        ...(studyLanguage !== undefined && { studyLanguage }),
       },
       { new: true, runValidators: true }
     );
@@ -622,6 +634,7 @@ export const updateProfile = async (req: AuthRequest, res: Response): Promise<vo
             isPhoneVerified: user.isPhoneVerified,
             isEmailVerified: user.isEmailVerified,
             preferredLanguage: user.preferredLanguage,
+            studyLanguage: user.studyLanguage,
             createdAt: user.createdAt,
           },
         },

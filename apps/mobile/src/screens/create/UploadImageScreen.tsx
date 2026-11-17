@@ -17,7 +17,7 @@ import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import { useGatedFeature } from '../../hooks/useGatedFeature';
 import { useAIConsentStore } from '../../store/aiConsentStore';
 import { PoweredByFooter } from '../../components/PoweredByFooter';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { formatDateTime } from '../../utils/formatDate';
 
 type UploadImageNavigationProp = NativeStackNavigationProp<MainStackParamList, 'UploadImage'>;

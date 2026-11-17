@@ -10,6 +10,7 @@ import noteGenerationService from './noteGeneration.service';
 import minioService from './minio.service';
 import storageService from './storage.service';
 import notificationService from './notification.service';
+import { resolveNoteLanguageForUser } from './generationLanguage.service';
 
 // Whisper's hard limit is 25 MB. Files above this threshold are split first.
 const WHISPER_BYTE_THRESHOLD = 22 * 1024 * 1024; // 22 MB — safe margin below the 25 MB cap
@@ -496,7 +497,9 @@ export async function processAudioNote(
     note.processingProgress = 60;
     await note.save();
 
-    const generatedNote = await noteGenerationService.generateNote(text, 'audio', {});
+    const generatedNote = await noteGenerationService.generateNote(text, 'audio', {
+      language: await resolveNoteLanguageForUser(note.userId, note.studyLanguage),
+    });
 
     note.title = generatedNote.title || note.title || 'Untitled Note';
     note.content = generatedNote.content || '';
@@ -570,7 +573,7 @@ export async function processYouTubeNote(noteId: string, youtubeUrl: string) {
         const generatedNote = await noteGenerationService.generateNoteFromYouTube(
             transcriptText,
             note.title,
-            {}
+            { language: await resolveNoteLanguageForUser(note.userId, note.studyLanguage) }
         );
 
         // --- Step D: Finalize Note ---

@@ -18,6 +18,7 @@ import { TabletContainer } from './src/components/TabletContainer';
 import { AIConsentGate } from './src/components/AIConsentGate';
 import { navigationRef } from './src/navigation/navigationRef';
 import i18n, { loadUserLanguage } from './src/i18n';
+import { restartIfDirectionChanged } from './src/i18n/rtl';
 import { useAuthStore } from './src/store/authStore';
 import { queryClient } from './src/lib/queryClient';
 import notificationService from './src/services/notificationService';
@@ -143,7 +144,8 @@ function AppInner() {
         accountLanguage: user?.preferredLanguage,
       });
 
-      await loadUserLanguage(language);
+      // The restart that a right-to-left language needs comes last, after the save below.
+      await loadUserLanguage(language, { restart: false });
 
       if (syncToAccount && language) {
         try {
@@ -158,6 +160,9 @@ function AppInner() {
       } else if (clearPending) {
         await clearPendingOnboardingLanguage();
       }
+
+      // i18n.language is whatever was actually loaded (the stored language when there was none to apply).
+      await restartIfDirectionChanged(i18n.language);
     };
 
     initLanguage();

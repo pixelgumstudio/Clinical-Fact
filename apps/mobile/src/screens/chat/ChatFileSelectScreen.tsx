@@ -807,7 +807,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: spacing[1],
-    marginRight: spacing[2],
+    marginEnd: spacing[2],
   },
   headerTitle: {
     flex: 1,
@@ -827,7 +827,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
-    marginLeft: spacing[1],
+    marginStart: spacing[1],
   },
   listContent: {
     flexGrow: 1,
@@ -852,7 +852,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.vivid.accent[50],
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   uploadTextContainer: {
     flex: 1,
@@ -899,7 +899,7 @@ const styles = StyleSheet.create({
   },
   folderInfo: {
     flex: 1,
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
   },
   folderName: {
     fontSize: typography.fontSize.base,
@@ -926,7 +926,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.neutral[50],
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   fileInfo: {
     flex: 1,

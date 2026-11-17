@@ -74,7 +74,10 @@
     "expired": "Đã hết hạn",
     "reportBug": "Báo lỗi",
     "active": "HOẠT ĐỘNG",
-    "trial": "DÙNG THỬ"
+    "trial": "DÙNG THỬ",
+    "studyLanguage": "Ngôn ngữ cho nội dung AI",
+    "studyLanguageUpdated": "Đã cập nhật ngôn ngữ nội dung AI",
+    "studyLanguageUpdateFailed": "Không thể cập nhật ngôn ngữ nội dung AI"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "Gửi lại sau",
     "enterVerificationCode": "Vui lòng nhập đầy đủ mã xác minh",
     "languageSelect": {
-      "title": "Chọn ngôn ngữ của bạn",
-      "subtitle": "Chọn ngôn ngữ bạn muốn sử dụng trong ứng dụng. Bạn có thể thay đổi lại sau trong hồ sơ.",
-      "searchPlaceholder": "Tìm kiếm ngôn ngữ",
-      "noResults": "Không tìm thấy ngôn ngữ nào"
+      "title": "Chọn ngôn ngữ",
+      "subtitle": "Điều này giúp chúng tôi cá nhân hóa trải nghiệm của bạn."
     },
     "buttons": {
       "continue": "Tiếp tục",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Trang chủ",
+      "flashcards": "Flashcard",
+      "profile": "Hồ sơ"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "Bắt buộc có noteId hoặc fileId",
     "sourcetypeIsRequired": "Bắt buộc có sourceType",
     "youtubeurlIsRequired": "Bắt buộc có youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "Tìm kiếm ngôn ngữ",
+    "noResults": "Không tìm thấy ngôn ngữ",
+    "defaultSameAsApp": "Mặc định (giống ứng dụng)"
+  },
+  "walkthrough": {
+    "skip": "Bỏ qua",
+    "next": "Tiếp tục",
+    "finish": "Hoàn tất",
+    "medicalData": {
+      "title": "Truy xuất dữ liệu y khoa",
+      "description": "Hỏi bất cứ điều gì về y khoa và nhận câu trả lời kèm trích dẫn từ các nguồn y khoa đáng tin cậy"
+    },
+    "customizeChat": {
+      "title": "Tùy chỉnh đoạn chat",
+      "description": "Tạo câu hỏi ôn tập, flashcard hoặc lọc kết quả theo ngày và loại nguồn."
+    },
+    "profile": {
+      "title": "Hồ sơ của bạn",
+      "description": "Nâng cấp lên PRO và quản lý cài đặt tài khoản của bạn tại đây"
+    },
+    "home": {
+      "title": "Trang chủ",
+      "description": "Nơi lưu các đoạn chat gần đây để bạn dễ dàng tiếp tục nội dung đang dở dang."
+    },
+    "quiz": {
+      "title": "Câu hỏi ôn tập",
+      "description": "Tạo bài trắc nghiệm luyện tập từ đoạn chat, tài liệu, hình ảnh hoặc tệp âm thanh."
+    },
+    "flashcards": {
+      "title": "Flashcard",
+      "description": "Tạo flashcard từ đoạn chat, tài liệu, hình ảnh hoặc tệp âm thanh."
+    }
   }
 }

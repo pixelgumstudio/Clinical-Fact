@@ -29,7 +29,7 @@ import {
 import { useFolders, useNotes, useInvalidateNotes } from '../../hooks/queries';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { formatDateShort } from '../../utils/formatDate';
 
 type FolderDetailRouteProp = RouteProp<MainStackParamList, 'FolderDetail'>;
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: spacing[2],
-    marginLeft: -spacing[2],
+    marginStart: -spacing[2],
   },
   headerTitle: {
     flex: 1,
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
   noteIconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   noteContent: {
     flex: 1,
@@ -360,8 +360,8 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     maxHeight: '80%',
     paddingBottom: spacing[8],
   },

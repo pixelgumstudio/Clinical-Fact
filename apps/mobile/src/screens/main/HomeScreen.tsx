@@ -17,7 +17,7 @@ import { ChatActionSheet } from '../../components/ChatActionSheet';
 import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
-import { LanguageSupportModal } from '../../components/LanguageSupportModal';
+import { LanguageSupportModal } from '../../components/language/LanguageSupportModal';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useAuthStore } from '../../store/authStore';
@@ -29,7 +29,7 @@ import { showInAppPaywall } from '../../services/revenuecat';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
 import { buildChatTranscript, MIN_TRANSCRIPT_CHARS } from '../../utils/chatTranscript';
-import i18n from '../../i18n';
+import i18n from '../../i18n';
 import { formatDayAndTime } from '../../utils/formatDate';
 
 type HomeNavigationProp = NativeStackNavigationProp<MainStackParamList>;

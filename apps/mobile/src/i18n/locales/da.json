@@ -73,7 +73,10 @@
     "everyWeek": "Hver uge",
     "everyMonth": "Hver måned",
     "everyYear": "Hvert år",
-    "reportBug": "Rapportér en fejl"
+    "reportBug": "Rapportér en fejl",
+    "studyLanguage": "Sprog til AI-indhold",
+    "studyLanguageUpdated": "Sprog til AI-indhold opdateret",
+    "studyLanguageUpdateFailed": "Kunne ikke opdatere sprog til AI-indhold"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "Vælg dit sprog",
-      "subtitle": "Vælg det sprog, du vil bruge i appen. Du kan altid ændre det senere i din profil.",
-      "searchPlaceholder": "Søg efter sprog",
-      "noResults": "Ingen sprog fundet"
+      "subtitle": "Dette hjælper os med at tilpasse din oplevelse."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Hjem",
+      "flashcards": "Flashcards",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId eller fileId er påkrævet",
     "sourcetypeIsRequired": "sourceType er påkrævet",
     "youtubeurlIsRequired": "youtubeUrl er påkrævet"
+  },
+  "languageList": {
+    "searchPlaceholder": "Søg efter et sprog",
+    "noResults": "Ingen sprog fundet",
+    "defaultSameAsApp": "Standard (samme som app)"
+  },
+  "walkthrough": {
+    "skip": "Spring over",
+    "next": "Næste",
+    "finish": "Færdig",
+    "medicalData": {
+      "title": "Få medicinske data",
+      "description": "Stil medicinske spørgsmål og få svar understøttet af kildehenvisninger fra pålidelige medicinske kilder"
+    },
+    "customizeChat": {
+      "title": "Tilpas chatten",
+      "description": "Opret quizzer og flashcards, eller filtrer resultater efter dato og kildetype."
+    },
+    "profile": {
+      "title": "Din profil",
+      "description": "Opgrader til PRO og administrer dine kontoindstillinger her"
+    },
+    "home": {
+      "title": "Hjem",
+      "description": "Dine seneste samtaler findes her, så du nemt kan fortsætte, hvor du slap."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Opret en øvequiz ud fra en chat, et dokument, et billede eller en lydfil."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Opret flashcards ud fra en chat, et dokument, et billede eller en lydfil."
+    }
   }
 }

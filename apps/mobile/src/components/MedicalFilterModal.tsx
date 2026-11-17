@@ -257,8 +257,8 @@ const styles = StyleSheet.create({
   },
   yearPickerSheet: {
     backgroundColor: theme.colors.white,
-    borderTopLeftRadius: theme.borderRadius['2xl'], // 24
-    borderTopRightRadius: theme.borderRadius['2xl'],
+    borderTopStartRadius: theme.borderRadius['2xl'], // 24
+    borderTopEndRadius: theme.borderRadius['2xl'],
     paddingBottom: theme.spacing[8], // 32
   },
   yearPickerHeader: {

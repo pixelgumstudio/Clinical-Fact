@@ -74,7 +74,10 @@
     "expired": "Wygasła",
     "reportBug": "Zgłoś błąd",
     "active": "AKTYWNY",
-    "trial": "WERSJA PRÓBNA"
+    "trial": "WERSJA PRÓBNA",
+    "studyLanguage": "Język treści AI",
+    "studyLanguageUpdated": "Zaktualizowano język treści AI",
+    "studyLanguageUpdateFailed": "Nie udało się zaktualizować języka treści AI"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Wprowadź pełny kod weryfikacyjny",
     "languageSelect": {
       "title": "Wybierz język",
-      "subtitle": "Wybierz język, którego chcesz używać w aplikacji. Możesz go zmienić później w swoim profilu.",
-      "searchPlaceholder": "Szukaj języka",
-      "noResults": "Nie znaleziono języków"
+      "subtitle": "Dzięki temu dostosujemy aplikację do Twoich potrzeb."
     },
     "buttons": {
       "continue": "Kontynuuj",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Główna",
+      "flashcards": "Fiszki",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "Wymagane jest noteId lub fileId",
     "sourcetypeIsRequired": "Pole sourceType jest wymagane",
     "youtubeurlIsRequired": "Pole youtubeUrl jest wymagane"
+  },
+  "languageList": {
+    "searchPlaceholder": "Szukaj języka",
+    "noResults": "Nie znaleziono języków",
+    "defaultSameAsApp": "Domyślny (taki jak aplikacji)"
+  },
+  "walkthrough": {
+    "skip": "Pomiń",
+    "next": "Dalej",
+    "finish": "Gotowe",
+    "medicalData": {
+      "title": "Rzetelna wiedza medyczna",
+      "description": "Zadaj dowolne pytanie medyczne i otrzymuj odpowiedzi poparte wiarygodnymi źródłami."
+    },
+    "customizeChat": {
+      "title": "Dostosuj czat",
+      "description": "Generuj quizy i fiszki lub filtruj wyniki według daty i typu źródła."
+    },
+    "profile": {
+      "title": "Twój profil",
+      "description": "Przejdź na wersję PRO i zarządzaj ustawieniami swojego konta w tym miejscu."
+    },
+    "home": {
+      "title": "Ekran główny",
+      "description": "Tutaj znajdziesz swoje ostatnie czaty, aby szybko wrócić do nauki."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Twórz quizy do nauki na podstawie czatu, dokumentu, obrazu lub pliku audio."
+    },
+    "flashcards": {
+      "title": "Fiszki",
+      "description": "Twórz fiszki na podstawie czatu, dokumentu, obrazu lub pliku audio."
+    }
   }
 }

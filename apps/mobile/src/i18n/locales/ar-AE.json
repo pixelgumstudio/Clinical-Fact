@@ -74,7 +74,10 @@
     "expired": "منتهي الصلاحية",
     "reportBug": "الإبلاغ عن مشكلة",
     "active": "نشط",
-    "trial": "تجريبي"
+    "trial": "تجريبي",
+    "studyLanguage": "لغة محتوى الـ AI",
+    "studyLanguageUpdated": "تم تحديث لغة محتوى الـ AI",
+    "studyLanguageUpdateFailed": "تعذر تحديث لغة محتوى الـ AI"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "يرجى إدخال رمز التحقق الكامل",
     "languageSelect": {
       "title": "اختر لغتك",
-      "subtitle": "اختر اللغة التي تفضل استخدامها في التطبيق. يمكنك تغييرها لاحقاً من ملفك الشخصي.",
-      "searchPlaceholder": "ابحث عن لغة",
-      "noResults": "لم يتم العثور على لغات"
+      "subtitle": "يساعدنا هذا في تخصيص تجربتك لتناسب احتياجاتك."
     },
     "buttons": {
       "continue": "متابعة",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "اختبار"
+      "quiz": "اختبار",
+      "home": "الرئيسية",
+      "flashcards": "البطاقات التعليمية",
+      "profile": "الملف الشخصي"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "مطلوب إدخال noteId أو fileId",
     "sourcetypeIsRequired": "مطلوب تحديد sourceType",
     "youtubeurlIsRequired": "مطلوب إدخال youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "ابحث عن لغة",
+    "noResults": "لم يتم العثور على أي لغة",
+    "defaultSameAsApp": "افتراضي (نفس لغة التطبيق)"
+  },
+  "walkthrough": {
+    "skip": "تخطي",
+    "next": "التالي",
+    "finish": "إنهاء",
+    "medicalData": {
+      "title": "بيانات طبية موثوقة",
+      "description": "اسأل عن أي موضوع طبي واحصل على إجابات معززة بمصادر ومراجع طبية موثوقة"
+    },
+    "customizeChat": {
+      "title": "تخصيص المحادثة",
+      "description": "أنشئ اختبارات قصيرة وبطاقات تعليمية، أو صَفِّ النتائج حسب التاريخ ونوع المصدر."
+    },
+    "profile": {
+      "title": "ملفك الشخصي",
+      "description": "قم بالترقية إلى PRO وأدر إعدادات حسابك من هنا"
+    },
+    "home": {
+      "title": "الرئيسية",
+      "description": "ستجد محادثاتك الأخيرة هنا، لتتمكن من المتابعة من حيث توقفت."
+    },
+    "quiz": {
+      "title": "اختبار تجريبي",
+      "description": "أنشئ اختباراً تدريبياً من محادثة، أو مستند، أو صورة، أو ملف صوتي."
+    },
+    "flashcards": {
+      "title": "البطاقات التعليمية",
+      "description": "أنشئ بطاقات استذكار من محادثة، أو مستند، أو صورة، أو ملف صوتي."
+    }
   }
 }
