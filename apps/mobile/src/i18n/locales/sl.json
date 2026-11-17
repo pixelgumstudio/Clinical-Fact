@@ -73,7 +73,10 @@
     "everyWeek": "Vsak teden",
     "everyMonth": "Vsak mesec",
     "everyYear": "Vsako leto",
-    "reportBug": "Prijavi napako"
+    "reportBug": "Prijavi napako",
+    "studyLanguage": "Jezik za vsebino AI",
+    "studyLanguageUpdated": "Jezik vsebine AI je posodobljen",
+    "studyLanguageUpdateFailed": "Posodobitev jezika vsebine AI ni uspela"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Izberi jezik",
-      "subtitle": "Izberi jezik, ki ga želiš uporabljati v aplikaciji. Pozneje ga lahko spremeniš v svojem profilu.",
-      "searchPlaceholder": "Išči jezike",
-      "noResults": "Ni najdenih jezikov"
+      "title": "Izberite jezik",
+      "subtitle": "To nam pomaga prilagoditi vašo uporabniško izkušnjo."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kviz"
+      "quiz": "Kviz",
+      "home": "Domov",
+      "flashcards": "Kartice",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId ali fileId je obvezen",
     "sourcetypeIsRequired": "sourceType je obvezen",
     "youtubeurlIsRequired": "youtubeUrl je obvezen"
+  },
+  "languageList": {
+    "searchPlaceholder": "Išči jezik",
+    "noResults": "Ni najdenih jezikov",
+    "defaultSameAsApp": "Privzeto (enako kot aplikacija)"
+  },
+  "walkthrough": {
+    "skip": "Preskoči",
+    "next": "Naprej",
+    "finish": "Dokončaj",
+    "medicalData": {
+      "title": "Pridobi medicinske podatke",
+      "description": "Vprašaj karkoli medicinskega in prejmi odgovore s citati iz zanesljivih virov"
+    },
+    "customizeChat": {
+      "title": "Prilagodi klepet",
+      "description": "Ustvarjaj kvize in kartice ali filtriraj rezultate po datumu in vrsti vira."
+    },
+    "profile": {
+      "title": "Tvoj profil",
+      "description": "Tukaj nadgradi na PRO in upravljaj nastavitve računa"
+    },
+    "home": {
+      "title": "Domov",
+      "description": "Tukaj so tvoji nedavni klepeti, da lahko nadaljuješ tam, kjer si končal/-a."
+    },
+    "quiz": {
+      "title": "Kviz",
+      "description": "Ustvari kviz za vajo iz klepeta, dokumenta, slike ali zvočnega posnetka."
+    },
+    "flashcards": {
+      "title": "Kartice",
+      "description": "Ustvari kartice za učenje iz klepeta, dokumenta, slike ali zvočnega posnetka."
+    }
   }
 }

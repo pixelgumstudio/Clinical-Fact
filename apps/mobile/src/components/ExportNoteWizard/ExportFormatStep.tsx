@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingTop: spacing[4],
     paddingBottom: spacing[8],
   },
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
   formatLabel: {
     fontSize: typography.fontSize.base,
     color: colors.text.primary,
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
   },
   formatLabelSelected: {
     fontWeight: typography.fontWeight.medium,

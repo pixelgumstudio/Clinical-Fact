@@ -74,7 +74,10 @@
     "expired": "Vencido",
     "reportBug": "Reportar un problema",
     "active": "ACTIVO",
-    "trial": "PRUEBA"
+    "trial": "PRUEBA",
+    "studyLanguage": "Idioma del contenido de la AI",
+    "studyLanguageUpdated": "Idioma del contenido de la AI actualizado",
+    "studyLanguageUpdateFailed": "No se pudo actualizar el idioma del contenido de la AI"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "Reenviar en",
     "enterVerificationCode": "Por favor ingresa el código de verificación completo",
     "languageSelect": {
-      "title": "Elige tu idioma",
-      "subtitle": "Elige el idioma que quieres usar en la app. Puedes cambiarlo después en tu perfil.",
-      "searchPlaceholder": "Buscar idiomas",
-      "noResults": "No se encontraron idiomas"
+      "title": "Selecciona tu idioma",
+      "subtitle": "Esto nos ayuda a personalizar tu experiencia."
     },
     "buttons": {
       "continue": "Continuar",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Inicio",
+      "flashcards": "Flashcards",
+      "profile": "Perfil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "Se requiere noteId o fileId",
     "sourcetypeIsRequired": "Se requiere sourceType",
     "youtubeurlIsRequired": "Se requiere youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "Buscar un idioma",
+    "noResults": "No se encontraron idiomas",
+    "defaultSameAsApp": "Predeterminado (igual que la app)"
+  },
+  "walkthrough": {
+    "skip": "Omitir",
+    "next": "Siguiente",
+    "finish": "Finalizar",
+    "medicalData": {
+      "title": "Obtén datos médicos",
+      "description": "Haz cualquier pregunta médica y obtén respuestas respaldadas por citas de fuentes médicas confiables"
+    },
+    "customizeChat": {
+      "title": "Personaliza el chat",
+      "description": "Genera cuestionarios y flashcards, o filtra resultados por fecha y tipo de fuente."
+    },
+    "profile": {
+      "title": "Tu perfil",
+      "description": "Pásate a PRO y administra la configuración de tu cuenta aquí"
+    },
+    "home": {
+      "title": "Inicio",
+      "description": "Aquí están tus chats recientes para que continúes justo donde te quedaste."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Crea un quiz de práctica a partir de un chat, documento, imagen o archivo de audio."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Crea flashcards a partir de un chat, documento, imagen o archivo de audio."
+    }
   }
 }

@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingBottom: spacing[8],
   },
   handleBar: {
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing[3],
   },
   optionIcon: {
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   optionLabel: {
     flex: 1,

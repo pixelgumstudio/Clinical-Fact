@@ -5,6 +5,7 @@ import Note from '../models/Note';
 import ChatSession from '../models/ChatSession';
 import flashcardGenerationService from '../services/flashcardGeneration.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
+import { resolveGenerationLanguage } from '../services/generationLanguage.service';
 
 class FlashcardController {
   /**
@@ -74,8 +75,13 @@ class FlashcardController {
 
       console.log(`[${req.correlationId}] 🃏 Generating flashcards for note ${noteId}...`);
 
-      // Resolve effective target language: note override → user preference → user UI language → English
-      const effectiveLanguage = targetLanguage || note.studyLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+      // The account decides; a language sent with the request only counts when the account has no stronger preference.
+      const effectiveLanguage = resolveGenerationLanguage({
+        noteStudyLanguage: note.studyLanguage,
+        studyLanguage: req.user.studyLanguage,
+        preferredLanguage: req.user.preferredLanguage,
+        requested: targetLanguage,
+      });
 
       // Generate flashcards
       const flashcards = await flashcardGenerationService.generateFlashcards(
@@ -178,7 +184,11 @@ class FlashcardController {
 
       console.log(`[${req.correlationId}] 🃏 Generating flashcards from raw text (title: "${title}")...`);
 
-      const effectiveLanguage = targetLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+      const effectiveLanguage = resolveGenerationLanguage({
+        studyLanguage: req.user.studyLanguage,
+        preferredLanguage: req.user.preferredLanguage,
+        requested: targetLanguage,
+      });
 
       const flashcards = await flashcardGenerationService.generateFlashcards(
         content,

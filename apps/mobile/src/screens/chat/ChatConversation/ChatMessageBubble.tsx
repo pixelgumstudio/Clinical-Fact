@@ -190,10 +190,10 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.white,
     borderWidth: 1,
     borderColor: theme.colors.grey[100],
-    borderTopLeftRadius: theme.borderRadius.lg, // 16
-    borderTopRightRadius: theme.borderRadius.lg,
-    borderBottomLeftRadius: theme.borderRadius.lg,
-    borderBottomRightRadius: 4,
+    borderTopStartRadius: theme.borderRadius.lg, // 16
+    borderTopEndRadius: theme.borderRadius.lg,
+    borderBottomStartRadius: theme.borderRadius.lg,
+    borderBottomEndRadius: 4,
     paddingHorizontal: theme.spacing[3], // 12
     paddingVertical: theme.spacing[3], // 12
     maxWidth: '80%',

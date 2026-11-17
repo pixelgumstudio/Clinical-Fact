@@ -73,7 +73,10 @@
     "everyWeek": "Každý týždeň",
     "everyMonth": "Každý mesiac",
     "everyYear": "Každý rok",
-    "reportBug": "Nahlásiť chybu"
+    "reportBug": "Nahlásiť chybu",
+    "studyLanguage": "Jazyk obsahu AI",
+    "studyLanguageUpdated": "Jazyk obsahu AI bol aktualizovaný",
+    "studyLanguageUpdateFailed": "Aktualizácia jazyka obsahu AI zlyhala"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Vyber si jazyk",
-      "subtitle": "Vyber si jazyk, ktorý chceš v aplikácii používať. Neskôr ho môžeš zmeniť vo svojom profile.",
-      "searchPlaceholder": "Hľadať jazyky",
-      "noResults": "Nenašli sa žiadne jazyky"
+      "title": "Vyberte si jazyk",
+      "subtitle": "Pomôže nám to prispôsobiť aplikáciu vašim potrebám."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kvíz"
+      "quiz": "Kvíz",
+      "home": "Domov",
+      "flashcards": "Kartičky",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "Vyžaduje sa noteId alebo fileId",
     "sourcetypeIsRequired": "Vyžaduje sa sourceType",
     "youtubeurlIsRequired": "Vyžaduje sa youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "Vyhľadať jazyk",
+    "noResults": "Nenašli sa žiadne jazyky",
+    "defaultSameAsApp": "Predvolený (rovnaký ako aplikácia)"
+  },
+  "walkthrough": {
+    "skip": "Preskočiť",
+    "next": "Ďalej",
+    "finish": "Dokončiť",
+    "medicalData": {
+      "title": "Získaj lekárske dáta",
+      "description": "Opýtaj sa na čokoľvek z medicíny a získaj odpovede podložené citáciami z dôveryhodných zdrojov"
+    },
+    "customizeChat": {
+      "title": "Prispôsob si chat",
+      "description": "Vytváraj kvízy a kartičky alebo filtruj výsledky podľa dátumu a typu zdroja."
+    },
+    "profile": {
+      "title": "Tvoj profil",
+      "description": "Prejdi na PRO a spravuj nastavenia svojho účtu na jednom mieste"
+    },
+    "home": {
+      "title": "Domov",
+      "description": "Tu nájdeš svoje nedávne chaty, takže môžeš plynule pokračovať tam, kde si skončil."
+    },
+    "quiz": {
+      "title": "Kvíz",
+      "description": "Vytvor si cvičný kvíz z chatu, dokumentu, obrázka alebo zvukového súboru."
+    },
+    "flashcards": {
+      "title": "Kartičky",
+      "description": "Vytváraj študijné kartičky z chatu, dokumentu, obrázka alebo zvukového súboru."
+    }
   }
 }

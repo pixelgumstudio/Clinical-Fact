@@ -255,8 +255,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.neutral[50],
     borderRadius: 12,
     padding: spacing[4],
-    borderLeftWidth: 4,
-    borderLeftColor: colors.vivid.info[500], // Blue for quizzes
+    borderStartWidth: 4,
+    borderStartColor: colors.vivid.info[500], // Blue for quizzes
   },
   quizContent: {
     flex: 1,
@@ -282,14 +282,14 @@ const styles = StyleSheet.create({
   },
   quizInfo: {
     flex: 1,
-    paddingRight: spacing[12],
+    paddingEnd: spacing[12],
   },
   quizTitle: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
     color: colors.text.primary,
     marginBottom: spacing[1],
-    paddingRight: spacing[4],
+    paddingEnd: spacing[4],
   },
   quizDate: {
     fontSize: typography.fontSize.xs,
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     position: 'absolute',
-    right: spacing[4],
+    end: spacing[4],
     top: spacing[4],
     padding: spacing[2],
     zIndex: 10,

@@ -73,7 +73,10 @@
     "everyWeek": "Minden héten",
     "everyMonth": "Minden hónapban",
     "everyYear": "Minden évben",
-    "reportBug": "Hiba bejelentése"
+    "reportBug": "Hiba bejelentése",
+    "studyLanguage": "AI-tartalom nyelve",
+    "studyLanguageUpdated": "Az AI-tartalom nyelve frissítve",
+    "studyLanguageUpdateFailed": "Nem sikerült frissíteni az AI-tartalom nyelvét"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "Válassz nyelvet",
-      "subtitle": "Válaszd ki az alkalmazásban használni kívánt nyelvet. Később a profilodban módosíthatod.",
-      "searchPlaceholder": "Nyelv keresése",
-      "noResults": "Nem található nyelv"
+      "subtitle": "Ez segít személyre szabni az élményt a számodra."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kvíz"
+      "quiz": "Kvíz",
+      "home": "Főoldal",
+      "flashcards": "Kártyák",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "A noteId vagy a fileId megadása kötelező",
     "sourcetypeIsRequired": "A sourceType megadása kötelező",
     "youtubeurlIsRequired": "A youtubeUrl megadása kötelező"
+  },
+  "languageList": {
+    "searchPlaceholder": "Nyelv keresése",
+    "noResults": "Nincs találat",
+    "defaultSameAsApp": "Alapértelmezett (az app nyelve)"
+  },
+  "walkthrough": {
+    "skip": "Kihagyás",
+    "next": "Tovább",
+    "finish": "Kész",
+    "medicalData": {
+      "title": "Orvosi adatok elérése",
+      "description": "Kérdezz bármilyen orvosi témában, és kapj megbízható forrásokkal alátámasztott válaszokat"
+    },
+    "customizeChat": {
+      "title": "Csevegés testreszabása",
+      "description": "Készíts kvízeket és tanulókártyákat, vagy szűrd az eredményeket dátum és forrástípus szerint."
+    },
+    "profile": {
+      "title": "Profilod",
+      "description": "Válts PRO csomagra, és kezeld a fiókbeállításaidat itt"
+    },
+    "home": {
+      "title": "Főoldal",
+      "description": "Itt találod a legutóbbi beszélgetéseidet, így könnyen folytathatod a tanulást."
+    },
+    "quiz": {
+      "title": "Kvíz",
+      "description": "Készíts gyakorlókvízt csevegésből, dokumentumból, képből vagy hangfájlból."
+    },
+    "flashcards": {
+      "title": "Tanulókártyák",
+      "description": "Készíts tanulókártyákat csevegésből, dokumentumból, képből vagy hangfájlból."
+    }
   }
 }

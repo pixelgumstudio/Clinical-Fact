@@ -57,7 +57,7 @@ export const ThanksScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         {TESTIMONIALS.map((item) => (
-          <View key={item.id} style={[styles.card, { width: '72%', marginLeft: item.offset }]}>
+          <View key={item.id} style={[styles.card, { width: '72%', marginStart: item.offset }]}>
             <View style={styles.starsRow}>
               {[0, 1, 2, 3, 4].map((i) => (
                 <Icon key={i} name="starFill" size={18} color="#FCB500" />

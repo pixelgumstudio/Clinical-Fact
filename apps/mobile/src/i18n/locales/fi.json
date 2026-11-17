@@ -73,7 +73,10 @@
     "everyWeek": "Joka viikko",
     "everyMonth": "Joka kuukausi",
     "everyYear": "Joka vuosi",
-    "reportBug": "Ilmoita virheestä"
+    "reportBug": "Ilmoita virheestä",
+    "studyLanguage": "AI-sisällön kieli",
+    "studyLanguageUpdated": "AI-sisällön kieli päivitetty",
+    "studyLanguageUpdateFailed": "AI-sisällön kielen päivitys epäonnistui"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "Valitse kieli",
-      "subtitle": "Valitse sovelluksessa käytettävä kieli. Voit muuttaa sen myöhemmin profiilistasi.",
-      "searchPlaceholder": "Hae kieliä",
-      "noResults": "Kieliä ei löytynyt"
+      "subtitle": "Tämä auttaa meitä mukauttamaan käyttökokemuksesi."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Tietovisa"
+      "quiz": "Tietovisa",
+      "home": "Koti",
+      "flashcards": "Kertauskortit",
+      "profile": "Profiili"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId tai fileId vaaditaan",
     "sourcetypeIsRequired": "sourceType vaaditaan",
     "youtubeurlIsRequired": "youtubeUrl vaaditaan"
+  },
+  "languageList": {
+    "searchPlaceholder": "Etsi kieltä",
+    "noResults": "Kieliä ei löytynyt",
+    "defaultSameAsApp": "Oletus (sama kuin sovelluksessa)"
+  },
+  "walkthrough": {
+    "skip": "Ohita",
+    "next": "Seuraava",
+    "finish": "Valmis",
+    "medicalData": {
+      "title": "Hae lääketieteellistä tietoa",
+      "description": "Kysy mitä tahansa lääketieteestä ja saa luotettaviin lähteisiin pohjautuvia vastauksia viitteineen."
+    },
+    "customizeChat": {
+      "title": "Mukauta chattia",
+      "description": "Luo tenttejä ja kertauskortteja tai suodata tuloksia päivämäärän ja lähdetyypin mukaan."
+    },
+    "profile": {
+      "title": "Profiilisi",
+      "description": "Päivitä PRO-versioon ja hallitse tiliasetuksiasi täällä."
+    },
+    "home": {
+      "title": "Koti",
+      "description": "Viimeisimmät keskustelusi löytyvät täältä, jotta voit jatkaa siitä, mihin jäit."
+    },
+    "quiz": {
+      "title": "Tentti",
+      "description": "Luo harjoitustentti chatista, asiakirjasta, kuvasta tai äänitiedostosta."
+    },
+    "flashcards": {
+      "title": "Kertauskortit",
+      "description": "Luo kertauskortteja chatista, asiakirjasta, kuvasta tai äänitiedostosta."
+    }
   }
 }

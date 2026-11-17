@@ -166,8 +166,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingBottom: spacing[8],
     maxHeight: '85%',
   },

@@ -39,7 +39,7 @@ import { DeleteNoteModal } from '../../components/DeleteNoteModal';
 import { FoldersModal } from '../../components/FoldersModal';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../i18n';
+import i18n from '../../i18n';
 import { formatDateTime } from '../../utils/formatDate';
 
 type LibraryNavigationProp = NativeStackNavigationProp<MainStackParamList>;
@@ -708,7 +708,7 @@ const styles = StyleSheet.create({
   noteDivider: {
     height: StyleSheet.hairlineWidth,
     backgroundColor: colors.slate[200],
-    marginLeft: 52,
+    marginStart: 52,
   },
   loadingContainer: {
     paddingVertical: spacing[8],
@@ -755,8 +755,8 @@ const styles = StyleSheet.create({
   },
   filterSheet: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingBottom: spacing[8],
   },
   filterHandleBar: {
@@ -791,7 +791,7 @@ const styles = StyleSheet.create({
   filterItemIcon: {
     width: 40,
     alignItems: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   filterItemLabel: {
     flex: 1,

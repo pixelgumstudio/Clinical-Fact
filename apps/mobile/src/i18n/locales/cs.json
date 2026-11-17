@@ -73,7 +73,10 @@
     "everyWeek": "Každý týden",
     "everyMonth": "Každý měsíc",
     "everyYear": "Každý rok",
-    "reportBug": "Nahlásit chybu"
+    "reportBug": "Nahlásit chybu",
+    "studyLanguage": "Jazyk pro obsah od AI",
+    "studyLanguageUpdated": "Jazyk obsahu od AI byl aktualizován",
+    "studyLanguageUpdateFailed": "Změna jazyka obsahu od AI se nezdařila"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Vyber si jazyk",
-      "subtitle": "Zvol si jazyk, který chceš v aplikaci používat. Později ho můžeš změnit v profilu.",
-      "searchPlaceholder": "Hledat jazyk",
-      "noResults": "Nebyly nalezeny žádné jazyky"
+      "title": "Vyberte si jazyk",
+      "subtitle": "Pomůže nám to přizpůsobit aplikaci na míru vašim potřebám."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kvíz"
+      "quiz": "Kvíz",
+      "home": "Domů",
+      "flashcards": "Kartičky",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "Je vyžadováno pole noteId nebo fileId",
     "sourcetypeIsRequired": "Pole sourceType je povinné",
     "youtubeurlIsRequired": "Pole youtubeUrl je povinné"
+  },
+  "languageList": {
+    "searchPlaceholder": "Hledat jazyk",
+    "noResults": "Nenalezeny žádné jazyky",
+    "defaultSameAsApp": "Výchozí (stejný jako v aplikaci)"
+  },
+  "walkthrough": {
+    "skip": "Přeskočit",
+    "next": "Další",
+    "finish": "Dokončit",
+    "medicalData": {
+      "title": "Lékařská data na dosah",
+      "description": "Zeptejte se na cokoliv z medicíny a získejte odpovědi podložené citacemi z důvěryhodných zdrojů"
+    },
+    "customizeChat": {
+      "title": "Přizpůsobte si chat",
+      "description": "Vytvářejte kvízy a kartičky, nebo filtrujte výsledky podle data a typu zdroje."
+    },
+    "profile": {
+      "title": "Váš profil",
+      "description": "Přejděte na verzi Pro a spravujte nastavení účtu na jednom místě"
+    },
+    "home": {
+      "title": "Domů",
+      "description": "Zde najdete své nedávné chaty, takže můžete snadno navázat tam, kde jste skončili."
+    },
+    "quiz": {
+      "title": "Kvíz",
+      "description": "Vytvořte si cvičný kvíz z chatu, dokumentu, obrázku nebo audionahrávky."
+    },
+    "flashcards": {
+      "title": "Kartičky",
+      "description": "Vytvořte si kartičky z chatu, dokumentu, obrázku nebo audionahrávky."
+    }
   }
 }

@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
   },
   previewInfo: {
     flex: 1,
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
     justifyContent: "center",
   },
   previewTitle: {

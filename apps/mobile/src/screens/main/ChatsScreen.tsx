@@ -18,7 +18,7 @@ import {
   Icon,
   theme,
 } from '@clinicalfact/design-system';
-import { LanguageSupportModal } from '../../components/LanguageSupportModal';
+import { LanguageSupportModal } from '../../components/language/LanguageSupportModal';
 import { ChatActionSheet } from '../../components/ChatActionSheet';
 import { Toast } from '../../components/Toast';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
@@ -28,7 +28,7 @@ import { useDeleteChatSession } from '../../hooks/useDeleteChatSession';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { changeLanguage } from '../../i18n';
 import { getLanguageInfo } from '../../utils/language';
-import i18n from '../../i18n';
+import i18n from '../../i18n';
 import { formatDayAndTime } from '../../utils/formatDate';
 
 type ChatsNavigationProp = NativeStackNavigationProp<MainStackParamList>;
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing[2], // 8
   },
   backButton: {
-    marginRight: theme.spacing[1], // 4
+    marginEnd: theme.spacing[1], // 4
   },
   logoText: {
     ...theme.typography.textStyles.title1,
@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
   },
   createButton: {
     position: 'absolute',
-    right: theme.spacing[5], // 20
+    end: theme.spacing[5], // 20
     bottom: theme.spacing[5], // 20
     backgroundColor: theme.colors.yale[700],
     paddingHorizontal: theme.spacing[5], // 20

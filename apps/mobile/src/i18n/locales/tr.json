@@ -74,7 +74,10 @@
     "expired": "Süresi Doldu",
     "reportBug": "Hata bildir",
     "active": "AKTİF",
-    "trial": "DENEME"
+    "trial": "DENEME",
+    "studyLanguage": "AI içerik dili",
+    "studyLanguageUpdated": "AI içerik dili güncellendi",
+    "studyLanguageUpdateFailed": "AI içerik dili güncellenemedi"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "Yeniden gönder",
     "enterVerificationCode": "Lütfen tam doğrulama kodunu girin",
     "languageSelect": {
-      "title": "Dilinizi seçin",
-      "subtitle": "Uygulamada kullanmak istediğiniz dili seçin. Daha sonra profilinizden değiştirebilirsiniz.",
-      "searchPlaceholder": "Dil ara",
-      "noResults": "Dil bulunamadı"
+      "title": "Dilini seç",
+      "subtitle": "Bu, deneyimini kişiselleştirmemize yardımcı olur."
     },
     "buttons": {
       "continue": "Devam Et",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Ana Sayfa",
+      "flashcards": "Flaş Kartlar",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId veya fileId gerekli",
     "sourcetypeIsRequired": "sourceType gerekli",
     "youtubeurlIsRequired": "youtubeUrl gerekli"
+  },
+  "languageList": {
+    "searchPlaceholder": "Dil ara",
+    "noResults": "Dil bulunamadı",
+    "defaultSameAsApp": "Varsayılan (uygulama ile aynı)"
+  },
+  "walkthrough": {
+    "skip": "Atla",
+    "next": "İleri",
+    "finish": "Bitir",
+    "medicalData": {
+      "title": "Tıbbi bilgilere ulaş",
+      "description": "Tıpla ilgili her şeyi sor; güvenilir tıbbi kaynaklardan alıntılarla desteklenen yanıtlar al"
+    },
+    "customizeChat": {
+      "title": "Sohbeti özelleştir",
+      "description": "Testler ve flaş kartlar oluştur ya da sonuçları tarih ve kaynak türüne göre filtrele."
+    },
+    "profile": {
+      "title": "Profilin",
+      "description": "PRO sürüme geç ve hesap ayarlarını buradan yönet"
+    },
+    "home": {
+      "title": "Ana Sayfa",
+      "description": "Son sohbetlerin burada yer alır, böylece kaldığın yerden kolayca devam edebilirsin."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Bir sohbetten, belgeden, görselden veya ses dosyasından deneme testi oluştur."
+    },
+    "flashcards": {
+      "title": "Flaş Kartlar",
+      "description": "Bir sohbetten, belgeden, görselden veya ses dosyasından flaş kartlar oluştur."
+    }
   }
 }

@@ -74,7 +74,10 @@
     "expired": "منتهي الصلاحية",
     "reportBug": "الإبلاغ عن مشكلة",
     "active": "نشط",
-    "trial": "تجريبي"
+    "trial": "تجريبي",
+    "studyLanguage": "لغة محتوى AI",
+    "studyLanguageUpdated": "تم تحديث لغة محتوى AI",
+    "studyLanguageUpdateFailed": "فشل تحديث لغة محتوى AI"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "يرجى إدخال رمز التحقق الكامل",
     "languageSelect": {
       "title": "اختر لغتك",
-      "subtitle": "اختر اللغة التي تود استخدامها في التطبيق. يمكنك تغييرها لاحقاً من ملفك الشخصي.",
-      "searchPlaceholder": "البحث عن لغة",
-      "noResults": "لم يتم العثور على لغات"
+      "subtitle": "يساعدنا هذا في تخصيص تجربتك بشكل أفضل."
     },
     "buttons": {
       "continue": "متابعة",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "الاختبار"
+      "quiz": "الاختبار",
+      "home": "الرئيسية",
+      "flashcards": "البطاقات التعليمية",
+      "profile": "الملف الشخصي"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId أو fileId مطلوب",
     "sourcetypeIsRequired": "sourceType مطلوب",
     "youtubeurlIsRequired": "youtubeUrl مطلوب"
+  },
+  "languageList": {
+    "searchPlaceholder": "ابحث عن لغة",
+    "noResults": "لم يتم العثور على أي لغة",
+    "defaultSameAsApp": "افتراضي (نفس لغة التطبيق)"
+  },
+  "walkthrough": {
+    "skip": "تخطي",
+    "next": "التالي",
+    "finish": "إنهاء",
+    "medicalData": {
+      "title": "احصل على بيانات طبية",
+      "description": "اطرح أي سؤال طبي واحصل على إجابات مدعومة بمراجع من مصادر طبية موثوقة"
+    },
+    "customizeChat": {
+      "title": "تخصيص المحادثة",
+      "description": "أنشئ اختبارات قصيرة وبطاقات تعليمية، أو صَفِّ النتائج حسب التاريخ ونوع المصدر."
+    },
+    "profile": {
+      "title": "ملفك الشخصي",
+      "description": "قم بالترقية إلى PRO وأدر إعدادات حسابك من هنا"
+    },
+    "home": {
+      "title": "الرئيسية",
+      "description": "تجد هنا محادثاتك الأخيرة لتستكمل المذاكرة من حيث توقفت."
+    },
+    "quiz": {
+      "title": "اختبار تجريبي",
+      "description": "أنشئ اختباراً تدريبياً من محادثة، أو مستند، أو صورة، أو ملف صوتي."
+    },
+    "flashcards": {
+      "title": "البطاقات التعليمية",
+      "description": "أنشئ بطاقات تعليمية من محادثة، أو مستند، أو صورة، أو ملف صوتي."
+    }
   }
 }

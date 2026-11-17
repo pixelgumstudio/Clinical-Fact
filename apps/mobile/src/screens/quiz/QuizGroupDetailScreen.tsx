@@ -19,7 +19,7 @@ import api from '../../services/api';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
 import { useAIConsentStore } from '../../store/aiConsentStore';
-import { LanguageSupportModal } from '../../components/LanguageSupportModal';
+import { LanguageSupportModal } from '../../components/language/LanguageSupportModal';
 import { useExportQuiz } from '../../hooks/useExportQuiz';
 import { ExportSettingsModal } from '../../components/ExportSettingsModal';
 import { formatDateTime, formatRelativeTime } from '../../utils/formatDate';
@@ -803,8 +803,8 @@ const styles = StyleSheet.create({
   },
   menuModalContainer: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'],
-    borderTopRightRadius: theme.borderRadius['3xl'],
+    borderTopStartRadius: theme.borderRadius['3xl'],
+    borderTopEndRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[3],
     paddingHorizontal: theme.spacing[5],
     paddingBottom: theme.spacing[8],

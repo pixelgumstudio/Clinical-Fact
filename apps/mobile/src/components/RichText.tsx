@@ -255,14 +255,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: 8,
-    paddingLeft: 4,
+    paddingStart: 4,
   },
   bullet: {
     fontFamily: theme.typography.fontFamily.lora,
     fontSize: 16,
     lineHeight: 24,
     color: theme.colors.grey[600],
-    marginRight: 8,
+    marginEnd: 8,
     width: 12,
   },
   listText: {

@@ -74,7 +74,10 @@
     "expired": "Verlopen",
     "reportBug": "Probleem melden",
     "active": "ACTIEF",
-    "trial": "PROEFPERIODE"
+    "trial": "PROEFPERIODE",
+    "studyLanguage": "Taal voor AI-inhoud",
+    "studyLanguageUpdated": "Taal voor AI-inhoud bijgewerkt",
+    "studyLanguageUpdateFailed": "Bijwerken van taal voor AI-inhoud mislukt"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Voer de volledige verificatiecode in",
     "languageSelect": {
       "title": "Kies je taal",
-      "subtitle": "Kies de taal die je in de app wilt gebruiken. Je kunt dit later wijzigen in je profiel.",
-      "searchPlaceholder": "Talen zoeken",
-      "noResults": "Geen talen gevonden"
+      "subtitle": "Zo kunnen we je ervaring op jou afstemmen."
     },
     "buttons": {
       "continue": "Doorgaan",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Home",
+      "flashcards": "Flashcards",
+      "profile": "Profiel"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId of fileId is verplicht",
     "sourcetypeIsRequired": "sourceType is verplicht",
     "youtubeurlIsRequired": "youtubeUrl is verplicht"
+  },
+  "languageList": {
+    "searchPlaceholder": "Zoek een taal",
+    "noResults": "Geen talen gevonden",
+    "defaultSameAsApp": "Standaard (zelfde als app)"
+  },
+  "walkthrough": {
+    "skip": "Overslaan",
+    "next": "Volgende",
+    "finish": "Afronden",
+    "medicalData": {
+      "title": "Krijg medische data",
+      "description": "Stel elke medische vraag en krijg antwoorden onderbouwd met bronvermeldingen uit betrouwbare medische bronnen"
+    },
+    "customizeChat": {
+      "title": "Pas de chat aan",
+      "description": "Genereer quizzen en flashcards, of filter resultaten op datum en brontype."
+    },
+    "profile": {
+      "title": "Je profiel",
+      "description": "Upgrade naar PRO en beheer hier je accountinstellingen"
+    },
+    "home": {
+      "title": "Home",
+      "description": "Hier vind je je recente chats, zodat je direct verder kunt waar je gebleven was."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Maak een oefenquiz op basis van een chat, document, afbeelding of audiobestand."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Maak flashcards op basis van een chat, document, afbeelding of audiobestand."
+    }
   }
 }

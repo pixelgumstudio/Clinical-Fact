@@ -73,7 +73,10 @@
     "everyWeek": "प्रत्येक आठवड्यात",
     "everyMonth": "प्रत्येक महिन्याला",
     "everyYear": "दरवर्षी",
-    "reportBug": "त्रुटीची नोंद करा"
+    "reportBug": "त्रुटीची नोंद करा",
+    "studyLanguage": "AI सामग्रीसाठी भाषा",
+    "studyLanguageUpdated": "AI सामग्रीची भाषा अपडेट केली",
+    "studyLanguageUpdateFailed": "AI सामग्रीची भाषा अपडेट करता आली नाही"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "तुमची भाषा निवडा",
-      "subtitle": "अ‍ॅप वापरण्यासाठी तुमची भाषा निवडा. तुम्ही हे नंतर तुमच्या प्रोफाइलमध्ये बदलू शकता.",
-      "searchPlaceholder": "भाषा शोधा",
-      "noResults": "कोणतीही भाषा आढळली नाही"
+      "subtitle": "यामुळे आम्हाला तुमचा अनुभव अधिक वैयक्तिकृत करण्यास मदत होते."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "होम",
+      "flashcards": "Flashcards",
+      "profile": "प्रोफाइल"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId किंवा fileId आवश्यक आहे",
     "sourcetypeIsRequired": "sourceType आवश्यक आहे",
     "youtubeurlIsRequired": "youtubeUrl आवश्यक आहे"
+  },
+  "languageList": {
+    "searchPlaceholder": "भाषा शोधा",
+    "noResults": "कोणतीही भाषा आढळली नाही",
+    "defaultSameAsApp": "डीफॉल्ट (ॲपप्रमाणेच)"
+  },
+  "walkthrough": {
+    "skip": "वगळा",
+    "next": "पुढे",
+    "finish": "पूर्ण करा",
+    "medicalData": {
+      "title": "वैद्यकीय माहिती मिळवा",
+      "description": "वैद्यकीय क्षेत्राशी संबंधित काहीही विचारा आणि विश्वसनीय वैद्यकीय संदर्भांसह उत्तरे मिळवा"
+    },
+    "customizeChat": {
+      "title": "चॅट कस्टमाइझ करा",
+      "description": "क्विझ आणि flashcards तयार करा, किंवा तारीख व स्रोताच्या प्रकारानुसार निकाल फिल्टर करा."
+    },
+    "profile": {
+      "title": "तुमची प्रोफाइल",
+      "description": "PRO वर अपग्रेड करा आणि तुमच्या खात्याचे सेटिंग्ज येथे व्यवस्थापित करा"
+    },
+    "home": {
+      "title": "होम",
+      "description": "तुमचे अलीकडील चॅट्स येथे उपलब्ध आहेत, जेणेकरून तुम्ही जिथे थांबला होता तिथून पुढे सुरू करू शकता."
+    },
+    "quiz": {
+      "title": "क्विझ",
+      "description": "चॅट, डॉक्युमेंट, इमेज किंवा ऑडिओ फाइलवरून सरावासाठी क्विझ तयार करा."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "चॅट, डॉक्युमेंट, इमेज किंवा ऑडिओ फाइलवरून flashcards तयार करा."
+    }
   }
 }

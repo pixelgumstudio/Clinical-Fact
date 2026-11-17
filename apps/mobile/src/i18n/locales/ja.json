@@ -74,7 +74,10 @@
     "expired": "期限切れ",
     "reportBug": "不具合を報告",
     "active": "有効",
-    "trial": "トライアル"
+    "trial": "トライアル",
+    "studyLanguage": "AIコンテンツの言語",
+    "studyLanguageUpdated": "AIコンテンツの言語を更新しました",
+    "studyLanguageUpdateFailed": "AIコンテンツ言語の更新に失敗しました"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "完全な確認コードを入力してください",
     "languageSelect": {
       "title": "言語を選択",
-      "subtitle": "アプリで使用する言語を選択してください。後からプロフィールで変更できます。",
-      "searchPlaceholder": "言語を検索",
-      "noResults": "該当する言語が見つかりません"
+      "subtitle": "あなたに合わせた学習体験をお届けするために使用されます。"
     },
     "buttons": {
       "continue": "続ける",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "クイズ"
+      "quiz": "クイズ",
+      "home": "ホーム",
+      "flashcards": "単語帳",
+      "profile": "プロフィール"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteIdまたはfileIdが必要です",
     "sourcetypeIsRequired": "sourceTypeが必要です",
     "youtubeurlIsRequired": "youtubeUrlが必要です"
+  },
+  "languageList": {
+    "searchPlaceholder": "言語を検索",
+    "noResults": "言語が見つかりません",
+    "defaultSameAsApp": "デフォルト（アプリと同じ）"
+  },
+  "walkthrough": {
+    "skip": "スキップ",
+    "next": "次へ",
+    "finish": "完了",
+    "medicalData": {
+      "title": "医療情報を調べる",
+      "description": "医学に関する疑問を質問すると、信頼できる医療情報源の出典に基づいた回答が得られます"
+    },
+    "customizeChat": {
+      "title": "チャットをカスタマイズ",
+      "description": "クイズや単語帳を作成したり、日付や情報源のタイプで結果を絞り込んだりできます。"
+    },
+    "profile": {
+      "title": "プロフィール",
+      "description": "PROへのアップグレードやアカウント設定の管理はこちらで行えます"
+    },
+    "home": {
+      "title": "ホーム",
+      "description": "最近のチャットがここに保存され、いつでも続きから再開できます。"
+    },
+    "quiz": {
+      "title": "クイズ",
+      "description": "チャットや文書、画像、音声ファイルから演習クイズを作成できます。"
+    },
+    "flashcards": {
+      "title": "単語帳",
+      "description": "チャットや文書、画像、音声ファイルから単語帳を作成できます。"
+    }
   }
 }

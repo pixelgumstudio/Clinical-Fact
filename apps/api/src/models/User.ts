@@ -1,5 +1,6 @@
 import mongoose, { Document, Schema, Types } from 'mongoose';
 import bcrypt from 'bcrypt';
+import { SUPPORTED_LANGUAGE_CODES } from '../utils/language';
 
 export interface IReviewStatus {
   lastPromptedDate?: Date;
@@ -203,12 +204,12 @@ const userSchema = new Schema<IUser>(
     preferredLanguage: {
       type: String,
       default: 'en',
-      enum: ['en', 'en-GB', 'en-AU', 'en-CA', 'es', 'es-MX', 'fr', 'fr-CA', 'de', 'pt', 'pt-PT', 'it', 'nl', 'pl', 'sv', 'no', 'da', 'fi', 'cs', 'sk', 'sl', 'hr', 'hu', 'ro', 'el', 'tr', 'ru', 'uk', 'ar', 'ar-AE', 'ar-EG', 'he', 'hi', 'bn', 'ta', 'te', 'kn', 'ml', 'mr', 'gu', 'pa', 'ur', 'zh-CN', 'zh-TW', 'ja', 'ko', 'vi', 'th', 'ms', 'id', 'ca'],
+      enum: [...SUPPORTED_LANGUAGE_CODES],
     },
     studyLanguage: {
       type: String,
       default: null,
-      enum: [null, 'en', 'en-GB', 'en-AU', 'en-CA', 'es', 'es-MX', 'fr', 'fr-CA', 'de', 'pt', 'pt-PT', 'it', 'nl', 'pl', 'sv', 'no', 'da', 'fi', 'cs', 'sk', 'sl', 'hr', 'hu', 'ro', 'el', 'tr', 'ru', 'uk', 'ar', 'ar-AE', 'ar-EG', 'he', 'hi', 'bn', 'ta', 'te', 'kn', 'ml', 'mr', 'gu', 'pa', 'ur', 'zh-CN', 'zh-TW', 'ja', 'ko', 'vi', 'th', 'ms', 'id', 'ca'],
+      enum: [null, ...SUPPORTED_LANGUAGE_CODES],
     },
     isBanned: {
       type: Boolean,

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   imagePreviewCloseButton: {
     position: 'absolute',
     top: 56,
-    right: spacing[4],
+    end: spacing[4],
     zIndex: 1,
     width: 40,
     height: 40,

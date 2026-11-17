@@ -22,11 +22,12 @@ import { Icon, IconName, theme, colors, spacing, typography } from "@clinicalfac
 import { useAuthStore } from "../../store/authStore";
 import { useSubscriptionStore } from "../../store/subscriptionStore";
 import { showInAppPaywall, getSubscriptionStatus } from "../../services/revenuecat";
-import { LanguageSupportModal } from "../../components/LanguageSupportModal";
+import { LanguageSupportModal } from "../../components/language/LanguageSupportModal";
+import { useAppLanguage } from "../../hooks/useAppLanguage";
+import { languageLabel } from "../../i18n/languages";
 import { ReferralModal } from "../../components/ReferralModal";
 import { api } from "../../services/api";
-import { changeLanguage } from "../../i18n";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { formatDateShort } from '../../utils/formatDate';
 
 
@@ -34,6 +35,8 @@ export const ProfileScreen = () => {
   const { t } = useTranslation();
   const { user, signOut: logout } = useAuthStore();
   const [languageModalVisible, setLanguageModalVisible] = useState(false);
+  const [studyLanguageModalVisible, setStudyLanguageModalVisible] = useState(false);
+  const { appLanguage, studyLanguage, setAppLanguage, setStudyLanguage } = useAppLanguage();
   const [showReferralModal, setShowReferralModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -146,65 +149,6 @@ export const ProfileScreen = () => {
         .toUpperCase()
         .slice(0, 2)
     : user?.email?.[0]?.toUpperCase() || "U";
-
-  const getLanguageName = (code: string): string => {
-    const languageKey =
-      (
-        {
-          en: "english",
-          es: "spanish",
-          fr: "french",
-          de: "german",
-          pt: "portuguese",
-          "zh-CN": "chineseSimplified",
-          "zh-TW": "chineseTraditional",
-          ja: "japanese",
-          ko: "korean",
-          ar: "arabic",
-          hi: "hindi",
-          ru: "russian",
-          it: "italian",
-          pl: "polish",
-          nl: "dutch",
-          sv: "swedish",
-          tr: "turkish",
-          vi: "vietnamese",
-          th: "thai",
-          id: "indonesian",
-        } as Record<string, string>
-      )[code] || "english";
-    return t(`languages.${languageKey}`);
-  };
-
-  const handleLanguageSelect = async (languageCode: string) => {
-    try {
-      setLanguageModalVisible(false);
-      await changeLanguage(languageCode);
-      const response = await api.updateUserLanguage(languageCode);
-      if (response.success && response.data?.user) {
-        const updatedUserData = response.data.user;
-        await useAuthStore.getState().updateUser({
-          preferredLanguage: updatedUserData.preferredLanguage || languageCode,
-          name: updatedUserData.name,
-          username: updatedUserData.username,
-          subscription: updatedUserData.subscription,
-          profilePicture: updatedUserData.profilePicture,
-        });
-        Alert.alert(t("common.success"), t("profile.languageUpdated"));
-      } else {
-        Alert.alert(
-          t("common.error"),
-          response.message || t("profile.languageUpdateFailed"),
-        );
-      }
-    } catch (error: any) {
-      console.error("Language update error:", error);
-      Alert.alert(
-        t("common.error"),
-        error.message || t("profile.languageUpdateFailed"),
-      );
-    }
-  };
 
   const handleDeleteAccount = async () => {
     if (deletingRef.current) return;
@@ -339,8 +283,14 @@ export const ProfileScreen = () => {
             <MenuItem
               icon="translate"
               label={t("profile.changeLanguage")}
-              value={getLanguageName(user?.preferredLanguage || "en")}
+              value={languageLabel(appLanguage)}
               onPress={() => setLanguageModalVisible(true)}
+            />
+            <MenuItem
+              icon="translate"
+              label={t("profile.studyLanguage")}
+              value={studyLanguage ? languageLabel(studyLanguage) : t("languageList.defaultSameAsApp")}
+              onPress={() => setStudyLanguageModalVisible(true)}
             />
             <MenuItem
               icon="chat"
@@ -386,8 +336,25 @@ export const ProfileScreen = () => {
       <LanguageSupportModal
         visible={languageModalVisible}
         onClose={() => setLanguageModalVisible(false)}
-        onSelectLanguage={handleLanguageSelect}
-        selectedLanguage={user?.preferredLanguage || "en"}
+        onSelectLanguage={(code) => {
+          setLanguageModalVisible(false);
+          setAppLanguage(code);
+        }}
+        selectedLanguage={appLanguage}
+      />
+      <LanguageSupportModal
+        visible={studyLanguageModalVisible}
+        onClose={() => setStudyLanguageModalVisible(false)}
+        title={t("profile.studyLanguage")}
+        onSelectLanguage={(code) => {
+          setStudyLanguageModalVisible(false);
+          setStudyLanguage(code);
+        }}
+        onSelectDefault={() => {
+          setStudyLanguageModalVisible(false);
+          setStudyLanguage(null);
+        }}
+        selectedLanguage={studyLanguage}
       />
 
       {/* Referral Code Modal */}

@@ -10,6 +10,7 @@ import ocrService from '../services/ocr.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import notificationService from '../services/notification.service';
 import { isGenericTitle } from '../utils/title';
+import { resolveGenerationLanguage, resolveNoteLanguage } from '../services/generationLanguage.service';
 
 /**
  * Saves how far document indexing has got, so the chat screen's "Processing N%" moves instead of
@@ -279,7 +280,12 @@ class ChatController {
         const enhanced = await noteGenerationService.generateNote(
           documentText,
           sourceType,  // 'pdf' | 'image' | 'document'
-          {}           // no extra options
+          {
+            language: resolveNoteLanguage({
+              studyLanguage: req.user.studyLanguage,
+              preferredLanguage: req.user.preferredLanguage,
+            }),
+          }
         );
         if (enhanced && enhanced.content) {
           documentText = enhanced.content;
@@ -609,11 +615,12 @@ class ChatController {
         let assistantContent = '';
         let assistantMetadata: ChatStreamMetadata | undefined;
 
-        // Same priority order as quiz/flashcard generation (studyLanguage — the language the
-        // student is actively studying in — wins over the device/account-level preferredLanguage).
-        // Chat has no per-request override param like quiz/flashcard's `targetLanguage`, since
-        // there's no per-note language context to inherit here.
-        const language = req.user.studyLanguage || req.user.preferredLanguage || 'en';
+        // Same resolver as quiz/flashcard generation. Chat sends no language of its own, so the
+        // account (study language, then app language) decides.
+        const language = resolveGenerationLanguage({
+          studyLanguage: req.user.studyLanguage,
+          preferredLanguage: req.user.preferredLanguage,
+        });
 
         const eventStream = mode === 'medical_live'
           ? chatService.chatMedicalLiveStream(

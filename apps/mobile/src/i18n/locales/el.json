@@ -73,7 +73,10 @@
     "everyWeek": "Κάθε εβδομάδα",
     "everyMonth": "Κάθε μήνα",
     "everyYear": "Κάθε χρόνο",
-    "reportBug": "Αναφορά σφάλματος"
+    "reportBug": "Αναφορά σφάλματος",
+    "studyLanguage": "Γλώσσα περιεχομένου AI",
+    "studyLanguageUpdated": "Η γλώσσα περιεχομένου AI ενημερώθηκε",
+    "studyLanguageUpdateFailed": "Αποτυχία ενημέρωσης γλώσσας περιεχομένου AI"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "Επιλέξτε τη γλώσσα σας",
-      "subtitle": "Επιλέξτε τη γλώσσα που θέλετε να χρησιμοποιείτε στην εφαρμογή. Μπορείτε να την αλλάξετε αργότερα από το προφίλ σας.",
-      "searchPlaceholder": "Αναζήτηση γλώσσας",
-      "noResults": "Δεν βρέθηκαν γλώσσες"
+      "subtitle": "Αυτό μας βοηθά να εξατομικεύσουμε την εμπειρία σας."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Κουίζ"
+      "quiz": "Κουίζ",
+      "home": "Αρχική",
+      "flashcards": "Flashcards",
+      "profile": "Προφίλ"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "απαιτείται το noteId ή το fileId",
     "sourcetypeIsRequired": "απαιτείται το sourceType",
     "youtubeurlIsRequired": "απαιτείται το youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "Αναζήτηση γλώσσας",
+    "noResults": "Δεν βρέθηκαν γλώσσες",
+    "defaultSameAsApp": "Προεπιλογή (ίδια με την εφαρμογή)"
+  },
+  "walkthrough": {
+    "skip": "Παράλειψη",
+    "next": "Επόμενο",
+    "finish": "Τέλος",
+    "medicalData": {
+      "title": "Λάβετε ιατρικά δεδομένα",
+      "description": "Ρωτήστε οτιδήποτε ιατρικό και λάβετε απαντήσεις με παραπομπές από έγκυρες ιατρικές πηγές"
+    },
+    "customizeChat": {
+      "title": "Προσαρμογή συνομιλίας",
+      "description": "Δημιουργήστε κουίζ και flashcards ή φιλτράρετε τα αποτελέσματα κατά ημερομηνία και τύπο πηγής."
+    },
+    "profile": {
+      "title": "Το προφίλ σας",
+      "description": "Αναβαθμίστε σε PRO και διαχειριστείτε τις ρυθμίσεις του λογαριασμού σας εδώ"
+    },
+    "home": {
+      "title": "Αρχική",
+      "description": "Οι πρόσφατες συνομιλίες σας βρίσκονται εδώ, για να συνεχίζετε από εκεί που μείνατε."
+    },
+    "quiz": {
+      "title": "Κουίζ",
+      "description": "Δημιουργήστε κουίζ εξάσκησης από συνομιλία, έγγραφο, εικόνα ή αρχείο ήχου."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Δημιουργήστε flashcards από συνομιλία, έγγραφο, εικόνα ή αρχείο ήχου."
+    }
   }
 }
