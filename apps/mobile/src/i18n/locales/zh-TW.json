@@ -74,7 +74,10 @@
     "expired": "已過期",
     "reportBug": "回報問題",
     "active": "有效",
-    "trial": "試用"
+    "trial": "試用",
+    "studyLanguage": "AI 內容語言",
+    "studyLanguageUpdated": "已更新 AI 內容語言",
+    "studyLanguageUpdateFailed": "無法更新 AI 內容語言"
   },
   "auth": {
     "welcome": {
@@ -96,10 +99,8 @@
     "resendIn": "重新發送於",
     "enterVerificationCode": "請輸入完整的驗證碼",
     "languageSelect": {
-      "title": "選擇你的語言",
-      "subtitle": "請選擇你想在 App 中使用的語言。稍後隨時可在個人檔案中變更。",
-      "searchPlaceholder": "搜尋語言",
-      "noResults": "找不到相符的語言"
+      "title": "選擇您的語言",
+      "subtitle": "這有助於我們為您量身打造個人化體驗。"
     },
     "buttons": {
       "continue": "繼續",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "測驗"
+      "quiz": "測驗",
+      "home": "首頁",
+      "flashcards": "字卡",
+      "profile": "個人檔案"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "必須提供 noteId 或 fileId",
     "sourcetypeIsRequired": "必須提供 sourceType",
     "youtubeurlIsRequired": "必須提供 youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "搜尋語言",
+    "noResults": "找不到相關語言",
+    "defaultSameAsApp": "預設（與 App 相同）"
+  },
+  "walkthrough": {
+    "skip": "略過",
+    "next": "下一步",
+    "finish": "完成",
+    "medicalData": {
+      "title": "獲取醫學資訊",
+      "description": "詢問任何醫學問題，獲取引述自權威醫學來源的可靠解答"
+    },
+    "customizeChat": {
+      "title": "自訂對話",
+      "description": "生成測驗與字卡，或依日期與來源類型篩選結果。"
+    },
+    "profile": {
+      "title": "個人檔案",
+      "description": "在此升級至 PRO 並管理您的帳號設定"
+    },
+    "home": {
+      "title": "首頁",
+      "description": "最近的對話都在這裡，方便您隨時接續進度。"
+    },
+    "quiz": {
+      "title": "測驗",
+      "description": "從對話、文件、圖片或音訊檔案建立練習測驗。"
+    },
+    "flashcards": {
+      "title": "字卡",
+      "description": "從對話、文件、圖片或音訊檔案建立字卡。"
+    }
   }
 }

@@ -73,7 +73,10 @@
     "everyWeek": "În fiecare săptămână",
     "everyMonth": "În fiecare lună",
     "everyYear": "În fiecare an",
-    "reportBug": "Raportează o problemă"
+    "reportBug": "Raportează o problemă",
+    "studyLanguage": "Limba pentru conținutul AI",
+    "studyLanguageUpdated": "Limba conținutului AI a fost actualizată",
+    "studyLanguageUpdateFailed": "Nu s-a putut actualiza limba conținutului AI"
   },
   "auth": {
     "welcome": {
@@ -258,10 +261,8 @@
       }
     },
     "languageSelect": {
-      "title": "Alege limba",
-      "subtitle": "Selectează limba pe care vrei să o folosești în aplicație. O poți schimba ulterior din profil.",
-      "searchPlaceholder": "Caută o limbă",
-      "noResults": "Nicio limbă găsită"
+      "title": "Selectează limba",
+      "subtitle": "Acest lucru ne ajută să-ți personalizăm experiența."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Acasă",
+      "flashcards": "Flashcarduri",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId sau fileId este obligatoriu",
     "sourcetypeIsRequired": "sourceType este obligatoriu",
     "youtubeurlIsRequired": "youtubeUrl este obligatoriu"
+  },
+  "languageList": {
+    "searchPlaceholder": "Caută o limbă",
+    "noResults": "Nicio limbă găsită",
+    "defaultSameAsApp": "Implicit (la fel ca aplicația)"
+  },
+  "walkthrough": {
+    "skip": "Omite",
+    "next": "Următorul",
+    "finish": "Finalizează",
+    "medicalData": {
+      "title": "Obține date medicale",
+      "description": "Întreabă orice despre medicină și primești răspunsuri bazate pe surse medicale de încredere"
+    },
+    "customizeChat": {
+      "title": "Personalizează chatul",
+      "description": "Generează teste grilă și flashcarduri sau filtrează rezultatele după dată și tipul sursei."
+    },
+    "profile": {
+      "title": "Profilul tău",
+      "description": "Treci la PRO și gestionează-ți setările contului de aici"
+    },
+    "home": {
+      "title": "Acasă",
+      "description": "Aici găsești conversațiile recente, ca să reiei studiul de unde ai rămas."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Creează un test grilă dintr-un chat, document, imagine sau fișier audio."
+    },
+    "flashcards": {
+      "title": "Flashcarduri",
+      "description": "Creează flashcarduri dintr-un chat, document, imagine sau fișier audio."
+    }
   }
 }

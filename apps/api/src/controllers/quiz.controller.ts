@@ -5,6 +5,7 @@ import Note from '../models/Note';
 import ChatSession from '../models/ChatSession';
 import quizGenerationService from '../services/quizGeneration.service';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
+import { resolveGenerationLanguage } from '../services/generationLanguage.service';
 
 class QuizController {
   /**
@@ -71,8 +72,13 @@ class QuizController {
         });
       }
 
-      // Resolve effective target language: provided → note override → user preference → user UI language → English
-      const effectiveLanguage = targetLanguage || note.studyLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+      // The account decides; a language sent with the request only counts when the account has no stronger preference.
+      const effectiveLanguage = resolveGenerationLanguage({
+        noteStudyLanguage: note.studyLanguage,
+        studyLanguage: req.user.studyLanguage,
+        preferredLanguage: req.user.preferredLanguage,
+        requested: targetLanguage,
+      });
 
       // Generate quiz based on type
       console.log(`🎯 Generating ${quizType} quiz for note: ${note.title}`);
@@ -215,7 +221,11 @@ class QuizController {
         throw e;
       }
 
-      const effectiveLanguage = targetLanguage || req.user.studyLanguage || req.user.preferredLanguage || 'en';
+      const effectiveLanguage = resolveGenerationLanguage({
+        studyLanguage: req.user.studyLanguage,
+        preferredLanguage: req.user.preferredLanguage,
+        requested: targetLanguage,
+      });
 
       console.log(`🎯 Generating quiz from raw text (title: "${title}")`);
 

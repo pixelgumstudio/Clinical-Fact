@@ -11,6 +11,8 @@ import { createJob, updateJob } from '../services/job.service';
 import { isGenericTitle } from '../utils/title';
 import { checkQuota, incrementQuota, QuotaExceededError } from '../services/quota.service';
 import { User } from '../models/User';
+import { resolveNoteLanguage } from '../services/generationLanguage.service';
+import { isValidLanguageCode } from '../utils/language';
 import notificationService from '../services/notification.service';
 
 function generateDefaultTitle(sourceType: string): string {
@@ -35,12 +37,14 @@ const UpdateNoteSchema = z.object({
   title: z.string().min(1, 'Title cannot be empty.').optional(),
   content: z.string().optional(),
   folderId: z.string().optional(),
+  // The language AI output for this note is written in; null clears it (back to the profile's).
+  studyLanguage: z.string().refine(isValidLanguageCode, 'Not a language code.').nullable().optional(),
 });
 
 // Zod Schema for translating a note
 const TranslateNoteSchema = z.object({
-  targetLanguage: z.string().min(2, 'Target language code is required.').max(10),
-  sourceLanguage: z.string().min(2).max(10).optional(),
+  targetLanguage: z.string().min(2, 'Target language code is required.').max(10).refine(isValidLanguageCode, 'Not a language code.'),
+  sourceLanguage: z.string().min(2).max(10).refine(isValidLanguageCode, 'Not a language code.').optional(),
 });
 
 /**
@@ -360,7 +364,14 @@ export const enhanceNoteContent = async (req: AuthRequest, res: Response) => {
     const enhancedNote = await noteGenerationService.generateNote(
       note.content,
       note.sourceType || 'text',
-      { goals: (req.user as any)?.goals || [] }
+      {
+        goals: (req.user as any)?.goals || [],
+        language: resolveNoteLanguage({
+          noteStudyLanguage: note.studyLanguage,
+          studyLanguage: req.user!.studyLanguage,
+          preferredLanguage: req.user!.preferredLanguage,
+        }),
+      }
     );
 
     note.content = enhancedNote.content;
@@ -527,6 +538,11 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
 
     // ── Capture all req-derived values; req object must not be used inside IIFE ──
     const userGoals: string[] = (req.user as any)?.goals || [];
+    // undefined = keep the language of the source (a default-English account must not turn a Spanish PDF into an English note)
+    const noteLanguage = resolveNoteLanguage({
+      studyLanguage: req.user!.studyLanguage,
+      preferredLanguage: req.user!.preferredLanguage,
+    });
     const capturedTitle: string | undefined = title;
     const capturedSourceType: string = sourceType;
     const capturedContent: string | undefined = content;
@@ -659,7 +675,7 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
             }
 
             const generatedNote = await noteGenerationService.generateNote(
-              noteContent, capturedSourceType, { goals: userGoals }
+              noteContent, capturedSourceType, { goals: userGoals, language: noteLanguage }
             );
             noteContent = generatedNote.content;
             noteSummary = generatedNote.summary || '';
@@ -679,14 +695,14 @@ export const generateNote = async (req: AuthRequest, res: Response) => {
           if (capturedSourceType === 'youtube') {
             const videoTitle = capturedTitle || 'YouTube Video Note';
             const generatedNote = await noteGenerationService.generateNoteFromYouTube(
-              noteContent, videoTitle, { goals: userGoals }
+              noteContent, videoTitle, { goals: userGoals, language: noteLanguage }
             );
             noteContent = generatedNote.content;
             noteSummary = generatedNote.summary || '';
             noteTitle = generatedNote.title || videoTitle;
           } else {
             const generatedNote = await noteGenerationService.generateNote(
-              noteContent, capturedSourceType, { goals: userGoals }
+              noteContent, capturedSourceType, { goals: userGoals, language: noteLanguage }
             );
             noteContent = generatedNote.content;
             noteSummary = generatedNote.summary || '';

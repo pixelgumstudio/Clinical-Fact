@@ -72,6 +72,11 @@ export const APP_LANGUAGES: readonly AppLanguage[] = [
   { code: 'ca', name: 'Catalan', nativeName: 'Català', country: 'es' },
 ];
 
+/** The display name of a language (English name; its own name is `nativeName`), or the code itself
+ * for one the app doesn't list. */
+export const languageLabel = (code: string | null | undefined): string =>
+  APP_LANGUAGES.find((l) => l.code === code)?.name ?? code ?? '';
+
 export const isSupportedLanguage = (code: string | null | undefined): code is string =>
   !!code && APP_LANGUAGES.some((l) => l.code === code);
 

@@ -73,7 +73,10 @@
     "everyWeek": "ప్రతి వారం",
     "everyMonth": "ప్రతి నెల",
     "everyYear": "ప్రతి సంవత్సరం",
-    "reportBug": "సమస్యను నివేదించండి"
+    "reportBug": "సమస్యను నివేదించండి",
+    "studyLanguage": "AI కంటెంట్ కోసం భాష",
+    "studyLanguageUpdated": "AI కంటెంట్ భాష అప్‌డేట్ చేయబడింది",
+    "studyLanguageUpdateFailed": "AI కంటెంట్ భాషను అప్‌డేట్ చేయడం విఫలమైంది"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "మీ భాషను ఎంచుకోండి",
-      "subtitle": "యాప్‌లో మీరు ఉపయోగించాలనుకుంటున్న భాషను ఎంచుకోండి. తర్వాత మీ ప్రొఫైల్‌లో దీన్ని మార్చుకోవచ్చు.",
-      "searchPlaceholder": "భాషలను వెతకండి",
-      "noResults": "ఏ భాషలూ కనుగొనబడలేదు"
+      "subtitle": "ఇది మీ అనుభవాన్ని మరింత వ్యక్తిగతీకరించడంలో మాకు సహాయపడుతుంది."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "క్విజ్"
+      "quiz": "క్విజ్",
+      "home": "హోమ్",
+      "flashcards": "Flashcards",
+      "profile": "ప్రొఫైల్"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId లేదా fileId అవసరం",
     "sourcetypeIsRequired": "sourceType అవసరం",
     "youtubeurlIsRequired": "youtubeUrl తప్పనిసరి"
+  },
+  "languageList": {
+    "searchPlaceholder": "భాష కోసం వెతకండి",
+    "noResults": "ఎలాంటి భాషలు కనుగొనబడలేదు",
+    "defaultSameAsApp": "డిఫాల్ట్ (యాప్ లాగానే)"
+  },
+  "walkthrough": {
+    "skip": "దాటవేయి",
+    "next": "తర్వాత",
+    "finish": "ముగించు",
+    "medicalData": {
+      "title": "వైద్య సమాచారాన్ని పొందండి",
+      "description": "వైద్యపరమైన ప్రశ్నలను అడగండి, విశ్వసనీయ మెడికల్ మూలాల నుంచి సైటేషన్లతో సమాధానాలు పొందండి"
+    },
+    "customizeChat": {
+      "title": "చాట్‌ను అనుకూలీకరించండి",
+      "description": "క్విజ్‌లు మరియు flashcards రూపొందించండి, లేదా తేదీ మరియు మూలం రకం ఆధారంగా ఫలితాలను ఫిల్టర్ చేయండి."
+    },
+    "profile": {
+      "title": "మీ ప్రొఫైల్",
+      "description": "PRO కి అప్‌గ్రేడ్ అవ్వండి మరియు మీ ఖాతా సెట్టింగ్‌లను ఇక్కడ నిర్వహించండి"
+    },
+    "home": {
+      "title": "హోమ్",
+      "description": "మీ ఇటీవలి చాట్‌లు ఇక్కడ ఉంటాయి, కాబట్టి మీరు ఎక్కడ ఆపారో అక్కడి నుంచే కొనసాగించవచ్చు."
+    },
+    "quiz": {
+      "title": "క్విజ్",
+      "description": "చాట్, డాక్యుమెంట్, ఇమేజ్ లేదా ఆడియో ఫైల్ నుండి ప్రాక్టీస్ క్విజ్‌ను రూపొందించండి."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "చాట్, డాక్యుమెంట్, ఇమేజ్ లేదా ఆడియో ఫైల్ నుండి flashcards రూపొందించండి."
+    }
   }
 }

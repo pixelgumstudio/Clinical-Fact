@@ -74,7 +74,10 @@
     "expired": "Kedaluwarsa",
     "reportBug": "Laporkan bug",
     "active": "AKTIF",
-    "trial": "UJI COBA"
+    "trial": "UJI COBA",
+    "studyLanguage": "Bahasa konten AI",
+    "studyLanguageUpdated": "Bahasa konten AI berhasil diperbarui",
+    "studyLanguageUpdateFailed": "Gagal memperbarui bahasa konten AI"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "Silakan masukkan kode verifikasi lengkap",
     "languageSelect": {
       "title": "Pilih bahasa Anda",
-      "subtitle": "Pilih bahasa yang ingin Anda gunakan di aplikasi. Anda dapat mengubahnya nanti di profil.",
-      "searchPlaceholder": "Cari bahasa",
-      "noResults": "Bahasa tidak ditemukan"
+      "subtitle": "Ini membantu kami mempersonalisasi pengalaman belajar Anda."
     },
     "buttons": {
       "continue": "Lanjutkan",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Kuis"
+      "quiz": "Kuis",
+      "home": "Beranda",
+      "flashcards": "Flashcard",
+      "profile": "Profil"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "noteId atau fileId wajib diisi",
     "sourcetypeIsRequired": "sourceType wajib diisi",
     "youtubeurlIsRequired": "youtubeUrl wajib diisi"
+  },
+  "languageList": {
+    "searchPlaceholder": "Cari bahasa",
+    "noResults": "Bahasa tidak ditemukan",
+    "defaultSameAsApp": "Default (sama dengan aplikasi)"
+  },
+  "walkthrough": {
+    "skip": "Lewati",
+    "next": "Lanjut",
+    "finish": "Selesai",
+    "medicalData": {
+      "title": "Dapatkan Data Medis",
+      "description": "Tanyakan apa saja seputar medis dan dapatkan jawaban lengkap dengan sitasi dari sumber medis tepercaya"
+    },
+    "customizeChat": {
+      "title": "Sesuaikan Chat",
+      "description": "Buat kuis dan flashcard, atau filter hasil berdasarkan tanggal dan jenis sumber."
+    },
+    "profile": {
+      "title": "Profil Anda",
+      "description": "Tingkatkan ke PRO dan kelola pengaturan akun Anda di sini"
+    },
+    "home": {
+      "title": "Beranda",
+      "description": "Chat terbaru Anda tersimpan di sini, sehingga Anda bisa melanjutkan sesi belajar kapan saja."
+    },
+    "quiz": {
+      "title": "Kuis",
+      "description": "Buat kuis latihan dari chat, dokumen, gambar, atau file audio."
+    },
+    "flashcards": {
+      "title": "Flashcard",
+      "description": "Buat flashcard dari chat, dokumen, gambar, atau file audio."
+    }
   }
 }

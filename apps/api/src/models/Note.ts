@@ -1,4 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { SUPPORTED_LANGUAGE_CODES } from '../utils/language';
 
 export interface INote extends Document {
   userId: mongoose.Types.ObjectId;
@@ -127,6 +128,7 @@ const NoteSchema = new Schema<INote>(
     studyLanguage: {
       type: String,
       default: null,
+      enum: [null, ...SUPPORTED_LANGUAGE_CODES],
     },
   },
   {

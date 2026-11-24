@@ -73,7 +73,10 @@
     "everyWeek": "Щотижня",
     "everyMonth": "Щомісяця",
     "everyYear": "Щороку",
-    "reportBug": "Повідомити про помилку"
+    "reportBug": "Повідомити про помилку",
+    "studyLanguage": "Мова для AI-контенту",
+    "studyLanguageUpdated": "Мову AI-контенту оновлено",
+    "studyLanguageUpdateFailed": "Не вдалося оновити мову AI-контенту"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "Оберіть мову",
-      "subtitle": "Оберіть мову, якою хочете користуватися в додатку. Ви зможете змінити її пізніше в профілі.",
-      "searchPlaceholder": "Пошук мови",
-      "noResults": "Мов не знайдено"
+      "subtitle": "Це допоможе нам персоналізувати додаток під вас."
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Тести"
+      "quiz": "Тести",
+      "home": "Головна",
+      "flashcards": "Картки",
+      "profile": "Профіль"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "Потрібно вказати noteId або fileId",
     "sourcetypeIsRequired": "Потрібно вказати sourceType",
     "youtubeurlIsRequired": "Потрібно вказати youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "Пошук мови",
+    "noResults": "Мов не знайдено",
+    "defaultSameAsApp": "За замовчуванням (як у додатку)"
+  },
+  "walkthrough": {
+    "skip": "Пропустити",
+    "next": "Далі",
+    "finish": "Завершити",
+    "medicalData": {
+      "title": "Медичні дані",
+      "description": "Запитуйте будь-що з медицини й отримуйте відповіді з посиланнями на надійні джерела"
+    },
+    "customizeChat": {
+      "title": "Налаштуйте чат",
+      "description": "Створюйте тести та флеш-картки або фільтруйте результати за датою та типом джерел."
+    },
+    "profile": {
+      "title": "Ваш профіль",
+      "description": "Переходьте на PRO та керуйте налаштуваннями свого акаунта тут"
+    },
+    "home": {
+      "title": "Головна",
+      "description": "Тут збережено ваші останні чати, щоб ви могли легко повернутися до навчання."
+    },
+    "quiz": {
+      "title": "Тести",
+      "description": "Створюйте практичні тести з чатів, документів, зображень або аудіофайлів."
+    },
+    "flashcards": {
+      "title": "Флеш-картки",
+      "description": "Створюйте флеш-картки з чатів, документів, зображень або аудіофайлів."
+    }
   }
 }

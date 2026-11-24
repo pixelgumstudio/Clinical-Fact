@@ -1,5 +1,5 @@
 import aiService from './ai.service';
-import { getLanguageName } from '../utils/language';
+import { languageInstruction as buildLanguageInstruction } from '../utils/language';
 
 interface QuizQuestion {
   questionText: string;
@@ -86,8 +86,8 @@ class QuizGenerationService {
         ? `\nFocus specifically on these topics: ${focusTopics.join(', ')}`
         : '';
 
-    const languageInstruction = targetLanguage && targetLanguage !== 'en'
-      ? `\n- IMPORTANT: Write all quiz content (questions, options, explanations, title) in ${getLanguageName(targetLanguage)} only — regardless of the language of the notes above, do not use English.`
+    const languageInstruction = targetLanguage
+      ? `\n- ${buildLanguageInstruction(targetLanguage, 'all quiz content (title, questions, options, explanations)')}`
       : '';
 
     return `You are Clinical Fact, generating a quiz for nursing and medical students preparing for exams and clinical practice.

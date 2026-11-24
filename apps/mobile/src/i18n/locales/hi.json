@@ -74,7 +74,10 @@
     "expired": "समाप्त",
     "reportBug": "बग की रिपोर्ट करें",
     "active": "सक्रिय",
-    "trial": "ट्रायल"
+    "trial": "ट्रायल",
+    "studyLanguage": "AI सामग्री की भाषा",
+    "studyLanguageUpdated": "AI सामग्री की भाषा अपडेट कर दी गई",
+    "studyLanguageUpdateFailed": "AI सामग्री की भाषा अपडेट नहीं हो सकी"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "कृपया पूरा सत्यापन कोड दर्ज करें",
     "languageSelect": {
       "title": "अपनी भाषा चुनें",
-      "subtitle": "ऐप में उपयोग के लिए भाषा चुनें। आप इसे बाद में अपनी प्रोफ़ाइल में बदल सकते हैं।",
-      "searchPlaceholder": "भाषा खोजें",
-      "noResults": "कोई भाषा नहीं मिली"
+      "subtitle": "इससे हमें आपके अनुभव को और बेहतर बनाने में मदद मिलती है।"
     },
     "buttons": {
       "continue": "जारी रखें",
@@ -1304,7 +1305,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "क्विज़"
+      "quiz": "क्विज़",
+      "home": "होम",
+      "flashcards": "फ्लैशकार्ड्स",
+      "profile": "प्रोफ़ाइल"
     }
   },
   "main": {
@@ -1561,5 +1565,39 @@
     "noteidOrFileidIsRequired": "noteId या fileId आवश्यक है",
     "sourcetypeIsRequired": "sourceType आवश्यक है",
     "youtubeurlIsRequired": "youtubeUrl आवश्यक है"
+  },
+  "languageList": {
+    "searchPlaceholder": "भाषा खोजें",
+    "noResults": "कोई भाषा नहीं मिली",
+    "defaultSameAsApp": "डिफ़ॉल्ट (ऐप जैसी ही)"
+  },
+  "walkthrough": {
+    "skip": "छोड़ें",
+    "next": "आगे बढ़ें",
+    "finish": "समाप्त",
+    "medicalData": {
+      "title": "सटीक मेडिकल डेटा पाएं",
+      "description": "चिकित्सा से जुड़ा कुछ भी पूछें और विश्वसनीय स्रोतों के संदर्भों सहित उत्तर पाएं"
+    },
+    "customizeChat": {
+      "title": "चैट कस्टमाइज़ करें",
+      "description": "क्विज़ और फ्लैशकार्ड्स बनाएं, या दिनांक और स्रोत के प्रकार के आधार पर फ़िल्टर करें।"
+    },
+    "profile": {
+      "title": "आपकी प्रोफ़ाइल",
+      "description": "PRO में अपग्रेड करें और अपनी अकाउंट सेटिंग्स यहां प्रबंधित करें"
+    },
+    "home": {
+      "title": "होम",
+      "description": "आपकी हालिया चैट यहां मिलेंगी, ताकि आप वहीं से शुरू कर सकें जहां आपने छोड़ा था।"
+    },
+    "quiz": {
+      "title": "क्विज़",
+      "description": "किसी चैट, दस्तावेज़, इमेज या ऑडियो फ़ाइल से अभ्यास क्विज़ बनाएं।"
+    },
+    "flashcards": {
+      "title": "फ्लैशकार्ड्स",
+      "description": "किसी चैट, दस्तावेज़, इमेज या ऑडियो फ़ाइल से फ्लैशकार्ड्स बनाएं।"
+    }
   }
 }

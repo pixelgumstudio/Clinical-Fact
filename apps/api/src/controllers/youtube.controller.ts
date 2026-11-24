@@ -5,6 +5,7 @@ import { extractSubtitlesViaYtDlp } from '../services/transcription.service';
 import Note from '../models/Note';
 import mongoose from 'mongoose';
 import { addTranscriptionJob } from '../queue/transcription.queue';
+import { resolveNoteLanguageForUser } from '../services/generationLanguage.service';
 
 // Helper function to extract user ID consistently
 const getUserId = (req: Request): mongoose.Types.ObjectId | undefined => {
@@ -97,7 +98,7 @@ export const generateNoteFromYouTube = async (req: Request, res: Response) => {
         const generatedNote = await noteGenerationService.generateNoteFromYouTube(
             transcriptData!.transcript, 
             videoInfo?.title || 'YouTube Video Note', 
-            {}
+            { language: await resolveNoteLanguageForUser(userId) }
         );
         
         note.title = generatedNote.title;

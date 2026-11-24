@@ -73,7 +73,10 @@
     "everyWeek": "প্রতি সপ্তাহে",
     "everyMonth": "প্রতি মাসে",
     "everyYear": "প্রতি বছর",
-    "reportBug": "বাগ রিপোর্ট করুন"
+    "reportBug": "বাগ রিপোর্ট করুন",
+    "studyLanguage": "AI কনটেন্টের ভাষা",
+    "studyLanguageUpdated": "AI কনটেন্টের ভাষা আপডেট করা হয়েছে",
+    "studyLanguageUpdateFailed": "AI কনটেন্টের ভাষা আপডেট করা যায়নি"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "আপনার ভাষা বেছে নিন",
-      "subtitle": "অ্যাপে আপনি যে ভাষা ব্যবহার করতে চান তা বেছে নিন। পরবর্তীতে প্রোফাইল থেকে এটি পরিবর্তন করতে পারবেন।",
-      "searchPlaceholder": "ভাষা খুঁজুন",
-      "noResults": "কোনো ভাষা পাওয়া যায়নি"
+      "subtitle": "এটি আপনার জন্য অ্যাপের অভিজ্ঞতা কাস্টমাইজ করতে সাহায্য করবে।"
     },
     "intro": {
       "slide1": {
@@ -1327,7 +1328,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "কুইজ"
+      "quiz": "কুইজ",
+      "home": "হোম",
+      "flashcards": "Flashcards",
+      "profile": "প্রোফাইল"
     }
   },
   "main": {
@@ -1584,5 +1588,39 @@
     "noteidOrFileidIsRequired": "noteId অথবা fileId প্রয়োজন",
     "sourcetypeIsRequired": "sourceType প্রয়োজন",
     "youtubeurlIsRequired": "youtubeUrl প্রয়োজন"
+  },
+  "languageList": {
+    "searchPlaceholder": "ভাষা খুঁজুন",
+    "noResults": "কোনো ভাষা পাওয়া যায়নি",
+    "defaultSameAsApp": "ডিফল্ট (অ্যাপের মতো)"
+  },
+  "walkthrough": {
+    "skip": "এড়িয়ে যান",
+    "next": "পরবর্তী",
+    "finish": "সম্পন্ন",
+    "medicalData": {
+      "title": "মেডিকেল তথ্য জানুন",
+      "description": "মেডিকেল সংক্রান্ত যেকোনো প্রশ্ন করুন এবং নির্ভরযোগ্য সূত্রের রেফারেন্সসহ উত্তর পান"
+    },
+    "customizeChat": {
+      "title": "চ্যাট কাস্টমাইজ করুন",
+      "description": "কুইজ এবং flashcards তৈরি করুন, অথবা তারিখ ও সূত্রের ধরন অনুযায়ী ফলাফল ফিল্টার করুন।"
+    },
+    "profile": {
+      "title": "আপনার প্রোফাইল",
+      "description": "PRO-তে আপগ্রেড করুন এবং এখান থেকেই আপনার অ্যাকাউন্ট সেটিংস পরিচালনা করুন"
+    },
+    "home": {
+      "title": "হোম",
+      "description": "আপনার সাম্প্রতিক চ্যাটগুলো এখানে থাকবে, যাতে যেখান থেকে শেষ করেছিলেন সেখান থেকেই আবার শুরু করতে পারেন।"
+    },
+    "quiz": {
+      "title": "কুইজ",
+      "description": "যেকোনো চ্যাট, ডকুমেন্ট, ছবি বা অডিও ফাইল থেকে প্র্যাকটিস কুইজ তৈরি করুন।"
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "যেকোনো চ্যাট, ডকুমেন্ট, ছবি বা অডিও ফাইল থেকে flashcards তৈরি করুন।"
+    }
   }
 }

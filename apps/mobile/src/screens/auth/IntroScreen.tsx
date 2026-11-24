@@ -142,8 +142,8 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: 'absolute',
-    left: 0,
-    right: 0,
+    start: 0,
+    end: 0,
     bottom: 0,
     gap: theme.spacing[4], // 16
     paddingHorizontal: theme.spacing[5], // 20

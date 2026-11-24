@@ -74,7 +74,10 @@
     "expired": "หมดอายุ",
     "reportBug": "รายงานปัญหา",
     "active": "ใช้งานอยู่",
-    "trial": "ทดลองใช้"
+    "trial": "ทดลองใช้",
+    "studyLanguage": "ภาษาสำหรับเนื้อหา AI",
+    "studyLanguageUpdated": "อัปเดตภาษาของเนื้อหา AI แล้ว",
+    "studyLanguageUpdateFailed": "ไม่สามารถอัปเดตภาษาของเนื้อหา AI ได้"
   },
   "auth": {
     "welcome": {
@@ -97,9 +100,7 @@
     "enterVerificationCode": "กรุณาป้อนรหัสยืนยันให้ครบถ้วน",
     "languageSelect": {
       "title": "เลือกภาษาของคุณ",
-      "subtitle": "เลือกภาษาที่คุณต้องการใช้งานในแอป คุณสามารถเปลี่ยนได้ในภายหลังที่หน้าโปรไฟล์",
-      "searchPlaceholder": "ค้นหาภาษา",
-      "noResults": "ไม่พบภาษา"
+      "subtitle": "เพื่อช่วยปรับแต่งประสบการณ์การใช้งานให้เหมาะกับคุณ"
     },
     "buttons": {
       "continue": "ดำเนินการต่อ",
@@ -1309,7 +1310,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "ควิซ"
+      "quiz": "ควิซ",
+      "home": "หน้าแรก",
+      "flashcards": "แฟลชการ์ด",
+      "profile": "โปรไฟล์"
     }
   },
   "main": {
@@ -1566,5 +1570,39 @@
     "noteidOrFileidIsRequired": "ต้องระบุ noteId หรือ fileId",
     "sourcetypeIsRequired": "ต้องระบุ sourceType",
     "youtubeurlIsRequired": "ต้องระบุ youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "ค้นหาภาษา",
+    "noResults": "ไม่พบภาษาที่ค้นหา",
+    "defaultSameAsApp": "ค่าเริ่มต้น (ตามภาษาของแอป)"
+  },
+  "walkthrough": {
+    "skip": "ข้าม",
+    "next": "ถัดไป",
+    "finish": "เสร็จสิ้น",
+    "medicalData": {
+      "title": "เข้าถึงข้อมูลทางการแพทย์",
+      "description": "ถามคำถามทางการแพทย์ได้ทุกเรื่อง พร้อมรับคำตอบที่มีการอ้างอิงจากแหล่งข้อมูลที่น่าเชื่อถือ"
+    },
+    "customizeChat": {
+      "title": "ปรับแต่งการแชท",
+      "description": "สร้างแบบทดสอบและแฟลชการ์ด หรือกรองผลลัพธ์ตามวันที่และประเภทแหล่งที่มา"
+    },
+    "profile": {
+      "title": "โปรไฟล์ของคุณ",
+      "description": "อัปเกรดเป็น PRO และจัดการการตั้งค่าบัญชีของคุณได้ที่นี่"
+    },
+    "home": {
+      "title": "หน้าแรก",
+      "description": "ประวัติการแชทล่าสุดของคุณจะอยู่ที่นี่ เพื่อให้คุณเรียนต่อจากที่ค้างไว้ได้ทันที"
+    },
+    "quiz": {
+      "title": "แบบทดสอบ",
+      "description": "สร้างแบบทดสอบฝึกหัดจากแชท เอกสาร รูปภาพ หรือไฟล์เสียง"
+    },
+    "flashcards": {
+      "title": "แฟลชการ์ด",
+      "description": "สร้างแฟลชการ์ดจากแชท เอกสาร รูปภาพ หรือไฟล์เสียง"
+    }
   }
 }

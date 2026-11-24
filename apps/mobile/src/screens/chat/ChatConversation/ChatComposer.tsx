@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   pendingAttachmentClose: {
     position: 'absolute',
     top: -8,
-    right: -8,
+    end: -8,
     width: 24,
     height: 24,
     borderRadius: theme.borderRadius.full,

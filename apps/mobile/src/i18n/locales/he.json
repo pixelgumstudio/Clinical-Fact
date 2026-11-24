@@ -73,7 +73,10 @@
     "everyWeek": "כל שבוע",
     "everyMonth": "כל חודש",
     "everyYear": "כל שנה",
-    "reportBug": "דיווח על תקלה"
+    "reportBug": "דיווח על תקלה",
+    "studyLanguage": "שפה לתוכן AI",
+    "studyLanguageUpdated": "שפת תוכן ה-AI עודכנה",
+    "studyLanguageUpdateFailed": "עדכון שפת תוכן ה-AI נכשל"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "בחירת שפה",
-      "subtitle": "בחר את השפה שבה תרצה להשתמש באפליקציה. ניתן לשנות זאת בכל שלב בפרופיל.",
-      "searchPlaceholder": "חיפוש שפות",
-      "noResults": "לא נמצאו שפות"
+      "subtitle": "זה יעזור לנו להתאים את האפליקציה במיוחד בשבילך."
     },
     "intro": {
       "slide1": {
@@ -1322,7 +1323,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "בחנים"
+      "quiz": "בחנים",
+      "home": "בית",
+      "flashcards": "כרטיסיות",
+      "profile": "פרופיל"
     }
   },
   "main": {
@@ -1579,5 +1583,39 @@
     "noteidOrFileidIsRequired": "נדרש noteId או fileId",
     "sourcetypeIsRequired": "נדרש sourceType",
     "youtubeurlIsRequired": "נדרש youtubeUrl"
+  },
+  "languageList": {
+    "searchPlaceholder": "חיפוש שפה",
+    "noResults": "לא נמצאו שפות",
+    "defaultSameAsApp": "ברירת מחדל (כמו באפליקציה)"
+  },
+  "walkthrough": {
+    "skip": "דילוג",
+    "next": "הבא",
+    "finish": "סיום",
+    "medicalData": {
+      "title": "מידע רפואי מהימן",
+      "description": "שאלו כל שאלה רפואית וקבלו תשובות המגובות בציטוטים ממקורות רפואיים מוסמכים"
+    },
+    "customizeChat": {
+      "title": "התאמת הצ'אט",
+      "description": "צרו בחנים וכרטיסיות, או סננו תוצאות לפי תאריך וסוג מקור."
+    },
+    "profile": {
+      "title": "הפרופיל שלכם",
+      "description": "שדרגו ל-PRO ונהלו את הגדרות החשבון שלכם כאן"
+    },
+    "home": {
+      "title": "בית",
+      "description": "הצ'אטים האחרונים שלכם כאן, כדי שתוכלו להמשיך בדיוק מהנקודה שבה הפסקתם."
+    },
+    "quiz": {
+      "title": "בוחן",
+      "description": "צרו בוחן לתרגול מתוך צ'אט, מסמך, תמונה או קובץ שמע."
+    },
+    "flashcards": {
+      "title": "כרטיסיות",
+      "description": "צרו כרטיסיות מתוך צ'אט, מסמך, תמונה או קובץ שמע."
+    }
   }
 }

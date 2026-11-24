@@ -73,7 +73,10 @@
     "everyWeek": "દર અઠવાડિયે",
     "everyMonth": "દર મહિને",
     "everyYear": "દર વર્ષે",
-    "reportBug": "ખામીની જાણ કરો"
+    "reportBug": "ખામીની જાણ કરો",
+    "studyLanguage": "AI કન્ટેન્ટ માટેની ભાષા",
+    "studyLanguageUpdated": "AI કન્ટેન્ટ ભાષા અપડેટ થઈ ગઈ છે",
+    "studyLanguageUpdateFailed": "AI કન્ટેન્ટ ભાષા અપડેટ કરવામાં નિષ્ફળ"
   },
   "auth": {
     "welcome": {
@@ -259,9 +262,7 @@
     },
     "languageSelect": {
       "title": "તમારી ભાષા પસંદ કરો",
-      "subtitle": "ઍપમાં તમે જે ભાષા વાપરવા માંગતા હો તે પસંદ કરો. તમે તેને પછીથી તમારી પ્રોફાઇલમાં બદલી શકો છો.",
-      "searchPlaceholder": "ભાષાઓ શોધો",
-      "noResults": "કોઈ ભાષા મળી નથી"
+      "subtitle": "આ અમને તમારા અનુભવને વધુ સારો બનાવવામાં મદદ કરે છે."
     },
     "intro": {
       "slide1": {
@@ -1322,7 +1323,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "હોમ",
+      "flashcards": "Flashcards",
+      "profile": "પ્રોફાઇલ"
     }
   },
   "main": {
@@ -1579,5 +1583,39 @@
     "noteidOrFileidIsRequired": "noteId અથવા fileId જરૂરી છે",
     "sourcetypeIsRequired": "sourceType જરૂરી છે",
     "youtubeurlIsRequired": "youtubeUrl જરૂરી છે"
+  },
+  "languageList": {
+    "searchPlaceholder": "ભાષા શોધો",
+    "noResults": "કોઈ ભાષા મળી નથી",
+    "defaultSameAsApp": "ડિફૉલ્ટ (ઍપ જેવી જ)"
+  },
+  "walkthrough": {
+    "skip": "છોડો",
+    "next": "આગળ",
+    "finish": "સમાપ્ત",
+    "medicalData": {
+      "title": "તબીબી માહિતી મેળવો",
+      "description": "કોઈપણ મેડિકલ પ્રશ્ન પૂછો અને વિશ્વસનીય મેડિકલ સ્ત્રોતોના સંદર્ભ સાથે જવાબો મેળવો"
+    },
+    "customizeChat": {
+      "title": "ચેટ કસ્ટમાઇઝ કરો",
+      "description": "ક્વિઝ અને flashcards બનાવો, અથવા તારીખ અને સ્ત્રોતના પ્રકાર અનુસાર પરિણામો ફિલ્ટર કરો."
+    },
+    "profile": {
+      "title": "તમારી પ્રોફાઇલ",
+      "description": "PRO માં અપગ્રેડ કરો અને તમારા એકાઉન્ટના સેટિંગ્સ અહીં મેનેજ કરો"
+    },
+    "home": {
+      "title": "હોમ",
+      "description": "તમારી તાજેતરની ચેટ્સ અહીં ઉપલબ્ધ છે, જેથી તમે જ્યાંથી બાકી રાખ્યું હતું ત્યાંથી આગળ વધી શકો."
+    },
+    "quiz": {
+      "title": "ક્વિઝ",
+      "description": "ચેટ, દસ્તાવેજ, ઇમેજ અથવા ઑડિયો ફાઇલમાંથી પ્રેક્ટિસ ક્વિઝ બનાવો."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "ચેટ, દસ્તાવેજ, ઇમેજ અથવા ઑડિયો ફાઇલમાંથી flashcards બનાવો."
+    }
   }
 }

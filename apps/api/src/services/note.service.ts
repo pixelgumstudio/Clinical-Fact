@@ -2,6 +2,7 @@ import Note, { INote } from '../models/Note';
 import Folder from '../models/Folder';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
+import { resolveNoteLanguageForUser } from './generationLanguage.service';
 
 // Define the shape of the data for creating a note
 export interface CreateNoteDTO {
@@ -230,7 +231,10 @@ export const enhanceNote = async (userId: string, noteId: string): Promise<INote
   const noteGenerationService = (await import('./noteGeneration.service')).default;
 
   // Enhance the note content
-  const enhancedContent = await noteGenerationService.enhanceNote(note.content);
+  const enhancedContent = await noteGenerationService.enhanceNote(
+    note.content,
+    await resolveNoteLanguageForUser(userId, note.studyLanguage)
+  );
 
   // Update note with enhanced content
   note.content = enhancedContent;

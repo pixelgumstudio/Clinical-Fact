@@ -16,7 +16,7 @@ import { RichText } from '../../components/RichText';
 import { MainStackParamList } from '../../navigation/MainStackNavigator';
 import api from '../../services/api';
 import { useInvalidateNotes } from '../../hooks/queries';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { formatDateShort } from '../../utils/formatDate';
 
 type SharedNoteRouteProp = RouteProp<MainStackParamList, 'SharedNote'>;

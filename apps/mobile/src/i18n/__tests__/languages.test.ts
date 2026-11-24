@@ -21,14 +21,23 @@ describe('APP_LANGUAGES', () => {
   });
 
   // The picked language is saved to the account; the API rejects any code outside its list.
-  test('every language is accepted by the API (User.preferredLanguage enum)', () => {
-    const source = fs.readFileSync(path.join(__dirname, '../../../../api/src/models/User.ts'), 'utf8');
-    const block = source.slice(source.indexOf('preferredLanguage: {'));
-    const enumLine = block.match(/enum:\s*\[([^\]]+)\]/);
-    expect(enumLine).toBeTruthy();
-    const accepted = new Set([...enumLine![1].matchAll(/'([^']+)'/g)].map((m) => m[1]));
+  test('every language is accepted by the API (SUPPORTED_LANGUAGE_CODES, used by the User and Note enums)', () => {
+    const source = fs.readFileSync(path.join(__dirname, '../../../../api/src/utils/language.ts'), 'utf8');
+    const block = source.slice(source.indexOf('SUPPORTED_LANGUAGE_CODES = ['));
+    const list = block.slice(0, block.indexOf('] as const'));
+    const accepted = new Set([...list.matchAll(/'([^']+)'/g)].map((m) => m[1]));
 
     expect(APP_LANGUAGES.filter((l) => !accepted.has(l.code)).map((l) => l.code)).toEqual([]);
+    // and the other way round: the API must not accept a language the app cannot show
+    const offered = new Set(APP_LANGUAGES.map((l) => l.code));
+    expect([...accepted].filter((c) => !offered.has(c))).toEqual([]);
+  });
+
+  test('the API models take their language enum from that one list', () => {
+    for (const file of ['User.ts', 'Note.ts']) {
+      const source = fs.readFileSync(path.join(__dirname, '../../../../api/src/models', file), 'utf8');
+      expect(source).toContain('...SUPPORTED_LANGUAGE_CODES');
+    }
   });
 
   test('every language has an English name, a native name and a two-letter flag country', () => {

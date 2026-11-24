@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   folderName: {
     flex: 1,
-    marginLeft: spacing[3],
+    marginStart: spacing[3],
     fontSize: typography.fontSize.base,
     color: colors.text.primary,
   },

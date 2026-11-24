@@ -1,5 +1,13 @@
 // api/src/services/noteGeneration.service.ts
 import aiService from './ai.service';
+import { languageInstruction } from '../utils/language';
+
+/** What a note-writing call may be told about the person it is for. */
+export interface NoteGenerationOptions {
+  goals?: string[];
+  /** Language to write the note in (see resolveNoteLanguage). Absent = keep the language of the source. */
+  language?: string;
+}
 
 class NoteGenerationService {
   /**
@@ -8,10 +16,10 @@ class NoteGenerationService {
   async generateNote(
     content: string,
     contentType: string,
-    _userPreferences?: any
+    options: NoteGenerationOptions = {}
   ): Promise<{ title: string; summary?: string; content: string }> {
     try {
-      const prompt = this.buildNotePrompt(content);
+      const prompt = this.buildNotePrompt(content, options.language);
 
       const parsed = await aiService.generateJSON(prompt);
 
@@ -46,7 +54,10 @@ class NoteGenerationService {
   /**
    * Build intelligent note generation prompt that adapts based on content type
    */
-  private buildNotePrompt(content: string): string {
+  private buildNotePrompt(content: string, language?: string): string {
+    const languageRule = language
+      ? languageInstruction(language, 'the title and the whole notes body (headings included)')
+      : 'Write the title and the whole notes body (section headings included) in the same language as the source material.';
     // Scale note length to content length
     const wordCount = content.trim().split(/\s+/).length;
     const lengthInstruction =
@@ -72,7 +83,8 @@ CRITICAL RULES:
 3. Do NOT expand on topics beyond what the source covers.
 4. ${lengthInstruction}
 5. Use simple HTML formatting for the content field — no markdown symbols (**, ##, --, etc).
-6. CRITICAL JSON RULES:
+6. ${languageRule}
+7. CRITICAL JSON RULES:
    - Output pure JSON only
    - All double quotes INSIDE string values (including inside HTML content) MUST be escaped as \"
    - All newlines INSIDE string values MUST be written as \\n (the literal two-character sequence)
@@ -115,10 +127,10 @@ Return ONLY the JSON object. No markdown code blocks, no surrounding text.`;
   async generateNoteFromYouTube(
     transcript: string,
     videoTitle: string,
-    userPreferences?: any
+    options: NoteGenerationOptions = {}
   ): Promise<{ title: string; summary?: string; content: string }> {
     try {
-      const result = await this.generateNote(transcript, 'YouTube video', userPreferences);
+      const result = await this.generateNote(transcript, 'YouTube video', options);
       result.title = videoTitle;
       return result;
     } catch (error: any) {
@@ -129,8 +141,11 @@ Return ONLY the JSON object. No markdown code blocks, no surrounding text.`;
   /**
    * Enhance existing note
    */
-  async enhanceNote(existingContent: string): Promise<string> {
+  async enhanceNote(existingContent: string, language?: string): Promise<string> {
     try {
+      const languageRule = language
+        ? languageInstruction(language, 'the enhanced notes')
+        : 'Keep the notes in the language they are already written in.';
       const prompt = `Enhance and improve these study notes. Make them clearer, better organized, and more comprehensive:
 
 ${existingContent}
@@ -140,6 +155,8 @@ Keep the same general structure but improve:
 - Organization and flow
 - Add missing explanations
 - Include helpful examples
+
+${languageRule}
 
 Return the enhanced notes in standard HTML format using <h3>, <p>, <ul>, <li>, and <b>. Do not use markdown. Do not wrap in JSON.`;
 
@@ -152,8 +169,11 @@ Return the enhanced notes in standard HTML format using <h3>, <p>, <ul>, <li>, a
   /**
    * Summarize note
    */
-  async summarizeNote(noteContent: string, maxLength: number = 500): Promise<string> {
+  async summarizeNote(noteContent: string, maxLength: number = 500, language?: string): Promise<string> {
     try {
+      const languageRule = language
+        ? languageInstruction(language, 'the summary')
+        : 'Write the summary in the language the notes are written in.';
       const prompt = `Create a clear, informative summary of these study notes in ${maxLength} characters or less.
 
 ${noteContent}
@@ -165,7 +185,9 @@ Your summary should:
 • Help students quickly understand what these notes cover
 • Be engaging and make them want to read the full notes
 
-Write in a friendly, conversational tone. Focus on what students NEED to know, not just listing topics.`;
+Write in a friendly, conversational tone. Focus on what students NEED to know, not just listing topics.
+
+${languageRule}`;
 
       return await aiService.generateText(prompt);
     } catch (error: any) {

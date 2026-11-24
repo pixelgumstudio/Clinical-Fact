@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: spacing[4],
     marginBottom: spacing[3],
-    borderLeftWidth: 4,
-    borderLeftColor: colors.vivid.success[500], // Green for flashcards
+    borderStartWidth: 4,
+    borderStartColor: colors.vivid.success[500], // Green for flashcards
   },
   flashcardContent: {
     flex: 1,
@@ -292,14 +292,14 @@ const styles = StyleSheet.create({
   },
   flashcardInfo: {
     flex: 1,
-    paddingRight: spacing[12],
+    paddingEnd: spacing[12],
   },
   flashcardTitle: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
     color: colors.text.primary,
     marginBottom: spacing[1],
-    paddingRight: spacing[4],
+    paddingEnd: spacing[4],
   },
   flashcardDate: {
     fontSize: typography.fontSize.xs,
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     position: 'absolute',
-    right: spacing[4],
+    end: spacing[4],
     top: spacing[4],
     padding: spacing[2],
     zIndex: 10,

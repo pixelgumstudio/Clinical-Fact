@@ -250,8 +250,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     backgroundColor: colors.background.primary,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopStartRadius: 24,
+    borderTopEndRadius: 24,
     paddingBottom: spacing[8],
     maxHeight: '80%',
   },
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: spacing[3],
+    marginEnd: spacing[3],
   },
   folderContent: {
     flex: 1,
@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     top: spacing[12],
-    left: spacing[5],
+    start: spacing[5],
     zIndex: 10,
     width: 40,
     height: 40,

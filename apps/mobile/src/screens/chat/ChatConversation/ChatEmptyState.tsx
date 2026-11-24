@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     maxWidth: 280,
   },
   attachedDocumentIcon: {
-    marginRight: spacing[2],
+    marginEnd: spacing[2],
   },
   attachedDocumentInfo: {
     flex: 1,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.neutral[200],
     borderRadius: 3,
     overflow: 'hidden',
-    marginRight: spacing[2],
+    marginEnd: spacing[2],
   },
   progressFill: {
     height: '100%',

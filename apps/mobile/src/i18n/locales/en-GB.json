@@ -73,7 +73,10 @@
     "everyWeek": "Every week",
     "everyMonth": "Every month",
     "everyYear": "Every year",
-    "reportBug": "Report a bug"
+    "reportBug": "Report a bug",
+    "studyLanguage": "Language for AI content",
+    "studyLanguageUpdated": "AI content language updated",
+    "studyLanguageUpdateFailed": "Failed to update the AI content language"
   },
   "auth": {
     "welcome": {
@@ -95,10 +98,8 @@
     "resendIn": "Resend in",
     "enterVerificationCode": "Please enter the complete verification code",
     "languageSelect": {
-      "title": "Choose your language",
-      "subtitle": "Pick the language you'd like to use in the app. You can change it later in your profile.",
-      "searchPlaceholder": "Search languages",
-      "noResults": "No languages found"
+      "title": "Select your language",
+      "subtitle": "This helps us personalize your experience for you."
     },
     "buttons": {
       "continue": "Continue",
@@ -1308,7 +1309,10 @@
   },
   "navigation": {
     "mainTabNavigator": {
-      "quiz": "Quiz"
+      "quiz": "Quiz",
+      "home": "Home",
+      "flashcards": "Flashcards",
+      "profile": "Profile"
     }
   },
   "main": {
@@ -1565,5 +1569,39 @@
     "noteidOrFileidIsRequired": "noteId or fileId is required",
     "sourcetypeIsRequired": "sourceType is required",
     "youtubeurlIsRequired": "youtubeUrl is required"
+  },
+  "languageList": {
+    "searchPlaceholder": "Search for a language",
+    "noResults": "No languages found",
+    "defaultSameAsApp": "Default (same as app)"
+  },
+  "walkthrough": {
+    "skip": "Skip",
+    "next": "Next",
+    "finish": "Finish",
+    "medicalData": {
+      "title": "Get Medical data",
+      "description": "Ask anything medical and get answers backed by citations from trusted medical sources"
+    },
+    "customizeChat": {
+      "title": "Customize chat",
+      "description": "Generate quizzes and flashcards, or filter results by date and source type."
+    },
+    "profile": {
+      "title": "Your profile",
+      "description": "Upgrade to Pro and manage your account settings here"
+    },
+    "home": {
+      "title": "Home",
+      "description": "Your recent chats live here, so you can pick up where you left off."
+    },
+    "quiz": {
+      "title": "Quiz",
+      "description": "Create a practice quiz from a chat, document, image, or audio file."
+    },
+    "flashcards": {
+      "title": "Flashcards",
+      "description": "Create flashcards from a chat, document, image, or audio file."
+    }
   }
 }

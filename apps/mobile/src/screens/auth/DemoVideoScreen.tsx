@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   fullscreenButton: {
     position: 'absolute',
     bottom: 12,
-    right: 12,
+    end: 12,
     width: 36,
     height: 36,
     borderRadius: 8,

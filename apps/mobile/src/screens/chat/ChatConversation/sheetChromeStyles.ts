@@ -12,8 +12,8 @@ export const sheetChromeStyles = StyleSheet.create({
   },
   sheet: {
     backgroundColor: theme.colors.white,
-    borderTopLeftRadius: theme.borderRadius['3xl'], // 32
-    borderTopRightRadius: theme.borderRadius['3xl'],
+    borderTopStartRadius: theme.borderRadius['3xl'], // 32
+    borderTopEndRadius: theme.borderRadius['3xl'],
     paddingTop: theme.spacing[6], // 24
     paddingHorizontal: spacing[5],
     shadowColor: '#000',

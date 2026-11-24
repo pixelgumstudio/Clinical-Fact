@@ -50,7 +50,7 @@ import { Toast } from '../../components/Toast';
 import { MedicalFilterModal } from '../../components/MedicalFilterModal';
 import { CreateQuizModal } from '../../components/CreateQuizModal';
 import { CreateFlashcardsModal } from '../../components/CreateFlashcardsModal';
-import { LanguageSupportModal } from '../../components/LanguageSupportModal';
+import { LanguageSupportModal } from '../../components/language/LanguageSupportModal';
 import { useSubscriptionStore } from '../../store/subscriptionStore';
 import { useAuthStore } from '../../store/authStore';
 import { useMedicalSearchStore } from '../../store/medicalSearchStore';

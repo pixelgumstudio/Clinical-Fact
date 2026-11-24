@@ -494,8 +494,8 @@ const styles = StyleSheet.create({
   },
   scrim: {
     position: 'absolute',
-    left: 0,
-    right: 0,
+    start: 0,
+    end: 0,
     bottom: 0,
     height: '65%',
   },
@@ -515,8 +515,8 @@ const styles = StyleSheet.create({
   cardKeyboardOpen: {
     marginHorizontal: 0,
     marginBottom: 0,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    borderBottomStartRadius: 0,
+    borderBottomEndRadius: 0,
   },
   grabber: {
     alignSelf: 'center',
